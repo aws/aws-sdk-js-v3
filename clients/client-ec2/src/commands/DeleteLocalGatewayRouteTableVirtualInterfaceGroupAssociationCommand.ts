@@ -19,8 +19,8 @@ import {
   DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
-  serializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
+  de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
+  se_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -138,7 +138,7 @@ export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
     input: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(input, context);
+    return se_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> {
-    return deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(output, context);
+    return de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

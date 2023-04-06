@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { StopStreamEncryptionInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopStreamEncryptionCommand,
-  serializeAws_json1_1StopStreamEncryptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopStreamEncryptionCommand, se_StopStreamEncryptionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class StopStreamEncryptionCommand extends $Command<
    * @internal
    */
   private serialize(input: StopStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopStreamEncryptionCommand(input, context);
+    return se_StopStreamEncryptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamEncryptionCommandOutput> {
-    return deserializeAws_json1_1StopStreamEncryptionCommand(output, context);
+    return de_StopStreamEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

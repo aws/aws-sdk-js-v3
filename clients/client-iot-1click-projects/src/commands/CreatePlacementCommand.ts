@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
 import { CreatePlacementRequest, CreatePlacementResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePlacementCommand,
-  serializeAws_restJson1CreatePlacementCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePlacementCommand, se_CreatePlacementCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class CreatePlacementCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePlacementCommand(input, context);
+    return se_CreatePlacementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePlacementCommandOutput> {
-    return deserializeAws_restJson1CreatePlacementCommand(output, context);
+    return de_CreatePlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

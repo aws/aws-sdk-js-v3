@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
 import { ListTargetsRequest, ListTargetsResult, ListTargetsResultFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTargetsCommand,
-  serializeAws_restJson1ListTargetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTargetsCommand, se_ListTargetsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListTargetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTargetsCommand(input, context);
+    return se_ListTargetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsCommandOutput> {
-    return deserializeAws_restJson1ListTargetsCommand(output, context);
+    return de_ListTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

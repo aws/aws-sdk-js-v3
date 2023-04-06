@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { UpdateOriginAccessControlRequest, UpdateOriginAccessControlResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateOriginAccessControlCommand,
-  serializeAws_restXmlUpdateOriginAccessControlCommand,
-} from "../protocols/Aws_restXml";
+import { de_UpdateOriginAccessControlCommand, se_UpdateOriginAccessControlCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -150,7 +147,7 @@ export class UpdateOriginAccessControlCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateOriginAccessControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateOriginAccessControlCommand(input, context);
+    return se_UpdateOriginAccessControlCommand(input, context);
   }
 
   /**
@@ -160,7 +157,7 @@ export class UpdateOriginAccessControlCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOriginAccessControlCommandOutput> {
-    return deserializeAws_restXmlUpdateOriginAccessControlCommand(output, context);
+    return de_UpdateOriginAccessControlCommand(output, context);
   }
 
   // Start section: command_body_extra

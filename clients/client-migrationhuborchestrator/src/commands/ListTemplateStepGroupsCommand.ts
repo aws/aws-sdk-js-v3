@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import { ListTemplateStepGroupsRequest, ListTemplateStepGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTemplateStepGroupsCommand,
-  serializeAws_restJson1ListTemplateStepGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTemplateStepGroupsCommand, se_ListTemplateStepGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListTemplateStepGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTemplateStepGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTemplateStepGroupsCommand(input, context);
+    return se_ListTemplateStepGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplateStepGroupsCommandOutput> {
-    return deserializeAws_restJson1ListTemplateStepGroupsCommand(output, context);
+    return de_ListTemplateStepGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetCellRequest, GetCellResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCellCommand,
-  serializeAws_restJson1GetCellCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCellCommand, se_GetCellCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -137,14 +134,14 @@ export class GetCellCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCellCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCellCommand(input, context);
+    return se_GetCellCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCellCommandOutput> {
-    return deserializeAws_restJson1GetCellCommand(output, context);
+    return de_GetCellCommand(output, context);
   }
 
   // Start section: command_body_extra

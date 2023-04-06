@@ -15,10 +15,7 @@ import {
 
 import { UpdateApnsChannelRequest, UpdateApnsChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateApnsChannelCommand,
-  serializeAws_restJson1UpdateApnsChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateApnsChannelCommand, se_UpdateApnsChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class UpdateApnsChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateApnsChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApnsChannelCommand(input, context);
+    return se_UpdateApnsChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApnsChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateApnsChannelCommand(output, context);
+    return de_UpdateApnsChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AddRoleToDBInstanceMessage } from "../models/models_0";
-import {
-  deserializeAws_queryAddRoleToDBInstanceCommand,
-  serializeAws_queryAddRoleToDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_AddRoleToDBInstanceCommand, se_AddRoleToDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -74,6 +71,19 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ *
+ * @example To associate an AWS Identity and Access Management (IAM) role with a DB instance
+ * ```javascript
+ * // The following example adds the role to a DB instance named test-instance.
+ * const input = {
+ *   "DBInstanceIdentifier": "test-instance",
+ *   "FeatureName": "S3_INTEGRATION",
+ *   "RoleArn": "arn:aws:iam::111122223333:role/rds-s3-integration-role"
+ * };
+ * const command = new AddRoleToDBInstanceCommand(input);
+ * await client.send(command);
+ * // example id: to-associate-an-aws-identity-and-access-management-iam-role-with-a-db-instance-1679691512295
+ * ```
  *
  */
 export class AddRoleToDBInstanceCommand extends $Command<
@@ -139,14 +149,14 @@ export class AddRoleToDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: AddRoleToDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddRoleToDBInstanceCommand(input, context);
+    return se_AddRoleToDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRoleToDBInstanceCommandOutput> {
-    return deserializeAws_queryAddRoleToDBInstanceCommand(output, context);
+    return de_AddRoleToDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

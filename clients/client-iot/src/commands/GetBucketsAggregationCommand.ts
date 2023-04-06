@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetBucketsAggregationRequest, GetBucketsAggregationResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetBucketsAggregationCommand,
-  serializeAws_restJson1GetBucketsAggregationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBucketsAggregationCommand, se_GetBucketsAggregationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class GetBucketsAggregationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketsAggregationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBucketsAggregationCommand(input, context);
+    return se_GetBucketsAggregationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketsAggregationCommandOutput> {
-    return deserializeAws_restJson1GetBucketsAggregationCommand(output, context);
+    return de_GetBucketsAggregationCommand(output, context);
   }
 
   // Start section: command_body_extra

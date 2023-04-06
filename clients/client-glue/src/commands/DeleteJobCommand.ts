@@ -15,7 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteJobRequest, DeleteJobResponse } from "../models/models_1";
-import { deserializeAws_json1_1DeleteJobCommand, serializeAws_json1_1DeleteJobCommand } from "../protocols/Aws_json1_1";
+import { de_DeleteJobCommand, se_DeleteJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -125,14 +125,14 @@ export class DeleteJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteJobCommand(input, context);
+    return se_DeleteJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobCommandOutput> {
-    return deserializeAws_json1_1DeleteJobCommand(output, context);
+    return de_DeleteJobCommand(output, context);
   }
 
   // Start section: command_body_extra

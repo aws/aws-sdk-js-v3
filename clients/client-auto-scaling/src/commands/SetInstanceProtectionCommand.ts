@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { SetInstanceProtectionAnswer, SetInstanceProtectionQuery } from "../models/models_0";
-import {
-  deserializeAws_querySetInstanceProtectionCommand,
-  serializeAws_querySetInstanceProtectionCommand,
-} from "../protocols/Aws_query";
+import { de_SetInstanceProtectionCommand, se_SetInstanceProtectionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class SetInstanceProtectionCommand extends $Command<
    * @internal
    */
   private serialize(input: SetInstanceProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetInstanceProtectionCommand(input, context);
+    return se_SetInstanceProtectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetInstanceProtectionCommandOutput> {
-    return deserializeAws_querySetInstanceProtectionCommand(output, context);
+    return de_SetInstanceProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

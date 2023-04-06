@@ -18,8 +18,8 @@ import {
   AssociateWebsiteAuthorizationProviderResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand,
-  serializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand,
+  de_AssociateWebsiteAuthorizationProviderCommand,
+  se_AssociateWebsiteAuthorizationProviderCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
@@ -151,7 +151,7 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
     input: AssociateWebsiteAuthorizationProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand(input, context);
+    return se_AssociateWebsiteAuthorizationProviderCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateWebsiteAuthorizationProviderCommandOutput> {
-    return deserializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand(output, context);
+    return de_AssociateWebsiteAuthorizationProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

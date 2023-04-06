@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1GetInvitationsCountCommand,
-  serializeAws_restJson1GetInvitationsCountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetInvitationsCountCommand, se_GetInvitationsCountCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -133,14 +130,14 @@ export class GetInvitationsCountCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInvitationsCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInvitationsCountCommand(input, context);
+    return se_GetInvitationsCountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInvitationsCountCommandOutput> {
-    return deserializeAws_restJson1GetInvitationsCountCommand(output, context);
+    return de_GetInvitationsCountCommand(output, context);
   }
 
   // Start section: command_body_extra

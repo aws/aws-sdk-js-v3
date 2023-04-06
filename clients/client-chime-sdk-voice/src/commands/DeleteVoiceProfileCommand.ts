@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { DeleteVoiceProfileRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVoiceProfileCommand,
-  serializeAws_restJson1DeleteVoiceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVoiceProfileCommand, se_DeleteVoiceProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeleteVoiceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVoiceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVoiceProfileCommand(input, context);
+    return se_DeleteVoiceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVoiceProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteVoiceProfileCommand(output, context);
+    return de_DeleteVoiceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

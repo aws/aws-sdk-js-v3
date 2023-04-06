@@ -15,10 +15,7 @@ import {
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { ResendValidationEmailRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1ResendValidationEmailCommand,
-  serializeAws_json1_1ResendValidationEmailCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResendValidationEmailCommand, se_ResendValidationEmailCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ResendValidationEmailCommand extends $Command<
    * @internal
    */
   private serialize(input: ResendValidationEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResendValidationEmailCommand(input, context);
+    return se_ResendValidationEmailCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResendValidationEmailCommandOutput> {
-    return deserializeAws_json1_1ResendValidationEmailCommand(output, context);
+    return de_ResendValidationEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

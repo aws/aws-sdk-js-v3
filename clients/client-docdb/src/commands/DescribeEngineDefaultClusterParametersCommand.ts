@@ -19,8 +19,8 @@ import {
   DescribeEngineDefaultClusterParametersResult,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeEngineDefaultClusterParametersCommand,
-  serializeAws_queryDescribeEngineDefaultClusterParametersCommand,
+  de_DescribeEngineDefaultClusterParametersCommand,
+  se_DescribeEngineDefaultClusterParametersCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -140,7 +140,7 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     input: DescribeEngineDefaultClusterParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEngineDefaultClusterParametersCommand(input, context);
+    return se_DescribeEngineDefaultClusterParametersCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeEngineDefaultClusterParametersCommand(output, context);
+    return de_DescribeEngineDefaultClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

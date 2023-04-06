@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetFindingsRequest, GetFindingsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1GetFindingsCommand,
-  serializeAws_restJson1GetFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetFindingsCommand, se_GetFindingsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -391,14 +388,14 @@ export class GetFindingsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingsCommand(input, context);
+    return se_GetFindingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingsCommandOutput> {
-    return deserializeAws_restJson1GetFindingsCommand(output, context);
+    return de_GetFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

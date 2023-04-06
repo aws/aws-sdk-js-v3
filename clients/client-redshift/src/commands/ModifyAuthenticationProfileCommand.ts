@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyAuthenticationProfileMessage, ModifyAuthenticationProfileResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyAuthenticationProfileCommand,
-  serializeAws_queryModifyAuthenticationProfileCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyAuthenticationProfileCommand, se_ModifyAuthenticationProfileCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -132,7 +129,7 @@ export class ModifyAuthenticationProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyAuthenticationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyAuthenticationProfileCommand(input, context);
+    return se_ModifyAuthenticationProfileCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class ModifyAuthenticationProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyAuthenticationProfileCommandOutput> {
-    return deserializeAws_queryModifyAuthenticationProfileCommand(output, context);
+    return de_ModifyAuthenticationProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

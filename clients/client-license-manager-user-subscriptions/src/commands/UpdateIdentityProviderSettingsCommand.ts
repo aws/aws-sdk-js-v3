@@ -20,8 +20,8 @@ import {
 } from "../LicenseManagerUserSubscriptionsClient";
 import { UpdateIdentityProviderSettingsRequest, UpdateIdentityProviderSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateIdentityProviderSettingsCommand,
-  serializeAws_restJson1UpdateIdentityProviderSettingsCommand,
+  de_UpdateIdentityProviderSettingsCommand,
+  se_UpdateIdentityProviderSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -156,7 +156,7 @@ export class UpdateIdentityProviderSettingsCommand extends $Command<
     input: UpdateIdentityProviderSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIdentityProviderSettingsCommand(input, context);
+    return se_UpdateIdentityProviderSettingsCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class UpdateIdentityProviderSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIdentityProviderSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateIdentityProviderSettingsCommand(output, context);
+    return de_UpdateIdentityProviderSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { DBClusterCapacityInfo, ModifyCurrentDBClusterCapacityMessage } from "../models/models_1";
 import {
-  deserializeAws_queryModifyCurrentDBClusterCapacityCommand,
-  serializeAws_queryModifyCurrentDBClusterCapacityCommand,
+  de_ModifyCurrentDBClusterCapacityCommand,
+  se_ModifyCurrentDBClusterCapacityCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -89,6 +89,27 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
  *
+ * @example To scale the capacity of an Aurora Serverless DB cluster
+ * ```javascript
+ * // The following example scales the capacity of an Aurora Serverless DB cluster to 8.
+ * const input = {
+ *   "Capacity": 8,
+ *   "DBClusterIdentifier": "mydbcluster"
+ * };
+ * const command = new ModifyCurrentDBClusterCapacityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CurrentCapacity": 1,
+ *   "DBClusterIdentifier": "mydbcluster",
+ *   "PendingCapacity": 8,
+ *   "SecondsBeforeTimeout": 300,
+ *   "TimeoutAction": "ForceApplyCapacityChange"
+ * }
+ * *\/
+ * // example id: to-scale-the-capacity-of-an-aurora-serverless-db-cluster-1680307179599
+ * ```
+ *
  */
 export class ModifyCurrentDBClusterCapacityCommand extends $Command<
   ModifyCurrentDBClusterCapacityCommandInput,
@@ -156,7 +177,7 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
     input: ModifyCurrentDBClusterCapacityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyCurrentDBClusterCapacityCommand(input, context);
+    return se_ModifyCurrentDBClusterCapacityCommand(input, context);
   }
 
   /**
@@ -166,7 +187,7 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCurrentDBClusterCapacityCommandOutput> {
-    return deserializeAws_queryModifyCurrentDBClusterCapacityCommand(output, context);
+    return de_ModifyCurrentDBClusterCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

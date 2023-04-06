@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteTableVersionRequest, DeleteTableVersionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteTableVersionCommand,
-  serializeAws_json1_1DeleteTableVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTableVersionCommand, se_DeleteTableVersionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteTableVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTableVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTableVersionCommand(input, context);
+    return se_DeleteTableVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTableVersionCommandOutput> {
-    return deserializeAws_json1_1DeleteTableVersionCommand(output, context);
+    return de_DeleteTableVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

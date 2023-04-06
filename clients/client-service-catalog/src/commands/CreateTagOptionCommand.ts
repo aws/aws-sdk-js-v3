@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateTagOptionInput, CreateTagOptionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTagOptionCommand,
-  serializeAws_json1_1CreateTagOptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateTagOptionCommand, se_CreateTagOptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -133,14 +130,14 @@ export class CreateTagOptionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTagOptionCommand(input, context);
+    return se_CreateTagOptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTagOptionCommandOutput> {
-    return deserializeAws_json1_1CreateTagOptionCommand(output, context);
+    return de_CreateTagOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

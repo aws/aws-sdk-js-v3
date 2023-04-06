@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateProvisioningArtifactInput, UpdateProvisioningArtifactOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProvisioningArtifactCommand,
-  serializeAws_json1_1UpdateProvisioningArtifactCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateProvisioningArtifactCommand, se_UpdateProvisioningArtifactCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -133,7 +130,7 @@ export class UpdateProvisioningArtifactCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateProvisioningArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProvisioningArtifactCommand(input, context);
+    return se_UpdateProvisioningArtifactCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class UpdateProvisioningArtifactCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1UpdateProvisioningArtifactCommand(output, context);
+    return de_UpdateProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

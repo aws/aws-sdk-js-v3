@@ -16,8 +16,8 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { CancelMulticastGroupSessionRequest, CancelMulticastGroupSessionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CancelMulticastGroupSessionCommand,
-  serializeAws_restJson1CancelMulticastGroupSessionCommand,
+  de_CancelMulticastGroupSessionCommand,
+  se_CancelMulticastGroupSessionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class CancelMulticastGroupSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelMulticastGroupSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelMulticastGroupSessionCommand(input, context);
+    return se_CancelMulticastGroupSessionCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class CancelMulticastGroupSessionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelMulticastGroupSessionCommandOutput> {
-    return deserializeAws_restJson1CancelMulticastGroupSessionCommand(output, context);
+    return de_CancelMulticastGroupSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

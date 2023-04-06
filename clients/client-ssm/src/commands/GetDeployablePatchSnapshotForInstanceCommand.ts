@@ -19,8 +19,8 @@ import {
   GetDeployablePatchSnapshotForInstanceResult,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand,
-  serializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand,
+  de_GetDeployablePatchSnapshotForInstanceCommand,
+  se_GetDeployablePatchSnapshotForInstanceCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -203,7 +203,7 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
     input: GetDeployablePatchSnapshotForInstanceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand(input, context);
+    return se_GetDeployablePatchSnapshotForInstanceCommand(input, context);
   }
 
   /**
@@ -213,7 +213,7 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput> {
-    return deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand(output, context);
+    return de_GetDeployablePatchSnapshotForInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

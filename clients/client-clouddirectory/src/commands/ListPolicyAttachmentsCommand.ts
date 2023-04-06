@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { ListPolicyAttachmentsRequest, ListPolicyAttachmentsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPolicyAttachmentsCommand,
-  serializeAws_restJson1ListPolicyAttachmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPolicyAttachmentsCommand, se_ListPolicyAttachmentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class ListPolicyAttachmentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPolicyAttachmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPolicyAttachmentsCommand(input, context);
+    return se_ListPolicyAttachmentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyAttachmentsCommandOutput> {
-    return deserializeAws_restJson1ListPolicyAttachmentsCommand(output, context);
+    return de_ListPolicyAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

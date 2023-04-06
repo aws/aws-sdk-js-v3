@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DBInstanceMessage, DescribeDBInstancesMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBInstancesCommand,
-  serializeAws_queryDescribeDBInstancesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBInstancesCommand, se_DescribeDBInstancesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeDBInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBInstancesCommand(input, context);
+    return se_DescribeDBInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBInstancesCommandOutput> {
-    return deserializeAws_queryDescribeDBInstancesCommand(output, context);
+    return de_DescribeDBInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { UpdateVirtualRouterInput, UpdateVirtualRouterOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateVirtualRouterCommand,
-  serializeAws_restJson1UpdateVirtualRouterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateVirtualRouterCommand, se_UpdateVirtualRouterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class UpdateVirtualRouterCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVirtualRouterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVirtualRouterCommand(input, context);
+    return se_UpdateVirtualRouterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1UpdateVirtualRouterCommand(output, context);
+    return de_UpdateVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

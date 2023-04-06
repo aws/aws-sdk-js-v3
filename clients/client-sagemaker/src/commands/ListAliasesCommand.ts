@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAliasesRequest, ListAliasesResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListAliasesCommand,
-  serializeAws_json1_1ListAliasesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAliasesCommand, se_ListAliasesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -125,14 +122,14 @@ export class ListAliasesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAliasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAliasesCommand(input, context);
+    return se_ListAliasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAliasesCommandOutput> {
-    return deserializeAws_json1_1ListAliasesCommand(output, context);
+    return de_ListAliasesCommand(output, context);
   }
 
   // Start section: command_body_extra

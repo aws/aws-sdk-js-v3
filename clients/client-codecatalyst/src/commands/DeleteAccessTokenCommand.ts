@@ -15,10 +15,7 @@ import {
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { DeleteAccessTokenRequest, DeleteAccessTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccessTokenCommand,
-  serializeAws_restJson1DeleteAccessTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAccessTokenCommand, se_DeleteAccessTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteAccessTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccessTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccessTokenCommand(input, context);
+    return se_DeleteAccessTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessTokenCommandOutput> {
-    return deserializeAws_restJson1DeleteAccessTokenCommand(output, context);
+    return de_DeleteAccessTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

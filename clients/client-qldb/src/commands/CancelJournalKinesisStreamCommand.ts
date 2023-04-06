@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelJournalKinesisStreamRequest, CancelJournalKinesisStreamResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelJournalKinesisStreamCommand,
-  serializeAws_restJson1CancelJournalKinesisStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelJournalKinesisStreamCommand, se_CancelJournalKinesisStreamCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
@@ -134,7 +131,7 @@ export class CancelJournalKinesisStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelJournalKinesisStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelJournalKinesisStreamCommand(input, context);
+    return se_CancelJournalKinesisStreamCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class CancelJournalKinesisStreamCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelJournalKinesisStreamCommandOutput> {
-    return deserializeAws_restJson1CancelJournalKinesisStreamCommand(output, context);
+    return de_CancelJournalKinesisStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

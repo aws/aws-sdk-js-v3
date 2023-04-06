@@ -15,10 +15,7 @@ import {
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import { CreateTableRequest, CreateTableResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateTableCommand,
-  serializeAws_json1_0CreateTableCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateTableCommand, se_CreateTableCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -199,14 +196,14 @@ export class CreateTableCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateTableCommand(input, context);
+    return se_CreateTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTableCommandOutput> {
-    return deserializeAws_json1_0CreateTableCommand(output, context);
+    return de_CreateTableCommand(output, context);
   }
 
   // Start section: command_body_extra

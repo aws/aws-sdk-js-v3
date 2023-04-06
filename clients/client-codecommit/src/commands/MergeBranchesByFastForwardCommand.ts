@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { MergeBranchesByFastForwardInput, MergeBranchesByFastForwardOutput } from "../models/models_1";
-import {
-  deserializeAws_json1_1MergeBranchesByFastForwardCommand,
-  serializeAws_json1_1MergeBranchesByFastForwardCommand,
-} from "../protocols/Aws_json1_1";
+import { de_MergeBranchesByFastForwardCommand, se_MergeBranchesByFastForwardCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -188,7 +185,7 @@ export class MergeBranchesByFastForwardCommand extends $Command<
    * @internal
    */
   private serialize(input: MergeBranchesByFastForwardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergeBranchesByFastForwardCommand(input, context);
+    return se_MergeBranchesByFastForwardCommand(input, context);
   }
 
   /**
@@ -198,7 +195,7 @@ export class MergeBranchesByFastForwardCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MergeBranchesByFastForwardCommandOutput> {
-    return deserializeAws_json1_1MergeBranchesByFastForwardCommand(output, context);
+    return de_MergeBranchesByFastForwardCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,8 +18,8 @@ import {
   GetCustomVerificationEmailTemplateResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGetCustomVerificationEmailTemplateCommand,
-  serializeAws_queryGetCustomVerificationEmailTemplateCommand,
+  de_GetCustomVerificationEmailTemplateCommand,
+  se_GetCustomVerificationEmailTemplateCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -136,7 +136,7 @@ export class GetCustomVerificationEmailTemplateCommand extends $Command<
     input: GetCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetCustomVerificationEmailTemplateCommand(input, context);
+    return se_GetCustomVerificationEmailTemplateCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class GetCustomVerificationEmailTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCustomVerificationEmailTemplateCommandOutput> {
-    return deserializeAws_queryGetCustomVerificationEmailTemplateCommand(output, context);
+    return de_GetCustomVerificationEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

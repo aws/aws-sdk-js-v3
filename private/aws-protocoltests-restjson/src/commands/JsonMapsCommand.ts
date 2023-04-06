@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonMapsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1JsonMapsCommand,
-  serializeAws_restJson1JsonMapsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_JsonMapsCommand, se_JsonMapsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -144,14 +141,14 @@ export class JsonMapsCommand extends $Command<
    * @internal
    */
   private serialize(input: JsonMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1JsonMapsCommand(input, context);
+    return se_JsonMapsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonMapsCommandOutput> {
-    return deserializeAws_restJson1JsonMapsCommand(output, context);
+    return de_JsonMapsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ModifyGlobalClusterMessage, ModifyGlobalClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryModifyGlobalClusterCommand,
-  serializeAws_queryModifyGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyGlobalClusterCommand, se_ModifyGlobalClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ModifyGlobalClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyGlobalClusterCommand(input, context);
+    return se_ModifyGlobalClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyGlobalClusterCommandOutput> {
-    return deserializeAws_queryModifyGlobalClusterCommand(output, context);
+    return de_ModifyGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

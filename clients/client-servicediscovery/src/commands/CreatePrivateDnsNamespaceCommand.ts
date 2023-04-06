@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreatePrivateDnsNamespaceRequest, CreatePrivateDnsNamespaceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePrivateDnsNamespaceCommand,
-  serializeAws_json1_1CreatePrivateDnsNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePrivateDnsNamespaceCommand, se_CreatePrivateDnsNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -180,7 +177,7 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePrivateDnsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePrivateDnsNamespaceCommand(input, context);
+    return se_CreatePrivateDnsNamespaceCommand(input, context);
   }
 
   /**
@@ -190,7 +187,7 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePrivateDnsNamespaceCommandOutput> {
-    return deserializeAws_json1_1CreatePrivateDnsNamespaceCommand(output, context);
+    return de_CreatePrivateDnsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

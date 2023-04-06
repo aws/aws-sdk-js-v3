@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteQueueRequest } from "../models/models_0";
-import { deserializeAws_queryDeleteQueueCommand, serializeAws_queryDeleteQueueCommand } from "../protocols/Aws_query";
+import { de_DeleteQueueCommand, se_DeleteQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -129,14 +129,14 @@ export class DeleteQueueCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteQueueCommand(input, context);
+    return se_DeleteQueueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueueCommandOutput> {
-    return deserializeAws_queryDeleteQueueCommand(output, context);
+    return de_DeleteQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

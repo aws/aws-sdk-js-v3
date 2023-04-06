@@ -15,10 +15,7 @@ import {
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { CancelQuantumTaskRequest, CancelQuantumTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelQuantumTaskCommand,
-  serializeAws_restJson1CancelQuantumTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelQuantumTaskCommand, se_CancelQuantumTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class CancelQuantumTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelQuantumTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelQuantumTaskCommand(input, context);
+    return se_CancelQuantumTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelQuantumTaskCommandOutput> {
-    return deserializeAws_restJson1CancelQuantumTaskCommand(output, context);
+    return de_CancelQuantumTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

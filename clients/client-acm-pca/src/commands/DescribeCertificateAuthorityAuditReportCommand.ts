@@ -19,8 +19,8 @@ import {
   DescribeCertificateAuthorityAuditReportResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand,
-  serializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand,
+  de_DescribeCertificateAuthorityAuditReportCommand,
+  se_DescribeCertificateAuthorityAuditReportCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -150,7 +150,7 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
     input: DescribeCertificateAuthorityAuditReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand(input, context);
+    return se_DescribeCertificateAuthorityAuditReportCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCertificateAuthorityAuditReportCommandOutput> {
-    return deserializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand(output, context);
+    return de_DescribeCertificateAuthorityAuditReportCommand(output, context);
   }
 
   // Start section: command_body_extra

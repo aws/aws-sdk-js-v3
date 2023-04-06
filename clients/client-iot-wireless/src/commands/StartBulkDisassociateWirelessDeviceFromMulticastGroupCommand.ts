@@ -19,8 +19,8 @@ import {
   StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
-  serializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
+  de_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
+  se_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -157,7 +157,7 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
     input: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(input, context);
+    return se_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput> {
-    return deserializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(output, context);
+    return de_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

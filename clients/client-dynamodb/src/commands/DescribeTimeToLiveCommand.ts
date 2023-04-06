@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { DescribeTimeToLiveInput, DescribeTimeToLiveOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeTimeToLiveCommand,
-  serializeAws_json1_0DescribeTimeToLiveCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeTimeToLiveCommand, se_DescribeTimeToLiveCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DescribeTimeToLiveCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTimeToLiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeTimeToLiveCommand(input, context);
+    return se_DescribeTimeToLiveCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTimeToLiveCommandOutput> {
-    return deserializeAws_json1_0DescribeTimeToLiveCommand(output, context);
+    return de_DescribeTimeToLiveCommand(output, context);
   }
 
   // Start section: command_body_extra

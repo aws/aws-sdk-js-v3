@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { DescribeLabelGroupRequest, DescribeLabelGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeLabelGroupCommand,
-  serializeAws_json1_0DescribeLabelGroupCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeLabelGroupCommand, se_DescribeLabelGroupCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DescribeLabelGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLabelGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeLabelGroupCommand(input, context);
+    return se_DescribeLabelGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLabelGroupCommandOutput> {
-    return deserializeAws_json1_0DescribeLabelGroupCommand(output, context);
+    return de_DescribeLabelGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

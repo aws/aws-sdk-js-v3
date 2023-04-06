@@ -15,10 +15,7 @@ import {
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
 import { DeleteLoggingConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLoggingConfigurationCommand,
-  serializeAws_restJson1DeleteLoggingConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLoggingConfigurationCommand, se_DeleteLoggingConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class DeleteLoggingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLoggingConfigurationCommand(input, context);
+    return se_DeleteLoggingConfigurationCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DeleteLoggingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteLoggingConfigurationCommand(output, context);
+    return de_DeleteLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

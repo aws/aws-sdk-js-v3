@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { DeleteRouteCalculatorRequest, DeleteRouteCalculatorResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRouteCalculatorCommand,
-  serializeAws_restJson1DeleteRouteCalculatorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRouteCalculatorCommand, se_DeleteRouteCalculatorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteRouteCalculatorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRouteCalculatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRouteCalculatorCommand(input, context);
+    return se_DeleteRouteCalculatorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteCalculatorCommandOutput> {
-    return deserializeAws_restJson1DeleteRouteCalculatorCommand(output, context);
+    return de_DeleteRouteCalculatorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { GetAppliedSchemaVersionRequest, GetAppliedSchemaVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAppliedSchemaVersionCommand,
-  serializeAws_restJson1GetAppliedSchemaVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAppliedSchemaVersionCommand, se_GetAppliedSchemaVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetAppliedSchemaVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAppliedSchemaVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAppliedSchemaVersionCommand(input, context);
+    return se_GetAppliedSchemaVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppliedSchemaVersionCommandOutput> {
-    return deserializeAws_restJson1GetAppliedSchemaVersionCommand(output, context);
+    return de_GetAppliedSchemaVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

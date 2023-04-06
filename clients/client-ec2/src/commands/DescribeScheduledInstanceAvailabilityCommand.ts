@@ -19,8 +19,8 @@ import {
   DescribeScheduledInstanceAvailabilityResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommand,
-  serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand,
+  de_DescribeScheduledInstanceAvailabilityCommand,
+  se_DescribeScheduledInstanceAvailabilityCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -206,7 +206,7 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
     input: DescribeScheduledInstanceAvailabilityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand(input, context);
+    return se_DescribeScheduledInstanceAvailabilityCommand(input, context);
   }
 
   /**
@@ -216,7 +216,7 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScheduledInstanceAvailabilityCommandOutput> {
-    return deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommand(output, context);
+    return de_DescribeScheduledInstanceAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

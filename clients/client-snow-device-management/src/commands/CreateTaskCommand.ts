@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateTaskInput, CreateTaskOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTaskCommand,
-  serializeAws_restJson1CreateTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateTaskCommand, se_CreateTaskCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -151,14 +148,14 @@ export class CreateTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTaskCommand(input, context);
+    return se_CreateTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTaskCommandOutput> {
-    return deserializeAws_restJson1CreateTaskCommand(output, context);
+    return de_CreateTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

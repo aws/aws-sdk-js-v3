@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreatePolicyVersionRequest, CreatePolicyVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePolicyVersionCommand,
-  serializeAws_restJson1CreatePolicyVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePolicyVersionCommand, se_CreatePolicyVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class CreatePolicyVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePolicyVersionCommand(input, context);
+    return se_CreatePolicyVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePolicyVersionCommandOutput> {
-    return deserializeAws_restJson1CreatePolicyVersionCommand(output, context);
+    return de_CreatePolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

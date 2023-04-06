@@ -15,10 +15,7 @@ import {
 
 import { DBEngineVersionMessage, DescribeDBEngineVersionsMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeDBEngineVersionsCommand,
-  serializeAws_queryDescribeDBEngineVersionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBEngineVersionsCommand, se_DescribeDBEngineVersionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeDBEngineVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBEngineVersionsCommand(input, context);
+    return se_DescribeDBEngineVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBEngineVersionsCommandOutput> {
-    return deserializeAws_queryDescribeDBEngineVersionsCommand(output, context);
+    return de_DescribeDBEngineVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { EnableSharingWithAwsOrganizationRequest, EnableSharingWithAwsOrganizationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand,
-  serializeAws_restJson1EnableSharingWithAwsOrganizationCommand,
+  de_EnableSharingWithAwsOrganizationCommand,
+  se_EnableSharingWithAwsOrganizationCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
@@ -140,7 +140,7 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     input: EnableSharingWithAwsOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableSharingWithAwsOrganizationCommand(input, context);
+    return se_EnableSharingWithAwsOrganizationCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableSharingWithAwsOrganizationCommandOutput> {
-    return deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand(output, context);
+    return de_EnableSharingWithAwsOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

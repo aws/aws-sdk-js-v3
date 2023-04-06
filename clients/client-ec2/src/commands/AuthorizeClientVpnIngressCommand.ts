@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AuthorizeClientVpnIngressRequest, AuthorizeClientVpnIngressResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AuthorizeClientVpnIngressCommand,
-  serializeAws_ec2AuthorizeClientVpnIngressCommand,
-} from "../protocols/Aws_ec2";
+import { de_AuthorizeClientVpnIngressCommand, se_AuthorizeClientVpnIngressCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -128,7 +125,7 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
    * @internal
    */
   private serialize(input: AuthorizeClientVpnIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AuthorizeClientVpnIngressCommand(input, context);
+    return se_AuthorizeClientVpnIngressCommand(input, context);
   }
 
   /**
@@ -138,7 +135,7 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeClientVpnIngressCommandOutput> {
-    return deserializeAws_ec2AuthorizeClientVpnIngressCommand(output, context);
+    return de_AuthorizeClientVpnIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

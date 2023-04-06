@@ -15,8 +15,8 @@ import {
 
 import { BatchDeleteRumMetricDefinitionsRequest, BatchDeleteRumMetricDefinitionsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand,
-  serializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand,
+  de_BatchDeleteRumMetricDefinitionsCommand,
+  se_BatchDeleteRumMetricDefinitionsCommand,
 } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
@@ -153,7 +153,7 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command<
     input: BatchDeleteRumMetricDefinitionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand(input, context);
+    return se_BatchDeleteRumMetricDefinitionsCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class BatchDeleteRumMetricDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteRumMetricDefinitionsCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand(output, context);
+    return de_BatchDeleteRumMetricDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

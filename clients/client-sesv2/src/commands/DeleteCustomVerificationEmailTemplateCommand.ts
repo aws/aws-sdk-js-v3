@@ -18,8 +18,8 @@ import {
   DeleteCustomVerificationEmailTemplateResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteCustomVerificationEmailTemplateCommand,
-  serializeAws_restJson1DeleteCustomVerificationEmailTemplateCommand,
+  de_DeleteCustomVerificationEmailTemplateCommand,
+  se_DeleteCustomVerificationEmailTemplateCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -142,7 +142,7 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
     input: DeleteCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCustomVerificationEmailTemplateCommand(input, context);
+    return se_DeleteCustomVerificationEmailTemplateCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteCustomVerificationEmailTemplateCommand(output, context);
+    return de_DeleteCustomVerificationEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

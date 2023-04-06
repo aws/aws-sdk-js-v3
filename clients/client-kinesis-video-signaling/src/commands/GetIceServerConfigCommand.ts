@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient";
 import { GetIceServerConfigRequest, GetIceServerConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIceServerConfigCommand,
-  serializeAws_restJson1GetIceServerConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetIceServerConfigCommand, se_GetIceServerConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class GetIceServerConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIceServerConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIceServerConfigCommand(input, context);
+    return se_GetIceServerConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIceServerConfigCommandOutput> {
-    return deserializeAws_restJson1GetIceServerConfigCommand(output, context);
+    return de_GetIceServerConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

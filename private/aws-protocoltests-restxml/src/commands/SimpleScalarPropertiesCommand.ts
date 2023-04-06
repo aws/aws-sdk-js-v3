@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SimpleScalarPropertiesInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlSimpleScalarPropertiesCommand,
-  serializeAws_restXmlSimpleScalarPropertiesCommand,
-} from "../protocols/Aws_restXml";
+import { de_SimpleScalarPropertiesCommand, se_SimpleScalarPropertiesCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class SimpleScalarPropertiesCommand extends $Command<
    * @internal
    */
   private serialize(input: SimpleScalarPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlSimpleScalarPropertiesCommand(input, context);
+    return se_SimpleScalarPropertiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimpleScalarPropertiesCommandOutput> {
-    return deserializeAws_restXmlSimpleScalarPropertiesCommand(output, context);
+    return de_SimpleScalarPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

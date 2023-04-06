@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { UpdateApiKeyRequest, UpdateApiKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateApiKeyCommand,
-  serializeAws_restJson1UpdateApiKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateApiKeyCommand, se_UpdateApiKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class UpdateApiKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApiKeyCommand(input, context);
+    return se_UpdateApiKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApiKeyCommandOutput> {
-    return deserializeAws_restJson1UpdateApiKeyCommand(output, context);
+    return de_UpdateApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

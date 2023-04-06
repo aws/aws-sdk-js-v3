@@ -15,10 +15,7 @@ import {
 
 import { DeleteTagsInput } from "../models/models_1";
 import { DeleteTagsOutput } from "../models/models_2";
-import {
-  deserializeAws_json1_1DeleteTagsCommand,
-  serializeAws_json1_1DeleteTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -133,14 +130,14 @@ export class DeleteTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTagsCommand(input, context);
+    return se_DeleteTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagsCommandOutput> {
-    return deserializeAws_json1_1DeleteTagsCommand(output, context);
+    return de_DeleteTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PostUnionWithJsonNameInput, PostUnionWithJsonNameOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1PostUnionWithJsonNameCommand,
-  serializeAws_restJson1PostUnionWithJsonNameCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PostUnionWithJsonNameCommand, se_PostUnionWithJsonNameCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -111,14 +108,14 @@ export class PostUnionWithJsonNameCommand extends $Command<
    * @internal
    */
   private serialize(input: PostUnionWithJsonNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PostUnionWithJsonNameCommand(input, context);
+    return se_PostUnionWithJsonNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostUnionWithJsonNameCommandOutput> {
-    return deserializeAws_restJson1PostUnionWithJsonNameCommand(output, context);
+    return de_PostUnionWithJsonNameCommand(output, context);
   }
 
   // Start section: command_body_extra

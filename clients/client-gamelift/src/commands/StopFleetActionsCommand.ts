@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { StopFleetActionsInput, StopFleetActionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopFleetActionsCommand,
-  serializeAws_json1_1StopFleetActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopFleetActionsCommand, se_StopFleetActionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class StopFleetActionsCommand extends $Command<
    * @internal
    */
   private serialize(input: StopFleetActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopFleetActionsCommand(input, context);
+    return se_StopFleetActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFleetActionsCommandOutput> {
-    return deserializeAws_json1_1StopFleetActionsCommand(output, context);
+    return de_StopFleetActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

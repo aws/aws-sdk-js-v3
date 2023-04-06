@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetContentRequest, GetContentResponse, GetContentResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetContentCommand,
-  serializeAws_restJson1GetContentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetContentCommand, se_GetContentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -128,14 +125,14 @@ export class GetContentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetContentCommand(input, context);
+    return se_GetContentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContentCommandOutput> {
-    return deserializeAws_restJson1GetContentCommand(output, context);
+    return de_GetContentCommand(output, context);
   }
 
   // Start section: command_body_extra

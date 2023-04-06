@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateFpgaImageRequest, CreateFpgaImageResult } from "../models/models_1";
-import { deserializeAws_ec2CreateFpgaImageCommand, serializeAws_ec2CreateFpgaImageCommand } from "../protocols/Aws_ec2";
+import { de_CreateFpgaImageCommand, se_CreateFpgaImageCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -144,14 +144,14 @@ export class CreateFpgaImageCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFpgaImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateFpgaImageCommand(input, context);
+    return se_CreateFpgaImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFpgaImageCommandOutput> {
-    return deserializeAws_ec2CreateFpgaImageCommand(output, context);
+    return de_CreateFpgaImageCommand(output, context);
   }
 
   // Start section: command_body_extra

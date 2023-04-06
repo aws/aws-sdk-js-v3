@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { UpdateKeyRequest, UpdateKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateKeyCommand,
-  serializeAws_restJson1UpdateKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateKeyCommand, se_UpdateKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class UpdateKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateKeyCommand(input, context);
+    return se_UpdateKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateKeyCommandOutput> {
-    return deserializeAws_restJson1UpdateKeyCommand(output, context);
+    return de_UpdateKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

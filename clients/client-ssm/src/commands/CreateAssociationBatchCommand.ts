@@ -19,10 +19,7 @@ import {
   CreateAssociationBatchResult,
   CreateAssociationBatchResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAssociationBatchCommand,
-  serializeAws_json1_1CreateAssociationBatchCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAssociationBatchCommand, se_CreateAssociationBatchCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -261,14 +258,14 @@ export class CreateAssociationBatchCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAssociationBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAssociationBatchCommand(input, context);
+    return se_CreateAssociationBatchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssociationBatchCommandOutput> {
-    return deserializeAws_json1_1CreateAssociationBatchCommand(output, context);
+    return de_CreateAssociationBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

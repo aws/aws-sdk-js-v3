@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeGatewayInformationInput, DescribeGatewayInformationOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeGatewayInformationCommand,
-  serializeAws_json1_1DescribeGatewayInformationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeGatewayInformationCommand, se_DescribeGatewayInformationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -158,7 +155,7 @@ export class DescribeGatewayInformationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeGatewayInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGatewayInformationCommand(input, context);
+    return se_DescribeGatewayInformationCommand(input, context);
   }
 
   /**
@@ -168,7 +165,7 @@ export class DescribeGatewayInformationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGatewayInformationCommandOutput> {
-    return deserializeAws_json1_1DescribeGatewayInformationCommand(output, context);
+    return de_DescribeGatewayInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

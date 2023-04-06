@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAppInputSourcesRequest, ListAppInputSourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppInputSourcesCommand,
-  serializeAws_restJson1ListAppInputSourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAppInputSourcesCommand, se_ListAppInputSourcesCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -143,14 +140,14 @@ export class ListAppInputSourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAppInputSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppInputSourcesCommand(input, context);
+    return se_ListAppInputSourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppInputSourcesCommandOutput> {
-    return deserializeAws_restJson1ListAppInputSourcesCommand(output, context);
+    return de_ListAppInputSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

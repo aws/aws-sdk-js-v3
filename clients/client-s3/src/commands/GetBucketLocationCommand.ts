@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetBucketLocationOutput, GetBucketLocationRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketLocationCommand,
-  serializeAws_restXmlGetBucketLocationCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketLocationCommand, se_GetBucketLocationCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -164,14 +161,14 @@ export class GetBucketLocationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketLocationCommand(input, context);
+    return se_GetBucketLocationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketLocationCommandOutput> {
-    return deserializeAws_restXmlGetBucketLocationCommand(output, context);
+    return de_GetBucketLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

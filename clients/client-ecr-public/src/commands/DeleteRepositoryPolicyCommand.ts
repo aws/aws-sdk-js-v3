@@ -15,10 +15,7 @@ import {
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { DeleteRepositoryPolicyRequest, DeleteRepositoryPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRepositoryPolicyCommand,
-  serializeAws_json1_1DeleteRepositoryPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRepositoryPolicyCommand, se_DeleteRepositoryPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteRepositoryPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRepositoryPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRepositoryPolicyCommand(input, context);
+    return se_DeleteRepositoryPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRepositoryPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteRepositoryPolicyCommand(output, context);
+    return de_DeleteRepositoryPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

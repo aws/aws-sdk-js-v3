@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CancelImportTaskRequest, CancelImportTaskResult } from "../models/models_0";
-import {
-  deserializeAws_ec2CancelImportTaskCommand,
-  serializeAws_ec2CancelImportTaskCommand,
-} from "../protocols/Aws_ec2";
+import { de_CancelImportTaskCommand, se_CancelImportTaskCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class CancelImportTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelImportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelImportTaskCommand(input, context);
+    return se_CancelImportTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelImportTaskCommandOutput> {
-    return deserializeAws_ec2CancelImportTaskCommand(output, context);
+    return de_CancelImportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

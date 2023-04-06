@@ -15,8 +15,8 @@ import {
 
 import { PutBucketMetricsConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlPutBucketMetricsConfigurationCommand,
-  serializeAws_restXmlPutBucketMetricsConfigurationCommand,
+  de_PutBucketMetricsConfigurationCommand,
+  se_PutBucketMetricsConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -195,7 +195,7 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBucketMetricsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketMetricsConfigurationCommand(input, context);
+    return se_PutBucketMetricsConfigurationCommand(input, context);
   }
 
   /**
@@ -205,7 +205,7 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketMetricsConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketMetricsConfigurationCommand(output, context);
+    return de_PutBucketMetricsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

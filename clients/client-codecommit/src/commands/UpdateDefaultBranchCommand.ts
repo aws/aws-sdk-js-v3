@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { UpdateDefaultBranchInput } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateDefaultBranchCommand,
-  serializeAws_json1_1UpdateDefaultBranchCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDefaultBranchCommand, se_UpdateDefaultBranchCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class UpdateDefaultBranchCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDefaultBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDefaultBranchCommand(input, context);
+    return se_UpdateDefaultBranchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDefaultBranchCommandOutput> {
-    return deserializeAws_json1_1UpdateDefaultBranchCommand(output, context);
+    return de_UpdateDefaultBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

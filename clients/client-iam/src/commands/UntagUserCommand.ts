@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UntagUserRequest } from "../models/models_1";
-import { deserializeAws_queryUntagUserCommand, serializeAws_queryUntagUserCommand } from "../protocols/Aws_query";
+import { de_UntagUserCommand, se_UntagUserCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -141,14 +141,14 @@ export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserC
    * @internal
    */
   private serialize(input: UntagUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagUserCommand(input, context);
+    return se_UntagUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagUserCommandOutput> {
-    return deserializeAws_queryUntagUserCommand(output, context);
+    return de_UntagUserCommand(output, context);
   }
 
   // Start section: command_body_extra

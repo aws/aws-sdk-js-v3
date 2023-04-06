@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateUserHierarchyGroupNameRequest } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateUserHierarchyGroupNameCommand,
-  serializeAws_restJson1UpdateUserHierarchyGroupNameCommand,
+  de_UpdateUserHierarchyGroupNameCommand,
+  se_UpdateUserHierarchyGroupNameCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class UpdateUserHierarchyGroupNameCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateUserHierarchyGroupNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserHierarchyGroupNameCommand(input, context);
+    return se_UpdateUserHierarchyGroupNameCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class UpdateUserHierarchyGroupNameCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserHierarchyGroupNameCommandOutput> {
-    return deserializeAws_restJson1UpdateUserHierarchyGroupNameCommand(output, context);
+    return de_UpdateUserHierarchyGroupNameCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetPasswordDataRequest, GetPasswordDataResult } from "../models/models_5";
-import { deserializeAws_ec2GetPasswordDataCommand, serializeAws_ec2GetPasswordDataCommand } from "../protocols/Aws_ec2";
+import { de_GetPasswordDataCommand, se_GetPasswordDataCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -130,14 +130,14 @@ export class GetPasswordDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPasswordDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetPasswordDataCommand(input, context);
+    return se_GetPasswordDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPasswordDataCommandOutput> {
-    return deserializeAws_ec2GetPasswordDataCommand(output, context);
+    return de_GetPasswordDataCommand(output, context);
   }
 
   // Start section: command_body_extra

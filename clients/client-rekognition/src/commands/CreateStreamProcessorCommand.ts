@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateStreamProcessorRequest, CreateStreamProcessorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStreamProcessorCommand,
-  serializeAws_json1_1CreateStreamProcessorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateStreamProcessorCommand, se_CreateStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -223,14 +220,14 @@ export class CreateStreamProcessorCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStreamProcessorCommand(input, context);
+    return se_CreateStreamProcessorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1CreateStreamProcessorCommand(output, context);
+    return de_CreateStreamProcessorCommand(output, context);
   }
 
   // Start section: command_body_extra

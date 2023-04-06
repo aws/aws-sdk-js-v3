@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateSAMLProviderRequest, UpdateSAMLProviderResponse } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateSAMLProviderCommand,
-  serializeAws_queryUpdateSAMLProviderCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateSAMLProviderCommand, se_UpdateSAMLProviderCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class UpdateSAMLProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateSAMLProviderCommand(input, context);
+    return se_UpdateSAMLProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSAMLProviderCommandOutput> {
-    return deserializeAws_queryUpdateSAMLProviderCommand(output, context);
+    return de_UpdateSAMLProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

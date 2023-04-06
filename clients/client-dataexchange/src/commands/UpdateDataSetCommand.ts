@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { UpdateDataSetRequest, UpdateDataSetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDataSetCommand,
-  serializeAws_restJson1UpdateDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDataSetCommand, se_UpdateDataSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class UpdateDataSetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataSetCommand(input, context);
+    return se_UpdateDataSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataSetCommandOutput> {
-    return deserializeAws_restJson1UpdateDataSetCommand(output, context);
+    return de_UpdateDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

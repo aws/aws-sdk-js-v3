@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRecommendationsCommand,
-  serializeAws_restJson1GetRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRecommendationsCommand, se_GetRecommendationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class GetRecommendationsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecommendationsCommand(input, context);
+    return se_GetRecommendationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecommendationsCommandOutput> {
-    return deserializeAws_restJson1GetRecommendationsCommand(output, context);
+    return de_GetRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { PutDataLakeSettingsRequest, PutDataLakeSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutDataLakeSettingsCommand,
-  serializeAws_restJson1PutDataLakeSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutDataLakeSettingsCommand, se_PutDataLakeSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class PutDataLakeSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutDataLakeSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDataLakeSettingsCommand(input, context);
+    return se_PutDataLakeSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDataLakeSettingsCommandOutput> {
-    return deserializeAws_restJson1PutDataLakeSettingsCommand(output, context);
+    return de_PutDataLakeSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

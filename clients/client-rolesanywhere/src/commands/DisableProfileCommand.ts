@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableProfileCommand,
-  serializeAws_restJson1DisableProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisableProfileCommand, se_DisableProfileCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -130,14 +127,14 @@ export class DisableProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableProfileCommand(input, context);
+    return se_DisableProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableProfileCommandOutput> {
-    return deserializeAws_restJson1DisableProfileCommand(output, context);
+    return de_DisableProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

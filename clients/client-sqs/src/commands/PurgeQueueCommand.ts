@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PurgeQueueRequest } from "../models/models_0";
-import { deserializeAws_queryPurgeQueueCommand, serializeAws_queryPurgeQueueCommand } from "../protocols/Aws_query";
+import { de_PurgeQueueCommand, se_PurgeQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -134,14 +134,14 @@ export class PurgeQueueCommand extends $Command<
    * @internal
    */
   private serialize(input: PurgeQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPurgeQueueCommand(input, context);
+    return se_PurgeQueueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PurgeQueueCommandOutput> {
-    return deserializeAws_queryPurgeQueueCommand(output, context);
+    return de_PurgeQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

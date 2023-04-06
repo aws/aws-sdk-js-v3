@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { CreateLabelRequest, CreateLabelResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateLabelCommand,
-  serializeAws_json1_0CreateLabelCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateLabelCommand, se_CreateLabelCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class CreateLabelCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLabelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateLabelCommand(input, context);
+    return se_CreateLabelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLabelCommandOutput> {
-    return deserializeAws_json1_0CreateLabelCommand(output, context);
+    return de_CreateLabelCommand(output, context);
   }
 
   // Start section: command_body_extra

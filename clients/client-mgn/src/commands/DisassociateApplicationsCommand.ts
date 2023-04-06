@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { DisassociateApplicationsRequest, DisassociateApplicationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateApplicationsCommand,
-  serializeAws_restJson1DisassociateApplicationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateApplicationsCommand, se_DisassociateApplicationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DisassociateApplicationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateApplicationsCommand(input, context);
+    return se_DisassociateApplicationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateApplicationsCommandOutput> {
-    return deserializeAws_restJson1DisassociateApplicationsCommand(output, context);
+    return de_DisassociateApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

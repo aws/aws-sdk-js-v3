@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { UpdateFacetRequest, UpdateFacetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFacetCommand,
-  serializeAws_restJson1UpdateFacetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFacetCommand, se_UpdateFacetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -199,14 +196,14 @@ export class UpdateFacetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFacetCommand(input, context);
+    return se_UpdateFacetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFacetCommandOutput> {
-    return deserializeAws_restJson1UpdateFacetCommand(output, context);
+    return de_UpdateFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

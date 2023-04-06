@@ -20,10 +20,7 @@ import {
   UpdateSipMediaApplicationResponse,
   UpdateSipMediaApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSipMediaApplicationCommand,
-  serializeAws_restJson1UpdateSipMediaApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSipMediaApplicationCommand, se_UpdateSipMediaApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,7 +152,7 @@ export class UpdateSipMediaApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSipMediaApplicationCommand(input, context);
+    return se_UpdateSipMediaApplicationCommand(input, context);
   }
 
   /**
@@ -165,7 +162,7 @@ export class UpdateSipMediaApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSipMediaApplicationCommandOutput> {
-    return deserializeAws_restJson1UpdateSipMediaApplicationCommand(output, context);
+    return de_UpdateSipMediaApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AssociateAddressRequest, AssociateAddressResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateAddressCommand,
-  serializeAws_ec2AssociateAddressCommand,
-} from "../protocols/Aws_ec2";
+import { de_AssociateAddressCommand, se_AssociateAddressCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -199,14 +196,14 @@ export class AssociateAddressCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateAddressCommand(input, context);
+    return se_AssociateAddressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAddressCommandOutput> {
-    return deserializeAws_ec2AssociateAddressCommand(output, context);
+    return de_AssociateAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

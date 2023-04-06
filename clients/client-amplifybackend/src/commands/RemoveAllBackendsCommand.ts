@@ -15,10 +15,7 @@ import {
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { RemoveAllBackendsRequest, RemoveAllBackendsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveAllBackendsCommand,
-  serializeAws_restJson1RemoveAllBackendsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveAllBackendsCommand, se_RemoveAllBackendsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class RemoveAllBackendsCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveAllBackendsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveAllBackendsCommand(input, context);
+    return se_RemoveAllBackendsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveAllBackendsCommandOutput> {
-    return deserializeAws_restJson1RemoveAllBackendsCommand(output, context);
+    return de_RemoveAllBackendsCommand(output, context);
   }
 
   // Start section: command_body_extra

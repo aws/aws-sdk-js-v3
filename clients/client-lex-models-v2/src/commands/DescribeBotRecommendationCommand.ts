@@ -19,10 +19,7 @@ import {
   DescribeBotRecommendationResponse,
   DescribeBotRecommendationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBotRecommendationCommand,
-  serializeAws_restJson1DescribeBotRecommendationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeBotRecommendationCommand, se_DescribeBotRecommendationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class DescribeBotRecommendationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBotRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBotRecommendationCommand(input, context);
+    return se_DescribeBotRecommendationCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class DescribeBotRecommendationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBotRecommendationCommandOutput> {
-    return deserializeAws_restJson1DescribeBotRecommendationCommand(output, context);
+    return de_DescribeBotRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

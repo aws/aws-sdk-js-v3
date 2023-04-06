@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DescribeReservedCacheNodesMessage, ReservedCacheNodeMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeReservedCacheNodesCommand,
-  serializeAws_queryDescribeReservedCacheNodesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeReservedCacheNodesCommand, se_DescribeReservedCacheNodesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -148,7 +145,7 @@ export class DescribeReservedCacheNodesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeReservedCacheNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedCacheNodesCommand(input, context);
+    return se_DescribeReservedCacheNodesCommand(input, context);
   }
 
   /**
@@ -158,7 +155,7 @@ export class DescribeReservedCacheNodesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedCacheNodesCommandOutput> {
-    return deserializeAws_queryDescribeReservedCacheNodesCommand(output, context);
+    return de_DescribeReservedCacheNodesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,8 +18,8 @@ import {
   UpdateIdentityProviderConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateIdentityProviderConfigurationCommand,
-  serializeAws_restJson1UpdateIdentityProviderConfigurationCommand,
+  de_UpdateIdentityProviderConfigurationCommand,
+  se_UpdateIdentityProviderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
@@ -147,7 +147,7 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     input: UpdateIdentityProviderConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIdentityProviderConfigurationCommand(input, context);
+    return se_UpdateIdentityProviderConfigurationCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIdentityProviderConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateIdentityProviderConfigurationCommand(output, context);
+    return de_UpdateIdentityProviderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

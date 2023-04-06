@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { ListManagedInsightRulesInput, ListManagedInsightRulesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryListManagedInsightRulesCommand,
-  serializeAws_queryListManagedInsightRulesCommand,
-} from "../protocols/Aws_query";
+import { de_ListManagedInsightRulesCommand, se_ListManagedInsightRulesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListManagedInsightRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListManagedInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListManagedInsightRulesCommand(input, context);
+    return se_ListManagedInsightRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedInsightRulesCommandOutput> {
-    return deserializeAws_queryListManagedInsightRulesCommand(output, context);
+    return de_ListManagedInsightRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

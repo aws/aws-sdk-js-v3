@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListConstraintsForPortfolioInput, ListConstraintsForPortfolioOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListConstraintsForPortfolioCommand,
-  serializeAws_json1_1ListConstraintsForPortfolioCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListConstraintsForPortfolioCommand, se_ListConstraintsForPortfolioCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -130,7 +127,7 @@ export class ListConstraintsForPortfolioCommand extends $Command<
    * @internal
    */
   private serialize(input: ListConstraintsForPortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListConstraintsForPortfolioCommand(input, context);
+    return se_ListConstraintsForPortfolioCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class ListConstraintsForPortfolioCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListConstraintsForPortfolioCommandOutput> {
-    return deserializeAws_json1_1ListConstraintsForPortfolioCommand(output, context);
+    return de_ListConstraintsForPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

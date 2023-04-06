@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateHubRequest, CreateHubResponse } from "../models/models_1";
-import { deserializeAws_json1_1CreateHubCommand, serializeAws_json1_1CreateHubCommand } from "../protocols/Aws_json1_1";
+import { de_CreateHubCommand, se_CreateHubCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -139,14 +139,14 @@ export class CreateHubCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHubCommand(input, context);
+    return se_CreateHubCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHubCommandOutput> {
-    return deserializeAws_json1_1CreateHubCommand(output, context);
+    return de_CreateHubCommand(output, context);
   }
 
   // Start section: command_body_extra

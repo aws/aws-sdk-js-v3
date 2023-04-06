@@ -15,10 +15,7 @@ import {
 
 import { CreateOutboundConnectionRequest, CreateOutboundConnectionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1CreateOutboundConnectionCommand,
-  serializeAws_restJson1CreateOutboundConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateOutboundConnectionCommand, se_CreateOutboundConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class CreateOutboundConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateOutboundConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateOutboundConnectionCommand(input, context);
+    return se_CreateOutboundConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOutboundConnectionCommandOutput> {
-    return deserializeAws_restJson1CreateOutboundConnectionCommand(output, context);
+    return de_CreateOutboundConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

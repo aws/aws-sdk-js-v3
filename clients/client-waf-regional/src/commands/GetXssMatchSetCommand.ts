@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetXssMatchSetRequest, GetXssMatchSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetXssMatchSetCommand,
-  serializeAws_json1_1GetXssMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetXssMatchSetCommand, se_GetXssMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -164,14 +161,14 @@ export class GetXssMatchSetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetXssMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetXssMatchSetCommand(input, context);
+    return se_GetXssMatchSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetXssMatchSetCommandOutput> {
-    return deserializeAws_json1_1GetXssMatchSetCommand(output, context);
+    return de_GetXssMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

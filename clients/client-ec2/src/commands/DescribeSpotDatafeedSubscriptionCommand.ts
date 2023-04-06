@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeSpotDatafeedSubscriptionRequest, DescribeSpotDatafeedSubscriptionResult } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommand,
-  serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand,
+  de_DescribeSpotDatafeedSubscriptionCommand,
+  se_DescribeSpotDatafeedSubscriptionCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -145,7 +145,7 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
     input: DescribeSpotDatafeedSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand(input, context);
+    return se_DescribeSpotDatafeedSubscriptionCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSpotDatafeedSubscriptionCommandOutput> {
-    return deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommand(output, context);
+    return de_DescribeSpotDatafeedSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

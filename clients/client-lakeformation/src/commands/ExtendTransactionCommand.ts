@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { ExtendTransactionRequest, ExtendTransactionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExtendTransactionCommand,
-  serializeAws_restJson1ExtendTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExtendTransactionCommand, se_ExtendTransactionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ExtendTransactionCommand extends $Command<
    * @internal
    */
   private serialize(input: ExtendTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExtendTransactionCommand(input, context);
+    return se_ExtendTransactionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExtendTransactionCommandOutput> {
-    return deserializeAws_restJson1ExtendTransactionCommand(output, context);
+    return de_ExtendTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SendMessageBatchRequest, SendMessageBatchResult } from "../models/models_0";
-import {
-  deserializeAws_querySendMessageBatchCommand,
-  serializeAws_querySendMessageBatchCommand,
-} from "../protocols/Aws_query";
+import { de_SendMessageBatchCommand, se_SendMessageBatchCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -193,14 +190,14 @@ export class SendMessageBatchCommand extends $Command<
    * @internal
    */
   private serialize(input: SendMessageBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendMessageBatchCommand(input, context);
+    return se_SendMessageBatchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendMessageBatchCommandOutput> {
-    return deserializeAws_querySendMessageBatchCommand(output, context);
+    return de_SendMessageBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

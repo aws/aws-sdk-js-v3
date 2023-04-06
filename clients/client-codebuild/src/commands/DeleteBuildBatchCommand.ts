@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { DeleteBuildBatchInput, DeleteBuildBatchOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBuildBatchCommand,
-  serializeAws_json1_1DeleteBuildBatchCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteBuildBatchCommand, se_DeleteBuildBatchCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class DeleteBuildBatchCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBuildBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBuildBatchCommand(input, context);
+    return se_DeleteBuildBatchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBuildBatchCommandOutput> {
-    return deserializeAws_json1_1DeleteBuildBatchCommand(output, context);
+    return de_DeleteBuildBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

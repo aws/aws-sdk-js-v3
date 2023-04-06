@@ -17,8 +17,8 @@ import {
 
 import { DeleteMultiRegionAccessPointRequest, DeleteMultiRegionAccessPointResult } from "../models/models_0";
 import {
-  deserializeAws_restXmlDeleteMultiRegionAccessPointCommand,
-  serializeAws_restXmlDeleteMultiRegionAccessPointCommand,
+  de_DeleteMultiRegionAccessPointCommand,
+  se_DeleteMultiRegionAccessPointCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -164,7 +164,7 @@ export class DeleteMultiRegionAccessPointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMultiRegionAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteMultiRegionAccessPointCommand(input, context);
+    return se_DeleteMultiRegionAccessPointCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class DeleteMultiRegionAccessPointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMultiRegionAccessPointCommandOutput> {
-    return deserializeAws_restXmlDeleteMultiRegionAccessPointCommand(output, context);
+    return de_DeleteMultiRegionAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

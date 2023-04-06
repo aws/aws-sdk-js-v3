@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateQueueMaxContactsRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateQueueMaxContactsCommand,
-  serializeAws_restJson1UpdateQueueMaxContactsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateQueueMaxContactsCommand, se_UpdateQueueMaxContactsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UpdateQueueMaxContactsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateQueueMaxContactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateQueueMaxContactsCommand(input, context);
+    return se_UpdateQueueMaxContactsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQueueMaxContactsCommandOutput> {
-    return deserializeAws_restJson1UpdateQueueMaxContactsCommand(output, context);
+    return de_UpdateQueueMaxContactsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { GetLicenseManagerReportGeneratorRequest, GetLicenseManagerReportGeneratorResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetLicenseManagerReportGeneratorCommand,
-  serializeAws_json1_1GetLicenseManagerReportGeneratorCommand,
+  de_GetLicenseManagerReportGeneratorCommand,
+  se_GetLicenseManagerReportGeneratorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -150,7 +150,7 @@ export class GetLicenseManagerReportGeneratorCommand extends $Command<
     input: GetLicenseManagerReportGeneratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLicenseManagerReportGeneratorCommand(input, context);
+    return se_GetLicenseManagerReportGeneratorCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class GetLicenseManagerReportGeneratorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLicenseManagerReportGeneratorCommandOutput> {
-    return deserializeAws_json1_1GetLicenseManagerReportGeneratorCommand(output, context);
+    return de_GetLicenseManagerReportGeneratorCommand(output, context);
   }
 
   // Start section: command_body_extra

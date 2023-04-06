@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { CreateVpcEndpointRequest, CreateVpcEndpointResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVpcEndpointCommand,
-  serializeAws_restJson1CreateVpcEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateVpcEndpointCommand, se_CreateVpcEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CreateVpcEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVpcEndpointCommand(input, context);
+    return se_CreateVpcEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpcEndpointCommandOutput> {
-    return deserializeAws_restJson1CreateVpcEndpointCommand(output, context);
+    return de_CreateVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

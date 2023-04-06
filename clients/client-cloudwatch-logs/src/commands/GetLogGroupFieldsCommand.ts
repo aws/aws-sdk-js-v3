@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { GetLogGroupFieldsRequest, GetLogGroupFieldsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLogGroupFieldsCommand,
-  serializeAws_json1_1GetLogGroupFieldsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetLogGroupFieldsCommand, se_GetLogGroupFieldsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class GetLogGroupFieldsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLogGroupFieldsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLogGroupFieldsCommand(input, context);
+    return se_GetLogGroupFieldsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLogGroupFieldsCommandOutput> {
-    return deserializeAws_json1_1GetLogGroupFieldsCommand(output, context);
+    return de_GetLogGroupFieldsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,10 +18,7 @@ import {
   GetIdentityProviderResponse,
   GetIdentityProviderResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetIdentityProviderCommand,
-  serializeAws_restJson1GetIdentityProviderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetIdentityProviderCommand, se_GetIdentityProviderCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -139,14 +136,14 @@ export class GetIdentityProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetIdentityProviderCommand(input, context);
+    return se_GetIdentityProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdentityProviderCommandOutput> {
-    return deserializeAws_restJson1GetIdentityProviderCommand(output, context);
+    return de_GetIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

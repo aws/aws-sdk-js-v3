@@ -19,8 +19,8 @@ import {
   ListLicenseManagerReportGeneratorsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommand,
-  serializeAws_json1_1ListLicenseManagerReportGeneratorsCommand,
+  de_ListLicenseManagerReportGeneratorsCommand,
+  se_ListLicenseManagerReportGeneratorsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -162,7 +162,7 @@ export class ListLicenseManagerReportGeneratorsCommand extends $Command<
     input: ListLicenseManagerReportGeneratorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLicenseManagerReportGeneratorsCommand(input, context);
+    return se_ListLicenseManagerReportGeneratorsCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class ListLicenseManagerReportGeneratorsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLicenseManagerReportGeneratorsCommandOutput> {
-    return deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommand(output, context);
+    return de_ListLicenseManagerReportGeneratorsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,8 +18,8 @@ import {
   CreateSubscriptionNotificationConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand,
-  serializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand,
+  de_CreateSubscriptionNotificationConfigurationCommand,
+  se_CreateSubscriptionNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -171,7 +171,7 @@ export class CreateSubscriptionNotificationConfigurationCommand extends $Command
     input: CreateSubscriptionNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand(input, context);
+    return se_CreateSubscriptionNotificationConfigurationCommand(input, context);
   }
 
   /**
@@ -181,7 +181,7 @@ export class CreateSubscriptionNotificationConfigurationCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSubscriptionNotificationConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand(output, context);
+    return de_CreateSubscriptionNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

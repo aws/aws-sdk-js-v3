@@ -20,10 +20,7 @@ import {
   ExchangeCodeForTokenResponse,
   ExchangeCodeForTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExchangeCodeForTokenCommand,
-  serializeAws_restJson1ExchangeCodeForTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExchangeCodeForTokenCommand, se_ExchangeCodeForTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ExchangeCodeForTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: ExchangeCodeForTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExchangeCodeForTokenCommand(input, context);
+    return se_ExchangeCodeForTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExchangeCodeForTokenCommandOutput> {
-    return deserializeAws_restJson1ExchangeCodeForTokenCommand(output, context);
+    return de_ExchangeCodeForTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

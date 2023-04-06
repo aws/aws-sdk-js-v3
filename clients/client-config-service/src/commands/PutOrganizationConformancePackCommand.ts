@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { PutOrganizationConformancePackRequest, PutOrganizationConformancePackResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1PutOrganizationConformancePackCommand,
-  serializeAws_json1_1PutOrganizationConformancePackCommand,
+  de_PutOrganizationConformancePackCommand,
+  se_PutOrganizationConformancePackCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -248,7 +248,7 @@ export class PutOrganizationConformancePackCommand extends $Command<
     input: PutOrganizationConformancePackCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutOrganizationConformancePackCommand(input, context);
+    return se_PutOrganizationConformancePackCommand(input, context);
   }
 
   /**
@@ -258,7 +258,7 @@ export class PutOrganizationConformancePackCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutOrganizationConformancePackCommandOutput> {
-    return deserializeAws_json1_1PutOrganizationConformancePackCommand(output, context);
+    return de_PutOrganizationConformancePackCommand(output, context);
   }
 
   // Start section: command_body_extra

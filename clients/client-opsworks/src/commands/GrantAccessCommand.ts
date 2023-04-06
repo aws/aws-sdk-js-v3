@@ -15,10 +15,7 @@ import {
 
 import { GrantAccessRequest, GrantAccessResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1GrantAccessCommand,
-  serializeAws_json1_1GrantAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GrantAccessCommand, se_GrantAccessCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class GrantAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: GrantAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GrantAccessCommand(input, context);
+    return se_GrantAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GrantAccessCommandOutput> {
-    return deserializeAws_json1_1GrantAccessCommand(output, context);
+    return de_GrantAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

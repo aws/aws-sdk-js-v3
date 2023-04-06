@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { GetTemplateSummaryInput, GetTemplateSummaryOutput } from "../models/models_0";
-import {
-  deserializeAws_queryGetTemplateSummaryCommand,
-  serializeAws_queryGetTemplateSummaryCommand,
-} from "../protocols/Aws_query";
+import { de_GetTemplateSummaryCommand, se_GetTemplateSummaryCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetTemplateSummaryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTemplateSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetTemplateSummaryCommand(input, context);
+    return se_GetTemplateSummaryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateSummaryCommandOutput> {
-    return deserializeAws_queryGetTemplateSummaryCommand(output, context);
+    return de_GetTemplateSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ImportAppCatalogRequest, ImportAppCatalogResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportAppCatalogCommand,
-  serializeAws_json1_1ImportAppCatalogCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportAppCatalogCommand, se_ImportAppCatalogCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -136,14 +133,14 @@ export class ImportAppCatalogCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportAppCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportAppCatalogCommand(input, context);
+    return se_ImportAppCatalogCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportAppCatalogCommandOutput> {
-    return deserializeAws_json1_1ImportAppCatalogCommand(output, context);
+    return de_ImportAppCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

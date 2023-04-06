@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDashboardsRequest, ListDashboardsResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1ListDashboardsCommand,
-  serializeAws_restJson1ListDashboardsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDashboardsCommand, se_ListDashboardsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -137,14 +134,14 @@ export class ListDashboardsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDashboardsCommand(input, context);
+    return se_ListDashboardsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDashboardsCommandOutput> {
-    return deserializeAws_restJson1ListDashboardsCommand(output, context);
+    return de_ListDashboardsCommand(output, context);
   }
 
   // Start section: command_body_extra

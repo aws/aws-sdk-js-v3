@@ -15,10 +15,7 @@ import {
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { CreateParameterGroupRequest, CreateParameterGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateParameterGroupCommand,
-  serializeAws_json1_1CreateParameterGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateParameterGroupCommand, se_CreateParameterGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class CreateParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateParameterGroupCommand(input, context);
+    return se_CreateParameterGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateParameterGroupCommandOutput> {
-    return deserializeAws_json1_1CreateParameterGroupCommand(output, context);
+    return de_CreateParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

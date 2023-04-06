@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { SearchCasesRequest, SearchCasesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchCasesCommand,
-  serializeAws_restJson1SearchCasesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchCasesCommand, se_SearchCasesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -217,14 +214,14 @@ export class SearchCasesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchCasesCommand(input, context);
+    return se_SearchCasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCasesCommandOutput> {
-    return deserializeAws_restJson1SearchCasesCommand(output, context);
+    return de_SearchCasesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,8 +18,8 @@ import {
   DescribeOrganizationConfigurationResponse,
 } from "../models/models_2";
 import {
-  deserializeAws_restJson1DescribeOrganizationConfigurationCommand,
-  serializeAws_restJson1DescribeOrganizationConfigurationCommand,
+  de_DescribeOrganizationConfigurationCommand,
+  se_DescribeOrganizationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
@@ -141,7 +141,7 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     input: DescribeOrganizationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOrganizationConfigurationCommand(input, context);
+    return se_DescribeOrganizationConfigurationCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeOrganizationConfigurationCommand(output, context);
+    return de_DescribeOrganizationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

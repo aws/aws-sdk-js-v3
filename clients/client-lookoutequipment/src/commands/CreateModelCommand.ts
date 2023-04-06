@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { CreateModelRequest, CreateModelResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateModelCommand,
-  serializeAws_json1_0CreateModelCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateModelCommand, se_CreateModelCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -180,14 +177,14 @@ export class CreateModelCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateModelCommand(input, context);
+    return se_CreateModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelCommandOutput> {
-    return deserializeAws_json1_0CreateModelCommand(output, context);
+    return de_CreateModelCommand(output, context);
   }
 
   // Start section: command_body_extra

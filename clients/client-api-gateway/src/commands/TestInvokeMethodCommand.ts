@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { TestInvokeMethodRequest, TestInvokeMethodResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1TestInvokeMethodCommand,
-  serializeAws_restJson1TestInvokeMethodCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TestInvokeMethodCommand, se_TestInvokeMethodCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class TestInvokeMethodCommand extends $Command<
    * @internal
    */
   private serialize(input: TestInvokeMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestInvokeMethodCommand(input, context);
+    return se_TestInvokeMethodCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestInvokeMethodCommandOutput> {
-    return deserializeAws_restJson1TestInvokeMethodCommand(output, context);
+    return de_TestInvokeMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

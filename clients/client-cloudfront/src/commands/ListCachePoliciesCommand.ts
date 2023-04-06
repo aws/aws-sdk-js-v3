@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { ListCachePoliciesRequest, ListCachePoliciesResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlListCachePoliciesCommand,
-  serializeAws_restXmlListCachePoliciesCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListCachePoliciesCommand, se_ListCachePoliciesCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListCachePoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCachePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListCachePoliciesCommand(input, context);
+    return se_ListCachePoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCachePoliciesCommandOutput> {
-    return deserializeAws_restXmlListCachePoliciesCommand(output, context);
+    return de_ListCachePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

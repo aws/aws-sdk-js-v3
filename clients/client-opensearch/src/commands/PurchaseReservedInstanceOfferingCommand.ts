@@ -16,8 +16,8 @@ import {
 import { PurchaseReservedInstanceOfferingRequest, PurchaseReservedInstanceOfferingResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  deserializeAws_restJson1PurchaseReservedInstanceOfferingCommand,
-  serializeAws_restJson1PurchaseReservedInstanceOfferingCommand,
+  de_PurchaseReservedInstanceOfferingCommand,
+  se_PurchaseReservedInstanceOfferingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class PurchaseReservedInstanceOfferingCommand extends $Command<
     input: PurchaseReservedInstanceOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PurchaseReservedInstanceOfferingCommand(input, context);
+    return se_PurchaseReservedInstanceOfferingCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class PurchaseReservedInstanceOfferingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedInstanceOfferingCommandOutput> {
-    return deserializeAws_restJson1PurchaseReservedInstanceOfferingCommand(output, context);
+    return de_PurchaseReservedInstanceOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

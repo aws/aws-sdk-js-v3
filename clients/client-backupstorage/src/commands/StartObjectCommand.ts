@@ -15,10 +15,7 @@ import {
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
 import { StartObjectInput, StartObjectOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartObjectCommand,
-  serializeAws_restJson1StartObjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartObjectCommand, se_StartObjectCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class StartObjectCommand extends $Command<
    * @internal
    */
   private serialize(input: StartObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartObjectCommand(input, context);
+    return se_StartObjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartObjectCommandOutput> {
-    return deserializeAws_restJson1StartObjectCommand(output, context);
+    return de_StartObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

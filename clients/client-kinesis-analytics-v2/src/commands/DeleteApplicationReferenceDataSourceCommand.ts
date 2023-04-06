@@ -23,8 +23,8 @@ import {
   DeleteApplicationReferenceDataSourceResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand,
-  serializeAws_json1_1DeleteApplicationReferenceDataSourceCommand,
+  de_DeleteApplicationReferenceDataSourceCommand,
+  se_DeleteApplicationReferenceDataSourceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
     input: DeleteApplicationReferenceDataSourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationReferenceDataSourceCommand(input, context);
+    return se_DeleteApplicationReferenceDataSourceCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationReferenceDataSourceCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand(output, context);
+    return de_DeleteApplicationReferenceDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

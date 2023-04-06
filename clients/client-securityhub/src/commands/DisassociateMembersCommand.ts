@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateMembersRequest, DisassociateMembersResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DisassociateMembersCommand,
-  serializeAws_restJson1DisassociateMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateMembersCommand, se_DisassociateMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -141,14 +138,14 @@ export class DisassociateMembersCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateMembersCommand(input, context);
+    return se_DisassociateMembersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMembersCommandOutput> {
-    return deserializeAws_restJson1DisassociateMembersCommand(output, context);
+    return de_DisassociateMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

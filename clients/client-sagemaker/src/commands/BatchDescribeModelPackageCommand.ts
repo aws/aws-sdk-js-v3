@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchDescribeModelPackageInput, BatchDescribeModelPackageOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDescribeModelPackageCommand,
-  serializeAws_json1_1BatchDescribeModelPackageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDescribeModelPackageCommand, se_BatchDescribeModelPackageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -122,7 +119,7 @@ export class BatchDescribeModelPackageCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDescribeModelPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDescribeModelPackageCommand(input, context);
+    return se_BatchDescribeModelPackageCommand(input, context);
   }
 
   /**
@@ -132,7 +129,7 @@ export class BatchDescribeModelPackageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDescribeModelPackageCommandOutput> {
-    return deserializeAws_json1_1BatchDescribeModelPackageCommand(output, context);
+    return de_BatchDescribeModelPackageCommand(output, context);
   }
 
   // Start section: command_body_extra

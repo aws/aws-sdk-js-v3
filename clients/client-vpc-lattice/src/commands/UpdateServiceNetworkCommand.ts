@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateServiceNetworkRequest, UpdateServiceNetworkResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateServiceNetworkCommand,
-  serializeAws_restJson1UpdateServiceNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateServiceNetworkCommand, se_UpdateServiceNetworkCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -141,14 +138,14 @@ export class UpdateServiceNetworkCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateServiceNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateServiceNetworkCommand(input, context);
+    return se_UpdateServiceNetworkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceNetworkCommandOutput> {
-    return deserializeAws_restJson1UpdateServiceNetworkCommand(output, context);
+    return de_UpdateServiceNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

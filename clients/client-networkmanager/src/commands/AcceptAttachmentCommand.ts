@@ -15,10 +15,7 @@ import {
 
 import { AcceptAttachmentRequest, AcceptAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1AcceptAttachmentCommand,
-  serializeAws_restJson1AcceptAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AcceptAttachmentCommand, se_AcceptAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class AcceptAttachmentCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptAttachmentCommand(input, context);
+    return se_AcceptAttachmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptAttachmentCommandOutput> {
-    return deserializeAws_restJson1AcceptAttachmentCommand(output, context);
+    return de_AcceptAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

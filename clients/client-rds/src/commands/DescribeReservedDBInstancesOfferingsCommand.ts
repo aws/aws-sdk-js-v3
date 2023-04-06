@@ -15,8 +15,8 @@ import {
 
 import { DescribeReservedDBInstancesOfferingsMessage, ReservedDBInstancesOfferingMessage } from "../models/models_1";
 import {
-  deserializeAws_queryDescribeReservedDBInstancesOfferingsCommand,
-  serializeAws_queryDescribeReservedDBInstancesOfferingsCommand,
+  de_DescribeReservedDBInstancesOfferingsCommand,
+  se_DescribeReservedDBInstancesOfferingsCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -76,19 +76,38 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  *  <p>Specified offering does not exist.</p>
  *
  *
- * @example To list information about reserved DB instance offerings
+ * @example To describe reserved DB instance offerings
  * ```javascript
- * // This example lists information for all reserved DB instance offerings for the specified DB instance class, duration, product, offering type, and availability zone settings.
+ * // The following example retrieves details about reserved DB instance options for RDS for Oracle.
  * const input = {
- *   "DBInstanceClass": "db.t2.micro",
- *   "Duration": "1y",
- *   "MultiAZ": false,
- *   "OfferingType": "No Upfront",
- *   "ProductDescription": "mysql"
+ *   "ProductDescription": "oracle"
  * };
  * const command = new DescribeReservedDBInstancesOfferingsCommand(input);
- * await client.send(command);
- * // example id: describe-reserved-db-instances-offerings-9de7d1fd-d6a6-4a72-84ae-b2ef58d47d8d
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ReservedDBInstancesOfferings": [
+ *     {
+ *       "CurrencyCode": "USD",
+ *       "DBInstanceClass": "db.m4.xlarge",
+ *       "Duration": 31536000,
+ *       "FixedPrice": 4089,
+ *       "MultiAZ": true,
+ *       "OfferingType": "Partial Upfront",
+ *       "ProductDescription": "oracle-se2(li)",
+ *       "RecurringCharges": [
+ *         {
+ *           "RecurringChargeAmount": 0.594,
+ *           "RecurringChargeFrequency": "Hourly"
+ *         }
+ *       ],
+ *       "ReservedDBInstancesOfferingId": "005bdee3-9ef4-4182-aa0c-58ef7cb6c2f8",
+ *       "UsagePrice": 0
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-reserved-db-instance-offerings-1680283755054
  * ```
  *
  */
@@ -158,7 +177,7 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
     input: DescribeReservedDBInstancesOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedDBInstancesOfferingsCommand(input, context);
+    return se_DescribeReservedDBInstancesOfferingsCommand(input, context);
   }
 
   /**
@@ -168,7 +187,7 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedDBInstancesOfferingsCommandOutput> {
-    return deserializeAws_queryDescribeReservedDBInstancesOfferingsCommand(output, context);
+    return de_DescribeReservedDBInstancesOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

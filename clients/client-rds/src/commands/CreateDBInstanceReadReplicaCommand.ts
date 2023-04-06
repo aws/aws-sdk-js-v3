@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDBInstanceReadReplicaMessage, CreateDBInstanceReadReplicaResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBInstanceReadReplicaCommand,
-  serializeAws_queryCreateDBInstanceReadReplicaCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBInstanceReadReplicaCommand, se_CreateDBInstanceReadReplicaCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -200,32 +197,27 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *             with the DB instance.</p>
  *
  *
- * @example To create a DB instance read replica.
+ * @example To create a DB instance read replica
  * ```javascript
- * // This example creates a DB instance read replica.
+ * // This example creates a read replica of an existing DB instance named test-instance. The read replica is named test-instance-repl.
  * const input = {
- *   "AvailabilityZone": "us-east-1a",
- *   "CopyTagsToSnapshot": true,
- *   "DBInstanceClass": "db.t2.micro",
- *   "DBInstanceIdentifier": "mydbreadreplica",
- *   "PubliclyAccessible": true,
- *   "SourceDBInstanceIdentifier": "mymysqlinstance",
- *   "StorageType": "gp2",
- *   "Tags": [
- *     {
- *       "Key": "mydbreadreplicakey",
- *       "Value": "mydbreadreplicavalue"
- *     }
- *   ]
+ *   "DBInstanceIdentifier": "test-instance-repl",
+ *   "SourceDBInstanceIdentifier": "test-instance"
  * };
  * const command = new CreateDBInstanceReadReplicaCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBInstance": {}
+ *   "DBInstance": {
+ *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
+ *     "DBInstanceIdentifier": "test-instance-repl",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "MonitoringInterval": 0,
+ *     "ReadReplicaSourceDBInstanceIdentifier": "test-instance"
+ *   }
  * }
  * *\/
- * // example id: create-db-instance-read-replica-81b41cd5-2871-4dae-bc59-3e264449d5fe
+ * // example id: to-create-a-db-instance-read-replica-1680129486105
  * ```
  *
  */
@@ -293,7 +285,7 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBInstanceReadReplicaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBInstanceReadReplicaCommand(input, context);
+    return se_CreateDBInstanceReadReplicaCommand(input, context);
   }
 
   /**
@@ -303,7 +295,7 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDBInstanceReadReplicaCommandOutput> {
-    return deserializeAws_queryCreateDBInstanceReadReplicaCommand(output, context);
+    return de_CreateDBInstanceReadReplicaCommand(output, context);
   }
 
   // Start section: command_body_extra

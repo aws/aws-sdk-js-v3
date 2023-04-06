@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDatalakeExceptionsRequest, ListDatalakeExceptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDatalakeExceptionsCommand,
-  serializeAws_restJson1ListDatalakeExceptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDatalakeExceptionsCommand, se_ListDatalakeExceptionsCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -143,14 +140,14 @@ export class ListDatalakeExceptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDatalakeExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDatalakeExceptionsCommand(input, context);
+    return se_ListDatalakeExceptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatalakeExceptionsCommandOutput> {
-    return deserializeAws_restJson1ListDatalakeExceptionsCommand(output, context);
+    return de_ListDatalakeExceptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

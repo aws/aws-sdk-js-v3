@@ -26,7 +26,10 @@ import {
   StartSupportDataExportResult,
 } from "../models/models_0";
 
-export const serializeAws_json1_1GenerateDataSetCommand = async (
+/**
+ * serializeAws_json1_1GenerateDataSetCommand
+ */
+export const se_GenerateDataSetCommand = async (
   input: GenerateDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -35,11 +38,14 @@ export const serializeAws_json1_1GenerateDataSetCommand = async (
     "x-amz-target": "MarketplaceCommerceAnalytics20150701.GenerateDataSet",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GenerateDataSetRequest(input, context));
+  body = JSON.stringify(se_GenerateDataSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartSupportDataExportCommand = async (
+/**
+ * serializeAws_json1_1StartSupportDataExportCommand
+ */
+export const se_StartSupportDataExportCommand = async (
   input: StartSupportDataExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -48,20 +54,23 @@ export const serializeAws_json1_1StartSupportDataExportCommand = async (
     "x-amz-target": "MarketplaceCommerceAnalytics20150701.StartSupportDataExport",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartSupportDataExportRequest(input, context));
+  body = JSON.stringify(se_StartSupportDataExportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1GenerateDataSetCommand = async (
+/**
+ * deserializeAws_json1_1GenerateDataSetCommand
+ */
+export const de_GenerateDataSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GenerateDataSetCommandError(output, context);
+    return de_GenerateDataSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GenerateDataSetResult(data, context);
+  contents = de_GenerateDataSetResult(data, context);
   const response: GenerateDataSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -69,7 +78,10 @@ export const deserializeAws_json1_1GenerateDataSetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GenerateDataSetCommandError = async (
+/**
+ * deserializeAws_json1_1GenerateDataSetCommandError
+ */
+const de_GenerateDataSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateDataSetCommandOutput> => {
@@ -81,7 +93,7 @@ const deserializeAws_json1_1GenerateDataSetCommandError = async (
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
     case "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException":
-      throw await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(parsedOutput, context);
+      throw await de_MarketplaceCommerceAnalyticsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -93,16 +105,19 @@ const deserializeAws_json1_1GenerateDataSetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartSupportDataExportCommand = async (
+/**
+ * deserializeAws_json1_1StartSupportDataExportCommand
+ */
+export const de_StartSupportDataExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSupportDataExportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartSupportDataExportCommandError(output, context);
+    return de_StartSupportDataExportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartSupportDataExportResult(data, context);
+  contents = de_StartSupportDataExportResult(data, context);
   const response: StartSupportDataExportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -110,7 +125,10 @@ export const deserializeAws_json1_1StartSupportDataExportCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartSupportDataExportCommandError = async (
+/**
+ * deserializeAws_json1_1StartSupportDataExportCommandError
+ */
+const de_StartSupportDataExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSupportDataExportCommandOutput> => {
@@ -122,7 +140,7 @@ const deserializeAws_json1_1StartSupportDataExportCommandError = async (
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
     case "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException":
-      throw await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(parsedOutput, context);
+      throw await de_MarketplaceCommerceAnalyticsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -134,12 +152,15 @@ const deserializeAws_json1_1StartSupportDataExportCommandError = async (
   }
 };
 
-const deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionRes
+ */
+const de_MarketplaceCommerceAnalyticsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MarketplaceCommerceAnalyticsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MarketplaceCommerceAnalyticsException(body, context);
+  const deserialized: any = de_MarketplaceCommerceAnalyticsException(body, context);
   const exception = new MarketplaceCommerceAnalyticsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -147,7 +168,10 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1CustomerDefinedValues = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CustomerDefinedValues
+ */
+const se_CustomerDefinedValues = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -157,10 +181,13 @@ const serializeAws_json1_1CustomerDefinedValues = (input: Record<string, string>
   }, {});
 };
 
-const serializeAws_json1_1GenerateDataSetRequest = (input: GenerateDataSetRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GenerateDataSetRequest
+ */
+const se_GenerateDataSetRequest = (input: GenerateDataSetRequest, context: __SerdeContext): any => {
   return {
     ...(input.customerDefinedValues != null && {
-      customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context),
+      customerDefinedValues: se_CustomerDefinedValues(input.customerDefinedValues, context),
     }),
     ...(input.dataSetPublicationDate != null && {
       dataSetPublicationDate: Math.round(input.dataSetPublicationDate.getTime() / 1000),
@@ -173,13 +200,13 @@ const serializeAws_json1_1GenerateDataSetRequest = (input: GenerateDataSetReques
   };
 };
 
-const serializeAws_json1_1StartSupportDataExportRequest = (
-  input: StartSupportDataExportRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StartSupportDataExportRequest
+ */
+const se_StartSupportDataExportRequest = (input: StartSupportDataExportRequest, context: __SerdeContext): any => {
   return {
     ...(input.customerDefinedValues != null && {
-      customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context),
+      customerDefinedValues: se_CustomerDefinedValues(input.customerDefinedValues, context),
     }),
     ...(input.dataSetType != null && { dataSetType: input.dataSetType }),
     ...(input.destinationS3BucketName != null && { destinationS3BucketName: input.destinationS3BucketName }),
@@ -190,13 +217,19 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
   };
 };
 
-const deserializeAws_json1_1GenerateDataSetResult = (output: any, context: __SerdeContext): GenerateDataSetResult => {
+/**
+ * deserializeAws_json1_1GenerateDataSetResult
+ */
+const de_GenerateDataSetResult = (output: any, context: __SerdeContext): GenerateDataSetResult => {
   return {
     dataSetRequestId: __expectString(output.dataSetRequestId),
   } as any;
 };
 
-const deserializeAws_json1_1MarketplaceCommerceAnalyticsException = (
+/**
+ * deserializeAws_json1_1MarketplaceCommerceAnalyticsException
+ */
+const de_MarketplaceCommerceAnalyticsException = (
   output: any,
   context: __SerdeContext
 ): MarketplaceCommerceAnalyticsException => {
@@ -205,10 +238,10 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsException = (
   } as any;
 };
 
-const deserializeAws_json1_1StartSupportDataExportResult = (
-  output: any,
-  context: __SerdeContext
-): StartSupportDataExportResult => {
+/**
+ * deserializeAws_json1_1StartSupportDataExportResult
+ */
+const de_StartSupportDataExportResult = (output: any, context: __SerdeContext): StartSupportDataExportResult => {
   return {
     dataSetRequestId: __expectString(output.dataSetRequestId),
   } as any;

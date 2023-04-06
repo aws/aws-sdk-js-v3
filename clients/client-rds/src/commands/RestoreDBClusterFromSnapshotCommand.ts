@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult } from "../models/models_1";
-import {
-  deserializeAws_queryRestoreDBClusterFromSnapshotCommand,
-  serializeAws_queryRestoreDBClusterFromSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_RestoreDBClusterFromSnapshotCommand, se_RestoreDBClusterFromSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -189,22 +186,67 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *             available across all DB instances.</p>
  *
  *
- * @example To restore an Amazon Aurora DB cluster from a DB cluster snapshot
+ * @example To restore a DB cluster from a snapshot
  * ```javascript
- * // The following example restores an Amazon Aurora DB cluster from a DB cluster snapshot.
+ * // The following example restores an Aurora PostgreSQL DB cluster compatible with PostgreSQL version 10.7 from a DB cluster snapshot named test-instance-snapshot.
  * const input = {
- *   "DBClusterIdentifier": "restored-cluster1",
- *   "Engine": "aurora",
- *   "SnapshotIdentifier": "sample-cluster-snapshot1"
+ *   "DBClusterIdentifier": "newdbcluster",
+ *   "Engine": "aurora-postgresql",
+ *   "EngineVersion": "10.7",
+ *   "SnapshotIdentifier": "test-instance-snapshot"
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBCluster": {}
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AssociatedRoles": [],
+ *     "AvailabilityZones": [
+ *       "us-west-2c",
+ *       "us-west-2a",
+ *       "us-west-2b"
+ *     ],
+ *     "BackupRetentionPeriod": 7,
+ *     "ClusterCreateTime": "2020-06-05T15:06:58.634Z",
+ *     "CopyTagsToSnapshot": false,
+ *     "CrossAccountClone": false,
+ *     "DBClusterArn": "arn:aws:rds:us-west-2:123456789012:cluster:newdbcluster",
+ *     "DBClusterIdentifier": "newdbcluster",
+ *     "DBClusterMembers": [],
+ *     "DBClusterParameterGroup": "default.aurora-postgresql10",
+ *     "DBSubnetGroup": "default",
+ *     "DatabaseName": "",
+ *     "DbClusterResourceId": "cluster-5DSB5IFQDDUVAWOUWM1EXAMPLE",
+ *     "DeletionProtection": false,
+ *     "DomainMemberships": [],
+ *     "Endpoint": "newdbcluster.cluster-############.us-west-2.rds.amazonaws.com",
+ *     "Engine": "aurora-postgresql",
+ *     "EngineMode": "provisioned",
+ *     "EngineVersion": "10.7",
+ *     "HostedZoneId": "Z1PVIF0EXAMPLE",
+ *     "HttpEndpointEnabled": false,
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/287364e4-33e3-4755-a3b0-a1b2c3d4e5f6",
+ *     "MasterUsername": "postgres",
+ *     "MultiAZ": false,
+ *     "Port": 5432,
+ *     "PreferredBackupWindow": "09:33-10:03",
+ *     "PreferredMaintenanceWindow": "sun:12:22-sun:12:52",
+ *     "ReadReplicaIdentifiers": [],
+ *     "ReaderEndpoint": "newdbcluster.cluster-ro-############.us-west-2.rds.amazonaws.com",
+ *     "Status": "creating",
+ *     "StorageEncrypted": true,
+ *     "VpcSecurityGroups": [
+ *       {
+ *         "Status": "active",
+ *         "VpcSecurityGroupId": "sg-########"
+ *       }
+ *     ]
+ *   }
  * }
  * *\/
- * // example id: to-restore-an-amazon-aurora-db-cluster-from-a-db-cluster-snapshot-1473958144325
+ * // example id: to-restore-a-db-cluster-from-a-snapshot-1680069287853
  * ```
  *
  */
@@ -271,7 +313,7 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreDBClusterFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBClusterFromSnapshotCommand(input, context);
+    return se_RestoreDBClusterFromSnapshotCommand(input, context);
   }
 
   /**
@@ -281,7 +323,7 @@ export class RestoreDBClusterFromSnapshotCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBClusterFromSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreDBClusterFromSnapshotCommand(output, context);
+    return de_RestoreDBClusterFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

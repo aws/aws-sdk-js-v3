@@ -15,10 +15,7 @@ import {
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { DeleteSignalingChannelInput, DeleteSignalingChannelOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSignalingChannelCommand,
-  serializeAws_restJson1DeleteSignalingChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSignalingChannelCommand, se_DeleteSignalingChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class DeleteSignalingChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSignalingChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSignalingChannelCommand(input, context);
+    return se_DeleteSignalingChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSignalingChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteSignalingChannelCommand(output, context);
+    return de_DeleteSignalingChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

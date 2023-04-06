@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { RegisterComputeInput, RegisterComputeOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterComputeCommand,
-  serializeAws_json1_1RegisterComputeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterComputeCommand, se_RegisterComputeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class RegisterComputeCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterComputeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterComputeCommand(input, context);
+    return se_RegisterComputeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterComputeCommandOutput> {
-    return deserializeAws_json1_1RegisterComputeCommand(output, context);
+    return de_RegisterComputeCommand(output, context);
   }
 
   // Start section: command_body_extra

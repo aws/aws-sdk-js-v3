@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListAccessKeysRequest, ListAccessKeysResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListAccessKeysCommand,
-  serializeAws_queryListAccessKeysCommand,
-} from "../protocols/Aws_query";
+import { de_ListAccessKeysCommand, se_ListAccessKeysCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class ListAccessKeysCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccessKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListAccessKeysCommand(input, context);
+    return se_ListAccessKeysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessKeysCommandOutput> {
-    return deserializeAws_queryListAccessKeysCommand(output, context);
+    return de_ListAccessKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

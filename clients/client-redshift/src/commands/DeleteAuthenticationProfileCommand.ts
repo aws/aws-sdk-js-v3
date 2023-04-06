@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAuthenticationProfileMessage, DeleteAuthenticationProfileResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteAuthenticationProfileCommand,
-  serializeAws_queryDeleteAuthenticationProfileCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteAuthenticationProfileCommand, se_DeleteAuthenticationProfileCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -127,7 +124,7 @@ export class DeleteAuthenticationProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAuthenticationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAuthenticationProfileCommand(input, context);
+    return se_DeleteAuthenticationProfileCommand(input, context);
   }
 
   /**
@@ -137,7 +134,7 @@ export class DeleteAuthenticationProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAuthenticationProfileCommandOutput> {
-    return deserializeAws_queryDeleteAuthenticationProfileCommand(output, context);
+    return de_DeleteAuthenticationProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

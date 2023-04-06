@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyImageAttributeRequest } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyImageAttributeCommand,
-  serializeAws_ec2ModifyImageAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyImageAttributeCommand, se_ModifyImageAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -204,14 +201,14 @@ export class ModifyImageAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyImageAttributeCommand(input, context);
+    return se_ModifyImageAttributeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyImageAttributeCommandOutput> {
-    return deserializeAws_ec2ModifyImageAttributeCommand(output, context);
+    return de_ModifyImageAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

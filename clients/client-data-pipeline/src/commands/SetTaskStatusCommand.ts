@@ -15,10 +15,7 @@ import {
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { SetTaskStatusInput, SetTaskStatusOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetTaskStatusCommand,
-  serializeAws_json1_1SetTaskStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetTaskStatusCommand, se_SetTaskStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class SetTaskStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: SetTaskStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetTaskStatusCommand(input, context);
+    return se_SetTaskStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTaskStatusCommandOutput> {
-    return deserializeAws_json1_1SetTaskStatusCommand(output, context);
+    return de_SetTaskStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

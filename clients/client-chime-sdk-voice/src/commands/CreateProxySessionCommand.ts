@@ -20,10 +20,7 @@ import {
   CreateProxySessionResponse,
   CreateProxySessionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProxySessionCommand,
-  serializeAws_restJson1CreateProxySessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateProxySessionCommand, se_CreateProxySessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class CreateProxySessionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateProxySessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProxySessionCommand(input, context);
+    return se_CreateProxySessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProxySessionCommandOutput> {
-    return deserializeAws_restJson1CreateProxySessionCommand(output, context);
+    return de_CreateProxySessionCommand(output, context);
   }
 
   // Start section: command_body_extra

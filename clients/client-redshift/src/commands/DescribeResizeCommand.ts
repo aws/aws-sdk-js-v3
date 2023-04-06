@@ -15,10 +15,7 @@ import {
 
 import { ResizeProgressMessage } from "../models/models_0";
 import { DescribeResizeMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeResizeCommand,
-  serializeAws_queryDescribeResizeCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeResizeCommand, se_DescribeResizeCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -133,14 +130,14 @@ export class DescribeResizeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeResizeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeResizeCommand(input, context);
+    return se_DescribeResizeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResizeCommandOutput> {
-    return deserializeAws_queryDescribeResizeCommand(output, context);
+    return de_DescribeResizeCommand(output, context);
   }
 
   // Start section: command_body_extra

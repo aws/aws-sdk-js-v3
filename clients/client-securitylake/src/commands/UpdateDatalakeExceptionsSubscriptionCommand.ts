@@ -18,8 +18,8 @@ import {
   UpdateDatalakeExceptionsSubscriptionResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand,
-  serializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand,
+  de_UpdateDatalakeExceptionsSubscriptionCommand,
+  se_UpdateDatalakeExceptionsSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -148,7 +148,7 @@ export class UpdateDatalakeExceptionsSubscriptionCommand extends $Command<
     input: UpdateDatalakeExceptionsSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand(input, context);
+    return se_UpdateDatalakeExceptionsSubscriptionCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class UpdateDatalakeExceptionsSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDatalakeExceptionsSubscriptionCommandOutput> {
-    return deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand(output, context);
+    return de_UpdateDatalakeExceptionsSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

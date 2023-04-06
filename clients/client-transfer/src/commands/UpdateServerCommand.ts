@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateServerRequest, UpdateServerRequestFilterSensitiveLog, UpdateServerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateServerCommand,
-  serializeAws_json1_1UpdateServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateServerCommand, se_UpdateServerCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -199,14 +196,14 @@ export class UpdateServerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServerCommand(input, context);
+    return se_UpdateServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServerCommandOutput> {
-    return deserializeAws_json1_1UpdateServerCommand(output, context);
+    return de_UpdateServerCommand(output, context);
   }
 
   // Start section: command_body_extra

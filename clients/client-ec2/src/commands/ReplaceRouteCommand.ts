@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ReplaceRouteRequest } from "../models/models_6";
-import { deserializeAws_ec2ReplaceRouteCommand, serializeAws_ec2ReplaceRouteCommand } from "../protocols/Aws_ec2";
+import { de_ReplaceRouteCommand, se_ReplaceRouteCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -149,14 +149,14 @@ export class ReplaceRouteCommand extends $Command<
    * @internal
    */
   private serialize(input: ReplaceRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceRouteCommand(input, context);
+    return se_ReplaceRouteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplaceRouteCommandOutput> {
-    return deserializeAws_ec2ReplaceRouteCommand(output, context);
+    return de_ReplaceRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

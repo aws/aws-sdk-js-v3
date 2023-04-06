@@ -15,10 +15,7 @@ import {
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { IncreaseReplicationFactorRequest, IncreaseReplicationFactorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1IncreaseReplicationFactorCommand,
-  serializeAws_json1_1IncreaseReplicationFactorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_IncreaseReplicationFactorCommand, se_IncreaseReplicationFactorCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,7 +152,7 @@ export class IncreaseReplicationFactorCommand extends $Command<
    * @internal
    */
   private serialize(input: IncreaseReplicationFactorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1IncreaseReplicationFactorCommand(input, context);
+    return se_IncreaseReplicationFactorCommand(input, context);
   }
 
   /**
@@ -165,7 +162,7 @@ export class IncreaseReplicationFactorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<IncreaseReplicationFactorCommandOutput> {
-    return deserializeAws_json1_1IncreaseReplicationFactorCommand(output, context);
+    return de_IncreaseReplicationFactorCommand(output, context);
   }
 
   // Start section: command_body_extra

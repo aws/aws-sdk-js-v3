@@ -15,10 +15,7 @@ import {
 
 import { DescribeServiceErrorsRequest, DescribeServiceErrorsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeServiceErrorsCommand,
-  serializeAws_json1_1DescribeServiceErrorsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeServiceErrorsCommand, se_DescribeServiceErrorsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribeServiceErrorsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeServiceErrorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServiceErrorsCommand(input, context);
+    return se_DescribeServiceErrorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServiceErrorsCommandOutput> {
-    return deserializeAws_json1_1DescribeServiceErrorsCommand(output, context);
+    return de_DescribeServiceErrorsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { StartSchemaCreationRequest, StartSchemaCreationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartSchemaCreationCommand,
-  serializeAws_restJson1StartSchemaCreationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartSchemaCreationCommand, se_StartSchemaCreationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class StartSchemaCreationCommand extends $Command<
    * @internal
    */
   private serialize(input: StartSchemaCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartSchemaCreationCommand(input, context);
+    return se_StartSchemaCreationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSchemaCreationCommandOutput> {
-    return deserializeAws_restJson1StartSchemaCreationCommand(output, context);
+    return de_StartSchemaCreationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateListenerRequest, UpdateListenerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateListenerCommand,
-  serializeAws_restJson1UpdateListenerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateListenerCommand, se_UpdateListenerCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -154,14 +151,14 @@ export class UpdateListenerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateListenerCommand(input, context);
+    return se_UpdateListenerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateListenerCommandOutput> {
-    return deserializeAws_restJson1UpdateListenerCommand(output, context);
+    return de_UpdateListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

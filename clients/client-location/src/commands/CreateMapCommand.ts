@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { CreateMapRequest, CreateMapResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMapCommand,
-  serializeAws_restJson1CreateMapCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMapCommand, se_CreateMapCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class CreateMapCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMapCommand(input, context);
+    return se_CreateMapCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMapCommandOutput> {
-    return deserializeAws_restJson1CreateMapCommand(output, context);
+    return de_CreateMapCommand(output, context);
   }
 
   // Start section: command_body_extra

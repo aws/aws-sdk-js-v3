@@ -15,10 +15,7 @@ import {
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { ExecuteBudgetActionRequest, ExecuteBudgetActionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ExecuteBudgetActionCommand,
-  serializeAws_json1_1ExecuteBudgetActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ExecuteBudgetActionCommand, se_ExecuteBudgetActionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class ExecuteBudgetActionCommand extends $Command<
    * @internal
    */
   private serialize(input: ExecuteBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExecuteBudgetActionCommand(input, context);
+    return se_ExecuteBudgetActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteBudgetActionCommandOutput> {
-    return deserializeAws_json1_1ExecuteBudgetActionCommand(output, context);
+    return de_ExecuteBudgetActionCommand(output, context);
   }
 
   // Start section: command_body_extra

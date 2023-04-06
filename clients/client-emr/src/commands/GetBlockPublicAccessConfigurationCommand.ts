@@ -16,8 +16,8 @@ import {
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { GetBlockPublicAccessConfigurationInput, GetBlockPublicAccessConfigurationOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand,
-  serializeAws_json1_1GetBlockPublicAccessConfigurationCommand,
+  de_GetBlockPublicAccessConfigurationCommand,
+  se_GetBlockPublicAccessConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -132,7 +132,7 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
     input: GetBlockPublicAccessConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBlockPublicAccessConfigurationCommand(input, context);
+    return se_GetBlockPublicAccessConfigurationCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBlockPublicAccessConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand(output, context);
+    return de_GetBlockPublicAccessConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { DescribeContinuousBackupsInput, DescribeContinuousBackupsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeContinuousBackupsCommand,
-  serializeAws_json1_0DescribeContinuousBackupsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeContinuousBackupsCommand, se_DescribeContinuousBackupsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -140,7 +137,7 @@ export class DescribeContinuousBackupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeContinuousBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeContinuousBackupsCommand(input, context);
+    return se_DescribeContinuousBackupsCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class DescribeContinuousBackupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeContinuousBackupsCommandOutput> {
-    return deserializeAws_json1_0DescribeContinuousBackupsCommand(output, context);
+    return de_DescribeContinuousBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

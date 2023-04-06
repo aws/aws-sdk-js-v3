@@ -15,10 +15,7 @@ import {
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { UpdateRepositoryRequest, UpdateRepositoryResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRepositoryCommand,
-  serializeAws_restJson1UpdateRepositoryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRepositoryCommand, se_UpdateRepositoryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class UpdateRepositoryCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRepositoryCommand(input, context);
+    return se_UpdateRepositoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRepositoryCommandOutput> {
-    return deserializeAws_restJson1UpdateRepositoryCommand(output, context);
+    return de_UpdateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

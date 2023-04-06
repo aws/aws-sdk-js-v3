@@ -15,10 +15,7 @@ import {
 
 import { UpgradeDomainRequest, UpgradeDomainResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1UpgradeDomainCommand,
-  serializeAws_restJson1UpgradeDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpgradeDomainCommand, se_UpgradeDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UpgradeDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: UpgradeDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpgradeDomainCommand(input, context);
+    return se_UpgradeDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpgradeDomainCommandOutput> {
-    return deserializeAws_restJson1UpgradeDomainCommand(output, context);
+    return de_UpgradeDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

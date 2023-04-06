@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GetMethodRequest, Method } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMethodCommand,
-  serializeAws_restJson1GetMethodCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMethodCommand, se_GetMethodCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetMethodCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMethodCommand(input, context);
+    return se_GetMethodCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMethodCommandOutput> {
-    return deserializeAws_restJson1GetMethodCommand(output, context);
+    return de_GetMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   CreateComputerRequestFilterSensitiveLog,
   CreateComputerResult,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateComputerCommand,
-  serializeAws_json1_1CreateComputerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateComputerCommand, se_CreateComputerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class CreateComputerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateComputerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateComputerCommand(input, context);
+    return se_CreateComputerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComputerCommandOutput> {
-    return deserializeAws_json1_1CreateComputerCommand(output, context);
+    return de_CreateComputerCommand(output, context);
   }
 
   // Start section: command_body_extra

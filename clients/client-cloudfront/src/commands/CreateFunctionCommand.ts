@@ -19,10 +19,7 @@ import {
   CreateFunctionRequestFilterSensitiveLog,
   CreateFunctionResult,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateFunctionCommand,
-  serializeAws_restXmlCreateFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateFunctionCommand, se_CreateFunctionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class CreateFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateFunctionCommand(input, context);
+    return se_CreateFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionCommandOutput> {
-    return deserializeAws_restXmlCreateFunctionCommand(output, context);
+    return de_CreateFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

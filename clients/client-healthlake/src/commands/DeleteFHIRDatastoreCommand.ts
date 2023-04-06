@@ -15,10 +15,7 @@ import {
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
 import { DeleteFHIRDatastoreRequest, DeleteFHIRDatastoreResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteFHIRDatastoreCommand,
-  serializeAws_json1_0DeleteFHIRDatastoreCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteFHIRDatastoreCommand, se_DeleteFHIRDatastoreCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteFHIRDatastoreCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFHIRDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteFHIRDatastoreCommand(input, context);
+    return se_DeleteFHIRDatastoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFHIRDatastoreCommandOutput> {
-    return deserializeAws_json1_0DeleteFHIRDatastoreCommand(output, context);
+    return de_DeleteFHIRDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

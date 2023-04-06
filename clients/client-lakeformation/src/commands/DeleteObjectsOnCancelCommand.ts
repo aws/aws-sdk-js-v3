@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { DeleteObjectsOnCancelRequest, DeleteObjectsOnCancelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteObjectsOnCancelCommand,
-  serializeAws_restJson1DeleteObjectsOnCancelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteObjectsOnCancelCommand, se_DeleteObjectsOnCancelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class DeleteObjectsOnCancelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteObjectsOnCancelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteObjectsOnCancelCommand(input, context);
+    return se_DeleteObjectsOnCancelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectsOnCancelCommandOutput> {
-    return deserializeAws_restJson1DeleteObjectsOnCancelCommand(output, context);
+    return de_DeleteObjectsOnCancelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { UpdateGraphqlApiRequest, UpdateGraphqlApiResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGraphqlApiCommand,
-  serializeAws_restJson1UpdateGraphqlApiCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateGraphqlApiCommand, se_UpdateGraphqlApiCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -186,14 +183,14 @@ export class UpdateGraphqlApiCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGraphqlApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGraphqlApiCommand(input, context);
+    return se_UpdateGraphqlApiCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGraphqlApiCommandOutput> {
-    return deserializeAws_restJson1UpdateGraphqlApiCommand(output, context);
+    return de_UpdateGraphqlApiCommand(output, context);
   }
 
   // Start section: command_body_extra

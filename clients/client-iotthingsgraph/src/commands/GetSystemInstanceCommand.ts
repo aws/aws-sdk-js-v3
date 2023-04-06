@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { GetSystemInstanceRequest, GetSystemInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSystemInstanceCommand,
-  serializeAws_json1_1GetSystemInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSystemInstanceCommand, se_GetSystemInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetSystemInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSystemInstanceCommand(input, context);
+    return se_GetSystemInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSystemInstanceCommandOutput> {
-    return deserializeAws_json1_1GetSystemInstanceCommand(output, context);
+    return de_GetSystemInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

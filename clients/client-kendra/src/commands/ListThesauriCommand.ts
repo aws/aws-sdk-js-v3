@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { ListThesauriRequest, ListThesauriResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListThesauriCommand,
-  serializeAws_json1_1ListThesauriCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListThesauriCommand, se_ListThesauriCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListThesauriCommand extends $Command<
    * @internal
    */
   private serialize(input: ListThesauriCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListThesauriCommand(input, context);
+    return se_ListThesauriCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThesauriCommandOutput> {
-    return deserializeAws_json1_1ListThesauriCommand(output, context);
+    return de_ListThesauriCommand(output, context);
   }
 
   // Start section: command_body_extra

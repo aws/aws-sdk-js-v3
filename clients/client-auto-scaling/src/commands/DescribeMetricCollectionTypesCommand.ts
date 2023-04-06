@@ -16,8 +16,8 @@ import {
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DescribeMetricCollectionTypesAnswer } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeMetricCollectionTypesCommand,
-  serializeAws_queryDescribeMetricCollectionTypesCommand,
+  de_DescribeMetricCollectionTypesCommand,
+  se_DescribeMetricCollectionTypesCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -168,7 +168,7 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeMetricCollectionTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeMetricCollectionTypesCommand(input, context);
+    return se_DescribeMetricCollectionTypesCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMetricCollectionTypesCommandOutput> {
-    return deserializeAws_queryDescribeMetricCollectionTypesCommand(output, context);
+    return de_DescribeMetricCollectionTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

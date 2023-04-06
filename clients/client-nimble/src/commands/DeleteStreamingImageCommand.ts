@@ -19,10 +19,7 @@ import {
   DeleteStreamingImageResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1DeleteStreamingImageCommand,
-  serializeAws_restJson1DeleteStreamingImageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteStreamingImageCommand, se_DeleteStreamingImageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class DeleteStreamingImageCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStreamingImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStreamingImageCommand(input, context);
+    return se_DeleteStreamingImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamingImageCommandOutput> {
-    return deserializeAws_restJson1DeleteStreamingImageCommand(output, context);
+    return de_DeleteStreamingImageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetAdmChannelRequest, GetAdmChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetAdmChannelCommand,
-  serializeAws_restJson1GetAdmChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAdmChannelCommand, se_GetAdmChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetAdmChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAdmChannelCommand(input, context);
+    return se_GetAdmChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdmChannelCommandOutput> {
-    return deserializeAws_restJson1GetAdmChannelCommand(output, context);
+    return de_GetAdmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

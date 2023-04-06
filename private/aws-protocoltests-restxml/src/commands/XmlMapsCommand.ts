@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlMapsInputOutput } from "../models/models_0";
-import { deserializeAws_restXmlXmlMapsCommand, serializeAws_restXmlXmlMapsCommand } from "../protocols/Aws_restXml";
+import { de_XmlMapsCommand, se_XmlMapsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -108,14 +108,14 @@ export class XmlMapsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlMapsCommand(input, context);
+    return se_XmlMapsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlMapsCommandOutput> {
-    return deserializeAws_restXmlXmlMapsCommand(output, context);
+    return de_XmlMapsCommand(output, context);
   }
 
   // Start section: command_body_extra

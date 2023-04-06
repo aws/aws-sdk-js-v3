@@ -15,8 +15,8 @@ import {
 
 import { DeleteModelPackageGroupPolicyInput } from "../models/models_1";
 import {
-  deserializeAws_json1_1DeleteModelPackageGroupPolicyCommand,
-  serializeAws_json1_1DeleteModelPackageGroupPolicyCommand,
+  de_DeleteModelPackageGroupPolicyCommand,
+  se_DeleteModelPackageGroupPolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -120,7 +120,7 @@ export class DeleteModelPackageGroupPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteModelPackageGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelPackageGroupPolicyCommand(input, context);
+    return se_DeleteModelPackageGroupPolicyCommand(input, context);
   }
 
   /**
@@ -130,7 +130,7 @@ export class DeleteModelPackageGroupPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteModelPackageGroupPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteModelPackageGroupPolicyCommand(output, context);
+    return de_DeleteModelPackageGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

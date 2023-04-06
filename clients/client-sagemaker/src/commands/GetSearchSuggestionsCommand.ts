@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetSearchSuggestionsRequest, GetSearchSuggestionsResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1GetSearchSuggestionsCommand,
-  serializeAws_json1_1GetSearchSuggestionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSearchSuggestionsCommand, se_GetSearchSuggestionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -128,14 +125,14 @@ export class GetSearchSuggestionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSearchSuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSearchSuggestionsCommand(input, context);
+    return se_GetSearchSuggestionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSearchSuggestionsCommandOutput> {
-    return deserializeAws_json1_1GetSearchSuggestionsCommand(output, context);
+    return de_GetSearchSuggestionsCommand(output, context);
   }
 
   // Start section: command_body_extra

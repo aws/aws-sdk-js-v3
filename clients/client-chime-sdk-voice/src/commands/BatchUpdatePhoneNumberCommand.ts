@@ -20,10 +20,7 @@ import {
   BatchUpdatePhoneNumberResponse,
   BatchUpdatePhoneNumberResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpdatePhoneNumberCommand,
-  serializeAws_restJson1BatchUpdatePhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchUpdatePhoneNumberCommand, se_BatchUpdatePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchUpdatePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdatePhoneNumberCommand(input, context);
+    return se_BatchUpdatePhoneNumberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdatePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1BatchUpdatePhoneNumberCommand(output, context);
+    return de_BatchUpdatePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

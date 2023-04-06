@@ -18,8 +18,8 @@ import {
   EnableApplicationLayerAutomaticResponseResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1EnableApplicationLayerAutomaticResponseCommand,
-  serializeAws_json1_1EnableApplicationLayerAutomaticResponseCommand,
+  de_EnableApplicationLayerAutomaticResponseCommand,
+  se_EnableApplicationLayerAutomaticResponseCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
@@ -172,7 +172,7 @@ export class EnableApplicationLayerAutomaticResponseCommand extends $Command<
     input: EnableApplicationLayerAutomaticResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableApplicationLayerAutomaticResponseCommand(input, context);
+    return se_EnableApplicationLayerAutomaticResponseCommand(input, context);
   }
 
   /**
@@ -182,7 +182,7 @@ export class EnableApplicationLayerAutomaticResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableApplicationLayerAutomaticResponseCommandOutput> {
-    return deserializeAws_json1_1EnableApplicationLayerAutomaticResponseCommand(output, context);
+    return de_EnableApplicationLayerAutomaticResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

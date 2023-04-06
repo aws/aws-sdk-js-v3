@@ -15,8 +15,8 @@ import {
 
 import { DescribeSimulationApplicationRequest, DescribeSimulationApplicationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeSimulationApplicationCommand,
-  serializeAws_restJson1DescribeSimulationApplicationCommand,
+  de_DescribeSimulationApplicationCommand,
+  se_DescribeSimulationApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
@@ -136,7 +136,7 @@ export class DescribeSimulationApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSimulationApplicationCommand(input, context);
+    return se_DescribeSimulationApplicationCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DescribeSimulationApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1DescribeSimulationApplicationCommand(output, context);
+    return de_DescribeSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

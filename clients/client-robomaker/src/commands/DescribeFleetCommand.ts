@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeFleetRequest, DescribeFleetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFleetCommand,
-  serializeAws_restJson1DescribeFleetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeFleetCommand, se_DescribeFleetCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -136,14 +133,14 @@ export class DescribeFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFleetCommand(input, context);
+    return se_DescribeFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetCommandOutput> {
-    return deserializeAws_restJson1DescribeFleetCommand(output, context);
+    return de_DescribeFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

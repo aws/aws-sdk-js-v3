@@ -18,8 +18,8 @@ import {
   DescribeReservedNodeExchangeStatusOutputMessage,
 } from "../models/models_1";
 import {
-  deserializeAws_queryDescribeReservedNodeExchangeStatusCommand,
-  serializeAws_queryDescribeReservedNodeExchangeStatusCommand,
+  de_DescribeReservedNodeExchangeStatusCommand,
+  se_DescribeReservedNodeExchangeStatusCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -142,7 +142,7 @@ export class DescribeReservedNodeExchangeStatusCommand extends $Command<
     input: DescribeReservedNodeExchangeStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedNodeExchangeStatusCommand(input, context);
+    return se_DescribeReservedNodeExchangeStatusCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DescribeReservedNodeExchangeStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedNodeExchangeStatusCommandOutput> {
-    return deserializeAws_queryDescribeReservedNodeExchangeStatusCommand(output, context);
+    return de_DescribeReservedNodeExchangeStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

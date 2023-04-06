@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
-  deserializeAws_restJson1SignalApplicationInstanceNodeInstancesCommand,
-  serializeAws_restJson1SignalApplicationInstanceNodeInstancesCommand,
+  de_SignalApplicationInstanceNodeInstancesCommand,
+  se_SignalApplicationInstanceNodeInstancesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class SignalApplicationInstanceNodeInstancesCommand extends $Command<
     input: SignalApplicationInstanceNodeInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1SignalApplicationInstanceNodeInstancesCommand(input, context);
+    return se_SignalApplicationInstanceNodeInstancesCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class SignalApplicationInstanceNodeInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SignalApplicationInstanceNodeInstancesCommandOutput> {
-    return deserializeAws_restJson1SignalApplicationInstanceNodeInstancesCommand(output, context);
+    return de_SignalApplicationInstanceNodeInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

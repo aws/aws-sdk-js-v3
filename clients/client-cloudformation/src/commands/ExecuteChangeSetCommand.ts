@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { ExecuteChangeSetInput, ExecuteChangeSetOutput } from "../models/models_0";
-import {
-  deserializeAws_queryExecuteChangeSetCommand,
-  serializeAws_queryExecuteChangeSetCommand,
-} from "../protocols/Aws_query";
+import { de_ExecuteChangeSetCommand, se_ExecuteChangeSetCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class ExecuteChangeSetCommand extends $Command<
    * @internal
    */
   private serialize(input: ExecuteChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryExecuteChangeSetCommand(input, context);
+    return se_ExecuteChangeSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteChangeSetCommandOutput> {
-    return deserializeAws_queryExecuteChangeSetCommand(output, context);
+    return de_ExecuteChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,8 +20,8 @@ import {
 } from "../ElasticLoadBalancingClient";
 import { DeregisterEndPointsInput, DeregisterEndPointsOutput } from "../models/models_0";
 import {
-  deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand,
-  serializeAws_queryDeregisterInstancesFromLoadBalancerCommand,
+  de_DeregisterInstancesFromLoadBalancerCommand,
+  se_DeregisterInstancesFromLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -171,7 +171,7 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
     input: DeregisterInstancesFromLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeregisterInstancesFromLoadBalancerCommand(input, context);
+    return se_DeregisterInstancesFromLoadBalancerCommand(input, context);
   }
 
   /**
@@ -181,7 +181,7 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> {
-    return deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand(output, context);
+    return de_DeregisterInstancesFromLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

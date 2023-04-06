@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateNamespaceRequest, CreateNamespaceResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateNamespaceCommand,
-  serializeAws_restJson1CreateNamespaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateNamespaceCommand, se_CreateNamespaceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -168,14 +165,14 @@ export class CreateNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNamespaceCommand(input, context);
+    return se_CreateNamespaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNamespaceCommandOutput> {
-    return deserializeAws_restJson1CreateNamespaceCommand(output, context);
+    return de_CreateNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

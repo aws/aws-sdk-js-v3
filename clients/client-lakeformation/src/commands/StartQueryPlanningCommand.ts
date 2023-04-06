@@ -19,10 +19,7 @@ import {
   StartQueryPlanningRequestFilterSensitiveLog,
   StartQueryPlanningResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartQueryPlanningCommand,
-  serializeAws_restJson1StartQueryPlanningCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartQueryPlanningCommand, se_StartQueryPlanningCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class StartQueryPlanningCommand extends $Command<
    * @internal
    */
   private serialize(input: StartQueryPlanningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartQueryPlanningCommand(input, context);
+    return se_StartQueryPlanningCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartQueryPlanningCommandOutput> {
-    return deserializeAws_restJson1StartQueryPlanningCommand(output, context);
+    return de_StartQueryPlanningCommand(output, context);
   }
 
   // Start section: command_body_extra

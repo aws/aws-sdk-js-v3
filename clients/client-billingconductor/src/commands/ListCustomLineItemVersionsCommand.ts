@@ -19,10 +19,7 @@ import {
   ListCustomLineItemVersionsOutput,
   ListCustomLineItemVersionsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCustomLineItemVersionsCommand,
-  serializeAws_restJson1ListCustomLineItemVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCustomLineItemVersionsCommand, se_ListCustomLineItemVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class ListCustomLineItemVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCustomLineItemVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCustomLineItemVersionsCommand(input, context);
+    return se_ListCustomLineItemVersionsCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class ListCustomLineItemVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomLineItemVersionsCommandOutput> {
-    return deserializeAws_restJson1ListCustomLineItemVersionsCommand(output, context);
+    return de_ListCustomLineItemVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

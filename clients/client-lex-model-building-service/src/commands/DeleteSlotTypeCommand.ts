@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { DeleteSlotTypeRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSlotTypeCommand,
-  serializeAws_restJson1DeleteSlotTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSlotTypeCommand, se_DeleteSlotTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -177,14 +174,14 @@ export class DeleteSlotTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSlotTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSlotTypeCommand(input, context);
+    return se_DeleteSlotTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSlotTypeCommandOutput> {
-    return deserializeAws_restJson1DeleteSlotTypeCommand(output, context);
+    return de_DeleteSlotTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

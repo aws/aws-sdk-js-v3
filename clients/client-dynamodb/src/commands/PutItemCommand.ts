@@ -15,7 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { PutItemInput, PutItemOutput } from "../models/models_0";
-import { deserializeAws_json1_0PutItemCommand, serializeAws_json1_0PutItemCommand } from "../protocols/Aws_json1_0";
+import { de_PutItemCommand, se_PutItemCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -260,14 +260,14 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
    * @internal
    */
   private serialize(input: PutItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutItemCommand(input, context);
+    return se_PutItemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutItemCommandOutput> {
-    return deserializeAws_json1_0PutItemCommand(output, context);
+    return de_PutItemCommand(output, context);
   }
 
   // Start section: command_body_extra

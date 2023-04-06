@@ -16,8 +16,8 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { BatchGetAssetPropertyAggregatesRequest, BatchGetAssetPropertyAggregatesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchGetAssetPropertyAggregatesCommand,
-  serializeAws_restJson1BatchGetAssetPropertyAggregatesCommand,
+  de_BatchGetAssetPropertyAggregatesCommand,
+  se_BatchGetAssetPropertyAggregatesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -162,7 +162,7 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command<
     input: BatchGetAssetPropertyAggregatesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetAssetPropertyAggregatesCommand(input, context);
+    return se_BatchGetAssetPropertyAggregatesCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetAssetPropertyAggregatesCommandOutput> {
-    return deserializeAws_restJson1BatchGetAssetPropertyAggregatesCommand(output, context);
+    return de_BatchGetAssetPropertyAggregatesCommand(output, context);
   }
 
   // Start section: command_body_extra

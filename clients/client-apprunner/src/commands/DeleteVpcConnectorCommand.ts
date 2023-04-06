@@ -15,10 +15,7 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { DeleteVpcConnectorRequest, DeleteVpcConnectorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteVpcConnectorCommand,
-  serializeAws_json1_0DeleteVpcConnectorCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteVpcConnectorCommand, se_DeleteVpcConnectorCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DeleteVpcConnectorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVpcConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteVpcConnectorCommand(input, context);
+    return se_DeleteVpcConnectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcConnectorCommandOutput> {
-    return deserializeAws_json1_0DeleteVpcConnectorCommand(output, context);
+    return de_DeleteVpcConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

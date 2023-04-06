@@ -15,10 +15,7 @@ import {
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { CreateBackendRequest, CreateBackendResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBackendCommand,
-  serializeAws_restJson1CreateBackendCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBackendCommand, se_CreateBackendCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class CreateBackendCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBackendCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBackendCommand(input, context);
+    return se_CreateBackendCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackendCommandOutput> {
-    return deserializeAws_restJson1CreateBackendCommand(output, context);
+    return de_CreateBackendCommand(output, context);
   }
 
   // Start section: command_body_extra

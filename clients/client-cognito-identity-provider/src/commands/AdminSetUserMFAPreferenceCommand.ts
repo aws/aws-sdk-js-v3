@@ -24,10 +24,7 @@ import {
   AdminSetUserMFAPreferenceRequestFilterSensitiveLog,
   AdminSetUserMFAPreferenceResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminSetUserMFAPreferenceCommand,
-  serializeAws_json1_1AdminSetUserMFAPreferenceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminSetUserMFAPreferenceCommand, se_AdminSetUserMFAPreferenceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -166,7 +163,7 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminSetUserMFAPreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminSetUserMFAPreferenceCommand(input, context);
+    return se_AdminSetUserMFAPreferenceCommand(input, context);
   }
 
   /**
@@ -176,7 +173,7 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminSetUserMFAPreferenceCommandOutput> {
-    return deserializeAws_json1_1AdminSetUserMFAPreferenceCommand(output, context);
+    return de_AdminSetUserMFAPreferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

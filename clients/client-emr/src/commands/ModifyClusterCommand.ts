@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ModifyClusterInput, ModifyClusterOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyClusterCommand,
-  serializeAws_json1_1ModifyClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyClusterCommand, se_ModifyClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class ModifyClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyClusterCommand(input, context);
+    return se_ModifyClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterCommandOutput> {
-    return deserializeAws_json1_1ModifyClusterCommand(output, context);
+    return de_ModifyClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

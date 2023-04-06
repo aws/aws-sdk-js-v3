@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopHyperParameterTuningJobRequest } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopHyperParameterTuningJobCommand,
-  serializeAws_json1_1StopHyperParameterTuningJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopHyperParameterTuningJobCommand, se_StopHyperParameterTuningJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -129,7 +126,7 @@ export class StopHyperParameterTuningJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopHyperParameterTuningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopHyperParameterTuningJobCommand(input, context);
+    return se_StopHyperParameterTuningJobCommand(input, context);
   }
 
   /**
@@ -139,7 +136,7 @@ export class StopHyperParameterTuningJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopHyperParameterTuningJobCommandOutput> {
-    return deserializeAws_json1_1StopHyperParameterTuningJobCommand(output, context);
+    return de_StopHyperParameterTuningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

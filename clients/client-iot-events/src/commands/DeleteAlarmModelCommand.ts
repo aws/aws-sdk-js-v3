@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { DeleteAlarmModelRequest, DeleteAlarmModelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAlarmModelCommand,
-  serializeAws_restJson1DeleteAlarmModelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAlarmModelCommand, se_DeleteAlarmModelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteAlarmModelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAlarmModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAlarmModelCommand(input, context);
+    return se_DeleteAlarmModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAlarmModelCommandOutput> {
-    return deserializeAws_restJson1DeleteAlarmModelCommand(output, context);
+    return de_DeleteAlarmModelCommand(output, context);
   }
 
   // Start section: command_body_extra

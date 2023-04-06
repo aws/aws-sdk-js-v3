@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { GetSnapshotsRequest, GetSnapshotsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSnapshotsCommand,
-  serializeAws_json1_1GetSnapshotsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSnapshotsCommand, se_GetSnapshotsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetSnapshotsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSnapshotsCommand(input, context);
+    return se_GetSnapshotsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnapshotsCommandOutput> {
-    return deserializeAws_json1_1GetSnapshotsCommand(output, context);
+    return de_GetSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

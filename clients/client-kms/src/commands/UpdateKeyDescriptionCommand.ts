@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { UpdateKeyDescriptionRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateKeyDescriptionCommand,
-  serializeAws_json1_1UpdateKeyDescriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateKeyDescriptionCommand, se_UpdateKeyDescriptionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -188,14 +185,14 @@ export class UpdateKeyDescriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateKeyDescriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateKeyDescriptionCommand(input, context);
+    return se_UpdateKeyDescriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateKeyDescriptionCommandOutput> {
-    return deserializeAws_json1_1UpdateKeyDescriptionCommand(output, context);
+    return de_UpdateKeyDescriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

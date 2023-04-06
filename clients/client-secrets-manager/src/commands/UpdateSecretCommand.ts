@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateSecretRequest, UpdateSecretRequestFilterSensitiveLog, UpdateSecretResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSecretCommand,
-  serializeAws_json1_1UpdateSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSecretCommand, se_UpdateSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -252,14 +249,14 @@ export class UpdateSecretCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSecretCommand(input, context);
+    return se_UpdateSecretCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecretCommandOutput> {
-    return deserializeAws_json1_1UpdateSecretCommand(output, context);
+    return de_UpdateSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

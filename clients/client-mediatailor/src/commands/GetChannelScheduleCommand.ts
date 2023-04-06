@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { GetChannelScheduleRequest, GetChannelScheduleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetChannelScheduleCommand,
-  serializeAws_restJson1GetChannelScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetChannelScheduleCommand, se_GetChannelScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class GetChannelScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: GetChannelScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetChannelScheduleCommand(input, context);
+    return se_GetChannelScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelScheduleCommandOutput> {
-    return deserializeAws_restJson1GetChannelScheduleCommand(output, context);
+    return de_GetChannelScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   UpdateConnectorProfileRequestFilterSensitiveLog,
   UpdateConnectorProfileResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConnectorProfileCommand,
-  serializeAws_restJson1UpdateConnectorProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateConnectorProfileCommand, se_UpdateConnectorProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -368,14 +365,14 @@ export class UpdateConnectorProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConnectorProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConnectorProfileCommand(input, context);
+    return se_UpdateConnectorProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectorProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateConnectorProfileCommand(output, context);
+    return de_UpdateConnectorProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

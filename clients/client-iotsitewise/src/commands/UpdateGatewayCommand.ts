@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { UpdateGatewayRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGatewayCommand,
-  serializeAws_restJson1UpdateGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateGatewayCommand, se_UpdateGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UpdateGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGatewayCommand(input, context);
+    return se_UpdateGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewayCommandOutput> {
-    return deserializeAws_restJson1UpdateGatewayCommand(output, context);
+    return de_UpdateGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

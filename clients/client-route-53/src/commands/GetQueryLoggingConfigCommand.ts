@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetQueryLoggingConfigRequest, GetQueryLoggingConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetQueryLoggingConfigCommand,
-  serializeAws_restXmlGetQueryLoggingConfigCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetQueryLoggingConfigCommand, se_GetQueryLoggingConfigCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -130,14 +127,14 @@ export class GetQueryLoggingConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: GetQueryLoggingConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetQueryLoggingConfigCommand(input, context);
+    return se_GetQueryLoggingConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryLoggingConfigCommandOutput> {
-    return deserializeAws_restXmlGetQueryLoggingConfigCommand(output, context);
+    return de_GetQueryLoggingConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

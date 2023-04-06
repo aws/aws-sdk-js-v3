@@ -19,10 +19,7 @@ import {
   CreateLocationFsxOpenZfsRequestFilterSensitiveLog,
   CreateLocationFsxOpenZfsResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationFsxOpenZfsCommand,
-  serializeAws_json1_1CreateLocationFsxOpenZfsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationFsxOpenZfsCommand, se_CreateLocationFsxOpenZfsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLocationFsxOpenZfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationFsxOpenZfsCommand(input, context);
+    return se_CreateLocationFsxOpenZfsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxOpenZfsCommandOutput> {
-    return deserializeAws_json1_1CreateLocationFsxOpenZfsCommand(output, context);
+    return de_CreateLocationFsxOpenZfsCommand(output, context);
   }
 
   // Start section: command_body_extra

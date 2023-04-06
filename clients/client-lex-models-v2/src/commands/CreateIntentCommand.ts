@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { CreateIntentRequest, CreateIntentResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateIntentCommand,
-  serializeAws_restJson1CreateIntentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateIntentCommand, se_CreateIntentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -607,14 +604,14 @@ export class CreateIntentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIntentCommand(input, context);
+    return se_CreateIntentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIntentCommandOutput> {
-    return deserializeAws_restJson1CreateIntentCommand(output, context);
+    return de_CreateIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

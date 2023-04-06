@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteEndpointConfigInput } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteEndpointConfigCommand,
-  serializeAws_json1_1DeleteEndpointConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEndpointConfigCommand, se_DeleteEndpointConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -128,14 +125,14 @@ export class DeleteEndpointConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEndpointConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEndpointConfigCommand(input, context);
+    return se_DeleteEndpointConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteEndpointConfigCommand(output, context);
+    return de_DeleteEndpointConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

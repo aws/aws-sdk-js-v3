@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetSessionTokenRequest, GetSessionTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetSessionTokenCommand,
-  serializeAws_queryGetSessionTokenCommand,
-} from "../protocols/Aws_query";
+import { de_GetSessionTokenCommand, se_GetSessionTokenCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -213,14 +210,14 @@ export class GetSessionTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSessionTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSessionTokenCommand(input, context);
+    return se_GetSessionTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionTokenCommandOutput> {
-    return deserializeAws_queryGetSessionTokenCommand(output, context);
+    return de_GetSessionTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

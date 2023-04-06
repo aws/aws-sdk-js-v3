@@ -19,10 +19,7 @@ import {
   DescribeCommentsResponse,
   DescribeCommentsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCommentsCommand,
-  serializeAws_restJson1DescribeCommentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeCommentsCommand, se_DescribeCommentsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -149,14 +146,14 @@ export class DescribeCommentsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCommentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCommentsCommand(input, context);
+    return se_DescribeCommentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCommentsCommandOutput> {
-    return deserializeAws_restJson1DescribeCommentsCommand(output, context);
+    return de_DescribeCommentsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DBSnapshotMessage, DescribeDBSnapshotsMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBSnapshotsCommand,
-  serializeAws_queryDescribeDBSnapshotsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBSnapshotsCommand, se_DescribeDBSnapshotsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -75,18 +72,45 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
  *
- * @example To list DB snapshot attributes
+ * @example To describe a DB snapshot for a DB instance
  * ```javascript
- * // This example lists all manually-created, shared snapshots for the specified DB instance.
+ * // The following example retrieves the details of a DB snapshot for a DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "mymysqlinstance",
- *   "IncludePublic": false,
- *   "IncludeShared": true,
- *   "SnapshotType": "manual"
+ *   "DBSnapshotIdentifier": "mydbsnapshot"
  * };
  * const command = new DescribeDBSnapshotsCommand(input);
- * await client.send(command);
- * // example id: describe-db-snapshots-2c935989-a1ef-4c85-aea4-1d0f45f17f26
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBSnapshots": [
+ *     {
+ *       "AllocatedStorage": 20,
+ *       "AvailabilityZone": "us-east-1f",
+ *       "DBInstanceIdentifier": "mysqldb",
+ *       "DBSnapshotArn": "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshot",
+ *       "DBSnapshotIdentifier": "mydbsnapshot",
+ *       "DbiResourceId": "db-AKIAIOSFODNN7EXAMPLE",
+ *       "Encrypted": false,
+ *       "Engine": "mysql",
+ *       "EngineVersion": "5.6.37",
+ *       "IAMDatabaseAuthenticationEnabled": false,
+ *       "InstanceCreateTime": "2018-02-08T22:24:55.973Z",
+ *       "LicenseModel": "general-public-license",
+ *       "MasterUsername": "mysqladmin",
+ *       "OptionGroupName": "default:mysql-5-6",
+ *       "PercentProgress": 100,
+ *       "Port": 3306,
+ *       "ProcessorFeatures": [],
+ *       "SnapshotCreateTime": "2018-02-08T22:28:08.598Z",
+ *       "SnapshotType": "manual",
+ *       "Status": "available",
+ *       "StorageType": "gp2",
+ *       "VpcId": "vpc-6594f31c"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-a-db-snapshot-for-a-db-instance-1680280423239
  * ```
  *
  */
@@ -153,14 +177,14 @@ export class DescribeDBSnapshotsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBSnapshotsCommand(input, context);
+    return se_DescribeDBSnapshotsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBSnapshotsCommandOutput> {
-    return deserializeAws_queryDescribeDBSnapshotsCommand(output, context);
+    return de_DescribeDBSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DetachStaticIpRequest, DetachStaticIpResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetachStaticIpCommand,
-  serializeAws_json1_1DetachStaticIpCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetachStaticIpCommand, se_DetachStaticIpCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class DetachStaticIpCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachStaticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachStaticIpCommand(input, context);
+    return se_DetachStaticIpCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachStaticIpCommandOutput> {
-    return deserializeAws_json1_1DetachStaticIpCommand(output, context);
+    return de_DetachStaticIpCommand(output, context);
   }
 
   // Start section: command_body_extra

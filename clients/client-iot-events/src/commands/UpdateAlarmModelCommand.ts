@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { UpdateAlarmModelRequest, UpdateAlarmModelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAlarmModelCommand,
-  serializeAws_restJson1UpdateAlarmModelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAlarmModelCommand, se_UpdateAlarmModelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -284,14 +281,14 @@ export class UpdateAlarmModelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAlarmModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAlarmModelCommand(input, context);
+    return se_UpdateAlarmModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAlarmModelCommandOutput> {
-    return deserializeAws_restJson1UpdateAlarmModelCommand(output, context);
+    return de_UpdateAlarmModelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { PutProjectEventsRequest, PutProjectEventsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutProjectEventsCommand,
-  serializeAws_restJson1PutProjectEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutProjectEventsCommand, se_PutProjectEventsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class PutProjectEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutProjectEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutProjectEventsCommand(input, context);
+    return se_PutProjectEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutProjectEventsCommandOutput> {
-    return deserializeAws_restJson1PutProjectEventsCommand(output, context);
+    return de_PutProjectEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

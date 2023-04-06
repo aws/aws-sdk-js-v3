@@ -19,10 +19,7 @@ import {
   CreateViewOutput,
   CreateViewOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateViewCommand,
-  serializeAws_restJson1CreateViewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateViewCommand, se_CreateViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -173,14 +170,14 @@ export class CreateViewCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateViewCommand(input, context);
+    return se_CreateViewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateViewCommandOutput> {
-    return deserializeAws_restJson1CreateViewCommand(output, context);
+    return de_CreateViewCommand(output, context);
   }
 
   // Start section: command_body_extra

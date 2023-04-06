@@ -19,8 +19,8 @@ import {
   ListSavingsPlansPurchaseRecommendationGenerationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand,
-  serializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand,
+  de_ListSavingsPlansPurchaseRecommendationGenerationCommand,
+  se_ListSavingsPlansPurchaseRecommendationGenerationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -147,7 +147,7 @@ export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Co
     input: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand(input, context);
+    return se_ListSavingsPlansPurchaseRecommendationGenerationCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Co
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput> {
-    return deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand(output, context);
+    return de_ListSavingsPlansPurchaseRecommendationGenerationCommand(output, context);
   }
 
   // Start section: command_body_extra

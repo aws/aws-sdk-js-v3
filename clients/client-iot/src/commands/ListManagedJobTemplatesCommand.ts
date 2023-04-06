@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListManagedJobTemplatesRequest, ListManagedJobTemplatesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListManagedJobTemplatesCommand,
-  serializeAws_restJson1ListManagedJobTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListManagedJobTemplatesCommand, se_ListManagedJobTemplatesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListManagedJobTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListManagedJobTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListManagedJobTemplatesCommand(input, context);
+    return se_ListManagedJobTemplatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedJobTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListManagedJobTemplatesCommand(output, context);
+    return de_ListManagedJobTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

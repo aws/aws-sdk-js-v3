@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSourceRegionsMessage, SourceRegionMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeSourceRegionsCommand,
-  serializeAws_queryDescribeSourceRegionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeSourceRegionsCommand, se_DescribeSourceRegionsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -73,69 +70,147 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  *
- * @example To describe source regions
+ * @example To describe source Regions
  * ```javascript
- * // To list the AWS regions where a Read Replica can be created.
- * const input = {};
+ * // The following example retrieves details about all source AWS Regions where the current AWS Region can create a read replica, copy a DB snapshot from, or replicate automated backups from. It also shows that automated backups can be replicated only from US West (Oregon) to the destination AWS Region, US East (N. Virginia).
+ * const input = {
+ *   "RegionName": "us-east-1"
+ * };
  * const command = new DescribeSourceRegionsCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
  *   "SourceRegions": [
  *     {
+ *       "Endpoint": "https://rds.af-south-1.amazonaws.com",
+ *       "RegionName": "af-south-1",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": false
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.ap-east-1.amazonaws.com",
+ *       "RegionName": "ap-east-1",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": false
+ *     },
+ *     {
  *       "Endpoint": "https://rds.ap-northeast-1.amazonaws.com",
  *       "RegionName": "ap-northeast-1",
- *       "Status": "available"
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
  *     },
  *     {
  *       "Endpoint": "https://rds.ap-northeast-2.amazonaws.com",
  *       "RegionName": "ap-northeast-2",
- *       "Status": "available"
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.ap-northeast-3.amazonaws.com",
+ *       "RegionName": "ap-northeast-3",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": false
  *     },
  *     {
  *       "Endpoint": "https://rds.ap-south-1.amazonaws.com",
  *       "RegionName": "ap-south-1",
- *       "Status": "available"
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
  *     },
  *     {
  *       "Endpoint": "https://rds.ap-southeast-1.amazonaws.com",
  *       "RegionName": "ap-southeast-1",
- *       "Status": "available"
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
  *     },
  *     {
  *       "Endpoint": "https://rds.ap-southeast-2.amazonaws.com",
  *       "RegionName": "ap-southeast-2",
- *       "Status": "available"
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
  *     },
  *     {
- *       "Endpoint": "https://rds.eu-central-1.amazonaws.com",
- *       "RegionName": "eu-central-1",
- *       "Status": "available"
+ *       "Endpoint": "https://rds.ap-southeast-3.amazonaws.com",
+ *       "RegionName": "ap-southeast-3",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": false
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.ca-central-1.amazonaws.com",
+ *       "RegionName": "ca-central-1",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.eu-north-1.amazonaws.com",
+ *       "RegionName": "eu-north-1",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.eu-south-1.amazonaws.com",
+ *       "RegionName": "eu-south-1",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": false
  *     },
  *     {
  *       "Endpoint": "https://rds.eu-west-1.amazonaws.com",
  *       "RegionName": "eu-west-1",
- *       "Status": "available"
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.eu-west-2.amazonaws.com",
+ *       "RegionName": "eu-west-2",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.eu-west-3.amazonaws.com",
+ *       "RegionName": "eu-west-3",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.me-central-1.amazonaws.com",
+ *       "RegionName": "me-central-1",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": false
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.me-south-1.amazonaws.com",
+ *       "RegionName": "me-south-1",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": false
  *     },
  *     {
  *       "Endpoint": "https://rds.sa-east-1.amazonaws.com",
  *       "RegionName": "sa-east-1",
- *       "Status": "available"
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
+ *     },
+ *     {
+ *       "Endpoint": "https://rds.us-east-2.amazonaws.com",
+ *       "RegionName": "us-east-2",
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
  *     },
  *     {
  *       "Endpoint": "https://rds.us-west-1.amazonaws.com",
  *       "RegionName": "us-west-1",
- *       "Status": "available"
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
  *     },
  *     {
  *       "Endpoint": "https://rds.us-west-2.amazonaws.com",
  *       "RegionName": "us-west-2",
- *       "Status": "available"
+ *       "Status": "available",
+ *       "SupportsDBInstanceAutomatedBackupsReplication": true
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-source-regions-1473457722410
+ * // example id: to-describe-source-regions-1680283924227
  * ```
  *
  */
@@ -202,14 +277,14 @@ export class DescribeSourceRegionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSourceRegionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeSourceRegionsCommand(input, context);
+    return se_DescribeSourceRegionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSourceRegionsCommandOutput> {
-    return deserializeAws_queryDescribeSourceRegionsCommand(output, context);
+    return de_DescribeSourceRegionsCommand(output, context);
   }
 
   // Start section: command_body_extra

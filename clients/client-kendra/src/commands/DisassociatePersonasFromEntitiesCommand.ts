@@ -16,8 +16,8 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DisassociatePersonasFromEntitiesRequest, DisassociatePersonasFromEntitiesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociatePersonasFromEntitiesCommand,
-  serializeAws_json1_1DisassociatePersonasFromEntitiesCommand,
+  de_DisassociatePersonasFromEntitiesCommand,
+  se_DisassociatePersonasFromEntitiesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command<
     input: DisassociatePersonasFromEntitiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociatePersonasFromEntitiesCommand(input, context);
+    return se_DisassociatePersonasFromEntitiesCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePersonasFromEntitiesCommandOutput> {
-    return deserializeAws_json1_1DisassociatePersonasFromEntitiesCommand(output, context);
+    return de_DisassociatePersonasFromEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

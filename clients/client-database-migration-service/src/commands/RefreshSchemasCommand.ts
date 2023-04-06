@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { RefreshSchemasMessage, RefreshSchemasResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RefreshSchemasCommand,
-  serializeAws_json1_1RefreshSchemasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RefreshSchemasCommand, se_RefreshSchemasCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class RefreshSchemasCommand extends $Command<
    * @internal
    */
   private serialize(input: RefreshSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RefreshSchemasCommand(input, context);
+    return se_RefreshSchemasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshSchemasCommandOutput> {
-    return deserializeAws_json1_1RefreshSchemasCommand(output, context);
+    return de_RefreshSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

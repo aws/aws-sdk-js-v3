@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DescribeScheduledActionsType, ScheduledActionsType } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeScheduledActionsCommand,
-  serializeAws_queryDescribeScheduledActionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeScheduledActionsCommand, se_DescribeScheduledActionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class DescribeScheduledActionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeScheduledActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeScheduledActionsCommand(input, context);
+    return se_DescribeScheduledActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduledActionsCommandOutput> {
-    return deserializeAws_queryDescribeScheduledActionsCommand(output, context);
+    return de_DescribeScheduledActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

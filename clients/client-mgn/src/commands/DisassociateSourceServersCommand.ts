@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { DisassociateSourceServersRequest, DisassociateSourceServersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateSourceServersCommand,
-  serializeAws_restJson1DisassociateSourceServersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateSourceServersCommand, se_DisassociateSourceServersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,7 +129,7 @@ export class DisassociateSourceServersCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateSourceServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateSourceServersCommand(input, context);
+    return se_DisassociateSourceServersCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class DisassociateSourceServersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSourceServersCommandOutput> {
-    return deserializeAws_restJson1DisassociateSourceServersCommand(output, context);
+    return de_DisassociateSourceServersCommand(output, context);
   }
 
   // Start section: command_body_extra

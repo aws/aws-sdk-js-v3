@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { UpdateComponentTypeRequest, UpdateComponentTypeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateComponentTypeCommand,
-  serializeAws_restJson1UpdateComponentTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateComponentTypeCommand, se_UpdateComponentTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -233,14 +230,14 @@ export class UpdateComponentTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateComponentTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateComponentTypeCommand(input, context);
+    return se_UpdateComponentTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateComponentTypeCommandOutput> {
-    return deserializeAws_restJson1UpdateComponentTypeCommand(output, context);
+    return de_UpdateComponentTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

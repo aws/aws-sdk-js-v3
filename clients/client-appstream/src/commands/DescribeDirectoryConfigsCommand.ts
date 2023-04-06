@@ -19,10 +19,7 @@ import {
   DescribeDirectoryConfigsResult,
   DescribeDirectoryConfigsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDirectoryConfigsCommand,
-  serializeAws_json1_1DescribeDirectoryConfigsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDirectoryConfigsCommand, se_DescribeDirectoryConfigsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeDirectoryConfigsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDirectoryConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectoryConfigsCommand(input, context);
+    return se_DescribeDirectoryConfigsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDirectoryConfigsCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectoryConfigsCommand(output, context);
+    return de_DescribeDirectoryConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

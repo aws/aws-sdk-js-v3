@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DescribeDataRepositoryTasksRequest, DescribeDataRepositoryTasksResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDataRepositoryTasksCommand,
-  serializeAws_json1_1DescribeDataRepositoryTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDataRepositoryTasksCommand, se_DescribeDataRepositoryTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,7 +152,7 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDataRepositoryTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDataRepositoryTasksCommand(input, context);
+    return se_DescribeDataRepositoryTasksCommand(input, context);
   }
 
   /**
@@ -165,7 +162,7 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataRepositoryTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeDataRepositoryTasksCommand(output, context);
+    return de_DescribeDataRepositoryTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

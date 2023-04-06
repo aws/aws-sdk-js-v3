@@ -15,10 +15,7 @@ import {
 
 import { CreateFirewallRequest, CreateFirewallResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0CreateFirewallCommand,
-  serializeAws_json1_0CreateFirewallCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateFirewallCommand, se_CreateFirewallCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class CreateFirewallCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFirewallCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateFirewallCommand(input, context);
+    return se_CreateFirewallCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFirewallCommandOutput> {
-    return deserializeAws_json1_0CreateFirewallCommand(output, context);
+    return de_CreateFirewallCommand(output, context);
   }
 
   // Start section: command_body_extra

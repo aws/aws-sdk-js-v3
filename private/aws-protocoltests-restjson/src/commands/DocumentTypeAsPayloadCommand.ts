@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocumentTypeAsPayloadInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DocumentTypeAsPayloadCommand,
-  serializeAws_restJson1DocumentTypeAsPayloadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DocumentTypeAsPayloadCommand, se_DocumentTypeAsPayloadCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -107,14 +104,14 @@ export class DocumentTypeAsPayloadCommand extends $Command<
    * @internal
    */
   private serialize(input: DocumentTypeAsPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DocumentTypeAsPayloadCommand(input, context);
+    return se_DocumentTypeAsPayloadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DocumentTypeAsPayloadCommandOutput> {
-    return deserializeAws_restJson1DocumentTypeAsPayloadCommand(output, context);
+    return de_DocumentTypeAsPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

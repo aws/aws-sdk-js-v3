@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { CreatePullThroughCacheRuleRequest, CreatePullThroughCacheRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePullThroughCacheRuleCommand,
-  serializeAws_json1_1CreatePullThroughCacheRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePullThroughCacheRuleCommand, se_CreatePullThroughCacheRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class CreatePullThroughCacheRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePullThroughCacheRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePullThroughCacheRuleCommand(input, context);
+    return se_CreatePullThroughCacheRuleCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class CreatePullThroughCacheRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePullThroughCacheRuleCommandOutput> {
-    return deserializeAws_json1_1CreatePullThroughCacheRuleCommand(output, context);
+    return de_CreatePullThroughCacheRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

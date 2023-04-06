@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { DisableDirectoryRequest, DisableDirectoryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableDirectoryCommand,
-  serializeAws_restJson1DisableDirectoryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisableDirectoryCommand, se_DisableDirectoryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DisableDirectoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableDirectoryCommand(input, context);
+    return se_DisableDirectoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableDirectoryCommandOutput> {
-    return deserializeAws_restJson1DisableDirectoryCommand(output, context);
+    return de_DisableDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

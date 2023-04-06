@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PublishInput, PublishResponse } from "../models/models_0";
-import { deserializeAws_queryPublishCommand, serializeAws_queryPublishCommand } from "../protocols/Aws_query";
+import { de_PublishCommand, se_PublishCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -198,14 +198,14 @@ export class PublishCommand extends $Command<PublishCommandInput, PublishCommand
    * @internal
    */
   private serialize(input: PublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPublishCommand(input, context);
+    return se_PublishCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishCommandOutput> {
-    return deserializeAws_queryPublishCommand(output, context);
+    return de_PublishCommand(output, context);
   }
 
   // Start section: command_body_extra

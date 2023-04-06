@@ -15,10 +15,7 @@ import {
 
 import { ListSolutionsRequest, ListSolutionsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListSolutionsCommand,
-  serializeAws_json1_1ListSolutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSolutionsCommand, se_ListSolutionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListSolutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSolutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSolutionsCommand(input, context);
+    return se_ListSolutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSolutionsCommandOutput> {
-    return deserializeAws_json1_1ListSolutionsCommand(output, context);
+    return de_ListSolutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

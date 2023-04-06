@@ -19,7 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
 import { ListHostsInput, ListHostsOutput } from "../models/models_0";
-import { deserializeAws_json1_0ListHostsCommand, serializeAws_json1_0ListHostsCommand } from "../protocols/Aws_json1_0";
+import { de_ListHostsCommand, se_ListHostsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -120,14 +120,14 @@ export class ListHostsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListHostsCommand(input, context);
+    return se_ListHostsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHostsCommandOutput> {
-    return deserializeAws_json1_0ListHostsCommand(output, context);
+    return de_ListHostsCommand(output, context);
   }
 
   // Start section: command_body_extra

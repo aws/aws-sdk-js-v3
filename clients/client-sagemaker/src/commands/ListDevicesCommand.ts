@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDevicesRequest, ListDevicesResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListDevicesCommand,
-  serializeAws_json1_1ListDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDevicesCommand, se_ListDevicesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -122,14 +119,14 @@ export class ListDevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDevicesCommand(input, context);
+    return se_ListDevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicesCommandOutput> {
-    return deserializeAws_json1_1ListDevicesCommand(output, context);
+    return de_ListDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDatalakeRequest, CreateDatalakeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDatalakeCommand,
-  serializeAws_restJson1CreateDatalakeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDatalakeCommand, se_CreateDatalakeCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -186,14 +183,14 @@ export class CreateDatalakeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDatalakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatalakeCommand(input, context);
+    return se_CreateDatalakeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatalakeCommandOutput> {
-    return deserializeAws_restJson1CreateDatalakeCommand(output, context);
+    return de_CreateDatalakeCommand(output, context);
   }
 
   // Start section: command_body_extra

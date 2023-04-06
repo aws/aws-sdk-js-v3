@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDBSecurityGroupMessage, CreateDBSecurityGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBSecurityGroupCommand,
-  serializeAws_queryCreateDBSecurityGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBSecurityGroupCommand, se_CreateDBSecurityGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -163,14 +160,14 @@ export class CreateDBSecurityGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBSecurityGroupCommand(input, context);
+    return se_CreateDBSecurityGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBSecurityGroupCommandOutput> {
-    return deserializeAws_queryCreateDBSecurityGroupCommand(output, context);
+    return de_CreateDBSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

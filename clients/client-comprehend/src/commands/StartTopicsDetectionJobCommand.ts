@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { StartTopicsDetectionJobRequest, StartTopicsDetectionJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartTopicsDetectionJobCommand,
-  serializeAws_json1_1StartTopicsDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartTopicsDetectionJobCommand, se_StartTopicsDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class StartTopicsDetectionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartTopicsDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartTopicsDetectionJobCommand(input, context);
+    return se_StartTopicsDetectionJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTopicsDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StartTopicsDetectionJobCommand(output, context);
+    return de_StartTopicsDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

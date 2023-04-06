@@ -15,10 +15,7 @@ import {
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
 import { ListExtensionVersionsRequest, ListExtensionVersionsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListExtensionVersionsCommand,
-  serializeAws_restJson1ListExtensionVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListExtensionVersionsCommand, se_ListExtensionVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListExtensionVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListExtensionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListExtensionVersionsCommand(input, context);
+    return se_ListExtensionVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExtensionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListExtensionVersionsCommand(output, context);
+    return de_ListExtensionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

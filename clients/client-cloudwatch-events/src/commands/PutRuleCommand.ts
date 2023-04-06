@@ -15,7 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { PutRuleRequest, PutRuleResponse } from "../models/models_0";
-import { deserializeAws_json1_1PutRuleCommand, serializeAws_json1_1PutRuleCommand } from "../protocols/Aws_json1_1";
+import { de_PutRuleCommand, se_PutRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -197,14 +197,14 @@ export class PutRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRuleCommand(input, context);
+    return se_PutRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRuleCommandOutput> {
-    return deserializeAws_json1_1PutRuleCommand(output, context);
+    return de_PutRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

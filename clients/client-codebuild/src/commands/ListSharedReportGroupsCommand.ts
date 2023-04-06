@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { ListSharedReportGroupsInput, ListSharedReportGroupsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSharedReportGroupsCommand,
-  serializeAws_json1_1ListSharedReportGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSharedReportGroupsCommand, se_ListSharedReportGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class ListSharedReportGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSharedReportGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSharedReportGroupsCommand(input, context);
+    return se_ListSharedReportGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSharedReportGroupsCommandOutput> {
-    return deserializeAws_json1_1ListSharedReportGroupsCommand(output, context);
+    return de_ListSharedReportGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DeleteInstanceRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteInstanceCommand,
-  serializeAws_restJson1DeleteInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteInstanceCommand, se_DeleteInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInstanceCommand(input, context);
+    return se_DeleteInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInstanceCommandOutput> {
-    return deserializeAws_restJson1DeleteInstanceCommand(output, context);
+    return de_DeleteInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

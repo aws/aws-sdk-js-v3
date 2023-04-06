@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { DeleteWirelessGatewayRequest, DeleteWirelessGatewayResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWirelessGatewayCommand,
-  serializeAws_restJson1DeleteWirelessGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteWirelessGatewayCommand, se_DeleteWirelessGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteWirelessGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWirelessGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWirelessGatewayCommand(input, context);
+    return se_DeleteWirelessGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWirelessGatewayCommandOutput> {
-    return deserializeAws_restJson1DeleteWirelessGatewayCommand(output, context);
+    return de_DeleteWirelessGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

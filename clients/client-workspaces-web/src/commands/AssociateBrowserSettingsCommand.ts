@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateBrowserSettingsRequest, AssociateBrowserSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateBrowserSettingsCommand,
-  serializeAws_restJson1AssociateBrowserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateBrowserSettingsCommand, se_AssociateBrowserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -139,14 +136,14 @@ export class AssociateBrowserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateBrowserSettingsCommand(input, context);
+    return se_AssociateBrowserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1AssociateBrowserSettingsCommand(output, context);
+    return de_AssociateBrowserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

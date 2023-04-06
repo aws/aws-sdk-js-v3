@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SearchProductsInput, SearchProductsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchProductsCommand,
-  serializeAws_json1_1SearchProductsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchProductsCommand, se_SearchProductsCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -132,14 +129,14 @@ export class SearchProductsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchProductsCommand(input, context);
+    return se_SearchProductsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchProductsCommandOutput> {
-    return deserializeAws_json1_1SearchProductsCommand(output, context);
+    return de_SearchProductsCommand(output, context);
   }
 
   // Start section: command_body_extra

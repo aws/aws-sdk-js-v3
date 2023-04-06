@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DeleteResourceRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResourceCommand,
-  serializeAws_restJson1DeleteResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteResourceCommand, se_DeleteResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourceCommand(input, context);
+    return se_DeleteResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceCommandOutput> {
-    return deserializeAws_restJson1DeleteResourceCommand(output, context);
+    return de_DeleteResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

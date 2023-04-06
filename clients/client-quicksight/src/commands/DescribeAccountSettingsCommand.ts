@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeAccountSettingsRequest, DescribeAccountSettingsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeAccountSettingsCommand,
-  serializeAws_restJson1DescribeAccountSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAccountSettingsCommand, se_DescribeAccountSettingsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -142,14 +139,14 @@ export class DescribeAccountSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccountSettingsCommand(input, context);
+    return se_DescribeAccountSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountSettingsCommandOutput> {
-    return deserializeAws_restJson1DescribeAccountSettingsCommand(output, context);
+    return de_DescribeAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

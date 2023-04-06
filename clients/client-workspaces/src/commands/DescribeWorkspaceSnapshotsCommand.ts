@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeWorkspaceSnapshotsRequest, DescribeWorkspaceSnapshotsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand,
-  serializeAws_json1_1DescribeWorkspaceSnapshotsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeWorkspaceSnapshotsCommand, se_DescribeWorkspaceSnapshotsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -129,7 +126,7 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWorkspaceSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspaceSnapshotsCommand(input, context);
+    return se_DescribeWorkspaceSnapshotsCommand(input, context);
   }
 
   /**
@@ -139,7 +136,7 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceSnapshotsCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand(output, context);
+    return de_DescribeWorkspaceSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

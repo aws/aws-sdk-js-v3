@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { GetListsMetadataRequest, GetListsMetadataResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetListsMetadataCommand,
-  serializeAws_json1_1GetListsMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetListsMetadataCommand, se_GetListsMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetListsMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetListsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetListsMetadataCommand(input, context);
+    return se_GetListsMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetListsMetadataCommandOutput> {
-    return deserializeAws_json1_1GetListsMetadataCommand(output, context);
+    return de_GetListsMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

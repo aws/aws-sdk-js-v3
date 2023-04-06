@@ -16,8 +16,8 @@ import {
 import { GetNetworkResourceRelationshipsRequest, GetNetworkResourceRelationshipsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1GetNetworkResourceRelationshipsCommand,
-  serializeAws_restJson1GetNetworkResourceRelationshipsCommand,
+  de_GetNetworkResourceRelationshipsCommand,
+  se_GetNetworkResourceRelationshipsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -148,7 +148,7 @@ export class GetNetworkResourceRelationshipsCommand extends $Command<
     input: GetNetworkResourceRelationshipsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkResourceRelationshipsCommand(input, context);
+    return se_GetNetworkResourceRelationshipsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class GetNetworkResourceRelationshipsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNetworkResourceRelationshipsCommandOutput> {
-    return deserializeAws_restJson1GetNetworkResourceRelationshipsCommand(output, context);
+    return de_GetNetworkResourceRelationshipsCommand(output, context);
   }
 
   // Start section: command_body_extra

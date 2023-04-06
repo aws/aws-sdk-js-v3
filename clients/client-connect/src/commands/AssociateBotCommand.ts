@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { AssociateBotRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateBotCommand,
-  serializeAws_restJson1AssociateBotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateBotCommand, se_AssociateBotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class AssociateBotCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateBotCommand(input, context);
+    return se_AssociateBotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateBotCommandOutput> {
-    return deserializeAws_restJson1AssociateBotCommand(output, context);
+    return de_AssociateBotCommand(output, context);
   }
 
   // Start section: command_body_extra

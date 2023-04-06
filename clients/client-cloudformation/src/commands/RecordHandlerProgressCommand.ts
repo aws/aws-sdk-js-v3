@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { RecordHandlerProgressInput, RecordHandlerProgressOutput } from "../models/models_0";
-import {
-  deserializeAws_queryRecordHandlerProgressCommand,
-  serializeAws_queryRecordHandlerProgressCommand,
-} from "../protocols/Aws_query";
+import { de_RecordHandlerProgressCommand, se_RecordHandlerProgressCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class RecordHandlerProgressCommand extends $Command<
    * @internal
    */
   private serialize(input: RecordHandlerProgressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRecordHandlerProgressCommand(input, context);
+    return se_RecordHandlerProgressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecordHandlerProgressCommandOutput> {
-    return deserializeAws_queryRecordHandlerProgressCommand(output, context);
+    return de_RecordHandlerProgressCommand(output, context);
   }
 
   // Start section: command_body_extra

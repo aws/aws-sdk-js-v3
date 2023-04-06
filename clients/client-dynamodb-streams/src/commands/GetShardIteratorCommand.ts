@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
 import { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetShardIteratorCommand,
-  serializeAws_json1_0GetShardIteratorCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetShardIteratorCommand, se_GetShardIteratorCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class GetShardIteratorCommand extends $Command<
    * @internal
    */
   private serialize(input: GetShardIteratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetShardIteratorCommand(input, context);
+    return se_GetShardIteratorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetShardIteratorCommandOutput> {
-    return deserializeAws_json1_0GetShardIteratorCommand(output, context);
+    return de_GetShardIteratorCommand(output, context);
   }
 
   // Start section: command_body_extra

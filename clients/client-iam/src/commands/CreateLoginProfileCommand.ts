@@ -19,10 +19,7 @@ import {
   CreateLoginProfileRequestFilterSensitiveLog,
   CreateLoginProfileResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_queryCreateLoginProfileCommand,
-  serializeAws_queryCreateLoginProfileCommand,
-} from "../protocols/Aws_query";
+import { de_CreateLoginProfileCommand, se_CreateLoginProfileCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -173,14 +170,14 @@ export class CreateLoginProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLoginProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateLoginProfileCommand(input, context);
+    return se_CreateLoginProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoginProfileCommandOutput> {
-    return deserializeAws_queryCreateLoginProfileCommand(output, context);
+    return de_CreateLoginProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   DescribeIndexResponse,
   DescribeIndexResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeIndexCommand,
-  serializeAws_json1_1DescribeIndexCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeIndexCommand, se_DescribeIndexCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DescribeIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeIndexCommand(input, context);
+    return se_DescribeIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIndexCommandOutput> {
-    return deserializeAws_json1_1DescribeIndexCommand(output, context);
+    return de_DescribeIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

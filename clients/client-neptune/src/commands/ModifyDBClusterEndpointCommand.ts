@@ -15,10 +15,7 @@ import {
 
 import { ModifyDBClusterEndpointMessage, ModifyDBClusterEndpointOutput } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryModifyDBClusterEndpointCommand,
-  serializeAws_queryModifyDBClusterEndpointCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBClusterEndpointCommand, se_ModifyDBClusterEndpointCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ModifyDBClusterEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterEndpointCommand(input, context);
+    return se_ModifyDBClusterEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBClusterEndpointCommandOutput> {
-    return deserializeAws_queryModifyDBClusterEndpointCommand(output, context);
+    return de_ModifyDBClusterEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

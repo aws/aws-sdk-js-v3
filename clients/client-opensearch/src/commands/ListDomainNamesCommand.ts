@@ -15,10 +15,7 @@ import {
 
 import { ListDomainNamesRequest, ListDomainNamesResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1ListDomainNamesCommand,
-  serializeAws_restJson1ListDomainNamesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDomainNamesCommand, se_ListDomainNamesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class ListDomainNamesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDomainNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDomainNamesCommand(input, context);
+    return se_ListDomainNamesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainNamesCommandOutput> {
-    return deserializeAws_restJson1ListDomainNamesCommand(output, context);
+    return de_ListDomainNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

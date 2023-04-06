@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { UpdateNotebookMetadataInput, UpdateNotebookMetadataOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateNotebookMetadataCommand,
-  serializeAws_json1_1UpdateNotebookMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateNotebookMetadataCommand, se_UpdateNotebookMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class UpdateNotebookMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNotebookMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNotebookMetadataCommand(input, context);
+    return se_UpdateNotebookMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNotebookMetadataCommandOutput> {
-    return deserializeAws_json1_1UpdateNotebookMetadataCommand(output, context);
+    return de_UpdateNotebookMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

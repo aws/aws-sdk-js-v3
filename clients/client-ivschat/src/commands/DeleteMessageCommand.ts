@@ -15,10 +15,7 @@ import {
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
 import { DeleteMessageRequest, DeleteMessageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMessageCommand,
-  serializeAws_restJson1DeleteMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMessageCommand, se_DeleteMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMessageCommand(input, context);
+    return se_DeleteMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMessageCommandOutput> {
-    return deserializeAws_restJson1DeleteMessageCommand(output, context);
+    return de_DeleteMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

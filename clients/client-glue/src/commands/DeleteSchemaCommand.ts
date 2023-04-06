@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteSchemaInput, DeleteSchemaResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteSchemaCommand,
-  serializeAws_json1_1DeleteSchemaCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSchemaCommand, se_DeleteSchemaCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteSchemaCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSchemaCommand(input, context);
+    return se_DeleteSchemaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSchemaCommandOutput> {
-    return deserializeAws_json1_1DeleteSchemaCommand(output, context);
+    return de_DeleteSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

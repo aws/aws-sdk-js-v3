@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { ListBlueprintsRequest, ListBlueprintsResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ListBlueprintsCommand,
-  serializeAws_json1_1ListBlueprintsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListBlueprintsCommand, se_ListBlueprintsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListBlueprintsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBlueprintsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBlueprintsCommand(input, context);
+    return se_ListBlueprintsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBlueprintsCommandOutput> {
-    return deserializeAws_json1_1ListBlueprintsCommand(output, context);
+    return de_ListBlueprintsCommand(output, context);
   }
 
   // Start section: command_body_extra

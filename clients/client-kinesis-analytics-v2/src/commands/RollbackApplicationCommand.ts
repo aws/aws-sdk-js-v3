@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import { RollbackApplicationRequest, RollbackApplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RollbackApplicationCommand,
-  serializeAws_json1_1RollbackApplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RollbackApplicationCommand, se_RollbackApplicationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class RollbackApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: RollbackApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RollbackApplicationCommand(input, context);
+    return se_RollbackApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RollbackApplicationCommandOutput> {
-    return deserializeAws_json1_1RollbackApplicationCommand(output, context);
+    return de_RollbackApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

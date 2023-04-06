@@ -20,8 +20,8 @@ import {
   DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand,
-  serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand,
+  de_DescribeChannelModeratedByAppInstanceUserCommand,
+  se_DescribeChannelModeratedByAppInstanceUserCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -163,7 +163,7 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
     input: DescribeChannelModeratedByAppInstanceUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand(input, context);
+    return se_DescribeChannelModeratedByAppInstanceUserCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand(output, context);
+    return de_DescribeChannelModeratedByAppInstanceUserCommand(output, context);
   }
 
   // Start section: command_body_extra

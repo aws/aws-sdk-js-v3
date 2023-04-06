@@ -19,10 +19,7 @@ import {
   CreateExplainabilityRequestFilterSensitiveLog,
   CreateExplainabilityResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateExplainabilityCommand,
-  serializeAws_json1_1CreateExplainabilityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateExplainabilityCommand, se_CreateExplainabilityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -288,14 +285,14 @@ export class CreateExplainabilityCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateExplainabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateExplainabilityCommand(input, context);
+    return se_CreateExplainabilityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExplainabilityCommandOutput> {
-    return deserializeAws_json1_1CreateExplainabilityCommand(output, context);
+    return de_CreateExplainabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

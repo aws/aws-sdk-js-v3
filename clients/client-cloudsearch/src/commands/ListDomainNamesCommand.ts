@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { ListDomainNamesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListDomainNamesCommand,
-  serializeAws_queryListDomainNamesCommand,
-} from "../protocols/Aws_query";
+import { de_ListDomainNamesCommand, se_ListDomainNamesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class ListDomainNamesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDomainNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListDomainNamesCommand(input, context);
+    return se_ListDomainNamesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainNamesCommandOutput> {
-    return deserializeAws_queryListDomainNamesCommand(output, context);
+    return de_ListDomainNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateProvisioningTemplateRequest, CreateProvisioningTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProvisioningTemplateCommand,
-  serializeAws_restJson1CreateProvisioningTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateProvisioningTemplateCommand, se_CreateProvisioningTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,7 +151,7 @@ export class CreateProvisioningTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateProvisioningTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProvisioningTemplateCommand(input, context);
+    return se_CreateProvisioningTemplateCommand(input, context);
   }
 
   /**
@@ -164,7 +161,7 @@ export class CreateProvisioningTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateProvisioningTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateProvisioningTemplateCommand(output, context);
+    return de_CreateProvisioningTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

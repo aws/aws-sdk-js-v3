@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DeactivateTypeInput, DeactivateTypeOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeactivateTypeCommand,
-  serializeAws_queryDeactivateTypeCommand,
-} from "../protocols/Aws_query";
+import { de_DeactivateTypeCommand, se_DeactivateTypeCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeactivateTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeactivateTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeactivateTypeCommand(input, context);
+    return se_DeactivateTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateTypeCommandOutput> {
-    return deserializeAws_queryDeactivateTypeCommand(output, context);
+    return de_DeactivateTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

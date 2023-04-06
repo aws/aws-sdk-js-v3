@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { DescribeStreamSummaryInput, DescribeStreamSummaryOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeStreamSummaryCommand,
-  serializeAws_json1_1DescribeStreamSummaryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeStreamSummaryCommand, se_DescribeStreamSummaryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class DescribeStreamSummaryCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeStreamSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStreamSummaryCommand(input, context);
+    return se_DescribeStreamSummaryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamSummaryCommandOutput> {
-    return deserializeAws_json1_1DescribeStreamSummaryCommand(output, context);
+    return de_DescribeStreamSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

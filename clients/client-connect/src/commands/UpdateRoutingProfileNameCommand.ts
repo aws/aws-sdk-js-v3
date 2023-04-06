@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateRoutingProfileNameRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateRoutingProfileNameCommand,
-  serializeAws_restJson1UpdateRoutingProfileNameCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRoutingProfileNameCommand, se_UpdateRoutingProfileNameCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UpdateRoutingProfileNameCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRoutingProfileNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoutingProfileNameCommand(input, context);
+    return se_UpdateRoutingProfileNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoutingProfileNameCommandOutput> {
-    return deserializeAws_restJson1UpdateRoutingProfileNameCommand(output, context);
+    return de_UpdateRoutingProfileNameCommand(output, context);
   }
 
   // Start section: command_body_extra

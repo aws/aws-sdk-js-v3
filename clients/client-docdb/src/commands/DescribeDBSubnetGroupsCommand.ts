@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DBSubnetGroupMessage, DescribeDBSubnetGroupsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBSubnetGroupsCommand,
-  serializeAws_queryDescribeDBSubnetGroupsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBSubnetGroupsCommand, se_DescribeDBSubnetGroupsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBSubnetGroupsCommand(input, context);
+    return se_DescribeDBSubnetGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBSubnetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBSubnetGroupsCommand(output, context);
+    return de_DescribeDBSubnetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

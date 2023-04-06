@@ -15,8 +15,8 @@ import {
 
 import { ResendContactReachabilityEmailRequest, ResendContactReachabilityEmailResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ResendContactReachabilityEmailCommand,
-  serializeAws_json1_1ResendContactReachabilityEmailCommand,
+  de_ResendContactReachabilityEmailCommand,
+  se_ResendContactReachabilityEmailCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
@@ -140,7 +140,7 @@ export class ResendContactReachabilityEmailCommand extends $Command<
     input: ResendContactReachabilityEmailCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResendContactReachabilityEmailCommand(input, context);
+    return se_ResendContactReachabilityEmailCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class ResendContactReachabilityEmailCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResendContactReachabilityEmailCommandOutput> {
-    return deserializeAws_json1_1ResendContactReachabilityEmailCommand(output, context);
+    return de_ResendContactReachabilityEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

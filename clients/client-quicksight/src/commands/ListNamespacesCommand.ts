@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListNamespacesRequest, ListNamespacesResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1ListNamespacesCommand,
-  serializeAws_restJson1ListNamespacesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNamespacesCommand, se_ListNamespacesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -149,14 +146,14 @@ export class ListNamespacesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListNamespacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNamespacesCommand(input, context);
+    return se_ListNamespacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamespacesCommandOutput> {
-    return deserializeAws_restJson1ListNamespacesCommand(output, context);
+    return de_ListNamespacesCommand(output, context);
   }
 
   // Start section: command_body_extra

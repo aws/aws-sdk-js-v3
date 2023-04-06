@@ -19,10 +19,7 @@ import {
   CreateBucketAccessKeyResult,
   CreateBucketAccessKeyResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBucketAccessKeyCommand,
-  serializeAws_json1_1CreateBucketAccessKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateBucketAccessKeyCommand, se_CreateBucketAccessKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class CreateBucketAccessKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBucketAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBucketAccessKeyCommand(input, context);
+    return se_CreateBucketAccessKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketAccessKeyCommandOutput> {
-    return deserializeAws_json1_1CreateBucketAccessKeyCommand(output, context);
+    return de_CreateBucketAccessKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

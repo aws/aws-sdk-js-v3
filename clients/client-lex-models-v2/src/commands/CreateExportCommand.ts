@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { CreateExportRequest, CreateExportRequestFilterSensitiveLog, CreateExportResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateExportCommand,
-  serializeAws_restJson1CreateExportCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateExportCommand, se_CreateExportCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -168,14 +165,14 @@ export class CreateExportCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateExportCommand(input, context);
+    return se_CreateExportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExportCommandOutput> {
-    return deserializeAws_restJson1CreateExportCommand(output, context);
+    return de_CreateExportCommand(output, context);
   }
 
   // Start section: command_body_extra

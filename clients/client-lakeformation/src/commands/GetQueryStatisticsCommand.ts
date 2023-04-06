@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetQueryStatisticsRequest, GetQueryStatisticsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetQueryStatisticsCommand,
-  serializeAws_restJson1GetQueryStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetQueryStatisticsCommand, se_GetQueryStatisticsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetQueryStatisticsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetQueryStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetQueryStatisticsCommand(input, context);
+    return se_GetQueryStatisticsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetQueryStatisticsCommand(output, context);
+    return de_GetQueryStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

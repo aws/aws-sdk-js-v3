@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import { ListNodesInput, ListNodesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNodesCommand,
-  serializeAws_restJson1ListNodesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNodesCommand, se_ListNodesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListNodesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListNodesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNodesCommand(input, context);
+    return se_ListNodesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNodesCommandOutput> {
-    return deserializeAws_restJson1ListNodesCommand(output, context);
+    return de_ListNodesCommand(output, context);
   }
 
   // Start section: command_body_extra

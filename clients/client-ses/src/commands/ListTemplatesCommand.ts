@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTemplatesRequest, ListTemplatesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListTemplatesCommand,
-  serializeAws_queryListTemplatesCommand,
-} from "../protocols/Aws_query";
+import { de_ListTemplatesCommand, se_ListTemplatesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -121,14 +118,14 @@ export class ListTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListTemplatesCommand(input, context);
+    return se_ListTemplatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplatesCommandOutput> {
-    return deserializeAws_queryListTemplatesCommand(output, context);
+    return de_ListTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

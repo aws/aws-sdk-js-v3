@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyLocalGatewayRouteRequest, ModifyLocalGatewayRouteResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyLocalGatewayRouteCommand,
-  serializeAws_ec2ModifyLocalGatewayRouteCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyLocalGatewayRouteCommand, se_ModifyLocalGatewayRouteCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class ModifyLocalGatewayRouteCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyLocalGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyLocalGatewayRouteCommand(input, context);
+    return se_ModifyLocalGatewayRouteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyLocalGatewayRouteCommandOutput> {
-    return deserializeAws_ec2ModifyLocalGatewayRouteCommand(output, context);
+    return de_ModifyLocalGatewayRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetVpnTunnelReplacementStatusRequest, GetVpnTunnelReplacementStatusResult } from "../models/models_5";
-import {
-  deserializeAws_ec2GetVpnTunnelReplacementStatusCommand,
-  serializeAws_ec2GetVpnTunnelReplacementStatusCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetVpnTunnelReplacementStatusCommand, se_GetVpnTunnelReplacementStatusCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class GetVpnTunnelReplacementStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVpnTunnelReplacementStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetVpnTunnelReplacementStatusCommand(input, context);
+    return se_GetVpnTunnelReplacementStatusCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class GetVpnTunnelReplacementStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVpnTunnelReplacementStatusCommandOutput> {
-    return deserializeAws_ec2GetVpnTunnelReplacementStatusCommand(output, context);
+    return de_GetVpnTunnelReplacementStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateGlobalClusterMessage, CreateGlobalClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateGlobalClusterCommand,
-  serializeAws_queryCreateGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { de_CreateGlobalClusterCommand, se_CreateGlobalClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -87,6 +84,33 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
  *
+ * @example To create a global DB cluster
+ * ```javascript
+ * // The following example creates a new Aurora MySQL-compatible global DB cluster.
+ * const input = {
+ *   "Engine": "aurora-mysql",
+ *   "GlobalClusterIdentifier": "myglobalcluster"
+ * };
+ * const command = new CreateGlobalClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GlobalCluster": {
+ *     "DeletionProtection": false,
+ *     "Engine": "aurora-mysql",
+ *     "EngineVersion": "5.7.mysql_aurora.2.07.2",
+ *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     "GlobalClusterIdentifier": "myglobalcluster",
+ *     "GlobalClusterMembers": [],
+ *     "GlobalClusterResourceId": "cluster-f0e523bfe07aabb",
+ *     "Status": "available",
+ *     "StorageEncrypted": false
+ *   }
+ * }
+ * *\/
+ * // example id: to-create-a-global-db-cluster-1679957040413
+ * ```
+ *
  */
 export class CreateGlobalClusterCommand extends $Command<
   CreateGlobalClusterCommandInput,
@@ -151,14 +175,14 @@ export class CreateGlobalClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateGlobalClusterCommand(input, context);
+    return se_CreateGlobalClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalClusterCommandOutput> {
-    return deserializeAws_queryCreateGlobalClusterCommand(output, context);
+    return de_CreateGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

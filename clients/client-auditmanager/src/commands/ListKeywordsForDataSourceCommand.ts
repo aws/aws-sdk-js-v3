@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { ListKeywordsForDataSourceRequest, ListKeywordsForDataSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListKeywordsForDataSourceCommand,
-  serializeAws_restJson1ListKeywordsForDataSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListKeywordsForDataSourceCommand, se_ListKeywordsForDataSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,7 +131,7 @@ export class ListKeywordsForDataSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: ListKeywordsForDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListKeywordsForDataSourceCommand(input, context);
+    return se_ListKeywordsForDataSourceCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class ListKeywordsForDataSourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListKeywordsForDataSourceCommandOutput> {
-    return deserializeAws_restJson1ListKeywordsForDataSourceCommand(output, context);
+    return de_ListKeywordsForDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

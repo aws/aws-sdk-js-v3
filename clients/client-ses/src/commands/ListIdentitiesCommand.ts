@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListIdentitiesRequest, ListIdentitiesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListIdentitiesCommand,
-  serializeAws_queryListIdentitiesCommand,
-} from "../protocols/Aws_query";
+import { de_ListIdentitiesCommand, se_ListIdentitiesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -145,14 +142,14 @@ export class ListIdentitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListIdentitiesCommand(input, context);
+    return se_ListIdentitiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListIdentitiesCommandOutput> {
-    return deserializeAws_queryListIdentitiesCommand(output, context);
+    return de_ListIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

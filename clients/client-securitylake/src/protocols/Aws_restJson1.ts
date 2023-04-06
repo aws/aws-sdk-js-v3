@@ -139,7 +139,10 @@ import {
 } from "../models/models_0";
 import { SecurityLakeServiceException as __BaseException } from "../models/SecurityLakeServiceException";
 
-export const serializeAws_restJson1CreateAwsLogSourceCommand = async (
+/**
+ * serializeAws_restJson1CreateAwsLogSourceCommand
+ */
+export const se_CreateAwsLogSourceCommand = async (
   input: CreateAwsLogSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -151,15 +154,15 @@ export const serializeAws_restJson1CreateAwsLogSourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.enableAllDimensions != null && {
-      enableAllDimensions: serializeAws_restJson1AllDimensionsMap(input.enableAllDimensions, context),
+      enableAllDimensions: se_AllDimensionsMap(input.enableAllDimensions, context),
     }),
     ...(input.enableSingleDimension != null && {
-      enableSingleDimension: serializeAws_restJson1InputSet(input.enableSingleDimension, context),
+      enableSingleDimension: se_InputSet(input.enableSingleDimension, context),
     }),
     ...(input.enableTwoDimensions != null && {
-      enableTwoDimensions: serializeAws_restJson1TwoDimensionsMap(input.enableTwoDimensions, context),
+      enableTwoDimensions: se_TwoDimensionsMap(input.enableTwoDimensions, context),
     }),
-    ...(input.inputOrder != null && { inputOrder: serializeAws_restJson1DimensionSet(input.inputOrder, context) }),
+    ...(input.inputOrder != null && { inputOrder: se_DimensionSet(input.inputOrder, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -172,7 +175,10 @@ export const serializeAws_restJson1CreateAwsLogSourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateCustomLogSourceCommand = async (
+/**
+ * serializeAws_restJson1CreateCustomLogSourceCommand
+ */
+export const se_CreateCustomLogSourceCommand = async (
   input: CreateCustomLogSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -199,7 +205,10 @@ export const serializeAws_restJson1CreateCustomLogSourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDatalakeCommand = async (
+/**
+ * serializeAws_restJson1CreateDatalakeCommand
+ */
+export const se_CreateDatalakeCommand = async (
   input: CreateDatalakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -211,11 +220,11 @@ export const serializeAws_restJson1CreateDatalakeCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.configurations != null && {
-      configurations: serializeAws_restJson1LakeConfigurationRequestMap(input.configurations, context),
+      configurations: se_LakeConfigurationRequestMap(input.configurations, context),
     }),
     ...(input.enableAll != null && { enableAll: input.enableAll }),
     ...(input.metaStoreManagerRoleArn != null && { metaStoreManagerRoleArn: input.metaStoreManagerRoleArn }),
-    ...(input.regions != null && { regions: serializeAws_restJson1RegionSet(input.regions, context) }),
+    ...(input.regions != null && { regions: se_RegionSet(input.regions, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -228,7 +237,10 @@ export const serializeAws_restJson1CreateDatalakeCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDatalakeAutoEnableCommand = async (
+/**
+ * serializeAws_restJson1CreateDatalakeAutoEnableCommand
+ */
+export const se_CreateDatalakeAutoEnableCommand = async (
   input: CreateDatalakeAutoEnableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -241,10 +253,7 @@ export const serializeAws_restJson1CreateDatalakeAutoEnableCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.configurationForNewAccounts != null && {
-      configurationForNewAccounts: serializeAws_restJson1AutoEnableNewRegionConfigurationList(
-        input.configurationForNewAccounts,
-        context
-      ),
+      configurationForNewAccounts: se_AutoEnableNewRegionConfigurationList(input.configurationForNewAccounts, context),
     }),
   });
   return new __HttpRequest({
@@ -258,7 +267,10 @@ export const serializeAws_restJson1CreateDatalakeAutoEnableCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDatalakeDelegatedAdminCommand = async (
+/**
+ * serializeAws_restJson1CreateDatalakeDelegatedAdminCommand
+ */
+export const se_CreateDatalakeDelegatedAdminCommand = async (
   input: CreateDatalakeDelegatedAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -282,7 +294,10 @@ export const serializeAws_restJson1CreateDatalakeDelegatedAdminCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand = async (
+/**
+ * serializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand
+ */
+export const se_CreateDatalakeExceptionsSubscriptionCommand = async (
   input: CreateDatalakeExceptionsSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -308,7 +323,10 @@ export const serializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand =
   });
 };
 
-export const serializeAws_restJson1CreateSubscriberCommand = async (
+/**
+ * serializeAws_restJson1CreateSubscriberCommand
+ */
+export const se_CreateSubscriberCommand = async (
   input: CreateSubscriberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -319,10 +337,10 @@ export const serializeAws_restJson1CreateSubscriberCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/subscribers";
   let body: any;
   body = JSON.stringify({
-    ...(input.accessTypes != null && { accessTypes: serializeAws_restJson1AccessTypeList(input.accessTypes, context) }),
+    ...(input.accessTypes != null && { accessTypes: se_AccessTypeList(input.accessTypes, context) }),
     ...(input.accountId != null && { accountId: input.accountId }),
     ...(input.externalId != null && { externalId: input.externalId }),
-    ...(input.sourceTypes != null && { sourceTypes: serializeAws_restJson1SourceTypeList(input.sourceTypes, context) }),
+    ...(input.sourceTypes != null && { sourceTypes: se_SourceTypeList(input.sourceTypes, context) }),
     ...(input.subscriberDescription != null && { subscriberDescription: input.subscriberDescription }),
     ...(input.subscriberName != null && { subscriberName: input.subscriberName }),
   });
@@ -337,7 +355,10 @@ export const serializeAws_restJson1CreateSubscriberCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand = async (
+/**
+ * serializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand
+ */
+export const se_CreateSubscriptionNotificationConfigurationCommand = async (
   input: CreateSubscriptionNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -376,7 +397,10 @@ export const serializeAws_restJson1CreateSubscriptionNotificationConfigurationCo
   });
 };
 
-export const serializeAws_restJson1DeleteAwsLogSourceCommand = async (
+/**
+ * serializeAws_restJson1DeleteAwsLogSourceCommand
+ */
+export const se_DeleteAwsLogSourceCommand = async (
   input: DeleteAwsLogSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -389,15 +413,15 @@ export const serializeAws_restJson1DeleteAwsLogSourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.disableAllDimensions != null && {
-      disableAllDimensions: serializeAws_restJson1AllDimensionsMap(input.disableAllDimensions, context),
+      disableAllDimensions: se_AllDimensionsMap(input.disableAllDimensions, context),
     }),
     ...(input.disableSingleDimension != null && {
-      disableSingleDimension: serializeAws_restJson1InputSet(input.disableSingleDimension, context),
+      disableSingleDimension: se_InputSet(input.disableSingleDimension, context),
     }),
     ...(input.disableTwoDimensions != null && {
-      disableTwoDimensions: serializeAws_restJson1TwoDimensionsMap(input.disableTwoDimensions, context),
+      disableTwoDimensions: se_TwoDimensionsMap(input.disableTwoDimensions, context),
     }),
-    ...(input.inputOrder != null && { inputOrder: serializeAws_restJson1DimensionSet(input.inputOrder, context) }),
+    ...(input.inputOrder != null && { inputOrder: se_DimensionSet(input.inputOrder, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -410,7 +434,10 @@ export const serializeAws_restJson1DeleteAwsLogSourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteCustomLogSourceCommand = async (
+/**
+ * serializeAws_restJson1DeleteCustomLogSourceCommand
+ */
+export const se_DeleteCustomLogSourceCommand = async (
   input: DeleteCustomLogSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -433,7 +460,10 @@ export const serializeAws_restJson1DeleteCustomLogSourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDatalakeCommand = async (
+/**
+ * serializeAws_restJson1DeleteDatalakeCommand
+ */
+export const se_DeleteDatalakeCommand = async (
   input: DeleteDatalakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -455,7 +485,10 @@ export const serializeAws_restJson1DeleteDatalakeCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDatalakeAutoEnableCommand = async (
+/**
+ * serializeAws_restJson1DeleteDatalakeAutoEnableCommand
+ */
+export const se_DeleteDatalakeAutoEnableCommand = async (
   input: DeleteDatalakeAutoEnableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -468,7 +501,7 @@ export const serializeAws_restJson1DeleteDatalakeAutoEnableCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.removeFromConfigurationForNewAccounts != null && {
-      removeFromConfigurationForNewAccounts: serializeAws_restJson1AutoEnableNewRegionConfigurationList(
+      removeFromConfigurationForNewAccounts: se_AutoEnableNewRegionConfigurationList(
         input.removeFromConfigurationForNewAccounts,
         context
       ),
@@ -485,7 +518,10 @@ export const serializeAws_restJson1DeleteDatalakeAutoEnableCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDatalakeDelegatedAdminCommand = async (
+/**
+ * serializeAws_restJson1DeleteDatalakeDelegatedAdminCommand
+ */
+export const se_DeleteDatalakeDelegatedAdminCommand = async (
   input: DeleteDatalakeDelegatedAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -506,7 +542,10 @@ export const serializeAws_restJson1DeleteDatalakeDelegatedAdminCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand = async (
+/**
+ * serializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand
+ */
+export const se_DeleteDatalakeExceptionsSubscriptionCommand = async (
   input: DeleteDatalakeExceptionsSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -529,7 +568,10 @@ export const serializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand =
   });
 };
 
-export const serializeAws_restJson1DeleteSubscriberCommand = async (
+/**
+ * serializeAws_restJson1DeleteSubscriberCommand
+ */
+export const se_DeleteSubscriberCommand = async (
   input: DeleteSubscriberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -552,7 +594,10 @@ export const serializeAws_restJson1DeleteSubscriberCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand = async (
+/**
+ * serializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand
+ */
+export const se_DeleteSubscriptionNotificationConfigurationCommand = async (
   input: DeleteSubscriptionNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -581,7 +626,10 @@ export const serializeAws_restJson1DeleteSubscriptionNotificationConfigurationCo
   });
 };
 
-export const serializeAws_restJson1GetDatalakeCommand = async (
+/**
+ * serializeAws_restJson1GetDatalakeCommand
+ */
+export const se_GetDatalakeCommand = async (
   input: GetDatalakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -603,7 +651,10 @@ export const serializeAws_restJson1GetDatalakeCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDatalakeAutoEnableCommand = async (
+/**
+ * serializeAws_restJson1GetDatalakeAutoEnableCommand
+ */
+export const se_GetDatalakeAutoEnableCommand = async (
   input: GetDatalakeAutoEnableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -626,7 +677,10 @@ export const serializeAws_restJson1GetDatalakeAutoEnableCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDatalakeExceptionsExpiryCommand = async (
+/**
+ * serializeAws_restJson1GetDatalakeExceptionsExpiryCommand
+ */
+export const se_GetDatalakeExceptionsExpiryCommand = async (
   input: GetDatalakeExceptionsExpiryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -649,7 +703,10 @@ export const serializeAws_restJson1GetDatalakeExceptionsExpiryCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand = async (
+/**
+ * serializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand
+ */
+export const se_GetDatalakeExceptionsSubscriptionCommand = async (
   input: GetDatalakeExceptionsSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -672,7 +729,10 @@ export const serializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand = as
   });
 };
 
-export const serializeAws_restJson1GetDatalakeStatusCommand = async (
+/**
+ * serializeAws_restJson1GetDatalakeStatusCommand
+ */
+export const se_GetDatalakeStatusCommand = async (
   input: GetDatalakeStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -683,7 +743,7 @@ export const serializeAws_restJson1GetDatalakeStatusCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/datalake/status";
   let body: any;
   body = JSON.stringify({
-    ...(input.accountSet != null && { accountSet: serializeAws_restJson1InputSet(input.accountSet, context) }),
+    ...(input.accountSet != null && { accountSet: se_InputSet(input.accountSet, context) }),
     ...(input.maxAccountResults != null && { maxAccountResults: input.maxAccountResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
@@ -698,7 +758,10 @@ export const serializeAws_restJson1GetDatalakeStatusCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSubscriberCommand = async (
+/**
+ * serializeAws_restJson1GetSubscriberCommand
+ */
+export const se_GetSubscriberCommand = async (
   input: GetSubscriberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -718,7 +781,10 @@ export const serializeAws_restJson1GetSubscriberCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDatalakeExceptionsCommand = async (
+/**
+ * serializeAws_restJson1ListDatalakeExceptionsCommand
+ */
+export const se_ListDatalakeExceptionsCommand = async (
   input: ListDatalakeExceptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -732,7 +798,7 @@ export const serializeAws_restJson1ListDatalakeExceptionsCommand = async (
   body = JSON.stringify({
     ...(input.maxFailures != null && { maxFailures: input.maxFailures }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.regionSet != null && { regionSet: serializeAws_restJson1RegionSet(input.regionSet, context) }),
+    ...(input.regionSet != null && { regionSet: se_RegionSet(input.regionSet, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -745,7 +811,10 @@ export const serializeAws_restJson1ListDatalakeExceptionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListLogSourcesCommand = async (
+/**
+ * serializeAws_restJson1ListLogSourcesCommand
+ */
+export const se_ListLogSourcesCommand = async (
   input: ListLogSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -756,15 +825,13 @@ export const serializeAws_restJson1ListLogSourcesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/logsources/list";
   let body: any;
   body = JSON.stringify({
-    ...(input.inputOrder != null && { inputOrder: serializeAws_restJson1DimensionSet(input.inputOrder, context) }),
+    ...(input.inputOrder != null && { inputOrder: se_DimensionSet(input.inputOrder, context) }),
     ...(input.listAllDimensions != null && {
-      listAllDimensions: serializeAws_restJson1AllDimensionsMap(input.listAllDimensions, context),
+      listAllDimensions: se_AllDimensionsMap(input.listAllDimensions, context),
     }),
-    ...(input.listSingleDimension != null && {
-      listSingleDimension: serializeAws_restJson1InputSet(input.listSingleDimension, context),
-    }),
+    ...(input.listSingleDimension != null && { listSingleDimension: se_InputSet(input.listSingleDimension, context) }),
     ...(input.listTwoDimensions != null && {
-      listTwoDimensions: serializeAws_restJson1TwoDimensionsMap(input.listTwoDimensions, context),
+      listTwoDimensions: se_TwoDimensionsMap(input.listTwoDimensions, context),
     }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
@@ -780,7 +847,10 @@ export const serializeAws_restJson1ListLogSourcesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSubscribersCommand = async (
+/**
+ * serializeAws_restJson1ListSubscribersCommand
+ */
+export const se_ListSubscribersCommand = async (
   input: ListSubscribersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -804,7 +874,10 @@ export const serializeAws_restJson1ListSubscribersCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateDatalakeCommand = async (
+/**
+ * serializeAws_restJson1UpdateDatalakeCommand
+ */
+export const se_UpdateDatalakeCommand = async (
   input: UpdateDatalakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -816,7 +889,7 @@ export const serializeAws_restJson1UpdateDatalakeCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.configurations != null && {
-      configurations: serializeAws_restJson1LakeConfigurationRequestMap(input.configurations, context),
+      configurations: se_LakeConfigurationRequestMap(input.configurations, context),
     }),
   });
   return new __HttpRequest({
@@ -830,7 +903,10 @@ export const serializeAws_restJson1UpdateDatalakeCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateDatalakeExceptionsExpiryCommand = async (
+/**
+ * serializeAws_restJson1UpdateDatalakeExceptionsExpiryCommand
+ */
+export const se_UpdateDatalakeExceptionsExpiryCommand = async (
   input: UpdateDatalakeExceptionsExpiryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -855,7 +931,10 @@ export const serializeAws_restJson1UpdateDatalakeExceptionsExpiryCommand = async
   });
 };
 
-export const serializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand = async (
+/**
+ * serializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand
+ */
+export const se_UpdateDatalakeExceptionsSubscriptionCommand = async (
   input: UpdateDatalakeExceptionsSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -881,7 +960,10 @@ export const serializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand =
   });
 };
 
-export const serializeAws_restJson1UpdateSubscriberCommand = async (
+/**
+ * serializeAws_restJson1UpdateSubscriberCommand
+ */
+export const se_UpdateSubscriberCommand = async (
   input: UpdateSubscriberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -894,7 +976,7 @@ export const serializeAws_restJson1UpdateSubscriberCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.externalId != null && { externalId: input.externalId }),
-    ...(input.sourceTypes != null && { sourceTypes: serializeAws_restJson1SourceTypeList(input.sourceTypes, context) }),
+    ...(input.sourceTypes != null && { sourceTypes: se_SourceTypeList(input.sourceTypes, context) }),
     ...(input.subscriberDescription != null && { subscriberDescription: input.subscriberDescription }),
     ...(input.subscriberName != null && { subscriberName: input.subscriberName }),
   });
@@ -909,7 +991,10 @@ export const serializeAws_restJson1UpdateSubscriberCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand = async (
+/**
+ * serializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand
+ */
+export const se_UpdateSubscriptionNotificationConfigurationCommand = async (
   input: UpdateSubscriptionNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -948,27 +1033,33 @@ export const serializeAws_restJson1UpdateSubscriptionNotificationConfigurationCo
   });
 };
 
-export const deserializeAws_restJson1CreateAwsLogSourceCommand = async (
+/**
+ * deserializeAws_restJson1CreateAwsLogSourceCommand
+ */
+export const de_CreateAwsLogSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAwsLogSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAwsLogSourceCommandError(output, context);
+    return de_CreateAwsLogSourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.failed != null) {
-    contents.failed = deserializeAws_restJson1AccountList(data.failed, context);
+    contents.failed = de_AccountList(data.failed, context);
   }
   if (data.processing != null) {
-    contents.processing = deserializeAws_restJson1AccountList(data.processing, context);
+    contents.processing = de_AccountList(data.processing, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateAwsLogSourceCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAwsLogSourceCommandError
+ */
+const de_CreateAwsLogSourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAwsLogSourceCommandOutput> => {
@@ -980,22 +1071,22 @@ const deserializeAws_restJson1CreateAwsLogSourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "S3Exception":
     case "com.amazonaws.securitylake#S3Exception":
-      throw await deserializeAws_restJson1S3ExceptionResponse(parsedOutput, context);
+      throw await de_S3ExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1007,12 +1098,15 @@ const deserializeAws_restJson1CreateAwsLogSourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateCustomLogSourceCommand = async (
+/**
+ * deserializeAws_restJson1CreateCustomLogSourceCommand
+ */
+export const de_CreateCustomLogSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomLogSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateCustomLogSourceCommandError(output, context);
+    return de_CreateCustomLogSourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1036,7 +1130,10 @@ export const deserializeAws_restJson1CreateCustomLogSourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateCustomLogSourceCommandError = async (
+/**
+ * deserializeAws_restJson1CreateCustomLogSourceCommandError
+ */
+const de_CreateCustomLogSourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomLogSourceCommandOutput> => {
@@ -1048,25 +1145,25 @@ const deserializeAws_restJson1CreateCustomLogSourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "BucketNotFoundException":
     case "com.amazonaws.securitylake#BucketNotFoundException":
-      throw await deserializeAws_restJson1BucketNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_BucketNotFoundExceptionRes(parsedOutput, context);
     case "ConflictSourceNamesException":
     case "com.amazonaws.securitylake#ConflictSourceNamesException":
-      throw await deserializeAws_restJson1ConflictSourceNamesExceptionResponse(parsedOutput, context);
+      throw await de_ConflictSourceNamesExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1078,12 +1175,15 @@ const deserializeAws_restJson1CreateCustomLogSourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateDatalakeCommand = async (
+/**
+ * deserializeAws_restJson1CreateDatalakeCommand
+ */
+export const de_CreateDatalakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatalakeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDatalakeCommandError(output, context);
+    return de_CreateDatalakeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1092,7 +1192,10 @@ export const deserializeAws_restJson1CreateDatalakeCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateDatalakeCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDatalakeCommandError
+ */
+const de_CreateDatalakeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatalakeCommandOutput> => {
@@ -1104,25 +1207,25 @@ const deserializeAws_restJson1CreateDatalakeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.securitylake#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.securitylake#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.securitylake#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1134,12 +1237,15 @@ const deserializeAws_restJson1CreateDatalakeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateDatalakeAutoEnableCommand = async (
+/**
+ * deserializeAws_restJson1CreateDatalakeAutoEnableCommand
+ */
+export const de_CreateDatalakeAutoEnableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatalakeAutoEnableCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDatalakeAutoEnableCommandError(output, context);
+    return de_CreateDatalakeAutoEnableCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1148,7 +1254,10 @@ export const deserializeAws_restJson1CreateDatalakeAutoEnableCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateDatalakeAutoEnableCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDatalakeAutoEnableCommandError
+ */
+const de_CreateDatalakeAutoEnableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatalakeAutoEnableCommandOutput> => {
@@ -1160,16 +1269,16 @@ const deserializeAws_restJson1CreateDatalakeAutoEnableCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1181,12 +1290,15 @@ const deserializeAws_restJson1CreateDatalakeAutoEnableCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateDatalakeDelegatedAdminCommand = async (
+/**
+ * deserializeAws_restJson1CreateDatalakeDelegatedAdminCommand
+ */
+export const de_CreateDatalakeDelegatedAdminCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatalakeDelegatedAdminCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDatalakeDelegatedAdminCommandError(output, context);
+    return de_CreateDatalakeDelegatedAdminCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1195,7 +1307,10 @@ export const deserializeAws_restJson1CreateDatalakeDelegatedAdminCommand = async
   return contents;
 };
 
-const deserializeAws_restJson1CreateDatalakeDelegatedAdminCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDatalakeDelegatedAdminCommandError
+ */
+const de_CreateDatalakeDelegatedAdminCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatalakeDelegatedAdminCommandOutput> => {
@@ -1207,16 +1322,16 @@ const deserializeAws_restJson1CreateDatalakeDelegatedAdminCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.securitylake#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1228,12 +1343,15 @@ const deserializeAws_restJson1CreateDatalakeDelegatedAdminCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand = async (
+/**
+ * deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand
+ */
+export const de_CreateDatalakeExceptionsSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatalakeExceptionsSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommandError(output, context);
+    return de_CreateDatalakeExceptionsSubscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1242,7 +1360,10 @@ export const deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommand
   return contents;
 };
 
-const deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommandError
+ */
+const de_CreateDatalakeExceptionsSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatalakeExceptionsSubscriptionCommandOutput> => {
@@ -1254,16 +1375,16 @@ const deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommandError =
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1275,12 +1396,15 @@ const deserializeAws_restJson1CreateDatalakeExceptionsSubscriptionCommandError =
   }
 };
 
-export const deserializeAws_restJson1CreateSubscriberCommand = async (
+/**
+ * deserializeAws_restJson1CreateSubscriberCommand
+ */
+export const de_CreateSubscriberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSubscriberCommandError(output, context);
+    return de_CreateSubscriberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1307,7 +1431,10 @@ export const deserializeAws_restJson1CreateSubscriberCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateSubscriberCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSubscriberCommandError
+ */
+const de_CreateSubscriberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriberCommandOutput> => {
@@ -1319,28 +1446,28 @@ const deserializeAws_restJson1CreateSubscriberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "BucketNotFoundException":
     case "com.amazonaws.securitylake#BucketNotFoundException":
-      throw await deserializeAws_restJson1BucketNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_BucketNotFoundExceptionRes(parsedOutput, context);
     case "ConflictSubscriptionException":
     case "com.amazonaws.securitylake#ConflictSubscriptionException":
-      throw await deserializeAws_restJson1ConflictSubscriptionExceptionResponse(parsedOutput, context);
+      throw await de_ConflictSubscriptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.securitylake#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1352,12 +1479,15 @@ const deserializeAws_restJson1CreateSubscriberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand
+ */
+export const de_CreateSubscriptionNotificationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionNotificationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommandError(output, context);
+    return de_CreateSubscriptionNotificationConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1369,7 +1499,10 @@ export const deserializeAws_restJson1CreateSubscriptionNotificationConfiguration
   return contents;
 };
 
-const deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommandError
+ */
+const de_CreateSubscriptionNotificationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionNotificationConfigurationCommandOutput> => {
@@ -1381,25 +1514,25 @@ const deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.securitylake#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.securitylake#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1411,27 +1544,33 @@ const deserializeAws_restJson1CreateSubscriptionNotificationConfigurationCommand
   }
 };
 
-export const deserializeAws_restJson1DeleteAwsLogSourceCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAwsLogSourceCommand
+ */
+export const de_DeleteAwsLogSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAwsLogSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAwsLogSourceCommandError(output, context);
+    return de_DeleteAwsLogSourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.failed != null) {
-    contents.failed = deserializeAws_restJson1AccountList(data.failed, context);
+    contents.failed = de_AccountList(data.failed, context);
   }
   if (data.processing != null) {
-    contents.processing = deserializeAws_restJson1AccountList(data.processing, context);
+    contents.processing = de_AccountList(data.processing, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAwsLogSourceCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAwsLogSourceCommandError
+ */
+const de_DeleteAwsLogSourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAwsLogSourceCommandOutput> => {
@@ -1443,16 +1582,16 @@ const deserializeAws_restJson1DeleteAwsLogSourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1464,12 +1603,15 @@ const deserializeAws_restJson1DeleteAwsLogSourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteCustomLogSourceCommand = async (
+/**
+ * deserializeAws_restJson1DeleteCustomLogSourceCommand
+ */
+export const de_DeleteCustomLogSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomLogSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteCustomLogSourceCommandError(output, context);
+    return de_DeleteCustomLogSourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1481,7 +1623,10 @@ export const deserializeAws_restJson1DeleteCustomLogSourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteCustomLogSourceCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteCustomLogSourceCommandError
+ */
+const de_DeleteCustomLogSourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomLogSourceCommandOutput> => {
@@ -1493,25 +1638,25 @@ const deserializeAws_restJson1DeleteCustomLogSourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "BucketNotFoundException":
     case "com.amazonaws.securitylake#BucketNotFoundException":
-      throw await deserializeAws_restJson1BucketNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_BucketNotFoundExceptionRes(parsedOutput, context);
     case "ConflictSourceNamesException":
     case "com.amazonaws.securitylake#ConflictSourceNamesException":
-      throw await deserializeAws_restJson1ConflictSourceNamesExceptionResponse(parsedOutput, context);
+      throw await de_ConflictSourceNamesExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1523,12 +1668,15 @@ const deserializeAws_restJson1DeleteCustomLogSourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteDatalakeCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDatalakeCommand
+ */
+export const de_DeleteDatalakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatalakeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDatalakeCommandError(output, context);
+    return de_DeleteDatalakeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1537,7 +1685,10 @@ export const deserializeAws_restJson1DeleteDatalakeCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteDatalakeCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDatalakeCommandError
+ */
+const de_DeleteDatalakeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatalakeCommandOutput> => {
@@ -1549,25 +1700,25 @@ const deserializeAws_restJson1DeleteDatalakeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.securitylake#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.securitylake#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.securitylake#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1579,12 +1730,15 @@ const deserializeAws_restJson1DeleteDatalakeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteDatalakeAutoEnableCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDatalakeAutoEnableCommand
+ */
+export const de_DeleteDatalakeAutoEnableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatalakeAutoEnableCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDatalakeAutoEnableCommandError(output, context);
+    return de_DeleteDatalakeAutoEnableCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1593,7 +1747,10 @@ export const deserializeAws_restJson1DeleteDatalakeAutoEnableCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteDatalakeAutoEnableCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDatalakeAutoEnableCommandError
+ */
+const de_DeleteDatalakeAutoEnableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatalakeAutoEnableCommandOutput> => {
@@ -1605,16 +1762,16 @@ const deserializeAws_restJson1DeleteDatalakeAutoEnableCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1626,12 +1783,15 @@ const deserializeAws_restJson1DeleteDatalakeAutoEnableCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommand
+ */
+export const de_DeleteDatalakeDelegatedAdminCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatalakeDelegatedAdminCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommandError(output, context);
+    return de_DeleteDatalakeDelegatedAdminCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1640,7 +1800,10 @@ export const deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommand = async
   return contents;
 };
 
-const deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommandError
+ */
+const de_DeleteDatalakeDelegatedAdminCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatalakeDelegatedAdminCommandOutput> => {
@@ -1652,16 +1815,16 @@ const deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.securitylake#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1673,12 +1836,15 @@ const deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand
+ */
+export const de_DeleteDatalakeExceptionsSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatalakeExceptionsSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommandError(output, context);
+    return de_DeleteDatalakeExceptionsSubscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1690,7 +1856,10 @@ export const deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommand
   return contents;
 };
 
-const deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommandError
+ */
+const de_DeleteDatalakeExceptionsSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatalakeExceptionsSubscriptionCommandOutput> => {
@@ -1702,16 +1871,16 @@ const deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommandError =
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1723,12 +1892,15 @@ const deserializeAws_restJson1DeleteDatalakeExceptionsSubscriptionCommandError =
   }
 };
 
-export const deserializeAws_restJson1DeleteSubscriberCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSubscriberCommand
+ */
+export const de_DeleteSubscriberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubscriberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSubscriberCommandError(output, context);
+    return de_DeleteSubscriberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1737,7 +1909,10 @@ export const deserializeAws_restJson1DeleteSubscriberCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSubscriberCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSubscriberCommandError
+ */
+const de_DeleteSubscriberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubscriberCommandOutput> => {
@@ -1749,28 +1924,28 @@ const deserializeAws_restJson1DeleteSubscriberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "BucketNotFoundException":
     case "com.amazonaws.securitylake#BucketNotFoundException":
-      throw await deserializeAws_restJson1BucketNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_BucketNotFoundExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.securitylake#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.securitylake#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1782,12 +1957,15 @@ const deserializeAws_restJson1DeleteSubscriberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand
+ */
+export const de_DeleteSubscriptionNotificationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubscriptionNotificationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommandError(output, context);
+    return de_DeleteSubscriptionNotificationConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1796,7 +1974,10 @@ export const deserializeAws_restJson1DeleteSubscriptionNotificationConfiguration
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommandError
+ */
+const de_DeleteSubscriptionNotificationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubscriptionNotificationConfigurationCommandOutput> => {
@@ -1808,25 +1989,25 @@ const deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.securitylake#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.securitylake#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1838,24 +2019,30 @@ const deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand
   }
 };
 
-export const deserializeAws_restJson1GetDatalakeCommand = async (
+/**
+ * deserializeAws_restJson1GetDatalakeCommand
+ */
+export const de_GetDatalakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatalakeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDatalakeCommandError(output, context);
+    return de_GetDatalakeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.configurations != null) {
-    contents.configurations = deserializeAws_restJson1LakeConfigurationResponseMap(data.configurations, context);
+    contents.configurations = de_LakeConfigurationResponseMap(data.configurations, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetDatalakeCommandError = async (
+/**
+ * deserializeAws_restJson1GetDatalakeCommandError
+ */
+const de_GetDatalakeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatalakeCommandOutput> => {
@@ -1867,19 +2054,19 @@ const deserializeAws_restJson1GetDatalakeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1891,27 +2078,30 @@ const deserializeAws_restJson1GetDatalakeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDatalakeAutoEnableCommand = async (
+/**
+ * deserializeAws_restJson1GetDatalakeAutoEnableCommand
+ */
+export const de_GetDatalakeAutoEnableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatalakeAutoEnableCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDatalakeAutoEnableCommandError(output, context);
+    return de_GetDatalakeAutoEnableCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.autoEnableNewAccounts != null) {
-    contents.autoEnableNewAccounts = deserializeAws_restJson1AutoEnableNewRegionConfigurationList(
-      data.autoEnableNewAccounts,
-      context
-    );
+    contents.autoEnableNewAccounts = de_AutoEnableNewRegionConfigurationList(data.autoEnableNewAccounts, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetDatalakeAutoEnableCommandError = async (
+/**
+ * deserializeAws_restJson1GetDatalakeAutoEnableCommandError
+ */
+const de_GetDatalakeAutoEnableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatalakeAutoEnableCommandOutput> => {
@@ -1923,16 +2113,16 @@ const deserializeAws_restJson1GetDatalakeAutoEnableCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1944,12 +2134,15 @@ const deserializeAws_restJson1GetDatalakeAutoEnableCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDatalakeExceptionsExpiryCommand = async (
+/**
+ * deserializeAws_restJson1GetDatalakeExceptionsExpiryCommand
+ */
+export const de_GetDatalakeExceptionsExpiryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatalakeExceptionsExpiryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDatalakeExceptionsExpiryCommandError(output, context);
+    return de_GetDatalakeExceptionsExpiryCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1961,7 +2154,10 @@ export const deserializeAws_restJson1GetDatalakeExceptionsExpiryCommand = async 
   return contents;
 };
 
-const deserializeAws_restJson1GetDatalakeExceptionsExpiryCommandError = async (
+/**
+ * deserializeAws_restJson1GetDatalakeExceptionsExpiryCommandError
+ */
+const de_GetDatalakeExceptionsExpiryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatalakeExceptionsExpiryCommandOutput> => {
@@ -1973,16 +2169,16 @@ const deserializeAws_restJson1GetDatalakeExceptionsExpiryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1994,19 +2190,22 @@ const deserializeAws_restJson1GetDatalakeExceptionsExpiryCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand = async (
+/**
+ * deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand
+ */
+export const de_GetDatalakeExceptionsSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatalakeExceptionsSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommandError(output, context);
+    return de_GetDatalakeExceptionsSubscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.protocolAndNotificationEndpoint != null) {
-    contents.protocolAndNotificationEndpoint = deserializeAws_restJson1ProtocolAndNotificationEndpoint(
+    contents.protocolAndNotificationEndpoint = de_ProtocolAndNotificationEndpoint(
       data.protocolAndNotificationEndpoint,
       context
     );
@@ -2014,7 +2213,10 @@ export const deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommand = 
   return contents;
 };
 
-const deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommandError = async (
+/**
+ * deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommandError
+ */
+const de_GetDatalakeExceptionsSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatalakeExceptionsSubscriptionCommandOutput> => {
@@ -2026,16 +2228,16 @@ const deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommandError = as
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2047,19 +2249,22 @@ const deserializeAws_restJson1GetDatalakeExceptionsSubscriptionCommandError = as
   }
 };
 
-export const deserializeAws_restJson1GetDatalakeStatusCommand = async (
+/**
+ * deserializeAws_restJson1GetDatalakeStatusCommand
+ */
+export const de_GetDatalakeStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatalakeStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDatalakeStatusCommandError(output, context);
+    return de_GetDatalakeStatusCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accountSourcesList != null) {
-    contents.accountSourcesList = deserializeAws_restJson1AccountSourcesList(data.accountSourcesList, context);
+    contents.accountSourcesList = de_AccountSourcesList(data.accountSourcesList, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -2067,7 +2272,10 @@ export const deserializeAws_restJson1GetDatalakeStatusCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetDatalakeStatusCommandError = async (
+/**
+ * deserializeAws_restJson1GetDatalakeStatusCommandError
+ */
+const de_GetDatalakeStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatalakeStatusCommandOutput> => {
@@ -2079,16 +2287,16 @@ const deserializeAws_restJson1GetDatalakeStatusCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2100,24 +2308,30 @@ const deserializeAws_restJson1GetDatalakeStatusCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetSubscriberCommand = async (
+/**
+ * deserializeAws_restJson1GetSubscriberCommand
+ */
+export const de_GetSubscriberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSubscriberCommandError(output, context);
+    return de_GetSubscriberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.subscriber != null) {
-    contents.subscriber = deserializeAws_restJson1SubscriberResource(data.subscriber, context);
+    contents.subscriber = de_SubscriberResource(data.subscriber, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetSubscriberCommandError = async (
+/**
+ * deserializeAws_restJson1GetSubscriberCommandError
+ */
+const de_GetSubscriberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriberCommandOutput> => {
@@ -2129,19 +2343,19 @@ const deserializeAws_restJson1GetSubscriberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.securitylake#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2153,12 +2367,15 @@ const deserializeAws_restJson1GetSubscriberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListDatalakeExceptionsCommand = async (
+/**
+ * deserializeAws_restJson1ListDatalakeExceptionsCommand
+ */
+export const de_ListDatalakeExceptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatalakeExceptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDatalakeExceptionsCommandError(output, context);
+    return de_ListDatalakeExceptionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2168,12 +2385,15 @@ export const deserializeAws_restJson1ListDatalakeExceptionsCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.nonRetryableFailures != null) {
-    contents.nonRetryableFailures = deserializeAws_restJson1FailuresResponseList(data.nonRetryableFailures, context);
+    contents.nonRetryableFailures = de_FailuresResponseList(data.nonRetryableFailures, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListDatalakeExceptionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDatalakeExceptionsCommandError
+ */
+const de_ListDatalakeExceptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatalakeExceptionsCommandOutput> => {
@@ -2185,16 +2405,16 @@ const deserializeAws_restJson1ListDatalakeExceptionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2206,12 +2426,15 @@ const deserializeAws_restJson1ListDatalakeExceptionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListLogSourcesCommand = async (
+/**
+ * deserializeAws_restJson1ListLogSourcesCommand
+ */
+export const de_ListLogSourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLogSourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListLogSourcesCommandError(output, context);
+    return de_ListLogSourcesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2221,7 +2444,7 @@ export const deserializeAws_restJson1ListLogSourcesCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.regionSourceTypesAccountsList != null) {
-    contents.regionSourceTypesAccountsList = deserializeAws_restJson1RegionSourceTypesAccountsList(
+    contents.regionSourceTypesAccountsList = de_RegionSourceTypesAccountsList(
       data.regionSourceTypesAccountsList,
       context
     );
@@ -2229,7 +2452,10 @@ export const deserializeAws_restJson1ListLogSourcesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListLogSourcesCommandError = async (
+/**
+ * deserializeAws_restJson1ListLogSourcesCommandError
+ */
+const de_ListLogSourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLogSourcesCommandOutput> => {
@@ -2241,19 +2467,19 @@ const deserializeAws_restJson1ListLogSourcesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2265,12 +2491,15 @@ const deserializeAws_restJson1ListLogSourcesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListSubscribersCommand = async (
+/**
+ * deserializeAws_restJson1ListSubscribersCommand
+ */
+export const de_ListSubscribersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscribersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSubscribersCommandError(output, context);
+    return de_ListSubscribersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2280,12 +2509,15 @@ export const deserializeAws_restJson1ListSubscribersCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.subscribers != null) {
-    contents.subscribers = deserializeAws_restJson1SubscriberList(data.subscribers, context);
+    contents.subscribers = de_SubscriberList(data.subscribers, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListSubscribersCommandError = async (
+/**
+ * deserializeAws_restJson1ListSubscribersCommandError
+ */
+const de_ListSubscribersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscribersCommandOutput> => {
@@ -2297,22 +2529,22 @@ const deserializeAws_restJson1ListSubscribersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.securitylake#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2324,12 +2556,15 @@ const deserializeAws_restJson1ListSubscribersCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateDatalakeCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDatalakeCommand
+ */
+export const de_UpdateDatalakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatalakeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDatalakeCommandError(output, context);
+    return de_UpdateDatalakeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2338,7 +2573,10 @@ export const deserializeAws_restJson1UpdateDatalakeCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateDatalakeCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDatalakeCommandError
+ */
+const de_UpdateDatalakeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatalakeCommandOutput> => {
@@ -2350,19 +2588,19 @@ const deserializeAws_restJson1UpdateDatalakeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "EventBridgeException":
     case "com.amazonaws.securitylake#EventBridgeException":
-      throw await deserializeAws_restJson1EventBridgeExceptionResponse(parsedOutput, context);
+      throw await de_EventBridgeExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2374,12 +2612,15 @@ const deserializeAws_restJson1UpdateDatalakeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateDatalakeExceptionsExpiryCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDatalakeExceptionsExpiryCommand
+ */
+export const de_UpdateDatalakeExceptionsExpiryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatalakeExceptionsExpiryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDatalakeExceptionsExpiryCommandError(output, context);
+    return de_UpdateDatalakeExceptionsExpiryCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2388,7 +2629,10 @@ export const deserializeAws_restJson1UpdateDatalakeExceptionsExpiryCommand = asy
   return contents;
 };
 
-const deserializeAws_restJson1UpdateDatalakeExceptionsExpiryCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDatalakeExceptionsExpiryCommandError
+ */
+const de_UpdateDatalakeExceptionsExpiryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatalakeExceptionsExpiryCommandOutput> => {
@@ -2400,16 +2644,16 @@ const deserializeAws_restJson1UpdateDatalakeExceptionsExpiryCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2421,12 +2665,15 @@ const deserializeAws_restJson1UpdateDatalakeExceptionsExpiryCommandError = async
   }
 };
 
-export const deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand
+ */
+export const de_UpdateDatalakeExceptionsSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatalakeExceptionsSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommandError(output, context);
+    return de_UpdateDatalakeExceptionsSubscriptionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2435,7 +2682,10 @@ export const deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommand
   return contents;
 };
 
-const deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommandError
+ */
+const de_UpdateDatalakeExceptionsSubscriptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatalakeExceptionsSubscriptionCommandOutput> => {
@@ -2447,16 +2697,16 @@ const deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommandError =
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2468,24 +2718,30 @@ const deserializeAws_restJson1UpdateDatalakeExceptionsSubscriptionCommandError =
   }
 };
 
-export const deserializeAws_restJson1UpdateSubscriberCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSubscriberCommand
+ */
+export const de_UpdateSubscriberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubscriberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSubscriberCommandError(output, context);
+    return de_UpdateSubscriberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.subscriber != null) {
-    contents.subscriber = deserializeAws_restJson1SubscriberResource(data.subscriber, context);
+    contents.subscriber = de_SubscriberResource(data.subscriber, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSubscriberCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSubscriberCommandError
+ */
+const de_UpdateSubscriberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubscriberCommandOutput> => {
@@ -2497,25 +2753,25 @@ const deserializeAws_restJson1UpdateSubscriberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.securitylake#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConflictSubscriptionException":
     case "com.amazonaws.securitylake#ConflictSubscriptionException":
-      throw await deserializeAws_restJson1ConflictSubscriptionExceptionResponse(parsedOutput, context);
+      throw await de_ConflictSubscriptionExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.securitylake#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2527,12 +2783,15 @@ const deserializeAws_restJson1UpdateSubscriberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand
+ */
+export const de_UpdateSubscriptionNotificationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubscriptionNotificationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommandError(output, context);
+    return de_UpdateSubscriptionNotificationConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2544,7 +2803,10 @@ export const deserializeAws_restJson1UpdateSubscriptionNotificationConfiguration
   return contents;
 };
 
-const deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommandError
+ */
+const de_UpdateSubscriptionNotificationConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubscriptionNotificationConfigurationCommandOutput> => {
@@ -2556,25 +2818,25 @@ const deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securitylake#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.securitylake#AccountNotFoundException":
-      throw await deserializeAws_restJson1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.securitylake#ConcurrentModificationException":
-      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.securitylake#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.securitylake#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securitylake#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.securitylake#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2587,7 +2849,10 @@ const deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -2606,7 +2871,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1AccountNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccountNotFoundExceptionRes
+ */
+const de_AccountNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccountNotFoundException> => {
@@ -2622,7 +2890,10 @@ const deserializeAws_restJson1AccountNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BucketNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1BucketNotFoundExceptionRes
+ */
+const de_BucketNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BucketNotFoundException> => {
@@ -2638,7 +2909,10 @@ const deserializeAws_restJson1BucketNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
@@ -2654,10 +2928,10 @@ const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -2676,7 +2950,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictSourceNamesExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ConflictSourceNamesExceptionRes
+ */
+const de_ConflictSourceNamesExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictSourceNamesException> => {
@@ -2692,7 +2969,10 @@ const deserializeAws_restJson1ConflictSourceNamesExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictSubscriptionExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ConflictSubscriptionExceptionRes
+ */
+const de_ConflictSubscriptionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictSubscriptionException> => {
@@ -2708,7 +2988,10 @@ const deserializeAws_restJson1ConflictSubscriptionExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1EventBridgeExceptionResponse = async (
+/**
+ * deserializeAws_restJson1EventBridgeExceptionRes
+ */
+const de_EventBridgeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EventBridgeException> => {
@@ -2724,7 +3007,10 @@ const deserializeAws_restJson1EventBridgeExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -2745,7 +3031,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
@@ -2761,7 +3050,10 @@ const deserializeAws_restJson1InvalidInputExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -2783,10 +3075,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1S3ExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<S3Exception> => {
+/**
+ * deserializeAws_restJson1S3ExceptionRes
+ */
+const de_S3ExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<S3Exception> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -2799,7 +3091,10 @@ const deserializeAws_restJson1S3ExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -2827,10 +3122,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
     retryAfterSeconds: [
       () => void 0 !== parsedOutput.headers["retry-after"],
@@ -2854,14 +3149,14 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.fieldList != null) {
-    contents.fieldList = deserializeAws_restJson1ValidationExceptionFieldList(data.fieldList, context);
+    contents.fieldList = de_ValidationExceptionFieldList(data.fieldList, context);
   }
   if (data.message != null) {
     contents.message = __expectString(data.message);
@@ -2876,7 +3171,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AccessTypeList = (input: (AccessType | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AccessTypeList
+ */
+const se_AccessTypeList = (input: (AccessType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2884,44 +3182,47 @@ const serializeAws_restJson1AccessTypeList = (input: (AccessType | string)[], co
     });
 };
 
-const serializeAws_restJson1AllDimensionsMap = (
-  input: Record<string, Record<string, string[]>>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1AllDimensionsMap
+ */
+const se_AllDimensionsMap = (input: Record<string, Record<string, string[]>>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1TwoDimensionsMap(value, context);
+    acc[key] = se_TwoDimensionsMap(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1AutoEnableNewRegionConfiguration = (
-  input: AutoEnableNewRegionConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1AutoEnableNewRegionConfiguration
+ */
+const se_AutoEnableNewRegionConfiguration = (input: AutoEnableNewRegionConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.region != null && { region: input.region }),
-    ...(input.sources != null && { sources: serializeAws_restJson1AwsSourceTypeList(input.sources, context) }),
+    ...(input.sources != null && { sources: se_AwsSourceTypeList(input.sources, context) }),
   };
 };
 
-const serializeAws_restJson1AutoEnableNewRegionConfigurationList = (
+/**
+ * serializeAws_restJson1AutoEnableNewRegionConfigurationList
+ */
+const se_AutoEnableNewRegionConfigurationList = (
   input: AutoEnableNewRegionConfiguration[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1AutoEnableNewRegionConfiguration(entry, context);
+      return se_AutoEnableNewRegionConfiguration(entry, context);
     });
 };
 
-const serializeAws_restJson1AwsSourceTypeList = (
-  input: (AwsLogSourceType | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1AwsSourceTypeList
+ */
+const se_AwsSourceTypeList = (input: (AwsLogSourceType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2929,7 +3230,10 @@ const serializeAws_restJson1AwsSourceTypeList = (
     });
 };
 
-const serializeAws_restJson1DimensionSet = (input: (Dimension | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DimensionSet
+ */
+const se_DimensionSet = (input: (Dimension | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2937,7 +3241,10 @@ const serializeAws_restJson1DimensionSet = (input: (Dimension | string)[], conte
     });
 };
 
-const serializeAws_restJson1InputSet = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1InputSet
+ */
+const se_InputSet = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2945,24 +3252,27 @@ const serializeAws_restJson1InputSet = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_restJson1LakeConfigurationRequest = (
-  input: LakeConfigurationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1LakeConfigurationRequest
+ */
+const se_LakeConfigurationRequest = (input: LakeConfigurationRequest, context: __SerdeContext): any => {
   return {
     ...(input.encryptionKey != null && { encryptionKey: input.encryptionKey }),
     ...(input.replicationDestinationRegions != null && {
-      replicationDestinationRegions: serializeAws_restJson1RegionSet(input.replicationDestinationRegions, context),
+      replicationDestinationRegions: se_RegionSet(input.replicationDestinationRegions, context),
     }),
     ...(input.replicationRoleArn != null && { replicationRoleArn: input.replicationRoleArn }),
     ...(input.retentionSettings != null && {
-      retentionSettings: serializeAws_restJson1RetentionSettingList(input.retentionSettings, context),
+      retentionSettings: se_RetentionSettingList(input.retentionSettings, context),
     }),
-    ...(input.tagsMap != null && { tagsMap: serializeAws_restJson1TagsMap(input.tagsMap, context) }),
+    ...(input.tagsMap != null && { tagsMap: se_TagsMap(input.tagsMap, context) }),
   };
 };
 
-const serializeAws_restJson1LakeConfigurationRequestMap = (
+/**
+ * serializeAws_restJson1LakeConfigurationRequestMap
+ */
+const se_LakeConfigurationRequestMap = (
   input: Record<string, LakeConfigurationRequest>,
   context: __SerdeContext
 ): any => {
@@ -2970,12 +3280,15 @@ const serializeAws_restJson1LakeConfigurationRequestMap = (
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1LakeConfigurationRequest(value, context);
+    acc[key] = se_LakeConfigurationRequest(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1RegionSet = (input: (Region | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RegionSet
+ */
+const se_RegionSet = (input: (Region | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2983,22 +3296,31 @@ const serializeAws_restJson1RegionSet = (input: (Region | string)[], context: __
     });
 };
 
-const serializeAws_restJson1RetentionSetting = (input: RetentionSetting, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RetentionSetting
+ */
+const se_RetentionSetting = (input: RetentionSetting, context: __SerdeContext): any => {
   return {
     ...(input.retentionPeriod != null && { retentionPeriod: input.retentionPeriod }),
     ...(input.storageClass != null && { storageClass: input.storageClass }),
   };
 };
 
-const serializeAws_restJson1RetentionSettingList = (input: RetentionSetting[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RetentionSettingList
+ */
+const se_RetentionSettingList = (input: RetentionSetting[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1RetentionSetting(entry, context);
+      return se_RetentionSetting(entry, context);
     });
 };
 
-const serializeAws_restJson1SourceType = (input: SourceType, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SourceType
+ */
+const se_SourceType = (input: SourceType, context: __SerdeContext): any => {
   return SourceType.visit(input, {
     awsSourceType: (value) => ({ awsSourceType: value }),
     customSourceType: (value) => ({ customSourceType: value }),
@@ -3006,15 +3328,21 @@ const serializeAws_restJson1SourceType = (input: SourceType, context: __SerdeCon
   });
 };
 
-const serializeAws_restJson1SourceTypeList = (input: SourceType[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SourceTypeList
+ */
+const se_SourceTypeList = (input: SourceType[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1SourceType(entry, context);
+      return se_SourceType(entry, context);
     });
 };
 
-const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagsMap
+ */
+const se_TagsMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3024,17 +3352,23 @@ const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: _
   }, {});
 };
 
-const serializeAws_restJson1TwoDimensionsMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TwoDimensionsMap
+ */
+const se_TwoDimensionsMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1ValueSet(value, context);
+    acc[key] = se_ValueSet(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1ValueSet = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ValueSet
+ */
+const se_ValueSet = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3042,7 +3376,10 @@ const serializeAws_restJson1ValueSet = (input: string[], context: __SerdeContext
     });
 };
 
-const deserializeAws_restJson1AccessTypeList = (output: any, context: __SerdeContext): (AccessType | string)[] => {
+/**
+ * deserializeAws_restJson1AccessTypeList
+ */
+const de_AccessTypeList = (output: any, context: __SerdeContext): (AccessType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3054,7 +3391,10 @@ const deserializeAws_restJson1AccessTypeList = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_restJson1AccountList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1AccountList
+ */
+const de_AccountList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3066,52 +3406,63 @@ const deserializeAws_restJson1AccountList = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1AccountSources = (output: any, context: __SerdeContext): AccountSources => {
+/**
+ * deserializeAws_restJson1AccountSources
+ */
+const de_AccountSources = (output: any, context: __SerdeContext): AccountSources => {
   return {
     account: __expectString(output.account),
     eventClass: __expectString(output.eventClass),
-    logsStatus:
-      output.logsStatus != null ? deserializeAws_restJson1LogsStatusList(output.logsStatus, context) : undefined,
+    logsStatus: output.logsStatus != null ? de_LogsStatusList(output.logsStatus, context) : undefined,
     sourceType: __expectString(output.sourceType),
   } as any;
 };
 
-const deserializeAws_restJson1AccountSourcesList = (output: any, context: __SerdeContext): AccountSources[] => {
+/**
+ * deserializeAws_restJson1AccountSourcesList
+ */
+const de_AccountSourcesList = (output: any, context: __SerdeContext): AccountSources[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AccountSources(entry, context);
+      return de_AccountSources(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AllDimensionsMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, Record<string, string[]>> => {
+/**
+ * deserializeAws_restJson1AllDimensionsMap
+ */
+const de_AllDimensionsMap = (output: any, context: __SerdeContext): Record<string, Record<string, string[]>> => {
   return Object.entries(output).reduce((acc: Record<string, Record<string, string[]>>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1TwoDimensionsMap(value, context);
+    acc[key] = de_TwoDimensionsMap(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1AutoEnableNewRegionConfiguration = (
+/**
+ * deserializeAws_restJson1AutoEnableNewRegionConfiguration
+ */
+const de_AutoEnableNewRegionConfiguration = (
   output: any,
   context: __SerdeContext
 ): AutoEnableNewRegionConfiguration => {
   return {
     region: __expectString(output.region),
-    sources: output.sources != null ? deserializeAws_restJson1AwsSourceTypeList(output.sources, context) : undefined,
+    sources: output.sources != null ? de_AwsSourceTypeList(output.sources, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1AutoEnableNewRegionConfigurationList = (
+/**
+ * deserializeAws_restJson1AutoEnableNewRegionConfigurationList
+ */
+const de_AutoEnableNewRegionConfigurationList = (
   output: any,
   context: __SerdeContext
 ): AutoEnableNewRegionConfiguration[] => {
@@ -3121,15 +3472,15 @@ const deserializeAws_restJson1AutoEnableNewRegionConfigurationList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AutoEnableNewRegionConfiguration(entry, context);
+      return de_AutoEnableNewRegionConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AwsSourceTypeList = (
-  output: any,
-  context: __SerdeContext
-): (AwsLogSourceType | string)[] => {
+/**
+ * deserializeAws_restJson1AwsSourceTypeList
+ */
+const de_AwsSourceTypeList = (output: any, context: __SerdeContext): (AwsLogSourceType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3141,7 +3492,10 @@ const deserializeAws_restJson1AwsSourceTypeList = (
   return retVal;
 };
 
-const deserializeAws_restJson1Failures = (output: any, context: __SerdeContext): Failures => {
+/**
+ * deserializeAws_restJson1Failures
+ */
+const de_Failures = (output: any, context: __SerdeContext): Failures => {
   return {
     exceptionMessage: __expectString(output.exceptionMessage),
     remediation: __expectString(output.remediation),
@@ -3150,61 +3504,70 @@ const deserializeAws_restJson1Failures = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_restJson1Failureslist = (output: any, context: __SerdeContext): Failures[] => {
+/**
+ * deserializeAws_restJson1Failureslist
+ */
+const de_Failureslist = (output: any, context: __SerdeContext): Failures[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Failures(entry, context);
+      return de_Failures(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1FailuresResponse = (output: any, context: __SerdeContext): FailuresResponse => {
+/**
+ * deserializeAws_restJson1FailuresResponse
+ */
+const de_FailuresResponse = (output: any, context: __SerdeContext): FailuresResponse => {
   return {
-    failures: output.failures != null ? deserializeAws_restJson1Failureslist(output.failures, context) : undefined,
+    failures: output.failures != null ? de_Failureslist(output.failures, context) : undefined,
     region: __expectString(output.region),
   } as any;
 };
 
-const deserializeAws_restJson1FailuresResponseList = (output: any, context: __SerdeContext): FailuresResponse[] => {
+/**
+ * deserializeAws_restJson1FailuresResponseList
+ */
+const de_FailuresResponseList = (output: any, context: __SerdeContext): FailuresResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1FailuresResponse(entry, context);
+      return de_FailuresResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1LakeConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): LakeConfigurationResponse => {
+/**
+ * deserializeAws_restJson1LakeConfigurationResponse
+ */
+const de_LakeConfigurationResponse = (output: any, context: __SerdeContext): LakeConfigurationResponse => {
   return {
     encryptionKey: __expectString(output.encryptionKey),
     replicationDestinationRegions:
       output.replicationDestinationRegions != null
-        ? deserializeAws_restJson1RegionSet(output.replicationDestinationRegions, context)
+        ? de_RegionSet(output.replicationDestinationRegions, context)
         : undefined,
     replicationRoleArn: __expectString(output.replicationRoleArn),
     retentionSettings:
-      output.retentionSettings != null
-        ? deserializeAws_restJson1RetentionSettingList(output.retentionSettings, context)
-        : undefined,
+      output.retentionSettings != null ? de_RetentionSettingList(output.retentionSettings, context) : undefined,
     s3BucketArn: __expectString(output.s3BucketArn),
     status: __expectString(output.status),
-    tagsMap: output.tagsMap != null ? deserializeAws_restJson1TagsMap(output.tagsMap, context) : undefined,
-    updateStatus:
-      output.updateStatus != null ? deserializeAws_restJson1UpdateStatus(output.updateStatus, context) : undefined,
+    tagsMap: output.tagsMap != null ? de_TagsMap(output.tagsMap, context) : undefined,
+    updateStatus: output.updateStatus != null ? de_UpdateStatus(output.updateStatus, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1LakeConfigurationResponseMap = (
+/**
+ * deserializeAws_restJson1LakeConfigurationResponseMap
+ */
+const de_LakeConfigurationResponseMap = (
   output: any,
   context: __SerdeContext
 ): Record<string, LakeConfigurationResponse> => {
@@ -3213,50 +3576,62 @@ const deserializeAws_restJson1LakeConfigurationResponseMap = (
       if (value === null) {
         return acc;
       }
-      acc[key] = deserializeAws_restJson1LakeConfigurationResponse(value, context);
+      acc[key] = de_LakeConfigurationResponse(value, context);
       return acc;
     },
     {}
   );
 };
 
-const deserializeAws_restJson1LastUpdateFailure = (output: any, context: __SerdeContext): LastUpdateFailure => {
+/**
+ * deserializeAws_restJson1LastUpdateFailure
+ */
+const de_LastUpdateFailure = (output: any, context: __SerdeContext): LastUpdateFailure => {
   return {
     code: __expectString(output.code),
     reason: __expectString(output.reason),
   } as any;
 };
 
-const deserializeAws_restJson1LogsStatus = (output: any, context: __SerdeContext): LogsStatus => {
+/**
+ * deserializeAws_restJson1LogsStatus
+ */
+const de_LogsStatus = (output: any, context: __SerdeContext): LogsStatus => {
   return {
     healthStatus: __expectString(output.healthStatus),
     pathToLogs: __expectString(output.pathToLogs),
   } as any;
 };
 
-const deserializeAws_restJson1LogsStatusList = (output: any, context: __SerdeContext): LogsStatus[] => {
+/**
+ * deserializeAws_restJson1LogsStatusList
+ */
+const de_LogsStatusList = (output: any, context: __SerdeContext): LogsStatus[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1LogsStatus(entry, context);
+      return de_LogsStatus(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ProtocolAndNotificationEndpoint = (
-  output: any,
-  context: __SerdeContext
-): ProtocolAndNotificationEndpoint => {
+/**
+ * deserializeAws_restJson1ProtocolAndNotificationEndpoint
+ */
+const de_ProtocolAndNotificationEndpoint = (output: any, context: __SerdeContext): ProtocolAndNotificationEndpoint => {
   return {
     endpoint: __expectString(output.endpoint),
     protocol: __expectString(output.protocol),
   } as any;
 };
 
-const deserializeAws_restJson1RegionSet = (output: any, context: __SerdeContext): (Region | string)[] => {
+/**
+ * deserializeAws_restJson1RegionSet
+ */
+const de_RegionSet = (output: any, context: __SerdeContext): (Region | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3268,7 +3643,10 @@ const deserializeAws_restJson1RegionSet = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_restJson1RegionSourceTypesAccountsList = (
+/**
+ * deserializeAws_restJson1RegionSourceTypesAccountsList
+ */
+const de_RegionSourceTypesAccountsList = (
   output: any,
   context: __SerdeContext
 ): Record<string, Record<string, string[]>>[] => {
@@ -3278,31 +3656,40 @@ const deserializeAws_restJson1RegionSourceTypesAccountsList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AllDimensionsMap(entry, context);
+      return de_AllDimensionsMap(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1RetentionSetting = (output: any, context: __SerdeContext): RetentionSetting => {
+/**
+ * deserializeAws_restJson1RetentionSetting
+ */
+const de_RetentionSetting = (output: any, context: __SerdeContext): RetentionSetting => {
   return {
     retentionPeriod: __expectInt32(output.retentionPeriod),
     storageClass: __expectString(output.storageClass),
   } as any;
 };
 
-const deserializeAws_restJson1RetentionSettingList = (output: any, context: __SerdeContext): RetentionSetting[] => {
+/**
+ * deserializeAws_restJson1RetentionSettingList
+ */
+const de_RetentionSettingList = (output: any, context: __SerdeContext): RetentionSetting[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1RetentionSetting(entry, context);
+      return de_RetentionSetting(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SourceType = (output: any, context: __SerdeContext): SourceType => {
+/**
+ * deserializeAws_restJson1SourceType
+ */
+const de_SourceType = (output: any, context: __SerdeContext): SourceType => {
   if (__expectString(output.awsSourceType) !== undefined) {
     return { awsSourceType: __expectString(output.awsSourceType) as any };
   }
@@ -3312,34 +3699,42 @@ const deserializeAws_restJson1SourceType = (output: any, context: __SerdeContext
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1SourceTypeList = (output: any, context: __SerdeContext): SourceType[] => {
+/**
+ * deserializeAws_restJson1SourceTypeList
+ */
+const de_SourceTypeList = (output: any, context: __SerdeContext): SourceType[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SourceType(__expectUnion(entry), context);
+      return de_SourceType(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SubscriberList = (output: any, context: __SerdeContext): SubscriberResource[] => {
+/**
+ * deserializeAws_restJson1SubscriberList
+ */
+const de_SubscriberList = (output: any, context: __SerdeContext): SubscriberResource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SubscriberResource(entry, context);
+      return de_SubscriberResource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SubscriberResource = (output: any, context: __SerdeContext): SubscriberResource => {
+/**
+ * deserializeAws_restJson1SubscriberResource
+ */
+const de_SubscriberResource = (output: any, context: __SerdeContext): SubscriberResource => {
   return {
-    accessTypes:
-      output.accessTypes != null ? deserializeAws_restJson1AccessTypeList(output.accessTypes, context) : undefined,
+    accessTypes: output.accessTypes != null ? de_AccessTypeList(output.accessTypes, context) : undefined,
     accountId: __expectString(output.accountId),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
@@ -3349,8 +3744,7 @@ const deserializeAws_restJson1SubscriberResource = (output: any, context: __Serd
     roleArn: __expectString(output.roleArn),
     s3BucketArn: __expectString(output.s3BucketArn),
     snsArn: __expectString(output.snsArn),
-    sourceTypes:
-      output.sourceTypes != null ? deserializeAws_restJson1SourceTypeList(output.sourceTypes, context) : undefined,
+    sourceTypes: output.sourceTypes != null ? de_SourceTypeList(output.sourceTypes, context) : undefined,
     subscriberDescription: __expectString(output.subscriberDescription),
     subscriberName: __expectString(output.subscriberName),
     subscriptionEndpoint: __expectString(output.subscriptionEndpoint),
@@ -3362,7 +3756,10 @@ const deserializeAws_restJson1SubscriberResource = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TagsMap
+ */
+const de_TagsMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3372,53 +3769,60 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
   }, {});
 };
 
-const deserializeAws_restJson1TwoDimensionsMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
+/**
+ * deserializeAws_restJson1TwoDimensionsMap
+ */
+const de_TwoDimensionsMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
   return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1ValueSet(value, context);
+    acc[key] = de_ValueSet(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1UpdateStatus = (output: any, context: __SerdeContext): UpdateStatus => {
+/**
+ * deserializeAws_restJson1UpdateStatus
+ */
+const de_UpdateStatus = (output: any, context: __SerdeContext): UpdateStatus => {
   return {
     lastUpdateFailure:
-      output.lastUpdateFailure != null
-        ? deserializeAws_restJson1LastUpdateFailure(output.lastUpdateFailure, context)
-        : undefined,
+      output.lastUpdateFailure != null ? de_LastUpdateFailure(output.lastUpdateFailure, context) : undefined,
     lastUpdateRequestId: __expectString(output.lastUpdateRequestId),
     lastUpdateStatus: __expectString(output.lastUpdateStatus),
   } as any;
 };
 
-const deserializeAws_restJson1ValidationExceptionField = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField => {
+/**
+ * deserializeAws_restJson1ValidationExceptionField
+ */
+const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
   return {
     message: __expectString(output.message),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_restJson1ValidationExceptionFieldList = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField[] => {
+/**
+ * deserializeAws_restJson1ValidationExceptionFieldList
+ */
+const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ValidationExceptionField(entry, context);
+      return de_ValidationExceptionField(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ValueSet = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1ValueSet
+ */
+const de_ValueSet = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

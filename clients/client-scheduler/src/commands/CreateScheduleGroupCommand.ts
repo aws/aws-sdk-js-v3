@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateScheduleGroupInput, CreateScheduleGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateScheduleGroupCommand,
-  serializeAws_restJson1CreateScheduleGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateScheduleGroupCommand, se_CreateScheduleGroupCommand } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
@@ -142,14 +139,14 @@ export class CreateScheduleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateScheduleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateScheduleGroupCommand(input, context);
+    return se_CreateScheduleGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduleGroupCommandOutput> {
-    return deserializeAws_restJson1CreateScheduleGroupCommand(output, context);
+    return de_CreateScheduleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

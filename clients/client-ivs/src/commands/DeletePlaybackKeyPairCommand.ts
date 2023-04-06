@@ -15,10 +15,7 @@ import {
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { DeletePlaybackKeyPairRequest, DeletePlaybackKeyPairResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePlaybackKeyPairCommand,
-  serializeAws_restJson1DeletePlaybackKeyPairCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePlaybackKeyPairCommand, se_DeletePlaybackKeyPairCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeletePlaybackKeyPairCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePlaybackKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePlaybackKeyPairCommand(input, context);
+    return se_DeletePlaybackKeyPairCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePlaybackKeyPairCommandOutput> {
-    return deserializeAws_restJson1DeletePlaybackKeyPairCommand(output, context);
+    return de_DeletePlaybackKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

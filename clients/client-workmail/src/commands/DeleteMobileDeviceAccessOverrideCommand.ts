@@ -15,8 +15,8 @@ import {
 
 import { DeleteMobileDeviceAccessOverrideRequest, DeleteMobileDeviceAccessOverrideResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand,
-  serializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand,
+  de_DeleteMobileDeviceAccessOverrideCommand,
+  se_DeleteMobileDeviceAccessOverrideCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -145,7 +145,7 @@ export class DeleteMobileDeviceAccessOverrideCommand extends $Command<
     input: DeleteMobileDeviceAccessOverrideCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand(input, context);
+    return se_DeleteMobileDeviceAccessOverrideCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DeleteMobileDeviceAccessOverrideCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMobileDeviceAccessOverrideCommandOutput> {
-    return deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand(output, context);
+    return de_DeleteMobileDeviceAccessOverrideCommand(output, context);
   }
 
   // Start section: command_body_extra

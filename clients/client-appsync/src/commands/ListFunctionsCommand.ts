@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { ListFunctionsRequest, ListFunctionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFunctionsCommand,
-  serializeAws_restJson1ListFunctionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFunctionsCommand, se_ListFunctionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListFunctionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFunctionsCommand(input, context);
+    return se_ListFunctionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionsCommandOutput> {
-    return deserializeAws_restJson1ListFunctionsCommand(output, context);
+    return de_ListFunctionsCommand(output, context);
   }
 
   // Start section: command_body_extra

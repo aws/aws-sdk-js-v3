@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetLoggingConfigurationRequest, GetLoggingConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLoggingConfigurationCommand,
-  serializeAws_json1_1GetLoggingConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetLoggingConfigurationCommand, se_GetLoggingConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -154,14 +151,14 @@ export class GetLoggingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLoggingConfigurationCommand(input, context);
+    return se_GetLoggingConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetLoggingConfigurationCommand(output, context);
+    return de_GetLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RefreshCacheInput, RefreshCacheOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RefreshCacheCommand,
-  serializeAws_json1_1RefreshCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RefreshCacheCommand, se_RefreshCacheCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -179,14 +176,14 @@ export class RefreshCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: RefreshCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RefreshCacheCommand(input, context);
+    return se_RefreshCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshCacheCommandOutput> {
-    return deserializeAws_json1_1RefreshCacheCommand(output, context);
+    return de_RefreshCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

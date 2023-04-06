@@ -19,8 +19,8 @@ import {
   UpdateRelationalDatabaseParametersResult,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand,
-  serializeAws_json1_1UpdateRelationalDatabaseParametersCommand,
+  de_UpdateRelationalDatabaseParametersCommand,
+  se_UpdateRelationalDatabaseParametersCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -179,7 +179,7 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     input: UpdateRelationalDatabaseParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRelationalDatabaseParametersCommand(input, context);
+    return se_UpdateRelationalDatabaseParametersCommand(input, context);
   }
 
   /**
@@ -189,7 +189,7 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRelationalDatabaseParametersCommandOutput> {
-    return deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand(output, context);
+    return de_UpdateRelationalDatabaseParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

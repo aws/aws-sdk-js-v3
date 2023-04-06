@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { DeleteTaskSetRequest, DeleteTaskSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTaskSetCommand,
-  serializeAws_json1_1DeleteTaskSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTaskSetCommand, se_DeleteTaskSetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class DeleteTaskSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTaskSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTaskSetCommand(input, context);
+    return se_DeleteTaskSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTaskSetCommandOutput> {
-    return deserializeAws_json1_1DeleteTaskSetCommand(output, context);
+    return de_DeleteTaskSetCommand(output, context);
   }
 
   // Start section: command_body_extra

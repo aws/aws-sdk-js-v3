@@ -15,10 +15,7 @@ import {
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { CopyPackageVersionsRequest, CopyPackageVersionsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1CopyPackageVersionsCommand,
-  serializeAws_restJson1CopyPackageVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CopyPackageVersionsCommand, se_CopyPackageVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -174,14 +171,14 @@ export class CopyPackageVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyPackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CopyPackageVersionsCommand(input, context);
+    return se_CopyPackageVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyPackageVersionsCommandOutput> {
-    return deserializeAws_restJson1CopyPackageVersionsCommand(output, context);
+    return de_CopyPackageVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

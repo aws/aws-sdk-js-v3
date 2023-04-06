@@ -39,7 +39,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1DisableControlCommand = async (
+/**
+ * serializeAws_restJson1DisableControlCommand
+ */
+export const se_DisableControlCommand = async (
   input: DisableControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -64,7 +67,10 @@ export const serializeAws_restJson1DisableControlCommand = async (
   });
 };
 
-export const serializeAws_restJson1EnableControlCommand = async (
+/**
+ * serializeAws_restJson1EnableControlCommand
+ */
+export const se_EnableControlCommand = async (
   input: EnableControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -89,7 +95,10 @@ export const serializeAws_restJson1EnableControlCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetControlOperationCommand = async (
+/**
+ * serializeAws_restJson1GetControlOperationCommand
+ */
+export const se_GetControlOperationCommand = async (
   input: GetControlOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -113,7 +122,10 @@ export const serializeAws_restJson1GetControlOperationCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListEnabledControlsCommand = async (
+/**
+ * serializeAws_restJson1ListEnabledControlsCommand
+ */
+export const se_ListEnabledControlsCommand = async (
   input: ListEnabledControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -139,12 +151,15 @@ export const serializeAws_restJson1ListEnabledControlsCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DisableControlCommand = async (
+/**
+ * deserializeAws_restJson1DisableControlCommand
+ */
+export const de_DisableControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisableControlCommandError(output, context);
+    return de_DisableControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -156,7 +171,10 @@ export const deserializeAws_restJson1DisableControlCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DisableControlCommandError = async (
+/**
+ * deserializeAws_restJson1DisableControlCommandError
+ */
+const de_DisableControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableControlCommandOutput> => {
@@ -168,25 +186,25 @@ const deserializeAws_restJson1DisableControlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.controltower#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.controltower#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.controltower#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.controltower#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.controltower#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.controltower#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.controltower#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -198,12 +216,15 @@ const deserializeAws_restJson1DisableControlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1EnableControlCommand = async (
+/**
+ * deserializeAws_restJson1EnableControlCommand
+ */
+export const de_EnableControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1EnableControlCommandError(output, context);
+    return de_EnableControlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -215,7 +236,10 @@ export const deserializeAws_restJson1EnableControlCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1EnableControlCommandError = async (
+/**
+ * deserializeAws_restJson1EnableControlCommandError
+ */
+const de_EnableControlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableControlCommandOutput> => {
@@ -227,25 +251,25 @@ const deserializeAws_restJson1EnableControlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.controltower#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.controltower#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.controltower#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.controltower#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.controltower#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.controltower#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.controltower#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -257,24 +281,30 @@ const deserializeAws_restJson1EnableControlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetControlOperationCommand = async (
+/**
+ * deserializeAws_restJson1GetControlOperationCommand
+ */
+export const de_GetControlOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetControlOperationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetControlOperationCommandError(output, context);
+    return de_GetControlOperationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.controlOperation != null) {
-    contents.controlOperation = deserializeAws_restJson1ControlOperation(data.controlOperation, context);
+    contents.controlOperation = de_ControlOperation(data.controlOperation, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetControlOperationCommandError = async (
+/**
+ * deserializeAws_restJson1GetControlOperationCommandError
+ */
+const de_GetControlOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetControlOperationCommandOutput> => {
@@ -286,19 +316,19 @@ const deserializeAws_restJson1GetControlOperationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.controltower#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.controltower#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.controltower#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.controltower#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.controltower#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -310,19 +340,22 @@ const deserializeAws_restJson1GetControlOperationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListEnabledControlsCommand = async (
+/**
+ * deserializeAws_restJson1ListEnabledControlsCommand
+ */
+export const de_ListEnabledControlsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnabledControlsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEnabledControlsCommandError(output, context);
+    return de_ListEnabledControlsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.enabledControls != null) {
-    contents.enabledControls = deserializeAws_restJson1EnabledControls(data.enabledControls, context);
+    contents.enabledControls = de_EnabledControls(data.enabledControls, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -330,7 +363,10 @@ export const deserializeAws_restJson1ListEnabledControlsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListEnabledControlsCommandError = async (
+/**
+ * deserializeAws_restJson1ListEnabledControlsCommandError
+ */
+const de_ListEnabledControlsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnabledControlsCommandOutput> => {
@@ -342,19 +378,19 @@ const deserializeAws_restJson1ListEnabledControlsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.controltower#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.controltower#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.controltower#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.controltower#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.controltower#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -367,7 +403,10 @@ const deserializeAws_restJson1ListEnabledControlsCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -383,10 +422,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -399,7 +438,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -415,7 +457,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -431,7 +476,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -447,10 +495,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
     retryAfterSeconds: [
       () => void 0 !== parsedOutput.headers["retry-after"],
@@ -474,10 +522,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -490,7 +538,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ControlOperation = (output: any, context: __SerdeContext): ControlOperation => {
+/**
+ * deserializeAws_restJson1ControlOperation
+ */
+const de_ControlOperation = (output: any, context: __SerdeContext): ControlOperation => {
   return {
     endTime: output.endTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.endTime)) : undefined,
     operationType: __expectString(output.operationType),
@@ -501,19 +552,25 @@ const deserializeAws_restJson1ControlOperation = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1EnabledControls = (output: any, context: __SerdeContext): EnabledControlSummary[] => {
+/**
+ * deserializeAws_restJson1EnabledControls
+ */
+const de_EnabledControls = (output: any, context: __SerdeContext): EnabledControlSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1EnabledControlSummary(entry, context);
+      return de_EnabledControlSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EnabledControlSummary = (output: any, context: __SerdeContext): EnabledControlSummary => {
+/**
+ * deserializeAws_restJson1EnabledControlSummary
+ */
+const de_EnabledControlSummary = (output: any, context: __SerdeContext): EnabledControlSummary => {
   return {
     controlIdentifier: __expectString(output.controlIdentifier),
   } as any;

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisassociateAddressRequest } from "../models/models_5";
-import {
-  deserializeAws_ec2DisassociateAddressCommand,
-  serializeAws_ec2DisassociateAddressCommand,
-} from "../protocols/Aws_ec2";
+import { de_DisassociateAddressCommand, se_DisassociateAddressCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class DisassociateAddressCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateAddressCommand(input, context);
+    return se_DisassociateAddressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateAddressCommandOutput> {
-    return deserializeAws_ec2DisassociateAddressCommand(output, context);
+    return de_DisassociateAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

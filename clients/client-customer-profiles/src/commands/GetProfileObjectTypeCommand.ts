@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { GetProfileObjectTypeRequest, GetProfileObjectTypeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetProfileObjectTypeCommand,
-  serializeAws_restJson1GetProfileObjectTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetProfileObjectTypeCommand, se_GetProfileObjectTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetProfileObjectTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: GetProfileObjectTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProfileObjectTypeCommand(input, context);
+    return se_GetProfileObjectTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProfileObjectTypeCommandOutput> {
-    return deserializeAws_restJson1GetProfileObjectTypeCommand(output, context);
+    return de_GetProfileObjectTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

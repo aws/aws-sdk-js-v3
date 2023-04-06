@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { InitiateVaultLockInput, InitiateVaultLockOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1InitiateVaultLockCommand,
-  serializeAws_restJson1InitiateVaultLockCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InitiateVaultLockCommand, se_InitiateVaultLockCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -191,14 +188,14 @@ export class InitiateVaultLockCommand extends $Command<
    * @internal
    */
   private serialize(input: InitiateVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InitiateVaultLockCommand(input, context);
+    return se_InitiateVaultLockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateVaultLockCommandOutput> {
-    return deserializeAws_restJson1InitiateVaultLockCommand(output, context);
+    return de_InitiateVaultLockCommand(output, context);
   }
 
   // Start section: command_body_extra

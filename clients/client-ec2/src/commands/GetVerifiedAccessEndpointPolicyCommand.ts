@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetVerifiedAccessEndpointPolicyRequest, GetVerifiedAccessEndpointPolicyResult } from "../models/models_5";
 import {
-  deserializeAws_ec2GetVerifiedAccessEndpointPolicyCommand,
-  serializeAws_ec2GetVerifiedAccessEndpointPolicyCommand,
+  de_GetVerifiedAccessEndpointPolicyCommand,
+  se_GetVerifiedAccessEndpointPolicyCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -126,7 +126,7 @@ export class GetVerifiedAccessEndpointPolicyCommand extends $Command<
     input: GetVerifiedAccessEndpointPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetVerifiedAccessEndpointPolicyCommand(input, context);
+    return se_GetVerifiedAccessEndpointPolicyCommand(input, context);
   }
 
   /**
@@ -136,7 +136,7 @@ export class GetVerifiedAccessEndpointPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVerifiedAccessEndpointPolicyCommandOutput> {
-    return deserializeAws_ec2GetVerifiedAccessEndpointPolicyCommand(output, context);
+    return de_GetVerifiedAccessEndpointPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

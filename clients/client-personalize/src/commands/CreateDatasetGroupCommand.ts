@@ -15,10 +15,7 @@ import {
 
 import { CreateDatasetGroupRequest, CreateDatasetGroupResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateDatasetGroupCommand,
-  serializeAws_json1_1CreateDatasetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDatasetGroupCommand, se_CreateDatasetGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -221,14 +218,14 @@ export class CreateDatasetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDatasetGroupCommand(input, context);
+    return se_CreateDatasetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetGroupCommandOutput> {
-    return deserializeAws_json1_1CreateDatasetGroupCommand(output, context);
+    return de_CreateDatasetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

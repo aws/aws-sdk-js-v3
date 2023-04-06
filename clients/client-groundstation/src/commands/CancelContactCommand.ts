@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { CancelContactRequest, ContactIdResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelContactCommand,
-  serializeAws_restJson1CancelContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelContactCommand, se_CancelContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class CancelContactCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelContactCommand(input, context);
+    return se_CancelContactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelContactCommandOutput> {
-    return deserializeAws_restJson1CancelContactCommand(output, context);
+    return de_CancelContactCommand(output, context);
   }
 
   // Start section: command_body_extra

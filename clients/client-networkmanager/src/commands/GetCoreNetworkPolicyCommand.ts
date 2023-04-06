@@ -15,10 +15,7 @@ import {
 
 import { GetCoreNetworkPolicyRequest, GetCoreNetworkPolicyResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetCoreNetworkPolicyCommand,
-  serializeAws_restJson1GetCoreNetworkPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCoreNetworkPolicyCommand, se_GetCoreNetworkPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetCoreNetworkPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCoreNetworkPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCoreNetworkPolicyCommand(input, context);
+    return se_GetCoreNetworkPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreNetworkPolicyCommandOutput> {
-    return deserializeAws_restJson1GetCoreNetworkPolicyCommand(output, context);
+    return de_GetCoreNetworkPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

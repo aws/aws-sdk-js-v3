@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { ListReservationsRequest, ListReservationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListReservationsCommand,
-  serializeAws_restJson1ListReservationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListReservationsCommand, se_ListReservationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListReservationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListReservationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReservationsCommand(input, context);
+    return se_ListReservationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReservationsCommandOutput> {
-    return deserializeAws_restJson1ListReservationsCommand(output, context);
+    return de_ListReservationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   DeleteLocalGatewayRouteTableVpcAssociationResult,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand,
-  serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand,
+  de_DeleteLocalGatewayRouteTableVpcAssociationCommand,
+  se_DeleteLocalGatewayRouteTableVpcAssociationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -136,7 +136,7 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(input, context);
+    return se_DeleteLocalGatewayRouteTableVpcAssociationCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLocalGatewayRouteTableVpcAssociationCommandOutput> {
-    return deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(output, context);
+    return de_DeleteLocalGatewayRouteTableVpcAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

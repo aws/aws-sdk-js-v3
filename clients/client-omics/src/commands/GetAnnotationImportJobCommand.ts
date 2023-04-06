@@ -15,10 +15,7 @@ import {
 
 import { GetAnnotationImportRequest, GetAnnotationImportResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetAnnotationImportJobCommand,
-  serializeAws_restJson1GetAnnotationImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAnnotationImportJobCommand, se_GetAnnotationImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetAnnotationImportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAnnotationImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAnnotationImportJobCommand(input, context);
+    return se_GetAnnotationImportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnnotationImportJobCommandOutput> {
-    return deserializeAws_restJson1GetAnnotationImportJobCommand(output, context);
+    return de_GetAnnotationImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

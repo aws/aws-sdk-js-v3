@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeSpendLimitsCommand,
-  serializeAws_json1_0DescribeSpendLimitsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeSpendLimitsCommand, se_DescribeSpendLimitsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DescribeSpendLimitsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSpendLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeSpendLimitsCommand(input, context);
+    return se_DescribeSpendLimitsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSpendLimitsCommandOutput> {
-    return deserializeAws_json1_0DescribeSpendLimitsCommand(output, context);
+    return de_DescribeSpendLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

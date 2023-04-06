@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { ListMemberAccountsRequest, ListMemberAccountsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMemberAccountsCommand,
-  serializeAws_json1_1ListMemberAccountsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListMemberAccountsCommand, se_ListMemberAccountsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListMemberAccountsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMemberAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMemberAccountsCommand(input, context);
+    return se_ListMemberAccountsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMemberAccountsCommandOutput> {
-    return deserializeAws_json1_1ListMemberAccountsCommand(output, context);
+    return de_ListMemberAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand,
-  serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand,
+  de_PutAccountDedicatedIpWarmupAttributesCommand,
+  se_PutAccountDedicatedIpWarmupAttributesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -135,7 +135,7 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
     input: PutAccountDedicatedIpWarmupAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand(input, context);
+    return se_PutAccountDedicatedIpWarmupAttributesCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> {
-    return deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand(output, context);
+    return de_PutAccountDedicatedIpWarmupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

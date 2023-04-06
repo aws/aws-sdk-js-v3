@@ -15,8 +15,8 @@ import {
 
 import { ListClosedWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/models_0";
 import {
-  deserializeAws_json1_0ListClosedWorkflowExecutionsCommand,
-  serializeAws_json1_0ListClosedWorkflowExecutionsCommand,
+  de_ListClosedWorkflowExecutionsCommand,
+  se_ListClosedWorkflowExecutionsCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
@@ -197,7 +197,7 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListClosedWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListClosedWorkflowExecutionsCommand(input, context);
+    return se_ListClosedWorkflowExecutionsCommand(input, context);
   }
 
   /**
@@ -207,7 +207,7 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListClosedWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0ListClosedWorkflowExecutionsCommand(output, context);
+    return de_ListClosedWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

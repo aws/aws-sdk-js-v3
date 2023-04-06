@@ -15,10 +15,7 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { AssociateCustomDomainRequest, AssociateCustomDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0AssociateCustomDomainCommand,
-  serializeAws_json1_0AssociateCustomDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { de_AssociateCustomDomainCommand, se_AssociateCustomDomainCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class AssociateCustomDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateCustomDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0AssociateCustomDomainCommand(input, context);
+    return se_AssociateCustomDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCustomDomainCommandOutput> {
-    return deserializeAws_json1_0AssociateCustomDomainCommand(output, context);
+    return de_AssociateCustomDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

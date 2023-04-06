@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { PutDataProtectionPolicyRequest, PutDataProtectionPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutDataProtectionPolicyCommand,
-  serializeAws_json1_1PutDataProtectionPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutDataProtectionPolicyCommand, se_PutDataProtectionPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class PutDataProtectionPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutDataProtectionPolicyCommand(input, context);
+    return se_PutDataProtectionPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDataProtectionPolicyCommandOutput> {
-    return deserializeAws_json1_1PutDataProtectionPolicyCommand(output, context);
+    return de_PutDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetHealthCheckCountRequest, GetHealthCheckCountResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetHealthCheckCountCommand,
-  serializeAws_restXmlGetHealthCheckCountCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetHealthCheckCountCommand, se_GetHealthCheckCountCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -118,14 +115,14 @@ export class GetHealthCheckCountCommand extends $Command<
    * @internal
    */
   private serialize(input: GetHealthCheckCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHealthCheckCountCommand(input, context);
+    return se_GetHealthCheckCountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHealthCheckCountCommandOutput> {
-    return deserializeAws_restXmlGetHealthCheckCountCommand(output, context);
+    return de_GetHealthCheckCountCommand(output, context);
   }
 
   // Start section: command_body_extra

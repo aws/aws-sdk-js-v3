@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListWorldTemplatesRequest, ListWorldTemplatesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorldTemplatesCommand,
-  serializeAws_restJson1ListWorldTemplatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListWorldTemplatesCommand, se_ListWorldTemplatesCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -131,14 +128,14 @@ export class ListWorldTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListWorldTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorldTemplatesCommand(input, context);
+    return se_ListWorldTemplatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorldTemplatesCommandOutput> {
-    return deserializeAws_restJson1ListWorldTemplatesCommand(output, context);
+    return de_ListWorldTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

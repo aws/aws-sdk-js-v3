@@ -19,8 +19,8 @@ import {
   GetSavingsPlansUtilizationDetailsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand,
-  serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand,
+  de_GetSavingsPlansUtilizationDetailsCommand,
+  se_GetSavingsPlansUtilizationDetailsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -227,7 +227,7 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
     input: GetSavingsPlansUtilizationDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(input, context);
+    return se_GetSavingsPlansUtilizationDetailsCommand(input, context);
   }
 
   /**
@@ -237,7 +237,7 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> {
-    return deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(output, context);
+    return de_GetSavingsPlansUtilizationDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

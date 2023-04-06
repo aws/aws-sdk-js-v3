@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { DeleteNotebookInput, DeleteNotebookOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNotebookCommand,
-  serializeAws_json1_1DeleteNotebookCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteNotebookCommand, se_DeleteNotebookCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteNotebookCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNotebookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNotebookCommand(input, context);
+    return se_DeleteNotebookCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNotebookCommandOutput> {
-    return deserializeAws_json1_1DeleteNotebookCommand(output, context);
+    return de_DeleteNotebookCommand(output, context);
   }
 
   // Start section: command_body_extra

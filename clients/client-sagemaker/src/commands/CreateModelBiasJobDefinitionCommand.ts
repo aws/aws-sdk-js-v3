@@ -15,8 +15,8 @@ import {
 
 import { CreateModelBiasJobDefinitionRequest, CreateModelBiasJobDefinitionResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1CreateModelBiasJobDefinitionCommand,
-  serializeAws_json1_1CreateModelBiasJobDefinitionCommand,
+  de_CreateModelBiasJobDefinitionCommand,
+  se_CreateModelBiasJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -222,7 +222,7 @@ export class CreateModelBiasJobDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateModelBiasJobDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateModelBiasJobDefinitionCommand(input, context);
+    return se_CreateModelBiasJobDefinitionCommand(input, context);
   }
 
   /**
@@ -232,7 +232,7 @@ export class CreateModelBiasJobDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateModelBiasJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1CreateModelBiasJobDefinitionCommand(output, context);
+    return de_CreateModelBiasJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

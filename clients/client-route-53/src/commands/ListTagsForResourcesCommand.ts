@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTagsForResourcesRequest, ListTagsForResourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlListTagsForResourcesCommand,
-  serializeAws_restXmlListTagsForResourcesCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListTagsForResourcesCommand, se_ListTagsForResourcesCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -144,14 +141,14 @@ export class ListTagsForResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTagsForResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListTagsForResourcesCommand(input, context);
+    return se_ListTagsForResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourcesCommandOutput> {
-    return deserializeAws_restXmlListTagsForResourcesCommand(output, context);
+    return de_ListTagsForResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

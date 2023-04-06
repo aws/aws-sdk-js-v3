@@ -16,8 +16,8 @@ import {
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
 import { CreatePackagingConfigurationRequest, CreatePackagingConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreatePackagingConfigurationCommand,
-  serializeAws_restJson1CreatePackagingConfigurationCommand,
+  de_CreatePackagingConfigurationCommand,
+  se_CreatePackagingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -272,7 +272,7 @@ export class CreatePackagingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePackagingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePackagingConfigurationCommand(input, context);
+    return se_CreatePackagingConfigurationCommand(input, context);
   }
 
   /**
@@ -282,7 +282,7 @@ export class CreatePackagingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePackagingConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreatePackagingConfigurationCommand(output, context);
+    return de_CreatePackagingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

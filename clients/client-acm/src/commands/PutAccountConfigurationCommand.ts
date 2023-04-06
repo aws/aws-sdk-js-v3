@@ -15,10 +15,7 @@ import {
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { PutAccountConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAccountConfigurationCommand,
-  serializeAws_json1_1PutAccountConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutAccountConfigurationCommand, se_PutAccountConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class PutAccountConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAccountConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAccountConfigurationCommand(input, context);
+    return se_PutAccountConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutAccountConfigurationCommand(output, context);
+    return de_PutAccountConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

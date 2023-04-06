@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { GetFunctionRequest, GetFunctionResult, GetFunctionResultFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restXmlGetFunctionCommand,
-  serializeAws_restXmlGetFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetFunctionCommand, se_GetFunctionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class GetFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetFunctionCommand(input, context);
+    return se_GetFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionCommandOutput> {
-    return deserializeAws_restXmlGetFunctionCommand(output, context);
+    return de_GetFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

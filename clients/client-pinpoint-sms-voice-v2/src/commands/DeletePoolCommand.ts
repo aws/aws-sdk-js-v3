@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DeletePoolCommand,
-  serializeAws_json1_0DeletePoolCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeletePoolCommand, se_DeletePoolCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class DeletePoolCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeletePoolCommand(input, context);
+    return se_DeletePoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePoolCommandOutput> {
-    return deserializeAws_json1_0DeletePoolCommand(output, context);
+    return de_DeletePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

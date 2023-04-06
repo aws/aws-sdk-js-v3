@@ -20,10 +20,7 @@ import {
   CreateResourceOutput,
   CreateResourceOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateResourceCommand,
-  serializeAws_json1_0CreateResourceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateResourceCommand, se_CreateResourceCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -206,14 +203,14 @@ export class CreateResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateResourceCommand(input, context);
+    return se_CreateResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceCommandOutput> {
-    return deserializeAws_json1_0CreateResourceCommand(output, context);
+    return de_CreateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

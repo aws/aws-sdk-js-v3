@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreatePortalRequest, CreatePortalRequestFilterSensitiveLog, CreatePortalResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePortalCommand,
-  serializeAws_restJson1CreatePortalCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePortalCommand, se_CreatePortalCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -151,14 +148,14 @@ export class CreatePortalCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePortalCommand(input, context);
+    return se_CreatePortalCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePortalCommandOutput> {
-    return deserializeAws_restJson1CreatePortalCommand(output, context);
+    return de_CreatePortalCommand(output, context);
   }
 
   // Start section: command_body_extra

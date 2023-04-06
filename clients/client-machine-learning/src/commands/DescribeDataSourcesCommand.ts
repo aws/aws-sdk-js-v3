@@ -15,10 +15,7 @@ import {
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { DescribeDataSourcesInput, DescribeDataSourcesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDataSourcesCommand,
-  serializeAws_json1_1DescribeDataSourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDataSourcesCommand, se_DescribeDataSourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribeDataSourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDataSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDataSourcesCommand(input, context);
+    return se_DescribeDataSourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSourcesCommandOutput> {
-    return deserializeAws_json1_1DescribeDataSourcesCommand(output, context);
+    return de_DescribeDataSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

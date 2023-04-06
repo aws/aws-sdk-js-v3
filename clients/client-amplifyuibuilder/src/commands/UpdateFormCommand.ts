@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { UpdateFormRequest, UpdateFormResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFormCommand,
-  serializeAws_restJson1UpdateFormCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFormCommand, se_UpdateFormCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -281,14 +278,14 @@ export class UpdateFormCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFormCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFormCommand(input, context);
+    return se_UpdateFormCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFormCommandOutput> {
-    return deserializeAws_restJson1UpdateFormCommand(output, context);
+    return de_UpdateFormCommand(output, context);
   }
 
   // Start section: command_body_extra

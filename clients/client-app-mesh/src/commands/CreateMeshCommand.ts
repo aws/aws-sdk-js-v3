@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { CreateMeshInput, CreateMeshOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMeshCommand,
-  serializeAws_restJson1CreateMeshCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMeshCommand, se_CreateMeshCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class CreateMeshCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMeshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMeshCommand(input, context);
+    return se_CreateMeshCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeshCommandOutput> {
-    return deserializeAws_restJson1CreateMeshCommand(output, context);
+    return de_CreateMeshCommand(output, context);
   }
 
   // Start section: command_body_extra

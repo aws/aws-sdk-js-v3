@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
 import { CreateLoadBalancerPolicyInput, CreateLoadBalancerPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_queryCreateLoadBalancerPolicyCommand,
-  serializeAws_queryCreateLoadBalancerPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_CreateLoadBalancerPolicyCommand, se_CreateLoadBalancerPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -205,14 +202,14 @@ export class CreateLoadBalancerPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLoadBalancerPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateLoadBalancerPolicyCommand(input, context);
+    return se_CreateLoadBalancerPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerPolicyCommandOutput> {
-    return deserializeAws_queryCreateLoadBalancerPolicyCommand(output, context);
+    return de_CreateLoadBalancerPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

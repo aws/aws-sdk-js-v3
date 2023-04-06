@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { DescribeOrganizationHealthRequest, DescribeOrganizationHealthResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeOrganizationHealthCommand,
-  serializeAws_restJson1DescribeOrganizationHealthCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeOrganizationHealthCommand, se_DescribeOrganizationHealthCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class DescribeOrganizationHealthCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeOrganizationHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOrganizationHealthCommand(input, context);
+    return se_DescribeOrganizationHealthCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class DescribeOrganizationHealthCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationHealthCommandOutput> {
-    return deserializeAws_restJson1DescribeOrganizationHealthCommand(output, context);
+    return de_DescribeOrganizationHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

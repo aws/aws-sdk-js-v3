@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetMergeOptionsInput, GetMergeOptionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMergeOptionsCommand,
-  serializeAws_json1_1GetMergeOptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetMergeOptionsCommand, se_GetMergeOptionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class GetMergeOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMergeOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMergeOptionsCommand(input, context);
+    return se_GetMergeOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMergeOptionsCommandOutput> {
-    return deserializeAws_json1_1GetMergeOptionsCommand(output, context);
+    return de_GetMergeOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AuthorizeSecurityGroupIngressRequest, AuthorizeSecurityGroupIngressResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AuthorizeSecurityGroupIngressCommand,
-  serializeAws_ec2AuthorizeSecurityGroupIngressCommand,
-} from "../protocols/Aws_ec2";
+import { de_AuthorizeSecurityGroupIngressCommand, se_AuthorizeSecurityGroupIngressCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -263,7 +260,7 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command<
    * @internal
    */
   private serialize(input: AuthorizeSecurityGroupIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AuthorizeSecurityGroupIngressCommand(input, context);
+    return se_AuthorizeSecurityGroupIngressCommand(input, context);
   }
 
   /**
@@ -273,7 +270,7 @@ export class AuthorizeSecurityGroupIngressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeSecurityGroupIngressCommandOutput> {
-    return deserializeAws_ec2AuthorizeSecurityGroupIngressCommand(output, context);
+    return de_AuthorizeSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

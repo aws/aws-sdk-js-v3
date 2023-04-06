@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { CreateLocationInput, CreateLocationOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationCommand,
-  serializeAws_json1_1CreateLocationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationCommand, se_CreateLocationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class CreateLocationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationCommand(input, context);
+    return se_CreateLocationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationCommandOutput> {
-    return deserializeAws_json1_1CreateLocationCommand(output, context);
+    return de_CreateLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,7 +14,7 @@ import {
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { QueryListsInput } from "../models/models_0";
-import { deserializeAws_ec2QueryListsCommand, serializeAws_ec2QueryListsCommand } from "../protocols/Aws_ec2";
+import { de_QueryListsCommand, se_QueryListsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -122,14 +122,14 @@ export class QueryListsCommand extends $Command<
    * @internal
    */
   private serialize(input: QueryListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2QueryListsCommand(input, context);
+    return se_QueryListsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryListsCommandOutput> {
-    return deserializeAws_ec2QueryListsCommand(output, context);
+    return de_QueryListsCommand(output, context);
   }
 
   // Start section: command_body_extra

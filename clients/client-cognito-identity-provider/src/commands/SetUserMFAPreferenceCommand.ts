@@ -24,10 +24,7 @@ import {
   SetUserMFAPreferenceRequestFilterSensitiveLog,
   SetUserMFAPreferenceResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetUserMFAPreferenceCommand,
-  serializeAws_json1_1SetUserMFAPreferenceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetUserMFAPreferenceCommand, se_SetUserMFAPreferenceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class SetUserMFAPreferenceCommand extends $Command<
    * @internal
    */
   private serialize(input: SetUserMFAPreferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetUserMFAPreferenceCommand(input, context);
+    return se_SetUserMFAPreferenceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserMFAPreferenceCommandOutput> {
-    return deserializeAws_json1_1SetUserMFAPreferenceCommand(output, context);
+    return de_SetUserMFAPreferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

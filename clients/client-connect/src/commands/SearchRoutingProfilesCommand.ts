@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { SearchRoutingProfilesRequest, SearchRoutingProfilesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1SearchRoutingProfilesCommand,
-  serializeAws_restJson1SearchRoutingProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchRoutingProfilesCommand, se_SearchRoutingProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class SearchRoutingProfilesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchRoutingProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchRoutingProfilesCommand(input, context);
+    return se_SearchRoutingProfilesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchRoutingProfilesCommandOutput> {
-    return deserializeAws_restJson1SearchRoutingProfilesCommand(output, context);
+    return de_SearchRoutingProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

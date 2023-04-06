@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { GetArchiveRuleRequest, GetArchiveRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetArchiveRuleCommand,
-  serializeAws_restJson1GetArchiveRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetArchiveRuleCommand, se_GetArchiveRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetArchiveRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: GetArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetArchiveRuleCommand(input, context);
+    return se_GetArchiveRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetArchiveRuleCommandOutput> {
-    return deserializeAws_restJson1GetArchiveRuleCommand(output, context);
+    return de_GetArchiveRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

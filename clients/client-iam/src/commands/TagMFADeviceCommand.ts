@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { TagMFADeviceRequest } from "../models/models_0";
-import { deserializeAws_queryTagMFADeviceCommand, serializeAws_queryTagMFADeviceCommand } from "../protocols/Aws_query";
+import { de_TagMFADeviceCommand, se_TagMFADeviceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -177,14 +177,14 @@ export class TagMFADeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: TagMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagMFADeviceCommand(input, context);
+    return se_TagMFADeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagMFADeviceCommandOutput> {
-    return deserializeAws_queryTagMFADeviceCommand(output, context);
+    return de_TagMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

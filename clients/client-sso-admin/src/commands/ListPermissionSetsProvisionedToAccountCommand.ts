@@ -18,8 +18,8 @@ import {
   ListPermissionSetsProvisionedToAccountResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListPermissionSetsProvisionedToAccountCommand,
-  serializeAws_json1_1ListPermissionSetsProvisionedToAccountCommand,
+  de_ListPermissionSetsProvisionedToAccountCommand,
+  se_ListPermissionSetsProvisionedToAccountCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -150,7 +150,7 @@ export class ListPermissionSetsProvisionedToAccountCommand extends $Command<
     input: ListPermissionSetsProvisionedToAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPermissionSetsProvisionedToAccountCommand(input, context);
+    return se_ListPermissionSetsProvisionedToAccountCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class ListPermissionSetsProvisionedToAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPermissionSetsProvisionedToAccountCommandOutput> {
-    return deserializeAws_json1_1ListPermissionSetsProvisionedToAccountCommand(output, context);
+    return de_ListPermissionSetsProvisionedToAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

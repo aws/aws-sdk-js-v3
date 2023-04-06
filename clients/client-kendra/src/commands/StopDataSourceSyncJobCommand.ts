@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { StopDataSourceSyncJobRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1StopDataSourceSyncJobCommand,
-  serializeAws_json1_1StopDataSourceSyncJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopDataSourceSyncJobCommand, se_StopDataSourceSyncJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class StopDataSourceSyncJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopDataSourceSyncJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopDataSourceSyncJobCommand(input, context);
+    return se_StopDataSourceSyncJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDataSourceSyncJobCommandOutput> {
-    return deserializeAws_json1_1StopDataSourceSyncJobCommand(output, context);
+    return de_StopDataSourceSyncJobCommand(output, context);
   }
 
   // Start section: command_body_extra

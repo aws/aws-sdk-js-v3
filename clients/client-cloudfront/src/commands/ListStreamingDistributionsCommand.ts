@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { ListStreamingDistributionsRequest, ListStreamingDistributionsResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlListStreamingDistributionsCommand,
-  serializeAws_restXmlListStreamingDistributionsCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListStreamingDistributionsCommand, se_ListStreamingDistributionsCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class ListStreamingDistributionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStreamingDistributionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListStreamingDistributionsCommand(input, context);
+    return se_ListStreamingDistributionsCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class ListStreamingDistributionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStreamingDistributionsCommandOutput> {
-    return deserializeAws_restXmlListStreamingDistributionsCommand(output, context);
+    return de_ListStreamingDistributionsCommand(output, context);
   }
 
   // Start section: command_body_extra

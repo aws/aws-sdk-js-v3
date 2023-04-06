@@ -18,8 +18,8 @@ import {
   NotifyTerminateProvisionedProductEngineWorkflowResultOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand,
-  serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand,
+  de_NotifyTerminateProvisionedProductEngineWorkflowResultCommand,
+  se_NotifyTerminateProvisionedProductEngineWorkflowResultCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -148,7 +148,7 @@ export class NotifyTerminateProvisionedProductEngineWorkflowResultCommand extend
     input: NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand(input, context);
+    return se_NotifyTerminateProvisionedProductEngineWorkflowResultCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class NotifyTerminateProvisionedProductEngineWorkflowResultCommand extend
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput> {
-    return deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand(output, context);
+    return de_NotifyTerminateProvisionedProductEngineWorkflowResultCommand(output, context);
   }
 
   // Start section: command_body_extra

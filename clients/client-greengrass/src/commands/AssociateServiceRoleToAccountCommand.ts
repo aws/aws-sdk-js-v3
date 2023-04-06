@@ -16,8 +16,8 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { AssociateServiceRoleToAccountRequest, AssociateServiceRoleToAccountResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateServiceRoleToAccountCommand,
-  serializeAws_restJson1AssociateServiceRoleToAccountCommand,
+  de_AssociateServiceRoleToAccountCommand,
+  se_AssociateServiceRoleToAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -128,7 +128,7 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateServiceRoleToAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateServiceRoleToAccountCommand(input, context);
+    return se_AssociateServiceRoleToAccountCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateServiceRoleToAccountCommandOutput> {
-    return deserializeAws_restJson1AssociateServiceRoleToAccountCommand(output, context);
+    return de_AssociateServiceRoleToAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

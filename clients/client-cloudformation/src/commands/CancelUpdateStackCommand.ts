@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { CancelUpdateStackInput } from "../models/models_0";
-import {
-  deserializeAws_queryCancelUpdateStackCommand,
-  serializeAws_queryCancelUpdateStackCommand,
-} from "../protocols/Aws_query";
+import { de_CancelUpdateStackCommand, se_CancelUpdateStackCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class CancelUpdateStackCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelUpdateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCancelUpdateStackCommand(input, context);
+    return se_CancelUpdateStackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelUpdateStackCommandOutput> {
-    return deserializeAws_queryCancelUpdateStackCommand(output, context);
+    return de_CancelUpdateStackCommand(output, context);
   }
 
   // Start section: command_body_extra

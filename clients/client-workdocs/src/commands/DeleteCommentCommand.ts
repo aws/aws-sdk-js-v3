@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteCommentRequest, DeleteCommentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCommentCommand,
-  serializeAws_restJson1DeleteCommentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCommentCommand, se_DeleteCommentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -145,14 +142,14 @@ export class DeleteCommentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCommentCommand(input, context);
+    return se_DeleteCommentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCommentCommandOutput> {
-    return deserializeAws_restJson1DeleteCommentCommand(output, context);
+    return de_DeleteCommentCommand(output, context);
   }
 
   // Start section: command_body_extra

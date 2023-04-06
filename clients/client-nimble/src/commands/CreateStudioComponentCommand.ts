@@ -20,10 +20,7 @@ import {
   CreateStudioComponentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1CreateStudioComponentCommand,
-  serializeAws_restJson1CreateStudioComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateStudioComponentCommand, se_CreateStudioComponentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -202,14 +199,14 @@ export class CreateStudioComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStudioComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateStudioComponentCommand(input, context);
+    return se_CreateStudioComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStudioComponentCommandOutput> {
-    return deserializeAws_restJson1CreateStudioComponentCommand(output, context);
+    return de_CreateStudioComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

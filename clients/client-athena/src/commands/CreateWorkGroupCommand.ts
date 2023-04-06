@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { CreateWorkGroupInput, CreateWorkGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWorkGroupCommand,
-  serializeAws_json1_1CreateWorkGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWorkGroupCommand, se_CreateWorkGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class CreateWorkGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkGroupCommand(input, context);
+    return se_CreateWorkGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkGroupCommandOutput> {
-    return deserializeAws_json1_1CreateWorkGroupCommand(output, context);
+    return de_CreateWorkGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

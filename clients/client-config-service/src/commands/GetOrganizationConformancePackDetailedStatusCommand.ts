@@ -19,8 +19,8 @@ import {
   GetOrganizationConformancePackDetailedStatusResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand,
-  serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand,
+  de_GetOrganizationConformancePackDetailedStatusCommand,
+  se_GetOrganizationConformancePackDetailedStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -174,7 +174,7 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
     input: GetOrganizationConformancePackDetailedStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(input, context);
+    return se_GetOrganizationConformancePackDetailedStatusCommand(input, context);
   }
 
   /**
@@ -184,7 +184,7 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> {
-    return deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(output, context);
+    return de_GetOrganizationConformancePackDetailedStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

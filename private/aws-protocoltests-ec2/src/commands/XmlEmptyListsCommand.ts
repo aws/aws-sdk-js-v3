@@ -14,7 +14,7 @@ import {
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { XmlListsOutput } from "../models/models_0";
-import { deserializeAws_ec2XmlEmptyListsCommand, serializeAws_ec2XmlEmptyListsCommand } from "../protocols/Aws_ec2";
+import { de_XmlEmptyListsCommand, se_XmlEmptyListsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -80,14 +80,14 @@ export class XmlEmptyListsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlEmptyListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2XmlEmptyListsCommand(input, context);
+    return se_XmlEmptyListsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyListsCommandOutput> {
-    return deserializeAws_ec2XmlEmptyListsCommand(output, context);
+    return de_XmlEmptyListsCommand(output, context);
   }
 
   // Start section: command_body_extra

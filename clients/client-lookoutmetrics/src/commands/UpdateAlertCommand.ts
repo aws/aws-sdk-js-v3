@@ -15,10 +15,7 @@ import {
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { UpdateAlertRequest, UpdateAlertResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAlertCommand,
-  serializeAws_restJson1UpdateAlertCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAlertCommand, se_UpdateAlertCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class UpdateAlertCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAlertCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAlertCommand(input, context);
+    return se_UpdateAlertCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAlertCommandOutput> {
-    return deserializeAws_restJson1UpdateAlertCommand(output, context);
+    return de_UpdateAlertCommand(output, context);
   }
 
   // Start section: command_body_extra

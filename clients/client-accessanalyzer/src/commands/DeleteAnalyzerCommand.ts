@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { DeleteAnalyzerRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAnalyzerCommand,
-  serializeAws_restJson1DeleteAnalyzerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAnalyzerCommand, se_DeleteAnalyzerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteAnalyzerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAnalyzerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAnalyzerCommand(input, context);
+    return se_DeleteAnalyzerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnalyzerCommandOutput> {
-    return deserializeAws_restJson1DeleteAnalyzerCommand(output, context);
+    return de_DeleteAnalyzerCommand(output, context);
   }
 
   // Start section: command_body_extra

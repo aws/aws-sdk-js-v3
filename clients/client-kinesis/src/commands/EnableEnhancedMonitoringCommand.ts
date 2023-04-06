@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { EnableEnhancedMonitoringInput, EnhancedMonitoringOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableEnhancedMonitoringCommand,
-  serializeAws_json1_1EnableEnhancedMonitoringCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnableEnhancedMonitoringCommand, se_EnableEnhancedMonitoringCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class EnableEnhancedMonitoringCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableEnhancedMonitoringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableEnhancedMonitoringCommand(input, context);
+    return se_EnableEnhancedMonitoringCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableEnhancedMonitoringCommandOutput> {
-    return deserializeAws_json1_1EnableEnhancedMonitoringCommand(output, context);
+    return de_EnableEnhancedMonitoringCommand(output, context);
   }
 
   // Start section: command_body_extra

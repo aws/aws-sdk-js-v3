@@ -15,8 +15,8 @@ import {
 
 import { DisassociatePrincipalFromPortfolioInput, DisassociatePrincipalFromPortfolioOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand,
-  serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand,
+  de_DisassociatePrincipalFromPortfolioCommand,
+  se_DisassociatePrincipalFromPortfolioCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -142,7 +142,7 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
     input: DisassociatePrincipalFromPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand(input, context);
+    return se_DisassociatePrincipalFromPortfolioCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePrincipalFromPortfolioCommandOutput> {
-    return deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand(output, context);
+    return de_DisassociatePrincipalFromPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

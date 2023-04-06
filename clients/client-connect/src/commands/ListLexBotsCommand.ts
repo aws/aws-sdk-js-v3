@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListLexBotsRequest, ListLexBotsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListLexBotsCommand,
-  serializeAws_restJson1ListLexBotsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLexBotsCommand, se_ListLexBotsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListLexBotsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLexBotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLexBotsCommand(input, context);
+    return se_ListLexBotsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLexBotsCommandOutput> {
-    return deserializeAws_restJson1ListLexBotsCommand(output, context);
+    return de_ListLexBotsCommand(output, context);
   }
 
   // Start section: command_body_extra

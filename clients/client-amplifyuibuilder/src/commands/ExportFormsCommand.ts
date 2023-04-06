@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { ExportFormsRequest, ExportFormsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportFormsCommand,
-  serializeAws_restJson1ExportFormsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExportFormsCommand, se_ExportFormsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class ExportFormsCommand extends $Command<
    * @internal
    */
   private serialize(input: ExportFormsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportFormsCommand(input, context);
+    return se_ExportFormsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportFormsCommandOutput> {
-    return deserializeAws_restJson1ExportFormsCommand(output, context);
+    return de_ExportFormsCommand(output, context);
   }
 
   // Start section: command_body_extra

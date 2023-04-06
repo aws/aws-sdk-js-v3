@@ -16,8 +16,8 @@ import {
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { PurchaseProvisionedCapacityInput, PurchaseProvisionedCapacityOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1PurchaseProvisionedCapacityCommand,
-  serializeAws_restJson1PurchaseProvisionedCapacityCommand,
+  de_PurchaseProvisionedCapacityCommand,
+  se_PurchaseProvisionedCapacityCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -148,7 +148,7 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
    * @internal
    */
   private serialize(input: PurchaseProvisionedCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PurchaseProvisionedCapacityCommand(input, context);
+    return se_PurchaseProvisionedCapacityCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseProvisionedCapacityCommandOutput> {
-    return deserializeAws_restJson1PurchaseProvisionedCapacityCommand(output, context);
+    return de_PurchaseProvisionedCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

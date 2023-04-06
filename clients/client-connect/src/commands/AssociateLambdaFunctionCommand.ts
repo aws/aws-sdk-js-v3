@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { AssociateLambdaFunctionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateLambdaFunctionCommand,
-  serializeAws_restJson1AssociateLambdaFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateLambdaFunctionCommand, se_AssociateLambdaFunctionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class AssociateLambdaFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateLambdaFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateLambdaFunctionCommand(input, context);
+    return se_AssociateLambdaFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLambdaFunctionCommandOutput> {
-    return deserializeAws_restJson1AssociateLambdaFunctionCommand(output, context);
+    return de_AssociateLambdaFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

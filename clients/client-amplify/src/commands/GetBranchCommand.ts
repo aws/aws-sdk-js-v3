@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { GetBranchRequest, GetBranchResult, GetBranchResultFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBranchCommand,
-  serializeAws_restJson1GetBranchCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBranchCommand, se_GetBranchCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetBranchCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBranchCommand(input, context);
+    return se_GetBranchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBranchCommandOutput> {
-    return deserializeAws_restJson1GetBranchCommand(output, context);
+    return de_GetBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

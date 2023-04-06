@@ -16,8 +16,8 @@ import {
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { ListImageScanFindingAggregationsRequest, ListImageScanFindingAggregationsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListImageScanFindingAggregationsCommand,
-  serializeAws_restJson1ListImageScanFindingAggregationsCommand,
+  de_ListImageScanFindingAggregationsCommand,
+  se_ListImageScanFindingAggregationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -182,7 +182,7 @@ export class ListImageScanFindingAggregationsCommand extends $Command<
     input: ListImageScanFindingAggregationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListImageScanFindingAggregationsCommand(input, context);
+    return se_ListImageScanFindingAggregationsCommand(input, context);
   }
 
   /**
@@ -192,7 +192,7 @@ export class ListImageScanFindingAggregationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListImageScanFindingAggregationsCommandOutput> {
-    return deserializeAws_restJson1ListImageScanFindingAggregationsCommand(output, context);
+    return de_ListImageScanFindingAggregationsCommand(output, context);
   }
 
   // Start section: command_body_extra

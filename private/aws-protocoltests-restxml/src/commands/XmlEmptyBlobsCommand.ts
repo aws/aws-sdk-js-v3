@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlBlobsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlXmlEmptyBlobsCommand,
-  serializeAws_restXmlXmlEmptyBlobsCommand,
-} from "../protocols/Aws_restXml";
+import { de_XmlEmptyBlobsCommand, se_XmlEmptyBlobsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -107,14 +104,14 @@ export class XmlEmptyBlobsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlEmptyBlobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlEmptyBlobsCommand(input, context);
+    return se_XmlEmptyBlobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyBlobsCommandOutput> {
-    return deserializeAws_restXmlXmlEmptyBlobsCommand(output, context);
+    return de_XmlEmptyBlobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FlattenedXmlMapOutput } from "../models/models_0";
-import {
-  deserializeAws_queryFlattenedXmlMapCommand,
-  serializeAws_queryFlattenedXmlMapCommand,
-} from "../protocols/Aws_query";
+import { de_FlattenedXmlMapCommand, se_FlattenedXmlMapCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -105,14 +102,14 @@ export class FlattenedXmlMapCommand extends $Command<
    * @internal
    */
   private serialize(input: FlattenedXmlMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryFlattenedXmlMapCommand(input, context);
+    return se_FlattenedXmlMapCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FlattenedXmlMapCommandOutput> {
-    return deserializeAws_queryFlattenedXmlMapCommand(output, context);
+    return de_FlattenedXmlMapCommand(output, context);
   }
 
   // Start section: command_body_extra

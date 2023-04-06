@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { DisassociateRoleFromGroupRequest, DisassociateRoleFromGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateRoleFromGroupCommand,
-  serializeAws_restJson1DisassociateRoleFromGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateRoleFromGroupCommand, se_DisassociateRoleFromGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class DisassociateRoleFromGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateRoleFromGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateRoleFromGroupCommand(input, context);
+    return se_DisassociateRoleFromGroupCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class DisassociateRoleFromGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateRoleFromGroupCommandOutput> {
-    return deserializeAws_restJson1DisassociateRoleFromGroupCommand(output, context);
+    return de_DisassociateRoleFromGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { ListScenesRequest, ListScenesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListScenesCommand,
-  serializeAws_restJson1ListScenesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListScenesCommand, se_ListScenesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListScenesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListScenesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListScenesCommand(input, context);
+    return se_ListScenesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScenesCommandOutput> {
-    return deserializeAws_restJson1ListScenesCommand(output, context);
+    return de_ListScenesCommand(output, context);
   }
 
   // Start section: command_body_extra

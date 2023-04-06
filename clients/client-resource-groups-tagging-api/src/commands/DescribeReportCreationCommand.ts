@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeReportCreationInput, DescribeReportCreationOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReportCreationCommand,
-  serializeAws_json1_1DescribeReportCreationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeReportCreationCommand, se_DescribeReportCreationCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
@@ -176,14 +173,14 @@ export class DescribeReportCreationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeReportCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReportCreationCommand(input, context);
+    return se_DescribeReportCreationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReportCreationCommandOutput> {
-    return deserializeAws_json1_1DescribeReportCreationCommand(output, context);
+    return de_DescribeReportCreationCommand(output, context);
   }
 
   // Start section: command_body_extra

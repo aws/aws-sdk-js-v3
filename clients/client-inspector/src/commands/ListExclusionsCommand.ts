@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { ListExclusionsRequest, ListExclusionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListExclusionsCommand,
-  serializeAws_json1_1ListExclusionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListExclusionsCommand, se_ListExclusionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListExclusionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListExclusionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListExclusionsCommand(input, context);
+    return se_ListExclusionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExclusionsCommandOutput> {
-    return deserializeAws_json1_1ListExclusionsCommand(output, context);
+    return de_ListExclusionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { GetManagedScalingPolicyInput, GetManagedScalingPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetManagedScalingPolicyCommand,
-  serializeAws_json1_1GetManagedScalingPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetManagedScalingPolicyCommand, se_GetManagedScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -120,14 +117,14 @@ export class GetManagedScalingPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetManagedScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetManagedScalingPolicyCommand(input, context);
+    return se_GetManagedScalingPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetManagedScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1GetManagedScalingPolicyCommand(output, context);
+    return de_GetManagedScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

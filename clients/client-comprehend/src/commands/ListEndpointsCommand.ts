@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { ListEndpointsRequest, ListEndpointsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEndpointsCommand,
-  serializeAws_json1_1ListEndpointsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEndpointsCommand, se_ListEndpointsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEndpointsCommand(input, context);
+    return se_ListEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointsCommandOutput> {
-    return deserializeAws_json1_1ListEndpointsCommand(output, context);
+    return de_ListEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

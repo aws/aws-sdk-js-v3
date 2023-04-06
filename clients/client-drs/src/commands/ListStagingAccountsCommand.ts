@@ -15,10 +15,7 @@ import {
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { ListStagingAccountsRequest, ListStagingAccountsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListStagingAccountsCommand,
-  serializeAws_restJson1ListStagingAccountsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListStagingAccountsCommand, se_ListStagingAccountsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListStagingAccountsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStagingAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStagingAccountsCommand(input, context);
+    return se_ListStagingAccountsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStagingAccountsCommandOutput> {
-    return deserializeAws_restJson1ListStagingAccountsCommand(output, context);
+    return de_ListStagingAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

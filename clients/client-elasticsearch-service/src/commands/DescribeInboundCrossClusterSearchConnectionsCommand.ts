@@ -23,8 +23,8 @@ import {
   DescribeInboundCrossClusterSearchConnectionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsCommand,
-  serializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsCommand,
+  de_DescribeInboundCrossClusterSearchConnectionsCommand,
+  se_DescribeInboundCrossClusterSearchConnectionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -154,7 +154,7 @@ export class DescribeInboundCrossClusterSearchConnectionsCommand extends $Comman
     input: DescribeInboundCrossClusterSearchConnectionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsCommand(input, context);
+    return se_DescribeInboundCrossClusterSearchConnectionsCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class DescribeInboundCrossClusterSearchConnectionsCommand extends $Comman
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInboundCrossClusterSearchConnectionsCommandOutput> {
-    return deserializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsCommand(output, context);
+    return de_DescribeInboundCrossClusterSearchConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

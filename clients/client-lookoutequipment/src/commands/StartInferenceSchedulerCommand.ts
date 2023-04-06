@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { StartInferenceSchedulerRequest, StartInferenceSchedulerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0StartInferenceSchedulerCommand,
-  serializeAws_json1_0StartInferenceSchedulerCommand,
-} from "../protocols/Aws_json1_0";
+import { de_StartInferenceSchedulerCommand, se_StartInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class StartInferenceSchedulerCommand extends $Command<
    * @internal
    */
   private serialize(input: StartInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartInferenceSchedulerCommand(input, context);
+    return se_StartInferenceSchedulerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInferenceSchedulerCommandOutput> {
-    return deserializeAws_json1_0StartInferenceSchedulerCommand(output, context);
+    return de_StartInferenceSchedulerCommand(output, context);
   }
 
   // Start section: command_body_extra

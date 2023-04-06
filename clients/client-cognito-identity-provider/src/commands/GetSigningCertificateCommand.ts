@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { GetSigningCertificateRequest, GetSigningCertificateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSigningCertificateCommand,
-  serializeAws_json1_1GetSigningCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSigningCertificateCommand, se_GetSigningCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetSigningCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSigningCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSigningCertificateCommand(input, context);
+    return se_GetSigningCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSigningCertificateCommandOutput> {
-    return deserializeAws_json1_1GetSigningCertificateCommand(output, context);
+    return de_GetSigningCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

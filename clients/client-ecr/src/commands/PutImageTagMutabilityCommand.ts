@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { PutImageTagMutabilityRequest, PutImageTagMutabilityResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutImageTagMutabilityCommand,
-  serializeAws_json1_1PutImageTagMutabilityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutImageTagMutabilityCommand, se_PutImageTagMutabilityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class PutImageTagMutabilityCommand extends $Command<
    * @internal
    */
   private serialize(input: PutImageTagMutabilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutImageTagMutabilityCommand(input, context);
+    return se_PutImageTagMutabilityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImageTagMutabilityCommandOutput> {
-    return deserializeAws_json1_1PutImageTagMutabilityCommand(output, context);
+    return de_PutImageTagMutabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

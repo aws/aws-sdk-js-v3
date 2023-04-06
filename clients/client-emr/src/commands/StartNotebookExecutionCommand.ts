@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { StartNotebookExecutionInput, StartNotebookExecutionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartNotebookExecutionCommand,
-  serializeAws_json1_1StartNotebookExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartNotebookExecutionCommand, se_StartNotebookExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class StartNotebookExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartNotebookExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartNotebookExecutionCommand(input, context);
+    return se_StartNotebookExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartNotebookExecutionCommandOutput> {
-    return deserializeAws_json1_1StartNotebookExecutionCommand(output, context);
+    return de_StartNotebookExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

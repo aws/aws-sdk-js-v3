@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { RemoveTargetsRequest, RemoveTargetsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveTargetsCommand,
-  serializeAws_json1_1RemoveTargetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RemoveTargetsCommand, se_RemoveTargetsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class RemoveTargetsCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTargetsCommand(input, context);
+    return se_RemoveTargetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTargetsCommandOutput> {
-    return deserializeAws_json1_1RemoveTargetsCommand(output, context);
+    return de_RemoveTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

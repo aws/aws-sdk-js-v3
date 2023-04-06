@@ -23,8 +23,8 @@ import {
   DescribeOrderableReplicationInstancesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeOrderableReplicationInstancesCommand,
-  serializeAws_json1_1DescribeOrderableReplicationInstancesCommand,
+  de_DescribeOrderableReplicationInstancesCommand,
+  se_DescribeOrderableReplicationInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
     input: DescribeOrderableReplicationInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrderableReplicationInstancesCommand(input, context);
+    return se_DescribeOrderableReplicationInstancesCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrderableReplicationInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeOrderableReplicationInstancesCommand(output, context);
+    return de_DescribeOrderableReplicationInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

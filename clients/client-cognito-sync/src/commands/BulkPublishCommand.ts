@@ -15,10 +15,7 @@ import {
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { BulkPublishRequest, BulkPublishResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BulkPublishCommand,
-  serializeAws_restJson1BulkPublishCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BulkPublishCommand, se_BulkPublishCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class BulkPublishCommand extends $Command<
    * @internal
    */
   private serialize(input: BulkPublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BulkPublishCommand(input, context);
+    return se_BulkPublishCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BulkPublishCommandOutput> {
-    return deserializeAws_restJson1BulkPublishCommand(output, context);
+    return de_BulkPublishCommand(output, context);
   }
 
   // Start section: command_body_extra

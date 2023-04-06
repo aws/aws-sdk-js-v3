@@ -20,8 +20,8 @@ import {
 } from "../ApplicationDiscoveryServiceClient";
 import { StopDataCollectionByAgentIdsRequest, StopDataCollectionByAgentIdsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1StopDataCollectionByAgentIdsCommand,
-  serializeAws_json1_1StopDataCollectionByAgentIdsCommand,
+  de_StopDataCollectionByAgentIdsCommand,
+  se_StopDataCollectionByAgentIdsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
    * @internal
    */
   private serialize(input: StopDataCollectionByAgentIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopDataCollectionByAgentIdsCommand(input, context);
+    return se_StopDataCollectionByAgentIdsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDataCollectionByAgentIdsCommandOutput> {
-    return deserializeAws_json1_1StopDataCollectionByAgentIdsCommand(output, context);
+    return de_StopDataCollectionByAgentIdsCommand(output, context);
   }
 
   // Start section: command_body_extra

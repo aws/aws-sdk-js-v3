@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteCellRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCellCommand,
-  serializeAws_restJson1DeleteCellCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCellCommand, se_DeleteCellCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -137,14 +134,14 @@ export class DeleteCellCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCellCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCellCommand(input, context);
+    return se_DeleteCellCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCellCommandOutput> {
-    return deserializeAws_restJson1DeleteCellCommand(output, context);
+    return de_DeleteCellCommand(output, context);
   }
 
   // Start section: command_body_extra

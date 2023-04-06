@@ -15,8 +15,8 @@ import {
 
 import { CreateDatalakeDelegatedAdminRequest, CreateDatalakeDelegatedAdminResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateDatalakeDelegatedAdminCommand,
-  serializeAws_restJson1CreateDatalakeDelegatedAdminCommand,
+  de_CreateDatalakeDelegatedAdminCommand,
+  se_CreateDatalakeDelegatedAdminCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -140,7 +140,7 @@ export class CreateDatalakeDelegatedAdminCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDatalakeDelegatedAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatalakeDelegatedAdminCommand(input, context);
+    return se_CreateDatalakeDelegatedAdminCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class CreateDatalakeDelegatedAdminCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDatalakeDelegatedAdminCommandOutput> {
-    return deserializeAws_restJson1CreateDatalakeDelegatedAdminCommand(output, context);
+    return de_CreateDatalakeDelegatedAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

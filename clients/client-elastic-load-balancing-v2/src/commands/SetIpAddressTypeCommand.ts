@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { SetIpAddressTypeInput, SetIpAddressTypeOutput } from "../models/models_0";
-import {
-  deserializeAws_querySetIpAddressTypeCommand,
-  serializeAws_querySetIpAddressTypeCommand,
-} from "../protocols/Aws_query";
+import { de_SetIpAddressTypeCommand, se_SetIpAddressTypeCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class SetIpAddressTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: SetIpAddressTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetIpAddressTypeCommand(input, context);
+    return se_SetIpAddressTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetIpAddressTypeCommandOutput> {
-    return deserializeAws_querySetIpAddressTypeCommand(output, context);
+    return de_SetIpAddressTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

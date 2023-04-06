@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RemoveTagsFromResourceInput, RemoveTagsFromResourceOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveTagsFromResourceCommand,
-  serializeAws_json1_1RemoveTagsFromResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RemoveTagsFromResourceCommand, se_RemoveTagsFromResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -152,14 +149,14 @@ export class RemoveTagsFromResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveTagsFromResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTagsFromResourceCommand(input, context);
+    return se_RemoveTagsFromResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsFromResourceCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsFromResourceCommand(output, context);
+    return de_RemoveTagsFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

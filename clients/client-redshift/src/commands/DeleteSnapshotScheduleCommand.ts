@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSnapshotScheduleMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSnapshotScheduleCommand,
-  serializeAws_queryDeleteSnapshotScheduleCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteSnapshotScheduleCommand, se_DeleteSnapshotScheduleCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -126,14 +123,14 @@ export class DeleteSnapshotScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSnapshotScheduleCommand(input, context);
+    return se_DeleteSnapshotScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotScheduleCommandOutput> {
-    return deserializeAws_queryDeleteSnapshotScheduleCommand(output, context);
+    return de_DeleteSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

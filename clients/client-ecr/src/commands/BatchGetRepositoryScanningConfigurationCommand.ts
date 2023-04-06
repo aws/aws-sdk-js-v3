@@ -19,8 +19,8 @@ import {
   BatchGetRepositoryScanningConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand,
-  serializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand,
+  de_BatchGetRepositoryScanningConfigurationCommand,
+  se_BatchGetRepositoryScanningConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -151,7 +151,7 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command<
     input: BatchGetRepositoryScanningConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand(input, context);
+    return se_BatchGetRepositoryScanningConfigurationCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetRepositoryScanningConfigurationCommandOutput> {
-    return deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand(output, context);
+    return de_BatchGetRepositoryScanningConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

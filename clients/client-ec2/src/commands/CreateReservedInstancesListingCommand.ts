@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateReservedInstancesListingRequest, CreateReservedInstancesListingResult } from "../models/models_2";
 import {
-  deserializeAws_ec2CreateReservedInstancesListingCommand,
-  serializeAws_ec2CreateReservedInstancesListingCommand,
+  de_CreateReservedInstancesListingCommand,
+  se_CreateReservedInstancesListingCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -149,7 +149,7 @@ export class CreateReservedInstancesListingCommand extends $Command<
     input: CreateReservedInstancesListingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateReservedInstancesListingCommand(input, context);
+    return se_CreateReservedInstancesListingCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class CreateReservedInstancesListingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReservedInstancesListingCommandOutput> {
-    return deserializeAws_ec2CreateReservedInstancesListingCommand(output, context);
+    return de_CreateReservedInstancesListingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { RegisterTargetsInput, RegisterTargetsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryRegisterTargetsCommand,
-  serializeAws_queryRegisterTargetsCommand,
-} from "../protocols/Aws_query";
+import { de_RegisterTargetsCommand, se_RegisterTargetsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -194,14 +191,14 @@ export class RegisterTargetsCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRegisterTargetsCommand(input, context);
+    return se_RegisterTargetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTargetsCommandOutput> {
-    return deserializeAws_queryRegisterTargetsCommand(output, context);
+    return de_RegisterTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

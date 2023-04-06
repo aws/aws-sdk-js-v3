@@ -15,10 +15,7 @@ import {
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { GetDataSetImportTaskRequest, GetDataSetImportTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataSetImportTaskCommand,
-  serializeAws_restJson1GetDataSetImportTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDataSetImportTaskCommand, se_GetDataSetImportTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetDataSetImportTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataSetImportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataSetImportTaskCommand(input, context);
+    return se_GetDataSetImportTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSetImportTaskCommandOutput> {
-    return deserializeAws_restJson1GetDataSetImportTaskCommand(output, context);
+    return de_GetDataSetImportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

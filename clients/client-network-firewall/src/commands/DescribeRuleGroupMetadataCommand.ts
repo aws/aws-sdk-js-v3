@@ -15,10 +15,7 @@ import {
 
 import { DescribeRuleGroupMetadataRequest, DescribeRuleGroupMetadataResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DescribeRuleGroupMetadataCommand,
-  serializeAws_json1_0DescribeRuleGroupMetadataCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeRuleGroupMetadataCommand, se_DescribeRuleGroupMetadataCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -151,7 +148,7 @@ export class DescribeRuleGroupMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRuleGroupMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeRuleGroupMetadataCommand(input, context);
+    return se_DescribeRuleGroupMetadataCommand(input, context);
   }
 
   /**
@@ -161,7 +158,7 @@ export class DescribeRuleGroupMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRuleGroupMetadataCommandOutput> {
-    return deserializeAws_json1_0DescribeRuleGroupMetadataCommand(output, context);
+    return de_DescribeRuleGroupMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

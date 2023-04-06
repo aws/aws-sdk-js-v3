@@ -15,8 +15,8 @@ import {
 
 import { DescribeAccountCustomizationRequest, DescribeAccountCustomizationResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1DescribeAccountCustomizationCommand,
-  serializeAws_restJson1DescribeAccountCustomizationCommand,
+  de_DescribeAccountCustomizationCommand,
+  se_DescribeAccountCustomizationCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -201,7 +201,7 @@ export class DescribeAccountCustomizationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAccountCustomizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccountCustomizationCommand(input, context);
+    return se_DescribeAccountCustomizationCommand(input, context);
   }
 
   /**
@@ -211,7 +211,7 @@ export class DescribeAccountCustomizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountCustomizationCommandOutput> {
-    return deserializeAws_restJson1DescribeAccountCustomizationCommand(output, context);
+    return de_DescribeAccountCustomizationCommand(output, context);
   }
 
   // Start section: command_body_extra

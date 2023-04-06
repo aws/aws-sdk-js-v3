@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteCallAnalyticsCategoryRequest, DeleteCallAnalyticsCategoryResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCallAnalyticsCategoryCommand,
-  serializeAws_json1_1DeleteCallAnalyticsCategoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCallAnalyticsCategoryCommand, se_DeleteCallAnalyticsCategoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -142,7 +139,7 @@ export class DeleteCallAnalyticsCategoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCallAnalyticsCategoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCallAnalyticsCategoryCommand(input, context);
+    return se_DeleteCallAnalyticsCategoryCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class DeleteCallAnalyticsCategoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCallAnalyticsCategoryCommandOutput> {
-    return deserializeAws_json1_1DeleteCallAnalyticsCategoryCommand(output, context);
+    return de_DeleteCallAnalyticsCategoryCommand(output, context);
   }
 
   // Start section: command_body_extra

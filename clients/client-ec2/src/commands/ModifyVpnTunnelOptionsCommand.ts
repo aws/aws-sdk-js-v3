@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyVpnTunnelOptionsRequest, ModifyVpnTunnelOptionsResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVpnTunnelOptionsCommand,
-  serializeAws_ec2ModifyVpnTunnelOptionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyVpnTunnelOptionsCommand, se_ModifyVpnTunnelOptionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyVpnTunnelOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpnTunnelOptionsCommand(input, context);
+    return se_ModifyVpnTunnelOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVpnTunnelOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyVpnTunnelOptionsCommand(output, context);
+    return de_ModifyVpnTunnelOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

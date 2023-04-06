@@ -15,7 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CopySnapshotMessage, CopySnapshotResult } from "../models/models_0";
-import { deserializeAws_queryCopySnapshotCommand, serializeAws_queryCopySnapshotCommand } from "../protocols/Aws_query";
+import { de_CopySnapshotCommand, se_CopySnapshotCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -280,14 +280,14 @@ export class CopySnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: CopySnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopySnapshotCommand(input, context);
+    return se_CopySnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopySnapshotCommandOutput> {
-    return deserializeAws_queryCopySnapshotCommand(output, context);
+    return de_CopySnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

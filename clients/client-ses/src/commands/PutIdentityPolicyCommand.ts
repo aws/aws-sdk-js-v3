@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutIdentityPolicyRequest, PutIdentityPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_queryPutIdentityPolicyCommand,
-  serializeAws_queryPutIdentityPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_PutIdentityPolicyCommand, se_PutIdentityPolicyCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -149,14 +146,14 @@ export class PutIdentityPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutIdentityPolicyCommand(input, context);
+    return se_PutIdentityPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIdentityPolicyCommandOutput> {
-    return deserializeAws_queryPutIdentityPolicyCommand(output, context);
+    return de_PutIdentityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

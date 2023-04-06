@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { StopKeyPhrasesDetectionJobRequest, StopKeyPhrasesDetectionJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand,
-  serializeAws_json1_1StopKeyPhrasesDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopKeyPhrasesDetectionJobCommand, se_StopKeyPhrasesDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopKeyPhrasesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopKeyPhrasesDetectionJobCommand(input, context);
+    return se_StopKeyPhrasesDetectionJobCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopKeyPhrasesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand(output, context);
+    return de_StopKeyPhrasesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

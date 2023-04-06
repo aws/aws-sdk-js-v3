@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { DeleteArchiveRuleRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteArchiveRuleCommand,
-  serializeAws_restJson1DeleteArchiveRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteArchiveRuleCommand, se_DeleteArchiveRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteArchiveRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteArchiveRuleCommand(input, context);
+    return se_DeleteArchiveRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteArchiveRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteArchiveRuleCommand(output, context);
+    return de_DeleteArchiveRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

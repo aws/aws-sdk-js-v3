@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopVectorEnrichmentJobInput, StopVectorEnrichmentJobOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopVectorEnrichmentJobCommand,
-  serializeAws_restJson1StopVectorEnrichmentJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopVectorEnrichmentJobCommand, se_StopVectorEnrichmentJobCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -142,14 +139,14 @@ export class StopVectorEnrichmentJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopVectorEnrichmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopVectorEnrichmentJobCommand(input, context);
+    return se_StopVectorEnrichmentJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopVectorEnrichmentJobCommandOutput> {
-    return deserializeAws_restJson1StopVectorEnrichmentJobCommand(output, context);
+    return de_StopVectorEnrichmentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

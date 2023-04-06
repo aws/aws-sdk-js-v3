@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { AdminRemoveUserFromGroupRequest, AdminRemoveUserFromGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminRemoveUserFromGroupCommand,
-  serializeAws_json1_1AdminRemoveUserFromGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminRemoveUserFromGroupCommand, se_AdminRemoveUserFromGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class AdminRemoveUserFromGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminRemoveUserFromGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminRemoveUserFromGroupCommand(input, context);
+    return se_AdminRemoveUserFromGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminRemoveUserFromGroupCommandOutput> {
-    return deserializeAws_json1_1AdminRemoveUserFromGroupCommand(output, context);
+    return de_AdminRemoveUserFromGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DescribeSessionsRequest, DescribeSessionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSessionsCommand,
-  serializeAws_json1_1DescribeSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSessionsCommand, se_DescribeSessionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DescribeSessionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSessionsCommand(input, context);
+    return se_DescribeSessionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSessionsCommandOutput> {
-    return deserializeAws_json1_1DescribeSessionsCommand(output, context);
+    return de_DescribeSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

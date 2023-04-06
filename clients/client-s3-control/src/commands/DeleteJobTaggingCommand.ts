@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteJobTaggingRequest, DeleteJobTaggingResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteJobTaggingCommand,
-  serializeAws_restXmlDeleteJobTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteJobTaggingCommand, se_DeleteJobTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -159,14 +156,14 @@ export class DeleteJobTaggingCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteJobTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteJobTaggingCommand(input, context);
+    return se_DeleteJobTaggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobTaggingCommandOutput> {
-    return deserializeAws_restXmlDeleteJobTaggingCommand(output, context);
+    return de_DeleteJobTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

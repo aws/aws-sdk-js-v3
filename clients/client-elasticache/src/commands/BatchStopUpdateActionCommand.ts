@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { BatchStopUpdateActionMessage, UpdateActionResultsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryBatchStopUpdateActionCommand,
-  serializeAws_queryBatchStopUpdateActionCommand,
-} from "../protocols/Aws_query";
+import { de_BatchStopUpdateActionCommand, se_BatchStopUpdateActionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class BatchStopUpdateActionCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchStopUpdateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryBatchStopUpdateActionCommand(input, context);
+    return se_BatchStopUpdateActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchStopUpdateActionCommandOutput> {
-    return deserializeAws_queryBatchStopUpdateActionCommand(output, context);
+    return de_BatchStopUpdateActionCommand(output, context);
   }
 
   // Start section: command_body_extra

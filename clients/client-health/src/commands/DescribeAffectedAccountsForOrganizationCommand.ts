@@ -19,8 +19,8 @@ import {
   DescribeAffectedAccountsForOrganizationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand,
-  serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand,
+  de_DescribeAffectedAccountsForOrganizationCommand,
+  se_DescribeAffectedAccountsForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
     input: DescribeAffectedAccountsForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand(input, context);
+    return se_DescribeAffectedAccountsForOrganizationCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand(output, context);
+    return de_DescribeAffectedAccountsForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

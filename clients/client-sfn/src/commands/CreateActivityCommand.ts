@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateActivityInput, CreateActivityOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateActivityCommand,
-  serializeAws_json1_0CreateActivityCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateActivityCommand, se_CreateActivityCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -153,14 +150,14 @@ export class CreateActivityCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateActivityCommand(input, context);
+    return se_CreateActivityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateActivityCommandOutput> {
-    return deserializeAws_json1_0CreateActivityCommand(output, context);
+    return de_CreateActivityCommand(output, context);
   }
 
   // Start section: command_body_extra

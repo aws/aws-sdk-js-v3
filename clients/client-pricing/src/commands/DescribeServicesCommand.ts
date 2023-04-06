@@ -15,10 +15,7 @@ import {
 
 import { DescribeServicesRequest, DescribeServicesResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import {
-  deserializeAws_json1_1DescribeServicesCommand,
-  serializeAws_json1_1DescribeServicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeServicesCommand, se_DescribeServicesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -175,14 +172,14 @@ export class DescribeServicesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServicesCommand(input, context);
+    return se_DescribeServicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServicesCommandOutput> {
-    return deserializeAws_json1_1DescribeServicesCommand(output, context);
+    return de_DescribeServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

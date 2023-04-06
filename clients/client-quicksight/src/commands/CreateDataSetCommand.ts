@@ -18,10 +18,7 @@ import {
   CreateDataSetRequestFilterSensitiveLog,
   CreateDataSetResponse,
 } from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateDataSetCommand,
-  serializeAws_restJson1CreateDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDataSetCommand, se_CreateDataSetCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -334,14 +331,14 @@ export class CreateDataSetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDataSetCommand(input, context);
+    return se_CreateDataSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSetCommandOutput> {
-    return deserializeAws_restJson1CreateDataSetCommand(output, context);
+    return de_CreateDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

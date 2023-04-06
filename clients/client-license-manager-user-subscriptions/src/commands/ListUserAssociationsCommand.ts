@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import { ListUserAssociationsRequest, ListUserAssociationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListUserAssociationsCommand,
-  serializeAws_restJson1ListUserAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListUserAssociationsCommand, se_ListUserAssociationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class ListUserAssociationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUserAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUserAssociationsCommand(input, context);
+    return se_ListUserAssociationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListUserAssociationsCommand(output, context);
+    return de_ListUserAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

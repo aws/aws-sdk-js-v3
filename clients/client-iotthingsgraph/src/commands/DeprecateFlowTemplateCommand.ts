@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { DeprecateFlowTemplateRequest, DeprecateFlowTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeprecateFlowTemplateCommand,
-  serializeAws_json1_1DeprecateFlowTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeprecateFlowTemplateCommand, se_DeprecateFlowTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeprecateFlowTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeprecateFlowTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeprecateFlowTemplateCommand(input, context);
+    return se_DeprecateFlowTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateFlowTemplateCommandOutput> {
-    return deserializeAws_json1_1DeprecateFlowTemplateCommand(output, context);
+    return de_DeprecateFlowTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

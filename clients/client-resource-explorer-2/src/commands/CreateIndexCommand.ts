@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateIndexInput, CreateIndexOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateIndexCommand,
-  serializeAws_restJson1CreateIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateIndexCommand, se_CreateIndexCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -196,14 +193,14 @@ export class CreateIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIndexCommand(input, context);
+    return se_CreateIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIndexCommandOutput> {
-    return deserializeAws_restJson1CreateIndexCommand(output, context);
+    return de_CreateIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

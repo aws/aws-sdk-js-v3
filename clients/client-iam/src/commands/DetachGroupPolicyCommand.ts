@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DetachGroupPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDetachGroupPolicyCommand,
-  serializeAws_queryDetachGroupPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_DetachGroupPolicyCommand, se_DetachGroupPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DetachGroupPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetachGroupPolicyCommand(input, context);
+    return se_DetachGroupPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachGroupPolicyCommandOutput> {
-    return deserializeAws_queryDetachGroupPolicyCommand(output, context);
+    return de_DetachGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { ListMobileDeviceAccessOverridesRequest, ListMobileDeviceAccessOverridesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListMobileDeviceAccessOverridesCommand,
-  serializeAws_json1_1ListMobileDeviceAccessOverridesCommand,
+  de_ListMobileDeviceAccessOverridesCommand,
+  se_ListMobileDeviceAccessOverridesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -144,7 +144,7 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command<
     input: ListMobileDeviceAccessOverridesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMobileDeviceAccessOverridesCommand(input, context);
+    return se_ListMobileDeviceAccessOverridesCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class ListMobileDeviceAccessOverridesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMobileDeviceAccessOverridesCommandOutput> {
-    return deserializeAws_json1_1ListMobileDeviceAccessOverridesCommand(output, context);
+    return de_ListMobileDeviceAccessOverridesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DeleteUsagePlanRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUsagePlanCommand,
-  serializeAws_restJson1DeleteUsagePlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteUsagePlanCommand, se_DeleteUsagePlanCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteUsagePlanCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteUsagePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUsagePlanCommand(input, context);
+    return se_DeleteUsagePlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUsagePlanCommandOutput> {
-    return deserializeAws_restJson1DeleteUsagePlanCommand(output, context);
+    return de_DeleteUsagePlanCommand(output, context);
   }
 
   // Start section: command_body_extra

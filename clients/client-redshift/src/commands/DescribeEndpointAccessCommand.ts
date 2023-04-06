@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeEndpointAccessMessage, EndpointAccessList } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEndpointAccessCommand,
-  serializeAws_queryDescribeEndpointAccessCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeEndpointAccessCommand, se_DescribeEndpointAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -135,14 +132,14 @@ export class DescribeEndpointAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEndpointAccessCommand(input, context);
+    return se_DescribeEndpointAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointAccessCommandOutput> {
-    return deserializeAws_queryDescribeEndpointAccessCommand(output, context);
+    return de_DescribeEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

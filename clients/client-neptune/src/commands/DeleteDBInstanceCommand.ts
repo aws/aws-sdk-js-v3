@@ -15,10 +15,7 @@ import {
 
 import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDeleteDBInstanceCommand,
-  serializeAws_queryDeleteDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBInstanceCommand, se_DeleteDBInstanceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class DeleteDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBInstanceCommand(input, context);
+    return se_DeleteDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBInstanceCommandOutput> {
-    return deserializeAws_queryDeleteDBInstanceCommand(output, context);
+    return de_DeleteDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

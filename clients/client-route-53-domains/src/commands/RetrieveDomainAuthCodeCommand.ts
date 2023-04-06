@@ -18,10 +18,7 @@ import {
   RetrieveDomainAuthCodeResponse,
   RetrieveDomainAuthCodeResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RetrieveDomainAuthCodeCommand,
-  serializeAws_json1_1RetrieveDomainAuthCodeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RetrieveDomainAuthCodeCommand, se_RetrieveDomainAuthCodeCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -134,14 +131,14 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
    * @internal
    */
   private serialize(input: RetrieveDomainAuthCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RetrieveDomainAuthCodeCommand(input, context);
+    return se_RetrieveDomainAuthCodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetrieveDomainAuthCodeCommandOutput> {
-    return deserializeAws_json1_1RetrieveDomainAuthCodeCommand(output, context);
+    return de_RetrieveDomainAuthCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

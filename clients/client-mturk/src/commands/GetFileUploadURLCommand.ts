@@ -15,10 +15,7 @@ import {
 
 import { GetFileUploadURLRequest, GetFileUploadURLResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1GetFileUploadURLCommand,
-  serializeAws_json1_1GetFileUploadURLCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetFileUploadURLCommand, se_GetFileUploadURLCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class GetFileUploadURLCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFileUploadURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFileUploadURLCommand(input, context);
+    return se_GetFileUploadURLCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFileUploadURLCommandOutput> {
-    return deserializeAws_json1_1GetFileUploadURLCommand(output, context);
+    return de_GetFileUploadURLCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DeletePortalRequest, DeletePortalResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePortalCommand,
-  serializeAws_restJson1DeletePortalCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePortalCommand, se_DeletePortalCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeletePortalCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePortalCommand(input, context);
+    return se_DeletePortalCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePortalCommandOutput> {
-    return deserializeAws_restJson1DeletePortalCommand(output, context);
+    return de_DeletePortalCommand(output, context);
   }
 
   // Start section: command_body_extra

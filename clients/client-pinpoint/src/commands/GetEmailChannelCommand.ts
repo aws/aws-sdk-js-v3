@@ -15,10 +15,7 @@ import {
 
 import { GetEmailChannelRequest, GetEmailChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetEmailChannelCommand,
-  serializeAws_restJson1GetEmailChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEmailChannelCommand, se_GetEmailChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetEmailChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEmailChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEmailChannelCommand(input, context);
+    return se_GetEmailChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEmailChannelCommandOutput> {
-    return deserializeAws_restJson1GetEmailChannelCommand(output, context);
+    return de_GetEmailChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

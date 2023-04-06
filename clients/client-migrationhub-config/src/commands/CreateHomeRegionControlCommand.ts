@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubConfigClient";
 import { CreateHomeRegionControlRequest, CreateHomeRegionControlResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateHomeRegionControlCommand,
-  serializeAws_json1_1CreateHomeRegionControlCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateHomeRegionControlCommand, se_CreateHomeRegionControlCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CreateHomeRegionControlCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateHomeRegionControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHomeRegionControlCommand(input, context);
+    return se_CreateHomeRegionControlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHomeRegionControlCommandOutput> {
-    return deserializeAws_json1_1CreateHomeRegionControlCommand(output, context);
+    return de_CreateHomeRegionControlCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,10 +25,7 @@ import {
   DescribeUserPoolClientResponse,
   DescribeUserPoolClientResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeUserPoolClientCommand,
-  serializeAws_json1_1DescribeUserPoolClientCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeUserPoolClientCommand, se_DescribeUserPoolClientCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class DescribeUserPoolClientCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUserPoolClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserPoolClientCommand(input, context);
+    return se_DescribeUserPoolClientCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserPoolClientCommandOutput> {
-    return deserializeAws_json1_1DescribeUserPoolClientCommand(output, context);
+    return de_DescribeUserPoolClientCommand(output, context);
   }
 
   // Start section: command_body_extra

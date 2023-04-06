@@ -15,8 +15,8 @@ import {
 
 import { PutAppReplicationConfigurationRequest, PutAppReplicationConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutAppReplicationConfigurationCommand,
-  serializeAws_json1_1PutAppReplicationConfigurationCommand,
+  de_PutAppReplicationConfigurationCommand,
+  se_PutAppReplicationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
@@ -175,7 +175,7 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     input: PutAppReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAppReplicationConfigurationCommand(input, context);
+    return se_PutAppReplicationConfigurationCommand(input, context);
   }
 
   /**
@@ -185,7 +185,7 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAppReplicationConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutAppReplicationConfigurationCommand(output, context);
+    return de_PutAppReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

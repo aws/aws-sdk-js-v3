@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { ListUpdatesRequest, ListUpdatesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListUpdatesCommand,
-  serializeAws_restJson1ListUpdatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListUpdatesCommand, se_ListUpdatesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ListUpdatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUpdatesCommand(input, context);
+    return se_ListUpdatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUpdatesCommandOutput> {
-    return deserializeAws_restJson1ListUpdatesCommand(output, context);
+    return de_ListUpdatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DescribeConformancePackStatusRequest, DescribeConformancePackStatusResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeConformancePackStatusCommand,
-  serializeAws_json1_1DescribeConformancePackStatusCommand,
+  de_DescribeConformancePackStatusCommand,
+  se_DescribeConformancePackStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeConformancePackStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConformancePackStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConformancePackStatusCommand(input, context);
+    return se_DescribeConformancePackStatusCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeConformancePackStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConformancePackStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeConformancePackStatusCommand(output, context);
+    return de_DescribeConformancePackStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

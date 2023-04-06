@@ -23,10 +23,7 @@ import {
   UpdateUserAttributesRequestFilterSensitiveLog,
   UpdateUserAttributesResponse,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateUserAttributesCommand,
-  serializeAws_json1_1UpdateUserAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateUserAttributesCommand, se_UpdateUserAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -228,14 +225,14 @@ export class UpdateUserAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateUserAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateUserAttributesCommand(input, context);
+    return se_UpdateUserAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateUserAttributesCommand(output, context);
+    return de_UpdateUserAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

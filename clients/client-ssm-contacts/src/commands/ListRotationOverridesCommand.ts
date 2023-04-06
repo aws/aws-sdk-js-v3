@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRotationOverridesRequest, ListRotationOverridesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRotationOverridesCommand,
-  serializeAws_json1_1ListRotationOverridesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRotationOverridesCommand, se_ListRotationOverridesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -140,14 +137,14 @@ export class ListRotationOverridesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRotationOverridesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRotationOverridesCommand(input, context);
+    return se_ListRotationOverridesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRotationOverridesCommandOutput> {
-    return deserializeAws_json1_1ListRotationOverridesCommand(output, context);
+    return de_ListRotationOverridesCommand(output, context);
   }
 
   // Start section: command_body_extra

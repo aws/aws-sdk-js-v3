@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MalformedDoubleInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedDoubleCommand,
-  serializeAws_restJson1MalformedDoubleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedDoubleCommand, se_MalformedDoubleCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class MalformedDoubleCommand extends $Command<
    * @internal
    */
   private serialize(input: MalformedDoubleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedDoubleCommand(input, context);
+    return se_MalformedDoubleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedDoubleCommandOutput> {
-    return deserializeAws_restJson1MalformedDoubleCommand(output, context);
+    return de_MalformedDoubleCommand(output, context);
   }
 
   // Start section: command_body_extra

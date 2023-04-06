@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetQueryStateRequest, GetQueryStateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetQueryStateCommand,
-  serializeAws_restJson1GetQueryStateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetQueryStateCommand, se_GetQueryStateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class GetQueryStateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetQueryStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetQueryStateCommand(input, context);
+    return se_GetQueryStateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryStateCommandOutput> {
-    return deserializeAws_restJson1GetQueryStateCommand(output, context);
+    return de_GetQueryStateCommand(output, context);
   }
 
   // Start section: command_body_extra

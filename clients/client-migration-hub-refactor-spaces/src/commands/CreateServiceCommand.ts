@@ -24,10 +24,7 @@ import {
   CreateServiceResponse,
   CreateServiceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateServiceCommand,
-  serializeAws_restJson1CreateServiceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -174,14 +171,14 @@ export class CreateServiceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateServiceCommand(input, context);
+    return se_CreateServiceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceCommandOutput> {
-    return deserializeAws_restJson1CreateServiceCommand(output, context);
+    return de_CreateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

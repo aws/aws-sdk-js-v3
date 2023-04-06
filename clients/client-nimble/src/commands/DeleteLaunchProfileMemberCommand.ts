@@ -15,10 +15,7 @@ import {
 
 import { DeleteLaunchProfileMemberRequest, DeleteLaunchProfileMemberResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1DeleteLaunchProfileMemberCommand,
-  serializeAws_restJson1DeleteLaunchProfileMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLaunchProfileMemberCommand, se_DeleteLaunchProfileMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class DeleteLaunchProfileMemberCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLaunchProfileMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLaunchProfileMemberCommand(input, context);
+    return se_DeleteLaunchProfileMemberCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class DeleteLaunchProfileMemberCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLaunchProfileMemberCommandOutput> {
-    return deserializeAws_restJson1DeleteLaunchProfileMemberCommand(output, context);
+    return de_DeleteLaunchProfileMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

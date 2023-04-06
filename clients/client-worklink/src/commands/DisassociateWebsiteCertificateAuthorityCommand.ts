@@ -18,8 +18,8 @@ import {
   DisassociateWebsiteCertificateAuthorityResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand,
-  serializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand,
+  de_DisassociateWebsiteCertificateAuthorityCommand,
+  se_DisassociateWebsiteCertificateAuthorityCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
@@ -153,7 +153,7 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     input: DisassociateWebsiteCertificateAuthorityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand(input, context);
+    return se_DisassociateWebsiteCertificateAuthorityCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateWebsiteCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1DisassociateWebsiteCertificateAuthorityCommand(output, context);
+    return de_DisassociateWebsiteCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

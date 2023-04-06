@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CopyDBSnapshotMessage, CopyDBSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_queryCopyDBSnapshotCommand,
-  serializeAws_queryCopyDBSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_CopyDBSnapshotCommand, se_CopyDBSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -101,19 +98,45 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  *
  * @example To copy a DB snapshot
  * ```javascript
- * // This example copies a DB snapshot.
+ * // The following example creates a copy of a DB snapshot.
  * const input = {
- *   "SourceDBSnapshotIdentifier": "mydbsnapshot",
- *   "TargetDBSnapshotIdentifier": "mydbsnapshot-copy"
+ *   "SourceDBSnapshotIdentifier": "rds:database-mysql-2019-06-06-08-38",
+ *   "TargetDBSnapshotIdentifier": "mydbsnapshotcopy"
  * };
  * const command = new CopyDBSnapshotCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBSnapshot": {}
+ *   "DBSnapshot": {
+ *     "AllocatedStorage": 100,
+ *     "AvailabilityZone": "us-east-1f",
+ *     "DBInstanceIdentifier": "database-mysql",
+ *     "DBSnapshotArn": "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshotcopy",
+ *     "DBSnapshotIdentifier": "mydbsnapshotcopy",
+ *     "DbiResourceId": "db-ZI7UJ5BLKMBYFGX7FDENCKADC4",
+ *     "Encrypted": true,
+ *     "Engine": "mysql",
+ *     "EngineVersion": "5.6.40",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "InstanceCreateTime": "2019-04-30T15:45:53.663Z",
+ *     "Iops": 1000,
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     "LicenseModel": "general-public-license",
+ *     "MasterUsername": "admin",
+ *     "OptionGroupName": "default:mysql-5-6",
+ *     "PercentProgress": 0,
+ *     "Port": 3306,
+ *     "ProcessorFeatures": [],
+ *     "SnapshotType": "manual",
+ *     "SourceDBSnapshotIdentifier": "arn:aws:rds:us-east-1:123456789012:snapshot:rds:database-mysql-2019-06-06-08-38",
+ *     "SourceRegion": "us-east-1",
+ *     "Status": "creating",
+ *     "StorageType": "io1",
+ *     "VpcId": "vpc-6594f31c"
+ *   }
  * }
  * *\/
- * // example id: copy-db-snapshot-1b2f0210-bc67-415d-9822-6eecf447dc86
+ * // example id: to-copy-a-db-snapshot-1679695661487
  * ```
  *
  */
@@ -181,14 +204,14 @@ export class CopyDBSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBSnapshotCommand(input, context);
+    return se_CopyDBSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBSnapshotCommandOutput> {
-    return deserializeAws_queryCopyDBSnapshotCommand(output, context);
+    return de_CopyDBSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { GetKeyRotationStatusRequest, GetKeyRotationStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetKeyRotationStatusCommand,
-  serializeAws_json1_1GetKeyRotationStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetKeyRotationStatusCommand, se_GetKeyRotationStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -226,14 +223,14 @@ export class GetKeyRotationStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetKeyRotationStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetKeyRotationStatusCommand(input, context);
+    return se_GetKeyRotationStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyRotationStatusCommandOutput> {
-    return deserializeAws_json1_1GetKeyRotationStatusCommand(output, context);
+    return de_GetKeyRotationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

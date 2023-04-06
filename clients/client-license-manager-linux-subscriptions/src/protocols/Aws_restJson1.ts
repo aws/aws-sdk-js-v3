@@ -39,7 +39,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1GetServiceSettingsCommand = async (
+/**
+ * serializeAws_restJson1GetServiceSettingsCommand
+ */
+export const se_GetServiceSettingsCommand = async (
   input: GetServiceSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -62,7 +65,10 @@ export const serializeAws_restJson1GetServiceSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListLinuxSubscriptionInstancesCommand = async (
+/**
+ * serializeAws_restJson1ListLinuxSubscriptionInstancesCommand
+ */
+export const se_ListLinuxSubscriptionInstancesCommand = async (
   input: ListLinuxSubscriptionInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -75,7 +81,7 @@ export const serializeAws_restJson1ListLinuxSubscriptionInstancesCommand = async
     "/subscription/ListLinuxSubscriptionInstances";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters != null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
@@ -90,7 +96,10 @@ export const serializeAws_restJson1ListLinuxSubscriptionInstancesCommand = async
   });
 };
 
-export const serializeAws_restJson1ListLinuxSubscriptionsCommand = async (
+/**
+ * serializeAws_restJson1ListLinuxSubscriptionsCommand
+ */
+export const se_ListLinuxSubscriptionsCommand = async (
   input: ListLinuxSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -102,7 +111,7 @@ export const serializeAws_restJson1ListLinuxSubscriptionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/subscription/ListLinuxSubscriptions";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters != null && { Filters: serializeAws_restJson1FilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
@@ -117,7 +126,10 @@ export const serializeAws_restJson1ListLinuxSubscriptionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateServiceSettingsCommand = async (
+/**
+ * serializeAws_restJson1UpdateServiceSettingsCommand
+ */
+export const se_UpdateServiceSettingsCommand = async (
   input: UpdateServiceSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -134,7 +146,7 @@ export const serializeAws_restJson1UpdateServiceSettingsCommand = async (
       LinuxSubscriptionsDiscovery: input.LinuxSubscriptionsDiscovery,
     }),
     ...(input.LinuxSubscriptionsDiscoverySettings != null && {
-      LinuxSubscriptionsDiscoverySettings: serializeAws_restJson1LinuxSubscriptionsDiscoverySettings(
+      LinuxSubscriptionsDiscoverySettings: se_LinuxSubscriptionsDiscoverySettings(
         input.LinuxSubscriptionsDiscoverySettings,
         context
       ),
@@ -151,25 +163,28 @@ export const serializeAws_restJson1UpdateServiceSettingsCommand = async (
   });
 };
 
-export const deserializeAws_restJson1GetServiceSettingsCommand = async (
+/**
+ * deserializeAws_restJson1GetServiceSettingsCommand
+ */
+export const de_GetServiceSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetServiceSettingsCommandError(output, context);
+    return de_GetServiceSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HomeRegions != null) {
-    contents.HomeRegions = deserializeAws_restJson1StringList(data.HomeRegions, context);
+    contents.HomeRegions = de_StringList(data.HomeRegions, context);
   }
   if (data.LinuxSubscriptionsDiscovery != null) {
     contents.LinuxSubscriptionsDiscovery = __expectString(data.LinuxSubscriptionsDiscovery);
   }
   if (data.LinuxSubscriptionsDiscoverySettings != null) {
-    contents.LinuxSubscriptionsDiscoverySettings = deserializeAws_restJson1LinuxSubscriptionsDiscoverySettings(
+    contents.LinuxSubscriptionsDiscoverySettings = de_LinuxSubscriptionsDiscoverySettings(
       data.LinuxSubscriptionsDiscoverySettings,
       context
     );
@@ -178,12 +193,15 @@ export const deserializeAws_restJson1GetServiceSettingsCommand = async (
     contents.Status = __expectString(data.Status);
   }
   if (data.StatusMessage != null) {
-    contents.StatusMessage = deserializeAws_restJson1StringMap(data.StatusMessage, context);
+    contents.StatusMessage = de_StringMap(data.StatusMessage, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetServiceSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1GetServiceSettingsCommandError
+ */
+const de_GetServiceSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceSettingsCommandOutput> => {
@@ -195,13 +213,13 @@ const deserializeAws_restJson1GetServiceSettingsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -213,19 +231,22 @@ const deserializeAws_restJson1GetServiceSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListLinuxSubscriptionInstancesCommand = async (
+/**
+ * deserializeAws_restJson1ListLinuxSubscriptionInstancesCommand
+ */
+export const de_ListLinuxSubscriptionInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLinuxSubscriptionInstancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListLinuxSubscriptionInstancesCommandError(output, context);
+    return de_ListLinuxSubscriptionInstancesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Instances != null) {
-    contents.Instances = deserializeAws_restJson1InstanceList(data.Instances, context);
+    contents.Instances = de_InstanceList(data.Instances, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -233,7 +254,10 @@ export const deserializeAws_restJson1ListLinuxSubscriptionInstancesCommand = asy
   return contents;
 };
 
-const deserializeAws_restJson1ListLinuxSubscriptionInstancesCommandError = async (
+/**
+ * deserializeAws_restJson1ListLinuxSubscriptionInstancesCommandError
+ */
+const de_ListLinuxSubscriptionInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLinuxSubscriptionInstancesCommandOutput> => {
@@ -245,13 +269,13 @@ const deserializeAws_restJson1ListLinuxSubscriptionInstancesCommandError = async
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -263,12 +287,15 @@ const deserializeAws_restJson1ListLinuxSubscriptionInstancesCommandError = async
   }
 };
 
-export const deserializeAws_restJson1ListLinuxSubscriptionsCommand = async (
+/**
+ * deserializeAws_restJson1ListLinuxSubscriptionsCommand
+ */
+export const de_ListLinuxSubscriptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLinuxSubscriptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListLinuxSubscriptionsCommandError(output, context);
+    return de_ListLinuxSubscriptionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -278,12 +305,15 @@ export const deserializeAws_restJson1ListLinuxSubscriptionsCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Subscriptions != null) {
-    contents.Subscriptions = deserializeAws_restJson1SubscriptionList(data.Subscriptions, context);
+    contents.Subscriptions = de_SubscriptionList(data.Subscriptions, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListLinuxSubscriptionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListLinuxSubscriptionsCommandError
+ */
+const de_ListLinuxSubscriptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLinuxSubscriptionsCommandOutput> => {
@@ -295,13 +325,13 @@ const deserializeAws_restJson1ListLinuxSubscriptionsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -313,25 +343,28 @@ const deserializeAws_restJson1ListLinuxSubscriptionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateServiceSettingsCommand = async (
+/**
+ * deserializeAws_restJson1UpdateServiceSettingsCommand
+ */
+export const de_UpdateServiceSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateServiceSettingsCommandError(output, context);
+    return de_UpdateServiceSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HomeRegions != null) {
-    contents.HomeRegions = deserializeAws_restJson1StringList(data.HomeRegions, context);
+    contents.HomeRegions = de_StringList(data.HomeRegions, context);
   }
   if (data.LinuxSubscriptionsDiscovery != null) {
     contents.LinuxSubscriptionsDiscovery = __expectString(data.LinuxSubscriptionsDiscovery);
   }
   if (data.LinuxSubscriptionsDiscoverySettings != null) {
-    contents.LinuxSubscriptionsDiscoverySettings = deserializeAws_restJson1LinuxSubscriptionsDiscoverySettings(
+    contents.LinuxSubscriptionsDiscoverySettings = de_LinuxSubscriptionsDiscoverySettings(
       data.LinuxSubscriptionsDiscoverySettings,
       context
     );
@@ -340,12 +373,15 @@ export const deserializeAws_restJson1UpdateServiceSettingsCommand = async (
     contents.Status = __expectString(data.Status);
   }
   if (data.StatusMessage != null) {
-    contents.StatusMessage = deserializeAws_restJson1StringMap(data.StatusMessage, context);
+    contents.StatusMessage = de_StringMap(data.StatusMessage, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateServiceSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateServiceSettingsCommandError
+ */
+const de_UpdateServiceSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceSettingsCommandOutput> => {
@@ -357,13 +393,13 @@ const deserializeAws_restJson1UpdateServiceSettingsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -376,7 +412,10 @@ const deserializeAws_restJson1UpdateServiceSettingsCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -392,10 +431,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -408,10 +447,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -424,35 +463,45 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Filter
+ */
+const se_Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Operator != null && { Operator: input.Operator }),
-    ...(input.Values != null && { Values: serializeAws_restJson1StringList(input.Values, context) }),
+    ...(input.Values != null && { Values: se_StringList(input.Values, context) }),
   };
 };
 
-const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FilterList
+ */
+const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Filter(entry, context);
+      return se_Filter(entry, context);
     });
 };
 
-const serializeAws_restJson1LinuxSubscriptionsDiscoverySettings = (
+/**
+ * serializeAws_restJson1LinuxSubscriptionsDiscoverySettings
+ */
+const se_LinuxSubscriptionsDiscoverySettings = (
   input: LinuxSubscriptionsDiscoverySettings,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.OrganizationIntegration != null && { OrganizationIntegration: input.OrganizationIntegration }),
-    ...(input.SourceRegions != null && {
-      SourceRegions: serializeAws_restJson1StringList(input.SourceRegions, context),
-    }),
+    ...(input.SourceRegions != null && { SourceRegions: se_StringList(input.SourceRegions, context) }),
   };
 };
 
-const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1StringList
+ */
+const se_StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -460,15 +509,17 @@ const serializeAws_restJson1StringList = (input: string[], context: __SerdeConte
     });
 };
 
-const deserializeAws_restJson1Instance = (output: any, context: __SerdeContext): Instance => {
+/**
+ * deserializeAws_restJson1Instance
+ */
+const de_Instance = (output: any, context: __SerdeContext): Instance => {
   return {
     AccountID: __expectString(output.AccountID),
     AmiId: __expectString(output.AmiId),
     InstanceID: __expectString(output.InstanceID),
     InstanceType: __expectString(output.InstanceType),
     LastUpdatedTime: __expectString(output.LastUpdatedTime),
-    ProductCode:
-      output.ProductCode != null ? deserializeAws_restJson1ProductCodeList(output.ProductCode, context) : undefined,
+    ProductCode: output.ProductCode != null ? de_ProductCodeList(output.ProductCode, context) : undefined,
     Region: __expectString(output.Region),
     Status: __expectString(output.Status),
     SubscriptionName: __expectString(output.SubscriptionName),
@@ -476,30 +527,38 @@ const deserializeAws_restJson1Instance = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_restJson1InstanceList = (output: any, context: __SerdeContext): Instance[] => {
+/**
+ * deserializeAws_restJson1InstanceList
+ */
+const de_InstanceList = (output: any, context: __SerdeContext): Instance[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Instance(entry, context);
+      return de_Instance(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1LinuxSubscriptionsDiscoverySettings = (
+/**
+ * deserializeAws_restJson1LinuxSubscriptionsDiscoverySettings
+ */
+const de_LinuxSubscriptionsDiscoverySettings = (
   output: any,
   context: __SerdeContext
 ): LinuxSubscriptionsDiscoverySettings => {
   return {
     OrganizationIntegration: __expectString(output.OrganizationIntegration),
-    SourceRegions:
-      output.SourceRegions != null ? deserializeAws_restJson1StringList(output.SourceRegions, context) : undefined,
+    SourceRegions: output.SourceRegions != null ? de_StringList(output.SourceRegions, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ProductCodeList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1ProductCodeList
+ */
+const de_ProductCodeList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -511,7 +570,10 @@ const deserializeAws_restJson1ProductCodeList = (output: any, context: __SerdeCo
   return retVal;
 };
 
-const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1StringList
+ */
+const de_StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -523,7 +585,10 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1StringMap
+ */
+const de_StringMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -533,7 +598,10 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
   }, {});
 };
 
-const deserializeAws_restJson1Subscription = (output: any, context: __SerdeContext): Subscription => {
+/**
+ * deserializeAws_restJson1Subscription
+ */
+const de_Subscription = (output: any, context: __SerdeContext): Subscription => {
   return {
     InstanceCount: __expectLong(output.InstanceCount),
     Name: __expectString(output.Name),
@@ -541,14 +609,17 @@ const deserializeAws_restJson1Subscription = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_restJson1SubscriptionList = (output: any, context: __SerdeContext): Subscription[] => {
+/**
+ * deserializeAws_restJson1SubscriptionList
+ */
+const de_SubscriptionList = (output: any, context: __SerdeContext): Subscription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Subscription(entry, context);
+      return de_Subscription(entry, context);
     });
   return retVal;
 };

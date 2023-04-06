@@ -18,8 +18,8 @@ import {
   ListServiceActionsForProvisioningArtifactOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand,
-  serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand,
+  de_ListServiceActionsForProvisioningArtifactCommand,
+  se_ListServiceActionsForProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -145,7 +145,7 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
     input: ListServiceActionsForProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(input, context);
+    return se_ListServiceActionsForProvisioningArtifactCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(output, context);
+    return de_ListServiceActionsForProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

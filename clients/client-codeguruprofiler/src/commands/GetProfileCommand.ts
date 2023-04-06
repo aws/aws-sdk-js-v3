@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { GetProfileRequest, GetProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetProfileCommand,
-  serializeAws_restJson1GetProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetProfileCommand, se_GetProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -206,14 +203,14 @@ export class GetProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: GetProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProfileCommand(input, context);
+    return se_GetProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProfileCommandOutput> {
-    return deserializeAws_restJson1GetProfileCommand(output, context);
+    return de_GetProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

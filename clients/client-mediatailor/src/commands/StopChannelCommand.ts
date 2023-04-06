@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { StopChannelRequest, StopChannelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopChannelCommand,
-  serializeAws_restJson1StopChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopChannelCommand, se_StopChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -118,14 +115,14 @@ export class StopChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: StopChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopChannelCommand(input, context);
+    return se_StopChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopChannelCommandOutput> {
-    return deserializeAws_restJson1StopChannelCommand(output, context);
+    return de_StopChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

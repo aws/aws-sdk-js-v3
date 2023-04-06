@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { GetExclusionsPreviewRequest, GetExclusionsPreviewResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetExclusionsPreviewCommand,
-  serializeAws_json1_1GetExclusionsPreviewCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetExclusionsPreviewCommand, se_GetExclusionsPreviewCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetExclusionsPreviewCommand extends $Command<
    * @internal
    */
   private serialize(input: GetExclusionsPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetExclusionsPreviewCommand(input, context);
+    return se_GetExclusionsPreviewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExclusionsPreviewCommandOutput> {
-    return deserializeAws_json1_1GetExclusionsPreviewCommand(output, context);
+    return de_GetExclusionsPreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

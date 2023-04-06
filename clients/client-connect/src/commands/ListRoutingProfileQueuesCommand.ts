@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListRoutingProfileQueuesRequest, ListRoutingProfileQueuesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListRoutingProfileQueuesCommand,
-  serializeAws_restJson1ListRoutingProfileQueuesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRoutingProfileQueuesCommand, se_ListRoutingProfileQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListRoutingProfileQueuesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRoutingProfileQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRoutingProfileQueuesCommand(input, context);
+    return se_ListRoutingProfileQueuesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutingProfileQueuesCommandOutput> {
-    return deserializeAws_restJson1ListRoutingProfileQueuesCommand(output, context);
+    return de_ListRoutingProfileQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

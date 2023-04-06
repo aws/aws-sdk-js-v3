@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ReleaseHostsRequest, ReleaseHostsResult } from "../models/models_6";
-import { deserializeAws_ec2ReleaseHostsCommand, serializeAws_ec2ReleaseHostsCommand } from "../protocols/Aws_ec2";
+import { de_ReleaseHostsCommand, se_ReleaseHostsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,14 +125,14 @@ export class ReleaseHostsCommand extends $Command<
    * @internal
    */
   private serialize(input: ReleaseHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReleaseHostsCommand(input, context);
+    return se_ReleaseHostsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleaseHostsCommandOutput> {
-    return deserializeAws_ec2ReleaseHostsCommand(output, context);
+    return de_ReleaseHostsCommand(output, context);
   }
 
   // Start section: command_body_extra

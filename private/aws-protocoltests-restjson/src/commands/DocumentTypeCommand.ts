@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocumentTypeInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DocumentTypeCommand,
-  serializeAws_restJson1DocumentTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DocumentTypeCommand, se_DocumentTypeCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -108,14 +105,14 @@ export class DocumentTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DocumentTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DocumentTypeCommand(input, context);
+    return se_DocumentTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DocumentTypeCommandOutput> {
-    return deserializeAws_restJson1DocumentTypeCommand(output, context);
+    return de_DocumentTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

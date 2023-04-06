@@ -15,10 +15,7 @@ import {
 
 import { CreateVoiceTemplateRequest, CreateVoiceTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateVoiceTemplateCommand,
-  serializeAws_restJson1CreateVoiceTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateVoiceTemplateCommand, se_CreateVoiceTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class CreateVoiceTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVoiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVoiceTemplateCommand(input, context);
+    return se_CreateVoiceTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVoiceTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateVoiceTemplateCommand(output, context);
+    return de_CreateVoiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

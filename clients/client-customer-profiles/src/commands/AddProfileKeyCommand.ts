@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { AddProfileKeyRequest, AddProfileKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddProfileKeyCommand,
-  serializeAws_restJson1AddProfileKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AddProfileKeyCommand, se_AddProfileKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class AddProfileKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: AddProfileKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddProfileKeyCommand(input, context);
+    return se_AddProfileKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddProfileKeyCommandOutput> {
-    return deserializeAws_restJson1AddProfileKeyCommand(output, context);
+    return de_AddProfileKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

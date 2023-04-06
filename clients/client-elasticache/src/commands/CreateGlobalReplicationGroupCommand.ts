@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CreateGlobalReplicationGroupMessage, CreateGlobalReplicationGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateGlobalReplicationGroupCommand,
-  serializeAws_queryCreateGlobalReplicationGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CreateGlobalReplicationGroupCommand, se_CreateGlobalReplicationGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -153,7 +150,7 @@ export class CreateGlobalReplicationGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateGlobalReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateGlobalReplicationGroupCommand(input, context);
+    return se_CreateGlobalReplicationGroupCommand(input, context);
   }
 
   /**
@@ -163,7 +160,7 @@ export class CreateGlobalReplicationGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryCreateGlobalReplicationGroupCommand(output, context);
+    return de_CreateGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyInstanceMetadataOptionsRequest, ModifyInstanceMetadataOptionsResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyInstanceMetadataOptionsCommand,
-  serializeAws_ec2ModifyInstanceMetadataOptionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyInstanceMetadataOptionsCommand, se_ModifyInstanceMetadataOptionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -134,7 +131,7 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyInstanceMetadataOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceMetadataOptionsCommand(input, context);
+    return se_ModifyInstanceMetadataOptionsCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyInstanceMetadataOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceMetadataOptionsCommand(output, context);
+    return de_ModifyInstanceMetadataOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

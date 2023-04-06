@@ -15,10 +15,7 @@ import {
 
 import { DescribeDimensionKeysRequest, DescribeDimensionKeysResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import {
-  deserializeAws_json1_1DescribeDimensionKeysCommand,
-  serializeAws_json1_1DescribeDimensionKeysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDimensionKeysCommand, se_DescribeDimensionKeysCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class DescribeDimensionKeysCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDimensionKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDimensionKeysCommand(input, context);
+    return se_DescribeDimensionKeysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDimensionKeysCommandOutput> {
-    return deserializeAws_json1_1DescribeDimensionKeysCommand(output, context);
+    return de_DescribeDimensionKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

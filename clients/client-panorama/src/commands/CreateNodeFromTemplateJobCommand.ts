@@ -19,10 +19,7 @@ import {
   CreateNodeFromTemplateJobResponse,
 } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1CreateNodeFromTemplateJobCommand,
-  serializeAws_restJson1CreateNodeFromTemplateJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateNodeFromTemplateJobCommand, se_CreateNodeFromTemplateJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,7 +148,7 @@ export class CreateNodeFromTemplateJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNodeFromTemplateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNodeFromTemplateJobCommand(input, context);
+    return se_CreateNodeFromTemplateJobCommand(input, context);
   }
 
   /**
@@ -161,7 +158,7 @@ export class CreateNodeFromTemplateJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateNodeFromTemplateJobCommandOutput> {
-    return deserializeAws_restJson1CreateNodeFromTemplateJobCommand(output, context);
+    return de_CreateNodeFromTemplateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

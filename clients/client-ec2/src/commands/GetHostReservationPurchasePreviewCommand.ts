@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetHostReservationPurchasePreviewRequest, GetHostReservationPurchasePreviewResult } from "../models/models_5";
 import {
-  deserializeAws_ec2GetHostReservationPurchasePreviewCommand,
-  serializeAws_ec2GetHostReservationPurchasePreviewCommand,
+  de_GetHostReservationPurchasePreviewCommand,
+  se_GetHostReservationPurchasePreviewCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -132,7 +132,7 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     input: GetHostReservationPurchasePreviewCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetHostReservationPurchasePreviewCommand(input, context);
+    return se_GetHostReservationPurchasePreviewCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHostReservationPurchasePreviewCommandOutput> {
-    return deserializeAws_ec2GetHostReservationPurchasePreviewCommand(output, context);
+    return de_GetHostReservationPurchasePreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

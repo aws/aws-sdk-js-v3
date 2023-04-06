@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DeleteCollectorRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFleetAdvisorCollectorCommand,
-  serializeAws_json1_1DeleteFleetAdvisorCollectorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFleetAdvisorCollectorCommand, se_DeleteFleetAdvisorCollectorCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,7 +127,7 @@ export class DeleteFleetAdvisorCollectorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFleetAdvisorCollectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFleetAdvisorCollectorCommand(input, context);
+    return se_DeleteFleetAdvisorCollectorCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class DeleteFleetAdvisorCollectorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFleetAdvisorCollectorCommandOutput> {
-    return deserializeAws_json1_1DeleteFleetAdvisorCollectorCommand(output, context);
+    return de_DeleteFleetAdvisorCollectorCommand(output, context);
   }
 
   // Start section: command_body_extra

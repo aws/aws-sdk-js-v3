@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateLongTermPricingRequest, UpdateLongTermPricingResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateLongTermPricingCommand,
-  serializeAws_json1_1UpdateLongTermPricingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateLongTermPricingCommand, se_UpdateLongTermPricingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -126,14 +123,14 @@ export class UpdateLongTermPricingCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLongTermPricingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLongTermPricingCommand(input, context);
+    return se_UpdateLongTermPricingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLongTermPricingCommandOutput> {
-    return deserializeAws_json1_1UpdateLongTermPricingCommand(output, context);
+    return de_UpdateLongTermPricingCommand(output, context);
   }
 
   // Start section: command_body_extra

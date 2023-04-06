@@ -15,10 +15,7 @@ import {
 
 import { GetDedicatedIpRequest, GetDedicatedIpResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1GetDedicatedIpCommand,
-  serializeAws_restJson1GetDedicatedIpCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDedicatedIpCommand, se_GetDedicatedIpCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetDedicatedIpCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDedicatedIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDedicatedIpCommand(input, context);
+    return se_GetDedicatedIpCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDedicatedIpCommandOutput> {
-    return deserializeAws_restJson1GetDedicatedIpCommand(output, context);
+    return de_GetDedicatedIpCommand(output, context);
   }
 
   // Start section: command_body_extra

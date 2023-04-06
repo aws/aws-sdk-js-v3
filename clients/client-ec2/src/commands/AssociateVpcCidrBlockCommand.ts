@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AssociateVpcCidrBlockRequest, AssociateVpcCidrBlockResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateVpcCidrBlockCommand,
-  serializeAws_ec2AssociateVpcCidrBlockCommand,
-} from "../protocols/Aws_ec2";
+import { de_AssociateVpcCidrBlockCommand, se_AssociateVpcCidrBlockCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class AssociateVpcCidrBlockCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateVpcCidrBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateVpcCidrBlockCommand(input, context);
+    return se_AssociateVpcCidrBlockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateVpcCidrBlockCommandOutput> {
-    return deserializeAws_ec2AssociateVpcCidrBlockCommand(output, context);
+    return de_AssociateVpcCidrBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

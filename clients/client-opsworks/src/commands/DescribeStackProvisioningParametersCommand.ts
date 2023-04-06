@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
-  deserializeAws_json1_1DescribeStackProvisioningParametersCommand,
-  serializeAws_json1_1DescribeStackProvisioningParametersCommand,
+  de_DescribeStackProvisioningParametersCommand,
+  se_DescribeStackProvisioningParametersCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -139,7 +139,7 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     input: DescribeStackProvisioningParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStackProvisioningParametersCommand(input, context);
+    return se_DescribeStackProvisioningParametersCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStackProvisioningParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeStackProvisioningParametersCommand(output, context);
+    return de_DescribeStackProvisioningParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

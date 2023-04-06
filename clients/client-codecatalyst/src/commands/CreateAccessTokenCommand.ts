@@ -19,10 +19,7 @@ import {
   CreateAccessTokenResponse,
   CreateAccessTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAccessTokenCommand,
-  serializeAws_restJson1CreateAccessTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAccessTokenCommand, se_CreateAccessTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class CreateAccessTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccessTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccessTokenCommand(input, context);
+    return se_CreateAccessTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessTokenCommandOutput> {
-    return deserializeAws_restJson1CreateAccessTokenCommand(output, context);
+    return de_CreateAccessTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

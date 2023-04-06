@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeLineageGroupRequest, DescribeLineageGroupResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeLineageGroupCommand,
-  serializeAws_json1_1DescribeLineageGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLineageGroupCommand, se_DescribeLineageGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -125,14 +122,14 @@ export class DescribeLineageGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLineageGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLineageGroupCommand(input, context);
+    return se_DescribeLineageGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLineageGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeLineageGroupCommand(output, context);
+    return de_DescribeLineageGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

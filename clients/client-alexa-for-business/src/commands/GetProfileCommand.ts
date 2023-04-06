@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { GetProfileRequest, GetProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetProfileCommand,
-  serializeAws_json1_1GetProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetProfileCommand, se_GetProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class GetProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: GetProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetProfileCommand(input, context);
+    return se_GetProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProfileCommandOutput> {
-    return deserializeAws_json1_1GetProfileCommand(output, context);
+    return de_GetProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

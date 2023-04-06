@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UndeprecateWorkflowTypeInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0UndeprecateWorkflowTypeCommand,
-  serializeAws_json1_0UndeprecateWorkflowTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UndeprecateWorkflowTypeCommand, se_UndeprecateWorkflowTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -174,14 +171,14 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: UndeprecateWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UndeprecateWorkflowTypeCommand(input, context);
+    return se_UndeprecateWorkflowTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeprecateWorkflowTypeCommandOutput> {
-    return deserializeAws_json1_0UndeprecateWorkflowTypeCommand(output, context);
+    return de_UndeprecateWorkflowTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

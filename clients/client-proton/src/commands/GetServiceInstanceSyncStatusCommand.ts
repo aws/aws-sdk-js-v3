@@ -15,8 +15,8 @@ import {
 
 import { GetServiceInstanceSyncStatusInput, GetServiceInstanceSyncStatusOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetServiceInstanceSyncStatusCommand,
-  serializeAws_json1_0GetServiceInstanceSyncStatusCommand,
+  de_GetServiceInstanceSyncStatusCommand,
+  se_GetServiceInstanceSyncStatusCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -138,7 +138,7 @@ export class GetServiceInstanceSyncStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetServiceInstanceSyncStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetServiceInstanceSyncStatusCommand(input, context);
+    return se_GetServiceInstanceSyncStatusCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class GetServiceInstanceSyncStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceInstanceSyncStatusCommandOutput> {
-    return deserializeAws_json1_0GetServiceInstanceSyncStatusCommand(output, context);
+    return de_GetServiceInstanceSyncStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

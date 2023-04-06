@@ -19,8 +19,8 @@ import {
   DescribeFraudsterRegistrationJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeFraudsterRegistrationJobCommand,
-  serializeAws_json1_0DescribeFraudsterRegistrationJobCommand,
+  de_DescribeFraudsterRegistrationJobCommand,
+  se_DescribeFraudsterRegistrationJobCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
@@ -151,7 +151,7 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
     input: DescribeFraudsterRegistrationJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeFraudsterRegistrationJobCommand(input, context);
+    return se_DescribeFraudsterRegistrationJobCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class DescribeFraudsterRegistrationJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFraudsterRegistrationJobCommandOutput> {
-    return deserializeAws_json1_0DescribeFraudsterRegistrationJobCommand(output, context);
+    return de_DescribeFraudsterRegistrationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

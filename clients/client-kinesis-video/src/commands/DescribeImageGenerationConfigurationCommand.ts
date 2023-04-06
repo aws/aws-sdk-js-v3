@@ -19,8 +19,8 @@ import {
   DescribeImageGenerationConfigurationOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeImageGenerationConfigurationCommand,
-  serializeAws_restJson1DescribeImageGenerationConfigurationCommand,
+  de_DescribeImageGenerationConfigurationCommand,
+  se_DescribeImageGenerationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class DescribeImageGenerationConfigurationCommand extends $Command<
     input: DescribeImageGenerationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeImageGenerationConfigurationCommand(input, context);
+    return se_DescribeImageGenerationConfigurationCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DescribeImageGenerationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeImageGenerationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeImageGenerationConfigurationCommand(output, context);
+    return de_DescribeImageGenerationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

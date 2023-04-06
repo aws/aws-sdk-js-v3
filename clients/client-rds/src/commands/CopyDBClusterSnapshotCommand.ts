@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_queryCopyDBClusterSnapshotCommand,
-  serializeAws_queryCopyDBClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_CopyDBClusterSnapshotCommand, se_CopyDBClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -125,19 +122,44 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *
  * @example To copy a DB cluster snapshot
  * ```javascript
- * // The following example copies an automated snapshot of a DB cluster to a new DB cluster snapshot.
+ * // The following example creates a copy of a DB cluster snapshot, including its tags.
  * const input = {
- *   "SourceDBClusterSnapshotIdentifier": "rds:sample-cluster-2016-09-14-10-38",
- *   "TargetDBClusterSnapshotIdentifier": "cluster-snapshot-copy-1"
+ *   "CopyTags": true,
+ *   "SourceDBClusterSnapshotIdentifier": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:rds:myaurora-2019-06-04-09-16",
+ *   "TargetDBClusterSnapshotIdentifier": "myclustersnapshotcopy"
  * };
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBClusterSnapshot": {}
+ *   "DBClusterSnapshot": {
+ *     "AllocatedStorage": 0,
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1b",
+ *       "us-east-1e"
+ *     ],
+ *     "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
+ *     "DBClusterIdentifier": "myaurora",
+ *     "DBClusterSnapshotArn": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:myclustersnapshotcopy",
+ *     "DBClusterSnapshotIdentifier": "myclustersnapshotcopy",
+ *     "Engine": "aurora-mysql",
+ *     "EngineVersion": "5.7.mysql_aurora.2.04.2",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     "LicenseModel": "aurora-mysql",
+ *     "MasterUsername": "myadmin",
+ *     "PercentProgress": 100,
+ *     "Port": 0,
+ *     "SnapshotCreateTime": "2019-06-04T09:16:42.649Z",
+ *     "SnapshotType": "manual",
+ *     "Status": "available",
+ *     "StorageEncrypted": true,
+ *     "VpcId": "vpc-123example"
+ *   }
  * }
  * *\/
- * // example id: to-copy-a-db-cluster-snapshot-1473879770564
+ * // example id: to-copy-a-db-cluster-snapshot-1679695109979
  * ```
  *
  */
@@ -205,14 +227,14 @@ export class CopyDBClusterSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBClusterSnapshotCommand(input, context);
+    return se_CopyDBClusterSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBClusterSnapshotCommandOutput> {
-    return deserializeAws_queryCopyDBClusterSnapshotCommand(output, context);
+    return de_CopyDBClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DescribeVpcEndpointsRequest, DescribeVpcEndpointsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DescribeVpcEndpointsCommand,
-  serializeAws_restJson1DescribeVpcEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeVpcEndpointsCommand, se_DescribeVpcEndpointsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeVpcEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVpcEndpointsCommand(input, context);
+    return se_DescribeVpcEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcEndpointsCommandOutput> {
-    return deserializeAws_restJson1DescribeVpcEndpointsCommand(output, context);
+    return de_DescribeVpcEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

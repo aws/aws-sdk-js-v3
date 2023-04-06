@@ -15,10 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { UntagCertificateAuthorityRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagCertificateAuthorityCommand,
-  serializeAws_json1_1UntagCertificateAuthorityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UntagCertificateAuthorityCommand, se_UntagCertificateAuthorityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class UntagCertificateAuthorityCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagCertificateAuthorityCommand(input, context);
+    return se_UntagCertificateAuthorityCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class UntagCertificateAuthorityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UntagCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1UntagCertificateAuthorityCommand(output, context);
+    return de_UntagCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

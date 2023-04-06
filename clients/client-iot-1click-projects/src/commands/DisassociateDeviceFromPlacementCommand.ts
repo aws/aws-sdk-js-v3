@@ -20,8 +20,8 @@ import {
 } from "../IoT1ClickProjectsClient";
 import { DisassociateDeviceFromPlacementRequest, DisassociateDeviceFromPlacementResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateDeviceFromPlacementCommand,
-  serializeAws_restJson1DisassociateDeviceFromPlacementCommand,
+  de_DisassociateDeviceFromPlacementCommand,
+  se_DisassociateDeviceFromPlacementCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class DisassociateDeviceFromPlacementCommand extends $Command<
     input: DisassociateDeviceFromPlacementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateDeviceFromPlacementCommand(input, context);
+    return se_DisassociateDeviceFromPlacementCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DisassociateDeviceFromPlacementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateDeviceFromPlacementCommandOutput> {
-    return deserializeAws_restJson1DisassociateDeviceFromPlacementCommand(output, context);
+    return de_DisassociateDeviceFromPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

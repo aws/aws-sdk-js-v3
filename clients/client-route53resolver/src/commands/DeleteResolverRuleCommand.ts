@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteResolverRuleRequest, DeleteResolverRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResolverRuleCommand,
-  serializeAws_json1_1DeleteResolverRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteResolverRuleCommand, se_DeleteResolverRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -137,14 +134,14 @@ export class DeleteResolverRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResolverRuleCommand(input, context);
+    return se_DeleteResolverRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResolverRuleCommandOutput> {
-    return deserializeAws_json1_1DeleteResolverRuleCommand(output, context);
+    return de_DeleteResolverRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

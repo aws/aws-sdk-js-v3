@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { GetNamespaceDeletionStatusRequest, GetNamespaceDeletionStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNamespaceDeletionStatusCommand,
-  serializeAws_json1_1GetNamespaceDeletionStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetNamespaceDeletionStatusCommand, se_GetNamespaceDeletionStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,7 +126,7 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetNamespaceDeletionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNamespaceDeletionStatusCommand(input, context);
+    return se_GetNamespaceDeletionStatusCommand(input, context);
   }
 
   /**
@@ -139,7 +136,7 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNamespaceDeletionStatusCommandOutput> {
-    return deserializeAws_json1_1GetNamespaceDeletionStatusCommand(output, context);
+    return de_GetNamespaceDeletionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

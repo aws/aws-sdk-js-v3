@@ -15,10 +15,7 @@ import {
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { DeletePackageVersionsRequest, DeletePackageVersionsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePackageVersionsCommand,
-  serializeAws_restJson1DeletePackageVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePackageVersionsCommand, se_DeletePackageVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class DeletePackageVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePackageVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePackageVersionsCommand(input, context);
+    return se_DeletePackageVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePackageVersionsCommandOutput> {
-    return deserializeAws_restJson1DeletePackageVersionsCommand(output, context);
+    return de_DeletePackageVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListRolesRequest, ListRolesResponse } from "../models/models_0";
-import { deserializeAws_queryListRolesCommand, serializeAws_queryListRolesCommand } from "../protocols/Aws_query";
+import { de_ListRolesCommand, se_ListRolesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -125,14 +125,14 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
    * @internal
    */
   private serialize(input: ListRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListRolesCommand(input, context);
+    return se_ListRolesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRolesCommandOutput> {
-    return deserializeAws_queryListRolesCommand(output, context);
+    return de_ListRolesCommand(output, context);
   }
 
   // Start section: command_body_extra

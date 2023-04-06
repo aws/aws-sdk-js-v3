@@ -15,10 +15,7 @@ import {
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartApplicationCommand,
-  serializeAws_restJson1StartApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartApplicationCommand, se_StartApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class StartApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: StartApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartApplicationCommand(input, context);
+    return se_StartApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartApplicationCommandOutput> {
-    return deserializeAws_restJson1StartApplicationCommand(output, context);
+    return de_StartApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

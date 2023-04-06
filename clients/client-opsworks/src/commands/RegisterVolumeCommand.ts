@@ -15,10 +15,7 @@ import {
 
 import { RegisterVolumeRequest, RegisterVolumeResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1RegisterVolumeCommand,
-  serializeAws_json1_1RegisterVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterVolumeCommand, se_RegisterVolumeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class RegisterVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterVolumeCommand(input, context);
+    return se_RegisterVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterVolumeCommandOutput> {
-    return deserializeAws_json1_1RegisterVolumeCommand(output, context);
+    return de_RegisterVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import { CreateKeyspaceRequest, CreateKeyspaceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateKeyspaceCommand,
-  serializeAws_json1_0CreateKeyspaceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateKeyspaceCommand, se_CreateKeyspaceCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class CreateKeyspaceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateKeyspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateKeyspaceCommand(input, context);
+    return se_CreateKeyspaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyspaceCommandOutput> {
-    return deserializeAws_json1_0CreateKeyspaceCommand(output, context);
+    return de_CreateKeyspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

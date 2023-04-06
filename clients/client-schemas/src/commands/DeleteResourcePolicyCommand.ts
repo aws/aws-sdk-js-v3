@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteResourcePolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResourcePolicyCommand,
-  serializeAws_restJson1DeleteResourcePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -132,14 +129,14 @@ export class DeleteResourcePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourcePolicyCommand(input, context);
+    return se_DeleteResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteResourcePolicyCommand(output, context);
+    return de_DeleteResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

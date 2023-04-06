@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeregisterManagedInstanceRequest, DeregisterManagedInstanceResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterManagedInstanceCommand,
-  serializeAws_json1_1DeregisterManagedInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterManagedInstanceCommand, se_DeregisterManagedInstanceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -145,7 +142,7 @@ export class DeregisterManagedInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterManagedInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterManagedInstanceCommand(input, context);
+    return se_DeregisterManagedInstanceCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class DeregisterManagedInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterManagedInstanceCommandOutput> {
-    return deserializeAws_json1_1DeregisterManagedInstanceCommand(output, context);
+    return de_DeregisterManagedInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

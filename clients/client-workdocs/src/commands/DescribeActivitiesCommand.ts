@@ -19,10 +19,7 @@ import {
   DescribeActivitiesResponse,
   DescribeActivitiesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeActivitiesCommand,
-  serializeAws_restJson1DescribeActivitiesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeActivitiesCommand, se_DescribeActivitiesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -151,14 +148,14 @@ export class DescribeActivitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeActivitiesCommand(input, context);
+    return se_DescribeActivitiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActivitiesCommandOutput> {
-    return deserializeAws_restJson1DescribeActivitiesCommand(output, context);
+    return de_DescribeActivitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

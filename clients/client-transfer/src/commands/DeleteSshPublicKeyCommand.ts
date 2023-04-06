@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSshPublicKeyRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSshPublicKeyCommand,
-  serializeAws_json1_1DeleteSshPublicKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSshPublicKeyCommand, se_DeleteSshPublicKeyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -138,14 +135,14 @@ export class DeleteSshPublicKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSshPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSshPublicKeyCommand(input, context);
+    return se_DeleteSshPublicKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSshPublicKeyCommandOutput> {
-    return deserializeAws_json1_1DeleteSshPublicKeyCommand(output, context);
+    return de_DeleteSshPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

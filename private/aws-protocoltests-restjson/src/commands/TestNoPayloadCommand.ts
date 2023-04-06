@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TestNoPayloadInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1TestNoPayloadCommand,
-  serializeAws_restJson1TestNoPayloadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TestNoPayloadCommand, se_TestNoPayloadCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -112,14 +109,14 @@ export class TestNoPayloadCommand extends $Command<
    * @internal
    */
   private serialize(input: TestNoPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestNoPayloadCommand(input, context);
+    return se_TestNoPayloadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestNoPayloadCommandOutput> {
-    return deserializeAws_restJson1TestNoPayloadCommand(output, context);
+    return de_TestNoPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

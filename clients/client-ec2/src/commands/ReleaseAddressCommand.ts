@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ReleaseAddressRequest } from "../models/models_6";
-import { deserializeAws_ec2ReleaseAddressCommand, serializeAws_ec2ReleaseAddressCommand } from "../protocols/Aws_ec2";
+import { de_ReleaseAddressCommand, se_ReleaseAddressCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -159,14 +159,14 @@ export class ReleaseAddressCommand extends $Command<
    * @internal
    */
   private serialize(input: ReleaseAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReleaseAddressCommand(input, context);
+    return se_ReleaseAddressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleaseAddressCommandOutput> {
-    return deserializeAws_ec2ReleaseAddressCommand(output, context);
+    return de_ReleaseAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

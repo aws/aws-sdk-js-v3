@@ -15,8 +15,8 @@ import {
 
 import { ListResourcesInProtectionGroupRequest, ListResourcesInProtectionGroupResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListResourcesInProtectionGroupCommand,
-  serializeAws_json1_1ListResourcesInProtectionGroupCommand,
+  de_ListResourcesInProtectionGroupCommand,
+  se_ListResourcesInProtectionGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
@@ -136,7 +136,7 @@ export class ListResourcesInProtectionGroupCommand extends $Command<
     input: ListResourcesInProtectionGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourcesInProtectionGroupCommand(input, context);
+    return se_ListResourcesInProtectionGroupCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class ListResourcesInProtectionGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourcesInProtectionGroupCommandOutput> {
-    return deserializeAws_json1_1ListResourcesInProtectionGroupCommand(output, context);
+    return de_ListResourcesInProtectionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

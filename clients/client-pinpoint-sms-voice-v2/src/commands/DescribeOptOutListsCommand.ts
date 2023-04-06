@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeOptOutListsCommand,
-  serializeAws_json1_0DescribeOptOutListsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeOptOutListsCommand, se_DescribeOptOutListsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class DescribeOptOutListsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeOptOutListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeOptOutListsCommand(input, context);
+    return se_DescribeOptOutListsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOptOutListsCommandOutput> {
-    return deserializeAws_json1_0DescribeOptOutListsCommand(output, context);
+    return de_DescribeOptOutListsCommand(output, context);
   }
 
   // Start section: command_body_extra

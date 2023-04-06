@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RevokeDBSecurityGroupIngressMessage, RevokeDBSecurityGroupIngressResult } from "../models/models_1";
-import {
-  deserializeAws_queryRevokeDBSecurityGroupIngressCommand,
-  serializeAws_queryRevokeDBSecurityGroupIngressCommand,
-} from "../protocols/Aws_query";
+import { de_RevokeDBSecurityGroupIngressCommand, se_RevokeDBSecurityGroupIngressCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -165,7 +162,7 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeDBSecurityGroupIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRevokeDBSecurityGroupIngressCommand(input, context);
+    return se_RevokeDBSecurityGroupIngressCommand(input, context);
   }
 
   /**
@@ -175,7 +172,7 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RevokeDBSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryRevokeDBSecurityGroupIngressCommand(output, context);
+    return de_RevokeDBSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

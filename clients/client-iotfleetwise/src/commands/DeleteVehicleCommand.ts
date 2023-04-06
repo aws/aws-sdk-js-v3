@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { DeleteVehicleRequest, DeleteVehicleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteVehicleCommand,
-  serializeAws_json1_0DeleteVehicleCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteVehicleCommand, se_DeleteVehicleCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteVehicleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVehicleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteVehicleCommand(input, context);
+    return se_DeleteVehicleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVehicleCommandOutput> {
-    return deserializeAws_json1_0DeleteVehicleCommand(output, context);
+    return de_DeleteVehicleCommand(output, context);
   }
 
   // Start section: command_body_extra

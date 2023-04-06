@@ -15,8 +15,8 @@ import {
 
 import { StopInferenceRecommendationsJobRequest } from "../models/models_3";
 import {
-  deserializeAws_json1_1StopInferenceRecommendationsJobCommand,
-  serializeAws_json1_1StopInferenceRecommendationsJobCommand,
+  de_StopInferenceRecommendationsJobCommand,
+  se_StopInferenceRecommendationsJobCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -126,7 +126,7 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
     input: StopInferenceRecommendationsJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopInferenceRecommendationsJobCommand(input, context);
+    return se_StopInferenceRecommendationsJobCommand(input, context);
   }
 
   /**
@@ -136,7 +136,7 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopInferenceRecommendationsJobCommandOutput> {
-    return deserializeAws_json1_1StopInferenceRecommendationsJobCommand(output, context);
+    return de_StopInferenceRecommendationsJobCommand(output, context);
   }
 
   // Start section: command_body_extra

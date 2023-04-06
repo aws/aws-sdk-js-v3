@@ -16,8 +16,8 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteColumnStatisticsForTableRequest, DeleteColumnStatisticsForTableResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1DeleteColumnStatisticsForTableCommand,
-  serializeAws_json1_1DeleteColumnStatisticsForTableCommand,
+  de_DeleteColumnStatisticsForTableCommand,
+  se_DeleteColumnStatisticsForTableCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -144,7 +144,7 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
     input: DeleteColumnStatisticsForTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteColumnStatisticsForTableCommand(input, context);
+    return se_DeleteColumnStatisticsForTableCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteColumnStatisticsForTableCommandOutput> {
-    return deserializeAws_json1_1DeleteColumnStatisticsForTableCommand(output, context);
+    return de_DeleteColumnStatisticsForTableCommand(output, context);
   }
 
   // Start section: command_body_extra

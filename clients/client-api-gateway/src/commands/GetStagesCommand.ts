@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GetStagesRequest, Stages } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetStagesCommand,
-  serializeAws_restJson1GetStagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetStagesCommand, se_GetStagesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetStagesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetStagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStagesCommand(input, context);
+    return se_GetStagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStagesCommandOutput> {
-    return deserializeAws_restJson1GetStagesCommand(output, context);
+    return de_GetStagesCommand(output, context);
   }
 
   // Start section: command_body_extra

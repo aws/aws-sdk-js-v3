@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ClaimPhoneNumberRequest, ClaimPhoneNumberResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ClaimPhoneNumberCommand,
-  serializeAws_restJson1ClaimPhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ClaimPhoneNumberCommand, se_ClaimPhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class ClaimPhoneNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: ClaimPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ClaimPhoneNumberCommand(input, context);
+    return se_ClaimPhoneNumberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClaimPhoneNumberCommandOutput> {
-    return deserializeAws_restJson1ClaimPhoneNumberCommand(output, context);
+    return de_ClaimPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

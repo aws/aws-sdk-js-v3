@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { DeleteGeofenceCollectionRequest, DeleteGeofenceCollectionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteGeofenceCollectionCommand,
-  serializeAws_restJson1DeleteGeofenceCollectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteGeofenceCollectionCommand, se_DeleteGeofenceCollectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteGeofenceCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGeofenceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGeofenceCollectionCommand(input, context);
+    return se_DeleteGeofenceCollectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGeofenceCollectionCommandOutput> {
-    return deserializeAws_restJson1DeleteGeofenceCollectionCommand(output, context);
+    return de_DeleteGeofenceCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

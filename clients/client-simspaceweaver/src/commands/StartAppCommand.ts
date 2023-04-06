@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartAppInput, StartAppInputFilterSensitiveLog, StartAppOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartAppCommand,
-  serializeAws_restJson1StartAppCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartAppCommand, se_StartAppCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -142,14 +139,14 @@ export class StartAppCommand extends $Command<
    * @internal
    */
   private serialize(input: StartAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartAppCommand(input, context);
+    return se_StartAppCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAppCommandOutput> {
-    return deserializeAws_restJson1StartAppCommand(output, context);
+    return de_StartAppCommand(output, context);
   }
 
   // Start section: command_body_extra

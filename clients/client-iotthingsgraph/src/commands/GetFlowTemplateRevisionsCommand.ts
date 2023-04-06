@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { GetFlowTemplateRevisionsRequest, GetFlowTemplateRevisionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFlowTemplateRevisionsCommand,
-  serializeAws_json1_1GetFlowTemplateRevisionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetFlowTemplateRevisionsCommand, se_GetFlowTemplateRevisionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFlowTemplateRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFlowTemplateRevisionsCommand(input, context);
+    return se_GetFlowTemplateRevisionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFlowTemplateRevisionsCommandOutput> {
-    return deserializeAws_json1_1GetFlowTemplateRevisionsCommand(output, context);
+    return de_GetFlowTemplateRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

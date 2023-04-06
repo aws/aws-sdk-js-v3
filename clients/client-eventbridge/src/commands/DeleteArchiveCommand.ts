@@ -15,10 +15,7 @@ import {
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { DeleteArchiveRequest, DeleteArchiveResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteArchiveCommand,
-  serializeAws_json1_1DeleteArchiveCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteArchiveCommand, se_DeleteArchiveCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteArchiveCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteArchiveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteArchiveCommand(input, context);
+    return se_DeleteArchiveCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteArchiveCommandOutput> {
-    return deserializeAws_json1_1DeleteArchiveCommand(output, context);
+    return de_DeleteArchiveCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { CreateIndexRequest, CreateIndexRequestFilterSensitiveLog, CreateIndexResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateIndexCommand,
-  serializeAws_json1_1CreateIndexCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateIndexCommand, se_CreateIndexCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -191,14 +188,14 @@ export class CreateIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateIndexCommand(input, context);
+    return se_CreateIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIndexCommandOutput> {
-    return deserializeAws_json1_1CreateIndexCommand(output, context);
+    return de_CreateIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

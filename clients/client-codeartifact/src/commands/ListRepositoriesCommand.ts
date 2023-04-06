@@ -15,10 +15,7 @@ import {
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { ListRepositoriesRequest, ListRepositoriesResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRepositoriesCommand,
-  serializeAws_restJson1ListRepositoriesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRepositoriesCommand, se_ListRepositoriesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class ListRepositoriesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRepositoriesCommand(input, context);
+    return se_ListRepositoriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRepositoriesCommandOutput> {
-    return deserializeAws_restJson1ListRepositoriesCommand(output, context);
+    return de_ListRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

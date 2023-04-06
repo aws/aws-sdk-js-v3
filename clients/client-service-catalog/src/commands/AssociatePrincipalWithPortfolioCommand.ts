@@ -15,8 +15,8 @@ import {
 
 import { AssociatePrincipalWithPortfolioInput, AssociatePrincipalWithPortfolioOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociatePrincipalWithPortfolioCommand,
-  serializeAws_json1_1AssociatePrincipalWithPortfolioCommand,
+  de_AssociatePrincipalWithPortfolioCommand,
+  se_AssociatePrincipalWithPortfolioCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -153,7 +153,7 @@ export class AssociatePrincipalWithPortfolioCommand extends $Command<
     input: AssociatePrincipalWithPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociatePrincipalWithPortfolioCommand(input, context);
+    return se_AssociatePrincipalWithPortfolioCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class AssociatePrincipalWithPortfolioCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePrincipalWithPortfolioCommandOutput> {
-    return deserializeAws_json1_1AssociatePrincipalWithPortfolioCommand(output, context);
+    return de_AssociatePrincipalWithPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

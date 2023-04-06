@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchImportFindingsRequest, BatchImportFindingsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchImportFindingsCommand,
-  serializeAws_restJson1BatchImportFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchImportFindingsCommand, se_BatchImportFindingsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -3961,14 +3958,14 @@ export class BatchImportFindingsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchImportFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchImportFindingsCommand(input, context);
+    return se_BatchImportFindingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchImportFindingsCommandOutput> {
-    return deserializeAws_restJson1BatchImportFindingsCommand(output, context);
+    return de_BatchImportFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

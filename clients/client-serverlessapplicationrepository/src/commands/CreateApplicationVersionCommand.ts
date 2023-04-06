@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateApplicationVersionRequest, CreateApplicationVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateApplicationVersionCommand,
-  serializeAws_restJson1CreateApplicationVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateApplicationVersionCommand, se_CreateApplicationVersionCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -144,14 +141,14 @@ export class CreateApplicationVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateApplicationVersionCommand(input, context);
+    return se_CreateApplicationVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1CreateApplicationVersionCommand(output, context);
+    return de_CreateApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

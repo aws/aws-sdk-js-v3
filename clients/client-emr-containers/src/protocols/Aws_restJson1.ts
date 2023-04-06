@@ -100,7 +100,10 @@ import {
   VirtualCluster,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CancelJobRunCommand = async (
+/**
+ * serializeAws_restJson1CancelJobRunCommand
+ */
+export const se_CancelJobRunCommand = async (
   input: CancelJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -130,7 +133,10 @@ export const serializeAws_restJson1CancelJobRunCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateJobTemplateCommand = async (
+/**
+ * serializeAws_restJson1CreateJobTemplateCommand
+ */
+export const se_CreateJobTemplateCommand = async (
   input: CreateJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -142,12 +148,10 @@ export const serializeAws_restJson1CreateJobTemplateCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.jobTemplateData != null && {
-      jobTemplateData: serializeAws_restJson1JobTemplateData(input.jobTemplateData, context),
-    }),
+    ...(input.jobTemplateData != null && { jobTemplateData: se_JobTemplateData(input.jobTemplateData, context) }),
     ...(input.kmsKeyArn != null && { kmsKeyArn: input.kmsKeyArn }),
     ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -160,7 +164,10 @@ export const serializeAws_restJson1CreateJobTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateManagedEndpointCommand = async (
+/**
+ * serializeAws_restJson1CreateManagedEndpointCommand
+ */
+export const se_CreateManagedEndpointCommand = async (
   input: CreateManagedEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -184,12 +191,12 @@ export const serializeAws_restJson1CreateManagedEndpointCommand = async (
     ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.configurationOverrides != null && {
-      configurationOverrides: serializeAws_restJson1ConfigurationOverrides(input.configurationOverrides, context),
+      configurationOverrides: se_ConfigurationOverrides(input.configurationOverrides, context),
     }),
     ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
     ...(input.name != null && { name: input.name }),
     ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
     ...(input.type != null && { type: input.type }),
   });
   return new __HttpRequest({
@@ -203,7 +210,10 @@ export const serializeAws_restJson1CreateManagedEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateVirtualClusterCommand = async (
+/**
+ * serializeAws_restJson1CreateVirtualClusterCommand
+ */
+export const se_CreateVirtualClusterCommand = async (
   input: CreateVirtualClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -216,10 +226,10 @@ export const serializeAws_restJson1CreateVirtualClusterCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.containerProvider != null && {
-      containerProvider: serializeAws_restJson1ContainerProvider(input.containerProvider, context),
+      containerProvider: se_ContainerProvider(input.containerProvider, context),
     }),
     ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -232,7 +242,10 @@ export const serializeAws_restJson1CreateVirtualClusterCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteJobTemplateCommand = async (
+/**
+ * serializeAws_restJson1DeleteJobTemplateCommand
+ */
+export const se_DeleteJobTemplateCommand = async (
   input: DeleteJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -252,7 +265,10 @@ export const serializeAws_restJson1DeleteJobTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteManagedEndpointCommand = async (
+/**
+ * serializeAws_restJson1DeleteManagedEndpointCommand
+ */
+export const se_DeleteManagedEndpointCommand = async (
   input: DeleteManagedEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -282,7 +298,10 @@ export const serializeAws_restJson1DeleteManagedEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVirtualClusterCommand = async (
+/**
+ * serializeAws_restJson1DeleteVirtualClusterCommand
+ */
+export const se_DeleteVirtualClusterCommand = async (
   input: DeleteVirtualClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -302,7 +321,10 @@ export const serializeAws_restJson1DeleteVirtualClusterCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeJobRunCommand = async (
+/**
+ * serializeAws_restJson1DescribeJobRunCommand
+ */
+export const se_DescribeJobRunCommand = async (
   input: DescribeJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -332,7 +354,10 @@ export const serializeAws_restJson1DescribeJobRunCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeJobTemplateCommand = async (
+/**
+ * serializeAws_restJson1DescribeJobTemplateCommand
+ */
+export const se_DescribeJobTemplateCommand = async (
   input: DescribeJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -352,7 +377,10 @@ export const serializeAws_restJson1DescribeJobTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeManagedEndpointCommand = async (
+/**
+ * serializeAws_restJson1DescribeManagedEndpointCommand
+ */
+export const se_DescribeManagedEndpointCommand = async (
   input: DescribeManagedEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -382,7 +410,10 @@ export const serializeAws_restJson1DescribeManagedEndpointCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeVirtualClusterCommand = async (
+/**
+ * serializeAws_restJson1DescribeVirtualClusterCommand
+ */
+export const se_DescribeVirtualClusterCommand = async (
   input: DescribeVirtualClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -402,7 +433,10 @@ export const serializeAws_restJson1DescribeVirtualClusterCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListJobRunsCommand = async (
+/**
+ * serializeAws_restJson1ListJobRunsCommand
+ */
+export const se_ListJobRunsCommand = async (
   input: ListJobRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -446,7 +480,10 @@ export const serializeAws_restJson1ListJobRunsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListJobTemplatesCommand = async (
+/**
+ * serializeAws_restJson1ListJobTemplatesCommand
+ */
+export const se_ListJobTemplatesCommand = async (
   input: ListJobTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -478,7 +515,10 @@ export const serializeAws_restJson1ListJobTemplatesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListManagedEndpointsCommand = async (
+/**
+ * serializeAws_restJson1ListManagedEndpointsCommand
+ */
+export const se_ListManagedEndpointsCommand = async (
   input: ListManagedEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -522,7 +562,10 @@ export const serializeAws_restJson1ListManagedEndpointsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -542,7 +585,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVirtualClustersCommand = async (
+/**
+ * serializeAws_restJson1ListVirtualClustersCommand
+ */
+export const se_ListVirtualClustersCommand = async (
   input: ListVirtualClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -577,7 +623,10 @@ export const serializeAws_restJson1ListVirtualClustersCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartJobRunCommand = async (
+/**
+ * serializeAws_restJson1StartJobRunCommand
+ */
+export const se_StartJobRunCommand = async (
   input: StartJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -600,20 +649,20 @@ export const serializeAws_restJson1StartJobRunCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.configurationOverrides != null && {
-      configurationOverrides: serializeAws_restJson1ConfigurationOverrides(input.configurationOverrides, context),
+      configurationOverrides: se_ConfigurationOverrides(input.configurationOverrides, context),
     }),
     ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
-    ...(input.jobDriver != null && { jobDriver: serializeAws_restJson1JobDriver(input.jobDriver, context) }),
+    ...(input.jobDriver != null && { jobDriver: se_JobDriver(input.jobDriver, context) }),
     ...(input.jobTemplateId != null && { jobTemplateId: input.jobTemplateId }),
     ...(input.jobTemplateParameters != null && {
-      jobTemplateParameters: serializeAws_restJson1TemplateParameterInputMap(input.jobTemplateParameters, context),
+      jobTemplateParameters: se_TemplateParameterInputMap(input.jobTemplateParameters, context),
     }),
     ...(input.name != null && { name: input.name }),
     ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
     ...(input.retryPolicyConfiguration != null && {
-      retryPolicyConfiguration: serializeAws_restJson1RetryPolicyConfiguration(input.retryPolicyConfiguration, context),
+      retryPolicyConfiguration: se_RetryPolicyConfiguration(input.retryPolicyConfiguration, context),
     }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -626,7 +675,10 @@ export const serializeAws_restJson1StartJobRunCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -638,7 +690,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -651,7 +703,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -678,12 +733,15 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CancelJobRunCommand = async (
+/**
+ * deserializeAws_restJson1CancelJobRunCommand
+ */
+export const de_CancelJobRunCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJobRunCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CancelJobRunCommandError(output, context);
+    return de_CancelJobRunCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -698,7 +756,10 @@ export const deserializeAws_restJson1CancelJobRunCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CancelJobRunCommandError = async (
+/**
+ * deserializeAws_restJson1CancelJobRunCommandError
+ */
+const de_CancelJobRunCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJobRunCommandOutput> => {
@@ -710,10 +771,10 @@ const deserializeAws_restJson1CancelJobRunCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -725,12 +786,15 @@ const deserializeAws_restJson1CancelJobRunCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateJobTemplateCommand = async (
+/**
+ * deserializeAws_restJson1CreateJobTemplateCommand
+ */
+export const de_CreateJobTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJobTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateJobTemplateCommandError(output, context);
+    return de_CreateJobTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -751,7 +815,10 @@ export const deserializeAws_restJson1CreateJobTemplateCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateJobTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1CreateJobTemplateCommandError
+ */
+const de_CreateJobTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJobTemplateCommandOutput> => {
@@ -763,13 +830,13 @@ const deserializeAws_restJson1CreateJobTemplateCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -781,12 +848,15 @@ const deserializeAws_restJson1CreateJobTemplateCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateManagedEndpointCommand = async (
+/**
+ * deserializeAws_restJson1CreateManagedEndpointCommand
+ */
+export const de_CreateManagedEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateManagedEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateManagedEndpointCommandError(output, context);
+    return de_CreateManagedEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -807,7 +877,10 @@ export const deserializeAws_restJson1CreateManagedEndpointCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateManagedEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1CreateManagedEndpointCommandError
+ */
+const de_CreateManagedEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateManagedEndpointCommandOutput> => {
@@ -819,13 +892,13 @@ const deserializeAws_restJson1CreateManagedEndpointCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -837,12 +910,15 @@ const deserializeAws_restJson1CreateManagedEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateVirtualClusterCommand = async (
+/**
+ * deserializeAws_restJson1CreateVirtualClusterCommand
+ */
+export const de_CreateVirtualClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualClusterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateVirtualClusterCommandError(output, context);
+    return de_CreateVirtualClusterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -860,7 +936,10 @@ export const deserializeAws_restJson1CreateVirtualClusterCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateVirtualClusterCommandError = async (
+/**
+ * deserializeAws_restJson1CreateVirtualClusterCommandError
+ */
+const de_CreateVirtualClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualClusterCommandOutput> => {
@@ -872,13 +951,13 @@ const deserializeAws_restJson1CreateVirtualClusterCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -890,12 +969,15 @@ const deserializeAws_restJson1CreateVirtualClusterCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteJobTemplateCommand = async (
+/**
+ * deserializeAws_restJson1DeleteJobTemplateCommand
+ */
+export const de_DeleteJobTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteJobTemplateCommandError(output, context);
+    return de_DeleteJobTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -907,7 +989,10 @@ export const deserializeAws_restJson1DeleteJobTemplateCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteJobTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteJobTemplateCommandError
+ */
+const de_DeleteJobTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobTemplateCommandOutput> => {
@@ -919,10 +1004,10 @@ const deserializeAws_restJson1DeleteJobTemplateCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -934,12 +1019,15 @@ const deserializeAws_restJson1DeleteJobTemplateCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteManagedEndpointCommand = async (
+/**
+ * deserializeAws_restJson1DeleteManagedEndpointCommand
+ */
+export const de_DeleteManagedEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteManagedEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteManagedEndpointCommandError(output, context);
+    return de_DeleteManagedEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -954,7 +1042,10 @@ export const deserializeAws_restJson1DeleteManagedEndpointCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteManagedEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteManagedEndpointCommandError
+ */
+const de_DeleteManagedEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteManagedEndpointCommandOutput> => {
@@ -966,10 +1057,10 @@ const deserializeAws_restJson1DeleteManagedEndpointCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -981,12 +1072,15 @@ const deserializeAws_restJson1DeleteManagedEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteVirtualClusterCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVirtualClusterCommand
+ */
+export const de_DeleteVirtualClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualClusterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVirtualClusterCommandError(output, context);
+    return de_DeleteVirtualClusterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -998,7 +1092,10 @@ export const deserializeAws_restJson1DeleteVirtualClusterCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVirtualClusterCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVirtualClusterCommandError
+ */
+const de_DeleteVirtualClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualClusterCommandOutput> => {
@@ -1010,10 +1107,10 @@ const deserializeAws_restJson1DeleteVirtualClusterCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1025,24 +1122,30 @@ const deserializeAws_restJson1DeleteVirtualClusterCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeJobRunCommand = async (
+/**
+ * deserializeAws_restJson1DescribeJobRunCommand
+ */
+export const de_DescribeJobRunCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobRunCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeJobRunCommandError(output, context);
+    return de_DescribeJobRunCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobRun != null) {
-    contents.jobRun = deserializeAws_restJson1JobRun(data.jobRun, context);
+    contents.jobRun = de_JobRun(data.jobRun, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeJobRunCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeJobRunCommandError
+ */
+const de_DescribeJobRunCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobRunCommandOutput> => {
@@ -1054,13 +1157,13 @@ const deserializeAws_restJson1DescribeJobRunCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1072,24 +1175,30 @@ const deserializeAws_restJson1DescribeJobRunCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeJobTemplateCommand = async (
+/**
+ * deserializeAws_restJson1DescribeJobTemplateCommand
+ */
+export const de_DescribeJobTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeJobTemplateCommandError(output, context);
+    return de_DescribeJobTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobTemplate != null) {
-    contents.jobTemplate = deserializeAws_restJson1JobTemplate(data.jobTemplate, context);
+    contents.jobTemplate = de_JobTemplate(data.jobTemplate, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeJobTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeJobTemplateCommandError
+ */
+const de_DescribeJobTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobTemplateCommandOutput> => {
@@ -1101,13 +1210,13 @@ const deserializeAws_restJson1DescribeJobTemplateCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1119,24 +1228,30 @@ const deserializeAws_restJson1DescribeJobTemplateCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeManagedEndpointCommand = async (
+/**
+ * deserializeAws_restJson1DescribeManagedEndpointCommand
+ */
+export const de_DescribeManagedEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeManagedEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeManagedEndpointCommandError(output, context);
+    return de_DescribeManagedEndpointCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.endpoint != null) {
-    contents.endpoint = deserializeAws_restJson1Endpoint(data.endpoint, context);
+    contents.endpoint = de_Endpoint(data.endpoint, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeManagedEndpointCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeManagedEndpointCommandError
+ */
+const de_DescribeManagedEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeManagedEndpointCommandOutput> => {
@@ -1148,13 +1263,13 @@ const deserializeAws_restJson1DescribeManagedEndpointCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1166,24 +1281,30 @@ const deserializeAws_restJson1DescribeManagedEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeVirtualClusterCommand = async (
+/**
+ * deserializeAws_restJson1DescribeVirtualClusterCommand
+ */
+export const de_DescribeVirtualClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualClusterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeVirtualClusterCommandError(output, context);
+    return de_DescribeVirtualClusterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.virtualCluster != null) {
-    contents.virtualCluster = deserializeAws_restJson1VirtualCluster(data.virtualCluster, context);
+    contents.virtualCluster = de_VirtualCluster(data.virtualCluster, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeVirtualClusterCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeVirtualClusterCommandError
+ */
+const de_DescribeVirtualClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualClusterCommandOutput> => {
@@ -1195,13 +1316,13 @@ const deserializeAws_restJson1DescribeVirtualClusterCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1213,19 +1334,22 @@ const deserializeAws_restJson1DescribeVirtualClusterCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListJobRunsCommand = async (
+/**
+ * deserializeAws_restJson1ListJobRunsCommand
+ */
+export const de_ListJobRunsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobRunsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListJobRunsCommandError(output, context);
+    return de_ListJobRunsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.jobRuns != null) {
-    contents.jobRuns = deserializeAws_restJson1JobRuns(data.jobRuns, context);
+    contents.jobRuns = de_JobRuns(data.jobRuns, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1233,7 +1357,10 @@ export const deserializeAws_restJson1ListJobRunsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListJobRunsCommandError = async (
+/**
+ * deserializeAws_restJson1ListJobRunsCommandError
+ */
+const de_ListJobRunsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobRunsCommandOutput> => {
@@ -1245,10 +1372,10 @@ const deserializeAws_restJson1ListJobRunsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1260,12 +1387,15 @@ const deserializeAws_restJson1ListJobRunsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListJobTemplatesCommand = async (
+/**
+ * deserializeAws_restJson1ListJobTemplatesCommand
+ */
+export const de_ListJobTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListJobTemplatesCommandError(output, context);
+    return de_ListJobTemplatesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1275,12 +1405,15 @@ export const deserializeAws_restJson1ListJobTemplatesCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.templates != null) {
-    contents.templates = deserializeAws_restJson1JobTemplates(data.templates, context);
+    contents.templates = de_JobTemplates(data.templates, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListJobTemplatesCommandError = async (
+/**
+ * deserializeAws_restJson1ListJobTemplatesCommandError
+ */
+const de_ListJobTemplatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobTemplatesCommandOutput> => {
@@ -1292,10 +1425,10 @@ const deserializeAws_restJson1ListJobTemplatesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1307,19 +1440,22 @@ const deserializeAws_restJson1ListJobTemplatesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListManagedEndpointsCommand = async (
+/**
+ * deserializeAws_restJson1ListManagedEndpointsCommand
+ */
+export const de_ListManagedEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListManagedEndpointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListManagedEndpointsCommandError(output, context);
+    return de_ListManagedEndpointsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.endpoints != null) {
-    contents.endpoints = deserializeAws_restJson1Endpoints(data.endpoints, context);
+    contents.endpoints = de_Endpoints(data.endpoints, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1327,7 +1463,10 @@ export const deserializeAws_restJson1ListManagedEndpointsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListManagedEndpointsCommandError = async (
+/**
+ * deserializeAws_restJson1ListManagedEndpointsCommandError
+ */
+const de_ListManagedEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListManagedEndpointsCommandOutput> => {
@@ -1339,10 +1478,10 @@ const deserializeAws_restJson1ListManagedEndpointsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1354,24 +1493,30 @@ const deserializeAws_restJson1ListManagedEndpointsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1383,13 +1528,13 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1401,12 +1546,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListVirtualClustersCommand = async (
+/**
+ * deserializeAws_restJson1ListVirtualClustersCommand
+ */
+export const de_ListVirtualClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualClustersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVirtualClustersCommandError(output, context);
+    return de_ListVirtualClustersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1416,12 +1564,15 @@ export const deserializeAws_restJson1ListVirtualClustersCommand = async (
     contents.nextToken = __expectString(data.nextToken);
   }
   if (data.virtualClusters != null) {
-    contents.virtualClusters = deserializeAws_restJson1VirtualClusters(data.virtualClusters, context);
+    contents.virtualClusters = de_VirtualClusters(data.virtualClusters, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListVirtualClustersCommandError = async (
+/**
+ * deserializeAws_restJson1ListVirtualClustersCommandError
+ */
+const de_ListVirtualClustersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualClustersCommandOutput> => {
@@ -1433,10 +1584,10 @@ const deserializeAws_restJson1ListVirtualClustersCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1448,12 +1599,15 @@ const deserializeAws_restJson1ListVirtualClustersCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartJobRunCommand = async (
+/**
+ * deserializeAws_restJson1StartJobRunCommand
+ */
+export const de_StartJobRunCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartJobRunCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartJobRunCommandError(output, context);
+    return de_StartJobRunCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1474,7 +1628,10 @@ export const deserializeAws_restJson1StartJobRunCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StartJobRunCommandError = async (
+/**
+ * deserializeAws_restJson1StartJobRunCommandError
+ */
+const de_StartJobRunCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartJobRunCommandOutput> => {
@@ -1486,13 +1643,13 @@ const deserializeAws_restJson1StartJobRunCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1504,12 +1661,15 @@ const deserializeAws_restJson1StartJobRunCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1518,7 +1678,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1530,13 +1693,13 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1548,12 +1711,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1562,7 +1728,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1574,13 +1743,13 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.emrcontainers#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.emrcontainers#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.emrcontainers#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1593,7 +1762,10 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -1609,7 +1781,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -1625,10 +1800,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1641,7 +1816,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1CloudWatchMonitoringConfiguration = (
+/**
+ * serializeAws_restJson1CloudWatchMonitoringConfiguration
+ */
+const se_CloudWatchMonitoringConfiguration = (
   input: CloudWatchMonitoringConfiguration,
   context: __SerdeContext
 ): any => {
@@ -1651,59 +1829,76 @@ const serializeAws_restJson1CloudWatchMonitoringConfiguration = (
   };
 };
 
-const serializeAws_restJson1Configuration = (input: Configuration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Configuration
+ */
+const se_Configuration = (input: Configuration, context: __SerdeContext): any => {
   return {
     ...(input.classification != null && { classification: input.classification }),
-    ...(input.configurations != null && {
-      configurations: serializeAws_restJson1ConfigurationList(input.configurations, context),
-    }),
-    ...(input.properties != null && {
-      properties: serializeAws_restJson1SensitivePropertiesMap(input.properties, context),
-    }),
+    ...(input.configurations != null && { configurations: se_ConfigurationList(input.configurations, context) }),
+    ...(input.properties != null && { properties: se_SensitivePropertiesMap(input.properties, context) }),
   };
 };
 
-const serializeAws_restJson1ConfigurationList = (input: Configuration[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ConfigurationList
+ */
+const se_ConfigurationList = (input: Configuration[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Configuration(entry, context);
+      return se_Configuration(entry, context);
     });
 };
 
-const serializeAws_restJson1ConfigurationOverrides = (input: ConfigurationOverrides, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ConfigurationOverrides
+ */
+const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __SerdeContext): any => {
   return {
     ...(input.applicationConfiguration != null && {
-      applicationConfiguration: serializeAws_restJson1ConfigurationList(input.applicationConfiguration, context),
+      applicationConfiguration: se_ConfigurationList(input.applicationConfiguration, context),
     }),
     ...(input.monitoringConfiguration != null && {
-      monitoringConfiguration: serializeAws_restJson1MonitoringConfiguration(input.monitoringConfiguration, context),
+      monitoringConfiguration: se_MonitoringConfiguration(input.monitoringConfiguration, context),
     }),
   };
 };
 
-const serializeAws_restJson1ContainerInfo = (input: ContainerInfo, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ContainerInfo
+ */
+const se_ContainerInfo = (input: ContainerInfo, context: __SerdeContext): any => {
   return ContainerInfo.visit(input, {
-    eksInfo: (value) => ({ eksInfo: serializeAws_restJson1EksInfo(value, context) }),
+    eksInfo: (value) => ({ eksInfo: se_EksInfo(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1ContainerProvider = (input: ContainerProvider, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ContainerProvider
+ */
+const se_ContainerProvider = (input: ContainerProvider, context: __SerdeContext): any => {
   return {
     ...(input.id != null && { id: input.id }),
-    ...(input.info != null && { info: serializeAws_restJson1ContainerInfo(input.info, context) }),
+    ...(input.info != null && { info: se_ContainerInfo(input.info, context) }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_restJson1EksInfo = (input: EksInfo, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EksInfo
+ */
+const se_EksInfo = (input: EksInfo, context: __SerdeContext): any => {
   return {
     ...(input.namespace != null && { namespace: input.namespace }),
   };
 };
 
-const serializeAws_restJson1EntryPointArguments = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EntryPointArguments
+ */
+const se_EntryPointArguments = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1711,60 +1906,60 @@ const serializeAws_restJson1EntryPointArguments = (input: string[], context: __S
     });
 };
 
-const serializeAws_restJson1JobDriver = (input: JobDriver, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1JobDriver
+ */
+const se_JobDriver = (input: JobDriver, context: __SerdeContext): any => {
   return {
     ...(input.sparkSqlJobDriver != null && {
-      sparkSqlJobDriver: serializeAws_restJson1SparkSqlJobDriver(input.sparkSqlJobDriver, context),
+      sparkSqlJobDriver: se_SparkSqlJobDriver(input.sparkSqlJobDriver, context),
     }),
     ...(input.sparkSubmitJobDriver != null && {
-      sparkSubmitJobDriver: serializeAws_restJson1SparkSubmitJobDriver(input.sparkSubmitJobDriver, context),
+      sparkSubmitJobDriver: se_SparkSubmitJobDriver(input.sparkSubmitJobDriver, context),
     }),
   };
 };
 
-const serializeAws_restJson1JobTemplateData = (input: JobTemplateData, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1JobTemplateData
+ */
+const se_JobTemplateData = (input: JobTemplateData, context: __SerdeContext): any => {
   return {
     ...(input.configurationOverrides != null && {
-      configurationOverrides: serializeAws_restJson1ParametricConfigurationOverrides(
-        input.configurationOverrides,
-        context
-      ),
+      configurationOverrides: se_ParametricConfigurationOverrides(input.configurationOverrides, context),
     }),
     ...(input.executionRoleArn != null && { executionRoleArn: input.executionRoleArn }),
-    ...(input.jobDriver != null && { jobDriver: serializeAws_restJson1JobDriver(input.jobDriver, context) }),
-    ...(input.jobTags != null && { jobTags: serializeAws_restJson1TagMap(input.jobTags, context) }),
+    ...(input.jobDriver != null && { jobDriver: se_JobDriver(input.jobDriver, context) }),
+    ...(input.jobTags != null && { jobTags: se_TagMap(input.jobTags, context) }),
     ...(input.parameterConfiguration != null && {
-      parameterConfiguration: serializeAws_restJson1TemplateParameterConfigurationMap(
-        input.parameterConfiguration,
-        context
-      ),
+      parameterConfiguration: se_TemplateParameterConfigurationMap(input.parameterConfiguration, context),
     }),
     ...(input.releaseLabel != null && { releaseLabel: input.releaseLabel }),
   };
 };
 
-const serializeAws_restJson1MonitoringConfiguration = (
-  input: MonitoringConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1MonitoringConfiguration
+ */
+const se_MonitoringConfiguration = (input: MonitoringConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.cloudWatchMonitoringConfiguration != null && {
-      cloudWatchMonitoringConfiguration: serializeAws_restJson1CloudWatchMonitoringConfiguration(
+      cloudWatchMonitoringConfiguration: se_CloudWatchMonitoringConfiguration(
         input.cloudWatchMonitoringConfiguration,
         context
       ),
     }),
     ...(input.persistentAppUI != null && { persistentAppUI: input.persistentAppUI }),
     ...(input.s3MonitoringConfiguration != null && {
-      s3MonitoringConfiguration: serializeAws_restJson1S3MonitoringConfiguration(
-        input.s3MonitoringConfiguration,
-        context
-      ),
+      s3MonitoringConfiguration: se_S3MonitoringConfiguration(input.s3MonitoringConfiguration, context),
     }),
   };
 };
 
-const serializeAws_restJson1ParametricCloudWatchMonitoringConfiguration = (
+/**
+ * serializeAws_restJson1ParametricCloudWatchMonitoringConfiguration
+ */
+const se_ParametricCloudWatchMonitoringConfiguration = (
   input: ParametricCloudWatchMonitoringConfiguration,
   context: __SerdeContext
 ): any => {
@@ -1774,45 +1969,45 @@ const serializeAws_restJson1ParametricCloudWatchMonitoringConfiguration = (
   };
 };
 
-const serializeAws_restJson1ParametricConfigurationOverrides = (
-  input: ParametricConfigurationOverrides,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ParametricConfigurationOverrides
+ */
+const se_ParametricConfigurationOverrides = (input: ParametricConfigurationOverrides, context: __SerdeContext): any => {
   return {
     ...(input.applicationConfiguration != null && {
-      applicationConfiguration: serializeAws_restJson1ConfigurationList(input.applicationConfiguration, context),
+      applicationConfiguration: se_ConfigurationList(input.applicationConfiguration, context),
     }),
     ...(input.monitoringConfiguration != null && {
-      monitoringConfiguration: serializeAws_restJson1ParametricMonitoringConfiguration(
-        input.monitoringConfiguration,
-        context
-      ),
+      monitoringConfiguration: se_ParametricMonitoringConfiguration(input.monitoringConfiguration, context),
     }),
   };
 };
 
-const serializeAws_restJson1ParametricMonitoringConfiguration = (
+/**
+ * serializeAws_restJson1ParametricMonitoringConfiguration
+ */
+const se_ParametricMonitoringConfiguration = (
   input: ParametricMonitoringConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.cloudWatchMonitoringConfiguration != null && {
-      cloudWatchMonitoringConfiguration: serializeAws_restJson1ParametricCloudWatchMonitoringConfiguration(
+      cloudWatchMonitoringConfiguration: se_ParametricCloudWatchMonitoringConfiguration(
         input.cloudWatchMonitoringConfiguration,
         context
       ),
     }),
     ...(input.persistentAppUI != null && { persistentAppUI: input.persistentAppUI }),
     ...(input.s3MonitoringConfiguration != null && {
-      s3MonitoringConfiguration: serializeAws_restJson1ParametricS3MonitoringConfiguration(
-        input.s3MonitoringConfiguration,
-        context
-      ),
+      s3MonitoringConfiguration: se_ParametricS3MonitoringConfiguration(input.s3MonitoringConfiguration, context),
     }),
   };
 };
 
-const serializeAws_restJson1ParametricS3MonitoringConfiguration = (
+/**
+ * serializeAws_restJson1ParametricS3MonitoringConfiguration
+ */
+const se_ParametricS3MonitoringConfiguration = (
   input: ParametricS3MonitoringConfiguration,
   context: __SerdeContext
 ): any => {
@@ -1821,25 +2016,28 @@ const serializeAws_restJson1ParametricS3MonitoringConfiguration = (
   };
 };
 
-const serializeAws_restJson1RetryPolicyConfiguration = (
-  input: RetryPolicyConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1RetryPolicyConfiguration
+ */
+const se_RetryPolicyConfiguration = (input: RetryPolicyConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.maxAttempts != null && { maxAttempts: input.maxAttempts }),
   };
 };
 
-const serializeAws_restJson1S3MonitoringConfiguration = (
-  input: S3MonitoringConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1S3MonitoringConfiguration
+ */
+const se_S3MonitoringConfiguration = (input: S3MonitoringConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.logUri != null && { logUri: input.logUri }),
   };
 };
 
-const serializeAws_restJson1SensitivePropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SensitivePropertiesMap
+ */
+const se_SensitivePropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1849,24 +2047,33 @@ const serializeAws_restJson1SensitivePropertiesMap = (input: Record<string, stri
   }, {});
 };
 
-const serializeAws_restJson1SparkSqlJobDriver = (input: SparkSqlJobDriver, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SparkSqlJobDriver
+ */
+const se_SparkSqlJobDriver = (input: SparkSqlJobDriver, context: __SerdeContext): any => {
   return {
     ...(input.entryPoint != null && { entryPoint: input.entryPoint }),
     ...(input.sparkSqlParameters != null && { sparkSqlParameters: input.sparkSqlParameters }),
   };
 };
 
-const serializeAws_restJson1SparkSubmitJobDriver = (input: SparkSubmitJobDriver, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SparkSubmitJobDriver
+ */
+const se_SparkSubmitJobDriver = (input: SparkSubmitJobDriver, context: __SerdeContext): any => {
   return {
     ...(input.entryPoint != null && { entryPoint: input.entryPoint }),
     ...(input.entryPointArguments != null && {
-      entryPointArguments: serializeAws_restJson1EntryPointArguments(input.entryPointArguments, context),
+      entryPointArguments: se_EntryPointArguments(input.entryPointArguments, context),
     }),
     ...(input.sparkSubmitParameters != null && { sparkSubmitParameters: input.sparkSubmitParameters }),
   };
 };
 
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagMap
+ */
+const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1876,17 +2083,20 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
   }, {});
 };
 
-const serializeAws_restJson1TemplateParameterConfiguration = (
-  input: TemplateParameterConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1TemplateParameterConfiguration
+ */
+const se_TemplateParameterConfiguration = (input: TemplateParameterConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_restJson1TemplateParameterConfigurationMap = (
+/**
+ * serializeAws_restJson1TemplateParameterConfigurationMap
+ */
+const se_TemplateParameterConfigurationMap = (
   input: Record<string, TemplateParameterConfiguration>,
   context: __SerdeContext
 ): any => {
@@ -1894,15 +2104,15 @@ const serializeAws_restJson1TemplateParameterConfigurationMap = (
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1TemplateParameterConfiguration(value, context);
+    acc[key] = se_TemplateParameterConfiguration(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1TemplateParameterInputMap = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1TemplateParameterInputMap
+ */
+const se_TemplateParameterInputMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1912,14 +2122,20 @@ const serializeAws_restJson1TemplateParameterInputMap = (
   }, {});
 };
 
-const deserializeAws_restJson1Certificate = (output: any, context: __SerdeContext): Certificate => {
+/**
+ * deserializeAws_restJson1Certificate
+ */
+const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
   return {
     certificateArn: __expectString(output.certificateArn),
     certificateData: __expectString(output.certificateData),
   } as any;
 };
 
-const deserializeAws_restJson1CloudWatchMonitoringConfiguration = (
+/**
+ * deserializeAws_restJson1CloudWatchMonitoringConfiguration
+ */
+const de_CloudWatchMonitoringConfiguration = (
   output: any,
   context: __SerdeContext
 ): CloudWatchMonitoringConfiguration => {
@@ -1929,82 +2145,92 @@ const deserializeAws_restJson1CloudWatchMonitoringConfiguration = (
   } as any;
 };
 
-const deserializeAws_restJson1Configuration = (output: any, context: __SerdeContext): Configuration => {
+/**
+ * deserializeAws_restJson1Configuration
+ */
+const de_Configuration = (output: any, context: __SerdeContext): Configuration => {
   return {
     classification: __expectString(output.classification),
-    configurations:
-      output.configurations != null
-        ? deserializeAws_restJson1ConfigurationList(output.configurations, context)
-        : undefined,
-    properties:
-      output.properties != null
-        ? deserializeAws_restJson1SensitivePropertiesMap(output.properties, context)
-        : undefined,
+    configurations: output.configurations != null ? de_ConfigurationList(output.configurations, context) : undefined,
+    properties: output.properties != null ? de_SensitivePropertiesMap(output.properties, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ConfigurationList = (output: any, context: __SerdeContext): Configuration[] => {
+/**
+ * deserializeAws_restJson1ConfigurationList
+ */
+const de_ConfigurationList = (output: any, context: __SerdeContext): Configuration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Configuration(entry, context);
+      return de_Configuration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ConfigurationOverrides = (
-  output: any,
-  context: __SerdeContext
-): ConfigurationOverrides => {
+/**
+ * deserializeAws_restJson1ConfigurationOverrides
+ */
+const de_ConfigurationOverrides = (output: any, context: __SerdeContext): ConfigurationOverrides => {
   return {
     applicationConfiguration:
       output.applicationConfiguration != null
-        ? deserializeAws_restJson1ConfigurationList(output.applicationConfiguration, context)
+        ? de_ConfigurationList(output.applicationConfiguration, context)
         : undefined,
     monitoringConfiguration:
       output.monitoringConfiguration != null
-        ? deserializeAws_restJson1MonitoringConfiguration(output.monitoringConfiguration, context)
+        ? de_MonitoringConfiguration(output.monitoringConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ContainerInfo = (output: any, context: __SerdeContext): ContainerInfo => {
+/**
+ * deserializeAws_restJson1ContainerInfo
+ */
+const de_ContainerInfo = (output: any, context: __SerdeContext): ContainerInfo => {
   if (output.eksInfo != null) {
     return {
-      eksInfo: deserializeAws_restJson1EksInfo(output.eksInfo, context),
+      eksInfo: de_EksInfo(output.eksInfo, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1ContainerProvider = (output: any, context: __SerdeContext): ContainerProvider => {
+/**
+ * deserializeAws_restJson1ContainerProvider
+ */
+const de_ContainerProvider = (output: any, context: __SerdeContext): ContainerProvider => {
   return {
     id: __expectString(output.id),
-    info: output.info != null ? deserializeAws_restJson1ContainerInfo(__expectUnion(output.info), context) : undefined,
+    info: output.info != null ? de_ContainerInfo(__expectUnion(output.info), context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_restJson1EksInfo = (output: any, context: __SerdeContext): EksInfo => {
+/**
+ * deserializeAws_restJson1EksInfo
+ */
+const de_EksInfo = (output: any, context: __SerdeContext): EksInfo => {
   return {
     namespace: __expectString(output.namespace),
   } as any;
 };
 
-const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
+/**
+ * deserializeAws_restJson1Endpoint
+ */
+const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
     arn: __expectString(output.arn),
     certificateArn: __expectString(output.certificateArn),
     certificateAuthority:
-      output.certificateAuthority != null
-        ? deserializeAws_restJson1Certificate(output.certificateAuthority, context)
-        : undefined,
+      output.certificateAuthority != null ? de_Certificate(output.certificateAuthority, context) : undefined,
     configurationOverrides:
       output.configurationOverrides != null
-        ? deserializeAws_restJson1ConfigurationOverrides(output.configurationOverrides, context)
+        ? de_ConfigurationOverrides(output.configurationOverrides, context)
         : undefined,
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
@@ -2017,26 +2243,32 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
     serverUrl: __expectString(output.serverUrl),
     state: __expectString(output.state),
     stateDetails: __expectString(output.stateDetails),
-    subnetIds: output.subnetIds != null ? deserializeAws_restJson1SubnetIds(output.subnetIds, context) : undefined,
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    subnetIds: output.subnetIds != null ? de_SubnetIds(output.subnetIds, context) : undefined,
+    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
     type: __expectString(output.type),
     virtualClusterId: __expectString(output.virtualClusterId),
   } as any;
 };
 
-const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
+/**
+ * deserializeAws_restJson1Endpoints
+ */
+const de_Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Endpoint(entry, context);
+      return de_Endpoint(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EntryPointArguments = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1EntryPointArguments
+ */
+const de_EntryPointArguments = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2048,26 +2280,28 @@ const deserializeAws_restJson1EntryPointArguments = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_restJson1JobDriver = (output: any, context: __SerdeContext): JobDriver => {
+/**
+ * deserializeAws_restJson1JobDriver
+ */
+const de_JobDriver = (output: any, context: __SerdeContext): JobDriver => {
   return {
     sparkSqlJobDriver:
-      output.sparkSqlJobDriver != null
-        ? deserializeAws_restJson1SparkSqlJobDriver(output.sparkSqlJobDriver, context)
-        : undefined,
+      output.sparkSqlJobDriver != null ? de_SparkSqlJobDriver(output.sparkSqlJobDriver, context) : undefined,
     sparkSubmitJobDriver:
-      output.sparkSubmitJobDriver != null
-        ? deserializeAws_restJson1SparkSubmitJobDriver(output.sparkSubmitJobDriver, context)
-        : undefined,
+      output.sparkSubmitJobDriver != null ? de_SparkSubmitJobDriver(output.sparkSubmitJobDriver, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): JobRun => {
+/**
+ * deserializeAws_restJson1JobRun
+ */
+const de_JobRun = (output: any, context: __SerdeContext): JobRun => {
   return {
     arn: __expectString(output.arn),
     clientToken: __expectString(output.clientToken),
     configurationOverrides:
       output.configurationOverrides != null
-        ? deserializeAws_restJson1ConfigurationOverrides(output.configurationOverrides, context)
+        ? de_ConfigurationOverrides(output.configurationOverrides, context)
         : undefined,
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
@@ -2077,37 +2311,41 @@ const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): J
     finishedAt:
       output.finishedAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.finishedAt)) : undefined,
     id: __expectString(output.id),
-    jobDriver: output.jobDriver != null ? deserializeAws_restJson1JobDriver(output.jobDriver, context) : undefined,
+    jobDriver: output.jobDriver != null ? de_JobDriver(output.jobDriver, context) : undefined,
     name: __expectString(output.name),
     releaseLabel: __expectString(output.releaseLabel),
     retryPolicyConfiguration:
       output.retryPolicyConfiguration != null
-        ? deserializeAws_restJson1RetryPolicyConfiguration(output.retryPolicyConfiguration, context)
+        ? de_RetryPolicyConfiguration(output.retryPolicyConfiguration, context)
         : undefined,
     retryPolicyExecution:
-      output.retryPolicyExecution != null
-        ? deserializeAws_restJson1RetryPolicyExecution(output.retryPolicyExecution, context)
-        : undefined,
+      output.retryPolicyExecution != null ? de_RetryPolicyExecution(output.retryPolicyExecution, context) : undefined,
     state: __expectString(output.state),
     stateDetails: __expectString(output.stateDetails),
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
     virtualClusterId: __expectString(output.virtualClusterId),
   } as any;
 };
 
-const deserializeAws_restJson1JobRuns = (output: any, context: __SerdeContext): JobRun[] => {
+/**
+ * deserializeAws_restJson1JobRuns
+ */
+const de_JobRuns = (output: any, context: __SerdeContext): JobRun[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1JobRun(entry, context);
+      return de_JobRun(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1JobTemplate = (output: any, context: __SerdeContext): JobTemplate => {
+/**
+ * deserializeAws_restJson1JobTemplate
+ */
+const de_JobTemplate = (output: any, context: __SerdeContext): JobTemplate => {
   return {
     arn: __expectString(output.arn),
     createdAt:
@@ -2115,63 +2353,69 @@ const deserializeAws_restJson1JobTemplate = (output: any, context: __SerdeContex
     createdBy: __expectString(output.createdBy),
     decryptionError: __expectString(output.decryptionError),
     id: __expectString(output.id),
-    jobTemplateData:
-      output.jobTemplateData != null
-        ? deserializeAws_restJson1JobTemplateData(output.jobTemplateData, context)
-        : undefined,
+    jobTemplateData: output.jobTemplateData != null ? de_JobTemplateData(output.jobTemplateData, context) : undefined,
     kmsKeyArn: __expectString(output.kmsKeyArn),
     name: __expectString(output.name),
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1JobTemplateData = (output: any, context: __SerdeContext): JobTemplateData => {
+/**
+ * deserializeAws_restJson1JobTemplateData
+ */
+const de_JobTemplateData = (output: any, context: __SerdeContext): JobTemplateData => {
   return {
     configurationOverrides:
       output.configurationOverrides != null
-        ? deserializeAws_restJson1ParametricConfigurationOverrides(output.configurationOverrides, context)
+        ? de_ParametricConfigurationOverrides(output.configurationOverrides, context)
         : undefined,
     executionRoleArn: __expectString(output.executionRoleArn),
-    jobDriver: output.jobDriver != null ? deserializeAws_restJson1JobDriver(output.jobDriver, context) : undefined,
-    jobTags: output.jobTags != null ? deserializeAws_restJson1TagMap(output.jobTags, context) : undefined,
+    jobDriver: output.jobDriver != null ? de_JobDriver(output.jobDriver, context) : undefined,
+    jobTags: output.jobTags != null ? de_TagMap(output.jobTags, context) : undefined,
     parameterConfiguration:
       output.parameterConfiguration != null
-        ? deserializeAws_restJson1TemplateParameterConfigurationMap(output.parameterConfiguration, context)
+        ? de_TemplateParameterConfigurationMap(output.parameterConfiguration, context)
         : undefined,
     releaseLabel: __expectString(output.releaseLabel),
   } as any;
 };
 
-const deserializeAws_restJson1JobTemplates = (output: any, context: __SerdeContext): JobTemplate[] => {
+/**
+ * deserializeAws_restJson1JobTemplates
+ */
+const de_JobTemplates = (output: any, context: __SerdeContext): JobTemplate[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1JobTemplate(entry, context);
+      return de_JobTemplate(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1MonitoringConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MonitoringConfiguration => {
+/**
+ * deserializeAws_restJson1MonitoringConfiguration
+ */
+const de_MonitoringConfiguration = (output: any, context: __SerdeContext): MonitoringConfiguration => {
   return {
     cloudWatchMonitoringConfiguration:
       output.cloudWatchMonitoringConfiguration != null
-        ? deserializeAws_restJson1CloudWatchMonitoringConfiguration(output.cloudWatchMonitoringConfiguration, context)
+        ? de_CloudWatchMonitoringConfiguration(output.cloudWatchMonitoringConfiguration, context)
         : undefined,
     persistentAppUI: __expectString(output.persistentAppUI),
     s3MonitoringConfiguration:
       output.s3MonitoringConfiguration != null
-        ? deserializeAws_restJson1S3MonitoringConfiguration(output.s3MonitoringConfiguration, context)
+        ? de_S3MonitoringConfiguration(output.s3MonitoringConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ParametricCloudWatchMonitoringConfiguration = (
+/**
+ * deserializeAws_restJson1ParametricCloudWatchMonitoringConfiguration
+ */
+const de_ParametricCloudWatchMonitoringConfiguration = (
   output: any,
   context: __SerdeContext
 ): ParametricCloudWatchMonitoringConfiguration => {
@@ -2181,43 +2425,49 @@ const deserializeAws_restJson1ParametricCloudWatchMonitoringConfiguration = (
   } as any;
 };
 
-const deserializeAws_restJson1ParametricConfigurationOverrides = (
+/**
+ * deserializeAws_restJson1ParametricConfigurationOverrides
+ */
+const de_ParametricConfigurationOverrides = (
   output: any,
   context: __SerdeContext
 ): ParametricConfigurationOverrides => {
   return {
     applicationConfiguration:
       output.applicationConfiguration != null
-        ? deserializeAws_restJson1ConfigurationList(output.applicationConfiguration, context)
+        ? de_ConfigurationList(output.applicationConfiguration, context)
         : undefined,
     monitoringConfiguration:
       output.monitoringConfiguration != null
-        ? deserializeAws_restJson1ParametricMonitoringConfiguration(output.monitoringConfiguration, context)
+        ? de_ParametricMonitoringConfiguration(output.monitoringConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ParametricMonitoringConfiguration = (
+/**
+ * deserializeAws_restJson1ParametricMonitoringConfiguration
+ */
+const de_ParametricMonitoringConfiguration = (
   output: any,
   context: __SerdeContext
 ): ParametricMonitoringConfiguration => {
   return {
     cloudWatchMonitoringConfiguration:
       output.cloudWatchMonitoringConfiguration != null
-        ? deserializeAws_restJson1ParametricCloudWatchMonitoringConfiguration(
-            output.cloudWatchMonitoringConfiguration,
-            context
-          )
+        ? de_ParametricCloudWatchMonitoringConfiguration(output.cloudWatchMonitoringConfiguration, context)
         : undefined,
     persistentAppUI: __expectString(output.persistentAppUI),
     s3MonitoringConfiguration:
       output.s3MonitoringConfiguration != null
-        ? deserializeAws_restJson1ParametricS3MonitoringConfiguration(output.s3MonitoringConfiguration, context)
+        ? de_ParametricS3MonitoringConfiguration(output.s3MonitoringConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ParametricS3MonitoringConfiguration = (
+/**
+ * deserializeAws_restJson1ParametricS3MonitoringConfiguration
+ */
+const de_ParametricS3MonitoringConfiguration = (
   output: any,
   context: __SerdeContext
 ): ParametricS3MonitoringConfiguration => {
@@ -2226,34 +2476,37 @@ const deserializeAws_restJson1ParametricS3MonitoringConfiguration = (
   } as any;
 };
 
-const deserializeAws_restJson1RetryPolicyConfiguration = (
-  output: any,
-  context: __SerdeContext
-): RetryPolicyConfiguration => {
+/**
+ * deserializeAws_restJson1RetryPolicyConfiguration
+ */
+const de_RetryPolicyConfiguration = (output: any, context: __SerdeContext): RetryPolicyConfiguration => {
   return {
     maxAttempts: __expectInt32(output.maxAttempts),
   } as any;
 };
 
-const deserializeAws_restJson1RetryPolicyExecution = (output: any, context: __SerdeContext): RetryPolicyExecution => {
+/**
+ * deserializeAws_restJson1RetryPolicyExecution
+ */
+const de_RetryPolicyExecution = (output: any, context: __SerdeContext): RetryPolicyExecution => {
   return {
     currentAttemptCount: __expectInt32(output.currentAttemptCount),
   } as any;
 };
 
-const deserializeAws_restJson1S3MonitoringConfiguration = (
-  output: any,
-  context: __SerdeContext
-): S3MonitoringConfiguration => {
+/**
+ * deserializeAws_restJson1S3MonitoringConfiguration
+ */
+const de_S3MonitoringConfiguration = (output: any, context: __SerdeContext): S3MonitoringConfiguration => {
   return {
     logUri: __expectString(output.logUri),
   } as any;
 };
 
-const deserializeAws_restJson1SensitivePropertiesMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_restJson1SensitivePropertiesMap
+ */
+const de_SensitivePropertiesMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2263,25 +2516,32 @@ const deserializeAws_restJson1SensitivePropertiesMap = (
   }, {});
 };
 
-const deserializeAws_restJson1SparkSqlJobDriver = (output: any, context: __SerdeContext): SparkSqlJobDriver => {
+/**
+ * deserializeAws_restJson1SparkSqlJobDriver
+ */
+const de_SparkSqlJobDriver = (output: any, context: __SerdeContext): SparkSqlJobDriver => {
   return {
     entryPoint: __expectString(output.entryPoint),
     sparkSqlParameters: __expectString(output.sparkSqlParameters),
   } as any;
 };
 
-const deserializeAws_restJson1SparkSubmitJobDriver = (output: any, context: __SerdeContext): SparkSubmitJobDriver => {
+/**
+ * deserializeAws_restJson1SparkSubmitJobDriver
+ */
+const de_SparkSubmitJobDriver = (output: any, context: __SerdeContext): SparkSubmitJobDriver => {
   return {
     entryPoint: __expectString(output.entryPoint),
     entryPointArguments:
-      output.entryPointArguments != null
-        ? deserializeAws_restJson1EntryPointArguments(output.entryPointArguments, context)
-        : undefined,
+      output.entryPointArguments != null ? de_EntryPointArguments(output.entryPointArguments, context) : undefined,
     sparkSubmitParameters: __expectString(output.sparkSubmitParameters),
   } as any;
 };
 
-const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1SubnetIds
+ */
+const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2293,7 +2553,10 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TagMap
+ */
+const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2303,17 +2566,20 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
   }, {});
 };
 
-const deserializeAws_restJson1TemplateParameterConfiguration = (
-  output: any,
-  context: __SerdeContext
-): TemplateParameterConfiguration => {
+/**
+ * deserializeAws_restJson1TemplateParameterConfiguration
+ */
+const de_TemplateParameterConfiguration = (output: any, context: __SerdeContext): TemplateParameterConfiguration => {
   return {
     defaultValue: __expectString(output.defaultValue),
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_restJson1TemplateParameterConfigurationMap = (
+/**
+ * deserializeAws_restJson1TemplateParameterConfigurationMap
+ */
+const de_TemplateParameterConfigurationMap = (
   output: any,
   context: __SerdeContext
 ): Record<string, TemplateParameterConfiguration> => {
@@ -2322,37 +2588,41 @@ const deserializeAws_restJson1TemplateParameterConfigurationMap = (
       if (value === null) {
         return acc;
       }
-      acc[key] = deserializeAws_restJson1TemplateParameterConfiguration(value, context);
+      acc[key] = de_TemplateParameterConfiguration(value, context);
       return acc;
     },
     {}
   );
 };
 
-const deserializeAws_restJson1VirtualCluster = (output: any, context: __SerdeContext): VirtualCluster => {
+/**
+ * deserializeAws_restJson1VirtualCluster
+ */
+const de_VirtualCluster = (output: any, context: __SerdeContext): VirtualCluster => {
   return {
     arn: __expectString(output.arn),
     containerProvider:
-      output.containerProvider != null
-        ? deserializeAws_restJson1ContainerProvider(output.containerProvider, context)
-        : undefined,
+      output.containerProvider != null ? de_ContainerProvider(output.containerProvider, context) : undefined,
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
     state: __expectString(output.state),
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1VirtualClusters = (output: any, context: __SerdeContext): VirtualCluster[] => {
+/**
+ * deserializeAws_restJson1VirtualClusters
+ */
+const de_VirtualClusters = (output: any, context: __SerdeContext): VirtualCluster[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1VirtualCluster(entry, context);
+      return de_VirtualCluster(entry, context);
     });
   return retVal;
 };

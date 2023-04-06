@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTableRestoreStatusRequest, ListTableRestoreStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTableRestoreStatusCommand,
-  serializeAws_json1_1ListTableRestoreStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTableRestoreStatusCommand, se_ListTableRestoreStatusCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -136,14 +133,14 @@ export class ListTableRestoreStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTableRestoreStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTableRestoreStatusCommand(input, context);
+    return se_ListTableRestoreStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableRestoreStatusCommandOutput> {
-    return deserializeAws_json1_1ListTableRestoreStatusCommand(output, context);
+    return de_ListTableRestoreStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

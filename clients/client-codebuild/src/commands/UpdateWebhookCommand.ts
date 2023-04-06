@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { UpdateWebhookInput, UpdateWebhookOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateWebhookCommand,
-  serializeAws_json1_1UpdateWebhookCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateWebhookCommand, se_UpdateWebhookCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UpdateWebhookCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWebhookCommand(input, context);
+    return se_UpdateWebhookCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWebhookCommandOutput> {
-    return deserializeAws_json1_1UpdateWebhookCommand(output, context);
+    return de_UpdateWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

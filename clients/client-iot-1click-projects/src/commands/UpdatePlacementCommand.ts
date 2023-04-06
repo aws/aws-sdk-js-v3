@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
 import { UpdatePlacementRequest, UpdatePlacementResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePlacementCommand,
-  serializeAws_restJson1UpdatePlacementCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePlacementCommand, se_UpdatePlacementCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class UpdatePlacementCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePlacementCommand(input, context);
+    return se_UpdatePlacementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePlacementCommandOutput> {
-    return deserializeAws_restJson1UpdatePlacementCommand(output, context);
+    return de_UpdatePlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

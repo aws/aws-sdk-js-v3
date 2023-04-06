@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisassociateInstanceEventWindowRequest, DisassociateInstanceEventWindowResult } from "../models/models_5";
 import {
-  deserializeAws_ec2DisassociateInstanceEventWindowCommand,
-  serializeAws_ec2DisassociateInstanceEventWindowCommand,
+  de_DisassociateInstanceEventWindowCommand,
+  se_DisassociateInstanceEventWindowCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -142,7 +142,7 @@ export class DisassociateInstanceEventWindowCommand extends $Command<
     input: DisassociateInstanceEventWindowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateInstanceEventWindowCommand(input, context);
+    return se_DisassociateInstanceEventWindowCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DisassociateInstanceEventWindowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateInstanceEventWindowCommandOutput> {
-    return deserializeAws_ec2DisassociateInstanceEventWindowCommand(output, context);
+    return de_DisassociateInstanceEventWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

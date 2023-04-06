@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteServiceRequest, DeleteServiceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteServiceCommand,
-  serializeAws_restJson1DeleteServiceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteServiceCommand, se_DeleteServiceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -142,14 +139,14 @@ export class DeleteServiceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteServiceCommand(input, context);
+    return se_DeleteServiceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceCommandOutput> {
-    return deserializeAws_restJson1DeleteServiceCommand(output, context);
+    return de_DeleteServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

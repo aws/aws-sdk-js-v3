@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { DescribeLocationHdfsRequest, DescribeLocationHdfsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLocationHdfsCommand,
-  serializeAws_json1_1DescribeLocationHdfsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLocationHdfsCommand, se_DescribeLocationHdfsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DescribeLocationHdfsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLocationHdfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationHdfsCommand(input, context);
+    return se_DescribeLocationHdfsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationHdfsCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationHdfsCommand(output, context);
+    return de_DescribeLocationHdfsCommand(output, context);
   }
 
   // Start section: command_body_extra

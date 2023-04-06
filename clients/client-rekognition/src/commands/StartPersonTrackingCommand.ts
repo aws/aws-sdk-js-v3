@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartPersonTrackingRequest, StartPersonTrackingResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartPersonTrackingCommand,
-  serializeAws_json1_1StartPersonTrackingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartPersonTrackingCommand, se_StartPersonTrackingCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -173,14 +170,14 @@ export class StartPersonTrackingCommand extends $Command<
    * @internal
    */
   private serialize(input: StartPersonTrackingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartPersonTrackingCommand(input, context);
+    return se_StartPersonTrackingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPersonTrackingCommandOutput> {
-    return deserializeAws_json1_1StartPersonTrackingCommand(output, context);
+    return de_StartPersonTrackingCommand(output, context);
   }
 
   // Start section: command_body_extra

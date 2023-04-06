@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSMBSettingsInput, DescribeSMBSettingsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSMBSettingsCommand,
-  serializeAws_json1_1DescribeSMBSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSMBSettingsCommand, se_DescribeSMBSettingsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -129,14 +126,14 @@ export class DescribeSMBSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSMBSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSMBSettingsCommand(input, context);
+    return se_DescribeSMBSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSMBSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeSMBSettingsCommand(output, context);
+    return de_DescribeSMBSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetRelationalDatabaseEventsRequest, GetRelationalDatabaseEventsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetRelationalDatabaseEventsCommand,
-  serializeAws_json1_1GetRelationalDatabaseEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRelationalDatabaseEventsCommand, se_GetRelationalDatabaseEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,7 +149,7 @@ export class GetRelationalDatabaseEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRelationalDatabaseEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseEventsCommand(input, context);
+    return se_GetRelationalDatabaseEventsCommand(input, context);
   }
 
   /**
@@ -162,7 +159,7 @@ export class GetRelationalDatabaseEventsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseEventsCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseEventsCommand(output, context);
+    return de_GetRelationalDatabaseEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

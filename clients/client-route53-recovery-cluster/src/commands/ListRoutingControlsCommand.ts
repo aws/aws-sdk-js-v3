@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRoutingControlsRequest, ListRoutingControlsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListRoutingControlsCommand,
-  serializeAws_json1_0ListRoutingControlsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListRoutingControlsCommand, se_ListRoutingControlsCommand } from "../protocols/Aws_json1_0";
 import {
   Route53RecoveryClusterClientResolvedConfig,
   ServiceInputTypes,
@@ -175,14 +172,14 @@ export class ListRoutingControlsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRoutingControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListRoutingControlsCommand(input, context);
+    return se_ListRoutingControlsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutingControlsCommandOutput> {
-    return deserializeAws_json1_0ListRoutingControlsCommand(output, context);
+    return de_ListRoutingControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

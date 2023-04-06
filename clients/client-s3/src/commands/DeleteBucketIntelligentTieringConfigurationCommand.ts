@@ -15,8 +15,8 @@ import {
 
 import { DeleteBucketIntelligentTieringConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlDeleteBucketIntelligentTieringConfigurationCommand,
-  serializeAws_restXmlDeleteBucketIntelligentTieringConfigurationCommand,
+  de_DeleteBucketIntelligentTieringConfigurationCommand,
+  se_DeleteBucketIntelligentTieringConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -158,7 +158,7 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
     input: DeleteBucketIntelligentTieringConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketIntelligentTieringConfigurationCommand(input, context);
+    return se_DeleteBucketIntelligentTieringConfigurationCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketIntelligentTieringConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketIntelligentTieringConfigurationCommand(output, context);
+    return de_DeleteBucketIntelligentTieringConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

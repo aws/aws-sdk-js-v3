@@ -18,8 +18,8 @@ import {
   PutServiceQuotaIncreaseRequestIntoTemplateResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand,
-  serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand,
+  de_PutServiceQuotaIncreaseRequestIntoTemplateCommand,
+  se_PutServiceQuotaIncreaseRequestIntoTemplateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
@@ -171,7 +171,7 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
     input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand(input, context);
+    return se_PutServiceQuotaIncreaseRequestIntoTemplateCommand(input, context);
   }
 
   /**
@@ -181,7 +181,7 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> {
-    return deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand(output, context);
+    return de_PutServiceQuotaIncreaseRequestIntoTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

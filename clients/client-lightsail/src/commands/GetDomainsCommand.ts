@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetDomainsRequest, GetDomainsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDomainsCommand,
-  serializeAws_json1_1GetDomainsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDomainsCommand, se_GetDomainsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class GetDomainsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDomainsCommand(input, context);
+    return se_GetDomainsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainsCommandOutput> {
-    return deserializeAws_json1_1GetDomainsCommand(output, context);
+    return de_GetDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

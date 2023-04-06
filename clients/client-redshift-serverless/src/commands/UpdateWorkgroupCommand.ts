@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateWorkgroupRequest, UpdateWorkgroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateWorkgroupCommand,
-  serializeAws_json1_1UpdateWorkgroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateWorkgroupCommand, se_UpdateWorkgroupCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -156,14 +153,14 @@ export class UpdateWorkgroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWorkgroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWorkgroupCommand(input, context);
+    return se_UpdateWorkgroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkgroupCommandOutput> {
-    return deserializeAws_json1_1UpdateWorkgroupCommand(output, context);
+    return de_UpdateWorkgroupCommand(output, context);
   }
 
   // Start section: command_body_extra

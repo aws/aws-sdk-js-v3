@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { ReleaseStaticIpRequest, ReleaseStaticIpResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1ReleaseStaticIpCommand,
-  serializeAws_json1_1ReleaseStaticIpCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ReleaseStaticIpCommand, se_ReleaseStaticIpCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class ReleaseStaticIpCommand extends $Command<
    * @internal
    */
   private serialize(input: ReleaseStaticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReleaseStaticIpCommand(input, context);
+    return se_ReleaseStaticIpCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleaseStaticIpCommandOutput> {
-    return deserializeAws_json1_1ReleaseStaticIpCommand(output, context);
+    return de_ReleaseStaticIpCommand(output, context);
   }
 
   // Start section: command_body_extra

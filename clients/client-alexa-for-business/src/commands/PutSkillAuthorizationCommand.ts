@@ -19,10 +19,7 @@ import {
   PutSkillAuthorizationRequestFilterSensitiveLog,
   PutSkillAuthorizationResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutSkillAuthorizationCommand,
-  serializeAws_json1_1PutSkillAuthorizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutSkillAuthorizationCommand, se_PutSkillAuthorizationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class PutSkillAuthorizationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutSkillAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutSkillAuthorizationCommand(input, context);
+    return se_PutSkillAuthorizationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSkillAuthorizationCommandOutput> {
-    return deserializeAws_json1_1PutSkillAuthorizationCommand(output, context);
+    return de_PutSkillAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

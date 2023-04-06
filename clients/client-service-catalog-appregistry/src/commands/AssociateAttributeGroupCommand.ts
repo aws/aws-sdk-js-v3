@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateAttributeGroupRequest, AssociateAttributeGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateAttributeGroupCommand,
-  serializeAws_restJson1AssociateAttributeGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateAttributeGroupCommand, se_AssociateAttributeGroupCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -146,14 +143,14 @@ export class AssociateAttributeGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateAttributeGroupCommand(input, context);
+    return se_AssociateAttributeGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAttributeGroupCommandOutput> {
-    return deserializeAws_restJson1AssociateAttributeGroupCommand(output, context);
+    return de_AssociateAttributeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

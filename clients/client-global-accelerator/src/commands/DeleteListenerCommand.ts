@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { DeleteListenerRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteListenerCommand,
-  serializeAws_json1_1DeleteListenerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteListenerCommand, se_DeleteListenerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteListenerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteListenerCommand(input, context);
+    return se_DeleteListenerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteListenerCommandOutput> {
-    return deserializeAws_json1_1DeleteListenerCommand(output, context);
+    return de_DeleteListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

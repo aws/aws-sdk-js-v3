@@ -18,8 +18,8 @@ import {
   RemoveAllResourcePermissionsRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1RemoveAllResourcePermissionsCommand,
-  serializeAws_restJson1RemoveAllResourcePermissionsCommand,
+  de_RemoveAllResourcePermissionsCommand,
+  se_RemoveAllResourcePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
@@ -138,7 +138,7 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveAllResourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveAllResourcePermissionsCommand(input, context);
+    return se_RemoveAllResourcePermissionsCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAllResourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1RemoveAllResourcePermissionsCommand(output, context);
+    return de_RemoveAllResourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

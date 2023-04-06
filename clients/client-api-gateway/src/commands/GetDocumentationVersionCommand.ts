@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DocumentationVersion, GetDocumentationVersionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDocumentationVersionCommand,
-  serializeAws_restJson1GetDocumentationVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDocumentationVersionCommand, se_GetDocumentationVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetDocumentationVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDocumentationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDocumentationVersionCommand(input, context);
+    return se_GetDocumentationVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentationVersionCommandOutput> {
-    return deserializeAws_restJson1GetDocumentationVersionCommand(output, context);
+    return de_GetDocumentationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

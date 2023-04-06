@@ -15,10 +15,7 @@ import {
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { UpdateSchedulingPolicyRequest, UpdateSchedulingPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateSchedulingPolicyCommand,
-  serializeAws_restJson1UpdateSchedulingPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSchedulingPolicyCommand, se_UpdateSchedulingPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class UpdateSchedulingPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSchedulingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSchedulingPolicyCommand(input, context);
+    return se_UpdateSchedulingPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSchedulingPolicyCommandOutput> {
-    return deserializeAws_restJson1UpdateSchedulingPolicyCommand(output, context);
+    return de_UpdateSchedulingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

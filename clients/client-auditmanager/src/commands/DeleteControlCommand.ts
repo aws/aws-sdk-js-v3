@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { DeleteControlRequest, DeleteControlResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteControlCommand,
-  serializeAws_restJson1DeleteControlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteControlCommand, se_DeleteControlCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteControlCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteControlCommand(input, context);
+    return se_DeleteControlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteControlCommandOutput> {
-    return deserializeAws_restJson1DeleteControlCommand(output, context);
+    return de_DeleteControlCommand(output, context);
   }
 
   // Start section: command_body_extra

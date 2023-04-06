@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetCalendarStateRequest, GetCalendarStateResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetCalendarStateCommand,
-  serializeAws_json1_1GetCalendarStateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCalendarStateCommand, se_GetCalendarStateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -144,14 +141,14 @@ export class GetCalendarStateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCalendarStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCalendarStateCommand(input, context);
+    return se_GetCalendarStateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCalendarStateCommandOutput> {
-    return deserializeAws_json1_1GetCalendarStateCommand(output, context);
+    return de_GetCalendarStateCommand(output, context);
   }
 
   // Start section: command_body_extra

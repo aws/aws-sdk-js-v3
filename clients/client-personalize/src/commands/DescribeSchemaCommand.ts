@@ -15,10 +15,7 @@ import {
 
 import { DescribeSchemaRequest, DescribeSchemaResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeSchemaCommand,
-  serializeAws_json1_1DescribeSchemaCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSchemaCommand, se_DescribeSchemaCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DescribeSchemaCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSchemaCommand(input, context);
+    return se_DescribeSchemaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSchemaCommandOutput> {
-    return deserializeAws_json1_1DescribeSchemaCommand(output, context);
+    return de_DescribeSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { DeleteBotLocaleRequest, DeleteBotLocaleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBotLocaleCommand,
-  serializeAws_restJson1DeleteBotLocaleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteBotLocaleCommand, se_DeleteBotLocaleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class DeleteBotLocaleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBotLocaleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBotLocaleCommand(input, context);
+    return se_DeleteBotLocaleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBotLocaleCommandOutput> {
-    return deserializeAws_restJson1DeleteBotLocaleCommand(output, context);
+    return de_DeleteBotLocaleCommand(output, context);
   }
 
   // Start section: command_body_extra

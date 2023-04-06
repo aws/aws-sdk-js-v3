@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeEndpointConfigInput, DescribeEndpointConfigOutput } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeEndpointConfigCommand,
-  serializeAws_json1_1DescribeEndpointConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEndpointConfigCommand, se_DescribeEndpointConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -121,14 +118,14 @@ export class DescribeEndpointConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEndpointConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEndpointConfigCommand(input, context);
+    return se_DescribeEndpointConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointConfigCommandOutput> {
-    return deserializeAws_json1_1DescribeEndpointConfigCommand(output, context);
+    return de_DescribeEndpointConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyManagedPrefixListRequest, ModifyManagedPrefixListResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyManagedPrefixListCommand,
-  serializeAws_ec2ModifyManagedPrefixListCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyManagedPrefixListCommand, se_ModifyManagedPrefixListCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ModifyManagedPrefixListCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyManagedPrefixListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyManagedPrefixListCommand(input, context);
+    return se_ModifyManagedPrefixListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyManagedPrefixListCommandOutput> {
-    return deserializeAws_ec2ModifyManagedPrefixListCommand(output, context);
+    return de_ModifyManagedPrefixListCommand(output, context);
   }
 
   // Start section: command_body_extra

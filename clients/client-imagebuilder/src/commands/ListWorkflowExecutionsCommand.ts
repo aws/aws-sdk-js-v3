@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { ListWorkflowExecutionsRequest, ListWorkflowExecutionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorkflowExecutionsCommand,
-  serializeAws_restJson1ListWorkflowExecutionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListWorkflowExecutionsCommand, se_ListWorkflowExecutionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class ListWorkflowExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorkflowExecutionsCommand(input, context);
+    return se_ListWorkflowExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowExecutionsCommandOutput> {
-    return deserializeAws_restJson1ListWorkflowExecutionsCommand(output, context);
+    return de_ListWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

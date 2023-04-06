@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { ListFieldOptionsRequest, ListFieldOptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFieldOptionsCommand,
-  serializeAws_restJson1ListFieldOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFieldOptionsCommand, se_ListFieldOptionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ListFieldOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFieldOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFieldOptionsCommand(input, context);
+    return se_ListFieldOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFieldOptionsCommandOutput> {
-    return deserializeAws_restJson1ListFieldOptionsCommand(output, context);
+    return de_ListFieldOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

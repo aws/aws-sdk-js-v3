@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { UpdatePlaceIndexRequest, UpdatePlaceIndexResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePlaceIndexCommand,
-  serializeAws_restJson1UpdatePlaceIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePlaceIndexCommand, se_UpdatePlaceIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class UpdatePlaceIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePlaceIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePlaceIndexCommand(input, context);
+    return se_UpdatePlaceIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePlaceIndexCommandOutput> {
-    return deserializeAws_restJson1UpdatePlaceIndexCommand(output, context);
+    return de_UpdatePlaceIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

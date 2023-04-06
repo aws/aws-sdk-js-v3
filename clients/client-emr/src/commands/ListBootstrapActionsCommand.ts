@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ListBootstrapActionsInput, ListBootstrapActionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListBootstrapActionsCommand,
-  serializeAws_json1_1ListBootstrapActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListBootstrapActionsCommand, se_ListBootstrapActionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ListBootstrapActionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBootstrapActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBootstrapActionsCommand(input, context);
+    return se_ListBootstrapActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBootstrapActionsCommandOutput> {
-    return deserializeAws_json1_1ListBootstrapActionsCommand(output, context);
+    return de_ListBootstrapActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

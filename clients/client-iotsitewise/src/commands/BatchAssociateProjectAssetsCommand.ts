@@ -16,8 +16,8 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { BatchAssociateProjectAssetsRequest, BatchAssociateProjectAssetsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchAssociateProjectAssetsCommand,
-  serializeAws_restJson1BatchAssociateProjectAssetsCommand,
+  de_BatchAssociateProjectAssetsCommand,
+  se_BatchAssociateProjectAssetsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -148,7 +148,7 @@ export class BatchAssociateProjectAssetsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchAssociateProjectAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchAssociateProjectAssetsCommand(input, context);
+    return se_BatchAssociateProjectAssetsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class BatchAssociateProjectAssetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateProjectAssetsCommandOutput> {
-    return deserializeAws_restJson1BatchAssociateProjectAssetsCommand(output, context);
+    return de_BatchAssociateProjectAssetsCommand(output, context);
   }
 
   // Start section: command_body_extra

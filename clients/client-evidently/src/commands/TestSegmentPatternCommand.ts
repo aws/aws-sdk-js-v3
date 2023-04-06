@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { TestSegmentPatternRequest, TestSegmentPatternResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1TestSegmentPatternCommand,
-  serializeAws_restJson1TestSegmentPatternCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TestSegmentPatternCommand, se_TestSegmentPatternCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class TestSegmentPatternCommand extends $Command<
    * @internal
    */
   private serialize(input: TestSegmentPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestSegmentPatternCommand(input, context);
+    return se_TestSegmentPatternCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestSegmentPatternCommandOutput> {
-    return deserializeAws_restJson1TestSegmentPatternCommand(output, context);
+    return de_TestSegmentPatternCommand(output, context);
   }
 
   // Start section: command_body_extra

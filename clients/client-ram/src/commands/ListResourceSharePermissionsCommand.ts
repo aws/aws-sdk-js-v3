@@ -15,8 +15,8 @@ import {
 
 import { ListResourceSharePermissionsRequest, ListResourceSharePermissionsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListResourceSharePermissionsCommand,
-  serializeAws_restJson1ListResourceSharePermissionsCommand,
+  de_ListResourceSharePermissionsCommand,
+  se_ListResourceSharePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
@@ -145,7 +145,7 @@ export class ListResourceSharePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourceSharePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourceSharePermissionsCommand(input, context);
+    return se_ListResourceSharePermissionsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class ListResourceSharePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourceSharePermissionsCommandOutput> {
-    return deserializeAws_restJson1ListResourceSharePermissionsCommand(output, context);
+    return de_ListResourceSharePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

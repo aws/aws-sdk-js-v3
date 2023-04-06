@@ -57,7 +57,10 @@ import {
   UnsupportedStreamMediaTypeException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1GetClipCommand = async (
+/**
+ * serializeAws_restJson1GetClipCommand
+ */
+export const se_GetClipCommand = async (
   input: GetClipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -69,7 +72,7 @@ export const serializeAws_restJson1GetClipCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ClipFragmentSelector != null && {
-      ClipFragmentSelector: serializeAws_restJson1ClipFragmentSelector(input.ClipFragmentSelector, context),
+      ClipFragmentSelector: se_ClipFragmentSelector(input.ClipFragmentSelector, context),
     }),
     ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
@@ -85,7 +88,10 @@ export const serializeAws_restJson1GetClipCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
+/**
+ * serializeAws_restJson1GetDASHStreamingSessionURLCommand
+ */
+export const se_GetDASHStreamingSessionURLCommand = async (
   input: GetDASHStreamingSessionURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -98,7 +104,7 @@ export const serializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.DASHFragmentSelector != null && {
-      DASHFragmentSelector: serializeAws_restJson1DASHFragmentSelector(input.DASHFragmentSelector, context),
+      DASHFragmentSelector: se_DASHFragmentSelector(input.DASHFragmentSelector, context),
     }),
     ...(input.DisplayFragmentNumber != null && { DisplayFragmentNumber: input.DisplayFragmentNumber }),
     ...(input.DisplayFragmentTimestamp != null && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
@@ -119,7 +125,10 @@ export const serializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
+/**
+ * serializeAws_restJson1GetHLSStreamingSessionURLCommand
+ */
+export const se_GetHLSStreamingSessionURLCommand = async (
   input: GetHLSStreamingSessionURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -136,7 +145,7 @@ export const serializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
     ...(input.DisplayFragmentTimestamp != null && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
     ...(input.Expires != null && { Expires: input.Expires }),
     ...(input.HLSFragmentSelector != null && {
-      HLSFragmentSelector: serializeAws_restJson1HLSFragmentSelector(input.HLSFragmentSelector, context),
+      HLSFragmentSelector: se_HLSFragmentSelector(input.HLSFragmentSelector, context),
     }),
     ...(input.MaxMediaPlaylistFragmentResults != null && {
       MaxMediaPlaylistFragmentResults: input.MaxMediaPlaylistFragmentResults,
@@ -156,7 +165,10 @@ export const serializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetImagesCommand = async (
+/**
+ * serializeAws_restJson1GetImagesCommand
+ */
+export const se_GetImagesCommand = async (
   input: GetImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -169,9 +181,7 @@ export const serializeAws_restJson1GetImagesCommand = async (
   body = JSON.stringify({
     ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
     ...(input.Format != null && { Format: input.Format }),
-    ...(input.FormatConfig != null && {
-      FormatConfig: serializeAws_restJson1FormatConfig(input.FormatConfig, context),
-    }),
+    ...(input.FormatConfig != null && { FormatConfig: se_FormatConfig(input.FormatConfig, context) }),
     ...(input.HeightPixels != null && { HeightPixels: input.HeightPixels }),
     ...(input.ImageSelectorType != null && { ImageSelectorType: input.ImageSelectorType }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -193,7 +203,10 @@ export const serializeAws_restJson1GetImagesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetMediaForFragmentListCommand = async (
+/**
+ * serializeAws_restJson1GetMediaForFragmentListCommand
+ */
+export const se_GetMediaForFragmentListCommand = async (
   input: GetMediaForFragmentListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -205,7 +218,7 @@ export const serializeAws_restJson1GetMediaForFragmentListCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getMediaForFragmentList";
   let body: any;
   body = JSON.stringify({
-    ...(input.Fragments != null && { Fragments: serializeAws_restJson1FragmentNumberList(input.Fragments, context) }),
+    ...(input.Fragments != null && { Fragments: se_FragmentNumberList(input.Fragments, context) }),
     ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
   });
@@ -220,7 +233,10 @@ export const serializeAws_restJson1GetMediaForFragmentListCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListFragmentsCommand = async (
+/**
+ * serializeAws_restJson1ListFragmentsCommand
+ */
+export const se_ListFragmentsCommand = async (
   input: ListFragmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -231,9 +247,7 @@ export const serializeAws_restJson1ListFragmentsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listFragments";
   let body: any;
   body = JSON.stringify({
-    ...(input.FragmentSelector != null && {
-      FragmentSelector: serializeAws_restJson1FragmentSelector(input.FragmentSelector, context),
-    }),
+    ...(input.FragmentSelector != null && { FragmentSelector: se_FragmentSelector(input.FragmentSelector, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
@@ -250,12 +264,15 @@ export const serializeAws_restJson1ListFragmentsCommand = async (
   });
 };
 
-export const deserializeAws_restJson1GetClipCommand = async (
+/**
+ * deserializeAws_restJson1GetClipCommand
+ */
+export const de_GetClipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetClipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetClipCommandError(output, context);
+    return de_GetClipCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -267,7 +284,10 @@ export const deserializeAws_restJson1GetClipCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetClipCommandError = async (
+/**
+ * deserializeAws_restJson1GetClipCommandError
+ */
+const de_GetClipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetClipCommandOutput> => {
@@ -279,31 +299,31 @@ const deserializeAws_restJson1GetClipCommandError = async (
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidCodecPrivateDataException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidCodecPrivateDataException":
-      throw await deserializeAws_restJson1InvalidCodecPrivateDataExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCodecPrivateDataExceptionRes(parsedOutput, context);
     case "InvalidMediaFrameException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidMediaFrameException":
-      throw await deserializeAws_restJson1InvalidMediaFrameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMediaFrameExceptionRes(parsedOutput, context);
     case "MissingCodecPrivateDataException":
     case "com.amazonaws.kinesisvideoarchivedmedia#MissingCodecPrivateDataException":
-      throw await deserializeAws_restJson1MissingCodecPrivateDataExceptionResponse(parsedOutput, context);
+      throw await de_MissingCodecPrivateDataExceptionRes(parsedOutput, context);
     case "NoDataRetentionException":
     case "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException":
-      throw await deserializeAws_restJson1NoDataRetentionExceptionResponse(parsedOutput, context);
+      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedStreamMediaTypeException":
     case "com.amazonaws.kinesisvideoarchivedmedia#UnsupportedStreamMediaTypeException":
-      throw await deserializeAws_restJson1UnsupportedStreamMediaTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedStreamMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -315,12 +335,15 @@ const deserializeAws_restJson1GetClipCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
+/**
+ * deserializeAws_restJson1GetDASHStreamingSessionURLCommand
+ */
+export const de_GetDASHStreamingSessionURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDASHStreamingSessionURLCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDASHStreamingSessionURLCommandError(output, context);
+    return de_GetDASHStreamingSessionURLCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -332,7 +355,10 @@ export const deserializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetDASHStreamingSessionURLCommandError = async (
+/**
+ * deserializeAws_restJson1GetDASHStreamingSessionURLCommandError
+ */
+const de_GetDASHStreamingSessionURLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDASHStreamingSessionURLCommandOutput> => {
@@ -344,28 +370,28 @@ const deserializeAws_restJson1GetDASHStreamingSessionURLCommandError = async (
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidCodecPrivateDataException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidCodecPrivateDataException":
-      throw await deserializeAws_restJson1InvalidCodecPrivateDataExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCodecPrivateDataExceptionRes(parsedOutput, context);
     case "MissingCodecPrivateDataException":
     case "com.amazonaws.kinesisvideoarchivedmedia#MissingCodecPrivateDataException":
-      throw await deserializeAws_restJson1MissingCodecPrivateDataExceptionResponse(parsedOutput, context);
+      throw await de_MissingCodecPrivateDataExceptionRes(parsedOutput, context);
     case "NoDataRetentionException":
     case "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException":
-      throw await deserializeAws_restJson1NoDataRetentionExceptionResponse(parsedOutput, context);
+      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedStreamMediaTypeException":
     case "com.amazonaws.kinesisvideoarchivedmedia#UnsupportedStreamMediaTypeException":
-      throw await deserializeAws_restJson1UnsupportedStreamMediaTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedStreamMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -377,12 +403,15 @@ const deserializeAws_restJson1GetDASHStreamingSessionURLCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
+/**
+ * deserializeAws_restJson1GetHLSStreamingSessionURLCommand
+ */
+export const de_GetHLSStreamingSessionURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHLSStreamingSessionURLCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetHLSStreamingSessionURLCommandError(output, context);
+    return de_GetHLSStreamingSessionURLCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -394,7 +423,10 @@ export const deserializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetHLSStreamingSessionURLCommandError = async (
+/**
+ * deserializeAws_restJson1GetHLSStreamingSessionURLCommandError
+ */
+const de_GetHLSStreamingSessionURLCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHLSStreamingSessionURLCommandOutput> => {
@@ -406,28 +438,28 @@ const deserializeAws_restJson1GetHLSStreamingSessionURLCommandError = async (
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidCodecPrivateDataException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidCodecPrivateDataException":
-      throw await deserializeAws_restJson1InvalidCodecPrivateDataExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCodecPrivateDataExceptionRes(parsedOutput, context);
     case "MissingCodecPrivateDataException":
     case "com.amazonaws.kinesisvideoarchivedmedia#MissingCodecPrivateDataException":
-      throw await deserializeAws_restJson1MissingCodecPrivateDataExceptionResponse(parsedOutput, context);
+      throw await de_MissingCodecPrivateDataExceptionRes(parsedOutput, context);
     case "NoDataRetentionException":
     case "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException":
-      throw await deserializeAws_restJson1NoDataRetentionExceptionResponse(parsedOutput, context);
+      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "UnsupportedStreamMediaTypeException":
     case "com.amazonaws.kinesisvideoarchivedmedia#UnsupportedStreamMediaTypeException":
-      throw await deserializeAws_restJson1UnsupportedStreamMediaTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedStreamMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -439,19 +471,22 @@ const deserializeAws_restJson1GetHLSStreamingSessionURLCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetImagesCommand = async (
+/**
+ * deserializeAws_restJson1GetImagesCommand
+ */
+export const de_GetImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetImagesCommandError(output, context);
+    return de_GetImagesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Images != null) {
-    contents.Images = deserializeAws_restJson1Images(data.Images, context);
+    contents.Images = de_Images(data.Images, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -459,7 +494,10 @@ export const deserializeAws_restJson1GetImagesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetImagesCommandError = async (
+/**
+ * deserializeAws_restJson1GetImagesCommandError
+ */
+const de_GetImagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImagesCommandOutput> => {
@@ -471,16 +509,16 @@ const deserializeAws_restJson1GetImagesCommandError = async (
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -492,12 +530,15 @@ const deserializeAws_restJson1GetImagesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetMediaForFragmentListCommand = async (
+/**
+ * deserializeAws_restJson1GetMediaForFragmentListCommand
+ */
+export const de_GetMediaForFragmentListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetMediaForFragmentListCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetMediaForFragmentListCommandError(output, context);
+    return de_GetMediaForFragmentListCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -509,7 +550,10 @@ export const deserializeAws_restJson1GetMediaForFragmentListCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetMediaForFragmentListCommandError = async (
+/**
+ * deserializeAws_restJson1GetMediaForFragmentListCommandError
+ */
+const de_GetMediaForFragmentListCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaForFragmentListCommandOutput> => {
@@ -521,16 +565,16 @@ const deserializeAws_restJson1GetMediaForFragmentListCommandError = async (
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -542,19 +586,22 @@ const deserializeAws_restJson1GetMediaForFragmentListCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListFragmentsCommand = async (
+/**
+ * deserializeAws_restJson1ListFragmentsCommand
+ */
+export const de_ListFragmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFragmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListFragmentsCommandError(output, context);
+    return de_ListFragmentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Fragments != null) {
-    contents.Fragments = deserializeAws_restJson1FragmentList(data.Fragments, context);
+    contents.Fragments = de_FragmentList(data.Fragments, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -562,7 +609,10 @@ export const deserializeAws_restJson1ListFragmentsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListFragmentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListFragmentsCommandError
+ */
+const de_ListFragmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFragmentsCommandOutput> => {
@@ -574,16 +624,16 @@ const deserializeAws_restJson1ListFragmentsCommandError = async (
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -596,7 +646,10 @@ const deserializeAws_restJson1ListFragmentsCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ClientLimitExceededExceptionRes
+ */
+const de_ClientLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClientLimitExceededException> => {
@@ -612,7 +665,10 @@ const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidArgumentExceptionRes
+ */
+const de_InvalidArgumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
@@ -628,7 +684,10 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidCodecPrivateDataExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidCodecPrivateDataExceptionRes
+ */
+const de_InvalidCodecPrivateDataExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCodecPrivateDataException> => {
@@ -644,7 +703,10 @@ const deserializeAws_restJson1InvalidCodecPrivateDataExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidMediaFrameExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidMediaFrameExceptionRes
+ */
+const de_InvalidMediaFrameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidMediaFrameException> => {
@@ -660,7 +722,10 @@ const deserializeAws_restJson1InvalidMediaFrameExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MissingCodecPrivateDataExceptionResponse = async (
+/**
+ * deserializeAws_restJson1MissingCodecPrivateDataExceptionRes
+ */
+const de_MissingCodecPrivateDataExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MissingCodecPrivateDataException> => {
@@ -676,7 +741,10 @@ const deserializeAws_restJson1MissingCodecPrivateDataExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NoDataRetentionExceptionResponse = async (
+/**
+ * deserializeAws_restJson1NoDataRetentionExceptionRes
+ */
+const de_NoDataRetentionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoDataRetentionException> => {
@@ -692,7 +760,10 @@ const deserializeAws_restJson1NoDataRetentionExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1NotAuthorizedExceptionRes
+ */
+const de_NotAuthorizedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
@@ -708,7 +779,10 @@ const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -724,7 +798,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1UnsupportedStreamMediaTypeExceptionResponse = async (
+/**
+ * deserializeAws_restJson1UnsupportedStreamMediaTypeExceptionRes
+ */
+const de_UnsupportedStreamMediaTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedStreamMediaTypeException> => {
@@ -740,39 +817,50 @@ const deserializeAws_restJson1UnsupportedStreamMediaTypeExceptionResponse = asyn
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ClipFragmentSelector = (input: ClipFragmentSelector, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ClipFragmentSelector
+ */
+const se_ClipFragmentSelector = (input: ClipFragmentSelector, context: __SerdeContext): any => {
   return {
     ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != null && {
-      TimestampRange: serializeAws_restJson1ClipTimestampRange(input.TimestampRange, context),
-    }),
+    ...(input.TimestampRange != null && { TimestampRange: se_ClipTimestampRange(input.TimestampRange, context) }),
   };
 };
 
-const serializeAws_restJson1ClipTimestampRange = (input: ClipTimestampRange, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ClipTimestampRange
+ */
+const se_ClipTimestampRange = (input: ClipTimestampRange, context: __SerdeContext): any => {
   return {
     ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
     ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
-const serializeAws_restJson1DASHFragmentSelector = (input: DASHFragmentSelector, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DASHFragmentSelector
+ */
+const se_DASHFragmentSelector = (input: DASHFragmentSelector, context: __SerdeContext): any => {
   return {
     ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != null && {
-      TimestampRange: serializeAws_restJson1DASHTimestampRange(input.TimestampRange, context),
-    }),
+    ...(input.TimestampRange != null && { TimestampRange: se_DASHTimestampRange(input.TimestampRange, context) }),
   };
 };
 
-const serializeAws_restJson1DASHTimestampRange = (input: DASHTimestampRange, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DASHTimestampRange
+ */
+const se_DASHTimestampRange = (input: DASHTimestampRange, context: __SerdeContext): any => {
   return {
     ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
     ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
-const serializeAws_restJson1FormatConfig = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FormatConfig
+ */
+const se_FormatConfig = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [FormatConfigKey | string, any]) => {
     if (value === null) {
       return acc;
@@ -782,7 +870,10 @@ const serializeAws_restJson1FormatConfig = (input: Record<string, string>, conte
   }, {});
 };
 
-const serializeAws_restJson1FragmentNumberList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FragmentNumberList
+ */
+const se_FragmentNumberList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -790,39 +881,50 @@ const serializeAws_restJson1FragmentNumberList = (input: string[], context: __Se
     });
 };
 
-const serializeAws_restJson1FragmentSelector = (input: FragmentSelector, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FragmentSelector
+ */
+const se_FragmentSelector = (input: FragmentSelector, context: __SerdeContext): any => {
   return {
     ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != null && {
-      TimestampRange: serializeAws_restJson1TimestampRange(input.TimestampRange, context),
-    }),
+    ...(input.TimestampRange != null && { TimestampRange: se_TimestampRange(input.TimestampRange, context) }),
   };
 };
 
-const serializeAws_restJson1HLSFragmentSelector = (input: HLSFragmentSelector, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1HLSFragmentSelector
+ */
+const se_HLSFragmentSelector = (input: HLSFragmentSelector, context: __SerdeContext): any => {
   return {
     ...(input.FragmentSelectorType != null && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange != null && {
-      TimestampRange: serializeAws_restJson1HLSTimestampRange(input.TimestampRange, context),
-    }),
+    ...(input.TimestampRange != null && { TimestampRange: se_HLSTimestampRange(input.TimestampRange, context) }),
   };
 };
 
-const serializeAws_restJson1HLSTimestampRange = (input: HLSTimestampRange, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1HLSTimestampRange
+ */
+const se_HLSTimestampRange = (input: HLSTimestampRange, context: __SerdeContext): any => {
   return {
     ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
     ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
-const serializeAws_restJson1TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TimestampRange
+ */
+const se_TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
   return {
     ...(input.EndTimestamp != null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
     ...(input.StartTimestamp != null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
-const deserializeAws_restJson1Fragment = (output: any, context: __SerdeContext): Fragment => {
+/**
+ * deserializeAws_restJson1Fragment
+ */
+const de_Fragment = (output: any, context: __SerdeContext): Fragment => {
   return {
     FragmentLengthInMilliseconds: __expectLong(output.FragmentLengthInMilliseconds),
     FragmentNumber: __expectString(output.FragmentNumber),
@@ -838,19 +940,25 @@ const deserializeAws_restJson1Fragment = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_restJson1FragmentList = (output: any, context: __SerdeContext): Fragment[] => {
+/**
+ * deserializeAws_restJson1FragmentList
+ */
+const de_FragmentList = (output: any, context: __SerdeContext): Fragment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Fragment(entry, context);
+      return de_Fragment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Image => {
+/**
+ * deserializeAws_restJson1Image
+ */
+const de_Image = (output: any, context: __SerdeContext): Image => {
   return {
     Error: __expectString(output.Error),
     ImageContent: __expectString(output.ImageContent),
@@ -859,14 +967,17 @@ const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Im
   } as any;
 };
 
-const deserializeAws_restJson1Images = (output: any, context: __SerdeContext): Image[] => {
+/**
+ * deserializeAws_restJson1Images
+ */
+const de_Images = (output: any, context: __SerdeContext): Image[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Image(entry, context);
+      return de_Image(entry, context);
     });
   return retVal;
 };

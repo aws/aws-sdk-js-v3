@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListVolumeInitiatorsInput, ListVolumeInitiatorsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListVolumeInitiatorsCommand,
-  serializeAws_json1_1ListVolumeInitiatorsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListVolumeInitiatorsCommand, se_ListVolumeInitiatorsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -130,14 +127,14 @@ export class ListVolumeInitiatorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVolumeInitiatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListVolumeInitiatorsCommand(input, context);
+    return se_ListVolumeInitiatorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVolumeInitiatorsCommandOutput> {
-    return deserializeAws_json1_1ListVolumeInitiatorsCommand(output, context);
+    return de_ListVolumeInitiatorsCommand(output, context);
   }
 
   // Start section: command_body_extra

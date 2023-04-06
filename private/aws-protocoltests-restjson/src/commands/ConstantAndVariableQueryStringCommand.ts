@@ -14,8 +14,8 @@ import {
 
 import { ConstantAndVariableQueryStringInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1ConstantAndVariableQueryStringCommand,
-  serializeAws_restJson1ConstantAndVariableQueryStringCommand,
+  de_ConstantAndVariableQueryStringCommand,
+  se_ConstantAndVariableQueryStringCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -113,7 +113,7 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
     input: ConstantAndVariableQueryStringCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConstantAndVariableQueryStringCommand(input, context);
+    return se_ConstantAndVariableQueryStringCommand(input, context);
   }
 
   /**
@@ -123,7 +123,7 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConstantAndVariableQueryStringCommandOutput> {
-    return deserializeAws_restJson1ConstantAndVariableQueryStringCommand(output, context);
+    return de_ConstantAndVariableQueryStringCommand(output, context);
   }
 
   // Start section: command_body_extra

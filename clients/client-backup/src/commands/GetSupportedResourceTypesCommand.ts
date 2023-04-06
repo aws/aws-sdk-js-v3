@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { GetSupportedResourceTypesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSupportedResourceTypesCommand,
-  serializeAws_restJson1GetSupportedResourceTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSupportedResourceTypesCommand, se_GetSupportedResourceTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -121,7 +118,7 @@ export class GetSupportedResourceTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSupportedResourceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSupportedResourceTypesCommand(input, context);
+    return se_GetSupportedResourceTypesCommand(input, context);
   }
 
   /**
@@ -131,7 +128,7 @@ export class GetSupportedResourceTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSupportedResourceTypesCommandOutput> {
-    return deserializeAws_restJson1GetSupportedResourceTypesCommand(output, context);
+    return de_GetSupportedResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

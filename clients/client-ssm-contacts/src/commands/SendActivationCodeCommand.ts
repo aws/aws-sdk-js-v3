@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SendActivationCodeRequest, SendActivationCodeResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1SendActivationCodeCommand,
-  serializeAws_json1_1SendActivationCodeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SendActivationCodeCommand, se_SendActivationCodeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -144,14 +141,14 @@ export class SendActivationCodeCommand extends $Command<
    * @internal
    */
   private serialize(input: SendActivationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendActivationCodeCommand(input, context);
+    return se_SendActivationCodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendActivationCodeCommandOutput> {
-    return deserializeAws_json1_1SendActivationCodeCommand(output, context);
+    return de_SendActivationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

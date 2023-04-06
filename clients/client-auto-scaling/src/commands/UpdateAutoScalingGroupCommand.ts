@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { UpdateAutoScalingGroupType } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateAutoScalingGroupCommand,
-  serializeAws_queryUpdateAutoScalingGroupCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateAutoScalingGroupCommand, se_UpdateAutoScalingGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -311,14 +308,14 @@ export class UpdateAutoScalingGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAutoScalingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateAutoScalingGroupCommand(input, context);
+    return se_UpdateAutoScalingGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAutoScalingGroupCommandOutput> {
-    return deserializeAws_queryUpdateAutoScalingGroupCommand(output, context);
+    return de_UpdateAutoScalingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

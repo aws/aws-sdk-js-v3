@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { StartFleetRequest, StartFleetResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartFleetCommand,
-  serializeAws_json1_1StartFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartFleetCommand, se_StartFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class StartFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: StartFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartFleetCommand(input, context);
+    return se_StartFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFleetCommandOutput> {
-    return deserializeAws_json1_1StartFleetCommand(output, context);
+    return de_StartFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

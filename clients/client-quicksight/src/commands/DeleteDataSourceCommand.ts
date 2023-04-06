@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDataSourceRequest, DeleteDataSourceResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteDataSourceCommand,
-  serializeAws_restJson1DeleteDataSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDataSourceCommand, se_DeleteDataSourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -140,14 +137,14 @@ export class DeleteDataSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDataSourceCommand(input, context);
+    return se_DeleteDataSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataSourceCommandOutput> {
-    return deserializeAws_restJson1DeleteDataSourceCommand(output, context);
+    return de_DeleteDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

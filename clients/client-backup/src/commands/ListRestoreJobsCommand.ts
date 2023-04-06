@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { ListRestoreJobsInput, ListRestoreJobsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRestoreJobsCommand,
-  serializeAws_restJson1ListRestoreJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRestoreJobsCommand, se_ListRestoreJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ListRestoreJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRestoreJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRestoreJobsCommand(input, context);
+    return se_ListRestoreJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRestoreJobsCommandOutput> {
-    return deserializeAws_restJson1ListRestoreJobsCommand(output, context);
+    return de_ListRestoreJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { DeleteSourceLocationRequest, DeleteSourceLocationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSourceLocationCommand,
-  serializeAws_restJson1DeleteSourceLocationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSourceLocationCommand, se_DeleteSourceLocationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -120,14 +117,14 @@ export class DeleteSourceLocationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSourceLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSourceLocationCommand(input, context);
+    return se_DeleteSourceLocationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSourceLocationCommandOutput> {
-    return deserializeAws_restJson1DeleteSourceLocationCommand(output, context);
+    return de_DeleteSourceLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ListReceivedLicensesForOrganizationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListReceivedLicensesForOrganizationCommand,
-  serializeAws_json1_1ListReceivedLicensesForOrganizationCommand,
+  de_ListReceivedLicensesForOrganizationCommand,
+  se_ListReceivedLicensesForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -159,7 +159,7 @@ export class ListReceivedLicensesForOrganizationCommand extends $Command<
     input: ListReceivedLicensesForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReceivedLicensesForOrganizationCommand(input, context);
+    return se_ListReceivedLicensesForOrganizationCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class ListReceivedLicensesForOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReceivedLicensesForOrganizationCommandOutput> {
-    return deserializeAws_json1_1ListReceivedLicensesForOrganizationCommand(output, context);
+    return de_ListReceivedLicensesForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

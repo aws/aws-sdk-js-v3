@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateSigningCertificateRequest } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateSigningCertificateCommand,
-  serializeAws_queryUpdateSigningCertificateCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateSigningCertificateCommand, se_UpdateSigningCertificateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class UpdateSigningCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSigningCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateSigningCertificateCommand(input, context);
+    return se_UpdateSigningCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSigningCertificateCommandOutput> {
-    return deserializeAws_queryUpdateSigningCertificateCommand(output, context);
+    return de_UpdateSigningCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

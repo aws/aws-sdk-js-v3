@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeOpsItemsRequest, DescribeOpsItemsResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribeOpsItemsCommand,
-  serializeAws_json1_1DescribeOpsItemsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeOpsItemsCommand, se_DescribeOpsItemsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -138,14 +135,14 @@ export class DescribeOpsItemsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeOpsItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOpsItemsCommand(input, context);
+    return se_DescribeOpsItemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOpsItemsCommandOutput> {
-    return deserializeAws_json1_1DescribeOpsItemsCommand(output, context);
+    return de_DescribeOpsItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

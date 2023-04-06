@@ -15,10 +15,7 @@ import {
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import { DescribeEntityAggregatesRequest, DescribeEntityAggregatesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEntityAggregatesCommand,
-  serializeAws_json1_1DescribeEntityAggregatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEntityAggregatesCommand, se_DescribeEntityAggregatesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class DescribeEntityAggregatesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEntityAggregatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEntityAggregatesCommand(input, context);
+    return se_DescribeEntityAggregatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntityAggregatesCommandOutput> {
-    return deserializeAws_json1_1DescribeEntityAggregatesCommand(output, context);
+    return de_DescribeEntityAggregatesCommand(output, context);
   }
 
   // Start section: command_body_extra

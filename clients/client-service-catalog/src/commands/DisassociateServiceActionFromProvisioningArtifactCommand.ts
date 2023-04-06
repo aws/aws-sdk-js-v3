@@ -18,8 +18,8 @@ import {
   DisassociateServiceActionFromProvisioningArtifactOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand,
-  serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand,
+  de_DisassociateServiceActionFromProvisioningArtifactCommand,
+  se_DisassociateServiceActionFromProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -141,7 +141,7 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
     input: DisassociateServiceActionFromProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(input, context);
+    return se_DisassociateServiceActionFromProvisioningArtifactCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(output, context);
+    return de_DisassociateServiceActionFromProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

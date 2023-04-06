@@ -15,10 +15,7 @@ import {
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import { DescribeAffectedEntitiesRequest, DescribeAffectedEntitiesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAffectedEntitiesCommand,
-  serializeAws_json1_1DescribeAffectedEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAffectedEntitiesCommand, se_DescribeAffectedEntitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class DescribeAffectedEntitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAffectedEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAffectedEntitiesCommand(input, context);
+    return se_DescribeAffectedEntitiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAffectedEntitiesCommandOutput> {
-    return deserializeAws_json1_1DescribeAffectedEntitiesCommand(output, context);
+    return de_DescribeAffectedEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

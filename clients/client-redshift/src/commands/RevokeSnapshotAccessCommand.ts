@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RevokeSnapshotAccessMessage, RevokeSnapshotAccessResult } from "../models/models_1";
-import {
-  deserializeAws_queryRevokeSnapshotAccessCommand,
-  serializeAws_queryRevokeSnapshotAccessCommand,
-} from "../protocols/Aws_query";
+import { de_RevokeSnapshotAccessCommand, se_RevokeSnapshotAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -143,14 +140,14 @@ export class RevokeSnapshotAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeSnapshotAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRevokeSnapshotAccessCommand(input, context);
+    return se_RevokeSnapshotAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeSnapshotAccessCommandOutput> {
-    return deserializeAws_queryRevokeSnapshotAccessCommand(output, context);
+    return de_RevokeSnapshotAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

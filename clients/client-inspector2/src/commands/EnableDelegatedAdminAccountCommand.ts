@@ -16,8 +16,8 @@ import {
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { EnableDelegatedAdminAccountRequest, EnableDelegatedAdminAccountResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1EnableDelegatedAdminAccountCommand,
-  serializeAws_restJson1EnableDelegatedAdminAccountCommand,
+  de_EnableDelegatedAdminAccountCommand,
+  se_EnableDelegatedAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class EnableDelegatedAdminAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableDelegatedAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableDelegatedAdminAccountCommand(input, context);
+    return se_EnableDelegatedAdminAccountCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class EnableDelegatedAdminAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableDelegatedAdminAccountCommandOutput> {
-    return deserializeAws_restJson1EnableDelegatedAdminAccountCommand(output, context);
+    return de_EnableDelegatedAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

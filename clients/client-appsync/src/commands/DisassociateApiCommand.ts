@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { DisassociateApiRequest, DisassociateApiResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateApiCommand,
-  serializeAws_restJson1DisassociateApiCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateApiCommand, se_DisassociateApiCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DisassociateApiCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateApiCommand(input, context);
+    return se_DisassociateApiCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateApiCommandOutput> {
-    return deserializeAws_restJson1DisassociateApiCommand(output, context);
+    return de_DisassociateApiCommand(output, context);
   }
 
   // Start section: command_body_extra

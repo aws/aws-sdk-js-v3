@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { UpdateFilterRequest, UpdateFilterResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateFilterCommand,
-  serializeAws_restJson1UpdateFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFilterCommand, se_UpdateFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class UpdateFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFilterCommand(input, context);
+    return se_UpdateFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFilterCommandOutput> {
-    return deserializeAws_restJson1UpdateFilterCommand(output, context);
+    return de_UpdateFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

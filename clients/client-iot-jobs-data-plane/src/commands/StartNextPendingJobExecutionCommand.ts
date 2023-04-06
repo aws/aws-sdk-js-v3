@@ -16,8 +16,8 @@ import {
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
 import { StartNextPendingJobExecutionRequest, StartNextPendingJobExecutionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartNextPendingJobExecutionCommand,
-  serializeAws_restJson1StartNextPendingJobExecutionCommand,
+  de_StartNextPendingJobExecutionCommand,
+  se_StartNextPendingJobExecutionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class StartNextPendingJobExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartNextPendingJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartNextPendingJobExecutionCommand(input, context);
+    return se_StartNextPendingJobExecutionCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartNextPendingJobExecutionCommandOutput> {
-    return deserializeAws_restJson1StartNextPendingJobExecutionCommand(output, context);
+    return de_StartNextPendingJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

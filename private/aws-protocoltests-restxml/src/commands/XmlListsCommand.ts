@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlListsInputOutput } from "../models/models_0";
-import { deserializeAws_restXmlXmlListsCommand, serializeAws_restXmlXmlListsCommand } from "../protocols/Aws_restXml";
+import { de_XmlListsCommand, se_XmlListsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -167,14 +167,14 @@ export class XmlListsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlListsCommand(input, context);
+    return se_XmlListsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlListsCommandOutput> {
-    return deserializeAws_restXmlXmlListsCommand(output, context);
+    return de_XmlListsCommand(output, context);
   }
 
   // Start section: command_body_extra

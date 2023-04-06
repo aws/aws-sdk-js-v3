@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteManagedPrefixListRequest, DeleteManagedPrefixListResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteManagedPrefixListCommand,
-  serializeAws_ec2DeleteManagedPrefixListCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteManagedPrefixListCommand, se_DeleteManagedPrefixListCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class DeleteManagedPrefixListCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteManagedPrefixListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteManagedPrefixListCommand(input, context);
+    return se_DeleteManagedPrefixListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteManagedPrefixListCommandOutput> {
-    return deserializeAws_ec2DeleteManagedPrefixListCommand(output, context);
+    return de_DeleteManagedPrefixListCommand(output, context);
   }
 
   // Start section: command_body_extra

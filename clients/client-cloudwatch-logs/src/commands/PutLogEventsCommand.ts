@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { PutLogEventsRequest, PutLogEventsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutLogEventsCommand,
-  serializeAws_json1_1PutLogEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutLogEventsCommand, se_PutLogEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -205,14 +202,14 @@ export class PutLogEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutLogEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLogEventsCommand(input, context);
+    return se_PutLogEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLogEventsCommandOutput> {
-    return deserializeAws_json1_1PutLogEventsCommand(output, context);
+    return de_PutLogEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

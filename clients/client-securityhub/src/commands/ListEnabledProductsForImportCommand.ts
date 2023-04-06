@@ -15,8 +15,8 @@ import {
 
 import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1ListEnabledProductsForImportCommand,
-  serializeAws_restJson1ListEnabledProductsForImportCommand,
+  de_ListEnabledProductsForImportCommand,
+  se_ListEnabledProductsForImportCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
@@ -134,7 +134,7 @@ export class ListEnabledProductsForImportCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEnabledProductsForImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEnabledProductsForImportCommand(input, context);
+    return se_ListEnabledProductsForImportCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class ListEnabledProductsForImportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEnabledProductsForImportCommandOutput> {
-    return deserializeAws_restJson1ListEnabledProductsForImportCommand(output, context);
+    return de_ListEnabledProductsForImportCommand(output, context);
   }
 
   // Start section: command_body_extra

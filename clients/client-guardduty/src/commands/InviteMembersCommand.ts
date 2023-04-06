@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { InviteMembersRequest, InviteMembersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1InviteMembersCommand,
-  serializeAws_restJson1InviteMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InviteMembersCommand, se_InviteMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class InviteMembersCommand extends $Command<
    * @internal
    */
   private serialize(input: InviteMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InviteMembersCommand(input, context);
+    return se_InviteMembersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InviteMembersCommandOutput> {
-    return deserializeAws_restJson1InviteMembersCommand(output, context);
+    return de_InviteMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

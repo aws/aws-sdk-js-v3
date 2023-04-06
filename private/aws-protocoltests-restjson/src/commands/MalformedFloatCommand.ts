@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MalformedFloatInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedFloatCommand,
-  serializeAws_restJson1MalformedFloatCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedFloatCommand, se_MalformedFloatCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class MalformedFloatCommand extends $Command<
    * @internal
    */
   private serialize(input: MalformedFloatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedFloatCommand(input, context);
+    return se_MalformedFloatCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedFloatCommandOutput> {
-    return deserializeAws_restJson1MalformedFloatCommand(output, context);
+    return de_MalformedFloatCommand(output, context);
   }
 
   // Start section: command_body_extra

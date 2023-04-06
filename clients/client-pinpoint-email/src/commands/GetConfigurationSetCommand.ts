@@ -15,10 +15,7 @@ import {
 
 import { GetConfigurationSetRequest, GetConfigurationSetResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1GetConfigurationSetCommand,
-  serializeAws_restJson1GetConfigurationSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConfigurationSetCommand, se_GetConfigurationSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetConfigurationSetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConfigurationSetCommand(input, context);
+    return se_GetConfigurationSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationSetCommandOutput> {
-    return deserializeAws_restJson1GetConfigurationSetCommand(output, context);
+    return de_GetConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

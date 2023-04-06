@@ -20,8 +20,8 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { DeleteReplicationSubnetGroupMessage, DeleteReplicationSubnetGroupResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteReplicationSubnetGroupCommand,
-  serializeAws_json1_1DeleteReplicationSubnetGroupCommand,
+  de_DeleteReplicationSubnetGroupCommand,
+  se_DeleteReplicationSubnetGroupCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -143,7 +143,7 @@ export class DeleteReplicationSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteReplicationSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteReplicationSubnetGroupCommand(input, context);
+    return se_DeleteReplicationSubnetGroupCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DeleteReplicationSubnetGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteReplicationSubnetGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteReplicationSubnetGroupCommand(output, context);
+    return de_DeleteReplicationSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

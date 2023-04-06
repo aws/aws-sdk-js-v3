@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { DescribeLocationSmbRequest, DescribeLocationSmbResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLocationSmbCommand,
-  serializeAws_json1_1DescribeLocationSmbCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLocationSmbCommand, se_DescribeLocationSmbCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DescribeLocationSmbCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLocationSmbCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationSmbCommand(input, context);
+    return se_DescribeLocationSmbCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocationSmbCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationSmbCommand(output, context);
+    return de_DescribeLocationSmbCommand(output, context);
   }
 
   // Start section: command_body_extra

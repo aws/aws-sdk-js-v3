@@ -15,10 +15,7 @@ import {
 
 import { ListReferencesRequest, ListReferencesResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListReferencesCommand,
-  serializeAws_restJson1ListReferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListReferencesCommand, se_ListReferencesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class ListReferencesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListReferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReferencesCommand(input, context);
+    return se_ListReferencesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReferencesCommandOutput> {
-    return deserializeAws_restJson1ListReferencesCommand(output, context);
+    return de_ListReferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

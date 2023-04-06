@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { PutInstancePublicPortsRequest, PutInstancePublicPortsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutInstancePublicPortsCommand,
-  serializeAws_json1_1PutInstancePublicPortsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutInstancePublicPortsCommand, se_PutInstancePublicPortsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -174,14 +171,14 @@ export class PutInstancePublicPortsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutInstancePublicPortsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutInstancePublicPortsCommand(input, context);
+    return se_PutInstancePublicPortsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutInstancePublicPortsCommandOutput> {
-    return deserializeAws_json1_1PutInstancePublicPortsCommand(output, context);
+    return de_PutInstancePublicPortsCommand(output, context);
   }
 
   // Start section: command_body_extra

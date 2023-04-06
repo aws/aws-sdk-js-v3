@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteGroupMembershipRequest, DeleteGroupMembershipResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteGroupMembershipCommand,
-  serializeAws_restJson1DeleteGroupMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteGroupMembershipCommand, se_DeleteGroupMembershipCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -147,14 +144,14 @@ export class DeleteGroupMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGroupMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGroupMembershipCommand(input, context);
+    return se_DeleteGroupMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupMembershipCommandOutput> {
-    return deserializeAws_restJson1DeleteGroupMembershipCommand(output, context);
+    return de_DeleteGroupMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { DescribeSSLPoliciesInput, DescribeSSLPoliciesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeSSLPoliciesCommand,
-  serializeAws_queryDescribeSSLPoliciesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeSSLPoliciesCommand, se_DescribeSSLPoliciesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -239,14 +236,14 @@ export class DescribeSSLPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSSLPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeSSLPoliciesCommand(input, context);
+    return se_DescribeSSLPoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSSLPoliciesCommandOutput> {
-    return deserializeAws_queryDescribeSSLPoliciesCommand(output, context);
+    return de_DescribeSSLPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

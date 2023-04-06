@@ -16,8 +16,8 @@ import {
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { DescribeCertificateAuthorityRequest, DescribeCertificateAuthorityResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeCertificateAuthorityCommand,
-  serializeAws_json1_1DescribeCertificateAuthorityCommand,
+  de_DescribeCertificateAuthorityCommand,
+  se_DescribeCertificateAuthorityCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -170,7 +170,7 @@ export class DescribeCertificateAuthorityCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCertificateAuthorityCommand(input, context);
+    return se_DescribeCertificateAuthorityCommand(input, context);
   }
 
   /**
@@ -180,7 +180,7 @@ export class DescribeCertificateAuthorityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1DescribeCertificateAuthorityCommand(output, context);
+    return de_DescribeCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

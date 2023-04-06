@@ -19,8 +19,8 @@ import {
   CreateDirectConnectGatewayAssociationResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommand,
-  serializeAws_json1_1CreateDirectConnectGatewayAssociationCommand,
+  de_CreateDirectConnectGatewayAssociationCommand,
+  se_CreateDirectConnectGatewayAssociationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -143,7 +143,7 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command<
     input: CreateDirectConnectGatewayAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDirectConnectGatewayAssociationCommand(input, context);
+    return se_CreateDirectConnectGatewayAssociationCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDirectConnectGatewayAssociationCommandOutput> {
-    return deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommand(output, context);
+    return de_CreateDirectConnectGatewayAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

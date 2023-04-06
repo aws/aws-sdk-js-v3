@@ -15,10 +15,7 @@ import {
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { DescribeIdentityUsageRequest, DescribeIdentityUsageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeIdentityUsageCommand,
-  serializeAws_restJson1DescribeIdentityUsageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeIdentityUsageCommand, se_DescribeIdentityUsageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -190,14 +187,14 @@ export class DescribeIdentityUsageCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeIdentityUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeIdentityUsageCommand(input, context);
+    return se_DescribeIdentityUsageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdentityUsageCommandOutput> {
-    return deserializeAws_restJson1DescribeIdentityUsageCommand(output, context);
+    return de_DescribeIdentityUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ListDistributionsByResponseHeadersPolicyIdResult,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand,
-  serializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand,
+  de_ListDistributionsByResponseHeadersPolicyIdCommand,
+  se_ListDistributionsByResponseHeadersPolicyIdCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -152,7 +152,7 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
     input: ListDistributionsByResponseHeadersPolicyIdCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand(input, context);
+    return se_ListDistributionsByResponseHeadersPolicyIdCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByResponseHeadersPolicyIdCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand(output, context);
+    return de_ListDistributionsByResponseHeadersPolicyIdCommand(output, context);
   }
 
   // Start section: command_body_extra

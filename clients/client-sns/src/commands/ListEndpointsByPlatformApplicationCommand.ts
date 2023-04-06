@@ -18,8 +18,8 @@ import {
   ListEndpointsByPlatformApplicationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryListEndpointsByPlatformApplicationCommand,
-  serializeAws_queryListEndpointsByPlatformApplicationCommand,
+  de_ListEndpointsByPlatformApplicationCommand,
+  se_ListEndpointsByPlatformApplicationCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -151,7 +151,7 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     input: ListEndpointsByPlatformApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListEndpointsByPlatformApplicationCommand(input, context);
+    return se_ListEndpointsByPlatformApplicationCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEndpointsByPlatformApplicationCommandOutput> {
-    return deserializeAws_queryListEndpointsByPlatformApplicationCommand(output, context);
+    return de_ListEndpointsByPlatformApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

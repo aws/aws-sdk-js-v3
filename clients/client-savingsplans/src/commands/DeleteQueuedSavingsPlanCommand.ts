@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteQueuedSavingsPlanRequest, DeleteQueuedSavingsPlanResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteQueuedSavingsPlanCommand,
-  serializeAws_restJson1DeleteQueuedSavingsPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteQueuedSavingsPlanCommand, se_DeleteQueuedSavingsPlanCommand } from "../protocols/Aws_restJson1";
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
 /**
@@ -132,14 +129,14 @@ export class DeleteQueuedSavingsPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteQueuedSavingsPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteQueuedSavingsPlanCommand(input, context);
+    return se_DeleteQueuedSavingsPlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueuedSavingsPlanCommandOutput> {
-    return deserializeAws_restJson1DeleteQueuedSavingsPlanCommand(output, context);
+    return de_DeleteQueuedSavingsPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

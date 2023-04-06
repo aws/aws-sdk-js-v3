@@ -15,10 +15,7 @@ import {
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { RebootNodeRequest, RebootNodeResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RebootNodeCommand,
-  serializeAws_json1_1RebootNodeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RebootNodeCommand, se_RebootNodeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class RebootNodeCommand extends $Command<
    * @internal
    */
   private serialize(input: RebootNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RebootNodeCommand(input, context);
+    return se_RebootNodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootNodeCommandOutput> {
-    return deserializeAws_json1_1RebootNodeCommand(output, context);
+    return de_RebootNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

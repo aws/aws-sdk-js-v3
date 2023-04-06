@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CountOpenWorkflowExecutionsInput, WorkflowExecutionCount } from "../models/models_0";
-import {
-  deserializeAws_json1_0CountOpenWorkflowExecutionsCommand,
-  serializeAws_json1_0CountOpenWorkflowExecutionsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CountOpenWorkflowExecutionsCommand, se_CountOpenWorkflowExecutionsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -186,7 +183,7 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: CountOpenWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CountOpenWorkflowExecutionsCommand(input, context);
+    return se_CountOpenWorkflowExecutionsCommand(input, context);
   }
 
   /**
@@ -196,7 +193,7 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CountOpenWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0CountOpenWorkflowExecutionsCommand(output, context);
+    return de_CountOpenWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { CreateNamedQueryInput, CreateNamedQueryOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateNamedQueryCommand,
-  serializeAws_json1_1CreateNamedQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateNamedQueryCommand, se_CreateNamedQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class CreateNamedQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNamedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateNamedQueryCommand(input, context);
+    return se_CreateNamedQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNamedQueryCommandOutput> {
-    return deserializeAws_json1_1CreateNamedQueryCommand(output, context);
+    return de_CreateNamedQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

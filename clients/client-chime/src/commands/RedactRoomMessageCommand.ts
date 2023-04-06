@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { RedactRoomMessageRequest, RedactRoomMessageResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1RedactRoomMessageCommand,
-  serializeAws_restJson1RedactRoomMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RedactRoomMessageCommand, se_RedactRoomMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class RedactRoomMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: RedactRoomMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RedactRoomMessageCommand(input, context);
+    return se_RedactRoomMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RedactRoomMessageCommandOutput> {
-    return deserializeAws_restJson1RedactRoomMessageCommand(output, context);
+    return de_RedactRoomMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

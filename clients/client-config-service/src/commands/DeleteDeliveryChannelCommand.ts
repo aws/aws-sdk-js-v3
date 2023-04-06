@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeleteDeliveryChannelRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDeliveryChannelCommand,
-  serializeAws_json1_1DeleteDeliveryChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDeliveryChannelCommand, se_DeleteDeliveryChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DeleteDeliveryChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDeliveryChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeliveryChannelCommand(input, context);
+    return se_DeleteDeliveryChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeliveryChannelCommandOutput> {
-    return deserializeAws_json1_1DeleteDeliveryChannelCommand(output, context);
+    return de_DeleteDeliveryChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelRetrievalInput, CancelRetrievalOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelRetrievalCommand,
-  serializeAws_json1_1CancelRetrievalCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelRetrievalCommand, se_CancelRetrievalCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -148,14 +145,14 @@ export class CancelRetrievalCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelRetrievalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelRetrievalCommand(input, context);
+    return se_CancelRetrievalCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelRetrievalCommandOutput> {
-    return deserializeAws_json1_1CancelRetrievalCommand(output, context);
+    return de_CancelRetrievalCommand(output, context);
   }
 
   // Start section: command_body_extra

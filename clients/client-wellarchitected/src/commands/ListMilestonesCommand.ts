@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListMilestonesInput, ListMilestonesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMilestonesCommand,
-  serializeAws_restJson1ListMilestonesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListMilestonesCommand, se_ListMilestonesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -137,14 +134,14 @@ export class ListMilestonesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMilestonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMilestonesCommand(input, context);
+    return se_ListMilestonesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMilestonesCommandOutput> {
-    return deserializeAws_restJson1ListMilestonesCommand(output, context);
+    return de_ListMilestonesCommand(output, context);
   }
 
   // Start section: command_body_extra

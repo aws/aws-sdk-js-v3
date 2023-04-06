@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { AddNotificationChannelRequest, AddNotificationChannelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddNotificationChannelCommand,
-  serializeAws_restJson1AddNotificationChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AddNotificationChannelCommand, se_AddNotificationChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class AddNotificationChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: AddNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddNotificationChannelCommand(input, context);
+    return se_AddNotificationChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddNotificationChannelCommandOutput> {
-    return deserializeAws_restJson1AddNotificationChannelCommand(output, context);
+    return de_AddNotificationChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

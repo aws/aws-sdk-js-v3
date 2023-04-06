@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelWorldExportJobRequest, CancelWorldExportJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelWorldExportJobCommand,
-  serializeAws_restJson1CancelWorldExportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelWorldExportJobCommand, se_CancelWorldExportJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -133,14 +130,14 @@ export class CancelWorldExportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelWorldExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelWorldExportJobCommand(input, context);
+    return se_CancelWorldExportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelWorldExportJobCommandOutput> {
-    return deserializeAws_restJson1CancelWorldExportJobCommand(output, context);
+    return de_CancelWorldExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

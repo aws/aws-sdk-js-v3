@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeprovisionPublicIpv4PoolCidrRequest, DeprovisionPublicIpv4PoolCidrResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DeprovisionPublicIpv4PoolCidrCommand,
-  serializeAws_ec2DeprovisionPublicIpv4PoolCidrCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeprovisionPublicIpv4PoolCidrCommand, se_DeprovisionPublicIpv4PoolCidrCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class DeprovisionPublicIpv4PoolCidrCommand extends $Command<
    * @internal
    */
   private serialize(input: DeprovisionPublicIpv4PoolCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeprovisionPublicIpv4PoolCidrCommand(input, context);
+    return se_DeprovisionPublicIpv4PoolCidrCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class DeprovisionPublicIpv4PoolCidrCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeprovisionPublicIpv4PoolCidrCommandOutput> {
-    return deserializeAws_ec2DeprovisionPublicIpv4PoolCidrCommand(output, context);
+    return de_DeprovisionPublicIpv4PoolCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { BatchGrantPermissionsRequest, BatchGrantPermissionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGrantPermissionsCommand,
-  serializeAws_restJson1BatchGrantPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGrantPermissionsCommand, se_BatchGrantPermissionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -195,14 +192,14 @@ export class BatchGrantPermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGrantPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGrantPermissionsCommand(input, context);
+    return se_BatchGrantPermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGrantPermissionsCommandOutput> {
-    return deserializeAws_restJson1BatchGrantPermissionsCommand(output, context);
+    return de_BatchGrantPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

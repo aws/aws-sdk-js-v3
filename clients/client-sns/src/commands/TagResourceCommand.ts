@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
-import { deserializeAws_queryTagResourceCommand, serializeAws_queryTagResourceCommand } from "../protocols/Aws_query";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -169,14 +169,14 @@ export class TagResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagResourceCommand(input, context);
+    return se_TagResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_queryTagResourceCommand(output, context);
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

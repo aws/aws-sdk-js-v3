@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeAvailablePatchesRequest, DescribeAvailablePatchesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAvailablePatchesCommand,
-  serializeAws_json1_1DescribeAvailablePatchesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAvailablePatchesCommand, se_DescribeAvailablePatchesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -132,14 +129,14 @@ export class DescribeAvailablePatchesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAvailablePatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAvailablePatchesCommand(input, context);
+    return se_DescribeAvailablePatchesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAvailablePatchesCommandOutput> {
-    return deserializeAws_json1_1DescribeAvailablePatchesCommand(output, context);
+    return de_DescribeAvailablePatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

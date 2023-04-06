@@ -15,10 +15,7 @@ import {
 
 import { UpdateGlobalNetworkRequest, UpdateGlobalNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1UpdateGlobalNetworkCommand,
-  serializeAws_restJson1UpdateGlobalNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateGlobalNetworkCommand, se_UpdateGlobalNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class UpdateGlobalNetworkCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGlobalNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGlobalNetworkCommand(input, context);
+    return se_UpdateGlobalNetworkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGlobalNetworkCommandOutput> {
-    return deserializeAws_restJson1UpdateGlobalNetworkCommand(output, context);
+    return de_UpdateGlobalNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

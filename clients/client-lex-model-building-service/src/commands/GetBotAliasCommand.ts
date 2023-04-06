@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { GetBotAliasRequest, GetBotAliasResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBotAliasCommand,
-  serializeAws_restJson1GetBotAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBotAliasCommand, se_GetBotAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetBotAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBotAliasCommand(input, context);
+    return se_GetBotAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotAliasCommandOutput> {
-    return deserializeAws_restJson1GetBotAliasCommand(output, context);
+    return de_GetBotAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

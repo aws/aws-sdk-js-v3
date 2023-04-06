@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRegexPatternSetCommand,
-  serializeAws_json1_1UpdateRegexPatternSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRegexPatternSetCommand, se_UpdateRegexPatternSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -195,14 +192,14 @@ export class UpdateRegexPatternSetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRegexPatternSetCommand(input, context);
+    return se_UpdateRegexPatternSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegexPatternSetCommandOutput> {
-    return deserializeAws_json1_1UpdateRegexPatternSetCommand(output, context);
+    return de_UpdateRegexPatternSetCommand(output, context);
   }
 
   // Start section: command_body_extra

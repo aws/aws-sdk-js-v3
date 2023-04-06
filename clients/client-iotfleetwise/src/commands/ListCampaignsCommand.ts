@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { ListCampaignsRequest, ListCampaignsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListCampaignsCommand,
-  serializeAws_json1_0ListCampaignsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListCampaignsCommand, se_ListCampaignsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListCampaignsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCampaignsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListCampaignsCommand(input, context);
+    return se_ListCampaignsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCampaignsCommandOutput> {
-    return deserializeAws_json1_0ListCampaignsCommand(output, context);
+    return de_ListCampaignsCommand(output, context);
   }
 
   // Start section: command_body_extra

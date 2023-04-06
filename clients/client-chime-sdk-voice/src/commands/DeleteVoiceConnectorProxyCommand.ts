@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { DeleteVoiceConnectorProxyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVoiceConnectorProxyCommand,
-  serializeAws_restJson1DeleteVoiceConnectorProxyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVoiceConnectorProxyCommand, se_DeleteVoiceConnectorProxyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class DeleteVoiceConnectorProxyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVoiceConnectorProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVoiceConnectorProxyCommand(input, context);
+    return se_DeleteVoiceConnectorProxyCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class DeleteVoiceConnectorProxyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceConnectorProxyCommandOutput> {
-    return deserializeAws_restJson1DeleteVoiceConnectorProxyCommand(output, context);
+    return de_DeleteVoiceConnectorProxyCommand(output, context);
   }
 
   // Start section: command_body_extra

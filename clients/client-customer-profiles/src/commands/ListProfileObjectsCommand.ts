@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { ListProfileObjectsRequest, ListProfileObjectsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProfileObjectsCommand,
-  serializeAws_restJson1ListProfileObjectsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListProfileObjectsCommand, se_ListProfileObjectsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class ListProfileObjectsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProfileObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProfileObjectsCommand(input, context);
+    return se_ListProfileObjectsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfileObjectsCommandOutput> {
-    return deserializeAws_restJson1ListProfileObjectsCommand(output, context);
+    return de_ListProfileObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

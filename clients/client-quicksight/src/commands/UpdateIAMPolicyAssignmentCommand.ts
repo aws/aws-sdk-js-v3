@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateIAMPolicyAssignmentRequest, UpdateIAMPolicyAssignmentResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateIAMPolicyAssignmentCommand,
-  serializeAws_restJson1UpdateIAMPolicyAssignmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateIAMPolicyAssignmentCommand, se_UpdateIAMPolicyAssignmentCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -157,7 +154,7 @@ export class UpdateIAMPolicyAssignmentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateIAMPolicyAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIAMPolicyAssignmentCommand(input, context);
+    return se_UpdateIAMPolicyAssignmentCommand(input, context);
   }
 
   /**
@@ -167,7 +164,7 @@ export class UpdateIAMPolicyAssignmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIAMPolicyAssignmentCommandOutput> {
-    return deserializeAws_restJson1UpdateIAMPolicyAssignmentCommand(output, context);
+    return de_UpdateIAMPolicyAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

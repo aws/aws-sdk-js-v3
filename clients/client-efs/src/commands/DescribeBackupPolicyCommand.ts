@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { BackupPolicyDescription, DescribeBackupPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBackupPolicyCommand,
-  serializeAws_restJson1DescribeBackupPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeBackupPolicyCommand, se_DescribeBackupPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeBackupPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBackupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBackupPolicyCommand(input, context);
+    return se_DescribeBackupPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupPolicyCommandOutput> {
-    return deserializeAws_restJson1DescribeBackupPolicyCommand(output, context);
+    return de_DescribeBackupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

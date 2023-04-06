@@ -15,10 +15,7 @@ import {
 
 import { DescribeRecommenderRequest, DescribeRecommenderResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeRecommenderCommand,
-  serializeAws_json1_1DescribeRecommenderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRecommenderCommand, se_DescribeRecommenderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DescribeRecommenderCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRecommenderCommand(input, context);
+    return se_DescribeRecommenderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecommenderCommandOutput> {
-    return deserializeAws_json1_1DescribeRecommenderCommand(output, context);
+    return de_DescribeRecommenderCommand(output, context);
   }
 
   // Start section: command_body_extra

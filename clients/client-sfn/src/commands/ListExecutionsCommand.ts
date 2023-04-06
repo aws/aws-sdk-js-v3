@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListExecutionsInput, ListExecutionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListExecutionsCommand,
-  serializeAws_json1_0ListExecutionsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListExecutionsCommand, se_ListExecutionsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -151,14 +148,14 @@ export class ListExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListExecutionsCommand(input, context);
+    return se_ListExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExecutionsCommandOutput> {
-    return deserializeAws_json1_0ListExecutionsCommand(output, context);
+    return de_ListExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

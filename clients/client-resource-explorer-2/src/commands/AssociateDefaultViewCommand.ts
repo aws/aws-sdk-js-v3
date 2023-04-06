@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateDefaultViewInput, AssociateDefaultViewOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateDefaultViewCommand,
-  serializeAws_restJson1AssociateDefaultViewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateDefaultViewCommand, se_AssociateDefaultViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -150,14 +147,14 @@ export class AssociateDefaultViewCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateDefaultViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateDefaultViewCommand(input, context);
+    return se_AssociateDefaultViewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDefaultViewCommandOutput> {
-    return deserializeAws_restJson1AssociateDefaultViewCommand(output, context);
+    return de_AssociateDefaultViewCommand(output, context);
   }
 
   // Start section: command_body_extra

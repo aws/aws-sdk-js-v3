@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeMatchmakingRuleSetsInput, DescribeMatchmakingRuleSetsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeMatchmakingRuleSetsCommand,
-  serializeAws_json1_1DescribeMatchmakingRuleSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeMatchmakingRuleSetsCommand, se_DescribeMatchmakingRuleSetsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,7 +149,7 @@ export class DescribeMatchmakingRuleSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeMatchmakingRuleSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMatchmakingRuleSetsCommand(input, context);
+    return se_DescribeMatchmakingRuleSetsCommand(input, context);
   }
 
   /**
@@ -162,7 +159,7 @@ export class DescribeMatchmakingRuleSetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMatchmakingRuleSetsCommandOutput> {
-    return deserializeAws_json1_1DescribeMatchmakingRuleSetsCommand(output, context);
+    return de_DescribeMatchmakingRuleSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

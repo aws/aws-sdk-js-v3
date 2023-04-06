@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteMaintenanceWindowRequest, DeleteMaintenanceWindowResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteMaintenanceWindowCommand,
-  serializeAws_json1_1DeleteMaintenanceWindowCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteMaintenanceWindowCommand, se_DeleteMaintenanceWindowCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -123,14 +120,14 @@ export class DeleteMaintenanceWindowCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMaintenanceWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMaintenanceWindowCommand(input, context);
+    return se_DeleteMaintenanceWindowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1DeleteMaintenanceWindowCommand(output, context);
+    return de_DeleteMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

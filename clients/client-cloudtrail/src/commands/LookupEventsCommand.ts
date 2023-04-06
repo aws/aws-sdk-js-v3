@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { LookupEventsRequest, LookupEventsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1LookupEventsCommand,
-  serializeAws_json1_1LookupEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_LookupEventsCommand, se_LookupEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -199,14 +196,14 @@ export class LookupEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: LookupEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1LookupEventsCommand(input, context);
+    return se_LookupEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LookupEventsCommandOutput> {
-    return deserializeAws_json1_1LookupEventsCommand(output, context);
+    return de_LookupEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

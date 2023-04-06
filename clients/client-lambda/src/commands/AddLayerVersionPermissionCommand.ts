@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { AddLayerVersionPermissionRequest, AddLayerVersionPermissionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddLayerVersionPermissionCommand,
-  serializeAws_restJson1AddLayerVersionPermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AddLayerVersionPermissionCommand, se_AddLayerVersionPermissionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,7 +150,7 @@ export class AddLayerVersionPermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: AddLayerVersionPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddLayerVersionPermissionCommand(input, context);
+    return se_AddLayerVersionPermissionCommand(input, context);
   }
 
   /**
@@ -163,7 +160,7 @@ export class AddLayerVersionPermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddLayerVersionPermissionCommandOutput> {
-    return deserializeAws_restJson1AddLayerVersionPermissionCommand(output, context);
+    return de_AddLayerVersionPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { EvaluateCodeRequest, EvaluateCodeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1EvaluateCodeCommand,
-  serializeAws_restJson1EvaluateCodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_EvaluateCodeCommand, se_EvaluateCodeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class EvaluateCodeCommand extends $Command<
    * @internal
    */
   private serialize(input: EvaluateCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EvaluateCodeCommand(input, context);
+    return se_EvaluateCodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateCodeCommandOutput> {
-    return deserializeAws_restJson1EvaluateCodeCommand(output, context);
+    return de_EvaluateCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

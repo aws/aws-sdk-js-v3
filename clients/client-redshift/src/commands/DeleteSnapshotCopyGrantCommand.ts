@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSnapshotCopyGrantMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSnapshotCopyGrantCommand,
-  serializeAws_queryDeleteSnapshotCopyGrantCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteSnapshotCopyGrantCommand, se_DeleteSnapshotCopyGrantCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -128,14 +125,14 @@ export class DeleteSnapshotCopyGrantCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSnapshotCopyGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSnapshotCopyGrantCommand(input, context);
+    return se_DeleteSnapshotCopyGrantCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotCopyGrantCommandOutput> {
-    return deserializeAws_queryDeleteSnapshotCopyGrantCommand(output, context);
+    return de_DeleteSnapshotCopyGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

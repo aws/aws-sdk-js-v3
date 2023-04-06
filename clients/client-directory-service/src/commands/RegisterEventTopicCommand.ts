@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { RegisterEventTopicRequest, RegisterEventTopicResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterEventTopicCommand,
-  serializeAws_json1_1RegisterEventTopicCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterEventTopicCommand, se_RegisterEventTopicCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class RegisterEventTopicCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterEventTopicCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterEventTopicCommand(input, context);
+    return se_RegisterEventTopicCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterEventTopicCommandOutput> {
-    return deserializeAws_json1_1RegisterEventTopicCommand(output, context);
+    return de_RegisterEventTopicCommand(output, context);
   }
 
   // Start section: command_body_extra

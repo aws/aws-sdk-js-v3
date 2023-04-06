@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAlarmRecommendationsRequest, ListAlarmRecommendationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAlarmRecommendationsCommand,
-  serializeAws_restJson1ListAlarmRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAlarmRecommendationsCommand, se_ListAlarmRecommendationsCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -140,14 +137,14 @@ export class ListAlarmRecommendationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAlarmRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAlarmRecommendationsCommand(input, context);
+    return se_ListAlarmRecommendationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlarmRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListAlarmRecommendationsCommand(output, context);
+    return de_ListAlarmRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

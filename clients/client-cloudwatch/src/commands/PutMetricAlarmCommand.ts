@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { PutMetricAlarmInput } from "../models/models_0";
-import {
-  deserializeAws_queryPutMetricAlarmCommand,
-  serializeAws_queryPutMetricAlarmCommand,
-} from "../protocols/Aws_query";
+import { de_PutMetricAlarmCommand, se_PutMetricAlarmCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -235,14 +232,14 @@ export class PutMetricAlarmCommand extends $Command<
    * @internal
    */
   private serialize(input: PutMetricAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutMetricAlarmCommand(input, context);
+    return se_PutMetricAlarmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricAlarmCommandOutput> {
-    return deserializeAws_queryPutMetricAlarmCommand(output, context);
+    return de_PutMetricAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

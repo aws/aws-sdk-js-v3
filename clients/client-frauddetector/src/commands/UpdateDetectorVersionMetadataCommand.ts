@@ -16,8 +16,8 @@ import {
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { UpdateDetectorVersionMetadataRequest, UpdateDetectorVersionMetadataResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateDetectorVersionMetadataCommand,
-  serializeAws_json1_1UpdateDetectorVersionMetadataCommand,
+  de_UpdateDetectorVersionMetadataCommand,
+  se_UpdateDetectorVersionMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -140,7 +140,7 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDetectorVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDetectorVersionMetadataCommand(input, context);
+    return se_UpdateDetectorVersionMetadataCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDetectorVersionMetadataCommandOutput> {
-    return deserializeAws_json1_1UpdateDetectorVersionMetadataCommand(output, context);
+    return de_UpdateDetectorVersionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

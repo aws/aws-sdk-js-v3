@@ -19,8 +19,8 @@ import {
   ListDecoderManifestNetworkInterfacesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand,
-  serializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand,
+  de_ListDecoderManifestNetworkInterfacesCommand,
+  se_ListDecoderManifestNetworkInterfacesCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -148,7 +148,7 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command<
     input: ListDecoderManifestNetworkInterfacesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand(input, context);
+    return se_ListDecoderManifestNetworkInterfacesCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class ListDecoderManifestNetworkInterfacesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDecoderManifestNetworkInterfacesCommandOutput> {
-    return deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand(output, context);
+    return de_ListDecoderManifestNetworkInterfacesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { ListGraphqlApisRequest, ListGraphqlApisResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGraphqlApisCommand,
-  serializeAws_restJson1ListGraphqlApisCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListGraphqlApisCommand, se_ListGraphqlApisCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListGraphqlApisCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGraphqlApisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGraphqlApisCommand(input, context);
+    return se_ListGraphqlApisCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGraphqlApisCommandOutput> {
-    return deserializeAws_restJson1ListGraphqlApisCommand(output, context);
+    return de_ListGraphqlApisCommand(output, context);
   }
 
   // Start section: command_body_extra

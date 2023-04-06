@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchDeleteTableRequest, BatchDeleteTableResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteTableCommand,
-  serializeAws_json1_1BatchDeleteTableCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDeleteTableCommand, se_BatchDeleteTableCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class BatchDeleteTableCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteTableCommand(input, context);
+    return se_BatchDeleteTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteTableCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteTableCommand(output, context);
+    return de_BatchDeleteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

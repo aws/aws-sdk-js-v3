@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { ListDataSourceSyncJobsRequest, ListDataSourceSyncJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDataSourceSyncJobsCommand,
-  serializeAws_json1_1ListDataSourceSyncJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDataSourceSyncJobsCommand, se_ListDataSourceSyncJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class ListDataSourceSyncJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDataSourceSyncJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDataSourceSyncJobsCommand(input, context);
+    return se_ListDataSourceSyncJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSourceSyncJobsCommandOutput> {
-    return deserializeAws_json1_1ListDataSourceSyncJobsCommand(output, context);
+    return de_ListDataSourceSyncJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

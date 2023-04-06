@@ -15,10 +15,7 @@ import {
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { UpdatePresetRequest, UpdatePresetResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdatePresetCommand,
-  serializeAws_restJson1UpdatePresetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePresetCommand, se_UpdatePresetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -905,14 +902,14 @@ export class UpdatePresetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePresetCommand(input, context);
+    return se_UpdatePresetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePresetCommandOutput> {
-    return deserializeAws_restJson1UpdatePresetCommand(output, context);
+    return de_UpdatePresetCommand(output, context);
   }
 
   // Start section: command_body_extra

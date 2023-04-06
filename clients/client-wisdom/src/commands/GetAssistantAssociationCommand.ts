@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAssistantAssociationRequest, GetAssistantAssociationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssistantAssociationCommand,
-  serializeAws_restJson1GetAssistantAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAssistantAssociationCommand, se_GetAssistantAssociationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -130,14 +127,14 @@ export class GetAssistantAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAssistantAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssistantAssociationCommand(input, context);
+    return se_GetAssistantAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssistantAssociationCommandOutput> {
-    return deserializeAws_restJson1GetAssistantAssociationCommand(output, context);
+    return de_GetAssistantAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { UpdateEventActionRequest, UpdateEventActionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEventActionCommand,
-  serializeAws_restJson1UpdateEventActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateEventActionCommand, se_UpdateEventActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateEventActionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEventActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEventActionCommand(input, context);
+    return se_UpdateEventActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventActionCommandOutput> {
-    return deserializeAws_restJson1UpdateEventActionCommand(output, context);
+    return de_UpdateEventActionCommand(output, context);
   }
 
   // Start section: command_body_extra

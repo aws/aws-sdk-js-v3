@@ -19,8 +19,8 @@ import {
   CreateUserAccessLoggingSettingsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateUserAccessLoggingSettingsCommand,
-  serializeAws_restJson1CreateUserAccessLoggingSettingsCommand,
+  de_CreateUserAccessLoggingSettingsCommand,
+  se_CreateUserAccessLoggingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
@@ -154,7 +154,7 @@ export class CreateUserAccessLoggingSettingsCommand extends $Command<
     input: CreateUserAccessLoggingSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUserAccessLoggingSettingsCommand(input, context);
+    return se_CreateUserAccessLoggingSettingsCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class CreateUserAccessLoggingSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateUserAccessLoggingSettingsCommandOutput> {
-    return deserializeAws_restJson1CreateUserAccessLoggingSettingsCommand(output, context);
+    return de_CreateUserAccessLoggingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

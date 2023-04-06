@@ -19,8 +19,8 @@ import {
   GetEventConfigurationByResourceTypesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetEventConfigurationByResourceTypesCommand,
-  serializeAws_restJson1GetEventConfigurationByResourceTypesCommand,
+  de_GetEventConfigurationByResourceTypesCommand,
+  se_GetEventConfigurationByResourceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -135,7 +135,7 @@ export class GetEventConfigurationByResourceTypesCommand extends $Command<
     input: GetEventConfigurationByResourceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEventConfigurationByResourceTypesCommand(input, context);
+    return se_GetEventConfigurationByResourceTypesCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class GetEventConfigurationByResourceTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEventConfigurationByResourceTypesCommandOutput> {
-    return deserializeAws_restJson1GetEventConfigurationByResourceTypesCommand(output, context);
+    return de_GetEventConfigurationByResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

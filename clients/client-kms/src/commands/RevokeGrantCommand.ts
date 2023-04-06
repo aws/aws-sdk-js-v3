@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { RevokeGrantRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1RevokeGrantCommand,
-  serializeAws_json1_1RevokeGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RevokeGrantCommand, se_RevokeGrantCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -211,14 +208,14 @@ export class RevokeGrantCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RevokeGrantCommand(input, context);
+    return se_RevokeGrantCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeGrantCommandOutput> {
-    return deserializeAws_json1_1RevokeGrantCommand(output, context);
+    return de_RevokeGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

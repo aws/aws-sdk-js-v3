@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAccountAliasRequest, GetAccountAliasResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAccountAliasCommand,
-  serializeAws_restJson1GetAccountAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAccountAliasCommand, se_GetAccountAliasCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -122,14 +119,14 @@ export class GetAccountAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccountAliasCommand(input, context);
+    return se_GetAccountAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountAliasCommandOutput> {
-    return deserializeAws_restJson1GetAccountAliasCommand(output, context);
+    return de_GetAccountAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

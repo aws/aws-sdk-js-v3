@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateMLTransformRequest, CreateMLTransformResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateMLTransformCommand,
-  serializeAws_json1_1CreateMLTransformCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateMLTransformCommand, se_CreateMLTransformCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -189,14 +186,14 @@ export class CreateMLTransformCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMLTransformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMLTransformCommand(input, context);
+    return se_CreateMLTransformCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMLTransformCommandOutput> {
-    return deserializeAws_json1_1CreateMLTransformCommand(output, context);
+    return de_CreateMLTransformCommand(output, context);
   }
 
   // Start section: command_body_extra

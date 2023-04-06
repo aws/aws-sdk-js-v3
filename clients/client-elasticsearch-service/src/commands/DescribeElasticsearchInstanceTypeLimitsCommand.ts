@@ -23,8 +23,8 @@ import {
   DescribeElasticsearchInstanceTypeLimitsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand,
-  serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand,
+  de_DescribeElasticsearchInstanceTypeLimitsCommand,
+  se_DescribeElasticsearchInstanceTypeLimitsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -166,7 +166,7 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
     input: DescribeElasticsearchInstanceTypeLimitsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand(input, context);
+    return se_DescribeElasticsearchInstanceTypeLimitsCommand(input, context);
   }
 
   /**
@@ -176,7 +176,7 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> {
-    return deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommand(output, context);
+    return de_DescribeElasticsearchInstanceTypeLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { ListComplianceStatusRequest, ListComplianceStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListComplianceStatusCommand,
-  serializeAws_json1_1ListComplianceStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListComplianceStatusCommand, se_ListComplianceStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListComplianceStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: ListComplianceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListComplianceStatusCommand(input, context);
+    return se_ListComplianceStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComplianceStatusCommandOutput> {
-    return deserializeAws_json1_1ListComplianceStatusCommand(output, context);
+    return de_ListComplianceStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

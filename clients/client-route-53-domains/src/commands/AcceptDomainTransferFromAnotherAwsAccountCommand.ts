@@ -18,8 +18,8 @@ import {
   AcceptDomainTransferFromAnotherAwsAccountResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand,
-  serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand,
+  de_AcceptDomainTransferFromAnotherAwsAccountCommand,
+  se_AcceptDomainTransferFromAnotherAwsAccountCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
@@ -158,7 +158,7 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<
     input: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand(input, context);
+    return se_AcceptDomainTransferFromAnotherAwsAccountCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptDomainTransferFromAnotherAwsAccountCommandOutput> {
-    return deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand(output, context);
+    return de_AcceptDomainTransferFromAnotherAwsAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

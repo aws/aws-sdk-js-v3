@@ -15,7 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { TestTypeInput, TestTypeOutput } from "../models/models_0";
-import { deserializeAws_queryTestTypeCommand, serializeAws_queryTestTypeCommand } from "../protocols/Aws_query";
+import { de_TestTypeCommand, se_TestTypeCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -147,14 +147,14 @@ export class TestTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: TestTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTestTypeCommand(input, context);
+    return se_TestTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestTypeCommandOutput> {
-    return deserializeAws_queryTestTypeCommand(output, context);
+    return de_TestTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

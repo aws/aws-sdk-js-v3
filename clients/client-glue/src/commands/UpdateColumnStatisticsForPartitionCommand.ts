@@ -19,8 +19,8 @@ import {
   UpdateColumnStatisticsForPartitionResponse,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1UpdateColumnStatisticsForPartitionCommand,
-  serializeAws_json1_1UpdateColumnStatisticsForPartitionCommand,
+  de_UpdateColumnStatisticsForPartitionCommand,
+  se_UpdateColumnStatisticsForPartitionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -205,7 +205,7 @@ export class UpdateColumnStatisticsForPartitionCommand extends $Command<
     input: UpdateColumnStatisticsForPartitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateColumnStatisticsForPartitionCommand(input, context);
+    return se_UpdateColumnStatisticsForPartitionCommand(input, context);
   }
 
   /**
@@ -215,7 +215,7 @@ export class UpdateColumnStatisticsForPartitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateColumnStatisticsForPartitionCommandOutput> {
-    return deserializeAws_json1_1UpdateColumnStatisticsForPartitionCommand(output, context);
+    return de_UpdateColumnStatisticsForPartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { GetMonitoringSubscriptionRequest, GetMonitoringSubscriptionResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlGetMonitoringSubscriptionCommand,
-  serializeAws_restXmlGetMonitoringSubscriptionCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetMonitoringSubscriptionCommand, se_GetMonitoringSubscriptionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class GetMonitoringSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMonitoringSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetMonitoringSubscriptionCommand(input, context);
+    return se_GetMonitoringSubscriptionCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class GetMonitoringSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMonitoringSubscriptionCommandOutput> {
-    return deserializeAws_restXmlGetMonitoringSubscriptionCommand(output, context);
+    return de_GetMonitoringSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

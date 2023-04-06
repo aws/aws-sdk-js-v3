@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { UpdateTagsForResourceMessage } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateTagsForResourceCommand,
-  serializeAws_queryUpdateTagsForResourceCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateTagsForResourceCommand, se_UpdateTagsForResourceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -168,14 +165,14 @@ export class UpdateTagsForResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateTagsForResourceCommand(input, context);
+    return se_UpdateTagsForResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTagsForResourceCommandOutput> {
-    return deserializeAws_queryUpdateTagsForResourceCommand(output, context);
+    return de_UpdateTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

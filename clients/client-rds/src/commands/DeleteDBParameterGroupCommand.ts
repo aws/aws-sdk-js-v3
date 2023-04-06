@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDBParameterGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBParameterGroupCommand,
-  serializeAws_queryDeleteDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBParameterGroupCommand, se_DeleteDBParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -70,11 +67,11 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * ```javascript
  * // The following example deletes a DB parameter group.
  * const input = {
- *   "DBParameterGroupName": "mydbparamgroup3"
+ *   "DBParameterGroupName": "mydbparametergroup"
  * };
  * const command = new DeleteDBParameterGroupCommand(input);
  * await client.send(command);
- * // example id: to-delete-a-db-parameter-group-1473888796509
+ * // example id: to-delete-a-db-parameter-group-1679963369020
  * ```
  *
  */
@@ -141,14 +138,14 @@ export class DeleteDBParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBParameterGroupCommand(input, context);
+    return se_DeleteDBParameterGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBParameterGroupCommand(output, context);
+    return de_DeleteDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

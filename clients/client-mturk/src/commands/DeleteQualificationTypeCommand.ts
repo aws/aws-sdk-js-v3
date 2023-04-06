@@ -15,10 +15,7 @@ import {
 
 import { DeleteQualificationTypeRequest, DeleteQualificationTypeResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1DeleteQualificationTypeCommand,
-  serializeAws_json1_1DeleteQualificationTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteQualificationTypeCommand, se_DeleteQualificationTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeleteQualificationTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteQualificationTypeCommand(input, context);
+    return se_DeleteQualificationTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1DeleteQualificationTypeCommand(output, context);
+    return de_DeleteQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

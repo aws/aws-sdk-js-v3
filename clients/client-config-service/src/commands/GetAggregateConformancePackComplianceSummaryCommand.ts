@@ -19,8 +19,8 @@ import {
   GetAggregateConformancePackComplianceSummaryResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommand,
-  serializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommand,
+  de_GetAggregateConformancePackComplianceSummaryCommand,
+  se_GetAggregateConformancePackComplianceSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -161,7 +161,7 @@ export class GetAggregateConformancePackComplianceSummaryCommand extends $Comman
     input: GetAggregateConformancePackComplianceSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommand(input, context);
+    return se_GetAggregateConformancePackComplianceSummaryCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class GetAggregateConformancePackComplianceSummaryCommand extends $Comman
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAggregateConformancePackComplianceSummaryCommandOutput> {
-    return deserializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommand(output, context);
+    return de_GetAggregateConformancePackComplianceSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

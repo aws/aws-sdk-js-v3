@@ -15,8 +15,8 @@ import {
 
 import { ResendOperationAuthorizationRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1ResendOperationAuthorizationCommand,
-  serializeAws_json1_1ResendOperationAuthorizationCommand,
+  de_ResendOperationAuthorizationCommand,
+  se_ResendOperationAuthorizationCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
@@ -126,7 +126,7 @@ export class ResendOperationAuthorizationCommand extends $Command<
    * @internal
    */
   private serialize(input: ResendOperationAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResendOperationAuthorizationCommand(input, context);
+    return se_ResendOperationAuthorizationCommand(input, context);
   }
 
   /**
@@ -136,7 +136,7 @@ export class ResendOperationAuthorizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResendOperationAuthorizationCommandOutput> {
-    return deserializeAws_json1_1ResendOperationAuthorizationCommand(output, context);
+    return de_ResendOperationAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

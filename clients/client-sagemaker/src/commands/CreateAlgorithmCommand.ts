@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAlgorithmInput, CreateAlgorithmOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAlgorithmCommand,
-  serializeAws_json1_1CreateAlgorithmCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAlgorithmCommand, se_CreateAlgorithmCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -318,14 +315,14 @@ export class CreateAlgorithmCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAlgorithmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAlgorithmCommand(input, context);
+    return se_CreateAlgorithmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAlgorithmCommandOutput> {
-    return deserializeAws_json1_1CreateAlgorithmCommand(output, context);
+    return de_CreateAlgorithmCommand(output, context);
   }
 
   // Start section: command_body_extra

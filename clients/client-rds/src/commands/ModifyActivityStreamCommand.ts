@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyActivityStreamRequest, ModifyActivityStreamResponse } from "../models/models_1";
-import {
-  deserializeAws_queryModifyActivityStreamCommand,
-  serializeAws_queryModifyActivityStreamCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyActivityStreamCommand, se_ModifyActivityStreamCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -135,14 +132,14 @@ export class ModifyActivityStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyActivityStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyActivityStreamCommand(input, context);
+    return se_ModifyActivityStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyActivityStreamCommandOutput> {
-    return deserializeAws_queryModifyActivityStreamCommand(output, context);
+    return de_ModifyActivityStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetContextKeysForPolicyResponse, GetContextKeysForPrincipalPolicyRequest } from "../models/models_0";
 import {
-  deserializeAws_queryGetContextKeysForPrincipalPolicyCommand,
-  serializeAws_queryGetContextKeysForPrincipalPolicyCommand,
+  de_GetContextKeysForPrincipalPolicyCommand,
+  se_GetContextKeysForPrincipalPolicyCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -149,7 +149,7 @@ export class GetContextKeysForPrincipalPolicyCommand extends $Command<
     input: GetContextKeysForPrincipalPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetContextKeysForPrincipalPolicyCommand(input, context);
+    return se_GetContextKeysForPrincipalPolicyCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class GetContextKeysForPrincipalPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContextKeysForPrincipalPolicyCommandOutput> {
-    return deserializeAws_queryGetContextKeysForPrincipalPolicyCommand(output, context);
+    return de_GetContextKeysForPrincipalPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

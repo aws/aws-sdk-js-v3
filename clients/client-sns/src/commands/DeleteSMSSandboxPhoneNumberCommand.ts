@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSMSSandboxPhoneNumberInput, DeleteSMSSandboxPhoneNumberResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSMSSandboxPhoneNumberCommand,
-  serializeAws_queryDeleteSMSSandboxPhoneNumberCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteSMSSandboxPhoneNumberCommand, se_DeleteSMSSandboxPhoneNumberCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -150,7 +147,7 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSMSSandboxPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSMSSandboxPhoneNumberCommand(input, context);
+    return se_DeleteSMSSandboxPhoneNumberCommand(input, context);
   }
 
   /**
@@ -160,7 +157,7 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> {
-    return deserializeAws_queryDeleteSMSSandboxPhoneNumberCommand(output, context);
+    return de_DeleteSMSSandboxPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

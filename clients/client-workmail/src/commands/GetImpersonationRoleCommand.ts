@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetImpersonationRoleRequest, GetImpersonationRoleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetImpersonationRoleCommand,
-  serializeAws_json1_1GetImpersonationRoleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetImpersonationRoleCommand, se_GetImpersonationRoleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -135,14 +132,14 @@ export class GetImpersonationRoleCommand extends $Command<
    * @internal
    */
   private serialize(input: GetImpersonationRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetImpersonationRoleCommand(input, context);
+    return se_GetImpersonationRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImpersonationRoleCommandOutput> {
-    return deserializeAws_json1_1GetImpersonationRoleCommand(output, context);
+    return de_GetImpersonationRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { ListCoverageStatisticsRequest, ListCoverageStatisticsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCoverageStatisticsCommand,
-  serializeAws_restJson1ListCoverageStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCoverageStatisticsCommand, se_ListCoverageStatisticsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class ListCoverageStatisticsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCoverageStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCoverageStatisticsCommand(input, context);
+    return se_ListCoverageStatisticsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoverageStatisticsCommandOutput> {
-    return deserializeAws_restJson1ListCoverageStatisticsCommand(output, context);
+    return de_ListCoverageStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

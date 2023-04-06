@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteWorkloadInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkloadCommand,
-  serializeAws_restJson1DeleteWorkloadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteWorkloadCommand, se_DeleteWorkloadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -139,14 +136,14 @@ export class DeleteWorkloadCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkloadCommand(input, context);
+    return se_DeleteWorkloadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkloadCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkloadCommand(output, context);
+    return de_DeleteWorkloadCommand(output, context);
   }
 
   // Start section: command_body_extra

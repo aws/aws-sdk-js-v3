@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteDimensionRequest, DeleteDimensionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDimensionCommand,
-  serializeAws_restJson1DeleteDimensionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDimensionCommand, se_DeleteDimensionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DeleteDimensionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDimensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDimensionCommand(input, context);
+    return se_DeleteDimensionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDimensionCommandOutput> {
-    return deserializeAws_restJson1DeleteDimensionCommand(output, context);
+    return de_DeleteDimensionCommand(output, context);
   }
 
   // Start section: command_body_extra

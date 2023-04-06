@@ -15,10 +15,7 @@ import {
 
 import { DeleteSolutionRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteSolutionCommand,
-  serializeAws_json1_1DeleteSolutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSolutionCommand, se_DeleteSolutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteSolutionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSolutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSolutionCommand(input, context);
+    return se_DeleteSolutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSolutionCommandOutput> {
-    return deserializeAws_json1_1DeleteSolutionCommand(output, context);
+    return de_DeleteSolutionCommand(output, context);
   }
 
   // Start section: command_body_extra

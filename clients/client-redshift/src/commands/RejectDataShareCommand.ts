@@ -15,10 +15,7 @@ import {
 
 import { DataShare } from "../models/models_0";
 import { RejectDataShareMessage } from "../models/models_1";
-import {
-  deserializeAws_queryRejectDataShareCommand,
-  serializeAws_queryRejectDataShareCommand,
-} from "../protocols/Aws_query";
+import { de_RejectDataShareCommand, se_RejectDataShareCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -124,14 +121,14 @@ export class RejectDataShareCommand extends $Command<
    * @internal
    */
   private serialize(input: RejectDataShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRejectDataShareCommand(input, context);
+    return se_RejectDataShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectDataShareCommandOutput> {
-    return deserializeAws_queryRejectDataShareCommand(output, context);
+    return de_RejectDataShareCommand(output, context);
   }
 
   // Start section: command_body_extra

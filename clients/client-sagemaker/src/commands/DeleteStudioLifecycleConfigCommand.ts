@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteStudioLifecycleConfigRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteStudioLifecycleConfigCommand,
-  serializeAws_json1_1DeleteStudioLifecycleConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteStudioLifecycleConfigCommand, se_DeleteStudioLifecycleConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -126,7 +123,7 @@ export class DeleteStudioLifecycleConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStudioLifecycleConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStudioLifecycleConfigCommand(input, context);
+    return se_DeleteStudioLifecycleConfigCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class DeleteStudioLifecycleConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteStudioLifecycleConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteStudioLifecycleConfigCommand(output, context);
+    return de_DeleteStudioLifecycleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

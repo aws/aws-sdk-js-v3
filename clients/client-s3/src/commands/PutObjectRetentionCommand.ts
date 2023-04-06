@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlPutObjectRetentionCommand,
-  serializeAws_restXmlPutObjectRetentionCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutObjectRetentionCommand, se_PutObjectRetentionCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -149,14 +146,14 @@ export class PutObjectRetentionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutObjectRetentionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutObjectRetentionCommand(input, context);
+    return se_PutObjectRetentionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectRetentionCommandOutput> {
-    return deserializeAws_restXmlPutObjectRetentionCommand(output, context);
+    return de_PutObjectRetentionCommand(output, context);
   }
 
   // Start section: command_body_extra

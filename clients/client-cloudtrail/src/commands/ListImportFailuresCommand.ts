@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { ListImportFailuresRequest, ListImportFailuresResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListImportFailuresCommand,
-  serializeAws_json1_1ListImportFailuresCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListImportFailuresCommand, se_ListImportFailuresCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListImportFailuresCommand extends $Command<
    * @internal
    */
   private serialize(input: ListImportFailuresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListImportFailuresCommand(input, context);
+    return se_ListImportFailuresCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportFailuresCommandOutput> {
-    return deserializeAws_json1_1ListImportFailuresCommand(output, context);
+    return de_ListImportFailuresCommand(output, context);
   }
 
   // Start section: command_body_extra

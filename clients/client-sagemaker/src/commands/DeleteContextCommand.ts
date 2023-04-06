@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteContextRequest, DeleteContextResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteContextCommand,
-  serializeAws_json1_1DeleteContextCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteContextCommand, se_DeleteContextCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -121,14 +118,14 @@ export class DeleteContextCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteContextCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteContextCommand(input, context);
+    return se_DeleteContextCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContextCommandOutput> {
-    return deserializeAws_json1_1DeleteContextCommand(output, context);
+    return de_DeleteContextCommand(output, context);
   }
 
   // Start section: command_body_extra

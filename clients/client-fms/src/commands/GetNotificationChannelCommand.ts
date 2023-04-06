@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { GetNotificationChannelRequest, GetNotificationChannelResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNotificationChannelCommand,
-  serializeAws_json1_1GetNotificationChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetNotificationChannelCommand, se_GetNotificationChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetNotificationChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: GetNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNotificationChannelCommand(input, context);
+    return se_GetNotificationChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNotificationChannelCommandOutput> {
-    return deserializeAws_json1_1GetNotificationChannelCommand(output, context);
+    return de_GetNotificationChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

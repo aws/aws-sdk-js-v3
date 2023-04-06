@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
 import { PutScheduledActionRequest, PutScheduledActionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutScheduledActionCommand,
-  serializeAws_json1_1PutScheduledActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutScheduledActionCommand, se_PutScheduledActionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -188,14 +185,14 @@ export class PutScheduledActionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutScheduledActionCommand(input, context);
+    return se_PutScheduledActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScheduledActionCommandOutput> {
-    return deserializeAws_json1_1PutScheduledActionCommand(output, context);
+    return de_PutScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

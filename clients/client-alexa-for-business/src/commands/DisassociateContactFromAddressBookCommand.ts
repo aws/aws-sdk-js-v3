@@ -19,8 +19,8 @@ import {
   DisassociateContactFromAddressBookResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateContactFromAddressBookCommand,
-  serializeAws_json1_1DisassociateContactFromAddressBookCommand,
+  de_DisassociateContactFromAddressBookCommand,
+  se_DisassociateContactFromAddressBookCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -129,7 +129,7 @@ export class DisassociateContactFromAddressBookCommand extends $Command<
     input: DisassociateContactFromAddressBookCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateContactFromAddressBookCommand(input, context);
+    return se_DisassociateContactFromAddressBookCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class DisassociateContactFromAddressBookCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateContactFromAddressBookCommandOutput> {
-    return deserializeAws_json1_1DisassociateContactFromAddressBookCommand(output, context);
+    return de_DisassociateContactFromAddressBookCommand(output, context);
   }
 
   // Start section: command_body_extra

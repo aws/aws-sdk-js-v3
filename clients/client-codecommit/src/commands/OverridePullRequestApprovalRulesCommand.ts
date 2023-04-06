@@ -16,8 +16,8 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { OverridePullRequestApprovalRulesInput } from "../models/models_1";
 import {
-  deserializeAws_json1_1OverridePullRequestApprovalRulesCommand,
-  serializeAws_json1_1OverridePullRequestApprovalRulesCommand,
+  de_OverridePullRequestApprovalRulesCommand,
+  se_OverridePullRequestApprovalRulesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -170,7 +170,7 @@ export class OverridePullRequestApprovalRulesCommand extends $Command<
     input: OverridePullRequestApprovalRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1OverridePullRequestApprovalRulesCommand(input, context);
+    return se_OverridePullRequestApprovalRulesCommand(input, context);
   }
 
   /**
@@ -180,7 +180,7 @@ export class OverridePullRequestApprovalRulesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<OverridePullRequestApprovalRulesCommandOutput> {
-    return deserializeAws_json1_1OverridePullRequestApprovalRulesCommand(output, context);
+    return de_OverridePullRequestApprovalRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import { GetRecommendationPreferencesRequest, GetRecommendationPreferencesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetRecommendationPreferencesCommand,
-  serializeAws_json1_0GetRecommendationPreferencesCommand,
+  de_GetRecommendationPreferencesCommand,
+  se_GetRecommendationPreferencesCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -160,7 +160,7 @@ export class GetRecommendationPreferencesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRecommendationPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRecommendationPreferencesCommand(input, context);
+    return se_GetRecommendationPreferencesCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class GetRecommendationPreferencesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecommendationPreferencesCommandOutput> {
-    return deserializeAws_json1_0GetRecommendationPreferencesCommand(output, context);
+    return de_GetRecommendationPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

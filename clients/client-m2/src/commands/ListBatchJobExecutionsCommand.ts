@@ -15,10 +15,7 @@ import {
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { ListBatchJobExecutionsRequest, ListBatchJobExecutionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBatchJobExecutionsCommand,
-  serializeAws_restJson1ListBatchJobExecutionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBatchJobExecutionsCommand, se_ListBatchJobExecutionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class ListBatchJobExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBatchJobExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBatchJobExecutionsCommand(input, context);
+    return se_ListBatchJobExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchJobExecutionsCommandOutput> {
-    return deserializeAws_restJson1ListBatchJobExecutionsCommand(output, context);
+    return de_ListBatchJobExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

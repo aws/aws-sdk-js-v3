@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetMailboxDetailsRequest, GetMailboxDetailsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMailboxDetailsCommand,
-  serializeAws_json1_1GetMailboxDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetMailboxDetailsCommand, se_GetMailboxDetailsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -133,14 +130,14 @@ export class GetMailboxDetailsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMailboxDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMailboxDetailsCommand(input, context);
+    return se_GetMailboxDetailsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMailboxDetailsCommandOutput> {
-    return deserializeAws_json1_1GetMailboxDetailsCommand(output, context);
+    return de_GetMailboxDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

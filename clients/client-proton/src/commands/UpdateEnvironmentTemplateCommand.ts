@@ -19,10 +19,7 @@ import {
   UpdateEnvironmentTemplateOutput,
   UpdateEnvironmentTemplateOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateEnvironmentTemplateCommand,
-  serializeAws_json1_0UpdateEnvironmentTemplateCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateEnvironmentTemplateCommand, se_UpdateEnvironmentTemplateCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -145,7 +142,7 @@ export class UpdateEnvironmentTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEnvironmentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateEnvironmentTemplateCommand(input, context);
+    return se_UpdateEnvironmentTemplateCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class UpdateEnvironmentTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEnvironmentTemplateCommandOutput> {
-    return deserializeAws_json1_0UpdateEnvironmentTemplateCommand(output, context);
+    return de_UpdateEnvironmentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

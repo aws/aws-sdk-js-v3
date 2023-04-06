@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateGroupRequest, UpdateGroupResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGroupCommand,
-  serializeAws_restJson1UpdateGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -130,14 +127,14 @@ export class UpdateGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGroupCommand(input, context);
+    return se_UpdateGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateGroupCommand(output, context);
+    return de_UpdateGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

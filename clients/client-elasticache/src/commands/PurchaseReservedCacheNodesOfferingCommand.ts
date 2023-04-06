@@ -19,8 +19,8 @@ import {
   PurchaseReservedCacheNodesOfferingResult,
 } from "../models/models_0";
 import {
-  deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand,
-  serializeAws_queryPurchaseReservedCacheNodesOfferingCommand,
+  de_PurchaseReservedCacheNodesOfferingCommand,
+  se_PurchaseReservedCacheNodesOfferingCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -168,7 +168,7 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
     input: PurchaseReservedCacheNodesOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryPurchaseReservedCacheNodesOfferingCommand(input, context);
+    return se_PurchaseReservedCacheNodesOfferingCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> {
-    return deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand(output, context);
+    return de_PurchaseReservedCacheNodesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeUsageLimitsMessage, UsageLimitList } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeUsageLimitsCommand,
-  serializeAws_queryDescribeUsageLimitsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeUsageLimitsCommand, se_DescribeUsageLimitsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -156,14 +153,14 @@ export class DescribeUsageLimitsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUsageLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeUsageLimitsCommand(input, context);
+    return se_DescribeUsageLimitsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUsageLimitsCommandOutput> {
-    return deserializeAws_queryDescribeUsageLimitsCommand(output, context);
+    return de_DescribeUsageLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

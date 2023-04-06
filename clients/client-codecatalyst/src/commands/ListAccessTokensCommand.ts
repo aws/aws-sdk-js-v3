@@ -15,10 +15,7 @@ import {
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { ListAccessTokensRequest, ListAccessTokensResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAccessTokensCommand,
-  serializeAws_restJson1ListAccessTokensCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAccessTokensCommand, se_ListAccessTokensCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListAccessTokensCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccessTokensCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccessTokensCommand(input, context);
+    return se_ListAccessTokensCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessTokensCommandOutput> {
-    return deserializeAws_restJson1ListAccessTokensCommand(output, context);
+    return de_ListAccessTokensCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   CreateCustomLineItemInputFilterSensitiveLog,
   CreateCustomLineItemOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCustomLineItemCommand,
-  serializeAws_restJson1CreateCustomLineItemCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCustomLineItemCommand, se_CreateCustomLineItemCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class CreateCustomLineItemCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCustomLineItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCustomLineItemCommand(input, context);
+    return se_CreateCustomLineItemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomLineItemCommandOutput> {
-    return deserializeAws_restJson1CreateCustomLineItemCommand(output, context);
+    return de_CreateCustomLineItemCommand(output, context);
   }
 
   // Start section: command_body_extra

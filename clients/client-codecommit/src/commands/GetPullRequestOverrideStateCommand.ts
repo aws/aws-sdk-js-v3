@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetPullRequestOverrideStateInput, GetPullRequestOverrideStateOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPullRequestOverrideStateCommand,
-  serializeAws_json1_1GetPullRequestOverrideStateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetPullRequestOverrideStateCommand, se_GetPullRequestOverrideStateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,7 +149,7 @@ export class GetPullRequestOverrideStateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPullRequestOverrideStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPullRequestOverrideStateCommand(input, context);
+    return se_GetPullRequestOverrideStateCommand(input, context);
   }
 
   /**
@@ -162,7 +159,7 @@ export class GetPullRequestOverrideStateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPullRequestOverrideStateCommandOutput> {
-    return deserializeAws_json1_1GetPullRequestOverrideStateCommand(output, context);
+    return de_GetPullRequestOverrideStateCommand(output, context);
   }
 
   // Start section: command_body_extra

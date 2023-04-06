@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { ListAssessmentReportsRequest, ListAssessmentReportsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssessmentReportsCommand,
-  serializeAws_restJson1ListAssessmentReportsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAssessmentReportsCommand, se_ListAssessmentReportsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListAssessmentReportsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAssessmentReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssessmentReportsCommand(input, context);
+    return se_ListAssessmentReportsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentReportsCommandOutput> {
-    return deserializeAws_restJson1ListAssessmentReportsCommand(output, context);
+    return de_ListAssessmentReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

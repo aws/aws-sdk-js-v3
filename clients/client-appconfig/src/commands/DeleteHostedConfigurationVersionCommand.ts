@@ -16,8 +16,8 @@ import {
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { DeleteHostedConfigurationVersionRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteHostedConfigurationVersionCommand,
-  serializeAws_restJson1DeleteHostedConfigurationVersionCommand,
+  de_DeleteHostedConfigurationVersionCommand,
+  se_DeleteHostedConfigurationVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -148,7 +148,7 @@ export class DeleteHostedConfigurationVersionCommand extends $Command<
     input: DeleteHostedConfigurationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteHostedConfigurationVersionCommand(input, context);
+    return se_DeleteHostedConfigurationVersionCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DeleteHostedConfigurationVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteHostedConfigurationVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteHostedConfigurationVersionCommand(output, context);
+    return de_DeleteHostedConfigurationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

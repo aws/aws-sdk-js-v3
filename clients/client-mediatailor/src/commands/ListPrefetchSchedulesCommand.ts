@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { ListPrefetchSchedulesRequest, ListPrefetchSchedulesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPrefetchSchedulesCommand,
-  serializeAws_restJson1ListPrefetchSchedulesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPrefetchSchedulesCommand, se_ListPrefetchSchedulesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class ListPrefetchSchedulesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPrefetchSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPrefetchSchedulesCommand(input, context);
+    return se_ListPrefetchSchedulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPrefetchSchedulesCommandOutput> {
-    return deserializeAws_restJson1ListPrefetchSchedulesCommand(output, context);
+    return de_ListPrefetchSchedulesCommand(output, context);
   }
 
   // Start section: command_body_extra

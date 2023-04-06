@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeStorediSCSIVolumesInput, DescribeStorediSCSIVolumesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeStorediSCSIVolumesCommand,
-  serializeAws_json1_1DescribeStorediSCSIVolumesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeStorediSCSIVolumesCommand, se_DescribeStorediSCSIVolumesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -166,7 +163,7 @@ export class DescribeStorediSCSIVolumesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeStorediSCSIVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStorediSCSIVolumesCommand(input, context);
+    return se_DescribeStorediSCSIVolumesCommand(input, context);
   }
 
   /**
@@ -176,7 +173,7 @@ export class DescribeStorediSCSIVolumesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStorediSCSIVolumesCommandOutput> {
-    return deserializeAws_json1_1DescribeStorediSCSIVolumesCommand(output, context);
+    return de_DescribeStorediSCSIVolumesCommand(output, context);
   }
 
   // Start section: command_body_extra

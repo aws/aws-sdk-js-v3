@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { CreateBotLocaleRequest, CreateBotLocaleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBotLocaleCommand,
-  serializeAws_restJson1CreateBotLocaleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBotLocaleCommand, se_CreateBotLocaleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class CreateBotLocaleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBotLocaleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBotLocaleCommand(input, context);
+    return se_CreateBotLocaleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBotLocaleCommandOutput> {
-    return deserializeAws_restJson1CreateBotLocaleCommand(output, context);
+    return de_CreateBotLocaleCommand(output, context);
   }
 
   // Start section: command_body_extra

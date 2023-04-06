@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { StartBackupJobInput, StartBackupJobInputFilterSensitiveLog, StartBackupJobOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartBackupJobCommand,
-  serializeAws_restJson1StartBackupJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartBackupJobCommand, se_StartBackupJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class StartBackupJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartBackupJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartBackupJobCommand(input, context);
+    return se_StartBackupJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartBackupJobCommandOutput> {
-    return deserializeAws_restJson1StartBackupJobCommand(output, context);
+    return de_StartBackupJobCommand(output, context);
   }
 
   // Start section: command_body_extra

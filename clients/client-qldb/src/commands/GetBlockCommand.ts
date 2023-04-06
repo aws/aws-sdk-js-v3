@@ -19,10 +19,7 @@ import {
   GetBlockResponse,
   GetBlockResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBlockCommand,
-  serializeAws_restJson1GetBlockCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBlockCommand, se_GetBlockCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
@@ -143,14 +140,14 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
    * @internal
    */
   private serialize(input: GetBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBlockCommand(input, context);
+    return se_GetBlockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlockCommandOutput> {
-    return deserializeAws_restJson1GetBlockCommand(output, context);
+    return de_GetBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

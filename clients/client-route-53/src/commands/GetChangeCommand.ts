@@ -15,7 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetChangeRequest, GetChangeResponse } from "../models/models_0";
-import { deserializeAws_restXmlGetChangeCommand, serializeAws_restXmlGetChangeCommand } from "../protocols/Aws_restXml";
+import { de_GetChangeCommand, se_GetChangeCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -137,14 +137,14 @@ export class GetChangeCommand extends $Command<
    * @internal
    */
   private serialize(input: GetChangeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetChangeCommand(input, context);
+    return se_GetChangeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeCommandOutput> {
-    return deserializeAws_restXmlGetChangeCommand(output, context);
+    return de_GetChangeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { ListUserAccessLoggingSettingsRequest, ListUserAccessLoggingSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListUserAccessLoggingSettingsCommand,
-  serializeAws_restJson1ListUserAccessLoggingSettingsCommand,
+  de_ListUserAccessLoggingSettingsCommand,
+  se_ListUserAccessLoggingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
@@ -135,7 +135,7 @@ export class ListUserAccessLoggingSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUserAccessLoggingSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUserAccessLoggingSettingsCommand(input, context);
+    return se_ListUserAccessLoggingSettingsCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class ListUserAccessLoggingSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListUserAccessLoggingSettingsCommandOutput> {
-    return deserializeAws_restJson1ListUserAccessLoggingSettingsCommand(output, context);
+    return de_ListUserAccessLoggingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

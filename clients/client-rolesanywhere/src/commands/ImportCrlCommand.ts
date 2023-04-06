@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CrlDetailResponse, ImportCrlRequest, ImportCrlRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportCrlCommand,
-  serializeAws_restJson1ImportCrlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ImportCrlCommand, se_ImportCrlCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -137,14 +134,14 @@ export class ImportCrlCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportCrlCommand(input, context);
+    return se_ImportCrlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportCrlCommandOutput> {
-    return deserializeAws_restJson1ImportCrlCommand(output, context);
+    return de_ImportCrlCommand(output, context);
   }
 
   // Start section: command_body_extra

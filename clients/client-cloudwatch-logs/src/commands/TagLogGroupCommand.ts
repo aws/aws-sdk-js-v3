@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { TagLogGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1TagLogGroupCommand,
-  serializeAws_json1_1TagLogGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TagLogGroupCommand, se_TagLogGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class TagLogGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: TagLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagLogGroupCommand(input, context);
+    return se_TagLogGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagLogGroupCommandOutput> {
-    return deserializeAws_json1_1TagLogGroupCommand(output, context);
+    return de_TagLogGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

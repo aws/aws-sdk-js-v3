@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
 import { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteNotificationRuleCommand,
-  serializeAws_restJson1DeleteNotificationRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteNotificationRuleCommand, se_DeleteNotificationRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteNotificationRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNotificationRuleCommand(input, context);
+    return se_DeleteNotificationRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteNotificationRuleCommand(output, context);
+    return de_DeleteNotificationRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

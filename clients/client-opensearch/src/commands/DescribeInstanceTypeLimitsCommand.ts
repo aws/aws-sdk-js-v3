@@ -15,10 +15,7 @@ import {
 
 import { DescribeInstanceTypeLimitsRequest, DescribeInstanceTypeLimitsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1DescribeInstanceTypeLimitsCommand,
-  serializeAws_restJson1DescribeInstanceTypeLimitsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeInstanceTypeLimitsCommand, se_DescribeInstanceTypeLimitsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class DescribeInstanceTypeLimitsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInstanceTypeLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInstanceTypeLimitsCommand(input, context);
+    return se_DescribeInstanceTypeLimitsCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class DescribeInstanceTypeLimitsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceTypeLimitsCommandOutput> {
-    return deserializeAws_restJson1DescribeInstanceTypeLimitsCommand(output, context);
+    return de_DescribeInstanceTypeLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { UsageLimit } from "../models/models_0";
 import { ModifyUsageLimitMessage } from "../models/models_1";
-import {
-  deserializeAws_queryModifyUsageLimitCommand,
-  serializeAws_queryModifyUsageLimitCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyUsageLimitCommand, se_ModifyUsageLimitCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -133,14 +130,14 @@ export class ModifyUsageLimitCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyUsageLimitCommand(input, context);
+    return se_ModifyUsageLimitCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyUsageLimitCommandOutput> {
-    return deserializeAws_queryModifyUsageLimitCommand(output, context);
+    return de_ModifyUsageLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

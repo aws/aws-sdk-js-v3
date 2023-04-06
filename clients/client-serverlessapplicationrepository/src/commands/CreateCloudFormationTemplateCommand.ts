@@ -15,8 +15,8 @@ import {
 
 import { CreateCloudFormationTemplateRequest, CreateCloudFormationTemplateResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateCloudFormationTemplateCommand,
-  serializeAws_restJson1CreateCloudFormationTemplateCommand,
+  de_CreateCloudFormationTemplateCommand,
+  se_CreateCloudFormationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
@@ -142,7 +142,7 @@ export class CreateCloudFormationTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCloudFormationTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCloudFormationTemplateCommand(input, context);
+    return se_CreateCloudFormationTemplateCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class CreateCloudFormationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCloudFormationTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateCloudFormationTemplateCommand(output, context);
+    return de_CreateCloudFormationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

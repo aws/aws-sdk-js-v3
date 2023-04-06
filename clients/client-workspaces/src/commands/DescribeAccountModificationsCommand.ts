@@ -15,8 +15,8 @@ import {
 
 import { DescribeAccountModificationsRequest, DescribeAccountModificationsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAccountModificationsCommand,
-  serializeAws_json1_1DescribeAccountModificationsCommand,
+  de_DescribeAccountModificationsCommand,
+  se_DescribeAccountModificationsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -126,7 +126,7 @@ export class DescribeAccountModificationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAccountModificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAccountModificationsCommand(input, context);
+    return se_DescribeAccountModificationsCommand(input, context);
   }
 
   /**
@@ -136,7 +136,7 @@ export class DescribeAccountModificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountModificationsCommandOutput> {
-    return deserializeAws_json1_1DescribeAccountModificationsCommand(output, context);
+    return de_DescribeAccountModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

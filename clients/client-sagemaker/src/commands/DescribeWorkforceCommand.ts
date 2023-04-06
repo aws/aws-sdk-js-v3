@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeWorkforceRequest, DescribeWorkforceResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeWorkforceCommand,
-  serializeAws_json1_1DescribeWorkforceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeWorkforceCommand, se_DescribeWorkforceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -125,14 +122,14 @@ export class DescribeWorkforceCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWorkforceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkforceCommand(input, context);
+    return se_DescribeWorkforceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkforceCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkforceCommand(output, context);
+    return de_DescribeWorkforceCommand(output, context);
   }
 
   // Start section: command_body_extra

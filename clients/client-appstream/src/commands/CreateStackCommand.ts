@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { CreateStackRequest, CreateStackResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStackCommand,
-  serializeAws_json1_1CreateStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateStackCommand, se_CreateStackCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -177,14 +174,14 @@ export class CreateStackCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStackCommand(input, context);
+    return se_CreateStackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackCommandOutput> {
-    return deserializeAws_json1_1CreateStackCommand(output, context);
+    return de_CreateStackCommand(output, context);
   }
 
   // Start section: command_body_extra

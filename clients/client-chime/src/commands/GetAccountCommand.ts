@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetAccountRequest, GetAccountResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAccountCommand,
-  serializeAws_restJson1GetAccountCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAccountCommand, se_GetAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAccountCommand(input, context);
+    return se_GetAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountCommandOutput> {
-    return deserializeAws_restJson1GetAccountCommand(output, context);
+    return de_GetAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListQueuesRequest, ListQueuesResult } from "../models/models_0";
-import { deserializeAws_queryListQueuesCommand, serializeAws_queryListQueuesCommand } from "../protocols/Aws_query";
+import { de_ListQueuesCommand, se_ListQueuesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -130,14 +130,14 @@ export class ListQueuesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListQueuesCommand(input, context);
+    return se_ListQueuesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueuesCommandOutput> {
-    return deserializeAws_queryListQueuesCommand(output, context);
+    return de_ListQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

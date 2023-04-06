@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { CreateLicenseConfigurationRequest, CreateLicenseConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLicenseConfigurationCommand,
-  serializeAws_json1_1CreateLicenseConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLicenseConfigurationCommand, se_CreateLicenseConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -172,7 +169,7 @@ export class CreateLicenseConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLicenseConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLicenseConfigurationCommand(input, context);
+    return se_CreateLicenseConfigurationCommand(input, context);
   }
 
   /**
@@ -182,7 +179,7 @@ export class CreateLicenseConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1CreateLicenseConfigurationCommand(output, context);
+    return de_CreateLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

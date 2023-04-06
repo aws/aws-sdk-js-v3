@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { GetViolationDetailsRequest, GetViolationDetailsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetViolationDetailsCommand,
-  serializeAws_json1_1GetViolationDetailsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetViolationDetailsCommand, se_GetViolationDetailsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetViolationDetailsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetViolationDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetViolationDetailsCommand(input, context);
+    return se_GetViolationDetailsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetViolationDetailsCommandOutput> {
-    return deserializeAws_json1_1GetViolationDetailsCommand(output, context);
+    return de_GetViolationDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

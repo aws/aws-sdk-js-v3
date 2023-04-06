@@ -15,10 +15,7 @@ import {
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
 import { CreateDatasetRequest, CreateDatasetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDatasetCommand,
-  serializeAws_restJson1CreateDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDatasetCommand, se_CreateDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class CreateDatasetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatasetCommand(input, context);
+    return se_CreateDatasetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetCommandOutput> {
-    return deserializeAws_restJson1CreateDatasetCommand(output, context);
+    return de_CreateDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

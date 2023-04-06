@@ -16,10 +16,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutBucketVersioningRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketVersioningCommand,
-  serializeAws_restXmlPutBucketVersioningCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutBucketVersioningCommand, se_PutBucketVersioningCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -195,14 +192,14 @@ export class PutBucketVersioningCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBucketVersioningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketVersioningCommand(input, context);
+    return se_PutBucketVersioningCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketVersioningCommandOutput> {
-    return deserializeAws_restXmlPutBucketVersioningCommand(output, context);
+    return de_PutBucketVersioningCommand(output, context);
   }
 
   // Start section: command_body_extra

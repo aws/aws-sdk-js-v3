@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRulesRequest, ListRulesResponse } from "../models/models_0";
-import { deserializeAws_json1_1ListRulesCommand, serializeAws_json1_1ListRulesCommand } from "../protocols/Aws_json1_1";
+import { de_ListRulesCommand, se_ListRulesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -147,14 +147,14 @@ export class ListRulesCommand extends $Command<ListRulesCommandInput, ListRulesC
    * @internal
    */
   private serialize(input: ListRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRulesCommand(input, context);
+    return se_ListRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRulesCommandOutput> {
-    return deserializeAws_json1_1ListRulesCommand(output, context);
+    return de_ListRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

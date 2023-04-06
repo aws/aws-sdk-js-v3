@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSpeakersRequest, ListSpeakersResponse, ListSpeakersResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListSpeakersCommand,
-  serializeAws_json1_0ListSpeakersCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListSpeakersCommand, se_ListSpeakersCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -141,14 +138,14 @@ export class ListSpeakersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSpeakersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListSpeakersCommand(input, context);
+    return se_ListSpeakersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSpeakersCommandOutput> {
-    return deserializeAws_json1_0ListSpeakersCommand(output, context);
+    return de_ListSpeakersCommand(output, context);
   }
 
   // Start section: command_body_extra

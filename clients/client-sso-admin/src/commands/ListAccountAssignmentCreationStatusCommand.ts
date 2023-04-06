@@ -18,8 +18,8 @@ import {
   ListAccountAssignmentCreationStatusResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListAccountAssignmentCreationStatusCommand,
-  serializeAws_json1_1ListAccountAssignmentCreationStatusCommand,
+  de_ListAccountAssignmentCreationStatusCommand,
+  se_ListAccountAssignmentCreationStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -151,7 +151,7 @@ export class ListAccountAssignmentCreationStatusCommand extends $Command<
     input: ListAccountAssignmentCreationStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccountAssignmentCreationStatusCommand(input, context);
+    return se_ListAccountAssignmentCreationStatusCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class ListAccountAssignmentCreationStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAccountAssignmentCreationStatusCommandOutput> {
-    return deserializeAws_json1_1ListAccountAssignmentCreationStatusCommand(output, context);
+    return de_ListAccountAssignmentCreationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

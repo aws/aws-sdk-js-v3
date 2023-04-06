@@ -19,8 +19,8 @@ import {
   DeleteVPCAssociationAuthorizationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand,
-  serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand,
+  de_DeleteVPCAssociationAuthorizationCommand,
+  se_DeleteVPCAssociationAuthorizationCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
@@ -163,7 +163,7 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
     input: DeleteVPCAssociationAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(input, context);
+    return se_DeleteVPCAssociationAuthorizationCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVPCAssociationAuthorizationCommandOutput> {
-    return deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(output, context);
+    return de_DeleteVPCAssociationAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

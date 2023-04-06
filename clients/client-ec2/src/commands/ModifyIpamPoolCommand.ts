@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyIpamPoolRequest, ModifyIpamPoolResult } from "../models/models_6";
-import { deserializeAws_ec2ModifyIpamPoolCommand, serializeAws_ec2ModifyIpamPoolCommand } from "../protocols/Aws_ec2";
+import { de_ModifyIpamPoolCommand, se_ModifyIpamPoolCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -138,14 +138,14 @@ export class ModifyIpamPoolCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyIpamPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyIpamPoolCommand(input, context);
+    return se_ModifyIpamPoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyIpamPoolCommandOutput> {
-    return deserializeAws_ec2ModifyIpamPoolCommand(output, context);
+    return de_ModifyIpamPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DeleteClientCertificateRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteClientCertificateCommand,
-  serializeAws_restJson1DeleteClientCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteClientCertificateCommand, se_DeleteClientCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteClientCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteClientCertificateCommand(input, context);
+    return se_DeleteClientCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClientCertificateCommandOutput> {
-    return deserializeAws_restJson1DeleteClientCertificateCommand(output, context);
+    return de_DeleteClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

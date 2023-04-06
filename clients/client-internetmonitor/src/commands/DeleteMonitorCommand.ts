@@ -15,10 +15,7 @@ import {
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
 import { DeleteMonitorInput, DeleteMonitorOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMonitorCommand,
-  serializeAws_restJson1DeleteMonitorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMonitorCommand, se_DeleteMonitorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteMonitorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMonitorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMonitorCommand(input, context);
+    return se_DeleteMonitorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMonitorCommandOutput> {
-    return deserializeAws_restJson1DeleteMonitorCommand(output, context);
+    return de_DeleteMonitorCommand(output, context);
   }
 
   // Start section: command_body_extra

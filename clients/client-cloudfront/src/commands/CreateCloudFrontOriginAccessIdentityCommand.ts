@@ -19,8 +19,8 @@ import {
   CreateCloudFrontOriginAccessIdentityResult,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand,
-  serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand,
+  de_CreateCloudFrontOriginAccessIdentityCommand,
+  se_CreateCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -157,7 +157,7 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
     input: CreateCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(input, context);
+    return se_CreateCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(output, context);
+    return de_CreateCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

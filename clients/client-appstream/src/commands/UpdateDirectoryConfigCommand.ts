@@ -20,10 +20,7 @@ import {
   UpdateDirectoryConfigResult,
   UpdateDirectoryConfigResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDirectoryConfigCommand,
-  serializeAws_json1_1UpdateDirectoryConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDirectoryConfigCommand, se_UpdateDirectoryConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class UpdateDirectoryConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDirectoryConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDirectoryConfigCommand(input, context);
+    return se_UpdateDirectoryConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDirectoryConfigCommandOutput> {
-    return deserializeAws_json1_1UpdateDirectoryConfigCommand(output, context);
+    return de_UpdateDirectoryConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

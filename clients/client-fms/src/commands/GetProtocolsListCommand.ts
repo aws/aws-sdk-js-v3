@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { GetProtocolsListRequest, GetProtocolsListResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetProtocolsListCommand,
-  serializeAws_json1_1GetProtocolsListCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetProtocolsListCommand, se_GetProtocolsListCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetProtocolsListCommand extends $Command<
    * @internal
    */
   private serialize(input: GetProtocolsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetProtocolsListCommand(input, context);
+    return se_GetProtocolsListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProtocolsListCommandOutput> {
-    return deserializeAws_json1_1GetProtocolsListCommand(output, context);
+    return de_GetProtocolsListCommand(output, context);
   }
 
   // Start section: command_body_extra

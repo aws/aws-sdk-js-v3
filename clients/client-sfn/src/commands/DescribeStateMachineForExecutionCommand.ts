@@ -19,8 +19,8 @@ import {
   DescribeStateMachineForExecutionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeStateMachineForExecutionCommand,
-  serializeAws_json1_0DescribeStateMachineForExecutionCommand,
+  de_DescribeStateMachineForExecutionCommand,
+  se_DescribeStateMachineForExecutionCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
@@ -139,7 +139,7 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
     input: DescribeStateMachineForExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeStateMachineForExecutionCommand(input, context);
+    return se_DescribeStateMachineForExecutionCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStateMachineForExecutionCommandOutput> {
-    return deserializeAws_json1_0DescribeStateMachineForExecutionCommand(output, context);
+    return de_DescribeStateMachineForExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

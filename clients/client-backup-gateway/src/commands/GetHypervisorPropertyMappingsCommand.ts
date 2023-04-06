@@ -16,8 +16,8 @@ import {
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { GetHypervisorPropertyMappingsInput, GetHypervisorPropertyMappingsOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetHypervisorPropertyMappingsCommand,
-  serializeAws_json1_0GetHypervisorPropertyMappingsCommand,
+  de_GetHypervisorPropertyMappingsCommand,
+  se_GetHypervisorPropertyMappingsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -137,7 +137,7 @@ export class GetHypervisorPropertyMappingsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetHypervisorPropertyMappingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetHypervisorPropertyMappingsCommand(input, context);
+    return se_GetHypervisorPropertyMappingsCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class GetHypervisorPropertyMappingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHypervisorPropertyMappingsCommandOutput> {
-    return deserializeAws_json1_0GetHypervisorPropertyMappingsCommand(output, context);
+    return de_GetHypervisorPropertyMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

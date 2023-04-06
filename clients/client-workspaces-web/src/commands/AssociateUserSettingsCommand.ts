@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateUserSettingsRequest, AssociateUserSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateUserSettingsCommand,
-  serializeAws_restJson1AssociateUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateUserSettingsCommand, se_AssociateUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -139,14 +136,14 @@ export class AssociateUserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateUserSettingsCommand(input, context);
+    return se_AssociateUserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateUserSettingsCommandOutput> {
-    return deserializeAws_restJson1AssociateUserSettingsCommand(output, context);
+    return de_AssociateUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

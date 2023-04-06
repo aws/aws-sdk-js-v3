@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { DescribeReplayRequest, DescribeReplayResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReplayCommand,
-  serializeAws_json1_1DescribeReplayCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeReplayCommand, se_DescribeReplayCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeReplayCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeReplayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplayCommand(input, context);
+    return se_DescribeReplayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReplayCommandOutput> {
-    return deserializeAws_json1_1DescribeReplayCommand(output, context);
+    return de_DescribeReplayCommand(output, context);
   }
 
   // Start section: command_body_extra

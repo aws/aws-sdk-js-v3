@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { ListKeyGroupsRequest, ListKeyGroupsResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlListKeyGroupsCommand,
-  serializeAws_restXmlListKeyGroupsCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListKeyGroupsCommand, se_ListKeyGroupsCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class ListKeyGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListKeyGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListKeyGroupsCommand(input, context);
+    return se_ListKeyGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKeyGroupsCommandOutput> {
-    return deserializeAws_restXmlListKeyGroupsCommand(output, context);
+    return de_ListKeyGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

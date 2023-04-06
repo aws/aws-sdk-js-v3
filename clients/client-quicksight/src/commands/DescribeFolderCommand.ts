@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeFolderRequest, DescribeFolderResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeFolderCommand,
-  serializeAws_restJson1DescribeFolderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeFolderCommand, se_DescribeFolderCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -145,14 +142,14 @@ export class DescribeFolderCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFolderCommand(input, context);
+    return se_DescribeFolderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFolderCommandOutput> {
-    return deserializeAws_restJson1DescribeFolderCommand(output, context);
+    return de_DescribeFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

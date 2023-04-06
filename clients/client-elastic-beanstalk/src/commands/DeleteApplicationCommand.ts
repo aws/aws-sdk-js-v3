@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DeleteApplicationMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteApplicationCommand,
-  serializeAws_queryDeleteApplicationCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteApplicationCommand, se_DeleteApplicationCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteApplicationCommand(input, context);
+    return se_DeleteApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationCommandOutput> {
-    return deserializeAws_queryDeleteApplicationCommand(output, context);
+    return de_DeleteApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

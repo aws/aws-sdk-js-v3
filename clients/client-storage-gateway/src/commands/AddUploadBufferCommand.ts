@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AddUploadBufferInput, AddUploadBufferOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddUploadBufferCommand,
-  serializeAws_json1_1AddUploadBufferCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AddUploadBufferCommand, se_AddUploadBufferCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -157,14 +154,14 @@ export class AddUploadBufferCommand extends $Command<
    * @internal
    */
   private serialize(input: AddUploadBufferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddUploadBufferCommand(input, context);
+    return se_AddUploadBufferCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddUploadBufferCommandOutput> {
-    return deserializeAws_json1_1AddUploadBufferCommand(output, context);
+    return de_AddUploadBufferCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
 import { GetLifecyclePoliciesRequest, GetLifecyclePoliciesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLifecyclePoliciesCommand,
-  serializeAws_restJson1GetLifecyclePoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLifecyclePoliciesCommand, se_GetLifecyclePoliciesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class GetLifecyclePoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLifecyclePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLifecyclePoliciesCommand(input, context);
+    return se_GetLifecyclePoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLifecyclePoliciesCommandOutput> {
-    return deserializeAws_restJson1GetLifecyclePoliciesCommand(output, context);
+    return de_GetLifecyclePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

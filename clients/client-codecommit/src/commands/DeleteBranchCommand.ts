@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { DeleteBranchInput, DeleteBranchOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBranchCommand,
-  serializeAws_json1_1DeleteBranchCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteBranchCommand, se_DeleteBranchCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class DeleteBranchCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBranchCommand(input, context);
+    return se_DeleteBranchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBranchCommandOutput> {
-    return deserializeAws_json1_1DeleteBranchCommand(output, context);
+    return de_DeleteBranchCommand(output, context);
   }
 
   // Start section: command_body_extra

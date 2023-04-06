@@ -16,8 +16,8 @@ import {
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { UpdateCostAllocationTagsStatusRequest, UpdateCostAllocationTagsStatusResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateCostAllocationTagsStatusCommand,
-  serializeAws_json1_1UpdateCostAllocationTagsStatusCommand,
+  de_UpdateCostAllocationTagsStatusCommand,
+  se_UpdateCostAllocationTagsStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -136,7 +136,7 @@ export class UpdateCostAllocationTagsStatusCommand extends $Command<
     input: UpdateCostAllocationTagsStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCostAllocationTagsStatusCommand(input, context);
+    return se_UpdateCostAllocationTagsStatusCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class UpdateCostAllocationTagsStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCostAllocationTagsStatusCommandOutput> {
-    return deserializeAws_json1_1UpdateCostAllocationTagsStatusCommand(output, context);
+    return de_UpdateCostAllocationTagsStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

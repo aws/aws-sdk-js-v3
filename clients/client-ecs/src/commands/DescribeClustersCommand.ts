@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { DescribeClustersRequest, DescribeClustersResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeClustersCommand,
-  serializeAws_json1_1DescribeClustersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeClustersCommand, se_DescribeClustersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class DescribeClustersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeClustersCommand(input, context);
+    return se_DescribeClustersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClustersCommandOutput> {
-    return deserializeAws_json1_1DescribeClustersCommand(output, context);
+    return de_DescribeClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_1";
-import {
-  deserializeAws_queryRebootDBInstanceCommand,
-  serializeAws_queryRebootDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_RebootDBInstanceCommand, se_RebootDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -75,19 +72,29 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  *
  * @example To reboot a DB instance
  * ```javascript
- * // This example reboots the specified DB instance without forcing a failover.
+ * // The following example starts a reboot of the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "mymysqlinstance",
- *   "ForceFailover": false
+ *   "DBInstanceIdentifier": "test-mysql-instance"
  * };
  * const command = new RebootDBInstanceCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBInstance": {}
+ *   "DBInstance": {
+ *     "DBInstanceClass": "db.t3.micro",
+ *     "DBInstanceIdentifier": "test-mysql-instance",
+ *     "DBInstanceStatus": "rebooting",
+ *     "Endpoint": {
+ *       "Address": "test-mysql-instance.############.us-west-2.rds.amazonaws.com",
+ *       "HostedZoneId": "Z1PVIF0EXAMPLE",
+ *       "Port": 3306
+ *     },
+ *     "Engine": "mysql",
+ *     "MasterUsername": "admin"
+ *   }
  * }
  * *\/
- * // example id: reboot-db-instance-b9ce8a0a-2920-451d-a1f3-01d288aa7366
+ * // example id: to-reboot-a-db-instance-1680072870190
  * ```
  *
  */
@@ -154,14 +161,14 @@ export class RebootDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: RebootDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebootDBInstanceCommand(input, context);
+    return se_RebootDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootDBInstanceCommandOutput> {
-    return deserializeAws_queryRebootDBInstanceCommand(output, context);
+    return de_RebootDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

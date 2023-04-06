@@ -16,8 +16,8 @@ import {
 
 import { DeleteAccessPointForObjectLambdaRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlDeleteAccessPointForObjectLambdaCommand,
-  serializeAws_restXmlDeleteAccessPointForObjectLambdaCommand,
+  de_DeleteAccessPointForObjectLambdaCommand,
+  se_DeleteAccessPointForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -148,7 +148,7 @@ export class DeleteAccessPointForObjectLambdaCommand extends $Command<
     input: DeleteAccessPointForObjectLambdaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteAccessPointForObjectLambdaCommand(input, context);
+    return se_DeleteAccessPointForObjectLambdaCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DeleteAccessPointForObjectLambdaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccessPointForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlDeleteAccessPointForObjectLambdaCommand(output, context);
+    return de_DeleteAccessPointForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

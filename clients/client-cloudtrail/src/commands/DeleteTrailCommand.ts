@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { DeleteTrailRequest, DeleteTrailResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTrailCommand,
-  serializeAws_json1_1DeleteTrailCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTrailCommand, se_DeleteTrailCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -190,14 +187,14 @@ export class DeleteTrailCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTrailCommand(input, context);
+    return se_DeleteTrailCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrailCommandOutput> {
-    return deserializeAws_json1_1DeleteTrailCommand(output, context);
+    return de_DeleteTrailCommand(output, context);
   }
 
   // Start section: command_body_extra

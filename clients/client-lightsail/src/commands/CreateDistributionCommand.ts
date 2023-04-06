@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { CreateDistributionRequest, CreateDistributionResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDistributionCommand,
-  serializeAws_json1_1CreateDistributionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDistributionCommand, se_CreateDistributionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -196,14 +193,14 @@ export class CreateDistributionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDistributionCommand(input, context);
+    return se_CreateDistributionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDistributionCommandOutput> {
-    return deserializeAws_json1_1CreateDistributionCommand(output, context);
+    return de_CreateDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

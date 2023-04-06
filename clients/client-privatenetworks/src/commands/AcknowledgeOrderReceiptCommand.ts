@@ -19,10 +19,7 @@ import {
   AcknowledgeOrderReceiptResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1AcknowledgeOrderReceiptCommand,
-  serializeAws_restJson1AcknowledgeOrderReceiptCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AcknowledgeOrderReceiptCommand, se_AcknowledgeOrderReceiptCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class AcknowledgeOrderReceiptCommand extends $Command<
    * @internal
    */
   private serialize(input: AcknowledgeOrderReceiptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcknowledgeOrderReceiptCommand(input, context);
+    return se_AcknowledgeOrderReceiptCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcknowledgeOrderReceiptCommandOutput> {
-    return deserializeAws_restJson1AcknowledgeOrderReceiptCommand(output, context);
+    return de_AcknowledgeOrderReceiptCommand(output, context);
   }
 
   // Start section: command_body_extra

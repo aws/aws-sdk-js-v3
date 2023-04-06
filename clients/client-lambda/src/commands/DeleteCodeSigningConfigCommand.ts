@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { DeleteCodeSigningConfigRequest, DeleteCodeSigningConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCodeSigningConfigCommand,
-  serializeAws_restJson1DeleteCodeSigningConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCodeSigningConfigCommand, se_DeleteCodeSigningConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteCodeSigningConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCodeSigningConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCodeSigningConfigCommand(input, context);
+    return se_DeleteCodeSigningConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCodeSigningConfigCommandOutput> {
-    return deserializeAws_restJson1DeleteCodeSigningConfigCommand(output, context);
+    return de_DeleteCodeSigningConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

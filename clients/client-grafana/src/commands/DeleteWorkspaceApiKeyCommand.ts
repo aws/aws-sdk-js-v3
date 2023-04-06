@@ -15,10 +15,7 @@ import {
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import { DeleteWorkspaceApiKeyRequest, DeleteWorkspaceApiKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkspaceApiKeyCommand,
-  serializeAws_restJson1DeleteWorkspaceApiKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteWorkspaceApiKeyCommand, se_DeleteWorkspaceApiKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteWorkspaceApiKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkspaceApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkspaceApiKeyCommand(input, context);
+    return se_DeleteWorkspaceApiKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceApiKeyCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkspaceApiKeyCommand(output, context);
+    return de_DeleteWorkspaceApiKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

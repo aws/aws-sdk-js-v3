@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { DeleteWebhookInput, DeleteWebhookOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWebhookCommand,
-  serializeAws_json1_1DeleteWebhookCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteWebhookCommand, se_DeleteWebhookCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteWebhookCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWebhookCommand(input, context);
+    return se_DeleteWebhookCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWebhookCommandOutput> {
-    return deserializeAws_json1_1DeleteWebhookCommand(output, context);
+    return de_DeleteWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

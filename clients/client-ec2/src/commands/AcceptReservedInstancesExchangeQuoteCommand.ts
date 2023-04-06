@@ -19,8 +19,8 @@ import {
   AcceptReservedInstancesExchangeQuoteResult,
 } from "../models/models_0";
 import {
-  deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand,
-  serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand,
+  de_AcceptReservedInstancesExchangeQuoteCommand,
+  se_AcceptReservedInstancesExchangeQuoteCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -137,7 +137,7 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
     input: AcceptReservedInstancesExchangeQuoteCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand(input, context);
+    return se_AcceptReservedInstancesExchangeQuoteCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptReservedInstancesExchangeQuoteCommandOutput> {
-    return deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand(output, context);
+    return de_AcceptReservedInstancesExchangeQuoteCommand(output, context);
   }
 
   // Start section: command_body_extra

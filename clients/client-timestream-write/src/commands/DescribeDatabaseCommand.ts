@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDatabaseRequest, DescribeDatabaseResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeDatabaseCommand,
-  serializeAws_json1_0DescribeDatabaseCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeDatabaseCommand, se_DescribeDatabaseCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -149,14 +146,14 @@ export class DescribeDatabaseCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeDatabaseCommand(input, context);
+    return se_DescribeDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatabaseCommandOutput> {
-    return deserializeAws_json1_0DescribeDatabaseCommand(output, context);
+    return de_DescribeDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

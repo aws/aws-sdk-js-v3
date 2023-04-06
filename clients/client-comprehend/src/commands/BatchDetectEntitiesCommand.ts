@@ -20,10 +20,7 @@ import {
   BatchDetectEntitiesResponse,
   BatchDetectEntitiesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDetectEntitiesCommand,
-  serializeAws_json1_1BatchDetectEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDetectEntitiesCommand, se_BatchDetectEntitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class BatchDetectEntitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDetectEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDetectEntitiesCommand(input, context);
+    return se_BatchDetectEntitiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDetectEntitiesCommandOutput> {
-    return deserializeAws_json1_1BatchDetectEntitiesCommand(output, context);
+    return de_BatchDetectEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

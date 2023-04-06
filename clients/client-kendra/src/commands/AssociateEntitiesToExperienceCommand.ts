@@ -16,8 +16,8 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { AssociateEntitiesToExperienceRequest, AssociateEntitiesToExperienceResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateEntitiesToExperienceCommand,
-  serializeAws_json1_1AssociateEntitiesToExperienceCommand,
+  de_AssociateEntitiesToExperienceCommand,
+  se_AssociateEntitiesToExperienceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -157,7 +157,7 @@ export class AssociateEntitiesToExperienceCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateEntitiesToExperienceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateEntitiesToExperienceCommand(input, context);
+    return se_AssociateEntitiesToExperienceCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class AssociateEntitiesToExperienceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateEntitiesToExperienceCommandOutput> {
-    return deserializeAws_json1_1AssociateEntitiesToExperienceCommand(output, context);
+    return de_AssociateEntitiesToExperienceCommand(output, context);
   }
 
   // Start section: command_body_extra

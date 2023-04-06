@@ -15,8 +15,8 @@ import {
 
 import { GetBucketAnalyticsConfigurationOutput, GetBucketAnalyticsConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetBucketAnalyticsConfigurationCommand,
-  serializeAws_restXmlGetBucketAnalyticsConfigurationCommand,
+  de_GetBucketAnalyticsConfigurationCommand,
+  se_GetBucketAnalyticsConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -162,7 +162,7 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command<
     input: GetBucketAnalyticsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketAnalyticsConfigurationCommand(input, context);
+    return se_GetBucketAnalyticsConfigurationCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketAnalyticsConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketAnalyticsConfigurationCommand(output, context);
+    return de_GetBucketAnalyticsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

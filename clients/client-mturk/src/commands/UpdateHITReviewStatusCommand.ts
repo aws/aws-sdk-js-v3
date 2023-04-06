@@ -15,10 +15,7 @@ import {
 
 import { UpdateHITReviewStatusRequest, UpdateHITReviewStatusResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1UpdateHITReviewStatusCommand,
-  serializeAws_json1_1UpdateHITReviewStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateHITReviewStatusCommand, se_UpdateHITReviewStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class UpdateHITReviewStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateHITReviewStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateHITReviewStatusCommand(input, context);
+    return se_UpdateHITReviewStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHITReviewStatusCommandOutput> {
-    return deserializeAws_json1_1UpdateHITReviewStatusCommand(output, context);
+    return de_UpdateHITReviewStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

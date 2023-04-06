@@ -15,8 +15,8 @@ import {
 
 import { ListDataQualityJobDefinitionsRequest, ListDataQualityJobDefinitionsResponse } from "../models/models_3";
 import {
-  deserializeAws_json1_1ListDataQualityJobDefinitionsCommand,
-  serializeAws_json1_1ListDataQualityJobDefinitionsCommand,
+  de_ListDataQualityJobDefinitionsCommand,
+  se_ListDataQualityJobDefinitionsCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -129,7 +129,7 @@ export class ListDataQualityJobDefinitionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDataQualityJobDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDataQualityJobDefinitionsCommand(input, context);
+    return se_ListDataQualityJobDefinitionsCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class ListDataQualityJobDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDataQualityJobDefinitionsCommandOutput> {
-    return deserializeAws_json1_1ListDataQualityJobDefinitionsCommand(output, context);
+    return de_ListDataQualityJobDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

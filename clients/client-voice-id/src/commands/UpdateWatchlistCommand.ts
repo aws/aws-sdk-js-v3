@@ -19,10 +19,7 @@ import {
   UpdateWatchlistResponse,
   UpdateWatchlistResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateWatchlistCommand,
-  serializeAws_json1_0UpdateWatchlistCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateWatchlistCommand, se_UpdateWatchlistCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -154,14 +151,14 @@ export class UpdateWatchlistCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWatchlistCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateWatchlistCommand(input, context);
+    return se_UpdateWatchlistCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWatchlistCommandOutput> {
-    return deserializeAws_json1_0UpdateWatchlistCommand(output, context);
+    return de_UpdateWatchlistCommand(output, context);
   }
 
   // Start section: command_body_extra

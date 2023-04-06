@@ -19,8 +19,8 @@ import {
   PutFindingsPublicationConfigurationResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1PutFindingsPublicationConfigurationCommand,
-  serializeAws_restJson1PutFindingsPublicationConfigurationCommand,
+  de_PutFindingsPublicationConfigurationCommand,
+  se_PutFindingsPublicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -153,7 +153,7 @@ export class PutFindingsPublicationConfigurationCommand extends $Command<
     input: PutFindingsPublicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutFindingsPublicationConfigurationCommand(input, context);
+    return se_PutFindingsPublicationConfigurationCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class PutFindingsPublicationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutFindingsPublicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutFindingsPublicationConfigurationCommand(output, context);
+    return de_PutFindingsPublicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

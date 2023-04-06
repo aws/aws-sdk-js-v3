@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeVerifiedAccessGroupsRequest, DescribeVerifiedAccessGroupsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeVerifiedAccessGroupsCommand,
-  serializeAws_ec2DescribeVerifiedAccessGroupsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeVerifiedAccessGroupsCommand, se_DescribeVerifiedAccessGroupsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class DescribeVerifiedAccessGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVerifiedAccessGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVerifiedAccessGroupsCommand(input, context);
+    return se_DescribeVerifiedAccessGroupsCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class DescribeVerifiedAccessGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVerifiedAccessGroupsCommandOutput> {
-    return deserializeAws_ec2DescribeVerifiedAccessGroupsCommand(output, context);
+    return de_DescribeVerifiedAccessGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

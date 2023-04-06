@@ -16,8 +16,8 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { GetSensitivityInspectionTemplateRequest, GetSensitivityInspectionTemplateResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetSensitivityInspectionTemplateCommand,
-  serializeAws_restJson1GetSensitivityInspectionTemplateCommand,
+  de_GetSensitivityInspectionTemplateCommand,
+  se_GetSensitivityInspectionTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class GetSensitivityInspectionTemplateCommand extends $Command<
     input: GetSensitivityInspectionTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSensitivityInspectionTemplateCommand(input, context);
+    return se_GetSensitivityInspectionTemplateCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class GetSensitivityInspectionTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSensitivityInspectionTemplateCommandOutput> {
-    return deserializeAws_restJson1GetSensitivityInspectionTemplateCommand(output, context);
+    return de_GetSensitivityInspectionTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

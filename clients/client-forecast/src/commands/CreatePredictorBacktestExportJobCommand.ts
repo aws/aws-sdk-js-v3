@@ -20,8 +20,8 @@ import {
   CreatePredictorBacktestExportJobResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreatePredictorBacktestExportJobCommand,
-  serializeAws_json1_1CreatePredictorBacktestExportJobCommand,
+  de_CreatePredictorBacktestExportJobCommand,
+  se_CreatePredictorBacktestExportJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -175,7 +175,7 @@ export class CreatePredictorBacktestExportJobCommand extends $Command<
     input: CreatePredictorBacktestExportJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePredictorBacktestExportJobCommand(input, context);
+    return se_CreatePredictorBacktestExportJobCommand(input, context);
   }
 
   /**
@@ -185,7 +185,7 @@ export class CreatePredictorBacktestExportJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePredictorBacktestExportJobCommandOutput> {
-    return deserializeAws_json1_1CreatePredictorBacktestExportJobCommand(output, context);
+    return de_CreatePredictorBacktestExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { GenerateDataKeyWithoutPlaintextRequest, GenerateDataKeyWithoutPlaintextResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand,
-  serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand,
+  de_GenerateDataKeyWithoutPlaintextCommand,
+  se_GenerateDataKeyWithoutPlaintextCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -283,7 +283,7 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
     input: GenerateDataKeyWithoutPlaintextCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand(input, context);
+    return se_GenerateDataKeyWithoutPlaintextCommand(input, context);
   }
 
   /**
@@ -293,7 +293,7 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput> {
-    return deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand(output, context);
+    return de_GenerateDataKeyWithoutPlaintextCommand(output, context);
   }
 
   // Start section: command_body_extra

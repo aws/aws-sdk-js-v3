@@ -15,10 +15,7 @@ import {
 
 import { CreateEventTrackerRequest, CreateEventTrackerResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateEventTrackerCommand,
-  serializeAws_json1_1CreateEventTrackerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateEventTrackerCommand, se_CreateEventTrackerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -190,14 +187,14 @@ export class CreateEventTrackerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEventTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEventTrackerCommand(input, context);
+    return se_CreateEventTrackerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventTrackerCommandOutput> {
-    return deserializeAws_json1_1CreateEventTrackerCommand(output, context);
+    return de_CreateEventTrackerCommand(output, context);
   }
 
   // Start section: command_body_extra

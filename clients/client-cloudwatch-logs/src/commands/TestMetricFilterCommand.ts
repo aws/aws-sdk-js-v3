@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { TestMetricFilterRequest, TestMetricFilterResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1TestMetricFilterCommand,
-  serializeAws_json1_1TestMetricFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TestMetricFilterCommand, se_TestMetricFilterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class TestMetricFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: TestMetricFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TestMetricFilterCommand(input, context);
+    return se_TestMetricFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestMetricFilterCommandOutput> {
-    return deserializeAws_json1_1TestMetricFilterCommand(output, context);
+    return de_TestMetricFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

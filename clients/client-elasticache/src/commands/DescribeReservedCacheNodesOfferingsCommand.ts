@@ -16,8 +16,8 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DescribeReservedCacheNodesOfferingsMessage, ReservedCacheNodesOfferingMessage } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand,
-  serializeAws_queryDescribeReservedCacheNodesOfferingsCommand,
+  de_DescribeReservedCacheNodesOfferingsCommand,
+  se_DescribeReservedCacheNodesOfferingsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -414,7 +414,7 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
     input: DescribeReservedCacheNodesOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeReservedCacheNodesOfferingsCommand(input, context);
+    return se_DescribeReservedCacheNodesOfferingsCommand(input, context);
   }
 
   /**
@@ -424,7 +424,7 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> {
-    return deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand(output, context);
+    return de_DescribeReservedCacheNodesOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

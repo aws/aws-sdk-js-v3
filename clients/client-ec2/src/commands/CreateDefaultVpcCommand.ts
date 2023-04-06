@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateDefaultVpcRequest, CreateDefaultVpcResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateDefaultVpcCommand,
-  serializeAws_ec2CreateDefaultVpcCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateDefaultVpcCommand, se_CreateDefaultVpcCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class CreateDefaultVpcCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDefaultVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateDefaultVpcCommand(input, context);
+    return se_CreateDefaultVpcCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDefaultVpcCommandOutput> {
-    return deserializeAws_ec2CreateDefaultVpcCommand(output, context);
+    return de_CreateDefaultVpcCommand(output, context);
   }
 
   // Start section: command_body_extra

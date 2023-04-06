@@ -15,10 +15,7 @@ import {
 
 import { GetLinksRequest, GetLinksResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetLinksCommand,
-  serializeAws_restJson1GetLinksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLinksCommand, se_GetLinksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetLinksCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLinksCommand(input, context);
+    return se_GetLinksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinksCommandOutput> {
-    return deserializeAws_restJson1GetLinksCommand(output, context);
+    return de_GetLinksCommand(output, context);
   }
 
   // Start section: command_body_extra

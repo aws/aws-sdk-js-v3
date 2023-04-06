@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { CreateTokenRequest, CreateTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTokenCommand,
-  serializeAws_json1_1CreateTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateTokenCommand, se_CreateTokenCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class CreateTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTokenCommand(input, context);
+    return se_CreateTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTokenCommandOutput> {
-    return deserializeAws_json1_1CreateTokenCommand(output, context);
+    return de_CreateTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

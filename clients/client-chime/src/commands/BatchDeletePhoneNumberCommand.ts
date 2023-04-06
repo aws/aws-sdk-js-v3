@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { BatchDeletePhoneNumberRequest, BatchDeletePhoneNumberResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDeletePhoneNumberCommand,
-  serializeAws_restJson1BatchDeletePhoneNumberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchDeletePhoneNumberCommand, se_BatchDeletePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class BatchDeletePhoneNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeletePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeletePhoneNumberCommand(input, context);
+    return se_BatchDeletePhoneNumberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeletePhoneNumberCommandOutput> {
-    return deserializeAws_restJson1BatchDeletePhoneNumberCommand(output, context);
+    return de_BatchDeletePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

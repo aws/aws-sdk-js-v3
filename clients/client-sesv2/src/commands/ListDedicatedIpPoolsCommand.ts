@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDedicatedIpPoolsRequest, ListDedicatedIpPoolsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDedicatedIpPoolsCommand,
-  serializeAws_restJson1ListDedicatedIpPoolsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDedicatedIpPoolsCommand, se_ListDedicatedIpPoolsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -128,14 +125,14 @@ export class ListDedicatedIpPoolsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDedicatedIpPoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDedicatedIpPoolsCommand(input, context);
+    return se_ListDedicatedIpPoolsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDedicatedIpPoolsCommandOutput> {
-    return deserializeAws_restJson1ListDedicatedIpPoolsCommand(output, context);
+    return de_ListDedicatedIpPoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

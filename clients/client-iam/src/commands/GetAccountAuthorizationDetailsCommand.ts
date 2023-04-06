@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetAccountAuthorizationDetailsRequest, GetAccountAuthorizationDetailsResponse } from "../models/models_0";
 import {
-  deserializeAws_queryGetAccountAuthorizationDetailsCommand,
-  serializeAws_queryGetAccountAuthorizationDetailsCommand,
+  de_GetAccountAuthorizationDetailsCommand,
+  se_GetAccountAuthorizationDetailsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -146,7 +146,7 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
     input: GetAccountAuthorizationDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccountAuthorizationDetailsCommand(input, context);
+    return se_GetAccountAuthorizationDetailsCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAccountAuthorizationDetailsCommandOutput> {
-    return deserializeAws_queryGetAccountAuthorizationDetailsCommand(output, context);
+    return de_GetAccountAuthorizationDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

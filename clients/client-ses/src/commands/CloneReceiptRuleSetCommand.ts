@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloneReceiptRuleSetRequest, CloneReceiptRuleSetResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCloneReceiptRuleSetCommand,
-  serializeAws_queryCloneReceiptRuleSetCommand,
-} from "../protocols/Aws_query";
+import { de_CloneReceiptRuleSetCommand, se_CloneReceiptRuleSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -149,14 +146,14 @@ export class CloneReceiptRuleSetCommand extends $Command<
    * @internal
    */
   private serialize(input: CloneReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCloneReceiptRuleSetCommand(input, context);
+    return se_CloneReceiptRuleSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloneReceiptRuleSetCommandOutput> {
-    return deserializeAws_queryCloneReceiptRuleSetCommand(output, context);
+    return de_CloneReceiptRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

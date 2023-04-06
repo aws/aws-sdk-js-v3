@@ -15,8 +15,8 @@ import {
 
 import { DescribeEndpointAuthorizationMessage, EndpointAuthorizationList } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeEndpointAuthorizationCommand,
-  serializeAws_queryDescribeEndpointAuthorizationCommand,
+  de_DescribeEndpointAuthorizationCommand,
+  se_DescribeEndpointAuthorizationCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -131,7 +131,7 @@ export class DescribeEndpointAuthorizationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEndpointAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEndpointAuthorizationCommand(input, context);
+    return se_DescribeEndpointAuthorizationCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class DescribeEndpointAuthorizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEndpointAuthorizationCommandOutput> {
-    return deserializeAws_queryDescribeEndpointAuthorizationCommand(output, context);
+    return de_DescribeEndpointAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

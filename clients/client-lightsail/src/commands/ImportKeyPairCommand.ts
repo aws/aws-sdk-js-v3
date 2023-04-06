@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { ImportKeyPairRequest, ImportKeyPairResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1ImportKeyPairCommand,
-  serializeAws_json1_1ImportKeyPairCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ImportKeyPairCommand, se_ImportKeyPairCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class ImportKeyPairCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ImportKeyPairCommand(input, context);
+    return se_ImportKeyPairCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportKeyPairCommandOutput> {
-    return deserializeAws_json1_1ImportKeyPairCommand(output, context);
+    return de_ImportKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

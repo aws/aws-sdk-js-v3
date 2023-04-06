@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TestPayloadBlobInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1TestPayloadBlobCommand,
-  serializeAws_restJson1TestPayloadBlobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TestPayloadBlobCommand, se_TestPayloadBlobCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -115,14 +112,14 @@ export class TestPayloadBlobCommand extends $Command<
    * @internal
    */
   private serialize(input: TestPayloadBlobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestPayloadBlobCommand(input, context);
+    return se_TestPayloadBlobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestPayloadBlobCommandOutput> {
-    return deserializeAws_restJson1TestPayloadBlobCommand(output, context);
+    return de_TestPayloadBlobCommand(output, context);
   }
 
   // Start section: command_body_extra

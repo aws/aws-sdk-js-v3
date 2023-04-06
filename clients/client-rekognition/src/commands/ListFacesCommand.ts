@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListFacesRequest, ListFacesResponse } from "../models/models_0";
-import { deserializeAws_json1_1ListFacesCommand, serializeAws_json1_1ListFacesCommand } from "../protocols/Aws_json1_1";
+import { de_ListFacesCommand, se_ListFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -284,14 +284,14 @@ export class ListFacesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFacesCommand(input, context);
+    return se_ListFacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFacesCommandOutput> {
-    return deserializeAws_json1_1ListFacesCommand(output, context);
+    return de_ListFacesCommand(output, context);
   }
 
   // Start section: command_body_extra

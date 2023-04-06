@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { ListEntitiesDetectionJobsRequest, ListEntitiesDetectionJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEntitiesDetectionJobsCommand,
-  serializeAws_json1_1ListEntitiesDetectionJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEntitiesDetectionJobsCommand, se_ListEntitiesDetectionJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,7 +137,7 @@ export class ListEntitiesDetectionJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEntitiesDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntitiesDetectionJobsCommand(input, context);
+    return se_ListEntitiesDetectionJobsCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class ListEntitiesDetectionJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEntitiesDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListEntitiesDetectionJobsCommand(output, context);
+    return de_ListEntitiesDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

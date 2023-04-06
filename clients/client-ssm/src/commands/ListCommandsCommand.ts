@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListCommandsRequest, ListCommandsResult, ListCommandsResultFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_json1_1ListCommandsCommand,
-  serializeAws_json1_1ListCommandsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCommandsCommand, se_ListCommandsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -159,14 +156,14 @@ export class ListCommandsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCommandsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCommandsCommand(input, context);
+    return se_ListCommandsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCommandsCommandOutput> {
-    return deserializeAws_json1_1ListCommandsCommand(output, context);
+    return de_ListCommandsCommand(output, context);
   }
 
   // Start section: command_body_extra

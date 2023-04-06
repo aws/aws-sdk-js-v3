@@ -24,10 +24,7 @@ import {
   ListSubChannelsResponse,
   ListSubChannelsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSubChannelsCommand,
-  serializeAws_restJson1ListSubChannelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSubChannelsCommand, se_ListSubChannelsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class ListSubChannelsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSubChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSubChannelsCommand(input, context);
+    return se_ListSubChannelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubChannelsCommandOutput> {
-    return deserializeAws_restJson1ListSubChannelsCommand(output, context);
+    return de_ListSubChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SetActiveReceiptRuleSetRequest, SetActiveReceiptRuleSetResponse } from "../models/models_0";
-import {
-  deserializeAws_querySetActiveReceiptRuleSetCommand,
-  serializeAws_querySetActiveReceiptRuleSetCommand,
-} from "../protocols/Aws_query";
+import { de_SetActiveReceiptRuleSetCommand, se_SetActiveReceiptRuleSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -140,14 +137,14 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
    * @internal
    */
   private serialize(input: SetActiveReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetActiveReceiptRuleSetCommand(input, context);
+    return se_SetActiveReceiptRuleSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetActiveReceiptRuleSetCommandOutput> {
-    return deserializeAws_querySetActiveReceiptRuleSetCommand(output, context);
+    return de_SetActiveReceiptRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

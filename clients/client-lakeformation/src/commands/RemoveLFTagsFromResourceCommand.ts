@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { RemoveLFTagsFromResourceRequest, RemoveLFTagsFromResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveLFTagsFromResourceCommand,
-  serializeAws_restJson1RemoveLFTagsFromResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveLFTagsFromResourceCommand, se_RemoveLFTagsFromResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -205,14 +202,14 @@ export class RemoveLFTagsFromResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveLFTagsFromResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveLFTagsFromResourceCommand(input, context);
+    return se_RemoveLFTagsFromResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveLFTagsFromResourceCommandOutput> {
-    return deserializeAws_restJson1RemoveLFTagsFromResourceCommand(output, context);
+    return de_RemoveLFTagsFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

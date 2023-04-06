@@ -16,8 +16,8 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { DeleteSubscriptionDefinitionRequest, DeleteSubscriptionDefinitionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteSubscriptionDefinitionCommand,
-  serializeAws_restJson1DeleteSubscriptionDefinitionCommand,
+  de_DeleteSubscriptionDefinitionCommand,
+  se_DeleteSubscriptionDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -125,7 +125,7 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSubscriptionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSubscriptionDefinitionCommand(input, context);
+    return se_DeleteSubscriptionDefinitionCommand(input, context);
   }
 
   /**
@@ -135,7 +135,7 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSubscriptionDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteSubscriptionDefinitionCommand(output, context);
+    return de_DeleteSubscriptionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

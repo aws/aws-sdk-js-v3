@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { DeleteLFTagRequest, DeleteLFTagResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLFTagCommand,
-  serializeAws_restJson1DeleteLFTagCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLFTagCommand, se_DeleteLFTagCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteLFTagCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLFTagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLFTagCommand(input, context);
+    return se_DeleteLFTagCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLFTagCommandOutput> {
-    return deserializeAws_restJson1DeleteLFTagCommand(output, context);
+    return de_DeleteLFTagCommand(output, context);
   }
 
   // Start section: command_body_extra

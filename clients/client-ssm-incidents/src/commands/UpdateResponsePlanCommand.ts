@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateResponsePlanInput, UpdateResponsePlanOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateResponsePlanCommand,
-  serializeAws_restJson1UpdateResponsePlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateResponsePlanCommand, se_UpdateResponsePlanCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -194,14 +191,14 @@ export class UpdateResponsePlanCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateResponsePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateResponsePlanCommand(input, context);
+    return se_UpdateResponsePlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResponsePlanCommandOutput> {
-    return deserializeAws_restJson1UpdateResponsePlanCommand(output, context);
+    return de_UpdateResponsePlanCommand(output, context);
   }
 
   // Start section: command_body_extra

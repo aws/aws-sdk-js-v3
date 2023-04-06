@@ -15,10 +15,7 @@ import {
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { DeleteApplicationRequest, DeleteApplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteApplicationCommand,
-  serializeAws_restJson1DeleteApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteApplicationCommand, se_DeleteApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApplicationCommand(input, context);
+    return se_DeleteApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationCommandOutput> {
-    return deserializeAws_restJson1DeleteApplicationCommand(output, context);
+    return de_DeleteApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

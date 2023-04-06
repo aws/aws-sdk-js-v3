@@ -15,10 +15,7 @@ import {
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { RestoreBackupRequest, RestoreBackupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreBackupCommand,
-  serializeAws_json1_1RestoreBackupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RestoreBackupCommand, se_RestoreBackupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class RestoreBackupCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreBackupCommand(input, context);
+    return se_RestoreBackupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreBackupCommandOutput> {
-    return deserializeAws_json1_1RestoreBackupCommand(output, context);
+    return de_RestoreBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

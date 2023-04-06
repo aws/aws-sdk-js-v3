@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteLedgerRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLedgerCommand,
-  serializeAws_restJson1DeleteLedgerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLedgerCommand, se_DeleteLedgerCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
@@ -132,14 +129,14 @@ export class DeleteLedgerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLedgerCommand(input, context);
+    return se_DeleteLedgerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLedgerCommandOutput> {
-    return deserializeAws_restJson1DeleteLedgerCommand(output, context);
+    return de_DeleteLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

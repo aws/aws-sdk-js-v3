@@ -20,10 +20,7 @@ import {
   ExportCertificateResponse,
   ExportCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ExportCertificateCommand,
-  serializeAws_json1_1ExportCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ExportCertificateCommand, se_ExportCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ExportCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: ExportCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExportCertificateCommand(input, context);
+    return se_ExportCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportCertificateCommandOutput> {
-    return deserializeAws_json1_1ExportCertificateCommand(output, context);
+    return de_ExportCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteUsageLimitRequest, DeleteUsageLimitResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteUsageLimitCommand,
-  serializeAws_json1_1DeleteUsageLimitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteUsageLimitCommand, se_DeleteUsageLimitCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -136,14 +133,14 @@ export class DeleteUsageLimitCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteUsageLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUsageLimitCommand(input, context);
+    return se_DeleteUsageLimitCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUsageLimitCommandOutput> {
-    return deserializeAws_json1_1DeleteUsageLimitCommand(output, context);
+    return de_DeleteUsageLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

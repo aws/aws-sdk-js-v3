@@ -18,8 +18,8 @@ import {
   ListEnvironmentProvisionedResourcesOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0ListEnvironmentProvisionedResourcesCommand,
-  serializeAws_json1_0ListEnvironmentProvisionedResourcesCommand,
+  de_ListEnvironmentProvisionedResourcesCommand,
+  se_ListEnvironmentProvisionedResourcesCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -144,7 +144,7 @@ export class ListEnvironmentProvisionedResourcesCommand extends $Command<
     input: ListEnvironmentProvisionedResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListEnvironmentProvisionedResourcesCommand(input, context);
+    return se_ListEnvironmentProvisionedResourcesCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class ListEnvironmentProvisionedResourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEnvironmentProvisionedResourcesCommandOutput> {
-    return deserializeAws_json1_0ListEnvironmentProvisionedResourcesCommand(output, context);
+    return de_ListEnvironmentProvisionedResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

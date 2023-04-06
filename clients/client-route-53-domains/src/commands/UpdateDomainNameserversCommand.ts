@@ -18,10 +18,7 @@ import {
   UpdateDomainNameserversRequestFilterSensitiveLog,
   UpdateDomainNameserversResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDomainNameserversCommand,
-  serializeAws_json1_1UpdateDomainNameserversCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDomainNameserversCommand, se_UpdateDomainNameserversCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -157,14 +154,14 @@ export class UpdateDomainNameserversCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDomainNameserversCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDomainNameserversCommand(input, context);
+    return se_UpdateDomainNameserversCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainNameserversCommandOutput> {
-    return deserializeAws_json1_1UpdateDomainNameserversCommand(output, context);
+    return de_UpdateDomainNameserversCommand(output, context);
   }
 
   // Start section: command_body_extra

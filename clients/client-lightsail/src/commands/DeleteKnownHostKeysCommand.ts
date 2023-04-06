@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DeleteKnownHostKeysRequest, DeleteKnownHostKeysResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteKnownHostKeysCommand,
-  serializeAws_json1_1DeleteKnownHostKeysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteKnownHostKeysCommand, se_DeleteKnownHostKeysCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class DeleteKnownHostKeysCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteKnownHostKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteKnownHostKeysCommand(input, context);
+    return se_DeleteKnownHostKeysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKnownHostKeysCommandOutput> {
-    return deserializeAws_json1_1DeleteKnownHostKeysCommand(output, context);
+    return de_DeleteKnownHostKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

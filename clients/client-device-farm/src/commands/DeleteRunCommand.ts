@@ -15,7 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { DeleteRunRequest, DeleteRunResult } from "../models/models_0";
-import { deserializeAws_json1_1DeleteRunCommand, serializeAws_json1_1DeleteRunCommand } from "../protocols/Aws_json1_1";
+import { de_DeleteRunCommand, se_DeleteRunCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +139,14 @@ export class DeleteRunCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRunCommand(input, context);
+    return se_DeleteRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRunCommandOutput> {
-    return deserializeAws_json1_1DeleteRunCommand(output, context);
+    return de_DeleteRunCommand(output, context);
   }
 
   // Start section: command_body_extra

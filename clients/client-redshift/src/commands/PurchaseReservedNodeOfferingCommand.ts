@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PurchaseReservedNodeOfferingMessage, PurchaseReservedNodeOfferingResult } from "../models/models_1";
-import {
-  deserializeAws_queryPurchaseReservedNodeOfferingCommand,
-  serializeAws_queryPurchaseReservedNodeOfferingCommand,
-} from "../protocols/Aws_query";
+import { de_PurchaseReservedNodeOfferingCommand, se_PurchaseReservedNodeOfferingCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -146,7 +143,7 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
    * @internal
    */
   private serialize(input: PurchaseReservedNodeOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPurchaseReservedNodeOfferingCommand(input, context);
+    return se_PurchaseReservedNodeOfferingCommand(input, context);
   }
 
   /**
@@ -156,7 +153,7 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedNodeOfferingCommandOutput> {
-    return deserializeAws_queryPurchaseReservedNodeOfferingCommand(output, context);
+    return de_PurchaseReservedNodeOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

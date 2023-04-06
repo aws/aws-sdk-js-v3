@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { DeleteMultiplexProgramRequest, DeleteMultiplexProgramResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteMultiplexProgramCommand,
-  serializeAws_restJson1DeleteMultiplexProgramCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMultiplexProgramCommand, se_DeleteMultiplexProgramCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteMultiplexProgramCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMultiplexProgramCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMultiplexProgramCommand(input, context);
+    return se_DeleteMultiplexProgramCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMultiplexProgramCommandOutput> {
-    return deserializeAws_restJson1DeleteMultiplexProgramCommand(output, context);
+    return de_DeleteMultiplexProgramCommand(output, context);
   }
 
   // Start section: command_body_extra

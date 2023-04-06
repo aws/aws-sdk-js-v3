@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { FileSystemPolicyDescription, PutFileSystemPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutFileSystemPolicyCommand,
-  serializeAws_restJson1PutFileSystemPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutFileSystemPolicyCommand, se_PutFileSystemPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class PutFileSystemPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutFileSystemPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutFileSystemPolicyCommand(input, context);
+    return se_PutFileSystemPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFileSystemPolicyCommandOutput> {
-    return deserializeAws_restJson1PutFileSystemPolicyCommand(output, context);
+    return de_PutFileSystemPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

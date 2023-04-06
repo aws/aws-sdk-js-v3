@@ -17,8 +17,8 @@ import {
 
 import { PutBucketLifecycleConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlPutBucketLifecycleConfigurationCommand,
-  serializeAws_restXmlPutBucketLifecycleConfigurationCommand,
+  de_PutBucketLifecycleConfigurationCommand,
+  se_PutBucketLifecycleConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -209,7 +209,7 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     input: PutBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketLifecycleConfigurationCommand(input, context);
+    return se_PutBucketLifecycleConfigurationCommand(input, context);
   }
 
   /**
@@ -219,7 +219,7 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketLifecycleConfigurationCommand(output, context);
+    return de_PutBucketLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

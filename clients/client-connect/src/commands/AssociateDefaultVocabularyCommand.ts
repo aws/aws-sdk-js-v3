@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { AssociateDefaultVocabularyRequest, AssociateDefaultVocabularyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateDefaultVocabularyCommand,
-  serializeAws_restJson1AssociateDefaultVocabularyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateDefaultVocabularyCommand, se_AssociateDefaultVocabularyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class AssociateDefaultVocabularyCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateDefaultVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateDefaultVocabularyCommand(input, context);
+    return se_AssociateDefaultVocabularyCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class AssociateDefaultVocabularyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDefaultVocabularyCommandOutput> {
-    return deserializeAws_restJson1AssociateDefaultVocabularyCommand(output, context);
+    return de_AssociateDefaultVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

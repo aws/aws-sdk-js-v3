@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
 import { DisassociateRepositoryRequest, DisassociateRepositoryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateRepositoryCommand,
-  serializeAws_restJson1DisassociateRepositoryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateRepositoryCommand, se_DisassociateRepositoryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DisassociateRepositoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateRepositoryCommand(input, context);
+    return se_DisassociateRepositoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateRepositoryCommandOutput> {
-    return deserializeAws_restJson1DisassociateRepositoryCommand(output, context);
+    return de_DisassociateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

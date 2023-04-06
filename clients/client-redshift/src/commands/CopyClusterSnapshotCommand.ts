@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CopyClusterSnapshotMessage, CopyClusterSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_queryCopyClusterSnapshotCommand,
-  serializeAws_queryCopyClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_CopyClusterSnapshotCommand, se_CopyClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -153,14 +150,14 @@ export class CopyClusterSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyClusterSnapshotCommand(input, context);
+    return se_CopyClusterSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyClusterSnapshotCommandOutput> {
-    return deserializeAws_queryCopyClusterSnapshotCommand(output, context);
+    return de_CopyClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

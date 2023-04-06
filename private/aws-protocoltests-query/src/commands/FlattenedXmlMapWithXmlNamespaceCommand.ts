@@ -14,8 +14,8 @@ import {
 
 import { FlattenedXmlMapWithXmlNamespaceOutput } from "../models/models_0";
 import {
-  deserializeAws_queryFlattenedXmlMapWithXmlNamespaceCommand,
-  serializeAws_queryFlattenedXmlMapWithXmlNamespaceCommand,
+  de_FlattenedXmlMapWithXmlNamespaceCommand,
+  se_FlattenedXmlMapWithXmlNamespaceCommand,
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
@@ -110,7 +110,7 @@ export class FlattenedXmlMapWithXmlNamespaceCommand extends $Command<
     input: FlattenedXmlMapWithXmlNamespaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryFlattenedXmlMapWithXmlNamespaceCommand(input, context);
+    return se_FlattenedXmlMapWithXmlNamespaceCommand(input, context);
   }
 
   /**
@@ -120,7 +120,7 @@ export class FlattenedXmlMapWithXmlNamespaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput> {
-    return deserializeAws_queryFlattenedXmlMapWithXmlNamespaceCommand(output, context);
+    return de_FlattenedXmlMapWithXmlNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

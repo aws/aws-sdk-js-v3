@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteControlPanelRequest, DeleteControlPanelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteControlPanelCommand,
-  serializeAws_restJson1DeleteControlPanelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteControlPanelCommand, se_DeleteControlPanelCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -142,14 +139,14 @@ export class DeleteControlPanelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteControlPanelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteControlPanelCommand(input, context);
+    return se_DeleteControlPanelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteControlPanelCommandOutput> {
-    return deserializeAws_restJson1DeleteControlPanelCommand(output, context);
+    return de_DeleteControlPanelCommand(output, context);
   }
 
   // Start section: command_body_extra

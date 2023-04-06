@@ -24,10 +24,7 @@ import {
   AdminSetUserPasswordRequestFilterSensitiveLog,
   AdminSetUserPasswordResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminSetUserPasswordCommand,
-  serializeAws_json1_1AdminSetUserPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminSetUserPasswordCommand, se_AdminSetUserPasswordCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class AdminSetUserPasswordCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminSetUserPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminSetUserPasswordCommand(input, context);
+    return se_AdminSetUserPasswordCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminSetUserPasswordCommandOutput> {
-    return deserializeAws_json1_1AdminSetUserPasswordCommand(output, context);
+    return de_AdminSetUserPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

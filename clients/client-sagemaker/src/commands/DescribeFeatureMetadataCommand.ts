@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeFeatureMetadataRequest, DescribeFeatureMetadataResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeFeatureMetadataCommand,
-  serializeAws_json1_1DescribeFeatureMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeFeatureMetadataCommand, se_DescribeFeatureMetadataCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -124,14 +121,14 @@ export class DescribeFeatureMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFeatureMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFeatureMetadataCommand(input, context);
+    return se_DescribeFeatureMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFeatureMetadataCommandOutput> {
-    return deserializeAws_json1_1DescribeFeatureMetadataCommand(output, context);
+    return de_DescribeFeatureMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

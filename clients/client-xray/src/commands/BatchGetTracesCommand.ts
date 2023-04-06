@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchGetTracesRequest, BatchGetTracesResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetTracesCommand,
-  serializeAws_restJson1BatchGetTracesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetTracesCommand, se_BatchGetTracesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -131,14 +128,14 @@ export class BatchGetTracesCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetTracesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetTracesCommand(input, context);
+    return se_BatchGetTracesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetTracesCommandOutput> {
-    return deserializeAws_restJson1BatchGetTracesCommand(output, context);
+    return de_BatchGetTracesCommand(output, context);
   }
 
   // Start section: command_body_extra

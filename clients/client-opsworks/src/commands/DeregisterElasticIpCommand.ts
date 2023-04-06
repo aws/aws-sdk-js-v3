@@ -15,10 +15,7 @@ import {
 
 import { DeregisterElasticIpRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DeregisterElasticIpCommand,
-  serializeAws_json1_1DeregisterElasticIpCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterElasticIpCommand, se_DeregisterElasticIpCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeregisterElasticIpCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterElasticIpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterElasticIpCommand(input, context);
+    return se_DeregisterElasticIpCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterElasticIpCommandOutput> {
-    return deserializeAws_json1_1DeregisterElasticIpCommand(output, context);
+    return de_DeregisterElasticIpCommand(output, context);
   }
 
   // Start section: command_body_extra

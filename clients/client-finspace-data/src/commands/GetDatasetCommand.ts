@@ -15,10 +15,7 @@ import {
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { GetDatasetRequest, GetDatasetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDatasetCommand,
-  serializeAws_restJson1GetDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDatasetCommand, se_GetDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetDatasetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDatasetCommand(input, context);
+    return se_GetDatasetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatasetCommandOutput> {
-    return deserializeAws_restJson1GetDatasetCommand(output, context);
+    return de_GetDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

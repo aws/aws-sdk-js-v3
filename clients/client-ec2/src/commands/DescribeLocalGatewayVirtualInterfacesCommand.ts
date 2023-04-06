@@ -19,8 +19,8 @@ import {
   DescribeLocalGatewayVirtualInterfacesResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand,
-  serializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand,
+  de_DescribeLocalGatewayVirtualInterfacesCommand,
+  se_DescribeLocalGatewayVirtualInterfacesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -142,7 +142,7 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
     input: DescribeLocalGatewayVirtualInterfacesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand(input, context);
+    return se_DescribeLocalGatewayVirtualInterfacesCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput> {
-    return deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand(output, context);
+    return de_DescribeLocalGatewayVirtualInterfacesCommand(output, context);
   }
 
   // Start section: command_body_extra

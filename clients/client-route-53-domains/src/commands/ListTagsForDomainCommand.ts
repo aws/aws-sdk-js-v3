@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTagsForDomainRequest, ListTagsForDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagsForDomainCommand,
-  serializeAws_json1_1ListTagsForDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTagsForDomainCommand, se_ListTagsForDomainCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -136,14 +133,14 @@ export class ListTagsForDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTagsForDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsForDomainCommand(input, context);
+    return se_ListTagsForDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForDomainCommandOutput> {
-    return deserializeAws_json1_1ListTagsForDomainCommand(output, context);
+    return de_ListTagsForDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeDefaultAuthorizerRequest, DescribeDefaultAuthorizerResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeDefaultAuthorizerCommand,
-  serializeAws_restJson1DescribeDefaultAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDefaultAuthorizerCommand, se_DescribeDefaultAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class DescribeDefaultAuthorizerCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDefaultAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDefaultAuthorizerCommand(input, context);
+    return se_DescribeDefaultAuthorizerCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class DescribeDefaultAuthorizerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDefaultAuthorizerCommandOutput> {
-    return deserializeAws_restJson1DescribeDefaultAuthorizerCommand(output, context);
+    return de_DescribeDefaultAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

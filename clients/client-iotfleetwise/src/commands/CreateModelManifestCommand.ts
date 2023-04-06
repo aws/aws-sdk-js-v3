@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { CreateModelManifestRequest, CreateModelManifestResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateModelManifestCommand,
-  serializeAws_json1_0CreateModelManifestCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateModelManifestCommand, se_CreateModelManifestCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class CreateModelManifestCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateModelManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateModelManifestCommand(input, context);
+    return se_CreateModelManifestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateModelManifestCommandOutput> {
-    return deserializeAws_json1_0CreateModelManifestCommand(output, context);
+    return de_CreateModelManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

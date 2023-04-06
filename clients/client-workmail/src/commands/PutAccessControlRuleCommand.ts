@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutAccessControlRuleRequest, PutAccessControlRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAccessControlRuleCommand,
-  serializeAws_json1_1PutAccessControlRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutAccessControlRuleCommand, se_PutAccessControlRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -171,14 +168,14 @@ export class PutAccessControlRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAccessControlRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAccessControlRuleCommand(input, context);
+    return se_PutAccessControlRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccessControlRuleCommandOutput> {
-    return deserializeAws_json1_1PutAccessControlRuleCommand(output, context);
+    return de_PutAccessControlRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

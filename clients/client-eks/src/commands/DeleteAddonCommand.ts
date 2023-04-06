@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { DeleteAddonRequest, DeleteAddonResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAddonCommand,
-  serializeAws_restJson1DeleteAddonCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAddonCommand, se_DeleteAddonCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeleteAddonCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAddonCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAddonCommand(input, context);
+    return se_DeleteAddonCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAddonCommandOutput> {
-    return deserializeAws_restJson1DeleteAddonCommand(output, context);
+    return de_DeleteAddonCommand(output, context);
   }
 
   // Start section: command_body_extra

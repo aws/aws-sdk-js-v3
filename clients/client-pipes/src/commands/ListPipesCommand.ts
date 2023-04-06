@@ -20,10 +20,7 @@ import {
   ListPipesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import {
-  deserializeAws_restJson1ListPipesCommand,
-  serializeAws_restJson1ListPipesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPipesCommand, se_ListPipesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListPipesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPipesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPipesCommand(input, context);
+    return se_ListPipesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipesCommandOutput> {
-    return deserializeAws_restJson1ListPipesCommand(output, context);
+    return de_ListPipesCommand(output, context);
   }
 
   // Start section: command_body_extra

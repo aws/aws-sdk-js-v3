@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { UpdateEventSourcesConfigRequest, UpdateEventSourcesConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEventSourcesConfigCommand,
-  serializeAws_restJson1UpdateEventSourcesConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateEventSourcesConfigCommand, se_UpdateEventSourcesConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UpdateEventSourcesConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEventSourcesConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateEventSourcesConfigCommand(input, context);
+    return se_UpdateEventSourcesConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEventSourcesConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateEventSourcesConfigCommand(output, context);
+    return de_UpdateEventSourcesConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

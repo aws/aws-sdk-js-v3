@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateDomainMetadataRequest, UpdateDomainMetadataResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDomainMetadataCommand,
-  serializeAws_restJson1UpdateDomainMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDomainMetadataCommand, se_UpdateDomainMetadataCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
@@ -139,14 +136,14 @@ export class UpdateDomainMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDomainMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDomainMetadataCommand(input, context);
+    return se_UpdateDomainMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainMetadataCommandOutput> {
-    return deserializeAws_restJson1UpdateDomainMetadataCommand(output, context);
+    return de_UpdateDomainMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

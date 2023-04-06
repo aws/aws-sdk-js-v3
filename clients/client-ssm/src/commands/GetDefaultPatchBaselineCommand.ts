@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDefaultPatchBaselineRequest, GetDefaultPatchBaselineResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDefaultPatchBaselineCommand,
-  serializeAws_json1_1GetDefaultPatchBaselineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDefaultPatchBaselineCommand, se_GetDefaultPatchBaselineCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -126,14 +123,14 @@ export class GetDefaultPatchBaselineCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDefaultPatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDefaultPatchBaselineCommand(input, context);
+    return se_GetDefaultPatchBaselineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDefaultPatchBaselineCommandOutput> {
-    return deserializeAws_json1_1GetDefaultPatchBaselineCommand(output, context);
+    return de_GetDefaultPatchBaselineCommand(output, context);
   }
 
   // Start section: command_body_extra

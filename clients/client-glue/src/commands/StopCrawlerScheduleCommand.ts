@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { StopCrawlerScheduleRequest, StopCrawlerScheduleResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1StopCrawlerScheduleCommand,
-  serializeAws_json1_1StopCrawlerScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopCrawlerScheduleCommand, se_StopCrawlerScheduleCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class StopCrawlerScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: StopCrawlerScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopCrawlerScheduleCommand(input, context);
+    return se_StopCrawlerScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCrawlerScheduleCommandOutput> {
-    return deserializeAws_json1_1StopCrawlerScheduleCommand(output, context);
+    return de_StopCrawlerScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

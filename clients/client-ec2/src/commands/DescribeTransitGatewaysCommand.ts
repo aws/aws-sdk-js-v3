@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeTransitGatewaysRequest, DescribeTransitGatewaysResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeTransitGatewaysCommand,
-  serializeAws_ec2DescribeTransitGatewaysCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeTransitGatewaysCommand, se_DescribeTransitGatewaysCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeTransitGatewaysCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTransitGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewaysCommand(input, context);
+    return se_DescribeTransitGatewaysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTransitGatewaysCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewaysCommand(output, context);
+    return de_DescribeTransitGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

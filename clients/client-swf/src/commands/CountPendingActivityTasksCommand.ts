@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CountPendingActivityTasksInput, PendingTaskCount } from "../models/models_0";
-import {
-  deserializeAws_json1_0CountPendingActivityTasksCommand,
-  serializeAws_json1_0CountPendingActivityTasksCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CountPendingActivityTasksCommand, se_CountPendingActivityTasksCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -156,7 +153,7 @@ export class CountPendingActivityTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: CountPendingActivityTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CountPendingActivityTasksCommand(input, context);
+    return se_CountPendingActivityTasksCommand(input, context);
   }
 
   /**
@@ -166,7 +163,7 @@ export class CountPendingActivityTasksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CountPendingActivityTasksCommandOutput> {
-    return deserializeAws_json1_0CountPendingActivityTasksCommand(output, context);
+    return de_CountPendingActivityTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

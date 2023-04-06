@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { CancelTransactionRequest, CancelTransactionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelTransactionCommand,
-  serializeAws_restJson1CancelTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelTransactionCommand, se_CancelTransactionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class CancelTransactionCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelTransactionCommand(input, context);
+    return se_CancelTransactionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelTransactionCommandOutput> {
-    return deserializeAws_restJson1CancelTransactionCommand(output, context);
+    return de_CancelTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

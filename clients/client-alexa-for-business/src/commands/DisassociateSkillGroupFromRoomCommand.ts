@@ -16,8 +16,8 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { DisassociateSkillGroupFromRoomRequest, DisassociateSkillGroupFromRoomResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateSkillGroupFromRoomCommand,
-  serializeAws_json1_1DisassociateSkillGroupFromRoomCommand,
+  de_DisassociateSkillGroupFromRoomCommand,
+  se_DisassociateSkillGroupFromRoomCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -130,7 +130,7 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
     input: DisassociateSkillGroupFromRoomCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateSkillGroupFromRoomCommand(input, context);
+    return se_DisassociateSkillGroupFromRoomCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class DisassociateSkillGroupFromRoomCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSkillGroupFromRoomCommandOutput> {
-    return deserializeAws_json1_1DisassociateSkillGroupFromRoomCommand(output, context);
+    return de_DisassociateSkillGroupFromRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

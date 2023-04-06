@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { GetLayerVersionByArnRequest, GetLayerVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLayerVersionByArnCommand,
-  serializeAws_restJson1GetLayerVersionByArnCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLayerVersionByArnCommand, se_GetLayerVersionByArnCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetLayerVersionByArnCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLayerVersionByArnCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLayerVersionByArnCommand(input, context);
+    return se_GetLayerVersionByArnCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayerVersionByArnCommandOutput> {
-    return deserializeAws_restJson1GetLayerVersionByArnCommand(output, context);
+    return de_GetLayerVersionByArnCommand(output, context);
   }
 
   // Start section: command_body_extra

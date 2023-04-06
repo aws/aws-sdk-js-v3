@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListContactListsRequest, ListContactListsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListContactListsCommand,
-  serializeAws_restJson1ListContactListsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListContactListsCommand, se_ListContactListsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -127,14 +124,14 @@ export class ListContactListsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListContactListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListContactListsCommand(input, context);
+    return se_ListContactListsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactListsCommandOutput> {
-    return deserializeAws_restJson1ListContactListsCommand(output, context);
+    return de_ListContactListsCommand(output, context);
   }
 
   // Start section: command_body_extra

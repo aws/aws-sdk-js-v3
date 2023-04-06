@@ -16,8 +16,8 @@ import {
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DescribeStorageVirtualMachinesRequest, DescribeStorageVirtualMachinesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeStorageVirtualMachinesCommand,
-  serializeAws_json1_1DescribeStorageVirtualMachinesCommand,
+  de_DescribeStorageVirtualMachinesCommand,
+  se_DescribeStorageVirtualMachinesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -146,7 +146,7 @@ export class DescribeStorageVirtualMachinesCommand extends $Command<
     input: DescribeStorageVirtualMachinesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStorageVirtualMachinesCommand(input, context);
+    return se_DescribeStorageVirtualMachinesCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DescribeStorageVirtualMachinesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStorageVirtualMachinesCommandOutput> {
-    return deserializeAws_json1_1DescribeStorageVirtualMachinesCommand(output, context);
+    return de_DescribeStorageVirtualMachinesCommand(output, context);
   }
 
   // Start section: command_body_extra

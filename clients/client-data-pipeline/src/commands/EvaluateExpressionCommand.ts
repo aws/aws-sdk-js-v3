@@ -15,10 +15,7 @@ import {
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { EvaluateExpressionInput, EvaluateExpressionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1EvaluateExpressionCommand,
-  serializeAws_json1_1EvaluateExpressionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EvaluateExpressionCommand, se_EvaluateExpressionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class EvaluateExpressionCommand extends $Command<
    * @internal
    */
   private serialize(input: EvaluateExpressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EvaluateExpressionCommand(input, context);
+    return se_EvaluateExpressionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateExpressionCommandOutput> {
-    return deserializeAws_json1_1EvaluateExpressionCommand(output, context);
+    return de_EvaluateExpressionCommand(output, context);
   }
 
   // Start section: command_body_extra

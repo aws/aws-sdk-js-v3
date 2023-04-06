@@ -22,10 +22,7 @@ import {
   GetObjectMetadataOutput,
   GetObjectMetadataOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetObjectMetadataCommand,
-  serializeAws_restJson1GetObjectMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetObjectMetadataCommand, se_GetObjectMetadataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,7 +151,7 @@ export class GetObjectMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetObjectMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetObjectMetadataCommand(input, context);
+    return se_GetObjectMetadataCommand(input, context);
   }
 
   /**
@@ -164,7 +161,7 @@ export class GetObjectMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetObjectMetadataCommandOutput> {
-    return deserializeAws_restJson1GetObjectMetadataCommand(output, context);
+    return de_GetObjectMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

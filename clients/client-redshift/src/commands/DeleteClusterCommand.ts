@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteClusterMessage, DeleteClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteClusterCommand,
-  serializeAws_queryDeleteClusterCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteClusterCommand, se_DeleteClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -155,14 +152,14 @@ export class DeleteClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteClusterCommand(input, context);
+    return se_DeleteClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
-    return deserializeAws_queryDeleteClusterCommand(output, context);
+    return de_DeleteClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

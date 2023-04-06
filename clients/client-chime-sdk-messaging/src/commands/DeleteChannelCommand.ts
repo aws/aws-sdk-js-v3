@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { DeleteChannelRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteChannelCommand,
-  serializeAws_restJson1DeleteChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteChannelCommand, se_DeleteChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteChannelCommand(input, context);
+    return se_DeleteChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteChannelCommand(output, context);
+    return de_DeleteChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

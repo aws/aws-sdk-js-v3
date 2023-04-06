@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
 import { ListDeviceEventsRequest, ListDeviceEventsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDeviceEventsCommand,
-  serializeAws_restJson1ListDeviceEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDeviceEventsCommand, se_ListDeviceEventsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListDeviceEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDeviceEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeviceEventsCommand(input, context);
+    return se_ListDeviceEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceEventsCommandOutput> {
-    return deserializeAws_restJson1ListDeviceEventsCommand(output, context);
+    return de_ListDeviceEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

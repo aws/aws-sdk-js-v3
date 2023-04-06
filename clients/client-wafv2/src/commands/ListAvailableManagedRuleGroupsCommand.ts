@@ -15,8 +15,8 @@ import {
 
 import { ListAvailableManagedRuleGroupsRequest, ListAvailableManagedRuleGroupsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand,
-  serializeAws_json1_1ListAvailableManagedRuleGroupsCommand,
+  de_ListAvailableManagedRuleGroupsCommand,
+  se_ListAvailableManagedRuleGroupsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
@@ -157,7 +157,7 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
     input: ListAvailableManagedRuleGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableManagedRuleGroupsCommand(input, context);
+    return se_ListAvailableManagedRuleGroupsCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableManagedRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand(output, context);
+    return de_ListAvailableManagedRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

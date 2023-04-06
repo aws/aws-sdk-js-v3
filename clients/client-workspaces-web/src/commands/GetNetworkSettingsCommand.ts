@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetNetworkSettingsRequest, GetNetworkSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetNetworkSettingsCommand,
-  serializeAws_restJson1GetNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetNetworkSettingsCommand, se_GetNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -135,14 +132,14 @@ export class GetNetworkSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkSettingsCommand(input, context);
+    return se_GetNetworkSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1GetNetworkSettingsCommand(output, context);
+    return de_GetNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

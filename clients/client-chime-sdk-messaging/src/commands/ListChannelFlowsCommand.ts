@@ -24,10 +24,7 @@ import {
   ListChannelFlowsResponse,
   ListChannelFlowsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChannelFlowsCommand,
-  serializeAws_restJson1ListChannelFlowsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChannelFlowsCommand, se_ListChannelFlowsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class ListChannelFlowsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListChannelFlowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelFlowsCommand(input, context);
+    return se_ListChannelFlowsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelFlowsCommandOutput> {
-    return deserializeAws_restJson1ListChannelFlowsCommand(output, context);
+    return de_ListChannelFlowsCommand(output, context);
   }
 
   // Start section: command_body_extra

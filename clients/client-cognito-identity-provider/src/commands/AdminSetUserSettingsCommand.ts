@@ -24,10 +24,7 @@ import {
   AdminSetUserSettingsRequestFilterSensitiveLog,
   AdminSetUserSettingsResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminSetUserSettingsCommand,
-  serializeAws_json1_1AdminSetUserSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminSetUserSettingsCommand, se_AdminSetUserSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class AdminSetUserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminSetUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminSetUserSettingsCommand(input, context);
+    return se_AdminSetUserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminSetUserSettingsCommandOutput> {
-    return deserializeAws_json1_1AdminSetUserSettingsCommand(output, context);
+    return de_AdminSetUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

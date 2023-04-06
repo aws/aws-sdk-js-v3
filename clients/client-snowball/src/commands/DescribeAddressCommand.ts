@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeAddressRequest, DescribeAddressResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAddressCommand,
-  serializeAws_json1_1DescribeAddressCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAddressCommand, se_DescribeAddressCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -151,14 +148,14 @@ export class DescribeAddressCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAddressCommand(input, context);
+    return se_DescribeAddressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddressCommandOutput> {
-    return deserializeAws_json1_1DescribeAddressCommand(output, context);
+    return de_DescribeAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

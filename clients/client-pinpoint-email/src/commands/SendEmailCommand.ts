@@ -15,10 +15,7 @@ import {
 
 import { SendEmailRequest, SendEmailResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1SendEmailCommand,
-  serializeAws_restJson1SendEmailCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendEmailCommand, se_SendEmailCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -208,14 +205,14 @@ export class SendEmailCommand extends $Command<
    * @internal
    */
   private serialize(input: SendEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendEmailCommand(input, context);
+    return se_SendEmailCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEmailCommandOutput> {
-    return deserializeAws_restJson1SendEmailCommand(output, context);
+    return de_SendEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

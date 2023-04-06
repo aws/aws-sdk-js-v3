@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribePrefixListsRequest, DescribePrefixListsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribePrefixListsCommand,
-  serializeAws_ec2DescribePrefixListsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribePrefixListsCommand, se_DescribePrefixListsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribePrefixListsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePrefixListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribePrefixListsCommand(input, context);
+    return se_DescribePrefixListsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePrefixListsCommandOutput> {
-    return deserializeAws_ec2DescribePrefixListsCommand(output, context);
+    return de_DescribePrefixListsCommand(output, context);
   }
 
   // Start section: command_body_extra

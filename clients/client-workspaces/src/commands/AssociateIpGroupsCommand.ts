@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateIpGroupsRequest, AssociateIpGroupsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateIpGroupsCommand,
-  serializeAws_json1_1AssociateIpGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateIpGroupsCommand, se_AssociateIpGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -141,14 +138,14 @@ export class AssociateIpGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateIpGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateIpGroupsCommand(input, context);
+    return se_AssociateIpGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateIpGroupsCommandOutput> {
-    return deserializeAws_json1_1AssociateIpGroupsCommand(output, context);
+    return de_AssociateIpGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

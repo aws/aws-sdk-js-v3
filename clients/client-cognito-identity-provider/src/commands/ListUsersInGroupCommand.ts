@@ -24,10 +24,7 @@ import {
   ListUsersInGroupResponse,
   ListUsersInGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListUsersInGroupCommand,
-  serializeAws_json1_1ListUsersInGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListUsersInGroupCommand, se_ListUsersInGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class ListUsersInGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUsersInGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUsersInGroupCommand(input, context);
+    return se_ListUsersInGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsersInGroupCommandOutput> {
-    return deserializeAws_json1_1ListUsersInGroupCommand(output, context);
+    return de_ListUsersInGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { CreateSAMLProviderRequest, CreateSAMLProviderResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCreateSAMLProviderCommand,
-  serializeAws_queryCreateSAMLProviderCommand,
-} from "../protocols/Aws_query";
+import { de_CreateSAMLProviderCommand, se_CreateSAMLProviderCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class CreateSAMLProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateSAMLProviderCommand(input, context);
+    return se_CreateSAMLProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSAMLProviderCommandOutput> {
-    return deserializeAws_queryCreateSAMLProviderCommand(output, context);
+    return de_CreateSAMLProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

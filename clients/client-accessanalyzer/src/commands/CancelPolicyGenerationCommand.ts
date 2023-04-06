@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { CancelPolicyGenerationRequest, CancelPolicyGenerationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelPolicyGenerationCommand,
-  serializeAws_restJson1CancelPolicyGenerationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelPolicyGenerationCommand, se_CancelPolicyGenerationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class CancelPolicyGenerationCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelPolicyGenerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelPolicyGenerationCommand(input, context);
+    return se_CancelPolicyGenerationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelPolicyGenerationCommandOutput> {
-    return deserializeAws_restJson1CancelPolicyGenerationCommand(output, context);
+    return de_CancelPolicyGenerationCommand(output, context);
   }
 
   // Start section: command_body_extra

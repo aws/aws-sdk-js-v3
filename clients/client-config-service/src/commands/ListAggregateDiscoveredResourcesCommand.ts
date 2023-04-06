@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { ListAggregateDiscoveredResourcesRequest, ListAggregateDiscoveredResourcesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListAggregateDiscoveredResourcesCommand,
-  serializeAws_json1_1ListAggregateDiscoveredResourcesCommand,
+  de_ListAggregateDiscoveredResourcesCommand,
+  se_ListAggregateDiscoveredResourcesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<
     input: ListAggregateDiscoveredResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAggregateDiscoveredResourcesCommand(input, context);
+    return se_ListAggregateDiscoveredResourcesCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAggregateDiscoveredResourcesCommandOutput> {
-    return deserializeAws_json1_1ListAggregateDiscoveredResourcesCommand(output, context);
+    return de_ListAggregateDiscoveredResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

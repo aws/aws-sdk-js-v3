@@ -18,8 +18,8 @@ import {
   GetServiceQuotaIncreaseRequestFromTemplateResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand,
-  serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand,
+  de_GetServiceQuotaIncreaseRequestFromTemplateCommand,
+  se_GetServiceQuotaIncreaseRequestFromTemplateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
@@ -167,7 +167,7 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
     input: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand(input, context);
+    return se_GetServiceQuotaIncreaseRequestFromTemplateCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
-    return deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand(output, context);
+    return de_GetServiceQuotaIncreaseRequestFromTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

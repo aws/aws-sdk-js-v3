@@ -15,10 +15,7 @@ import {
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { CreateComputeEnvironmentRequest, CreateComputeEnvironmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateComputeEnvironmentCommand,
-  serializeAws_restJson1CreateComputeEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateComputeEnvironmentCommand, se_CreateComputeEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -344,14 +341,14 @@ export class CreateComputeEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateComputeEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateComputeEnvironmentCommand(input, context);
+    return se_CreateComputeEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComputeEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateComputeEnvironmentCommand(output, context);
+    return de_CreateComputeEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

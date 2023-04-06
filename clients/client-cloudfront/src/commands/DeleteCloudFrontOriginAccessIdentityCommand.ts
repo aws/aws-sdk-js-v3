@@ -16,8 +16,8 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeleteCloudFrontOriginAccessIdentityRequest } from "../models/models_1";
 import {
-  deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand,
-  serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand,
+  de_DeleteCloudFrontOriginAccessIdentityCommand,
+  se_DeleteCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -140,7 +140,7 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
     input: DeleteCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(input, context);
+    return se_DeleteCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand(output, context);
+    return de_DeleteCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

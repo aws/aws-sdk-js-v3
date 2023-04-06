@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ConfirmTopicRuleDestinationRequest, ConfirmTopicRuleDestinationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ConfirmTopicRuleDestinationCommand,
-  serializeAws_restJson1ConfirmTopicRuleDestinationCommand,
+  de_ConfirmTopicRuleDestinationCommand,
+  se_ConfirmTopicRuleDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: ConfirmTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfirmTopicRuleDestinationCommand(input, context);
+    return se_ConfirmTopicRuleDestinationCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfirmTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1ConfirmTopicRuleDestinationCommand(output, context);
+    return de_ConfirmTopicRuleDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

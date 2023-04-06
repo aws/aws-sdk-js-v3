@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { DeleteDeviceProfileRequest, DeleteDeviceProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDeviceProfileCommand,
-  serializeAws_restJson1DeleteDeviceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDeviceProfileCommand, se_DeleteDeviceProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteDeviceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDeviceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDeviceProfileCommand(input, context);
+    return se_DeleteDeviceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteDeviceProfileCommand(output, context);
+    return de_DeleteDeviceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

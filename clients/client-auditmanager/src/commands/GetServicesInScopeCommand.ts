@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { GetServicesInScopeRequest, GetServicesInScopeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServicesInScopeCommand,
-  serializeAws_restJson1GetServicesInScopeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetServicesInScopeCommand, se_GetServicesInScopeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetServicesInScopeCommand extends $Command<
    * @internal
    */
   private serialize(input: GetServicesInScopeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServicesInScopeCommand(input, context);
+    return se_GetServicesInScopeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServicesInScopeCommandOutput> {
-    return deserializeAws_restJson1GetServicesInScopeCommand(output, context);
+    return de_GetServicesInScopeCommand(output, context);
   }
 
   // Start section: command_body_extra

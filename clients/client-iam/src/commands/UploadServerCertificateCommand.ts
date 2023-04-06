@@ -19,10 +19,7 @@ import {
   UploadServerCertificateRequestFilterSensitiveLog,
   UploadServerCertificateResponse,
 } from "../models/models_1";
-import {
-  deserializeAws_queryUploadServerCertificateCommand,
-  serializeAws_queryUploadServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { de_UploadServerCertificateCommand, se_UploadServerCertificateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -211,14 +208,14 @@ export class UploadServerCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: UploadServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUploadServerCertificateCommand(input, context);
+    return se_UploadServerCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadServerCertificateCommandOutput> {
-    return deserializeAws_queryUploadServerCertificateCommand(output, context);
+    return de_UploadServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { ListDeviceInstancesRequest, ListDeviceInstancesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeviceInstancesCommand,
-  serializeAws_json1_1ListDeviceInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDeviceInstancesCommand, se_ListDeviceInstancesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListDeviceInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDeviceInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeviceInstancesCommand(input, context);
+    return se_ListDeviceInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeviceInstancesCommandOutput> {
-    return deserializeAws_json1_1ListDeviceInstancesCommand(output, context);
+    return de_ListDeviceInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

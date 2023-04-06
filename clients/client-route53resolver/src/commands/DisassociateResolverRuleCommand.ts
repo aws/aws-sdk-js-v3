@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateResolverRuleRequest, DisassociateResolverRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateResolverRuleCommand,
-  serializeAws_json1_1DisassociateResolverRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateResolverRuleCommand, se_DisassociateResolverRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -137,14 +134,14 @@ export class DisassociateResolverRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateResolverRuleCommand(input, context);
+    return se_DisassociateResolverRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateResolverRuleCommandOutput> {
-    return deserializeAws_json1_1DisassociateResolverRuleCommand(output, context);
+    return de_DisassociateResolverRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

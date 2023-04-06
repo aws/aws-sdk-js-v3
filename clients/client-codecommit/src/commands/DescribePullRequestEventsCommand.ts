@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { DescribePullRequestEventsInput, DescribePullRequestEventsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePullRequestEventsCommand,
-  serializeAws_json1_1DescribePullRequestEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribePullRequestEventsCommand, se_DescribePullRequestEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,7 +161,7 @@ export class DescribePullRequestEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePullRequestEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePullRequestEventsCommand(input, context);
+    return se_DescribePullRequestEventsCommand(input, context);
   }
 
   /**
@@ -174,7 +171,7 @@ export class DescribePullRequestEventsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePullRequestEventsCommandOutput> {
-    return deserializeAws_json1_1DescribePullRequestEventsCommand(output, context);
+    return de_DescribePullRequestEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { ListImagePipelinesRequest, ListImagePipelinesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListImagePipelinesCommand,
-  serializeAws_restJson1ListImagePipelinesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListImagePipelinesCommand, se_ListImagePipelinesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class ListImagePipelinesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListImagePipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListImagePipelinesCommand(input, context);
+    return se_ListImagePipelinesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagePipelinesCommandOutput> {
-    return deserializeAws_restJson1ListImagePipelinesCommand(output, context);
+    return de_ListImagePipelinesCommand(output, context);
   }
 
   // Start section: command_body_extra

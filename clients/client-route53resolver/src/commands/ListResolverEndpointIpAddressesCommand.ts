@@ -15,8 +15,8 @@ import {
 
 import { ListResolverEndpointIpAddressesRequest, ListResolverEndpointIpAddressesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListResolverEndpointIpAddressesCommand,
-  serializeAws_json1_1ListResolverEndpointIpAddressesCommand,
+  de_ListResolverEndpointIpAddressesCommand,
+  se_ListResolverEndpointIpAddressesCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -142,7 +142,7 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     input: ListResolverEndpointIpAddressesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResolverEndpointIpAddressesCommand(input, context);
+    return se_ListResolverEndpointIpAddressesCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResolverEndpointIpAddressesCommandOutput> {
-    return deserializeAws_json1_1ListResolverEndpointIpAddressesCommand(output, context);
+    return de_ListResolverEndpointIpAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

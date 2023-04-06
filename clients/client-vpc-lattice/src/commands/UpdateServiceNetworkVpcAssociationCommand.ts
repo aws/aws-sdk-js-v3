@@ -18,8 +18,8 @@ import {
   UpdateServiceNetworkVpcAssociationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateServiceNetworkVpcAssociationCommand,
-  serializeAws_restJson1UpdateServiceNetworkVpcAssociationCommand,
+  de_UpdateServiceNetworkVpcAssociationCommand,
+  se_UpdateServiceNetworkVpcAssociationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
@@ -154,7 +154,7 @@ export class UpdateServiceNetworkVpcAssociationCommand extends $Command<
     input: UpdateServiceNetworkVpcAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateServiceNetworkVpcAssociationCommand(input, context);
+    return se_UpdateServiceNetworkVpcAssociationCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class UpdateServiceNetworkVpcAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServiceNetworkVpcAssociationCommandOutput> {
-    return deserializeAws_restJson1UpdateServiceNetworkVpcAssociationCommand(output, context);
+    return de_UpdateServiceNetworkVpcAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

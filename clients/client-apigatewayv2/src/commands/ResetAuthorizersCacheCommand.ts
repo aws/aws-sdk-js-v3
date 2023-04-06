@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { ResetAuthorizersCacheRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1ResetAuthorizersCacheCommand,
-  serializeAws_restJson1ResetAuthorizersCacheCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ResetAuthorizersCacheCommand, se_ResetAuthorizersCacheCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class ResetAuthorizersCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetAuthorizersCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResetAuthorizersCacheCommand(input, context);
+    return se_ResetAuthorizersCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetAuthorizersCacheCommandOutput> {
-    return deserializeAws_restJson1ResetAuthorizersCacheCommand(output, context);
+    return de_ResetAuthorizersCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

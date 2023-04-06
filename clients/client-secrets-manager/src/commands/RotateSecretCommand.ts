@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RotateSecretRequest, RotateSecretResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RotateSecretCommand,
-  serializeAws_json1_1RotateSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RotateSecretCommand, se_RotateSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -209,14 +206,14 @@ export class RotateSecretCommand extends $Command<
    * @internal
    */
   private serialize(input: RotateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RotateSecretCommand(input, context);
+    return se_RotateSecretCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RotateSecretCommandOutput> {
-    return deserializeAws_json1_1RotateSecretCommand(output, context);
+    return de_RotateSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

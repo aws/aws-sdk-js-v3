@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CacheParameterGroupNameMessage, ResetCacheParameterGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryResetCacheParameterGroupCommand,
-  serializeAws_queryResetCacheParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ResetCacheParameterGroupCommand, se_ResetCacheParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class ResetCacheParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResetCacheParameterGroupCommand(input, context);
+    return se_ResetCacheParameterGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetCacheParameterGroupCommandOutput> {
-    return deserializeAws_queryResetCacheParameterGroupCommand(output, context);
+    return de_ResetCacheParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

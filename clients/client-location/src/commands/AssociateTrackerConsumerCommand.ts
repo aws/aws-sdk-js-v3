@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { AssociateTrackerConsumerRequest, AssociateTrackerConsumerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateTrackerConsumerCommand,
-  serializeAws_restJson1AssociateTrackerConsumerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateTrackerConsumerCommand, se_AssociateTrackerConsumerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class AssociateTrackerConsumerCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateTrackerConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateTrackerConsumerCommand(input, context);
+    return se_AssociateTrackerConsumerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTrackerConsumerCommandOutput> {
-    return deserializeAws_restJson1AssociateTrackerConsumerCommand(output, context);
+    return de_AssociateTrackerConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

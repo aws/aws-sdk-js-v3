@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { DeleteItemInput, DeleteItemOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteItemCommand,
-  serializeAws_json1_0DeleteItemCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteItemCommand, se_DeleteItemCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -252,14 +249,14 @@ export class DeleteItemCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteItemCommand(input, context);
+    return se_DeleteItemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteItemCommandOutput> {
-    return deserializeAws_json1_0DeleteItemCommand(output, context);
+    return de_DeleteItemCommand(output, context);
   }
 
   // Start section: command_body_extra

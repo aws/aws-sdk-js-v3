@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { UpdateDeviceDefinitionRequest, UpdateDeviceDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDeviceDefinitionCommand,
-  serializeAws_restJson1UpdateDeviceDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDeviceDefinitionCommand, se_UpdateDeviceDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class UpdateDeviceDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDeviceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDeviceDefinitionCommand(input, context);
+    return se_UpdateDeviceDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateDeviceDefinitionCommand(output, context);
+    return de_UpdateDeviceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

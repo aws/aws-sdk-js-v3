@@ -19,8 +19,8 @@ import {
   AssociateWirelessGatewayWithThingResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateWirelessGatewayWithThingCommand,
-  serializeAws_restJson1AssociateWirelessGatewayWithThingCommand,
+  de_AssociateWirelessGatewayWithThingCommand,
+  se_AssociateWirelessGatewayWithThingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class AssociateWirelessGatewayWithThingCommand extends $Command<
     input: AssociateWirelessGatewayWithThingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateWirelessGatewayWithThingCommand(input, context);
+    return se_AssociateWirelessGatewayWithThingCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class AssociateWirelessGatewayWithThingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateWirelessGatewayWithThingCommandOutput> {
-    return deserializeAws_restJson1AssociateWirelessGatewayWithThingCommand(output, context);
+    return de_AssociateWirelessGatewayWithThingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DescribeAdjustmentTypesAnswer } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAdjustmentTypesCommand,
-  serializeAws_queryDescribeAdjustmentTypesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeAdjustmentTypesCommand, se_DescribeAdjustmentTypesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class DescribeAdjustmentTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAdjustmentTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAdjustmentTypesCommand(input, context);
+    return se_DescribeAdjustmentTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAdjustmentTypesCommandOutput> {
-    return deserializeAws_queryDescribeAdjustmentTypesCommand(output, context);
+    return de_DescribeAdjustmentTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

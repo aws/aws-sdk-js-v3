@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDatalakeAutoEnableRequest, GetDatalakeAutoEnableResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDatalakeAutoEnableCommand,
-  serializeAws_restJson1GetDatalakeAutoEnableCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDatalakeAutoEnableCommand, se_GetDatalakeAutoEnableCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -138,14 +135,14 @@ export class GetDatalakeAutoEnableCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDatalakeAutoEnableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDatalakeAutoEnableCommand(input, context);
+    return se_GetDatalakeAutoEnableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatalakeAutoEnableCommandOutput> {
-    return deserializeAws_restJson1GetDatalakeAutoEnableCommand(output, context);
+    return de_GetDatalakeAutoEnableCommand(output, context);
   }
 
   // Start section: command_body_extra

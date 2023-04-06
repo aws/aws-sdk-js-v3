@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateFolderPermissionsRequest, UpdateFolderPermissionsResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateFolderPermissionsCommand,
-  serializeAws_restJson1UpdateFolderPermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFolderPermissionsCommand, se_UpdateFolderPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -164,14 +161,14 @@ export class UpdateFolderPermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFolderPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFolderPermissionsCommand(input, context);
+    return se_UpdateFolderPermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFolderPermissionsCommandOutput> {
-    return deserializeAws_restJson1UpdateFolderPermissionsCommand(output, context);
+    return de_UpdateFolderPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

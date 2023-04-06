@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlBlobsOutput } from "../models/models_0";
-import { deserializeAws_queryXmlBlobsCommand, serializeAws_queryXmlBlobsCommand } from "../protocols/Aws_query";
+import { de_XmlBlobsCommand, se_XmlBlobsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -102,14 +102,14 @@ export class XmlBlobsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlBlobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryXmlBlobsCommand(input, context);
+    return se_XmlBlobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlBlobsCommandOutput> {
-    return deserializeAws_queryXmlBlobsCommand(output, context);
+    return de_XmlBlobsCommand(output, context);
   }
 
   // Start section: command_body_extra

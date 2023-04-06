@@ -15,10 +15,7 @@ import {
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { PutRuleGroupsNamespaceRequest, PutRuleGroupsNamespaceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRuleGroupsNamespaceCommand,
-  serializeAws_restJson1PutRuleGroupsNamespaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutRuleGroupsNamespaceCommand, se_PutRuleGroupsNamespaceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class PutRuleGroupsNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRuleGroupsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRuleGroupsNamespaceCommand(input, context);
+    return se_PutRuleGroupsNamespaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRuleGroupsNamespaceCommandOutput> {
-    return deserializeAws_restJson1PutRuleGroupsNamespaceCommand(output, context);
+    return de_PutRuleGroupsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

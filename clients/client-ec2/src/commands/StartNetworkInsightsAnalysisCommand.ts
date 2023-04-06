@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { StartNetworkInsightsAnalysisRequest, StartNetworkInsightsAnalysisResult } from "../models/models_7";
-import {
-  deserializeAws_ec2StartNetworkInsightsAnalysisCommand,
-  serializeAws_ec2StartNetworkInsightsAnalysisCommand,
-} from "../protocols/Aws_ec2";
+import { de_StartNetworkInsightsAnalysisCommand, se_StartNetworkInsightsAnalysisCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class StartNetworkInsightsAnalysisCommand extends $Command<
    * @internal
    */
   private serialize(input: StartNetworkInsightsAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2StartNetworkInsightsAnalysisCommand(input, context);
+    return se_StartNetworkInsightsAnalysisCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class StartNetworkInsightsAnalysisCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartNetworkInsightsAnalysisCommandOutput> {
-    return deserializeAws_ec2StartNetworkInsightsAnalysisCommand(output, context);
+    return de_StartNetworkInsightsAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

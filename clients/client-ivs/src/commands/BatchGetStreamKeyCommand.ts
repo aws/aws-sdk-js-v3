@@ -19,10 +19,7 @@ import {
   BatchGetStreamKeyResponse,
   BatchGetStreamKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetStreamKeyCommand,
-  serializeAws_restJson1BatchGetStreamKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetStreamKeyCommand, se_BatchGetStreamKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class BatchGetStreamKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetStreamKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetStreamKeyCommand(input, context);
+    return se_BatchGetStreamKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetStreamKeyCommandOutput> {
-    return deserializeAws_restJson1BatchGetStreamKeyCommand(output, context);
+    return de_BatchGetStreamKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

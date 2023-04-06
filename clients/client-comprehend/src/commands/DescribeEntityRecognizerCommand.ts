@@ -19,10 +19,7 @@ import {
   DescribeEntityRecognizerResponse,
   DescribeEntityRecognizerResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEntityRecognizerCommand,
-  serializeAws_json1_1DescribeEntityRecognizerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEntityRecognizerCommand, se_DescribeEntityRecognizerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeEntityRecognizerCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEntityRecognizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEntityRecognizerCommand(input, context);
+    return se_DescribeEntityRecognizerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEntityRecognizerCommandOutput> {
-    return deserializeAws_json1_1DescribeEntityRecognizerCommand(output, context);
+    return de_DescribeEntityRecognizerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -179,7 +179,10 @@ import {
 } from "../models/models_0";
 import { OpenSearchServerlessServiceException as __BaseException } from "../models/OpenSearchServerlessServiceException";
 
-export const serializeAws_json1_0BatchGetCollectionCommand = async (
+/**
+ * serializeAws_json1_0BatchGetCollectionCommand
+ */
+export const se_BatchGetCollectionCommand = async (
   input: BatchGetCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -188,11 +191,14 @@ export const serializeAws_json1_0BatchGetCollectionCommand = async (
     "x-amz-target": "OpenSearchServerless.BatchGetCollection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0BatchGetCollectionRequest(input, context));
+  body = JSON.stringify(se_BatchGetCollectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0BatchGetVpcEndpointCommand = async (
+/**
+ * serializeAws_json1_0BatchGetVpcEndpointCommand
+ */
+export const se_BatchGetVpcEndpointCommand = async (
   input: BatchGetVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -201,11 +207,14 @@ export const serializeAws_json1_0BatchGetVpcEndpointCommand = async (
     "x-amz-target": "OpenSearchServerless.BatchGetVpcEndpoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0BatchGetVpcEndpointRequest(input, context));
+  body = JSON.stringify(se_BatchGetVpcEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateAccessPolicyCommand = async (
+/**
+ * serializeAws_json1_0CreateAccessPolicyCommand
+ */
+export const se_CreateAccessPolicyCommand = async (
   input: CreateAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -214,11 +223,14 @@ export const serializeAws_json1_0CreateAccessPolicyCommand = async (
     "x-amz-target": "OpenSearchServerless.CreateAccessPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateAccessPolicyRequest(input, context));
+  body = JSON.stringify(se_CreateAccessPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateCollectionCommand = async (
+/**
+ * serializeAws_json1_0CreateCollectionCommand
+ */
+export const se_CreateCollectionCommand = async (
   input: CreateCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -227,11 +239,14 @@ export const serializeAws_json1_0CreateCollectionCommand = async (
     "x-amz-target": "OpenSearchServerless.CreateCollection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateCollectionRequest(input, context));
+  body = JSON.stringify(se_CreateCollectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateSecurityConfigCommand = async (
+/**
+ * serializeAws_json1_0CreateSecurityConfigCommand
+ */
+export const se_CreateSecurityConfigCommand = async (
   input: CreateSecurityConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -240,11 +255,14 @@ export const serializeAws_json1_0CreateSecurityConfigCommand = async (
     "x-amz-target": "OpenSearchServerless.CreateSecurityConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateSecurityConfigRequest(input, context));
+  body = JSON.stringify(se_CreateSecurityConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateSecurityPolicyCommand = async (
+/**
+ * serializeAws_json1_0CreateSecurityPolicyCommand
+ */
+export const se_CreateSecurityPolicyCommand = async (
   input: CreateSecurityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -253,11 +271,14 @@ export const serializeAws_json1_0CreateSecurityPolicyCommand = async (
     "x-amz-target": "OpenSearchServerless.CreateSecurityPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateSecurityPolicyRequest(input, context));
+  body = JSON.stringify(se_CreateSecurityPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateVpcEndpointCommand = async (
+/**
+ * serializeAws_json1_0CreateVpcEndpointCommand
+ */
+export const se_CreateVpcEndpointCommand = async (
   input: CreateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -266,11 +287,14 @@ export const serializeAws_json1_0CreateVpcEndpointCommand = async (
     "x-amz-target": "OpenSearchServerless.CreateVpcEndpoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateVpcEndpointRequest(input, context));
+  body = JSON.stringify(se_CreateVpcEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteAccessPolicyCommand = async (
+/**
+ * serializeAws_json1_0DeleteAccessPolicyCommand
+ */
+export const se_DeleteAccessPolicyCommand = async (
   input: DeleteAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -279,11 +303,14 @@ export const serializeAws_json1_0DeleteAccessPolicyCommand = async (
     "x-amz-target": "OpenSearchServerless.DeleteAccessPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteAccessPolicyRequest(input, context));
+  body = JSON.stringify(se_DeleteAccessPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteCollectionCommand = async (
+/**
+ * serializeAws_json1_0DeleteCollectionCommand
+ */
+export const se_DeleteCollectionCommand = async (
   input: DeleteCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -292,11 +319,14 @@ export const serializeAws_json1_0DeleteCollectionCommand = async (
     "x-amz-target": "OpenSearchServerless.DeleteCollection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteCollectionRequest(input, context));
+  body = JSON.stringify(se_DeleteCollectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteSecurityConfigCommand = async (
+/**
+ * serializeAws_json1_0DeleteSecurityConfigCommand
+ */
+export const se_DeleteSecurityConfigCommand = async (
   input: DeleteSecurityConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -305,11 +335,14 @@ export const serializeAws_json1_0DeleteSecurityConfigCommand = async (
     "x-amz-target": "OpenSearchServerless.DeleteSecurityConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteSecurityConfigRequest(input, context));
+  body = JSON.stringify(se_DeleteSecurityConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteSecurityPolicyCommand = async (
+/**
+ * serializeAws_json1_0DeleteSecurityPolicyCommand
+ */
+export const se_DeleteSecurityPolicyCommand = async (
   input: DeleteSecurityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -318,11 +351,14 @@ export const serializeAws_json1_0DeleteSecurityPolicyCommand = async (
     "x-amz-target": "OpenSearchServerless.DeleteSecurityPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteSecurityPolicyRequest(input, context));
+  body = JSON.stringify(se_DeleteSecurityPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteVpcEndpointCommand = async (
+/**
+ * serializeAws_json1_0DeleteVpcEndpointCommand
+ */
+export const se_DeleteVpcEndpointCommand = async (
   input: DeleteVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -331,11 +367,14 @@ export const serializeAws_json1_0DeleteVpcEndpointCommand = async (
     "x-amz-target": "OpenSearchServerless.DeleteVpcEndpoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteVpcEndpointRequest(input, context));
+  body = JSON.stringify(se_DeleteVpcEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetAccessPolicyCommand = async (
+/**
+ * serializeAws_json1_0GetAccessPolicyCommand
+ */
+export const se_GetAccessPolicyCommand = async (
   input: GetAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -344,11 +383,14 @@ export const serializeAws_json1_0GetAccessPolicyCommand = async (
     "x-amz-target": "OpenSearchServerless.GetAccessPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetAccessPolicyRequest(input, context));
+  body = JSON.stringify(se_GetAccessPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetAccountSettingsCommand = async (
+/**
+ * serializeAws_json1_0GetAccountSettingsCommand
+ */
+export const se_GetAccountSettingsCommand = async (
   input: GetAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -357,11 +399,14 @@ export const serializeAws_json1_0GetAccountSettingsCommand = async (
     "x-amz-target": "OpenSearchServerless.GetAccountSettings",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetAccountSettingsRequest(input, context));
+  body = JSON.stringify(se_GetAccountSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetPoliciesStatsCommand = async (
+/**
+ * serializeAws_json1_0GetPoliciesStatsCommand
+ */
+export const se_GetPoliciesStatsCommand = async (
   input: GetPoliciesStatsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -370,11 +415,14 @@ export const serializeAws_json1_0GetPoliciesStatsCommand = async (
     "x-amz-target": "OpenSearchServerless.GetPoliciesStats",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetPoliciesStatsRequest(input, context));
+  body = JSON.stringify(se_GetPoliciesStatsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetSecurityConfigCommand = async (
+/**
+ * serializeAws_json1_0GetSecurityConfigCommand
+ */
+export const se_GetSecurityConfigCommand = async (
   input: GetSecurityConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -383,11 +431,14 @@ export const serializeAws_json1_0GetSecurityConfigCommand = async (
     "x-amz-target": "OpenSearchServerless.GetSecurityConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetSecurityConfigRequest(input, context));
+  body = JSON.stringify(se_GetSecurityConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0GetSecurityPolicyCommand = async (
+/**
+ * serializeAws_json1_0GetSecurityPolicyCommand
+ */
+export const se_GetSecurityPolicyCommand = async (
   input: GetSecurityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -396,11 +447,14 @@ export const serializeAws_json1_0GetSecurityPolicyCommand = async (
     "x-amz-target": "OpenSearchServerless.GetSecurityPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0GetSecurityPolicyRequest(input, context));
+  body = JSON.stringify(se_GetSecurityPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListAccessPoliciesCommand = async (
+/**
+ * serializeAws_json1_0ListAccessPoliciesCommand
+ */
+export const se_ListAccessPoliciesCommand = async (
   input: ListAccessPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -409,11 +463,14 @@ export const serializeAws_json1_0ListAccessPoliciesCommand = async (
     "x-amz-target": "OpenSearchServerless.ListAccessPolicies",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListAccessPoliciesRequest(input, context));
+  body = JSON.stringify(se_ListAccessPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListCollectionsCommand = async (
+/**
+ * serializeAws_json1_0ListCollectionsCommand
+ */
+export const se_ListCollectionsCommand = async (
   input: ListCollectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -422,11 +479,14 @@ export const serializeAws_json1_0ListCollectionsCommand = async (
     "x-amz-target": "OpenSearchServerless.ListCollections",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListCollectionsRequest(input, context));
+  body = JSON.stringify(se_ListCollectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListSecurityConfigsCommand = async (
+/**
+ * serializeAws_json1_0ListSecurityConfigsCommand
+ */
+export const se_ListSecurityConfigsCommand = async (
   input: ListSecurityConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -435,11 +495,14 @@ export const serializeAws_json1_0ListSecurityConfigsCommand = async (
     "x-amz-target": "OpenSearchServerless.ListSecurityConfigs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListSecurityConfigsRequest(input, context));
+  body = JSON.stringify(se_ListSecurityConfigsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListSecurityPoliciesCommand = async (
+/**
+ * serializeAws_json1_0ListSecurityPoliciesCommand
+ */
+export const se_ListSecurityPoliciesCommand = async (
   input: ListSecurityPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -448,11 +511,14 @@ export const serializeAws_json1_0ListSecurityPoliciesCommand = async (
     "x-amz-target": "OpenSearchServerless.ListSecurityPolicies",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListSecurityPoliciesRequest(input, context));
+  body = JSON.stringify(se_ListSecurityPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -461,11 +527,14 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
     "x-amz-target": "OpenSearchServerless.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListVpcEndpointsCommand = async (
+/**
+ * serializeAws_json1_0ListVpcEndpointsCommand
+ */
+export const se_ListVpcEndpointsCommand = async (
   input: ListVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -474,11 +543,14 @@ export const serializeAws_json1_0ListVpcEndpointsCommand = async (
     "x-amz-target": "OpenSearchServerless.ListVpcEndpoints",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListVpcEndpointsRequest(input, context));
+  body = JSON.stringify(se_ListVpcEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0TagResourceCommand = async (
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -487,11 +559,14 @@ export const serializeAws_json1_0TagResourceCommand = async (
     "x-amz-target": "OpenSearchServerless.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UntagResourceCommand = async (
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -500,11 +575,14 @@ export const serializeAws_json1_0UntagResourceCommand = async (
     "x-amz-target": "OpenSearchServerless.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateAccessPolicyCommand = async (
+/**
+ * serializeAws_json1_0UpdateAccessPolicyCommand
+ */
+export const se_UpdateAccessPolicyCommand = async (
   input: UpdateAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -513,11 +591,14 @@ export const serializeAws_json1_0UpdateAccessPolicyCommand = async (
     "x-amz-target": "OpenSearchServerless.UpdateAccessPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateAccessPolicyRequest(input, context));
+  body = JSON.stringify(se_UpdateAccessPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateAccountSettingsCommand = async (
+/**
+ * serializeAws_json1_0UpdateAccountSettingsCommand
+ */
+export const se_UpdateAccountSettingsCommand = async (
   input: UpdateAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -526,11 +607,14 @@ export const serializeAws_json1_0UpdateAccountSettingsCommand = async (
     "x-amz-target": "OpenSearchServerless.UpdateAccountSettings",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateAccountSettingsRequest(input, context));
+  body = JSON.stringify(se_UpdateAccountSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateCollectionCommand = async (
+/**
+ * serializeAws_json1_0UpdateCollectionCommand
+ */
+export const se_UpdateCollectionCommand = async (
   input: UpdateCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -539,11 +623,14 @@ export const serializeAws_json1_0UpdateCollectionCommand = async (
     "x-amz-target": "OpenSearchServerless.UpdateCollection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateCollectionRequest(input, context));
+  body = JSON.stringify(se_UpdateCollectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateSecurityConfigCommand = async (
+/**
+ * serializeAws_json1_0UpdateSecurityConfigCommand
+ */
+export const se_UpdateSecurityConfigCommand = async (
   input: UpdateSecurityConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -552,11 +639,14 @@ export const serializeAws_json1_0UpdateSecurityConfigCommand = async (
     "x-amz-target": "OpenSearchServerless.UpdateSecurityConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateSecurityConfigRequest(input, context));
+  body = JSON.stringify(se_UpdateSecurityConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateSecurityPolicyCommand = async (
+/**
+ * serializeAws_json1_0UpdateSecurityPolicyCommand
+ */
+export const se_UpdateSecurityPolicyCommand = async (
   input: UpdateSecurityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -565,11 +655,14 @@ export const serializeAws_json1_0UpdateSecurityPolicyCommand = async (
     "x-amz-target": "OpenSearchServerless.UpdateSecurityPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateSecurityPolicyRequest(input, context));
+  body = JSON.stringify(se_UpdateSecurityPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateVpcEndpointCommand = async (
+/**
+ * serializeAws_json1_0UpdateVpcEndpointCommand
+ */
+export const se_UpdateVpcEndpointCommand = async (
   input: UpdateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -578,20 +671,23 @@ export const serializeAws_json1_0UpdateVpcEndpointCommand = async (
     "x-amz-target": "OpenSearchServerless.UpdateVpcEndpoint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateVpcEndpointRequest(input, context));
+  body = JSON.stringify(se_UpdateVpcEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0BatchGetCollectionCommand = async (
+/**
+ * deserializeAws_json1_0BatchGetCollectionCommand
+ */
+export const de_BatchGetCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0BatchGetCollectionCommandError(output, context);
+    return de_BatchGetCollectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0BatchGetCollectionResponse(data, context);
+  contents = de_BatchGetCollectionResponse(data, context);
   const response: BatchGetCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -599,7 +695,10 @@ export const deserializeAws_json1_0BatchGetCollectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0BatchGetCollectionCommandError = async (
+/**
+ * deserializeAws_json1_0BatchGetCollectionCommandError
+ */
+const de_BatchGetCollectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetCollectionCommandOutput> => {
@@ -611,10 +710,10 @@ const deserializeAws_json1_0BatchGetCollectionCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -626,16 +725,19 @@ const deserializeAws_json1_0BatchGetCollectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0BatchGetVpcEndpointCommand = async (
+/**
+ * deserializeAws_json1_0BatchGetVpcEndpointCommand
+ */
+export const de_BatchGetVpcEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetVpcEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0BatchGetVpcEndpointCommandError(output, context);
+    return de_BatchGetVpcEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0BatchGetVpcEndpointResponse(data, context);
+  contents = de_BatchGetVpcEndpointResponse(data, context);
   const response: BatchGetVpcEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -643,7 +745,10 @@ export const deserializeAws_json1_0BatchGetVpcEndpointCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0BatchGetVpcEndpointCommandError = async (
+/**
+ * deserializeAws_json1_0BatchGetVpcEndpointCommandError
+ */
+const de_BatchGetVpcEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetVpcEndpointCommandOutput> => {
@@ -655,10 +760,10 @@ const deserializeAws_json1_0BatchGetVpcEndpointCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -670,16 +775,19 @@ const deserializeAws_json1_0BatchGetVpcEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateAccessPolicyCommand = async (
+/**
+ * deserializeAws_json1_0CreateAccessPolicyCommand
+ */
+export const de_CreateAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateAccessPolicyCommandError(output, context);
+    return de_CreateAccessPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateAccessPolicyResponse(data, context);
+  contents = de_CreateAccessPolicyResponse(data, context);
   const response: CreateAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -687,7 +795,10 @@ export const deserializeAws_json1_0CreateAccessPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateAccessPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0CreateAccessPolicyCommandError
+ */
+const de_CreateAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessPolicyCommandOutput> => {
@@ -699,16 +810,16 @@ const deserializeAws_json1_0CreateAccessPolicyCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -720,16 +831,19 @@ const deserializeAws_json1_0CreateAccessPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateCollectionCommand = async (
+/**
+ * deserializeAws_json1_0CreateCollectionCommand
+ */
+export const de_CreateCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateCollectionCommandError(output, context);
+    return de_CreateCollectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateCollectionResponse(data, context);
+  contents = de_CreateCollectionResponse(data, context);
   const response: CreateCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -737,7 +851,10 @@ export const deserializeAws_json1_0CreateCollectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateCollectionCommandError = async (
+/**
+ * deserializeAws_json1_0CreateCollectionCommandError
+ */
+const de_CreateCollectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCollectionCommandOutput> => {
@@ -749,19 +866,19 @@ const deserializeAws_json1_0CreateCollectionCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "OcuLimitExceededException":
     case "com.amazonaws.opensearchserverless#OcuLimitExceededException":
-      throw await deserializeAws_json1_0OcuLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_OcuLimitExceededExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -773,16 +890,19 @@ const deserializeAws_json1_0CreateCollectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateSecurityConfigCommand = async (
+/**
+ * deserializeAws_json1_0CreateSecurityConfigCommand
+ */
+export const de_CreateSecurityConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecurityConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateSecurityConfigCommandError(output, context);
+    return de_CreateSecurityConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateSecurityConfigResponse(data, context);
+  contents = de_CreateSecurityConfigResponse(data, context);
   const response: CreateSecurityConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -790,7 +910,10 @@ export const deserializeAws_json1_0CreateSecurityConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateSecurityConfigCommandError = async (
+/**
+ * deserializeAws_json1_0CreateSecurityConfigCommandError
+ */
+const de_CreateSecurityConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecurityConfigCommandOutput> => {
@@ -802,16 +925,16 @@ const deserializeAws_json1_0CreateSecurityConfigCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -823,16 +946,19 @@ const deserializeAws_json1_0CreateSecurityConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateSecurityPolicyCommand = async (
+/**
+ * deserializeAws_json1_0CreateSecurityPolicyCommand
+ */
+export const de_CreateSecurityPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecurityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateSecurityPolicyCommandError(output, context);
+    return de_CreateSecurityPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateSecurityPolicyResponse(data, context);
+  contents = de_CreateSecurityPolicyResponse(data, context);
   const response: CreateSecurityPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -840,7 +966,10 @@ export const deserializeAws_json1_0CreateSecurityPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateSecurityPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0CreateSecurityPolicyCommandError
+ */
+const de_CreateSecurityPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecurityPolicyCommandOutput> => {
@@ -852,16 +981,16 @@ const deserializeAws_json1_0CreateSecurityPolicyCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -873,16 +1002,19 @@ const deserializeAws_json1_0CreateSecurityPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateVpcEndpointCommand = async (
+/**
+ * deserializeAws_json1_0CreateVpcEndpointCommand
+ */
+export const de_CreateVpcEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateVpcEndpointCommandError(output, context);
+    return de_CreateVpcEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateVpcEndpointResponse(data, context);
+  contents = de_CreateVpcEndpointResponse(data, context);
   const response: CreateVpcEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -890,7 +1022,10 @@ export const deserializeAws_json1_0CreateVpcEndpointCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateVpcEndpointCommandError = async (
+/**
+ * deserializeAws_json1_0CreateVpcEndpointCommandError
+ */
+const de_CreateVpcEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcEndpointCommandOutput> => {
@@ -902,16 +1037,16 @@ const deserializeAws_json1_0CreateVpcEndpointCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -923,16 +1058,19 @@ const deserializeAws_json1_0CreateVpcEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteAccessPolicyCommand = async (
+/**
+ * deserializeAws_json1_0DeleteAccessPolicyCommand
+ */
+export const de_DeleteAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteAccessPolicyCommandError(output, context);
+    return de_DeleteAccessPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteAccessPolicyResponse(data, context);
+  contents = de_DeleteAccessPolicyResponse(data, context);
   const response: DeleteAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -940,7 +1078,10 @@ export const deserializeAws_json1_0DeleteAccessPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteAccessPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteAccessPolicyCommandError
+ */
+const de_DeleteAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessPolicyCommandOutput> => {
@@ -952,16 +1093,16 @@ const deserializeAws_json1_0DeleteAccessPolicyCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -973,16 +1114,19 @@ const deserializeAws_json1_0DeleteAccessPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteCollectionCommand = async (
+/**
+ * deserializeAws_json1_0DeleteCollectionCommand
+ */
+export const de_DeleteCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteCollectionCommandError(output, context);
+    return de_DeleteCollectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteCollectionResponse(data, context);
+  contents = de_DeleteCollectionResponse(data, context);
   const response: DeleteCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -990,7 +1134,10 @@ export const deserializeAws_json1_0DeleteCollectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteCollectionCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteCollectionCommandError
+ */
+const de_DeleteCollectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCollectionCommandOutput> => {
@@ -1002,16 +1149,16 @@ const deserializeAws_json1_0DeleteCollectionCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1023,16 +1170,19 @@ const deserializeAws_json1_0DeleteCollectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteSecurityConfigCommand = async (
+/**
+ * deserializeAws_json1_0DeleteSecurityConfigCommand
+ */
+export const de_DeleteSecurityConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecurityConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteSecurityConfigCommandError(output, context);
+    return de_DeleteSecurityConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteSecurityConfigResponse(data, context);
+  contents = de_DeleteSecurityConfigResponse(data, context);
   const response: DeleteSecurityConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1040,7 +1190,10 @@ export const deserializeAws_json1_0DeleteSecurityConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteSecurityConfigCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteSecurityConfigCommandError
+ */
+const de_DeleteSecurityConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecurityConfigCommandOutput> => {
@@ -1052,16 +1205,16 @@ const deserializeAws_json1_0DeleteSecurityConfigCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1073,16 +1226,19 @@ const deserializeAws_json1_0DeleteSecurityConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteSecurityPolicyCommand = async (
+/**
+ * deserializeAws_json1_0DeleteSecurityPolicyCommand
+ */
+export const de_DeleteSecurityPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecurityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteSecurityPolicyCommandError(output, context);
+    return de_DeleteSecurityPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteSecurityPolicyResponse(data, context);
+  contents = de_DeleteSecurityPolicyResponse(data, context);
   const response: DeleteSecurityPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1090,7 +1246,10 @@ export const deserializeAws_json1_0DeleteSecurityPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteSecurityPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteSecurityPolicyCommandError
+ */
+const de_DeleteSecurityPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecurityPolicyCommandOutput> => {
@@ -1102,16 +1261,16 @@ const deserializeAws_json1_0DeleteSecurityPolicyCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1123,16 +1282,19 @@ const deserializeAws_json1_0DeleteSecurityPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteVpcEndpointCommand = async (
+/**
+ * deserializeAws_json1_0DeleteVpcEndpointCommand
+ */
+export const de_DeleteVpcEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteVpcEndpointCommandError(output, context);
+    return de_DeleteVpcEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteVpcEndpointResponse(data, context);
+  contents = de_DeleteVpcEndpointResponse(data, context);
   const response: DeleteVpcEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1140,7 +1302,10 @@ export const deserializeAws_json1_0DeleteVpcEndpointCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteVpcEndpointCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteVpcEndpointCommandError
+ */
+const de_DeleteVpcEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcEndpointCommandOutput> => {
@@ -1152,16 +1317,16 @@ const deserializeAws_json1_0DeleteVpcEndpointCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1173,16 +1338,19 @@ const deserializeAws_json1_0DeleteVpcEndpointCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetAccessPolicyCommand = async (
+/**
+ * deserializeAws_json1_0GetAccessPolicyCommand
+ */
+export const de_GetAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetAccessPolicyCommandError(output, context);
+    return de_GetAccessPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetAccessPolicyResponse(data, context);
+  contents = de_GetAccessPolicyResponse(data, context);
   const response: GetAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1190,7 +1358,10 @@ export const deserializeAws_json1_0GetAccessPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetAccessPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0GetAccessPolicyCommandError
+ */
+const de_GetAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessPolicyCommandOutput> => {
@@ -1202,13 +1373,13 @@ const deserializeAws_json1_0GetAccessPolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1220,16 +1391,19 @@ const deserializeAws_json1_0GetAccessPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetAccountSettingsCommand = async (
+/**
+ * deserializeAws_json1_0GetAccountSettingsCommand
+ */
+export const de_GetAccountSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetAccountSettingsCommandError(output, context);
+    return de_GetAccountSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetAccountSettingsResponse(data, context);
+  contents = de_GetAccountSettingsResponse(data, context);
   const response: GetAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1237,7 +1411,10 @@ export const deserializeAws_json1_0GetAccountSettingsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetAccountSettingsCommandError = async (
+/**
+ * deserializeAws_json1_0GetAccountSettingsCommandError
+ */
+const de_GetAccountSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> => {
@@ -1249,10 +1426,10 @@ const deserializeAws_json1_0GetAccountSettingsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1264,16 +1441,19 @@ const deserializeAws_json1_0GetAccountSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetPoliciesStatsCommand = async (
+/**
+ * deserializeAws_json1_0GetPoliciesStatsCommand
+ */
+export const de_GetPoliciesStatsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPoliciesStatsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetPoliciesStatsCommandError(output, context);
+    return de_GetPoliciesStatsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetPoliciesStatsResponse(data, context);
+  contents = de_GetPoliciesStatsResponse(data, context);
   const response: GetPoliciesStatsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1281,7 +1461,10 @@ export const deserializeAws_json1_0GetPoliciesStatsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetPoliciesStatsCommandError = async (
+/**
+ * deserializeAws_json1_0GetPoliciesStatsCommandError
+ */
+const de_GetPoliciesStatsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPoliciesStatsCommandOutput> => {
@@ -1293,7 +1476,7 @@ const deserializeAws_json1_0GetPoliciesStatsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1305,16 +1488,19 @@ const deserializeAws_json1_0GetPoliciesStatsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetSecurityConfigCommand = async (
+/**
+ * deserializeAws_json1_0GetSecurityConfigCommand
+ */
+export const de_GetSecurityConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSecurityConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetSecurityConfigCommandError(output, context);
+    return de_GetSecurityConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetSecurityConfigResponse(data, context);
+  contents = de_GetSecurityConfigResponse(data, context);
   const response: GetSecurityConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1322,7 +1508,10 @@ export const deserializeAws_json1_0GetSecurityConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetSecurityConfigCommandError = async (
+/**
+ * deserializeAws_json1_0GetSecurityConfigCommandError
+ */
+const de_GetSecurityConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSecurityConfigCommandOutput> => {
@@ -1334,13 +1523,13 @@ const deserializeAws_json1_0GetSecurityConfigCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1352,16 +1541,19 @@ const deserializeAws_json1_0GetSecurityConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0GetSecurityPolicyCommand = async (
+/**
+ * deserializeAws_json1_0GetSecurityPolicyCommand
+ */
+export const de_GetSecurityPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSecurityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0GetSecurityPolicyCommandError(output, context);
+    return de_GetSecurityPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetSecurityPolicyResponse(data, context);
+  contents = de_GetSecurityPolicyResponse(data, context);
   const response: GetSecurityPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1369,7 +1561,10 @@ export const deserializeAws_json1_0GetSecurityPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0GetSecurityPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0GetSecurityPolicyCommandError
+ */
+const de_GetSecurityPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSecurityPolicyCommandOutput> => {
@@ -1381,13 +1576,13 @@ const deserializeAws_json1_0GetSecurityPolicyCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1399,16 +1594,19 @@ const deserializeAws_json1_0GetSecurityPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListAccessPoliciesCommand = async (
+/**
+ * deserializeAws_json1_0ListAccessPoliciesCommand
+ */
+export const de_ListAccessPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListAccessPoliciesCommandError(output, context);
+    return de_ListAccessPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListAccessPoliciesResponse(data, context);
+  contents = de_ListAccessPoliciesResponse(data, context);
   const response: ListAccessPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1416,7 +1614,10 @@ export const deserializeAws_json1_0ListAccessPoliciesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListAccessPoliciesCommandError = async (
+/**
+ * deserializeAws_json1_0ListAccessPoliciesCommandError
+ */
+const de_ListAccessPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessPoliciesCommandOutput> => {
@@ -1428,10 +1629,10 @@ const deserializeAws_json1_0ListAccessPoliciesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1443,16 +1644,19 @@ const deserializeAws_json1_0ListAccessPoliciesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListCollectionsCommand = async (
+/**
+ * deserializeAws_json1_0ListCollectionsCommand
+ */
+export const de_ListCollectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCollectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListCollectionsCommandError(output, context);
+    return de_ListCollectionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListCollectionsResponse(data, context);
+  contents = de_ListCollectionsResponse(data, context);
   const response: ListCollectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1460,7 +1664,10 @@ export const deserializeAws_json1_0ListCollectionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListCollectionsCommandError = async (
+/**
+ * deserializeAws_json1_0ListCollectionsCommandError
+ */
+const de_ListCollectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCollectionsCommandOutput> => {
@@ -1472,10 +1679,10 @@ const deserializeAws_json1_0ListCollectionsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1487,16 +1694,19 @@ const deserializeAws_json1_0ListCollectionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListSecurityConfigsCommand = async (
+/**
+ * deserializeAws_json1_0ListSecurityConfigsCommand
+ */
+export const de_ListSecurityConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListSecurityConfigsCommandError(output, context);
+    return de_ListSecurityConfigsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListSecurityConfigsResponse(data, context);
+  contents = de_ListSecurityConfigsResponse(data, context);
   const response: ListSecurityConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1504,7 +1714,10 @@ export const deserializeAws_json1_0ListSecurityConfigsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListSecurityConfigsCommandError = async (
+/**
+ * deserializeAws_json1_0ListSecurityConfigsCommandError
+ */
+const de_ListSecurityConfigsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityConfigsCommandOutput> => {
@@ -1516,10 +1729,10 @@ const deserializeAws_json1_0ListSecurityConfigsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1531,16 +1744,19 @@ const deserializeAws_json1_0ListSecurityConfigsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListSecurityPoliciesCommand = async (
+/**
+ * deserializeAws_json1_0ListSecurityPoliciesCommand
+ */
+export const de_ListSecurityPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListSecurityPoliciesCommandError(output, context);
+    return de_ListSecurityPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListSecurityPoliciesResponse(data, context);
+  contents = de_ListSecurityPoliciesResponse(data, context);
   const response: ListSecurityPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1548,7 +1764,10 @@ export const deserializeAws_json1_0ListSecurityPoliciesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListSecurityPoliciesCommandError = async (
+/**
+ * deserializeAws_json1_0ListSecurityPoliciesCommandError
+ */
+const de_ListSecurityPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityPoliciesCommandOutput> => {
@@ -1560,10 +1779,10 @@ const deserializeAws_json1_0ListSecurityPoliciesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1575,16 +1794,19 @@ const deserializeAws_json1_0ListSecurityPoliciesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1592,7 +1814,10 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1604,13 +1829,13 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1622,16 +1847,19 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListVpcEndpointsCommand = async (
+/**
+ * deserializeAws_json1_0ListVpcEndpointsCommand
+ */
+export const de_ListVpcEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListVpcEndpointsCommandError(output, context);
+    return de_ListVpcEndpointsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListVpcEndpointsResponse(data, context);
+  contents = de_ListVpcEndpointsResponse(data, context);
   const response: ListVpcEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1639,7 +1867,10 @@ export const deserializeAws_json1_0ListVpcEndpointsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListVpcEndpointsCommandError = async (
+/**
+ * deserializeAws_json1_0ListVpcEndpointsCommandError
+ */
+const de_ListVpcEndpointsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcEndpointsCommandOutput> => {
@@ -1651,10 +1882,10 @@ const deserializeAws_json1_0ListVpcEndpointsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1666,16 +1897,19 @@ const deserializeAws_json1_0ListVpcEndpointsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0TagResourceCommand = async (
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1683,7 +1917,10 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1695,19 +1932,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1719,16 +1956,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1736,7 +1976,10 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1748,16 +1991,16 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1769,16 +2012,19 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateAccessPolicyCommand = async (
+/**
+ * deserializeAws_json1_0UpdateAccessPolicyCommand
+ */
+export const de_UpdateAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateAccessPolicyCommandError(output, context);
+    return de_UpdateAccessPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateAccessPolicyResponse(data, context);
+  contents = de_UpdateAccessPolicyResponse(data, context);
   const response: UpdateAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1786,7 +2032,10 @@ export const deserializeAws_json1_0UpdateAccessPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateAccessPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateAccessPolicyCommandError
+ */
+const de_UpdateAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccessPolicyCommandOutput> => {
@@ -1798,16 +2047,16 @@ const deserializeAws_json1_0UpdateAccessPolicyCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1819,16 +2068,19 @@ const deserializeAws_json1_0UpdateAccessPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateAccountSettingsCommand = async (
+/**
+ * deserializeAws_json1_0UpdateAccountSettingsCommand
+ */
+export const de_UpdateAccountSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccountSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateAccountSettingsCommandError(output, context);
+    return de_UpdateAccountSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateAccountSettingsResponse(data, context);
+  contents = de_UpdateAccountSettingsResponse(data, context);
   const response: UpdateAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1836,7 +2088,10 @@ export const deserializeAws_json1_0UpdateAccountSettingsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateAccountSettingsCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateAccountSettingsCommandError
+ */
+const de_UpdateAccountSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccountSettingsCommandOutput> => {
@@ -1848,10 +2103,10 @@ const deserializeAws_json1_0UpdateAccountSettingsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1863,16 +2118,19 @@ const deserializeAws_json1_0UpdateAccountSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateCollectionCommand = async (
+/**
+ * deserializeAws_json1_0UpdateCollectionCommand
+ */
+export const de_UpdateCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateCollectionCommandError(output, context);
+    return de_UpdateCollectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateCollectionResponse(data, context);
+  contents = de_UpdateCollectionResponse(data, context);
   const response: UpdateCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1880,7 +2138,10 @@ export const deserializeAws_json1_0UpdateCollectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateCollectionCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateCollectionCommandError
+ */
+const de_UpdateCollectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCollectionCommandOutput> => {
@@ -1892,13 +2153,13 @@ const deserializeAws_json1_0UpdateCollectionCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1910,16 +2171,19 @@ const deserializeAws_json1_0UpdateCollectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateSecurityConfigCommand = async (
+/**
+ * deserializeAws_json1_0UpdateSecurityConfigCommand
+ */
+export const de_UpdateSecurityConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecurityConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateSecurityConfigCommandError(output, context);
+    return de_UpdateSecurityConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateSecurityConfigResponse(data, context);
+  contents = de_UpdateSecurityConfigResponse(data, context);
   const response: UpdateSecurityConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1927,7 +2191,10 @@ export const deserializeAws_json1_0UpdateSecurityConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateSecurityConfigCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateSecurityConfigCommandError
+ */
+const de_UpdateSecurityConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecurityConfigCommandOutput> => {
@@ -1939,16 +2206,16 @@ const deserializeAws_json1_0UpdateSecurityConfigCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1960,16 +2227,19 @@ const deserializeAws_json1_0UpdateSecurityConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateSecurityPolicyCommand = async (
+/**
+ * deserializeAws_json1_0UpdateSecurityPolicyCommand
+ */
+export const de_UpdateSecurityPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecurityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateSecurityPolicyCommandError(output, context);
+    return de_UpdateSecurityPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateSecurityPolicyResponse(data, context);
+  contents = de_UpdateSecurityPolicyResponse(data, context);
   const response: UpdateSecurityPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1977,7 +2247,10 @@ export const deserializeAws_json1_0UpdateSecurityPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateSecurityPolicyCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateSecurityPolicyCommandError
+ */
+const de_UpdateSecurityPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSecurityPolicyCommandOutput> => {
@@ -1989,19 +2262,19 @@ const deserializeAws_json1_0UpdateSecurityPolicyCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2013,16 +2286,19 @@ const deserializeAws_json1_0UpdateSecurityPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateVpcEndpointCommand = async (
+/**
+ * deserializeAws_json1_0UpdateVpcEndpointCommand
+ */
+export const de_UpdateVpcEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVpcEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateVpcEndpointCommandError(output, context);
+    return de_UpdateVpcEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateVpcEndpointResponse(data, context);
+  contents = de_UpdateVpcEndpointResponse(data, context);
   const response: UpdateVpcEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2030,7 +2306,10 @@ export const deserializeAws_json1_0UpdateVpcEndpointCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateVpcEndpointCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateVpcEndpointCommandError
+ */
+const de_UpdateVpcEndpointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVpcEndpointCommandOutput> => {
@@ -2042,13 +2321,13 @@ const deserializeAws_json1_0UpdateVpcEndpointCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2060,12 +2339,12 @@ const deserializeAws_json1_0UpdateVpcEndpointCommandError = async (
   }
 };
 
-const deserializeAws_json1_0ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_0ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2073,12 +2352,15 @@ const deserializeAws_json1_0ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServerException(body, context);
+  const deserialized: any = de_InternalServerException(body, context);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2086,12 +2368,15 @@ const deserializeAws_json1_0InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0OcuLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0OcuLimitExceededExceptionRes
+ */
+const de_OcuLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OcuLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0OcuLimitExceededException(body, context);
+  const deserialized: any = de_OcuLimitExceededException(body, context);
   const exception = new OcuLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2099,12 +2384,15 @@ const deserializeAws_json1_0OcuLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2112,12 +2400,15 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ServiceQuotaExceededException(body, context);
+  const deserialized: any = de_ServiceQuotaExceededException(body, context);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2125,12 +2416,12 @@ const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_0ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ValidationException(body, context);
+  const deserialized: any = de_ValidationException(body, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2138,40 +2429,49 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0BatchGetCollectionRequest = (
-  input: BatchGetCollectionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0BatchGetCollectionRequest
+ */
+const se_BatchGetCollectionRequest = (input: BatchGetCollectionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ids != null && { ids: serializeAws_json1_0CollectionIds(input.ids, context) }),
-    ...(input.names != null && { names: serializeAws_json1_0CollectionNames(input.names, context) }),
+    ...(input.ids != null && { ids: se_CollectionIds(input.ids, context) }),
+    ...(input.names != null && { names: se_CollectionNames(input.names, context) }),
   };
 };
 
-const serializeAws_json1_0BatchGetVpcEndpointRequest = (
-  input: BatchGetVpcEndpointRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0BatchGetVpcEndpointRequest
+ */
+const se_BatchGetVpcEndpointRequest = (input: BatchGetVpcEndpointRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ids != null && { ids: serializeAws_json1_0VpcEndpointIds(input.ids, context) }),
+    ...(input.ids != null && { ids: se_VpcEndpointIds(input.ids, context) }),
   };
 };
 
-const serializeAws_json1_0CapacityLimits = (input: CapacityLimits, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CapacityLimits
+ */
+const se_CapacityLimits = (input: CapacityLimits, context: __SerdeContext): any => {
   return {
     ...(input.maxIndexingCapacityInOCU != null && { maxIndexingCapacityInOCU: input.maxIndexingCapacityInOCU }),
     ...(input.maxSearchCapacityInOCU != null && { maxSearchCapacityInOCU: input.maxSearchCapacityInOCU }),
   };
 };
 
-const serializeAws_json1_0CollectionFilters = (input: CollectionFilters, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CollectionFilters
+ */
+const se_CollectionFilters = (input: CollectionFilters, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
     ...(input.status != null && { status: input.status }),
   };
 };
 
-const serializeAws_json1_0CollectionIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CollectionIds
+ */
+const se_CollectionIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2179,7 +2479,10 @@ const serializeAws_json1_0CollectionIds = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_json1_0CollectionNames = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CollectionNames
+ */
+const se_CollectionNames = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2187,10 +2490,10 @@ const serializeAws_json1_0CollectionNames = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_0CreateAccessPolicyRequest = (
-  input: CreateAccessPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateAccessPolicyRequest
+ */
+const se_CreateAccessPolicyRequest = (input: CreateAccessPolicyRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description != null && { description: input.description }),
@@ -2200,35 +2503,36 @@ const serializeAws_json1_0CreateAccessPolicyRequest = (
   };
 };
 
-const serializeAws_json1_0CreateCollectionRequest = (input: CreateCollectionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CreateCollectionRequest
+ */
+const se_CreateCollectionRequest = (input: CreateCollectionRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_json1_0Tags(input.tags, context) }),
+    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_json1_0CreateSecurityConfigRequest = (
-  input: CreateSecurityConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateSecurityConfigRequest
+ */
+const se_CreateSecurityConfigRequest = (input: CreateSecurityConfigRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
-    ...(input.samlOptions != null && {
-      samlOptions: serializeAws_json1_0SamlConfigOptions(input.samlOptions, context),
-    }),
+    ...(input.samlOptions != null && { samlOptions: se_SamlConfigOptions(input.samlOptions, context) }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_json1_0CreateSecurityPolicyRequest = (
-  input: CreateSecurityPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateSecurityPolicyRequest
+ */
+const se_CreateSecurityPolicyRequest = (input: CreateSecurityPolicyRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description != null && { description: input.description }),
@@ -2238,25 +2542,23 @@ const serializeAws_json1_0CreateSecurityPolicyRequest = (
   };
 };
 
-const serializeAws_json1_0CreateVpcEndpointRequest = (
-  input: CreateVpcEndpointRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateVpcEndpointRequest
+ */
+const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.name != null && { name: input.name }),
-    ...(input.securityGroupIds != null && {
-      securityGroupIds: serializeAws_json1_0SecurityGroupIds(input.securityGroupIds, context),
-    }),
-    ...(input.subnetIds != null && { subnetIds: serializeAws_json1_0SubnetIds(input.subnetIds, context) }),
+    ...(input.securityGroupIds != null && { securityGroupIds: se_SecurityGroupIds(input.securityGroupIds, context) }),
+    ...(input.subnetIds != null && { subnetIds: se_SubnetIds(input.subnetIds, context) }),
     ...(input.vpcId != null && { vpcId: input.vpcId }),
   };
 };
 
-const serializeAws_json1_0DeleteAccessPolicyRequest = (
-  input: DeleteAccessPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteAccessPolicyRequest
+ */
+const se_DeleteAccessPolicyRequest = (input: DeleteAccessPolicyRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.name != null && { name: input.name }),
@@ -2264,27 +2566,30 @@ const serializeAws_json1_0DeleteAccessPolicyRequest = (
   };
 };
 
-const serializeAws_json1_0DeleteCollectionRequest = (input: DeleteCollectionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DeleteCollectionRequest
+ */
+const se_DeleteCollectionRequest = (input: DeleteCollectionRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.id != null && { id: input.id }),
   };
 };
 
-const serializeAws_json1_0DeleteSecurityConfigRequest = (
-  input: DeleteSecurityConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteSecurityConfigRequest
+ */
+const se_DeleteSecurityConfigRequest = (input: DeleteSecurityConfigRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.id != null && { id: input.id }),
   };
 };
 
-const serializeAws_json1_0DeleteSecurityPolicyRequest = (
-  input: DeleteSecurityPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteSecurityPolicyRequest
+ */
+const se_DeleteSecurityPolicyRequest = (input: DeleteSecurityPolicyRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.name != null && { name: input.name }),
@@ -2292,79 +2597,88 @@ const serializeAws_json1_0DeleteSecurityPolicyRequest = (
   };
 };
 
-const serializeAws_json1_0DeleteVpcEndpointRequest = (
-  input: DeleteVpcEndpointRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteVpcEndpointRequest
+ */
+const se_DeleteVpcEndpointRequest = (input: DeleteVpcEndpointRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.id != null && { id: input.id }),
   };
 };
 
-const serializeAws_json1_0GetAccessPolicyRequest = (input: GetAccessPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0GetAccessPolicyRequest
+ */
+const se_GetAccessPolicyRequest = (input: GetAccessPolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_json1_0GetAccountSettingsRequest = (
-  input: GetAccountSettingsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0GetAccountSettingsRequest
+ */
+const se_GetAccountSettingsRequest = (input: GetAccountSettingsRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_0GetPoliciesStatsRequest = (input: GetPoliciesStatsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0GetPoliciesStatsRequest
+ */
+const se_GetPoliciesStatsRequest = (input: GetPoliciesStatsRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_0GetSecurityConfigRequest = (
-  input: GetSecurityConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0GetSecurityConfigRequest
+ */
+const se_GetSecurityConfigRequest = (input: GetSecurityConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.id != null && { id: input.id }),
   };
 };
 
-const serializeAws_json1_0GetSecurityPolicyRequest = (
-  input: GetSecurityPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0GetSecurityPolicyRequest
+ */
+const se_GetSecurityPolicyRequest = (input: GetSecurityPolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_json1_0ListAccessPoliciesRequest = (
-  input: ListAccessPoliciesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListAccessPoliciesRequest
+ */
+const se_ListAccessPoliciesRequest = (input: ListAccessPoliciesRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resource != null && { resource: serializeAws_json1_0ResourceFilter(input.resource, context) }),
+    ...(input.resource != null && { resource: se_ResourceFilter(input.resource, context) }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_json1_0ListCollectionsRequest = (input: ListCollectionsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListCollectionsRequest
+ */
+const se_ListCollectionsRequest = (input: ListCollectionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.collectionFilters != null && {
-      collectionFilters: serializeAws_json1_0CollectionFilters(input.collectionFilters, context),
+      collectionFilters: se_CollectionFilters(input.collectionFilters, context),
     }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_0ListSecurityConfigsRequest = (
-  input: ListSecurityConfigsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListSecurityConfigsRequest
+ */
+const se_ListSecurityConfigsRequest = (input: ListSecurityConfigsRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
@@ -2372,38 +2686,44 @@ const serializeAws_json1_0ListSecurityConfigsRequest = (
   };
 };
 
-const serializeAws_json1_0ListSecurityPoliciesRequest = (
-  input: ListSecurityPoliciesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListSecurityPoliciesRequest
+ */
+const se_ListSecurityPoliciesRequest = (input: ListSecurityPoliciesRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.resource != null && { resource: serializeAws_json1_0ResourceFilter(input.resource, context) }),
+    ...(input.resource != null && { resource: se_ResourceFilter(input.resource, context) }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_json1_0ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
   };
 };
 
-const serializeAws_json1_0ListVpcEndpointsRequest = (input: ListVpcEndpointsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListVpcEndpointsRequest
+ */
+const se_ListVpcEndpointsRequest = (input: ListVpcEndpointsRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.vpcEndpointFilters != null && {
-      vpcEndpointFilters: serializeAws_json1_0VpcEndpointFilters(input.vpcEndpointFilters, context),
+      vpcEndpointFilters: se_VpcEndpointFilters(input.vpcEndpointFilters, context),
     }),
   };
 };
 
-const serializeAws_json1_0ResourceFilter = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ResourceFilter
+ */
+const se_ResourceFilter = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2411,7 +2731,10 @@ const serializeAws_json1_0ResourceFilter = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_json1_0SamlConfigOptions = (input: SamlConfigOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SamlConfigOptions
+ */
+const se_SamlConfigOptions = (input: SamlConfigOptions, context: __SerdeContext): any => {
   return {
     ...(input.groupAttribute != null && { groupAttribute: input.groupAttribute }),
     ...(input.metadata != null && { metadata: input.metadata }),
@@ -2420,7 +2743,10 @@ const serializeAws_json1_0SamlConfigOptions = (input: SamlConfigOptions, context
   };
 };
 
-const serializeAws_json1_0SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SecurityGroupIds
+ */
+const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2428,7 +2754,10 @@ const serializeAws_json1_0SecurityGroupIds = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_0SubnetIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SubnetIds
+ */
+const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2436,14 +2765,20 @@ const serializeAws_json1_0SubnetIds = (input: string[], context: __SerdeContext)
     });
 };
 
-const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.key != null && { key: input.key }),
     ...(input.value != null && { value: input.value }),
   };
 };
 
-const serializeAws_json1_0TagKeys = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagKeys
+ */
+const se_TagKeys = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2451,32 +2786,41 @@ const serializeAws_json1_0TagKeys = (input: string[], context: __SerdeContext): 
     });
 };
 
-const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_0Tags(input.tags, context) }),
+    ...(input.tags != null && { tags: se_Tags(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_0Tags = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Tags
+ */
+const se_Tags = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.tagKeys != null && { tagKeys: serializeAws_json1_0TagKeys(input.tagKeys, context) }),
+    ...(input.tagKeys != null && { tagKeys: se_TagKeys(input.tagKeys, context) }),
   };
 };
 
-const serializeAws_json1_0UpdateAccessPolicyRequest = (
-  input: UpdateAccessPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdateAccessPolicyRequest
+ */
+const se_UpdateAccessPolicyRequest = (input: UpdateAccessPolicyRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description != null && { description: input.description }),
@@ -2487,18 +2831,19 @@ const serializeAws_json1_0UpdateAccessPolicyRequest = (
   };
 };
 
-const serializeAws_json1_0UpdateAccountSettingsRequest = (
-  input: UpdateAccountSettingsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdateAccountSettingsRequest
+ */
+const se_UpdateAccountSettingsRequest = (input: UpdateAccountSettingsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.capacityLimits != null && {
-      capacityLimits: serializeAws_json1_0CapacityLimits(input.capacityLimits, context),
-    }),
+    ...(input.capacityLimits != null && { capacityLimits: se_CapacityLimits(input.capacityLimits, context) }),
   };
 };
 
-const serializeAws_json1_0UpdateCollectionRequest = (input: UpdateCollectionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UpdateCollectionRequest
+ */
+const se_UpdateCollectionRequest = (input: UpdateCollectionRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description != null && { description: input.description }),
@@ -2506,25 +2851,23 @@ const serializeAws_json1_0UpdateCollectionRequest = (input: UpdateCollectionRequ
   };
 };
 
-const serializeAws_json1_0UpdateSecurityConfigRequest = (
-  input: UpdateSecurityConfigRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdateSecurityConfigRequest
+ */
+const se_UpdateSecurityConfigRequest = (input: UpdateSecurityConfigRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.configVersion != null && { configVersion: input.configVersion }),
     ...(input.description != null && { description: input.description }),
     ...(input.id != null && { id: input.id }),
-    ...(input.samlOptions != null && {
-      samlOptions: serializeAws_json1_0SamlConfigOptions(input.samlOptions, context),
-    }),
+    ...(input.samlOptions != null && { samlOptions: se_SamlConfigOptions(input.samlOptions, context) }),
   };
 };
 
-const serializeAws_json1_0UpdateSecurityPolicyRequest = (
-  input: UpdateSecurityPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdateSecurityPolicyRequest
+ */
+const se_UpdateSecurityPolicyRequest = (input: UpdateSecurityPolicyRequest, context: __SerdeContext): any => {
   return {
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description != null && { description: input.description }),
@@ -2535,33 +2878,37 @@ const serializeAws_json1_0UpdateSecurityPolicyRequest = (
   };
 };
 
-const serializeAws_json1_0UpdateVpcEndpointRequest = (
-  input: UpdateVpcEndpointRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0UpdateVpcEndpointRequest
+ */
+const se_UpdateVpcEndpointRequest = (input: UpdateVpcEndpointRequest, context: __SerdeContext): any => {
   return {
     ...(input.addSecurityGroupIds != null && {
-      addSecurityGroupIds: serializeAws_json1_0SecurityGroupIds(input.addSecurityGroupIds, context),
+      addSecurityGroupIds: se_SecurityGroupIds(input.addSecurityGroupIds, context),
     }),
-    ...(input.addSubnetIds != null && { addSubnetIds: serializeAws_json1_0SubnetIds(input.addSubnetIds, context) }),
+    ...(input.addSubnetIds != null && { addSubnetIds: se_SubnetIds(input.addSubnetIds, context) }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.id != null && { id: input.id }),
     ...(input.removeSecurityGroupIds != null && {
-      removeSecurityGroupIds: serializeAws_json1_0SecurityGroupIds(input.removeSecurityGroupIds, context),
+      removeSecurityGroupIds: se_SecurityGroupIds(input.removeSecurityGroupIds, context),
     }),
-    ...(input.removeSubnetIds != null && {
-      removeSubnetIds: serializeAws_json1_0SubnetIds(input.removeSubnetIds, context),
-    }),
+    ...(input.removeSubnetIds != null && { removeSubnetIds: se_SubnetIds(input.removeSubnetIds, context) }),
   };
 };
 
-const serializeAws_json1_0VpcEndpointFilters = (input: VpcEndpointFilters, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0VpcEndpointFilters
+ */
+const se_VpcEndpointFilters = (input: VpcEndpointFilters, context: __SerdeContext): any => {
   return {
     ...(input.status != null && { status: input.status }),
   };
 };
 
-const serializeAws_json1_0VpcEndpointIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0VpcEndpointIds
+ */
+const se_VpcEndpointIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2569,37 +2916,49 @@ const serializeAws_json1_0VpcEndpointIds = (input: string[], context: __SerdeCon
     });
 };
 
-const deserializeAws_json1_0AccessPolicyDetail = (output: any, context: __SerdeContext): AccessPolicyDetail => {
+/**
+ * deserializeAws_json1_0AccessPolicyDetail
+ */
+const de_AccessPolicyDetail = (output: any, context: __SerdeContext): AccessPolicyDetail => {
   return {
     createdDate: __expectLong(output.createdDate),
     description: __expectString(output.description),
     lastModifiedDate: __expectLong(output.lastModifiedDate),
     name: __expectString(output.name),
-    policy: output.policy != null ? deserializeAws_json1_0Document(output.policy, context) : undefined,
+    policy: output.policy != null ? de_Document(output.policy, context) : undefined,
     policyVersion: __expectString(output.policyVersion),
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_json1_0AccessPolicyStats = (output: any, context: __SerdeContext): AccessPolicyStats => {
+/**
+ * deserializeAws_json1_0AccessPolicyStats
+ */
+const de_AccessPolicyStats = (output: any, context: __SerdeContext): AccessPolicyStats => {
   return {
     DataPolicyCount: __expectLong(output.DataPolicyCount),
   } as any;
 };
 
-const deserializeAws_json1_0AccessPolicySummaries = (output: any, context: __SerdeContext): AccessPolicySummary[] => {
+/**
+ * deserializeAws_json1_0AccessPolicySummaries
+ */
+const de_AccessPolicySummaries = (output: any, context: __SerdeContext): AccessPolicySummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0AccessPolicySummary(entry, context);
+      return de_AccessPolicySummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0AccessPolicySummary = (output: any, context: __SerdeContext): AccessPolicySummary => {
+/**
+ * deserializeAws_json1_0AccessPolicySummary
+ */
+const de_AccessPolicySummary = (output: any, context: __SerdeContext): AccessPolicySummary => {
   return {
     createdDate: __expectLong(output.createdDate),
     description: __expectString(output.description),
@@ -2610,53 +2969,57 @@ const deserializeAws_json1_0AccessPolicySummary = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_0AccountSettingsDetail = (output: any, context: __SerdeContext): AccountSettingsDetail => {
+/**
+ * deserializeAws_json1_0AccountSettingsDetail
+ */
+const de_AccountSettingsDetail = (output: any, context: __SerdeContext): AccountSettingsDetail => {
   return {
-    capacityLimits:
-      output.capacityLimits != null ? deserializeAws_json1_0CapacityLimits(output.capacityLimits, context) : undefined,
+    capacityLimits: output.capacityLimits != null ? de_CapacityLimits(output.capacityLimits, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0BatchGetCollectionResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchGetCollectionResponse => {
+/**
+ * deserializeAws_json1_0BatchGetCollectionResponse
+ */
+const de_BatchGetCollectionResponse = (output: any, context: __SerdeContext): BatchGetCollectionResponse => {
   return {
     collectionDetails:
-      output.collectionDetails != null
-        ? deserializeAws_json1_0CollectionDetails(output.collectionDetails, context)
-        : undefined,
+      output.collectionDetails != null ? de_CollectionDetails(output.collectionDetails, context) : undefined,
     collectionErrorDetails:
       output.collectionErrorDetails != null
-        ? deserializeAws_json1_0CollectionErrorDetails(output.collectionErrorDetails, context)
+        ? de_CollectionErrorDetails(output.collectionErrorDetails, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0BatchGetVpcEndpointResponse = (
-  output: any,
-  context: __SerdeContext
-): BatchGetVpcEndpointResponse => {
+/**
+ * deserializeAws_json1_0BatchGetVpcEndpointResponse
+ */
+const de_BatchGetVpcEndpointResponse = (output: any, context: __SerdeContext): BatchGetVpcEndpointResponse => {
   return {
     vpcEndpointDetails:
-      output.vpcEndpointDetails != null
-        ? deserializeAws_json1_0VpcEndpointDetails(output.vpcEndpointDetails, context)
-        : undefined,
+      output.vpcEndpointDetails != null ? de_VpcEndpointDetails(output.vpcEndpointDetails, context) : undefined,
     vpcEndpointErrorDetails:
       output.vpcEndpointErrorDetails != null
-        ? deserializeAws_json1_0VpcEndpointErrorDetails(output.vpcEndpointErrorDetails, context)
+        ? de_VpcEndpointErrorDetails(output.vpcEndpointErrorDetails, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CapacityLimits = (output: any, context: __SerdeContext): CapacityLimits => {
+/**
+ * deserializeAws_json1_0CapacityLimits
+ */
+const de_CapacityLimits = (output: any, context: __SerdeContext): CapacityLimits => {
   return {
     maxIndexingCapacityInOCU: __expectInt32(output.maxIndexingCapacityInOCU),
     maxSearchCapacityInOCU: __expectInt32(output.maxSearchCapacityInOCU),
   } as any;
 };
 
-const deserializeAws_json1_0CollectionDetail = (output: any, context: __SerdeContext): CollectionDetail => {
+/**
+ * deserializeAws_json1_0CollectionDetail
+ */
+const de_CollectionDetail = (output: any, context: __SerdeContext): CollectionDetail => {
   return {
     arn: __expectString(output.arn),
     collectionEndpoint: __expectString(output.collectionEndpoint),
@@ -2672,19 +3035,25 @@ const deserializeAws_json1_0CollectionDetail = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_0CollectionDetails = (output: any, context: __SerdeContext): CollectionDetail[] => {
+/**
+ * deserializeAws_json1_0CollectionDetails
+ */
+const de_CollectionDetails = (output: any, context: __SerdeContext): CollectionDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0CollectionDetail(entry, context);
+      return de_CollectionDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0CollectionErrorDetail = (output: any, context: __SerdeContext): CollectionErrorDetail => {
+/**
+ * deserializeAws_json1_0CollectionErrorDetail
+ */
+const de_CollectionErrorDetail = (output: any, context: __SerdeContext): CollectionErrorDetail => {
   return {
     errorCode: __expectString(output.errorCode),
     errorMessage: __expectString(output.errorMessage),
@@ -2693,34 +3062,40 @@ const deserializeAws_json1_0CollectionErrorDetail = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_0CollectionErrorDetails = (
-  output: any,
-  context: __SerdeContext
-): CollectionErrorDetail[] => {
+/**
+ * deserializeAws_json1_0CollectionErrorDetails
+ */
+const de_CollectionErrorDetails = (output: any, context: __SerdeContext): CollectionErrorDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0CollectionErrorDetail(entry, context);
+      return de_CollectionErrorDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0CollectionSummaries = (output: any, context: __SerdeContext): CollectionSummary[] => {
+/**
+ * deserializeAws_json1_0CollectionSummaries
+ */
+const de_CollectionSummaries = (output: any, context: __SerdeContext): CollectionSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0CollectionSummary(entry, context);
+      return de_CollectionSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0CollectionSummary = (output: any, context: __SerdeContext): CollectionSummary => {
+/**
+ * deserializeAws_json1_0CollectionSummary
+ */
+const de_CollectionSummary = (output: any, context: __SerdeContext): CollectionSummary => {
   return {
     arn: __expectString(output.arn),
     id: __expectString(output.id),
@@ -2729,25 +3104,29 @@ const deserializeAws_json1_0CollectionSummary = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_0ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0CreateAccessPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateAccessPolicyResponse => {
+/**
+ * deserializeAws_json1_0CreateAccessPolicyResponse
+ */
+const de_CreateAccessPolicyResponse = (output: any, context: __SerdeContext): CreateAccessPolicyResponse => {
   return {
     accessPolicyDetail:
-      output.accessPolicyDetail != null
-        ? deserializeAws_json1_0AccessPolicyDetail(output.accessPolicyDetail, context)
-        : undefined,
+      output.accessPolicyDetail != null ? de_AccessPolicyDetail(output.accessPolicyDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreateCollectionDetail = (output: any, context: __SerdeContext): CreateCollectionDetail => {
+/**
+ * deserializeAws_json1_0CreateCollectionDetail
+ */
+const de_CreateCollectionDetail = (output: any, context: __SerdeContext): CreateCollectionDetail => {
   return {
     arn: __expectString(output.arn),
     createdDate: __expectLong(output.createdDate),
@@ -2761,46 +3140,42 @@ const deserializeAws_json1_0CreateCollectionDetail = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_0CreateCollectionResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateCollectionResponse => {
+/**
+ * deserializeAws_json1_0CreateCollectionResponse
+ */
+const de_CreateCollectionResponse = (output: any, context: __SerdeContext): CreateCollectionResponse => {
   return {
     createCollectionDetail:
       output.createCollectionDetail != null
-        ? deserializeAws_json1_0CreateCollectionDetail(output.createCollectionDetail, context)
+        ? de_CreateCollectionDetail(output.createCollectionDetail, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreateSecurityConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateSecurityConfigResponse => {
+/**
+ * deserializeAws_json1_0CreateSecurityConfigResponse
+ */
+const de_CreateSecurityConfigResponse = (output: any, context: __SerdeContext): CreateSecurityConfigResponse => {
   return {
     securityConfigDetail:
-      output.securityConfigDetail != null
-        ? deserializeAws_json1_0SecurityConfigDetail(output.securityConfigDetail, context)
-        : undefined,
+      output.securityConfigDetail != null ? de_SecurityConfigDetail(output.securityConfigDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreateSecurityPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateSecurityPolicyResponse => {
+/**
+ * deserializeAws_json1_0CreateSecurityPolicyResponse
+ */
+const de_CreateSecurityPolicyResponse = (output: any, context: __SerdeContext): CreateSecurityPolicyResponse => {
   return {
     securityPolicyDetail:
-      output.securityPolicyDetail != null
-        ? deserializeAws_json1_0SecurityPolicyDetail(output.securityPolicyDetail, context)
-        : undefined,
+      output.securityPolicyDetail != null ? de_SecurityPolicyDetail(output.securityPolicyDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreateVpcEndpointDetail = (
-  output: any,
-  context: __SerdeContext
-): CreateVpcEndpointDetail => {
+/**
+ * deserializeAws_json1_0CreateVpcEndpointDetail
+ */
+const de_CreateVpcEndpointDetail = (output: any, context: __SerdeContext): CreateVpcEndpointDetail => {
   return {
     id: __expectString(output.id),
     name: __expectString(output.name),
@@ -2808,26 +3183,29 @@ const deserializeAws_json1_0CreateVpcEndpointDetail = (
   } as any;
 };
 
-const deserializeAws_json1_0CreateVpcEndpointResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateVpcEndpointResponse => {
+/**
+ * deserializeAws_json1_0CreateVpcEndpointResponse
+ */
+const de_CreateVpcEndpointResponse = (output: any, context: __SerdeContext): CreateVpcEndpointResponse => {
   return {
     createVpcEndpointDetail:
       output.createVpcEndpointDetail != null
-        ? deserializeAws_json1_0CreateVpcEndpointDetail(output.createVpcEndpointDetail, context)
+        ? de_CreateVpcEndpointDetail(output.createVpcEndpointDetail, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DeleteAccessPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteAccessPolicyResponse => {
+/**
+ * deserializeAws_json1_0DeleteAccessPolicyResponse
+ */
+const de_DeleteAccessPolicyResponse = (output: any, context: __SerdeContext): DeleteAccessPolicyResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0DeleteCollectionDetail = (output: any, context: __SerdeContext): DeleteCollectionDetail => {
+/**
+ * deserializeAws_json1_0DeleteCollectionDetail
+ */
+const de_DeleteCollectionDetail = (output: any, context: __SerdeContext): DeleteCollectionDetail => {
   return {
     id: __expectString(output.id),
     name: __expectString(output.name),
@@ -2835,36 +3213,36 @@ const deserializeAws_json1_0DeleteCollectionDetail = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_0DeleteCollectionResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteCollectionResponse => {
+/**
+ * deserializeAws_json1_0DeleteCollectionResponse
+ */
+const de_DeleteCollectionResponse = (output: any, context: __SerdeContext): DeleteCollectionResponse => {
   return {
     deleteCollectionDetail:
       output.deleteCollectionDetail != null
-        ? deserializeAws_json1_0DeleteCollectionDetail(output.deleteCollectionDetail, context)
+        ? de_DeleteCollectionDetail(output.deleteCollectionDetail, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DeleteSecurityConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteSecurityConfigResponse => {
+/**
+ * deserializeAws_json1_0DeleteSecurityConfigResponse
+ */
+const de_DeleteSecurityConfigResponse = (output: any, context: __SerdeContext): DeleteSecurityConfigResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0DeleteSecurityPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteSecurityPolicyResponse => {
+/**
+ * deserializeAws_json1_0DeleteSecurityPolicyResponse
+ */
+const de_DeleteSecurityPolicyResponse = (output: any, context: __SerdeContext): DeleteSecurityPolicyResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0DeleteVpcEndpointDetail = (
-  output: any,
-  context: __SerdeContext
-): DeleteVpcEndpointDetail => {
+/**
+ * deserializeAws_json1_0DeleteVpcEndpointDetail
+ */
+const de_DeleteVpcEndpointDetail = (output: any, context: __SerdeContext): DeleteVpcEndpointDetail => {
   return {
     id: __expectString(output.id),
     name: __expectString(output.name),
@@ -2872,189 +3250,176 @@ const deserializeAws_json1_0DeleteVpcEndpointDetail = (
   } as any;
 };
 
-const deserializeAws_json1_0DeleteVpcEndpointResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteVpcEndpointResponse => {
+/**
+ * deserializeAws_json1_0DeleteVpcEndpointResponse
+ */
+const de_DeleteVpcEndpointResponse = (output: any, context: __SerdeContext): DeleteVpcEndpointResponse => {
   return {
     deleteVpcEndpointDetail:
       output.deleteVpcEndpointDetail != null
-        ? deserializeAws_json1_0DeleteVpcEndpointDetail(output.deleteVpcEndpointDetail, context)
+        ? de_DeleteVpcEndpointDetail(output.deleteVpcEndpointDetail, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0GetAccessPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAccessPolicyResponse => {
+/**
+ * deserializeAws_json1_0GetAccessPolicyResponse
+ */
+const de_GetAccessPolicyResponse = (output: any, context: __SerdeContext): GetAccessPolicyResponse => {
   return {
     accessPolicyDetail:
-      output.accessPolicyDetail != null
-        ? deserializeAws_json1_0AccessPolicyDetail(output.accessPolicyDetail, context)
-        : undefined,
+      output.accessPolicyDetail != null ? de_AccessPolicyDetail(output.accessPolicyDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0GetAccountSettingsResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAccountSettingsResponse => {
+/**
+ * deserializeAws_json1_0GetAccountSettingsResponse
+ */
+const de_GetAccountSettingsResponse = (output: any, context: __SerdeContext): GetAccountSettingsResponse => {
   return {
     accountSettingsDetail:
       output.accountSettingsDetail != null
-        ? deserializeAws_json1_0AccountSettingsDetail(output.accountSettingsDetail, context)
+        ? de_AccountSettingsDetail(output.accountSettingsDetail, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0GetPoliciesStatsResponse = (
-  output: any,
-  context: __SerdeContext
-): GetPoliciesStatsResponse => {
+/**
+ * deserializeAws_json1_0GetPoliciesStatsResponse
+ */
+const de_GetPoliciesStatsResponse = (output: any, context: __SerdeContext): GetPoliciesStatsResponse => {
   return {
     AccessPolicyStats:
-      output.AccessPolicyStats != null
-        ? deserializeAws_json1_0AccessPolicyStats(output.AccessPolicyStats, context)
-        : undefined,
+      output.AccessPolicyStats != null ? de_AccessPolicyStats(output.AccessPolicyStats, context) : undefined,
     SecurityConfigStats:
-      output.SecurityConfigStats != null
-        ? deserializeAws_json1_0SecurityConfigStats(output.SecurityConfigStats, context)
-        : undefined,
+      output.SecurityConfigStats != null ? de_SecurityConfigStats(output.SecurityConfigStats, context) : undefined,
     SecurityPolicyStats:
-      output.SecurityPolicyStats != null
-        ? deserializeAws_json1_0SecurityPolicyStats(output.SecurityPolicyStats, context)
-        : undefined,
+      output.SecurityPolicyStats != null ? de_SecurityPolicyStats(output.SecurityPolicyStats, context) : undefined,
     TotalPolicyCount: __expectLong(output.TotalPolicyCount),
   } as any;
 };
 
-const deserializeAws_json1_0GetSecurityConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): GetSecurityConfigResponse => {
+/**
+ * deserializeAws_json1_0GetSecurityConfigResponse
+ */
+const de_GetSecurityConfigResponse = (output: any, context: __SerdeContext): GetSecurityConfigResponse => {
   return {
     securityConfigDetail:
-      output.securityConfigDetail != null
-        ? deserializeAws_json1_0SecurityConfigDetail(output.securityConfigDetail, context)
-        : undefined,
+      output.securityConfigDetail != null ? de_SecurityConfigDetail(output.securityConfigDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0GetSecurityPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetSecurityPolicyResponse => {
+/**
+ * deserializeAws_json1_0GetSecurityPolicyResponse
+ */
+const de_GetSecurityPolicyResponse = (output: any, context: __SerdeContext): GetSecurityPolicyResponse => {
   return {
     securityPolicyDetail:
-      output.securityPolicyDetail != null
-        ? deserializeAws_json1_0SecurityPolicyDetail(output.securityPolicyDetail, context)
-        : undefined,
+      output.securityPolicyDetail != null ? de_SecurityPolicyDetail(output.securityPolicyDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
+/**
+ * deserializeAws_json1_0InternalServerException
+ */
+const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0ListAccessPoliciesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListAccessPoliciesResponse => {
+/**
+ * deserializeAws_json1_0ListAccessPoliciesResponse
+ */
+const de_ListAccessPoliciesResponse = (output: any, context: __SerdeContext): ListAccessPoliciesResponse => {
   return {
     accessPolicySummaries:
       output.accessPolicySummaries != null
-        ? deserializeAws_json1_0AccessPolicySummaries(output.accessPolicySummaries, context)
+        ? de_AccessPolicySummaries(output.accessPolicySummaries, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListCollectionsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListCollectionsResponse => {
+/**
+ * deserializeAws_json1_0ListCollectionsResponse
+ */
+const de_ListCollectionsResponse = (output: any, context: __SerdeContext): ListCollectionsResponse => {
   return {
     collectionSummaries:
-      output.collectionSummaries != null
-        ? deserializeAws_json1_0CollectionSummaries(output.collectionSummaries, context)
-        : undefined,
+      output.collectionSummaries != null ? de_CollectionSummaries(output.collectionSummaries, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListSecurityConfigsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSecurityConfigsResponse => {
+/**
+ * deserializeAws_json1_0ListSecurityConfigsResponse
+ */
+const de_ListSecurityConfigsResponse = (output: any, context: __SerdeContext): ListSecurityConfigsResponse => {
   return {
     nextToken: __expectString(output.nextToken),
     securityConfigSummaries:
       output.securityConfigSummaries != null
-        ? deserializeAws_json1_0SecurityConfigSummaries(output.securityConfigSummaries, context)
+        ? de_SecurityConfigSummaries(output.securityConfigSummaries, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListSecurityPoliciesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSecurityPoliciesResponse => {
+/**
+ * deserializeAws_json1_0ListSecurityPoliciesResponse
+ */
+const de_ListSecurityPoliciesResponse = (output: any, context: __SerdeContext): ListSecurityPoliciesResponse => {
   return {
     nextToken: __expectString(output.nextToken),
     securityPolicySummaries:
       output.securityPolicySummaries != null
-        ? deserializeAws_json1_0SecurityPolicySummaries(output.securityPolicySummaries, context)
+        ? de_SecurityPolicySummaries(output.securityPolicySummaries, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_0ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
-    tags: output.tags != null ? deserializeAws_json1_0Tags(output.tags, context) : undefined,
+    tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListVpcEndpointsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListVpcEndpointsResponse => {
+/**
+ * deserializeAws_json1_0ListVpcEndpointsResponse
+ */
+const de_ListVpcEndpointsResponse = (output: any, context: __SerdeContext): ListVpcEndpointsResponse => {
   return {
     nextToken: __expectString(output.nextToken),
     vpcEndpointSummaries:
-      output.vpcEndpointSummaries != null
-        ? deserializeAws_json1_0VpcEndpointSummaries(output.vpcEndpointSummaries, context)
-        : undefined,
+      output.vpcEndpointSummaries != null ? de_VpcEndpointSummaries(output.vpcEndpointSummaries, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0OcuLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): OcuLimitExceededException => {
+/**
+ * deserializeAws_json1_0OcuLimitExceededException
+ */
+const de_OcuLimitExceededException = (output: any, context: __SerdeContext): OcuLimitExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_0ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0SamlConfigOptions = (output: any, context: __SerdeContext): SamlConfigOptions => {
+/**
+ * deserializeAws_json1_0SamlConfigOptions
+ */
+const de_SamlConfigOptions = (output: any, context: __SerdeContext): SamlConfigOptions => {
   return {
     groupAttribute: __expectString(output.groupAttribute),
     metadata: __expectString(output.metadata),
@@ -3063,41 +3428,49 @@ const deserializeAws_json1_0SamlConfigOptions = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_0SecurityConfigDetail = (output: any, context: __SerdeContext): SecurityConfigDetail => {
+/**
+ * deserializeAws_json1_0SecurityConfigDetail
+ */
+const de_SecurityConfigDetail = (output: any, context: __SerdeContext): SecurityConfigDetail => {
   return {
     configVersion: __expectString(output.configVersion),
     createdDate: __expectLong(output.createdDate),
     description: __expectString(output.description),
     id: __expectString(output.id),
     lastModifiedDate: __expectLong(output.lastModifiedDate),
-    samlOptions:
-      output.samlOptions != null ? deserializeAws_json1_0SamlConfigOptions(output.samlOptions, context) : undefined,
+    samlOptions: output.samlOptions != null ? de_SamlConfigOptions(output.samlOptions, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_json1_0SecurityConfigStats = (output: any, context: __SerdeContext): SecurityConfigStats => {
+/**
+ * deserializeAws_json1_0SecurityConfigStats
+ */
+const de_SecurityConfigStats = (output: any, context: __SerdeContext): SecurityConfigStats => {
   return {
     SamlConfigCount: __expectLong(output.SamlConfigCount),
   } as any;
 };
 
-const deserializeAws_json1_0SecurityConfigSummaries = (
-  output: any,
-  context: __SerdeContext
-): SecurityConfigSummary[] => {
+/**
+ * deserializeAws_json1_0SecurityConfigSummaries
+ */
+const de_SecurityConfigSummaries = (output: any, context: __SerdeContext): SecurityConfigSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0SecurityConfigSummary(entry, context);
+      return de_SecurityConfigSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0SecurityConfigSummary = (output: any, context: __SerdeContext): SecurityConfigSummary => {
+/**
+ * deserializeAws_json1_0SecurityConfigSummary
+ */
+const de_SecurityConfigSummary = (output: any, context: __SerdeContext): SecurityConfigSummary => {
   return {
     configVersion: __expectString(output.configVersion),
     createdDate: __expectLong(output.createdDate),
@@ -3108,7 +3481,10 @@ const deserializeAws_json1_0SecurityConfigSummary = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_0SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_0SecurityGroupIds
+ */
+const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3120,41 +3496,50 @@ const deserializeAws_json1_0SecurityGroupIds = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_0SecurityPolicyDetail = (output: any, context: __SerdeContext): SecurityPolicyDetail => {
+/**
+ * deserializeAws_json1_0SecurityPolicyDetail
+ */
+const de_SecurityPolicyDetail = (output: any, context: __SerdeContext): SecurityPolicyDetail => {
   return {
     createdDate: __expectLong(output.createdDate),
     description: __expectString(output.description),
     lastModifiedDate: __expectLong(output.lastModifiedDate),
     name: __expectString(output.name),
-    policy: output.policy != null ? deserializeAws_json1_0Document(output.policy, context) : undefined,
+    policy: output.policy != null ? de_Document(output.policy, context) : undefined,
     policyVersion: __expectString(output.policyVersion),
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_json1_0SecurityPolicyStats = (output: any, context: __SerdeContext): SecurityPolicyStats => {
+/**
+ * deserializeAws_json1_0SecurityPolicyStats
+ */
+const de_SecurityPolicyStats = (output: any, context: __SerdeContext): SecurityPolicyStats => {
   return {
     EncryptionPolicyCount: __expectLong(output.EncryptionPolicyCount),
     NetworkPolicyCount: __expectLong(output.NetworkPolicyCount),
   } as any;
 };
 
-const deserializeAws_json1_0SecurityPolicySummaries = (
-  output: any,
-  context: __SerdeContext
-): SecurityPolicySummary[] => {
+/**
+ * deserializeAws_json1_0SecurityPolicySummaries
+ */
+const de_SecurityPolicySummaries = (output: any, context: __SerdeContext): SecurityPolicySummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0SecurityPolicySummary(entry, context);
+      return de_SecurityPolicySummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0SecurityPolicySummary = (output: any, context: __SerdeContext): SecurityPolicySummary => {
+/**
+ * deserializeAws_json1_0SecurityPolicySummary
+ */
+const de_SecurityPolicySummary = (output: any, context: __SerdeContext): SecurityPolicySummary => {
   return {
     createdDate: __expectLong(output.createdDate),
     description: __expectString(output.description),
@@ -3165,10 +3550,10 @@ const deserializeAws_json1_0SecurityPolicySummary = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaExceededException => {
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededException
+ */
+const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
   return {
     message: __expectString(output.message),
     quotaCode: __expectString(output.quotaCode),
@@ -3178,7 +3563,10 @@ const deserializeAws_json1_0ServiceQuotaExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_0SubnetIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_0SubnetIds
+ */
+const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3190,58 +3578,71 @@ const deserializeAws_json1_0SubnetIds = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_0Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     key: __expectString(output.key),
     value: __expectString(output.value),
   } as any;
 };
 
-const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_0TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0Tags = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_0Tags
+ */
+const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_0UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0UpdateAccessPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateAccessPolicyResponse => {
+/**
+ * deserializeAws_json1_0UpdateAccessPolicyResponse
+ */
+const de_UpdateAccessPolicyResponse = (output: any, context: __SerdeContext): UpdateAccessPolicyResponse => {
   return {
     accessPolicyDetail:
-      output.accessPolicyDetail != null
-        ? deserializeAws_json1_0AccessPolicyDetail(output.accessPolicyDetail, context)
-        : undefined,
+      output.accessPolicyDetail != null ? de_AccessPolicyDetail(output.accessPolicyDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0UpdateAccountSettingsResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateAccountSettingsResponse => {
+/**
+ * deserializeAws_json1_0UpdateAccountSettingsResponse
+ */
+const de_UpdateAccountSettingsResponse = (output: any, context: __SerdeContext): UpdateAccountSettingsResponse => {
   return {
     accountSettingsDetail:
       output.accountSettingsDetail != null
-        ? deserializeAws_json1_0AccountSettingsDetail(output.accountSettingsDetail, context)
+        ? de_AccountSettingsDetail(output.accountSettingsDetail, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0UpdateCollectionDetail = (output: any, context: __SerdeContext): UpdateCollectionDetail => {
+/**
+ * deserializeAws_json1_0UpdateCollectionDetail
+ */
+const de_UpdateCollectionDetail = (output: any, context: __SerdeContext): UpdateCollectionDetail => {
   return {
     arn: __expectString(output.arn),
     createdDate: __expectLong(output.createdDate),
@@ -3254,105 +3655,109 @@ const deserializeAws_json1_0UpdateCollectionDetail = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_0UpdateCollectionResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateCollectionResponse => {
+/**
+ * deserializeAws_json1_0UpdateCollectionResponse
+ */
+const de_UpdateCollectionResponse = (output: any, context: __SerdeContext): UpdateCollectionResponse => {
   return {
     updateCollectionDetail:
       output.updateCollectionDetail != null
-        ? deserializeAws_json1_0UpdateCollectionDetail(output.updateCollectionDetail, context)
+        ? de_UpdateCollectionDetail(output.updateCollectionDetail, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0UpdateSecurityConfigResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateSecurityConfigResponse => {
+/**
+ * deserializeAws_json1_0UpdateSecurityConfigResponse
+ */
+const de_UpdateSecurityConfigResponse = (output: any, context: __SerdeContext): UpdateSecurityConfigResponse => {
   return {
     securityConfigDetail:
-      output.securityConfigDetail != null
-        ? deserializeAws_json1_0SecurityConfigDetail(output.securityConfigDetail, context)
-        : undefined,
+      output.securityConfigDetail != null ? de_SecurityConfigDetail(output.securityConfigDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0UpdateSecurityPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateSecurityPolicyResponse => {
+/**
+ * deserializeAws_json1_0UpdateSecurityPolicyResponse
+ */
+const de_UpdateSecurityPolicyResponse = (output: any, context: __SerdeContext): UpdateSecurityPolicyResponse => {
   return {
     securityPolicyDetail:
-      output.securityPolicyDetail != null
-        ? deserializeAws_json1_0SecurityPolicyDetail(output.securityPolicyDetail, context)
-        : undefined,
+      output.securityPolicyDetail != null ? de_SecurityPolicyDetail(output.securityPolicyDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0UpdateVpcEndpointDetail = (
-  output: any,
-  context: __SerdeContext
-): UpdateVpcEndpointDetail => {
+/**
+ * deserializeAws_json1_0UpdateVpcEndpointDetail
+ */
+const de_UpdateVpcEndpointDetail = (output: any, context: __SerdeContext): UpdateVpcEndpointDetail => {
   return {
     id: __expectString(output.id),
     lastModifiedDate: __expectLong(output.lastModifiedDate),
     name: __expectString(output.name),
     securityGroupIds:
-      output.securityGroupIds != null
-        ? deserializeAws_json1_0SecurityGroupIds(output.securityGroupIds, context)
-        : undefined,
+      output.securityGroupIds != null ? de_SecurityGroupIds(output.securityGroupIds, context) : undefined,
     status: __expectString(output.status),
-    subnetIds: output.subnetIds != null ? deserializeAws_json1_0SubnetIds(output.subnetIds, context) : undefined,
+    subnetIds: output.subnetIds != null ? de_SubnetIds(output.subnetIds, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0UpdateVpcEndpointResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateVpcEndpointResponse => {
+/**
+ * deserializeAws_json1_0UpdateVpcEndpointResponse
+ */
+const de_UpdateVpcEndpointResponse = (output: any, context: __SerdeContext): UpdateVpcEndpointResponse => {
   return {
     UpdateVpcEndpointDetail:
       output.UpdateVpcEndpointDetail != null
-        ? deserializeAws_json1_0UpdateVpcEndpointDetail(output.UpdateVpcEndpointDetail, context)
+        ? de_UpdateVpcEndpointDetail(output.UpdateVpcEndpointDetail, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+/**
+ * deserializeAws_json1_0ValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_0VpcEndpointDetail = (output: any, context: __SerdeContext): VpcEndpointDetail => {
+/**
+ * deserializeAws_json1_0VpcEndpointDetail
+ */
+const de_VpcEndpointDetail = (output: any, context: __SerdeContext): VpcEndpointDetail => {
   return {
     createdDate: __expectLong(output.createdDate),
     id: __expectString(output.id),
     name: __expectString(output.name),
     securityGroupIds:
-      output.securityGroupIds != null
-        ? deserializeAws_json1_0SecurityGroupIds(output.securityGroupIds, context)
-        : undefined,
+      output.securityGroupIds != null ? de_SecurityGroupIds(output.securityGroupIds, context) : undefined,
     status: __expectString(output.status),
-    subnetIds: output.subnetIds != null ? deserializeAws_json1_0SubnetIds(output.subnetIds, context) : undefined,
+    subnetIds: output.subnetIds != null ? de_SubnetIds(output.subnetIds, context) : undefined,
     vpcId: __expectString(output.vpcId),
   } as any;
 };
 
-const deserializeAws_json1_0VpcEndpointDetails = (output: any, context: __SerdeContext): VpcEndpointDetail[] => {
+/**
+ * deserializeAws_json1_0VpcEndpointDetails
+ */
+const de_VpcEndpointDetails = (output: any, context: __SerdeContext): VpcEndpointDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0VpcEndpointDetail(entry, context);
+      return de_VpcEndpointDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0VpcEndpointErrorDetail = (output: any, context: __SerdeContext): VpcEndpointErrorDetail => {
+/**
+ * deserializeAws_json1_0VpcEndpointErrorDetail
+ */
+const de_VpcEndpointErrorDetail = (output: any, context: __SerdeContext): VpcEndpointErrorDetail => {
   return {
     errorCode: __expectString(output.errorCode),
     errorMessage: __expectString(output.errorMessage),
@@ -3360,34 +3765,40 @@ const deserializeAws_json1_0VpcEndpointErrorDetail = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_0VpcEndpointErrorDetails = (
-  output: any,
-  context: __SerdeContext
-): VpcEndpointErrorDetail[] => {
+/**
+ * deserializeAws_json1_0VpcEndpointErrorDetails
+ */
+const de_VpcEndpointErrorDetails = (output: any, context: __SerdeContext): VpcEndpointErrorDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0VpcEndpointErrorDetail(entry, context);
+      return de_VpcEndpointErrorDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0VpcEndpointSummaries = (output: any, context: __SerdeContext): VpcEndpointSummary[] => {
+/**
+ * deserializeAws_json1_0VpcEndpointSummaries
+ */
+const de_VpcEndpointSummaries = (output: any, context: __SerdeContext): VpcEndpointSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0VpcEndpointSummary(entry, context);
+      return de_VpcEndpointSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0VpcEndpointSummary = (output: any, context: __SerdeContext): VpcEndpointSummary => {
+/**
+ * deserializeAws_json1_0VpcEndpointSummary
+ */
+const de_VpcEndpointSummary = (output: any, context: __SerdeContext): VpcEndpointSummary => {
   return {
     id: __expectString(output.id),
     name: __expectString(output.name),
@@ -3395,7 +3806,10 @@ const deserializeAws_json1_0VpcEndpointSummary = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_0Document = (output: any, context: __SerdeContext): __DocumentType => {
+/**
+ * deserializeAws_json1_0Document
+ */
+const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
   return output;
 };
 

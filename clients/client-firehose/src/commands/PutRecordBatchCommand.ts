@@ -15,10 +15,7 @@ import {
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { PutRecordBatchInput, PutRecordBatchOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutRecordBatchCommand,
-  serializeAws_json1_1PutRecordBatchCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutRecordBatchCommand, se_PutRecordBatchCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -194,14 +191,14 @@ export class PutRecordBatchCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRecordBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRecordBatchCommand(input, context);
+    return se_PutRecordBatchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordBatchCommandOutput> {
-    return deserializeAws_json1_1PutRecordBatchCommand(output, context);
+    return de_PutRecordBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

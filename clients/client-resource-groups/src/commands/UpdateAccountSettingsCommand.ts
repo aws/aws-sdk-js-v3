@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateAccountSettingsInput, UpdateAccountSettingsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAccountSettingsCommand,
-  serializeAws_restJson1UpdateAccountSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAccountSettingsCommand, se_UpdateAccountSettingsCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
@@ -140,14 +137,14 @@ export class UpdateAccountSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAccountSettingsCommand(input, context);
+    return se_UpdateAccountSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateAccountSettingsCommand(output, context);
+    return de_UpdateAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

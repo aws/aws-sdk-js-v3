@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { CreateBucketRequest, CreateBucketResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBucketCommand,
-  serializeAws_json1_1CreateBucketCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateBucketCommand, se_CreateBucketCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class CreateBucketCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBucketCommand(input, context);
+    return se_CreateBucketCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketCommandOutput> {
-    return deserializeAws_json1_1CreateBucketCommand(output, context);
+    return de_CreateBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

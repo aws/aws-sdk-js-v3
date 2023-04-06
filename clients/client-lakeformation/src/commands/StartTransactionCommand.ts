@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { StartTransactionRequest, StartTransactionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartTransactionCommand,
-  serializeAws_restJson1StartTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartTransactionCommand, se_StartTransactionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class StartTransactionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartTransactionCommand(input, context);
+    return se_StartTransactionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTransactionCommandOutput> {
-    return deserializeAws_restJson1StartTransactionCommand(output, context);
+    return de_StartTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

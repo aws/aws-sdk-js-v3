@@ -20,10 +20,7 @@ import {
   RequestSpotInstancesResult,
   RequestSpotInstancesResultFilterSensitiveLog,
 } from "../models/models_6";
-import {
-  deserializeAws_ec2RequestSpotInstancesCommand,
-  serializeAws_ec2RequestSpotInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_RequestSpotInstancesCommand, se_RequestSpotInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -298,14 +295,14 @@ export class RequestSpotInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: RequestSpotInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RequestSpotInstancesCommand(input, context);
+    return se_RequestSpotInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RequestSpotInstancesCommandOutput> {
-    return deserializeAws_ec2RequestSpotInstancesCommand(output, context);
+    return de_RequestSpotInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

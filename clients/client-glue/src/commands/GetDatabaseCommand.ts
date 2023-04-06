@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetDatabaseRequest, GetDatabaseResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDatabaseCommand,
-  serializeAws_json1_1GetDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDatabaseCommand, se_GetDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetDatabaseCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDatabaseCommand(input, context);
+    return se_GetDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatabaseCommandOutput> {
-    return deserializeAws_json1_1GetDatabaseCommand(output, context);
+    return de_GetDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

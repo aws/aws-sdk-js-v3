@@ -15,8 +15,8 @@ import {
 
 import { DeleteSlackChannelConfigurationRequest, DeleteSlackChannelConfigurationResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteSlackChannelConfigurationCommand,
-  serializeAws_restJson1DeleteSlackChannelConfigurationCommand,
+  de_DeleteSlackChannelConfigurationCommand,
+  se_DeleteSlackChannelConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
@@ -169,7 +169,7 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
     input: DeleteSlackChannelConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSlackChannelConfigurationCommand(input, context);
+    return se_DeleteSlackChannelConfigurationCommand(input, context);
   }
 
   /**
@@ -179,7 +179,7 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSlackChannelConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteSlackChannelConfigurationCommand(output, context);
+    return de_DeleteSlackChannelConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

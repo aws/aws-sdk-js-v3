@@ -15,10 +15,7 @@ import {
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { GetCertificateRequest, GetCertificateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCertificateCommand,
-  serializeAws_json1_1GetCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCertificateCommand, se_GetCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCertificateCommand(input, context);
+    return se_GetCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCertificateCommandOutput> {
-    return deserializeAws_json1_1GetCertificateCommand(output, context);
+    return de_GetCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

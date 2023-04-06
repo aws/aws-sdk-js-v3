@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DescribeStackResourcesInput, DescribeStackResourcesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeStackResourcesCommand,
-  serializeAws_queryDescribeStackResourcesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeStackResourcesCommand, se_DescribeStackResourcesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeStackResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeStackResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeStackResourcesCommand(input, context);
+    return se_DescribeStackResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStackResourcesCommandOutput> {
-    return deserializeAws_queryDescribeStackResourcesCommand(output, context);
+    return de_DescribeStackResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

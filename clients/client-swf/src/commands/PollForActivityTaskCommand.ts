@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ActivityTask, PollForActivityTaskInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0PollForActivityTaskCommand,
-  serializeAws_json1_0PollForActivityTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { de_PollForActivityTaskCommand, se_PollForActivityTaskCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -168,14 +165,14 @@ export class PollForActivityTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: PollForActivityTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PollForActivityTaskCommand(input, context);
+    return se_PollForActivityTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForActivityTaskCommandOutput> {
-    return deserializeAws_json1_0PollForActivityTaskCommand(output, context);
+    return de_PollForActivityTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

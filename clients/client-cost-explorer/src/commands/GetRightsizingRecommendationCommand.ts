@@ -16,8 +16,8 @@ import {
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { GetRightsizingRecommendationRequest, GetRightsizingRecommendationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetRightsizingRecommendationCommand,
-  serializeAws_json1_1GetRightsizingRecommendationCommand,
+  de_GetRightsizingRecommendationCommand,
+  se_GetRightsizingRecommendationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -205,7 +205,7 @@ export class GetRightsizingRecommendationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRightsizingRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRightsizingRecommendationCommand(input, context);
+    return se_GetRightsizingRecommendationCommand(input, context);
   }
 
   /**
@@ -215,7 +215,7 @@ export class GetRightsizingRecommendationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRightsizingRecommendationCommandOutput> {
-    return deserializeAws_json1_1GetRightsizingRecommendationCommand(output, context);
+    return de_GetRightsizingRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

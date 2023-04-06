@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteWorkflowRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWorkflowCommand,
-  serializeAws_json1_1DeleteWorkflowCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteWorkflowCommand, se_DeleteWorkflowCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -136,14 +133,14 @@ export class DeleteWorkflowCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWorkflowCommand(input, context);
+    return se_DeleteWorkflowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowCommandOutput> {
-    return deserializeAws_json1_1DeleteWorkflowCommand(output, context);
+    return de_DeleteWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DeleteMountTargetRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMountTargetCommand,
-  serializeAws_restJson1DeleteMountTargetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMountTargetCommand, se_DeleteMountTargetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -176,14 +173,14 @@ export class DeleteMountTargetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMountTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMountTargetCommand(input, context);
+    return se_DeleteMountTargetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMountTargetCommandOutput> {
-    return deserializeAws_restJson1DeleteMountTargetCommand(output, context);
+    return de_DeleteMountTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

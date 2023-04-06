@@ -15,10 +15,7 @@ import {
 
 import { BatchDeleteReadSetRequest, BatchDeleteReadSetResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1BatchDeleteReadSetCommand,
-  serializeAws_restJson1BatchDeleteReadSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchDeleteReadSetCommand, se_BatchDeleteReadSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class BatchDeleteReadSetCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteReadSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteReadSetCommand(input, context);
+    return se_BatchDeleteReadSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteReadSetCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteReadSetCommand(output, context);
+    return de_BatchDeleteReadSetCommand(output, context);
   }
 
   // Start section: command_body_extra

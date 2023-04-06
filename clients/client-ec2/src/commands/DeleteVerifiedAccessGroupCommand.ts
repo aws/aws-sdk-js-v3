@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteVerifiedAccessGroupRequest, DeleteVerifiedAccessGroupResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteVerifiedAccessGroupCommand,
-  serializeAws_ec2DeleteVerifiedAccessGroupCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteVerifiedAccessGroupCommand, se_DeleteVerifiedAccessGroupCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -122,7 +119,7 @@ export class DeleteVerifiedAccessGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVerifiedAccessGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVerifiedAccessGroupCommand(input, context);
+    return se_DeleteVerifiedAccessGroupCommand(input, context);
   }
 
   /**
@@ -132,7 +129,7 @@ export class DeleteVerifiedAccessGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVerifiedAccessGroupCommandOutput> {
-    return deserializeAws_ec2DeleteVerifiedAccessGroupCommand(output, context);
+    return de_DeleteVerifiedAccessGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

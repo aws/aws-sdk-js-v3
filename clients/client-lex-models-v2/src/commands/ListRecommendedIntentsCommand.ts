@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { ListRecommendedIntentsRequest, ListRecommendedIntentsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRecommendedIntentsCommand,
-  serializeAws_restJson1ListRecommendedIntentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRecommendedIntentsCommand, se_ListRecommendedIntentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class ListRecommendedIntentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRecommendedIntentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecommendedIntentsCommand(input, context);
+    return se_ListRecommendedIntentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecommendedIntentsCommandOutput> {
-    return deserializeAws_restJson1ListRecommendedIntentsCommand(output, context);
+    return de_ListRecommendedIntentsCommand(output, context);
   }
 
   // Start section: command_body_extra

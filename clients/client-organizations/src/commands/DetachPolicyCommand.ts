@@ -15,10 +15,7 @@ import {
 
 import { DetachPolicyRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DetachPolicyCommand,
-  serializeAws_json1_1DetachPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetachPolicyCommand, se_DetachPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -489,14 +486,14 @@ export class DetachPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachPolicyCommand(input, context);
+    return se_DetachPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachPolicyCommandOutput> {
-    return deserializeAws_json1_1DetachPolicyCommand(output, context);
+    return de_DetachPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

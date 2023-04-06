@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateDomainConfigurationRequest, UpdateDomainConfigurationResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateDomainConfigurationCommand,
-  serializeAws_restJson1UpdateDomainConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDomainConfigurationCommand, se_UpdateDomainConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,7 +146,7 @@ export class UpdateDomainConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDomainConfigurationCommand(input, context);
+    return se_UpdateDomainConfigurationCommand(input, context);
   }
 
   /**
@@ -159,7 +156,7 @@ export class UpdateDomainConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateDomainConfigurationCommand(output, context);
+    return de_UpdateDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

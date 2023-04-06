@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CancelSpotFleetRequestsRequest, CancelSpotFleetRequestsResponse } from "../models/models_0";
-import {
-  deserializeAws_ec2CancelSpotFleetRequestsCommand,
-  serializeAws_ec2CancelSpotFleetRequestsCommand,
-} from "../protocols/Aws_ec2";
+import { de_CancelSpotFleetRequestsCommand, se_CancelSpotFleetRequestsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -180,14 +177,14 @@ export class CancelSpotFleetRequestsCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelSpotFleetRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CancelSpotFleetRequestsCommand(input, context);
+    return se_CancelSpotFleetRequestsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelSpotFleetRequestsCommandOutput> {
-    return deserializeAws_ec2CancelSpotFleetRequestsCommand(output, context);
+    return de_CancelSpotFleetRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   CreateAccessKeyResponse,
   CreateAccessKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_queryCreateAccessKeyCommand,
-  serializeAws_queryCreateAccessKeyCommand,
-} from "../protocols/Aws_query";
+import { de_CreateAccessKeyCommand, se_CreateAccessKeyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class CreateAccessKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateAccessKeyCommand(input, context);
+    return se_CreateAccessKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessKeyCommandOutput> {
-    return deserializeAws_queryCreateAccessKeyCommand(output, context);
+    return de_CreateAccessKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

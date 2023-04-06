@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeEventCategoriesMessage, EventCategoriesMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeEventCategoriesCommand,
-  serializeAws_queryDescribeEventCategoriesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeEventCategoriesCommand, se_DescribeEventCategoriesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -70,15 +67,77 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  *
- * @example To list event categories.
+ * @example To describe event categories
  * ```javascript
- * // This example lists all DB instance event categories.
+ * // The following example retrieves details about the event categories for all available event sources.
  * const input = {
- *   "SourceType": "db-instance"
+ *   "Filters": [],
+ *   "SourceType": ""
  * };
  * const command = new DescribeEventCategoriesCommand(input);
- * await client.send(command);
- * // example id: describe-event-categories-97bd4c77-12da-4be6-b42f-edf77771428b
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EventCategoriesMapList": [
+ *     {
+ *       "EventCategories": [
+ *         "deletion",
+ *         "read replica",
+ *         "failover",
+ *         "restoration",
+ *         "maintenance",
+ *         "low storage",
+ *         "configuration change",
+ *         "backup",
+ *         "creation",
+ *         "availability",
+ *         "recovery",
+ *         "failure",
+ *         "backtrack",
+ *         "notification"
+ *       ],
+ *       "SourceType": "db-instance"
+ *     },
+ *     {
+ *       "EventCategories": [
+ *         "configuration change",
+ *         "failure"
+ *       ],
+ *       "SourceType": "db-security-group"
+ *     },
+ *     {
+ *       "EventCategories": [
+ *         "configuration change"
+ *       ],
+ *       "SourceType": "db-parameter-group"
+ *     },
+ *     {
+ *       "EventCategories": [
+ *         "deletion",
+ *         "creation",
+ *         "restoration",
+ *         "notification"
+ *       ],
+ *       "SourceType": "db-snapshot"
+ *     },
+ *     {
+ *       "EventCategories": [
+ *         "failover",
+ *         "failure",
+ *         "notification"
+ *       ],
+ *       "SourceType": "db-cluster"
+ *     },
+ *     {
+ *       "EventCategories": [
+ *         "backup"
+ *       ],
+ *       "SourceType": "db-cluster-snapshot"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-event-categories-1680281431508
  * ```
  *
  */
@@ -145,14 +204,14 @@ export class DescribeEventCategoriesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventCategoriesCommand(input, context);
+    return se_DescribeEventCategoriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventCategoriesCommandOutput> {
-    return deserializeAws_queryDescribeEventCategoriesCommand(output, context);
+    return de_DescribeEventCategoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

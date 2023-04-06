@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateSamplingRuleRequest, CreateSamplingRuleResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSamplingRuleCommand,
-  serializeAws_restJson1CreateSamplingRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSamplingRuleCommand, se_CreateSamplingRuleCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -157,14 +154,14 @@ export class CreateSamplingRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSamplingRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSamplingRuleCommand(input, context);
+    return se_CreateSamplingRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSamplingRuleCommandOutput> {
-    return deserializeAws_restJson1CreateSamplingRuleCommand(output, context);
+    return de_CreateSamplingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopClockInput, StopClockOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopClockCommand,
-  serializeAws_restJson1StopClockCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopClockCommand, se_StopClockCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -133,14 +130,14 @@ export class StopClockCommand extends $Command<
    * @internal
    */
   private serialize(input: StopClockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopClockCommand(input, context);
+    return se_StopClockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopClockCommandOutput> {
-    return deserializeAws_restJson1StopClockCommand(output, context);
+    return de_StopClockCommand(output, context);
   }
 
   // Start section: command_body_extra

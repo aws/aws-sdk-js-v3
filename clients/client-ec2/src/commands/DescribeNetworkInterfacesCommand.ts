@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeNetworkInterfacesRequest, DescribeNetworkInterfacesResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeNetworkInterfacesCommand,
-  serializeAws_ec2DescribeNetworkInterfacesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeNetworkInterfacesCommand, se_DescribeNetworkInterfacesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -201,7 +198,7 @@ export class DescribeNetworkInterfacesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeNetworkInterfacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInterfacesCommand(input, context);
+    return se_DescribeNetworkInterfacesCommand(input, context);
   }
 
   /**
@@ -211,7 +208,7 @@ export class DescribeNetworkInterfacesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNetworkInterfacesCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInterfacesCommand(output, context);
+    return de_DescribeNetworkInterfacesCommand(output, context);
   }
 
   // Start section: command_body_extra

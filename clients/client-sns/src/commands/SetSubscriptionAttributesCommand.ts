@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SetSubscriptionAttributesInput } from "../models/models_0";
-import {
-  deserializeAws_querySetSubscriptionAttributesCommand,
-  serializeAws_querySetSubscriptionAttributesCommand,
-} from "../protocols/Aws_query";
+import { de_SetSubscriptionAttributesCommand, se_SetSubscriptionAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -141,7 +138,7 @@ export class SetSubscriptionAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: SetSubscriptionAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetSubscriptionAttributesCommand(input, context);
+    return se_SetSubscriptionAttributesCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class SetSubscriptionAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetSubscriptionAttributesCommandOutput> {
-    return deserializeAws_querySetSubscriptionAttributesCommand(output, context);
+    return de_SetSubscriptionAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

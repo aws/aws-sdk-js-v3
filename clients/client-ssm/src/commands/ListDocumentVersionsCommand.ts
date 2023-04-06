@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDocumentVersionsRequest, ListDocumentVersionsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1ListDocumentVersionsCommand,
-  serializeAws_json1_1ListDocumentVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDocumentVersionsCommand, se_ListDocumentVersionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -131,14 +128,14 @@ export class ListDocumentVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDocumentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentVersionsCommand(input, context);
+    return se_ListDocumentVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDocumentVersionsCommandOutput> {
-    return deserializeAws_json1_1ListDocumentVersionsCommand(output, context);
+    return de_ListDocumentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

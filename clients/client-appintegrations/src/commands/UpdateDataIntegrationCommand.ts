@@ -15,10 +15,7 @@ import {
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { UpdateDataIntegrationRequest, UpdateDataIntegrationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDataIntegrationCommand,
-  serializeAws_restJson1UpdateDataIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDataIntegrationCommand, se_UpdateDataIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UpdateDataIntegrationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataIntegrationCommand(input, context);
+    return se_UpdateDataIntegrationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataIntegrationCommandOutput> {
-    return deserializeAws_restJson1UpdateDataIntegrationCommand(output, context);
+    return de_UpdateDataIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

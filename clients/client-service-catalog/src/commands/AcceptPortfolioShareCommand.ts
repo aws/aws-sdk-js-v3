@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AcceptPortfolioShareInput, AcceptPortfolioShareOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1AcceptPortfolioShareCommand,
-  serializeAws_json1_1AcceptPortfolioShareCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AcceptPortfolioShareCommand, se_AcceptPortfolioShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -132,14 +129,14 @@ export class AcceptPortfolioShareCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptPortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptPortfolioShareCommand(input, context);
+    return se_AcceptPortfolioShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptPortfolioShareCommandOutput> {
-    return deserializeAws_json1_1AcceptPortfolioShareCommand(output, context);
+    return de_AcceptPortfolioShareCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   GetComputeAccessOutput,
   GetComputeAccessOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetComputeAccessCommand,
-  serializeAws_json1_1GetComputeAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetComputeAccessCommand, se_GetComputeAccessCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class GetComputeAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: GetComputeAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComputeAccessCommand(input, context);
+    return se_GetComputeAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComputeAccessCommandOutput> {
-    return deserializeAws_json1_1GetComputeAccessCommand(output, context);
+    return de_GetComputeAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

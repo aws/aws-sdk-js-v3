@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { BatchUpdateScheduleRequest, BatchUpdateScheduleResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchUpdateScheduleCommand,
-  serializeAws_restJson1BatchUpdateScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchUpdateScheduleCommand, se_BatchUpdateScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -278,14 +275,14 @@ export class BatchUpdateScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchUpdateScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateScheduleCommand(input, context);
+    return se_BatchUpdateScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateScheduleCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateScheduleCommand(output, context);
+    return de_BatchUpdateScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

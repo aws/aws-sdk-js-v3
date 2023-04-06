@@ -15,10 +15,7 @@ import {
 
 import { CreateDatasetExportJobRequest, CreateDatasetExportJobResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateDatasetExportJobCommand,
-  serializeAws_json1_1CreateDatasetExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDatasetExportJobCommand, se_CreateDatasetExportJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class CreateDatasetExportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDatasetExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDatasetExportJobCommand(input, context);
+    return se_CreateDatasetExportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetExportJobCommandOutput> {
-    return deserializeAws_json1_1CreateDatasetExportJobCommand(output, context);
+    return de_CreateDatasetExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

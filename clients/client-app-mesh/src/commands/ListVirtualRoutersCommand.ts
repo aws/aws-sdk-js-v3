@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { ListVirtualRoutersInput, ListVirtualRoutersOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVirtualRoutersCommand,
-  serializeAws_restJson1ListVirtualRoutersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVirtualRoutersCommand, se_ListVirtualRoutersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListVirtualRoutersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVirtualRoutersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVirtualRoutersCommand(input, context);
+    return se_ListVirtualRoutersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualRoutersCommandOutput> {
-    return deserializeAws_restJson1ListVirtualRoutersCommand(output, context);
+    return de_ListVirtualRoutersCommand(output, context);
   }
 
   // Start section: command_body_extra

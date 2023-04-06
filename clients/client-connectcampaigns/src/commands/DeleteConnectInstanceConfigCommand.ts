@@ -16,8 +16,8 @@ import {
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { DeleteConnectInstanceConfigRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteConnectInstanceConfigCommand,
-  serializeAws_restJson1DeleteConnectInstanceConfigCommand,
+  de_DeleteConnectInstanceConfigCommand,
+  se_DeleteConnectInstanceConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -138,7 +138,7 @@ export class DeleteConnectInstanceConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConnectInstanceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConnectInstanceConfigCommand(input, context);
+    return se_DeleteConnectInstanceConfigCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DeleteConnectInstanceConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConnectInstanceConfigCommandOutput> {
-    return deserializeAws_restJson1DeleteConnectInstanceConfigCommand(output, context);
+    return de_DeleteConnectInstanceConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { UnassignPrivateIpAddressesRequest } from "../models/models_7";
-import {
-  deserializeAws_ec2UnassignPrivateIpAddressesCommand,
-  serializeAws_ec2UnassignPrivateIpAddressesCommand,
-} from "../protocols/Aws_ec2";
+import { de_UnassignPrivateIpAddressesCommand, se_UnassignPrivateIpAddressesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class UnassignPrivateIpAddressesCommand extends $Command<
    * @internal
    */
   private serialize(input: UnassignPrivateIpAddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2UnassignPrivateIpAddressesCommand(input, context);
+    return se_UnassignPrivateIpAddressesCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class UnassignPrivateIpAddressesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UnassignPrivateIpAddressesCommandOutput> {
-    return deserializeAws_ec2UnassignPrivateIpAddressesCommand(output, context);
+    return de_UnassignPrivateIpAddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

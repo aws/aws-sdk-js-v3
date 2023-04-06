@@ -15,8 +15,8 @@ import {
 
 import { CreatePresignedNotebookInstanceUrlInput, CreatePresignedNotebookInstanceUrlOutput } from "../models/models_1";
 import {
-  deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand,
-  serializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand,
+  de_CreatePresignedNotebookInstanceUrlCommand,
+  se_CreatePresignedNotebookInstanceUrlCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -143,7 +143,7 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
     input: CreatePresignedNotebookInstanceUrlCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand(input, context);
+    return se_CreatePresignedNotebookInstanceUrlCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePresignedNotebookInstanceUrlCommandOutput> {
-    return deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand(output, context);
+    return de_CreatePresignedNotebookInstanceUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

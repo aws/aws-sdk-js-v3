@@ -15,7 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListPartsOutput, ListPartsRequest, ListPartsRequestFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_restXmlListPartsCommand, serializeAws_restXmlListPartsCommand } from "../protocols/Aws_restXml";
+import { de_ListPartsCommand, se_ListPartsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -216,14 +216,14 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
    * @internal
    */
   private serialize(input: ListPartsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListPartsCommand(input, context);
+    return se_ListPartsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPartsCommandOutput> {
-    return deserializeAws_restXmlListPartsCommand(output, context);
+    return de_ListPartsCommand(output, context);
   }
 
   // Start section: command_body_extra

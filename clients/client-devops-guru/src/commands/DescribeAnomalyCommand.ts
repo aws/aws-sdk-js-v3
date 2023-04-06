@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { DescribeAnomalyRequest, DescribeAnomalyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAnomalyCommand,
-  serializeAws_restJson1DescribeAnomalyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAnomalyCommand, se_DescribeAnomalyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeAnomalyCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAnomalyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAnomalyCommand(input, context);
+    return se_DescribeAnomalyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnomalyCommandOutput> {
-    return deserializeAws_restJson1DescribeAnomalyCommand(output, context);
+    return de_DescribeAnomalyCommand(output, context);
   }
 
   // Start section: command_body_extra

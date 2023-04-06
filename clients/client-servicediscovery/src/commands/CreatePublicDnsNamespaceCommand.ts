@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreatePublicDnsNamespaceRequest, CreatePublicDnsNamespaceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePublicDnsNamespaceCommand,
-  serializeAws_json1_1CreatePublicDnsNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePublicDnsNamespaceCommand, se_CreatePublicDnsNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -181,14 +178,14 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePublicDnsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePublicDnsNamespaceCommand(input, context);
+    return se_CreatePublicDnsNamespaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePublicDnsNamespaceCommandOutput> {
-    return deserializeAws_json1_1CreatePublicDnsNamespaceCommand(output, context);
+    return de_CreatePublicDnsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

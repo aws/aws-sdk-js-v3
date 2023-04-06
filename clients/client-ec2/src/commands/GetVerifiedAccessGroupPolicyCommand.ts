@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetVerifiedAccessGroupPolicyRequest, GetVerifiedAccessGroupPolicyResult } from "../models/models_5";
-import {
-  deserializeAws_ec2GetVerifiedAccessGroupPolicyCommand,
-  serializeAws_ec2GetVerifiedAccessGroupPolicyCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetVerifiedAccessGroupPolicyCommand, se_GetVerifiedAccessGroupPolicyCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -123,7 +120,7 @@ export class GetVerifiedAccessGroupPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVerifiedAccessGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetVerifiedAccessGroupPolicyCommand(input, context);
+    return se_GetVerifiedAccessGroupPolicyCommand(input, context);
   }
 
   /**
@@ -133,7 +130,7 @@ export class GetVerifiedAccessGroupPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVerifiedAccessGroupPolicyCommandOutput> {
-    return deserializeAws_ec2GetVerifiedAccessGroupPolicyCommand(output, context);
+    return de_GetVerifiedAccessGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

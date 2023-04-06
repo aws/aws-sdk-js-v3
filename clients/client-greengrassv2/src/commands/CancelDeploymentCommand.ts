@@ -15,10 +15,7 @@ import {
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { CancelDeploymentRequest, CancelDeploymentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelDeploymentCommand,
-  serializeAws_restJson1CancelDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelDeploymentCommand, se_CancelDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class CancelDeploymentCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelDeploymentCommand(input, context);
+    return se_CancelDeploymentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelDeploymentCommandOutput> {
-    return deserializeAws_restJson1CancelDeploymentCommand(output, context);
+    return de_CancelDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

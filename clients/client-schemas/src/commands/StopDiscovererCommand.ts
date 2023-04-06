@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopDiscovererRequest, StopDiscovererResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopDiscovererCommand,
-  serializeAws_restJson1StopDiscovererCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopDiscovererCommand, se_StopDiscovererCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -132,14 +129,14 @@ export class StopDiscovererCommand extends $Command<
    * @internal
    */
   private serialize(input: StopDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopDiscovererCommand(input, context);
+    return se_StopDiscovererCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDiscovererCommandOutput> {
-    return deserializeAws_restJson1StopDiscovererCommand(output, context);
+    return de_StopDiscovererCommand(output, context);
   }
 
   // Start section: command_body_extra

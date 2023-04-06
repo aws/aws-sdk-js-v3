@@ -19,8 +19,8 @@ import {
   GetNetworkInsightsAccessScopeAnalysisFindingsResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
-  serializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
+  de_GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
+  se_GetNetworkInsightsAccessScopeAnalysisFindingsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -138,7 +138,7 @@ export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Comma
     input: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand(input, context);
+    return se_GetNetworkInsightsAccessScopeAnalysisFindingsCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput> {
-    return deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand(output, context);
+    return de_GetNetworkInsightsAccessScopeAnalysisFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

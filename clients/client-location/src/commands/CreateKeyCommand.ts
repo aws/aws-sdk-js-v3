@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { CreateKeyRequest, CreateKeyResponse, CreateKeyResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateKeyCommand,
-  serializeAws_restJson1CreateKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateKeyCommand, se_CreateKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class CreateKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateKeyCommand(input, context);
+    return se_CreateKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyCommandOutput> {
-    return deserializeAws_restJson1CreateKeyCommand(output, context);
+    return de_CreateKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

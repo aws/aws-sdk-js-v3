@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { DeleteNotificationChannelRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNotificationChannelCommand,
-  serializeAws_json1_1DeleteNotificationChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteNotificationChannelCommand, se_DeleteNotificationChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class DeleteNotificationChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNotificationChannelCommand(input, context);
+    return se_DeleteNotificationChannelCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class DeleteNotificationChannelCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotificationChannelCommandOutput> {
-    return deserializeAws_json1_1DeleteNotificationChannelCommand(output, context);
+    return de_DeleteNotificationChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

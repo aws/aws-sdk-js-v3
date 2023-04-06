@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { GetCaseEventConfigurationRequest, GetCaseEventConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCaseEventConfigurationCommand,
-  serializeAws_restJson1GetCaseEventConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCaseEventConfigurationCommand, se_GetCaseEventConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class GetCaseEventConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCaseEventConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCaseEventConfigurationCommand(input, context);
+    return se_GetCaseEventConfigurationCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class GetCaseEventConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCaseEventConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetCaseEventConfigurationCommand(output, context);
+    return de_GetCaseEventConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

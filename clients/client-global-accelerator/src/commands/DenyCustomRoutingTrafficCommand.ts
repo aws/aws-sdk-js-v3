@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { DenyCustomRoutingTrafficRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DenyCustomRoutingTrafficCommand,
-  serializeAws_json1_1DenyCustomRoutingTrafficCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DenyCustomRoutingTrafficCommand, se_DenyCustomRoutingTrafficCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DenyCustomRoutingTrafficCommand extends $Command<
    * @internal
    */
   private serialize(input: DenyCustomRoutingTrafficCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DenyCustomRoutingTrafficCommand(input, context);
+    return se_DenyCustomRoutingTrafficCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DenyCustomRoutingTrafficCommandOutput> {
-    return deserializeAws_json1_1DenyCustomRoutingTrafficCommand(output, context);
+    return de_DenyCustomRoutingTrafficCommand(output, context);
   }
 
   // Start section: command_body_extra

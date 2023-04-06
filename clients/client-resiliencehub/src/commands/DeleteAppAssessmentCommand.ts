@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAppAssessmentRequest, DeleteAppAssessmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAppAssessmentCommand,
-  serializeAws_restJson1DeleteAppAssessmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAppAssessmentCommand, se_DeleteAppAssessmentCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -146,14 +143,14 @@ export class DeleteAppAssessmentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAppAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppAssessmentCommand(input, context);
+    return se_DeleteAppAssessmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppAssessmentCommandOutput> {
-    return deserializeAws_restJson1DeleteAppAssessmentCommand(output, context);
+    return de_DeleteAppAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

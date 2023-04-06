@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateAgentStatusRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateAgentStatusCommand,
-  serializeAws_restJson1UpdateAgentStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAgentStatusCommand, se_UpdateAgentStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class UpdateAgentStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAgentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAgentStatusCommand(input, context);
+    return se_UpdateAgentStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAgentStatusCommandOutput> {
-    return deserializeAws_restJson1UpdateAgentStatusCommand(output, context);
+    return de_UpdateAgentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

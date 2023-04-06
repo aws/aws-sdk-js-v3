@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ListNotebookExecutionsInput, ListNotebookExecutionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListNotebookExecutionsCommand,
-  serializeAws_json1_1ListNotebookExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListNotebookExecutionsCommand, se_ListNotebookExecutionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListNotebookExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListNotebookExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNotebookExecutionsCommand(input, context);
+    return se_ListNotebookExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotebookExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListNotebookExecutionsCommand(output, context);
+    return de_ListNotebookExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

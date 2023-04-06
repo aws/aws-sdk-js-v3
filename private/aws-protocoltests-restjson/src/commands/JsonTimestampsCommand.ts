@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonTimestampsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1JsonTimestampsCommand,
-  serializeAws_restJson1JsonTimestampsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_JsonTimestampsCommand, se_JsonTimestampsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -115,14 +112,14 @@ export class JsonTimestampsCommand extends $Command<
    * @internal
    */
   private serialize(input: JsonTimestampsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1JsonTimestampsCommand(input, context);
+    return se_JsonTimestampsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonTimestampsCommandOutput> {
-    return deserializeAws_restJson1JsonTimestampsCommand(output, context);
+    return de_JsonTimestampsCommand(output, context);
   }
 
   // Start section: command_body_extra

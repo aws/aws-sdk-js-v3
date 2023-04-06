@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { DeleteNetworkProfileRequest, DeleteNetworkProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNetworkProfileCommand,
-  serializeAws_json1_1DeleteNetworkProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteNetworkProfileCommand, se_DeleteNetworkProfileCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteNetworkProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNetworkProfileCommand(input, context);
+    return se_DeleteNetworkProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkProfileCommandOutput> {
-    return deserializeAws_json1_1DeleteNetworkProfileCommand(output, context);
+    return de_DeleteNetworkProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

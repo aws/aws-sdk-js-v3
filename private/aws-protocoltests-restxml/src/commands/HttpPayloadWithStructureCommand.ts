@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HttpPayloadWithStructureInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlHttpPayloadWithStructureCommand,
-  serializeAws_restXmlHttpPayloadWithStructureCommand,
-} from "../protocols/Aws_restXml";
+import { de_HttpPayloadWithStructureCommand, se_HttpPayloadWithStructureCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -113,14 +110,14 @@ export class HttpPayloadWithStructureCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpPayloadWithStructureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpPayloadWithStructureCommand(input, context);
+    return se_HttpPayloadWithStructureCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPayloadWithStructureCommandOutput> {
-    return deserializeAws_restXmlHttpPayloadWithStructureCommand(output, context);
+    return de_HttpPayloadWithStructureCommand(output, context);
   }
 
   // Start section: command_body_extra

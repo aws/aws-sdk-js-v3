@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { DeleteDirectoryRequest, DeleteDirectoryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDirectoryCommand,
-  serializeAws_restJson1DeleteDirectoryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDirectoryCommand, se_DeleteDirectoryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class DeleteDirectoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDirectoryCommand(input, context);
+    return se_DeleteDirectoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDirectoryCommandOutput> {
-    return deserializeAws_restJson1DeleteDirectoryCommand(output, context);
+    return de_DeleteDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

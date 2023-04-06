@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeProductsRequest, DescribeProductsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeProductsCommand,
-  serializeAws_restJson1DescribeProductsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeProductsCommand, se_DescribeProductsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -140,14 +137,14 @@ export class DescribeProductsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeProductsCommand(input, context);
+    return se_DescribeProductsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProductsCommandOutput> {
-    return deserializeAws_restJson1DescribeProductsCommand(output, context);
+    return de_DescribeProductsCommand(output, context);
   }
 
   // Start section: command_body_extra

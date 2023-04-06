@@ -25,8 +25,8 @@ import {
   CreateMediaInsightsPipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateMediaInsightsPipelineCommand,
-  serializeAws_restJson1CreateMediaInsightsPipelineCommand,
+  de_CreateMediaInsightsPipelineCommand,
+  se_CreateMediaInsightsPipelineCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -202,7 +202,7 @@ export class CreateMediaInsightsPipelineCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMediaInsightsPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMediaInsightsPipelineCommand(input, context);
+    return se_CreateMediaInsightsPipelineCommand(input, context);
   }
 
   /**
@@ -212,7 +212,7 @@ export class CreateMediaInsightsPipelineCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMediaInsightsPipelineCommandOutput> {
-    return deserializeAws_restJson1CreateMediaInsightsPipelineCommand(output, context);
+    return de_CreateMediaInsightsPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

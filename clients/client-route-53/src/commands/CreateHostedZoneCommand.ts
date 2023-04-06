@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateHostedZoneRequest, CreateHostedZoneResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateHostedZoneCommand,
-  serializeAws_restXmlCreateHostedZoneCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateHostedZoneCommand, se_CreateHostedZoneCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -260,14 +257,14 @@ export class CreateHostedZoneCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateHostedZoneCommand(input, context);
+    return se_CreateHostedZoneCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHostedZoneCommandOutput> {
-    return deserializeAws_restXmlCreateHostedZoneCommand(output, context);
+    return de_CreateHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

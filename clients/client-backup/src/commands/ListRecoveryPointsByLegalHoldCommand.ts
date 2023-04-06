@@ -16,8 +16,8 @@ import {
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { ListRecoveryPointsByLegalHoldInput, ListRecoveryPointsByLegalHoldOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommand,
-  serializeAws_restJson1ListRecoveryPointsByLegalHoldCommand,
+  de_ListRecoveryPointsByLegalHoldCommand,
+  se_ListRecoveryPointsByLegalHoldCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -135,7 +135,7 @@ export class ListRecoveryPointsByLegalHoldCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRecoveryPointsByLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRecoveryPointsByLegalHoldCommand(input, context);
+    return se_ListRecoveryPointsByLegalHoldCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class ListRecoveryPointsByLegalHoldCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRecoveryPointsByLegalHoldCommandOutput> {
-    return deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommand(output, context);
+    return de_ListRecoveryPointsByLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

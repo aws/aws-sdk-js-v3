@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { ListFindingsFiltersRequest, ListFindingsFiltersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFindingsFiltersCommand,
-  serializeAws_restJson1ListFindingsFiltersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFindingsFiltersCommand, se_ListFindingsFiltersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListFindingsFiltersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFindingsFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFindingsFiltersCommand(input, context);
+    return se_ListFindingsFiltersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFindingsFiltersCommandOutput> {
-    return deserializeAws_restJson1ListFindingsFiltersCommand(output, context);
+    return de_ListFindingsFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

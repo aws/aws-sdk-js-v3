@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { GetAppsListRequest, GetAppsListResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAppsListCommand,
-  serializeAws_json1_1GetAppsListCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAppsListCommand, se_GetAppsListCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetAppsListCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAppsListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAppsListCommand(input, context);
+    return se_GetAppsListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppsListCommandOutput> {
-    return deserializeAws_json1_1GetAppsListCommand(output, context);
+    return de_GetAppsListCommand(output, context);
   }
 
   // Start section: command_body_extra

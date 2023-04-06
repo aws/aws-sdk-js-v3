@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartDBClusterMessage, StartDBClusterResult } from "../models/models_1";
-import {
-  deserializeAws_queryStartDBClusterCommand,
-  serializeAws_queryStartDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_StartDBClusterCommand, se_StartDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -72,6 +69,32 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ *
+ * @example To start a DB cluster
+ * ```javascript
+ * // The following example starts a DB cluster and its DB instances.
+ * const input = {
+ *   "DBClusterIdentifier": "mydbcluster"
+ * };
+ * const command = new StartDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AvailabilityZones": [
+ *       "us-east-1a",
+ *       "us-east-1e",
+ *       "us-east-1b"
+ *     ],
+ *     "BackupRetentionPeriod": 1,
+ *     "DBClusterIdentifier": "mydbcluster",
+ *     "DatabaseName": "mydb"
+ *   }
+ * }
+ * *\/
+ * // example id: to-start-a-db-cluster-1680035521632
+ * ```
  *
  */
 export class StartDBClusterCommand extends $Command<
@@ -137,14 +160,14 @@ export class StartDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: StartDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartDBClusterCommand(input, context);
+    return se_StartDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDBClusterCommandOutput> {
-    return deserializeAws_queryStartDBClusterCommand(output, context);
+    return de_StartDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

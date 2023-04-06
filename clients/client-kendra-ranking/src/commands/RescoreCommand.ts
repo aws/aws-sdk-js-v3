@@ -15,7 +15,7 @@ import {
 
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
 import { RescoreRequest, RescoreResult } from "../models/models_0";
-import { deserializeAws_json1_0RescoreCommand, serializeAws_json1_0RescoreCommand } from "../protocols/Aws_json1_0";
+import { de_RescoreCommand, se_RescoreCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -163,14 +163,14 @@ export class RescoreCommand extends $Command<
    * @internal
    */
   private serialize(input: RescoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RescoreCommand(input, context);
+    return se_RescoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RescoreCommandOutput> {
-    return deserializeAws_json1_0RescoreCommand(output, context);
+    return de_RescoreCommand(output, context);
   }
 
   // Start section: command_body_extra

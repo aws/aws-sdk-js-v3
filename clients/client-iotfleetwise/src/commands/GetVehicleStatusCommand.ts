@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { GetVehicleStatusRequest, GetVehicleStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetVehicleStatusCommand,
-  serializeAws_json1_0GetVehicleStatusCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetVehicleStatusCommand, se_GetVehicleStatusCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetVehicleStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVehicleStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetVehicleStatusCommand(input, context);
+    return se_GetVehicleStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVehicleStatusCommandOutput> {
-    return deserializeAws_json1_0GetVehicleStatusCommand(output, context);
+    return de_GetVehicleStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

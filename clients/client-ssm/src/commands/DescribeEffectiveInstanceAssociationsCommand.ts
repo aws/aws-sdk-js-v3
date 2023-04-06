@@ -18,8 +18,8 @@ import {
   DescribeEffectiveInstanceAssociationsResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand,
-  serializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand,
+  de_DescribeEffectiveInstanceAssociationsCommand,
+  se_DescribeEffectiveInstanceAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -157,7 +157,7 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
     input: DescribeEffectiveInstanceAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand(input, context);
+    return se_DescribeEffectiveInstanceAssociationsCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand(output, context);
+    return de_DescribeEffectiveInstanceAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DescribeUserProfilesRequest, DescribeUserProfilesResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeUserProfilesCommand,
-  serializeAws_json1_1DescribeUserProfilesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeUserProfilesCommand, se_DescribeUserProfilesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DescribeUserProfilesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUserProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserProfilesCommand(input, context);
+    return se_DescribeUserProfilesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserProfilesCommandOutput> {
-    return deserializeAws_json1_1DescribeUserProfilesCommand(output, context);
+    return de_DescribeUserProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

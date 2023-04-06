@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GenerateChangeSetRequest, GenerateChangeSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GenerateChangeSetCommand,
-  serializeAws_json1_1GenerateChangeSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GenerateChangeSetCommand, se_GenerateChangeSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -138,14 +135,14 @@ export class GenerateChangeSetCommand extends $Command<
    * @internal
    */
   private serialize(input: GenerateChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateChangeSetCommand(input, context);
+    return se_GenerateChangeSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateChangeSetCommandOutput> {
-    return deserializeAws_json1_1GenerateChangeSetCommand(output, context);
+    return de_GenerateChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

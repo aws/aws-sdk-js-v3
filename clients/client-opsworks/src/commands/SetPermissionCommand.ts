@@ -15,10 +15,7 @@ import {
 
 import { SetPermissionRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1SetPermissionCommand,
-  serializeAws_json1_1SetPermissionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetPermissionCommand, se_SetPermissionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class SetPermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: SetPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetPermissionCommand(input, context);
+    return se_SetPermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetPermissionCommandOutput> {
-    return deserializeAws_json1_1SetPermissionCommand(output, context);
+    return de_SetPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

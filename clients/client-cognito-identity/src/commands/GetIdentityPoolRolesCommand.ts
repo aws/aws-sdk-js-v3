@@ -16,10 +16,7 @@ import {
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { GetIdentityPoolRolesInput, GetIdentityPoolRolesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetIdentityPoolRolesCommand,
-  serializeAws_json1_1GetIdentityPoolRolesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetIdentityPoolRolesCommand, se_GetIdentityPoolRolesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetIdentityPoolRolesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetIdentityPoolRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetIdentityPoolRolesCommand(input, context);
+    return se_GetIdentityPoolRolesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdentityPoolRolesCommandOutput> {
-    return deserializeAws_json1_1GetIdentityPoolRolesCommand(output, context);
+    return de_GetIdentityPoolRolesCommand(output, context);
   }
 
   // Start section: command_body_extra

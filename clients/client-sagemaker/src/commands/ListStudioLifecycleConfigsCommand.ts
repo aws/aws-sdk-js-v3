@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListStudioLifecycleConfigsRequest, ListStudioLifecycleConfigsResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListStudioLifecycleConfigsCommand,
-  serializeAws_json1_1ListStudioLifecycleConfigsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListStudioLifecycleConfigsCommand, se_ListStudioLifecycleConfigsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -132,7 +129,7 @@ export class ListStudioLifecycleConfigsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStudioLifecycleConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStudioLifecycleConfigsCommand(input, context);
+    return se_ListStudioLifecycleConfigsCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class ListStudioLifecycleConfigsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStudioLifecycleConfigsCommandOutput> {
-    return deserializeAws_json1_1ListStudioLifecycleConfigsCommand(output, context);
+    return de_ListStudioLifecycleConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

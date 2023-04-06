@@ -15,10 +15,7 @@ import {
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { GetStreamRequest, GetStreamResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetStreamCommand,
-  serializeAws_restJson1GetStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetStreamCommand, se_GetStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
    * @internal
    */
   private serialize(input: GetStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStreamCommand(input, context);
+    return se_GetStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamCommandOutput> {
-    return deserializeAws_restJson1GetStreamCommand(output, context);
+    return de_GetStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

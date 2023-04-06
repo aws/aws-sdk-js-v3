@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { GetFindingRequest, GetFindingResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFindingCommand,
-  serializeAws_restJson1GetFindingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetFindingCommand, se_GetFindingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetFindingCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingCommand(input, context);
+    return se_GetFindingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingCommandOutput> {
-    return deserializeAws_restJson1GetFindingCommand(output, context);
+    return de_GetFindingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeNamespaceCommand,
-  serializeAws_json1_1DescribeNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeNamespaceCommand, se_DescribeNamespaceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNamespaceCommand(input, context);
+    return se_DescribeNamespaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNamespaceCommandOutput> {
-    return deserializeAws_json1_1DescribeNamespaceCommand(output, context);
+    return de_DescribeNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

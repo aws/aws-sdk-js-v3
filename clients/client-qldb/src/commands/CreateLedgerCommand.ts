@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateLedgerRequest, CreateLedgerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLedgerCommand,
-  serializeAws_restJson1CreateLedgerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateLedgerCommand, se_CreateLedgerCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
@@ -136,14 +133,14 @@ export class CreateLedgerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLedgerCommand(input, context);
+    return se_CreateLedgerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLedgerCommandOutput> {
-    return deserializeAws_restJson1CreateLedgerCommand(output, context);
+    return de_CreateLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

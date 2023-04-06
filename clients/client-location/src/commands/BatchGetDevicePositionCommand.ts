@@ -19,10 +19,7 @@ import {
   BatchGetDevicePositionResponse,
   BatchGetDevicePositionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetDevicePositionCommand,
-  serializeAws_restJson1BatchGetDevicePositionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetDevicePositionCommand, se_BatchGetDevicePositionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class BatchGetDevicePositionCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetDevicePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetDevicePositionCommand(input, context);
+    return se_BatchGetDevicePositionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetDevicePositionCommandOutput> {
-    return deserializeAws_restJson1BatchGetDevicePositionCommand(output, context);
+    return de_BatchGetDevicePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

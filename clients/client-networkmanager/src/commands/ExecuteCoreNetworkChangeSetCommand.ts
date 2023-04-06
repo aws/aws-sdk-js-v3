@@ -16,8 +16,8 @@ import {
 import { ExecuteCoreNetworkChangeSetRequest, ExecuteCoreNetworkChangeSetResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1ExecuteCoreNetworkChangeSetCommand,
-  serializeAws_restJson1ExecuteCoreNetworkChangeSetCommand,
+  de_ExecuteCoreNetworkChangeSetCommand,
+  se_ExecuteCoreNetworkChangeSetCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class ExecuteCoreNetworkChangeSetCommand extends $Command<
    * @internal
    */
   private serialize(input: ExecuteCoreNetworkChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExecuteCoreNetworkChangeSetCommand(input, context);
+    return se_ExecuteCoreNetworkChangeSetCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ExecuteCoreNetworkChangeSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExecuteCoreNetworkChangeSetCommandOutput> {
-    return deserializeAws_restJson1ExecuteCoreNetworkChangeSetCommand(output, context);
+    return de_ExecuteCoreNetworkChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

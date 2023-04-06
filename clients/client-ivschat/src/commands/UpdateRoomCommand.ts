@@ -15,10 +15,7 @@ import {
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
 import { UpdateRoomRequest, UpdateRoomResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRoomCommand,
-  serializeAws_restJson1UpdateRoomCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRoomCommand, se_UpdateRoomCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class UpdateRoomCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoomCommand(input, context);
+    return se_UpdateRoomCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoomCommandOutput> {
-    return deserializeAws_restJson1UpdateRoomCommand(output, context);
+    return de_UpdateRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

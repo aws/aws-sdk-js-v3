@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { ExportNotebookInput, ExportNotebookOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ExportNotebookCommand,
-  serializeAws_json1_1ExportNotebookCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ExportNotebookCommand, se_ExportNotebookCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ExportNotebookCommand extends $Command<
    * @internal
    */
   private serialize(input: ExportNotebookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExportNotebookCommand(input, context);
+    return se_ExportNotebookCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportNotebookCommandOutput> {
-    return deserializeAws_json1_1ExportNotebookCommand(output, context);
+    return de_ExportNotebookCommand(output, context);
   }
 
   // Start section: command_body_extra

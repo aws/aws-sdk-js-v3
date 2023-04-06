@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerStorageMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeStorageCommand,
-  serializeAws_queryDescribeStorageCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeStorageCommand, se_DescribeStorageCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -118,14 +115,14 @@ export class DescribeStorageCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeStorageCommand(input, context);
+    return se_DescribeStorageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStorageCommandOutput> {
-    return deserializeAws_queryDescribeStorageCommand(output, context);
+    return de_DescribeStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

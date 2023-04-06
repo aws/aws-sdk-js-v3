@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { TagUserRequest } from "../models/models_0";
-import { deserializeAws_queryTagUserCommand, serializeAws_queryTagUserCommand } from "../protocols/Aws_query";
+import { de_TagUserCommand, se_TagUserCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -201,14 +201,14 @@ export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommand
    * @internal
    */
   private serialize(input: TagUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagUserCommand(input, context);
+    return se_TagUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagUserCommandOutput> {
-    return deserializeAws_queryTagUserCommand(output, context);
+    return de_TagUserCommand(output, context);
   }
 
   // Start section: command_body_extra

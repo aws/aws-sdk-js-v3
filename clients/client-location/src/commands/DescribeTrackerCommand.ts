@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { DescribeTrackerRequest, DescribeTrackerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTrackerCommand,
-  serializeAws_restJson1DescribeTrackerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeTrackerCommand, se_DescribeTrackerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribeTrackerCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTrackerCommand(input, context);
+    return se_DescribeTrackerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTrackerCommandOutput> {
-    return deserializeAws_restJson1DescribeTrackerCommand(output, context);
+    return de_DescribeTrackerCommand(output, context);
   }
 
   // Start section: command_body_extra

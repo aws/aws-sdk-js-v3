@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { ListResourceTagsRequest, ListResourceTagsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListResourceTagsCommand,
-  serializeAws_json1_1ListResourceTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListResourceTagsCommand, se_ListResourceTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -201,14 +198,14 @@ export class ListResourceTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourceTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListResourceTagsCommand(input, context);
+    return se_ListResourceTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceTagsCommandOutput> {
-    return deserializeAws_json1_1ListResourceTagsCommand(output, context);
+    return de_ListResourceTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

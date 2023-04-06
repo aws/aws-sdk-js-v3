@@ -16,8 +16,8 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { ListPiiEntitiesDetectionJobsRequest, ListPiiEntitiesDetectionJobsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListPiiEntitiesDetectionJobsCommand,
-  serializeAws_json1_1ListPiiEntitiesDetectionJobsCommand,
+  de_ListPiiEntitiesDetectionJobsCommand,
+  se_ListPiiEntitiesDetectionJobsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -142,7 +142,7 @@ export class ListPiiEntitiesDetectionJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPiiEntitiesDetectionJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPiiEntitiesDetectionJobsCommand(input, context);
+    return se_ListPiiEntitiesDetectionJobsCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ListPiiEntitiesDetectionJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPiiEntitiesDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListPiiEntitiesDetectionJobsCommand(output, context);
+    return de_ListPiiEntitiesDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

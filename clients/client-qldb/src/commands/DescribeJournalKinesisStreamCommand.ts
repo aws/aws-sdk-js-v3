@@ -15,8 +15,8 @@ import {
 
 import { DescribeJournalKinesisStreamRequest, DescribeJournalKinesisStreamResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeJournalKinesisStreamCommand,
-  serializeAws_restJson1DescribeJournalKinesisStreamCommand,
+  de_DescribeJournalKinesisStreamCommand,
+  se_DescribeJournalKinesisStreamCommand,
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
@@ -137,7 +137,7 @@ export class DescribeJournalKinesisStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeJournalKinesisStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJournalKinesisStreamCommand(input, context);
+    return se_DescribeJournalKinesisStreamCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DescribeJournalKinesisStreamCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeJournalKinesisStreamCommandOutput> {
-    return deserializeAws_restJson1DescribeJournalKinesisStreamCommand(output, context);
+    return de_DescribeJournalKinesisStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
 import { UnclaimDeviceRequest, UnclaimDeviceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UnclaimDeviceCommand,
-  serializeAws_restJson1UnclaimDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UnclaimDeviceCommand, se_UnclaimDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class UnclaimDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: UnclaimDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnclaimDeviceCommand(input, context);
+    return se_UnclaimDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnclaimDeviceCommandOutput> {
-    return deserializeAws_restJson1UnclaimDeviceCommand(output, context);
+    return de_UnclaimDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

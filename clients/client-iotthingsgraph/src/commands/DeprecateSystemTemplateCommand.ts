@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { DeprecateSystemTemplateRequest, DeprecateSystemTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeprecateSystemTemplateCommand,
-  serializeAws_json1_1DeprecateSystemTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeprecateSystemTemplateCommand, se_DeprecateSystemTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeprecateSystemTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeprecateSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeprecateSystemTemplateCommand(input, context);
+    return se_DeprecateSystemTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateSystemTemplateCommandOutput> {
-    return deserializeAws_json1_1DeprecateSystemTemplateCommand(output, context);
+    return de_DeprecateSystemTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

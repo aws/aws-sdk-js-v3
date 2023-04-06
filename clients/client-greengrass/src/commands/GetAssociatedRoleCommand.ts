@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { GetAssociatedRoleRequest, GetAssociatedRoleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssociatedRoleCommand,
-  serializeAws_restJson1GetAssociatedRoleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAssociatedRoleCommand, se_GetAssociatedRoleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class GetAssociatedRoleCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAssociatedRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssociatedRoleCommand(input, context);
+    return se_GetAssociatedRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssociatedRoleCommandOutput> {
-    return deserializeAws_restJson1GetAssociatedRoleCommand(output, context);
+    return de_GetAssociatedRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

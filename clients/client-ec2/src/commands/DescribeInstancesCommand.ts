@@ -16,10 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeInstancesRequest } from "../models/models_3";
 import { DescribeInstancesResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeInstancesCommand,
-  serializeAws_ec2DescribeInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeInstancesCommand, se_DescribeInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -198,14 +195,14 @@ export class DescribeInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstancesCommand(input, context);
+    return se_DescribeInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeInstancesCommand(output, context);
+    return de_DescribeInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

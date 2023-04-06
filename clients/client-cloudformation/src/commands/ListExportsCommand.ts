@@ -15,7 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { ListExportsInput, ListExportsOutput } from "../models/models_0";
-import { deserializeAws_queryListExportsCommand, serializeAws_queryListExportsCommand } from "../protocols/Aws_query";
+import { de_ListExportsCommand, se_ListExportsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -121,14 +121,14 @@ export class ListExportsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListExportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListExportsCommand(input, context);
+    return se_ListExportsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExportsCommandOutput> {
-    return deserializeAws_queryListExportsCommand(output, context);
+    return de_ListExportsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { ListBackendJobsRequest, ListBackendJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBackendJobsCommand,
-  serializeAws_restJson1ListBackendJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBackendJobsCommand, se_ListBackendJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListBackendJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBackendJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBackendJobsCommand(input, context);
+    return se_ListBackendJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackendJobsCommandOutput> {
-    return deserializeAws_restJson1ListBackendJobsCommand(output, context);
+    return de_ListBackendJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { Authorizer, CreateAuthorizerRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAuthorizerCommand,
-  serializeAws_restJson1CreateAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAuthorizerCommand, se_CreateAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class CreateAuthorizerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAuthorizerCommand(input, context);
+    return se_CreateAuthorizerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAuthorizerCommandOutput> {
-    return deserializeAws_restJson1CreateAuthorizerCommand(output, context);
+    return de_CreateAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { UpdateFirewallDescriptionRequest, UpdateFirewallDescriptionResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0UpdateFirewallDescriptionCommand,
-  serializeAws_json1_0UpdateFirewallDescriptionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateFirewallDescriptionCommand, se_UpdateFirewallDescriptionCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -153,7 +150,7 @@ export class UpdateFirewallDescriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFirewallDescriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateFirewallDescriptionCommand(input, context);
+    return se_UpdateFirewallDescriptionCommand(input, context);
   }
 
   /**
@@ -163,7 +160,7 @@ export class UpdateFirewallDescriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFirewallDescriptionCommandOutput> {
-    return deserializeAws_json1_0UpdateFirewallDescriptionCommand(output, context);
+    return de_UpdateFirewallDescriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

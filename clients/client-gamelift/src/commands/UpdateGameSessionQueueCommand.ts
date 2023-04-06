@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { UpdateGameSessionQueueInput, UpdateGameSessionQueueOutput } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateGameSessionQueueCommand,
-  serializeAws_json1_1UpdateGameSessionQueueCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateGameSessionQueueCommand, se_UpdateGameSessionQueueCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class UpdateGameSessionQueueCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGameSessionQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateGameSessionQueueCommand(input, context);
+    return se_UpdateGameSessionQueueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGameSessionQueueCommandOutput> {
-    return deserializeAws_json1_1UpdateGameSessionQueueCommand(output, context);
+    return de_UpdateGameSessionQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

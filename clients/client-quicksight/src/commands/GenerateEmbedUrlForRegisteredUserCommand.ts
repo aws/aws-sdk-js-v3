@@ -19,8 +19,8 @@ import {
   GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand,
-  serializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand,
+  de_GenerateEmbedUrlForRegisteredUserCommand,
+  se_GenerateEmbedUrlForRegisteredUserCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -226,7 +226,7 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
     input: GenerateEmbedUrlForRegisteredUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand(input, context);
+    return se_GenerateEmbedUrlForRegisteredUserCommand(input, context);
   }
 
   /**
@@ -236,7 +236,7 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateEmbedUrlForRegisteredUserCommandOutput> {
-    return deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand(output, context);
+    return de_GenerateEmbedUrlForRegisteredUserCommand(output, context);
   }
 
   // Start section: command_body_extra

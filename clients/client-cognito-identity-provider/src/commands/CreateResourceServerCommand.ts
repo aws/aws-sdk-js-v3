@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { CreateResourceServerRequest, CreateResourceServerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateResourceServerCommand,
-  serializeAws_json1_1CreateResourceServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateResourceServerCommand, se_CreateResourceServerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class CreateResourceServerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateResourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateResourceServerCommand(input, context);
+    return se_CreateResourceServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResourceServerCommandOutput> {
-    return deserializeAws_json1_1CreateResourceServerCommand(output, context);
+    return de_CreateResourceServerCommand(output, context);
   }
 
   // Start section: command_body_extra

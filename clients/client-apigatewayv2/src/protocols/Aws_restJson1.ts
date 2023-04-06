@@ -163,7 +163,10 @@ import {
   VpcLink,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateApiCommand = async (
+/**
+ * serializeAws_restJson1CreateApiCommand
+ */
+export const se_CreateApiCommand = async (
   input: CreateApiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -175,9 +178,7 @@ export const serializeAws_restJson1CreateApiCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ApiKeySelectionExpression != null && { apiKeySelectionExpression: input.ApiKeySelectionExpression }),
-    ...(input.CorsConfiguration != null && {
-      corsConfiguration: serializeAws_restJson1Cors(input.CorsConfiguration, context),
-    }),
+    ...(input.CorsConfiguration != null && { corsConfiguration: se_Cors(input.CorsConfiguration, context) }),
     ...(input.CredentialsArn != null && { credentialsArn: input.CredentialsArn }),
     ...(input.Description != null && { description: input.Description }),
     ...(input.DisableExecuteApiEndpoint != null && { disableExecuteApiEndpoint: input.DisableExecuteApiEndpoint }),
@@ -186,7 +187,7 @@ export const serializeAws_restJson1CreateApiCommand = async (
     ...(input.ProtocolType != null && { protocolType: input.ProtocolType }),
     ...(input.RouteKey != null && { routeKey: input.RouteKey }),
     ...(input.RouteSelectionExpression != null && { routeSelectionExpression: input.RouteSelectionExpression }),
-    ...(input.Tags != null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
     ...(input.Target != null && { target: input.Target }),
     ...(input.Version != null && { version: input.Version }),
   });
@@ -201,7 +202,10 @@ export const serializeAws_restJson1CreateApiCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateApiMappingCommand = async (
+/**
+ * serializeAws_restJson1CreateApiMappingCommand
+ */
+export const se_CreateApiMappingCommand = async (
   input: CreateApiMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -229,7 +233,10 @@ export const serializeAws_restJson1CreateApiMappingCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateAuthorizerCommand = async (
+/**
+ * serializeAws_restJson1CreateAuthorizerCommand
+ */
+export const se_CreateAuthorizerCommand = async (
   input: CreateAuthorizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -252,15 +259,11 @@ export const serializeAws_restJson1CreateAuthorizerCommand = async (
     ...(input.AuthorizerType != null && { authorizerType: input.AuthorizerType }),
     ...(input.AuthorizerUri != null && { authorizerUri: input.AuthorizerUri }),
     ...(input.EnableSimpleResponses != null && { enableSimpleResponses: input.EnableSimpleResponses }),
-    ...(input.IdentitySource != null && {
-      identitySource: serializeAws_restJson1IdentitySourceList(input.IdentitySource, context),
-    }),
+    ...(input.IdentitySource != null && { identitySource: se_IdentitySourceList(input.IdentitySource, context) }),
     ...(input.IdentityValidationExpression != null && {
       identityValidationExpression: input.IdentityValidationExpression,
     }),
-    ...(input.JwtConfiguration != null && {
-      jwtConfiguration: serializeAws_restJson1JWTConfiguration(input.JwtConfiguration, context),
-    }),
+    ...(input.JwtConfiguration != null && { jwtConfiguration: se_JWTConfiguration(input.JwtConfiguration, context) }),
     ...(input.Name != null && { name: input.Name }),
   });
   return new __HttpRequest({
@@ -274,7 +277,10 @@ export const serializeAws_restJson1CreateAuthorizerCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDeploymentCommand = async (
+/**
+ * serializeAws_restJson1CreateDeploymentCommand
+ */
+export const se_CreateDeploymentCommand = async (
   input: CreateDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -301,7 +307,10 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDomainNameCommand = async (
+/**
+ * serializeAws_restJson1CreateDomainNameCommand
+ */
+export const se_CreateDomainNameCommand = async (
   input: CreateDomainNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -314,15 +323,12 @@ export const serializeAws_restJson1CreateDomainNameCommand = async (
   body = JSON.stringify({
     ...(input.DomainName != null && { domainName: input.DomainName }),
     ...(input.DomainNameConfigurations != null && {
-      domainNameConfigurations: serializeAws_restJson1DomainNameConfigurations(input.DomainNameConfigurations, context),
+      domainNameConfigurations: se_DomainNameConfigurations(input.DomainNameConfigurations, context),
     }),
     ...(input.MutualTlsAuthentication != null && {
-      mutualTlsAuthentication: serializeAws_restJson1MutualTlsAuthenticationInput(
-        input.MutualTlsAuthentication,
-        context
-      ),
+      mutualTlsAuthentication: se_MutualTlsAuthenticationInput(input.MutualTlsAuthentication, context),
     }),
-    ...(input.Tags != null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -335,7 +341,10 @@ export const serializeAws_restJson1CreateDomainNameCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateIntegrationCommand = async (
+/**
+ * serializeAws_restJson1CreateIntegrationCommand
+ */
+export const se_CreateIntegrationCommand = async (
   input: CreateIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -360,19 +369,17 @@ export const serializeAws_restJson1CreateIntegrationCommand = async (
     ...(input.PassthroughBehavior != null && { passthroughBehavior: input.PassthroughBehavior }),
     ...(input.PayloadFormatVersion != null && { payloadFormatVersion: input.PayloadFormatVersion }),
     ...(input.RequestParameters != null && {
-      requestParameters: serializeAws_restJson1IntegrationParameters(input.RequestParameters, context),
+      requestParameters: se_IntegrationParameters(input.RequestParameters, context),
     }),
-    ...(input.RequestTemplates != null && {
-      requestTemplates: serializeAws_restJson1TemplateMap(input.RequestTemplates, context),
-    }),
+    ...(input.RequestTemplates != null && { requestTemplates: se_TemplateMap(input.RequestTemplates, context) }),
     ...(input.ResponseParameters != null && {
-      responseParameters: serializeAws_restJson1ResponseParameters(input.ResponseParameters, context),
+      responseParameters: se_ResponseParameters(input.ResponseParameters, context),
     }),
     ...(input.TemplateSelectionExpression != null && {
       templateSelectionExpression: input.TemplateSelectionExpression,
     }),
     ...(input.TimeoutInMillis != null && { timeoutInMillis: input.TimeoutInMillis }),
-    ...(input.TlsConfig != null && { tlsConfig: serializeAws_restJson1TlsConfigInput(input.TlsConfig, context) }),
+    ...(input.TlsConfig != null && { tlsConfig: se_TlsConfigInput(input.TlsConfig, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -385,7 +392,10 @@ export const serializeAws_restJson1CreateIntegrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateIntegrationResponseCommand = async (
+/**
+ * serializeAws_restJson1CreateIntegrationResponseCommand
+ */
+export const se_CreateIntegrationResponseCommand = async (
   input: CreateIntegrationResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -410,11 +420,9 @@ export const serializeAws_restJson1CreateIntegrationResponseCommand = async (
     ...(input.ContentHandlingStrategy != null && { contentHandlingStrategy: input.ContentHandlingStrategy }),
     ...(input.IntegrationResponseKey != null && { integrationResponseKey: input.IntegrationResponseKey }),
     ...(input.ResponseParameters != null && {
-      responseParameters: serializeAws_restJson1IntegrationParameters(input.ResponseParameters, context),
+      responseParameters: se_IntegrationParameters(input.ResponseParameters, context),
     }),
-    ...(input.ResponseTemplates != null && {
-      responseTemplates: serializeAws_restJson1TemplateMap(input.ResponseTemplates, context),
-    }),
+    ...(input.ResponseTemplates != null && { responseTemplates: se_TemplateMap(input.ResponseTemplates, context) }),
     ...(input.TemplateSelectionExpression != null && {
       templateSelectionExpression: input.TemplateSelectionExpression,
     }),
@@ -430,7 +438,10 @@ export const serializeAws_restJson1CreateIntegrationResponseCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateModelCommand = async (
+/**
+ * serializeAws_restJson1CreateModelCommand
+ */
+export const se_CreateModelCommand = async (
   input: CreateModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -458,7 +469,10 @@ export const serializeAws_restJson1CreateModelCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateRouteCommand = async (
+/**
+ * serializeAws_restJson1CreateRouteCommand
+ */
+export const se_CreateRouteCommand = async (
   input: CreateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -472,18 +486,14 @@ export const serializeAws_restJson1CreateRouteCommand = async (
   body = JSON.stringify({
     ...(input.ApiKeyRequired != null && { apiKeyRequired: input.ApiKeyRequired }),
     ...(input.AuthorizationScopes != null && {
-      authorizationScopes: serializeAws_restJson1AuthorizationScopes(input.AuthorizationScopes, context),
+      authorizationScopes: se_AuthorizationScopes(input.AuthorizationScopes, context),
     }),
     ...(input.AuthorizationType != null && { authorizationType: input.AuthorizationType }),
     ...(input.AuthorizerId != null && { authorizerId: input.AuthorizerId }),
     ...(input.ModelSelectionExpression != null && { modelSelectionExpression: input.ModelSelectionExpression }),
     ...(input.OperationName != null && { operationName: input.OperationName }),
-    ...(input.RequestModels != null && {
-      requestModels: serializeAws_restJson1RouteModels(input.RequestModels, context),
-    }),
-    ...(input.RequestParameters != null && {
-      requestParameters: serializeAws_restJson1RouteParameters(input.RequestParameters, context),
-    }),
+    ...(input.RequestModels != null && { requestModels: se_RouteModels(input.RequestModels, context) }),
+    ...(input.RequestParameters != null && { requestParameters: se_RouteParameters(input.RequestParameters, context) }),
     ...(input.RouteKey != null && { routeKey: input.RouteKey }),
     ...(input.RouteResponseSelectionExpression != null && {
       routeResponseSelectionExpression: input.RouteResponseSelectionExpression,
@@ -501,7 +511,10 @@ export const serializeAws_restJson1CreateRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateRouteResponseCommand = async (
+/**
+ * serializeAws_restJson1CreateRouteResponseCommand
+ */
+export const se_CreateRouteResponseCommand = async (
   input: CreateRouteResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -517,11 +530,9 @@ export const serializeAws_restJson1CreateRouteResponseCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ModelSelectionExpression != null && { modelSelectionExpression: input.ModelSelectionExpression }),
-    ...(input.ResponseModels != null && {
-      responseModels: serializeAws_restJson1RouteModels(input.ResponseModels, context),
-    }),
+    ...(input.ResponseModels != null && { responseModels: se_RouteModels(input.ResponseModels, context) }),
     ...(input.ResponseParameters != null && {
-      responseParameters: serializeAws_restJson1RouteParameters(input.ResponseParameters, context),
+      responseParameters: se_RouteParameters(input.ResponseParameters, context),
     }),
     ...(input.RouteResponseKey != null && { routeResponseKey: input.RouteResponseKey }),
   });
@@ -536,7 +547,10 @@ export const serializeAws_restJson1CreateRouteResponseCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateStageCommand = async (
+/**
+ * serializeAws_restJson1CreateStageCommand
+ */
+export const se_CreateStageCommand = async (
   input: CreateStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -549,23 +563,19 @@ export const serializeAws_restJson1CreateStageCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AccessLogSettings != null && {
-      accessLogSettings: serializeAws_restJson1AccessLogSettings(input.AccessLogSettings, context),
+      accessLogSettings: se_AccessLogSettings(input.AccessLogSettings, context),
     }),
     ...(input.AutoDeploy != null && { autoDeploy: input.AutoDeploy }),
     ...(input.ClientCertificateId != null && { clientCertificateId: input.ClientCertificateId }),
     ...(input.DefaultRouteSettings != null && {
-      defaultRouteSettings: serializeAws_restJson1RouteSettings(input.DefaultRouteSettings, context),
+      defaultRouteSettings: se_RouteSettings(input.DefaultRouteSettings, context),
     }),
     ...(input.DeploymentId != null && { deploymentId: input.DeploymentId }),
     ...(input.Description != null && { description: input.Description }),
-    ...(input.RouteSettings != null && {
-      routeSettings: serializeAws_restJson1RouteSettingsMap(input.RouteSettings, context),
-    }),
+    ...(input.RouteSettings != null && { routeSettings: se_RouteSettingsMap(input.RouteSettings, context) }),
     ...(input.StageName != null && { stageName: input.StageName }),
-    ...(input.StageVariables != null && {
-      stageVariables: serializeAws_restJson1StageVariablesMap(input.StageVariables, context),
-    }),
-    ...(input.Tags != null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.StageVariables != null && { stageVariables: se_StageVariablesMap(input.StageVariables, context) }),
+    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -578,7 +588,10 @@ export const serializeAws_restJson1CreateStageCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateVpcLinkCommand = async (
+/**
+ * serializeAws_restJson1CreateVpcLinkCommand
+ */
+export const se_CreateVpcLinkCommand = async (
   input: CreateVpcLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -591,10 +604,10 @@ export const serializeAws_restJson1CreateVpcLinkCommand = async (
   body = JSON.stringify({
     ...(input.Name != null && { name: input.Name }),
     ...(input.SecurityGroupIds != null && {
-      securityGroupIds: serializeAws_restJson1SecurityGroupIdList(input.SecurityGroupIds, context),
+      securityGroupIds: se_SecurityGroupIdList(input.SecurityGroupIds, context),
     }),
-    ...(input.SubnetIds != null && { subnetIds: serializeAws_restJson1SubnetIdList(input.SubnetIds, context) }),
-    ...(input.Tags != null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.SubnetIds != null && { subnetIds: se_SubnetIdList(input.SubnetIds, context) }),
+    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -607,7 +620,10 @@ export const serializeAws_restJson1CreateVpcLinkCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAccessLogSettingsCommand = async (
+/**
+ * serializeAws_restJson1DeleteAccessLogSettingsCommand
+ */
+export const se_DeleteAccessLogSettingsCommand = async (
   input: DeleteAccessLogSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -630,7 +646,10 @@ export const serializeAws_restJson1DeleteAccessLogSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteApiCommand = async (
+/**
+ * serializeAws_restJson1DeleteApiCommand
+ */
+export const se_DeleteApiCommand = async (
   input: DeleteApiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -650,7 +669,10 @@ export const serializeAws_restJson1DeleteApiCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteApiMappingCommand = async (
+/**
+ * serializeAws_restJson1DeleteApiMappingCommand
+ */
+export const se_DeleteApiMappingCommand = async (
   input: DeleteApiMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -680,7 +702,10 @@ export const serializeAws_restJson1DeleteApiMappingCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAuthorizerCommand = async (
+/**
+ * serializeAws_restJson1DeleteAuthorizerCommand
+ */
+export const se_DeleteAuthorizerCommand = async (
   input: DeleteAuthorizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -710,7 +735,10 @@ export const serializeAws_restJson1DeleteAuthorizerCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteCorsConfigurationCommand = async (
+/**
+ * serializeAws_restJson1DeleteCorsConfigurationCommand
+ */
+export const se_DeleteCorsConfigurationCommand = async (
   input: DeleteCorsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -730,7 +758,10 @@ export const serializeAws_restJson1DeleteCorsConfigurationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDeploymentCommand = async (
+/**
+ * serializeAws_restJson1DeleteDeploymentCommand
+ */
+export const se_DeleteDeploymentCommand = async (
   input: DeleteDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -760,7 +791,10 @@ export const serializeAws_restJson1DeleteDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteDomainNameCommand = async (
+/**
+ * serializeAws_restJson1DeleteDomainNameCommand
+ */
+export const se_DeleteDomainNameCommand = async (
   input: DeleteDomainNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -781,7 +815,10 @@ export const serializeAws_restJson1DeleteDomainNameCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteIntegrationCommand = async (
+/**
+ * serializeAws_restJson1DeleteIntegrationCommand
+ */
+export const se_DeleteIntegrationCommand = async (
   input: DeleteIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -811,7 +848,10 @@ export const serializeAws_restJson1DeleteIntegrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteIntegrationResponseCommand = async (
+/**
+ * serializeAws_restJson1DeleteIntegrationResponseCommand
+ */
+export const se_DeleteIntegrationResponseCommand = async (
   input: DeleteIntegrationResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -849,7 +889,10 @@ export const serializeAws_restJson1DeleteIntegrationResponseCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteModelCommand = async (
+/**
+ * serializeAws_restJson1DeleteModelCommand
+ */
+export const se_DeleteModelCommand = async (
   input: DeleteModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -871,7 +914,10 @@ export const serializeAws_restJson1DeleteModelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteRouteCommand = async (
+/**
+ * serializeAws_restJson1DeleteRouteCommand
+ */
+export const se_DeleteRouteCommand = async (
   input: DeleteRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -893,7 +939,10 @@ export const serializeAws_restJson1DeleteRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteRouteRequestParameterCommand = async (
+/**
+ * serializeAws_restJson1DeleteRouteRequestParameterCommand
+ */
+export const se_DeleteRouteRequestParameterCommand = async (
   input: DeleteRouteRequestParameterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -924,7 +973,10 @@ export const serializeAws_restJson1DeleteRouteRequestParameterCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteRouteResponseCommand = async (
+/**
+ * serializeAws_restJson1DeleteRouteResponseCommand
+ */
+export const se_DeleteRouteResponseCommand = async (
   input: DeleteRouteResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -955,7 +1007,10 @@ export const serializeAws_restJson1DeleteRouteResponseCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteRouteSettingsCommand = async (
+/**
+ * serializeAws_restJson1DeleteRouteSettingsCommand
+ */
+export const se_DeleteRouteSettingsCommand = async (
   input: DeleteRouteSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -979,7 +1034,10 @@ export const serializeAws_restJson1DeleteRouteSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteStageCommand = async (
+/**
+ * serializeAws_restJson1DeleteStageCommand
+ */
+export const se_DeleteStageCommand = async (
   input: DeleteStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1001,7 +1059,10 @@ export const serializeAws_restJson1DeleteStageCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVpcLinkCommand = async (
+/**
+ * serializeAws_restJson1DeleteVpcLinkCommand
+ */
+export const se_DeleteVpcLinkCommand = async (
   input: DeleteVpcLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1021,7 +1082,10 @@ export const serializeAws_restJson1DeleteVpcLinkCommand = async (
   });
 };
 
-export const serializeAws_restJson1ExportApiCommand = async (
+/**
+ * serializeAws_restJson1ExportApiCommand
+ */
+export const se_ExportApiCommand = async (
   input: ExportApiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1057,10 +1121,10 @@ export const serializeAws_restJson1ExportApiCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApiCommand = async (
-  input: GetApiCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
+/**
+ * serializeAws_restJson1GetApiCommand
+ */
+export const se_GetApiCommand = async (input: GetApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/apis/{ApiId}";
@@ -1077,7 +1141,10 @@ export const serializeAws_restJson1GetApiCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApiMappingCommand = async (
+/**
+ * serializeAws_restJson1GetApiMappingCommand
+ */
+export const se_GetApiMappingCommand = async (
   input: GetApiMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1107,7 +1174,10 @@ export const serializeAws_restJson1GetApiMappingCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApiMappingsCommand = async (
+/**
+ * serializeAws_restJson1GetApiMappingsCommand
+ */
+export const se_GetApiMappingsCommand = async (
   input: GetApiMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1133,7 +1203,10 @@ export const serializeAws_restJson1GetApiMappingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApisCommand = async (
+/**
+ * serializeAws_restJson1GetApisCommand
+ */
+export const se_GetApisCommand = async (
   input: GetApisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1157,7 +1230,10 @@ export const serializeAws_restJson1GetApisCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAuthorizerCommand = async (
+/**
+ * serializeAws_restJson1GetAuthorizerCommand
+ */
+export const se_GetAuthorizerCommand = async (
   input: GetAuthorizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1187,7 +1263,10 @@ export const serializeAws_restJson1GetAuthorizerCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAuthorizersCommand = async (
+/**
+ * serializeAws_restJson1GetAuthorizersCommand
+ */
+export const se_GetAuthorizersCommand = async (
   input: GetAuthorizersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1213,7 +1292,10 @@ export const serializeAws_restJson1GetAuthorizersCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDeploymentCommand = async (
+/**
+ * serializeAws_restJson1GetDeploymentCommand
+ */
+export const se_GetDeploymentCommand = async (
   input: GetDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1243,7 +1325,10 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDeploymentsCommand = async (
+/**
+ * serializeAws_restJson1GetDeploymentsCommand
+ */
+export const se_GetDeploymentsCommand = async (
   input: GetDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1269,7 +1354,10 @@ export const serializeAws_restJson1GetDeploymentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDomainNameCommand = async (
+/**
+ * serializeAws_restJson1GetDomainNameCommand
+ */
+export const se_GetDomainNameCommand = async (
   input: GetDomainNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1290,7 +1378,10 @@ export const serializeAws_restJson1GetDomainNameCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDomainNamesCommand = async (
+/**
+ * serializeAws_restJson1GetDomainNamesCommand
+ */
+export const se_GetDomainNamesCommand = async (
   input: GetDomainNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1314,7 +1405,10 @@ export const serializeAws_restJson1GetDomainNamesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetIntegrationCommand = async (
+/**
+ * serializeAws_restJson1GetIntegrationCommand
+ */
+export const se_GetIntegrationCommand = async (
   input: GetIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1344,7 +1438,10 @@ export const serializeAws_restJson1GetIntegrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetIntegrationResponseCommand = async (
+/**
+ * serializeAws_restJson1GetIntegrationResponseCommand
+ */
+export const se_GetIntegrationResponseCommand = async (
   input: GetIntegrationResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1382,7 +1479,10 @@ export const serializeAws_restJson1GetIntegrationResponseCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetIntegrationResponsesCommand = async (
+/**
+ * serializeAws_restJson1GetIntegrationResponsesCommand
+ */
+export const se_GetIntegrationResponsesCommand = async (
   input: GetIntegrationResponsesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1417,7 +1517,10 @@ export const serializeAws_restJson1GetIntegrationResponsesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetIntegrationsCommand = async (
+/**
+ * serializeAws_restJson1GetIntegrationsCommand
+ */
+export const se_GetIntegrationsCommand = async (
   input: GetIntegrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1443,7 +1546,10 @@ export const serializeAws_restJson1GetIntegrationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetModelCommand = async (
+/**
+ * serializeAws_restJson1GetModelCommand
+ */
+export const se_GetModelCommand = async (
   input: GetModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1465,7 +1571,10 @@ export const serializeAws_restJson1GetModelCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetModelsCommand = async (
+/**
+ * serializeAws_restJson1GetModelsCommand
+ */
+export const se_GetModelsCommand = async (
   input: GetModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1490,7 +1599,10 @@ export const serializeAws_restJson1GetModelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetModelTemplateCommand = async (
+/**
+ * serializeAws_restJson1GetModelTemplateCommand
+ */
+export const se_GetModelTemplateCommand = async (
   input: GetModelTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1513,7 +1625,10 @@ export const serializeAws_restJson1GetModelTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRouteCommand = async (
+/**
+ * serializeAws_restJson1GetRouteCommand
+ */
+export const se_GetRouteCommand = async (
   input: GetRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1535,7 +1650,10 @@ export const serializeAws_restJson1GetRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRouteResponseCommand = async (
+/**
+ * serializeAws_restJson1GetRouteResponseCommand
+ */
+export const se_GetRouteResponseCommand = async (
   input: GetRouteResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1566,7 +1684,10 @@ export const serializeAws_restJson1GetRouteResponseCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRouteResponsesCommand = async (
+/**
+ * serializeAws_restJson1GetRouteResponsesCommand
+ */
+export const se_GetRouteResponsesCommand = async (
   input: GetRouteResponsesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1594,7 +1715,10 @@ export const serializeAws_restJson1GetRouteResponsesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRoutesCommand = async (
+/**
+ * serializeAws_restJson1GetRoutesCommand
+ */
+export const se_GetRoutesCommand = async (
   input: GetRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1619,7 +1743,10 @@ export const serializeAws_restJson1GetRoutesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetStageCommand = async (
+/**
+ * serializeAws_restJson1GetStageCommand
+ */
+export const se_GetStageCommand = async (
   input: GetStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1641,7 +1768,10 @@ export const serializeAws_restJson1GetStageCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetStagesCommand = async (
+/**
+ * serializeAws_restJson1GetStagesCommand
+ */
+export const se_GetStagesCommand = async (
   input: GetStagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1666,7 +1796,10 @@ export const serializeAws_restJson1GetStagesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetTagsCommand = async (
+/**
+ * serializeAws_restJson1GetTagsCommand
+ */
+export const se_GetTagsCommand = async (
   input: GetTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1686,7 +1819,10 @@ export const serializeAws_restJson1GetTagsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetVpcLinkCommand = async (
+/**
+ * serializeAws_restJson1GetVpcLinkCommand
+ */
+export const se_GetVpcLinkCommand = async (
   input: GetVpcLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1706,7 +1842,10 @@ export const serializeAws_restJson1GetVpcLinkCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetVpcLinksCommand = async (
+/**
+ * serializeAws_restJson1GetVpcLinksCommand
+ */
+export const se_GetVpcLinksCommand = async (
   input: GetVpcLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1730,7 +1869,10 @@ export const serializeAws_restJson1GetVpcLinksCommand = async (
   });
 };
 
-export const serializeAws_restJson1ImportApiCommand = async (
+/**
+ * serializeAws_restJson1ImportApiCommand
+ */
+export const se_ImportApiCommand = async (
   input: ImportApiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1759,7 +1901,10 @@ export const serializeAws_restJson1ImportApiCommand = async (
   });
 };
 
-export const serializeAws_restJson1ReimportApiCommand = async (
+/**
+ * serializeAws_restJson1ReimportApiCommand
+ */
+export const se_ReimportApiCommand = async (
   input: ReimportApiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1789,7 +1934,10 @@ export const serializeAws_restJson1ReimportApiCommand = async (
   });
 };
 
-export const serializeAws_restJson1ResetAuthorizersCacheCommand = async (
+/**
+ * serializeAws_restJson1ResetAuthorizersCacheCommand
+ */
+export const se_ResetAuthorizersCacheCommand = async (
   input: ResetAuthorizersCacheCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1812,7 +1960,10 @@ export const serializeAws_restJson1ResetAuthorizersCacheCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1824,7 +1975,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { tags: se_Tags(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1837,7 +1988,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1864,7 +2018,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateApiCommand = async (
+/**
+ * serializeAws_restJson1UpdateApiCommand
+ */
+export const se_UpdateApiCommand = async (
   input: UpdateApiCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1877,9 +2034,7 @@ export const serializeAws_restJson1UpdateApiCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ApiKeySelectionExpression != null && { apiKeySelectionExpression: input.ApiKeySelectionExpression }),
-    ...(input.CorsConfiguration != null && {
-      corsConfiguration: serializeAws_restJson1Cors(input.CorsConfiguration, context),
-    }),
+    ...(input.CorsConfiguration != null && { corsConfiguration: se_Cors(input.CorsConfiguration, context) }),
     ...(input.CredentialsArn != null && { credentialsArn: input.CredentialsArn }),
     ...(input.Description != null && { description: input.Description }),
     ...(input.DisableExecuteApiEndpoint != null && { disableExecuteApiEndpoint: input.DisableExecuteApiEndpoint }),
@@ -1901,7 +2056,10 @@ export const serializeAws_restJson1UpdateApiCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateApiMappingCommand = async (
+/**
+ * serializeAws_restJson1UpdateApiMappingCommand
+ */
+export const se_UpdateApiMappingCommand = async (
   input: UpdateApiMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1938,7 +2096,10 @@ export const serializeAws_restJson1UpdateApiMappingCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateAuthorizerCommand = async (
+/**
+ * serializeAws_restJson1UpdateAuthorizerCommand
+ */
+export const se_UpdateAuthorizerCommand = async (
   input: UpdateAuthorizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1970,15 +2131,11 @@ export const serializeAws_restJson1UpdateAuthorizerCommand = async (
     ...(input.AuthorizerType != null && { authorizerType: input.AuthorizerType }),
     ...(input.AuthorizerUri != null && { authorizerUri: input.AuthorizerUri }),
     ...(input.EnableSimpleResponses != null && { enableSimpleResponses: input.EnableSimpleResponses }),
-    ...(input.IdentitySource != null && {
-      identitySource: serializeAws_restJson1IdentitySourceList(input.IdentitySource, context),
-    }),
+    ...(input.IdentitySource != null && { identitySource: se_IdentitySourceList(input.IdentitySource, context) }),
     ...(input.IdentityValidationExpression != null && {
       identityValidationExpression: input.IdentityValidationExpression,
     }),
-    ...(input.JwtConfiguration != null && {
-      jwtConfiguration: serializeAws_restJson1JWTConfiguration(input.JwtConfiguration, context),
-    }),
+    ...(input.JwtConfiguration != null && { jwtConfiguration: se_JWTConfiguration(input.JwtConfiguration, context) }),
     ...(input.Name != null && { name: input.Name }),
   });
   return new __HttpRequest({
@@ -1992,7 +2149,10 @@ export const serializeAws_restJson1UpdateAuthorizerCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateDeploymentCommand = async (
+/**
+ * serializeAws_restJson1UpdateDeploymentCommand
+ */
+export const se_UpdateDeploymentCommand = async (
   input: UpdateDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2027,7 +2187,10 @@ export const serializeAws_restJson1UpdateDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateDomainNameCommand = async (
+/**
+ * serializeAws_restJson1UpdateDomainNameCommand
+ */
+export const se_UpdateDomainNameCommand = async (
   input: UpdateDomainNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2041,13 +2204,10 @@ export const serializeAws_restJson1UpdateDomainNameCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.DomainNameConfigurations != null && {
-      domainNameConfigurations: serializeAws_restJson1DomainNameConfigurations(input.DomainNameConfigurations, context),
+      domainNameConfigurations: se_DomainNameConfigurations(input.DomainNameConfigurations, context),
     }),
     ...(input.MutualTlsAuthentication != null && {
-      mutualTlsAuthentication: serializeAws_restJson1MutualTlsAuthenticationInput(
-        input.MutualTlsAuthentication,
-        context
-      ),
+      mutualTlsAuthentication: se_MutualTlsAuthenticationInput(input.MutualTlsAuthentication, context),
     }),
   });
   return new __HttpRequest({
@@ -2061,7 +2221,10 @@ export const serializeAws_restJson1UpdateDomainNameCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateIntegrationCommand = async (
+/**
+ * serializeAws_restJson1UpdateIntegrationCommand
+ */
+export const se_UpdateIntegrationCommand = async (
   input: UpdateIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2095,19 +2258,17 @@ export const serializeAws_restJson1UpdateIntegrationCommand = async (
     ...(input.PassthroughBehavior != null && { passthroughBehavior: input.PassthroughBehavior }),
     ...(input.PayloadFormatVersion != null && { payloadFormatVersion: input.PayloadFormatVersion }),
     ...(input.RequestParameters != null && {
-      requestParameters: serializeAws_restJson1IntegrationParameters(input.RequestParameters, context),
+      requestParameters: se_IntegrationParameters(input.RequestParameters, context),
     }),
-    ...(input.RequestTemplates != null && {
-      requestTemplates: serializeAws_restJson1TemplateMap(input.RequestTemplates, context),
-    }),
+    ...(input.RequestTemplates != null && { requestTemplates: se_TemplateMap(input.RequestTemplates, context) }),
     ...(input.ResponseParameters != null && {
-      responseParameters: serializeAws_restJson1ResponseParameters(input.ResponseParameters, context),
+      responseParameters: se_ResponseParameters(input.ResponseParameters, context),
     }),
     ...(input.TemplateSelectionExpression != null && {
       templateSelectionExpression: input.TemplateSelectionExpression,
     }),
     ...(input.TimeoutInMillis != null && { timeoutInMillis: input.TimeoutInMillis }),
-    ...(input.TlsConfig != null && { tlsConfig: serializeAws_restJson1TlsConfigInput(input.TlsConfig, context) }),
+    ...(input.TlsConfig != null && { tlsConfig: se_TlsConfigInput(input.TlsConfig, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2120,7 +2281,10 @@ export const serializeAws_restJson1UpdateIntegrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateIntegrationResponseCommand = async (
+/**
+ * serializeAws_restJson1UpdateIntegrationResponseCommand
+ */
+export const se_UpdateIntegrationResponseCommand = async (
   input: UpdateIntegrationResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2153,11 +2317,9 @@ export const serializeAws_restJson1UpdateIntegrationResponseCommand = async (
     ...(input.ContentHandlingStrategy != null && { contentHandlingStrategy: input.ContentHandlingStrategy }),
     ...(input.IntegrationResponseKey != null && { integrationResponseKey: input.IntegrationResponseKey }),
     ...(input.ResponseParameters != null && {
-      responseParameters: serializeAws_restJson1IntegrationParameters(input.ResponseParameters, context),
+      responseParameters: se_IntegrationParameters(input.ResponseParameters, context),
     }),
-    ...(input.ResponseTemplates != null && {
-      responseTemplates: serializeAws_restJson1TemplateMap(input.ResponseTemplates, context),
-    }),
+    ...(input.ResponseTemplates != null && { responseTemplates: se_TemplateMap(input.ResponseTemplates, context) }),
     ...(input.TemplateSelectionExpression != null && {
       templateSelectionExpression: input.TemplateSelectionExpression,
     }),
@@ -2173,7 +2335,10 @@ export const serializeAws_restJson1UpdateIntegrationResponseCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateModelCommand = async (
+/**
+ * serializeAws_restJson1UpdateModelCommand
+ */
+export const se_UpdateModelCommand = async (
   input: UpdateModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2203,7 +2368,10 @@ export const serializeAws_restJson1UpdateModelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateRouteCommand = async (
+/**
+ * serializeAws_restJson1UpdateRouteCommand
+ */
+export const se_UpdateRouteCommand = async (
   input: UpdateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2219,18 +2387,14 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
   body = JSON.stringify({
     ...(input.ApiKeyRequired != null && { apiKeyRequired: input.ApiKeyRequired }),
     ...(input.AuthorizationScopes != null && {
-      authorizationScopes: serializeAws_restJson1AuthorizationScopes(input.AuthorizationScopes, context),
+      authorizationScopes: se_AuthorizationScopes(input.AuthorizationScopes, context),
     }),
     ...(input.AuthorizationType != null && { authorizationType: input.AuthorizationType }),
     ...(input.AuthorizerId != null && { authorizerId: input.AuthorizerId }),
     ...(input.ModelSelectionExpression != null && { modelSelectionExpression: input.ModelSelectionExpression }),
     ...(input.OperationName != null && { operationName: input.OperationName }),
-    ...(input.RequestModels != null && {
-      requestModels: serializeAws_restJson1RouteModels(input.RequestModels, context),
-    }),
-    ...(input.RequestParameters != null && {
-      requestParameters: serializeAws_restJson1RouteParameters(input.RequestParameters, context),
-    }),
+    ...(input.RequestModels != null && { requestModels: se_RouteModels(input.RequestModels, context) }),
+    ...(input.RequestParameters != null && { requestParameters: se_RouteParameters(input.RequestParameters, context) }),
     ...(input.RouteKey != null && { routeKey: input.RouteKey }),
     ...(input.RouteResponseSelectionExpression != null && {
       routeResponseSelectionExpression: input.RouteResponseSelectionExpression,
@@ -2248,7 +2412,10 @@ export const serializeAws_restJson1UpdateRouteCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateRouteResponseCommand = async (
+/**
+ * serializeAws_restJson1UpdateRouteResponseCommand
+ */
+export const se_UpdateRouteResponseCommand = async (
   input: UpdateRouteResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2272,11 +2439,9 @@ export const serializeAws_restJson1UpdateRouteResponseCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.ModelSelectionExpression != null && { modelSelectionExpression: input.ModelSelectionExpression }),
-    ...(input.ResponseModels != null && {
-      responseModels: serializeAws_restJson1RouteModels(input.ResponseModels, context),
-    }),
+    ...(input.ResponseModels != null && { responseModels: se_RouteModels(input.ResponseModels, context) }),
     ...(input.ResponseParameters != null && {
-      responseParameters: serializeAws_restJson1RouteParameters(input.ResponseParameters, context),
+      responseParameters: se_RouteParameters(input.ResponseParameters, context),
     }),
     ...(input.RouteResponseKey != null && { routeResponseKey: input.RouteResponseKey }),
   });
@@ -2291,7 +2456,10 @@ export const serializeAws_restJson1UpdateRouteResponseCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateStageCommand = async (
+/**
+ * serializeAws_restJson1UpdateStageCommand
+ */
+export const se_UpdateStageCommand = async (
   input: UpdateStageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2306,21 +2474,17 @@ export const serializeAws_restJson1UpdateStageCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AccessLogSettings != null && {
-      accessLogSettings: serializeAws_restJson1AccessLogSettings(input.AccessLogSettings, context),
+      accessLogSettings: se_AccessLogSettings(input.AccessLogSettings, context),
     }),
     ...(input.AutoDeploy != null && { autoDeploy: input.AutoDeploy }),
     ...(input.ClientCertificateId != null && { clientCertificateId: input.ClientCertificateId }),
     ...(input.DefaultRouteSettings != null && {
-      defaultRouteSettings: serializeAws_restJson1RouteSettings(input.DefaultRouteSettings, context),
+      defaultRouteSettings: se_RouteSettings(input.DefaultRouteSettings, context),
     }),
     ...(input.DeploymentId != null && { deploymentId: input.DeploymentId }),
     ...(input.Description != null && { description: input.Description }),
-    ...(input.RouteSettings != null && {
-      routeSettings: serializeAws_restJson1RouteSettingsMap(input.RouteSettings, context),
-    }),
-    ...(input.StageVariables != null && {
-      stageVariables: serializeAws_restJson1StageVariablesMap(input.StageVariables, context),
-    }),
+    ...(input.RouteSettings != null && { routeSettings: se_RouteSettingsMap(input.RouteSettings, context) }),
+    ...(input.StageVariables != null && { stageVariables: se_StageVariablesMap(input.StageVariables, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2333,7 +2497,10 @@ export const serializeAws_restJson1UpdateStageCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateVpcLinkCommand = async (
+/**
+ * serializeAws_restJson1UpdateVpcLinkCommand
+ */
+export const se_UpdateVpcLinkCommand = async (
   input: UpdateVpcLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2358,12 +2525,15 @@ export const serializeAws_restJson1UpdateVpcLinkCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateApiCommand = async (
+/**
+ * deserializeAws_restJson1CreateApiCommand
+ */
+export const de_CreateApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApiCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateApiCommandError(output, context);
+    return de_CreateApiCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2382,7 +2552,7 @@ export const deserializeAws_restJson1CreateApiCommand = async (
     contents.ApiKeySelectionExpression = __expectString(data.apiKeySelectionExpression);
   }
   if (data.corsConfiguration != null) {
-    contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
+    contents.CorsConfiguration = de_Cors(data.corsConfiguration, context);
   }
   if (data.createdDate != null) {
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
@@ -2397,7 +2567,7 @@ export const deserializeAws_restJson1CreateApiCommand = async (
     contents.DisableSchemaValidation = __expectBoolean(data.disableSchemaValidation);
   }
   if (data.importInfo != null) {
-    contents.ImportInfo = deserializeAws_restJson1__listOf__string(data.importInfo, context);
+    contents.ImportInfo = de___listOf__string(data.importInfo, context);
   }
   if (data.name != null) {
     contents.Name = __expectString(data.name);
@@ -2409,18 +2579,21 @@ export const deserializeAws_restJson1CreateApiCommand = async (
     contents.RouteSelectionExpression = __expectString(data.routeSelectionExpression);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   if (data.version != null) {
     contents.Version = __expectString(data.version);
   }
   if (data.warnings != null) {
-    contents.Warnings = deserializeAws_restJson1__listOf__string(data.warnings, context);
+    contents.Warnings = de___listOf__string(data.warnings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateApiCommandError = async (
+/**
+ * deserializeAws_restJson1CreateApiCommandError
+ */
+const de_CreateApiCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApiCommandOutput> => {
@@ -2432,16 +2605,16 @@ const deserializeAws_restJson1CreateApiCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2453,12 +2626,15 @@ const deserializeAws_restJson1CreateApiCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateApiMappingCommand = async (
+/**
+ * deserializeAws_restJson1CreateApiMappingCommand
+ */
+export const de_CreateApiMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApiMappingCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateApiMappingCommandError(output, context);
+    return de_CreateApiMappingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2479,7 +2655,10 @@ export const deserializeAws_restJson1CreateApiMappingCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateApiMappingCommandError = async (
+/**
+ * deserializeAws_restJson1CreateApiMappingCommandError
+ */
+const de_CreateApiMappingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApiMappingCommandOutput> => {
@@ -2491,16 +2670,16 @@ const deserializeAws_restJson1CreateApiMappingCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2512,12 +2691,15 @@ const deserializeAws_restJson1CreateApiMappingCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateAuthorizerCommand = async (
+/**
+ * deserializeAws_restJson1CreateAuthorizerCommand
+ */
+export const de_CreateAuthorizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAuthorizerCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAuthorizerCommandError(output, context);
+    return de_CreateAuthorizerCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2545,13 +2727,13 @@ export const deserializeAws_restJson1CreateAuthorizerCommand = async (
     contents.EnableSimpleResponses = __expectBoolean(data.enableSimpleResponses);
   }
   if (data.identitySource != null) {
-    contents.IdentitySource = deserializeAws_restJson1IdentitySourceList(data.identitySource, context);
+    contents.IdentitySource = de_IdentitySourceList(data.identitySource, context);
   }
   if (data.identityValidationExpression != null) {
     contents.IdentityValidationExpression = __expectString(data.identityValidationExpression);
   }
   if (data.jwtConfiguration != null) {
-    contents.JwtConfiguration = deserializeAws_restJson1JWTConfiguration(data.jwtConfiguration, context);
+    contents.JwtConfiguration = de_JWTConfiguration(data.jwtConfiguration, context);
   }
   if (data.name != null) {
     contents.Name = __expectString(data.name);
@@ -2559,7 +2741,10 @@ export const deserializeAws_restJson1CreateAuthorizerCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateAuthorizerCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAuthorizerCommandError
+ */
+const de_CreateAuthorizerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAuthorizerCommandOutput> => {
@@ -2571,16 +2756,16 @@ const deserializeAws_restJson1CreateAuthorizerCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2592,12 +2777,15 @@ const deserializeAws_restJson1CreateAuthorizerCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1CreateDeploymentCommand
+ */
+export const de_CreateDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDeploymentCommandError(output, context);
+    return de_CreateDeploymentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2624,7 +2812,10 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDeploymentCommandError
+ */
+const de_CreateDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
@@ -2636,16 +2827,16 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2657,12 +2848,15 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateDomainNameCommand = async (
+/**
+ * deserializeAws_restJson1CreateDomainNameCommand
+ */
+export const de_CreateDomainNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainNameCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDomainNameCommandError(output, context);
+    return de_CreateDomainNameCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2675,24 +2869,21 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
     contents.DomainName = __expectString(data.domainName);
   }
   if (data.domainNameConfigurations != null) {
-    contents.DomainNameConfigurations = deserializeAws_restJson1DomainNameConfigurations(
-      data.domainNameConfigurations,
-      context
-    );
+    contents.DomainNameConfigurations = de_DomainNameConfigurations(data.domainNameConfigurations, context);
   }
   if (data.mutualTlsAuthentication != null) {
-    contents.MutualTlsAuthentication = deserializeAws_restJson1MutualTlsAuthentication(
-      data.mutualTlsAuthentication,
-      context
-    );
+    contents.MutualTlsAuthentication = de_MutualTlsAuthentication(data.mutualTlsAuthentication, context);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateDomainNameCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDomainNameCommandError
+ */
+const de_CreateDomainNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainNameCommandOutput> => {
@@ -2704,19 +2895,19 @@ const deserializeAws_restJson1CreateDomainNameCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.apigatewayv2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2728,12 +2919,15 @@ const deserializeAws_restJson1CreateDomainNameCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1CreateIntegrationCommand
+ */
+export const de_CreateIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntegrationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateIntegrationCommandError(output, context);
+    return de_CreateIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2782,13 +2976,13 @@ export const deserializeAws_restJson1CreateIntegrationCommand = async (
     contents.PayloadFormatVersion = __expectString(data.payloadFormatVersion);
   }
   if (data.requestParameters != null) {
-    contents.RequestParameters = deserializeAws_restJson1IntegrationParameters(data.requestParameters, context);
+    contents.RequestParameters = de_IntegrationParameters(data.requestParameters, context);
   }
   if (data.requestTemplates != null) {
-    contents.RequestTemplates = deserializeAws_restJson1TemplateMap(data.requestTemplates, context);
+    contents.RequestTemplates = de_TemplateMap(data.requestTemplates, context);
   }
   if (data.responseParameters != null) {
-    contents.ResponseParameters = deserializeAws_restJson1ResponseParameters(data.responseParameters, context);
+    contents.ResponseParameters = de_ResponseParameters(data.responseParameters, context);
   }
   if (data.templateSelectionExpression != null) {
     contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
@@ -2797,12 +2991,15 @@ export const deserializeAws_restJson1CreateIntegrationCommand = async (
     contents.TimeoutInMillis = __expectInt32(data.timeoutInMillis);
   }
   if (data.tlsConfig != null) {
-    contents.TlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
+    contents.TlsConfig = de_TlsConfig(data.tlsConfig, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateIntegrationCommandError
+ */
+const de_CreateIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntegrationCommandOutput> => {
@@ -2814,16 +3011,16 @@ const deserializeAws_restJson1CreateIntegrationCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2835,12 +3032,15 @@ const deserializeAws_restJson1CreateIntegrationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateIntegrationResponseCommand = async (
+/**
+ * deserializeAws_restJson1CreateIntegrationResponseCommand
+ */
+export const de_CreateIntegrationResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateIntegrationResponseCommandError(output, context);
+    return de_CreateIntegrationResponseCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2856,10 +3056,10 @@ export const deserializeAws_restJson1CreateIntegrationResponseCommand = async (
     contents.IntegrationResponseKey = __expectString(data.integrationResponseKey);
   }
   if (data.responseParameters != null) {
-    contents.ResponseParameters = deserializeAws_restJson1IntegrationParameters(data.responseParameters, context);
+    contents.ResponseParameters = de_IntegrationParameters(data.responseParameters, context);
   }
   if (data.responseTemplates != null) {
-    contents.ResponseTemplates = deserializeAws_restJson1TemplateMap(data.responseTemplates, context);
+    contents.ResponseTemplates = de_TemplateMap(data.responseTemplates, context);
   }
   if (data.templateSelectionExpression != null) {
     contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
@@ -2867,7 +3067,10 @@ export const deserializeAws_restJson1CreateIntegrationResponseCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateIntegrationResponseCommandError = async (
+/**
+ * deserializeAws_restJson1CreateIntegrationResponseCommandError
+ */
+const de_CreateIntegrationResponseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntegrationResponseCommandOutput> => {
@@ -2879,16 +3082,16 @@ const deserializeAws_restJson1CreateIntegrationResponseCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2900,12 +3103,15 @@ const deserializeAws_restJson1CreateIntegrationResponseCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateModelCommand = async (
+/**
+ * deserializeAws_restJson1CreateModelCommand
+ */
+export const de_CreateModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateModelCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateModelCommandError(output, context);
+    return de_CreateModelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2929,7 +3135,10 @@ export const deserializeAws_restJson1CreateModelCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateModelCommandError = async (
+/**
+ * deserializeAws_restJson1CreateModelCommandError
+ */
+const de_CreateModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateModelCommandOutput> => {
@@ -2941,16 +3150,16 @@ const deserializeAws_restJson1CreateModelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2962,12 +3171,15 @@ const deserializeAws_restJson1CreateModelCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateRouteCommand = async (
+/**
+ * deserializeAws_restJson1CreateRouteCommand
+ */
+export const de_CreateRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRouteCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateRouteCommandError(output, context);
+    return de_CreateRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2980,7 +3192,7 @@ export const deserializeAws_restJson1CreateRouteCommand = async (
     contents.ApiKeyRequired = __expectBoolean(data.apiKeyRequired);
   }
   if (data.authorizationScopes != null) {
-    contents.AuthorizationScopes = deserializeAws_restJson1AuthorizationScopes(data.authorizationScopes, context);
+    contents.AuthorizationScopes = de_AuthorizationScopes(data.authorizationScopes, context);
   }
   if (data.authorizationType != null) {
     contents.AuthorizationType = __expectString(data.authorizationType);
@@ -2995,10 +3207,10 @@ export const deserializeAws_restJson1CreateRouteCommand = async (
     contents.OperationName = __expectString(data.operationName);
   }
   if (data.requestModels != null) {
-    contents.RequestModels = deserializeAws_restJson1RouteModels(data.requestModels, context);
+    contents.RequestModels = de_RouteModels(data.requestModels, context);
   }
   if (data.requestParameters != null) {
-    contents.RequestParameters = deserializeAws_restJson1RouteParameters(data.requestParameters, context);
+    contents.RequestParameters = de_RouteParameters(data.requestParameters, context);
   }
   if (data.routeId != null) {
     contents.RouteId = __expectString(data.routeId);
@@ -3015,7 +3227,10 @@ export const deserializeAws_restJson1CreateRouteCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateRouteCommandError = async (
+/**
+ * deserializeAws_restJson1CreateRouteCommandError
+ */
+const de_CreateRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRouteCommandOutput> => {
@@ -3027,16 +3242,16 @@ const deserializeAws_restJson1CreateRouteCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3048,12 +3263,15 @@ const deserializeAws_restJson1CreateRouteCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateRouteResponseCommand = async (
+/**
+ * deserializeAws_restJson1CreateRouteResponseCommand
+ */
+export const de_CreateRouteResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRouteResponseCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateRouteResponseCommandError(output, context);
+    return de_CreateRouteResponseCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3063,10 +3281,10 @@ export const deserializeAws_restJson1CreateRouteResponseCommand = async (
     contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
   if (data.responseModels != null) {
-    contents.ResponseModels = deserializeAws_restJson1RouteModels(data.responseModels, context);
+    contents.ResponseModels = de_RouteModels(data.responseModels, context);
   }
   if (data.responseParameters != null) {
-    contents.ResponseParameters = deserializeAws_restJson1RouteParameters(data.responseParameters, context);
+    contents.ResponseParameters = de_RouteParameters(data.responseParameters, context);
   }
   if (data.routeResponseId != null) {
     contents.RouteResponseId = __expectString(data.routeResponseId);
@@ -3077,7 +3295,10 @@ export const deserializeAws_restJson1CreateRouteResponseCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateRouteResponseCommandError = async (
+/**
+ * deserializeAws_restJson1CreateRouteResponseCommandError
+ */
+const de_CreateRouteResponseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRouteResponseCommandOutput> => {
@@ -3089,16 +3310,16 @@ const deserializeAws_restJson1CreateRouteResponseCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3110,19 +3331,22 @@ const deserializeAws_restJson1CreateRouteResponseCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateStageCommand = async (
+/**
+ * deserializeAws_restJson1CreateStageCommand
+ */
+export const de_CreateStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStageCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateStageCommandError(output, context);
+    return de_CreateStageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessLogSettings != null) {
-    contents.AccessLogSettings = deserializeAws_restJson1AccessLogSettings(data.accessLogSettings, context);
+    contents.AccessLogSettings = de_AccessLogSettings(data.accessLogSettings, context);
   }
   if (data.apiGatewayManaged != null) {
     contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
@@ -3137,7 +3361,7 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.defaultRouteSettings != null) {
-    contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
+    contents.DefaultRouteSettings = de_RouteSettings(data.defaultRouteSettings, context);
   }
   if (data.deploymentId != null) {
     contents.DeploymentId = __expectString(data.deploymentId);
@@ -3152,21 +3376,24 @@ export const deserializeAws_restJson1CreateStageCommand = async (
     contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdatedDate));
   }
   if (data.routeSettings != null) {
-    contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
+    contents.RouteSettings = de_RouteSettingsMap(data.routeSettings, context);
   }
   if (data.stageName != null) {
     contents.StageName = __expectString(data.stageName);
   }
   if (data.stageVariables != null) {
-    contents.StageVariables = deserializeAws_restJson1StageVariablesMap(data.stageVariables, context);
+    contents.StageVariables = de_StageVariablesMap(data.stageVariables, context);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateStageCommandError = async (
+/**
+ * deserializeAws_restJson1CreateStageCommandError
+ */
+const de_CreateStageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStageCommandOutput> => {
@@ -3178,16 +3405,16 @@ const deserializeAws_restJson1CreateStageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3199,12 +3426,15 @@ const deserializeAws_restJson1CreateStageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateVpcLinkCommand = async (
+/**
+ * deserializeAws_restJson1CreateVpcLinkCommand
+ */
+export const de_CreateVpcLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcLinkCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateVpcLinkCommandError(output, context);
+    return de_CreateVpcLinkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3217,13 +3447,13 @@ export const deserializeAws_restJson1CreateVpcLinkCommand = async (
     contents.Name = __expectString(data.name);
   }
   if (data.securityGroupIds != null) {
-    contents.SecurityGroupIds = deserializeAws_restJson1SecurityGroupIdList(data.securityGroupIds, context);
+    contents.SecurityGroupIds = de_SecurityGroupIdList(data.securityGroupIds, context);
   }
   if (data.subnetIds != null) {
-    contents.SubnetIds = deserializeAws_restJson1SubnetIdList(data.subnetIds, context);
+    contents.SubnetIds = de_SubnetIdList(data.subnetIds, context);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   if (data.vpcLinkId != null) {
     contents.VpcLinkId = __expectString(data.vpcLinkId);
@@ -3240,7 +3470,10 @@ export const deserializeAws_restJson1CreateVpcLinkCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateVpcLinkCommandError = async (
+/**
+ * deserializeAws_restJson1CreateVpcLinkCommandError
+ */
+const de_CreateVpcLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcLinkCommandOutput> => {
@@ -3252,10 +3485,10 @@ const deserializeAws_restJson1CreateVpcLinkCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3267,12 +3500,15 @@ const deserializeAws_restJson1CreateVpcLinkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteAccessLogSettingsCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAccessLogSettingsCommand
+ */
+export const de_DeleteAccessLogSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessLogSettingsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAccessLogSettingsCommandError(output, context);
+    return de_DeleteAccessLogSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3281,7 +3517,10 @@ export const deserializeAws_restJson1DeleteAccessLogSettingsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAccessLogSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAccessLogSettingsCommandError
+ */
+const de_DeleteAccessLogSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessLogSettingsCommandOutput> => {
@@ -3293,10 +3532,10 @@ const deserializeAws_restJson1DeleteAccessLogSettingsCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3308,12 +3547,15 @@ const deserializeAws_restJson1DeleteAccessLogSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteApiCommand = async (
+/**
+ * deserializeAws_restJson1DeleteApiCommand
+ */
+export const de_DeleteApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApiCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteApiCommandError(output, context);
+    return de_DeleteApiCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3322,7 +3564,10 @@ export const deserializeAws_restJson1DeleteApiCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteApiCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteApiCommandError
+ */
+const de_DeleteApiCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApiCommandOutput> => {
@@ -3334,10 +3579,10 @@ const deserializeAws_restJson1DeleteApiCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3349,12 +3594,15 @@ const deserializeAws_restJson1DeleteApiCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteApiMappingCommand = async (
+/**
+ * deserializeAws_restJson1DeleteApiMappingCommand
+ */
+export const de_DeleteApiMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApiMappingCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteApiMappingCommandError(output, context);
+    return de_DeleteApiMappingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3363,7 +3611,10 @@ export const deserializeAws_restJson1DeleteApiMappingCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteApiMappingCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteApiMappingCommandError
+ */
+const de_DeleteApiMappingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApiMappingCommandOutput> => {
@@ -3375,13 +3626,13 @@ const deserializeAws_restJson1DeleteApiMappingCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3393,12 +3644,15 @@ const deserializeAws_restJson1DeleteApiMappingCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteAuthorizerCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAuthorizerCommand
+ */
+export const de_DeleteAuthorizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAuthorizerCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAuthorizerCommandError(output, context);
+    return de_DeleteAuthorizerCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3407,7 +3661,10 @@ export const deserializeAws_restJson1DeleteAuthorizerCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAuthorizerCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAuthorizerCommandError
+ */
+const de_DeleteAuthorizerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAuthorizerCommandOutput> => {
@@ -3419,10 +3676,10 @@ const deserializeAws_restJson1DeleteAuthorizerCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3434,12 +3691,15 @@ const deserializeAws_restJson1DeleteAuthorizerCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteCorsConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteCorsConfigurationCommand
+ */
+export const de_DeleteCorsConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCorsConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteCorsConfigurationCommandError(output, context);
+    return de_DeleteCorsConfigurationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3448,7 +3708,10 @@ export const deserializeAws_restJson1DeleteCorsConfigurationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteCorsConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteCorsConfigurationCommandError
+ */
+const de_DeleteCorsConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCorsConfigurationCommandOutput> => {
@@ -3460,10 +3723,10 @@ const deserializeAws_restJson1DeleteCorsConfigurationCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3475,12 +3738,15 @@ const deserializeAws_restJson1DeleteCorsConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDeploymentCommand
+ */
+export const de_DeleteDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDeploymentCommandError(output, context);
+    return de_DeleteDeploymentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3489,7 +3755,10 @@ export const deserializeAws_restJson1DeleteDeploymentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDeploymentCommandError
+ */
+const de_DeleteDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentCommandOutput> => {
@@ -3501,10 +3770,10 @@ const deserializeAws_restJson1DeleteDeploymentCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3516,12 +3785,15 @@ const deserializeAws_restJson1DeleteDeploymentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteDomainNameCommand = async (
+/**
+ * deserializeAws_restJson1DeleteDomainNameCommand
+ */
+export const de_DeleteDomainNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainNameCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteDomainNameCommandError(output, context);
+    return de_DeleteDomainNameCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3530,7 +3802,10 @@ export const deserializeAws_restJson1DeleteDomainNameCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteDomainNameCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteDomainNameCommandError
+ */
+const de_DeleteDomainNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainNameCommandOutput> => {
@@ -3542,10 +3817,10 @@ const deserializeAws_restJson1DeleteDomainNameCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3557,12 +3832,15 @@ const deserializeAws_restJson1DeleteDomainNameCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteIntegrationCommand
+ */
+export const de_DeleteIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntegrationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteIntegrationCommandError(output, context);
+    return de_DeleteIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3571,7 +3849,10 @@ export const deserializeAws_restJson1DeleteIntegrationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteIntegrationCommandError
+ */
+const de_DeleteIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntegrationCommandOutput> => {
@@ -3583,10 +3864,10 @@ const deserializeAws_restJson1DeleteIntegrationCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3598,12 +3879,15 @@ const deserializeAws_restJson1DeleteIntegrationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteIntegrationResponseCommand = async (
+/**
+ * deserializeAws_restJson1DeleteIntegrationResponseCommand
+ */
+export const de_DeleteIntegrationResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteIntegrationResponseCommandError(output, context);
+    return de_DeleteIntegrationResponseCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3612,7 +3896,10 @@ export const deserializeAws_restJson1DeleteIntegrationResponseCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteIntegrationResponseCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteIntegrationResponseCommandError
+ */
+const de_DeleteIntegrationResponseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntegrationResponseCommandOutput> => {
@@ -3624,10 +3911,10 @@ const deserializeAws_restJson1DeleteIntegrationResponseCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3639,12 +3926,15 @@ const deserializeAws_restJson1DeleteIntegrationResponseCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteModelCommand = async (
+/**
+ * deserializeAws_restJson1DeleteModelCommand
+ */
+export const de_DeleteModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteModelCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteModelCommandError(output, context);
+    return de_DeleteModelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3653,7 +3943,10 @@ export const deserializeAws_restJson1DeleteModelCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteModelCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteModelCommandError
+ */
+const de_DeleteModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteModelCommandOutput> => {
@@ -3665,10 +3958,10 @@ const deserializeAws_restJson1DeleteModelCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3680,12 +3973,15 @@ const deserializeAws_restJson1DeleteModelCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteRouteCommand = async (
+/**
+ * deserializeAws_restJson1DeleteRouteCommand
+ */
+export const de_DeleteRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteRouteCommandError(output, context);
+    return de_DeleteRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3694,7 +3990,10 @@ export const deserializeAws_restJson1DeleteRouteCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteRouteCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteRouteCommandError
+ */
+const de_DeleteRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteCommandOutput> => {
@@ -3706,10 +4005,10 @@ const deserializeAws_restJson1DeleteRouteCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3721,12 +4020,15 @@ const deserializeAws_restJson1DeleteRouteCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteRouteRequestParameterCommand = async (
+/**
+ * deserializeAws_restJson1DeleteRouteRequestParameterCommand
+ */
+export const de_DeleteRouteRequestParameterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteRequestParameterCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteRouteRequestParameterCommandError(output, context);
+    return de_DeleteRouteRequestParameterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3735,7 +4037,10 @@ export const deserializeAws_restJson1DeleteRouteRequestParameterCommand = async 
   return contents;
 };
 
-const deserializeAws_restJson1DeleteRouteRequestParameterCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteRouteRequestParameterCommandError
+ */
+const de_DeleteRouteRequestParameterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteRequestParameterCommandOutput> => {
@@ -3747,10 +4052,10 @@ const deserializeAws_restJson1DeleteRouteRequestParameterCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3762,12 +4067,15 @@ const deserializeAws_restJson1DeleteRouteRequestParameterCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteRouteResponseCommand = async (
+/**
+ * deserializeAws_restJson1DeleteRouteResponseCommand
+ */
+export const de_DeleteRouteResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteResponseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteRouteResponseCommandError(output, context);
+    return de_DeleteRouteResponseCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3776,7 +4084,10 @@ export const deserializeAws_restJson1DeleteRouteResponseCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteRouteResponseCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteRouteResponseCommandError
+ */
+const de_DeleteRouteResponseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteResponseCommandOutput> => {
@@ -3788,10 +4099,10 @@ const deserializeAws_restJson1DeleteRouteResponseCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3803,12 +4114,15 @@ const deserializeAws_restJson1DeleteRouteResponseCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteRouteSettingsCommand = async (
+/**
+ * deserializeAws_restJson1DeleteRouteSettingsCommand
+ */
+export const de_DeleteRouteSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteSettingsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteRouteSettingsCommandError(output, context);
+    return de_DeleteRouteSettingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3817,7 +4131,10 @@ export const deserializeAws_restJson1DeleteRouteSettingsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteRouteSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteRouteSettingsCommandError
+ */
+const de_DeleteRouteSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteSettingsCommandOutput> => {
@@ -3829,10 +4146,10 @@ const deserializeAws_restJson1DeleteRouteSettingsCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3844,12 +4161,15 @@ const deserializeAws_restJson1DeleteRouteSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteStageCommand = async (
+/**
+ * deserializeAws_restJson1DeleteStageCommand
+ */
+export const de_DeleteStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStageCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteStageCommandError(output, context);
+    return de_DeleteStageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3858,7 +4178,10 @@ export const deserializeAws_restJson1DeleteStageCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteStageCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteStageCommandError
+ */
+const de_DeleteStageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStageCommandOutput> => {
@@ -3870,10 +4193,10 @@ const deserializeAws_restJson1DeleteStageCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3885,12 +4208,15 @@ const deserializeAws_restJson1DeleteStageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteVpcLinkCommand = async (
+/**
+ * deserializeAws_restJson1DeleteVpcLinkCommand
+ */
+export const de_DeleteVpcLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcLinkCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVpcLinkCommandError(output, context);
+    return de_DeleteVpcLinkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3899,7 +4225,10 @@ export const deserializeAws_restJson1DeleteVpcLinkCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteVpcLinkCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteVpcLinkCommandError
+ */
+const de_DeleteVpcLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcLinkCommandOutput> => {
@@ -3911,10 +4240,10 @@ const deserializeAws_restJson1DeleteVpcLinkCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3926,12 +4255,15 @@ const deserializeAws_restJson1DeleteVpcLinkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ExportApiCommand = async (
+/**
+ * deserializeAws_restJson1ExportApiCommand
+ */
+export const de_ExportApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ExportApiCommandError(output, context);
+    return de_ExportApiCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3941,7 +4273,10 @@ export const deserializeAws_restJson1ExportApiCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ExportApiCommandError = async (
+/**
+ * deserializeAws_restJson1ExportApiCommandError
+ */
+const de_ExportApiCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportApiCommandOutput> => {
@@ -3953,13 +4288,13 @@ const deserializeAws_restJson1ExportApiCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3971,12 +4306,15 @@ const deserializeAws_restJson1ExportApiCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetApiCommand = async (
+/**
+ * deserializeAws_restJson1GetApiCommand
+ */
+export const de_GetApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApiCommandError(output, context);
+    return de_GetApiCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3995,7 +4333,7 @@ export const deserializeAws_restJson1GetApiCommand = async (
     contents.ApiKeySelectionExpression = __expectString(data.apiKeySelectionExpression);
   }
   if (data.corsConfiguration != null) {
-    contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
+    contents.CorsConfiguration = de_Cors(data.corsConfiguration, context);
   }
   if (data.createdDate != null) {
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
@@ -4010,7 +4348,7 @@ export const deserializeAws_restJson1GetApiCommand = async (
     contents.DisableSchemaValidation = __expectBoolean(data.disableSchemaValidation);
   }
   if (data.importInfo != null) {
-    contents.ImportInfo = deserializeAws_restJson1__listOf__string(data.importInfo, context);
+    contents.ImportInfo = de___listOf__string(data.importInfo, context);
   }
   if (data.name != null) {
     contents.Name = __expectString(data.name);
@@ -4022,21 +4360,21 @@ export const deserializeAws_restJson1GetApiCommand = async (
     contents.RouteSelectionExpression = __expectString(data.routeSelectionExpression);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   if (data.version != null) {
     contents.Version = __expectString(data.version);
   }
   if (data.warnings != null) {
-    contents.Warnings = deserializeAws_restJson1__listOf__string(data.warnings, context);
+    contents.Warnings = de___listOf__string(data.warnings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApiCommandOutput> => {
+/**
+ * deserializeAws_restJson1GetApiCommandError
+ */
+const de_GetApiCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetApiCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4045,10 +4383,10 @@ const deserializeAws_restJson1GetApiCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4060,12 +4398,15 @@ const deserializeAws_restJson1GetApiCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetApiMappingCommand = async (
+/**
+ * deserializeAws_restJson1GetApiMappingCommand
+ */
+export const de_GetApiMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApiMappingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApiMappingCommandError(output, context);
+    return de_GetApiMappingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4086,7 +4427,10 @@ export const deserializeAws_restJson1GetApiMappingCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetApiMappingCommandError = async (
+/**
+ * deserializeAws_restJson1GetApiMappingCommandError
+ */
+const de_GetApiMappingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApiMappingCommandOutput> => {
@@ -4098,13 +4442,13 @@ const deserializeAws_restJson1GetApiMappingCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4116,19 +4460,22 @@ const deserializeAws_restJson1GetApiMappingCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetApiMappingsCommand = async (
+/**
+ * deserializeAws_restJson1GetApiMappingsCommand
+ */
+export const de_GetApiMappingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApiMappingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApiMappingsCommandError(output, context);
+    return de_GetApiMappingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfApiMapping(data.items, context);
+    contents.Items = de___listOfApiMapping(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -4136,7 +4483,10 @@ export const deserializeAws_restJson1GetApiMappingsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetApiMappingsCommandError = async (
+/**
+ * deserializeAws_restJson1GetApiMappingsCommandError
+ */
+const de_GetApiMappingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApiMappingsCommandOutput> => {
@@ -4148,13 +4498,13 @@ const deserializeAws_restJson1GetApiMappingsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4166,19 +4516,22 @@ const deserializeAws_restJson1GetApiMappingsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetApisCommand = async (
+/**
+ * deserializeAws_restJson1GetApisCommand
+ */
+export const de_GetApisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApisCommandError(output, context);
+    return de_GetApisCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfApi(data.items, context);
+    contents.Items = de___listOfApi(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -4186,7 +4539,10 @@ export const deserializeAws_restJson1GetApisCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetApisCommandError = async (
+/**
+ * deserializeAws_restJson1GetApisCommandError
+ */
+const de_GetApisCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApisCommandOutput> => {
@@ -4198,13 +4554,13 @@ const deserializeAws_restJson1GetApisCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4216,12 +4572,15 @@ const deserializeAws_restJson1GetApisCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetAuthorizerCommand = async (
+/**
+ * deserializeAws_restJson1GetAuthorizerCommand
+ */
+export const de_GetAuthorizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAuthorizerCommandError(output, context);
+    return de_GetAuthorizerCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4249,13 +4608,13 @@ export const deserializeAws_restJson1GetAuthorizerCommand = async (
     contents.EnableSimpleResponses = __expectBoolean(data.enableSimpleResponses);
   }
   if (data.identitySource != null) {
-    contents.IdentitySource = deserializeAws_restJson1IdentitySourceList(data.identitySource, context);
+    contents.IdentitySource = de_IdentitySourceList(data.identitySource, context);
   }
   if (data.identityValidationExpression != null) {
     contents.IdentityValidationExpression = __expectString(data.identityValidationExpression);
   }
   if (data.jwtConfiguration != null) {
-    contents.JwtConfiguration = deserializeAws_restJson1JWTConfiguration(data.jwtConfiguration, context);
+    contents.JwtConfiguration = de_JWTConfiguration(data.jwtConfiguration, context);
   }
   if (data.name != null) {
     contents.Name = __expectString(data.name);
@@ -4263,7 +4622,10 @@ export const deserializeAws_restJson1GetAuthorizerCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetAuthorizerCommandError = async (
+/**
+ * deserializeAws_restJson1GetAuthorizerCommandError
+ */
+const de_GetAuthorizerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizerCommandOutput> => {
@@ -4275,10 +4637,10 @@ const deserializeAws_restJson1GetAuthorizerCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4290,19 +4652,22 @@ const deserializeAws_restJson1GetAuthorizerCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetAuthorizersCommand = async (
+/**
+ * deserializeAws_restJson1GetAuthorizersCommand
+ */
+export const de_GetAuthorizersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAuthorizersCommandError(output, context);
+    return de_GetAuthorizersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfAuthorizer(data.items, context);
+    contents.Items = de___listOfAuthorizer(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -4310,7 +4675,10 @@ export const deserializeAws_restJson1GetAuthorizersCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetAuthorizersCommandError = async (
+/**
+ * deserializeAws_restJson1GetAuthorizersCommandError
+ */
+const de_GetAuthorizersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizersCommandOutput> => {
@@ -4322,13 +4690,13 @@ const deserializeAws_restJson1GetAuthorizersCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4340,12 +4708,15 @@ const deserializeAws_restJson1GetAuthorizersCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1GetDeploymentCommand
+ */
+export const de_GetDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeploymentCommandError(output, context);
+    return de_GetDeploymentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4372,7 +4743,10 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeploymentCommandError
+ */
+const de_GetDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
@@ -4384,10 +4758,10 @@ const deserializeAws_restJson1GetDeploymentCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4399,19 +4773,22 @@ const deserializeAws_restJson1GetDeploymentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDeploymentsCommand = async (
+/**
+ * deserializeAws_restJson1GetDeploymentsCommand
+ */
+export const de_GetDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeploymentsCommandError(output, context);
+    return de_GetDeploymentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfDeployment(data.items, context);
+    contents.Items = de___listOfDeployment(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -4419,7 +4796,10 @@ export const deserializeAws_restJson1GetDeploymentsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetDeploymentsCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeploymentsCommandError
+ */
+const de_GetDeploymentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentsCommandOutput> => {
@@ -4431,13 +4811,13 @@ const deserializeAws_restJson1GetDeploymentsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4449,12 +4829,15 @@ const deserializeAws_restJson1GetDeploymentsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDomainNameCommand = async (
+/**
+ * deserializeAws_restJson1GetDomainNameCommand
+ */
+export const de_GetDomainNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDomainNameCommandError(output, context);
+    return de_GetDomainNameCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4467,24 +4850,21 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
     contents.DomainName = __expectString(data.domainName);
   }
   if (data.domainNameConfigurations != null) {
-    contents.DomainNameConfigurations = deserializeAws_restJson1DomainNameConfigurations(
-      data.domainNameConfigurations,
-      context
-    );
+    contents.DomainNameConfigurations = de_DomainNameConfigurations(data.domainNameConfigurations, context);
   }
   if (data.mutualTlsAuthentication != null) {
-    contents.MutualTlsAuthentication = deserializeAws_restJson1MutualTlsAuthentication(
-      data.mutualTlsAuthentication,
-      context
-    );
+    contents.MutualTlsAuthentication = de_MutualTlsAuthentication(data.mutualTlsAuthentication, context);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetDomainNameCommandError = async (
+/**
+ * deserializeAws_restJson1GetDomainNameCommandError
+ */
+const de_GetDomainNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainNameCommandOutput> => {
@@ -4496,10 +4876,10 @@ const deserializeAws_restJson1GetDomainNameCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4511,19 +4891,22 @@ const deserializeAws_restJson1GetDomainNameCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDomainNamesCommand = async (
+/**
+ * deserializeAws_restJson1GetDomainNamesCommand
+ */
+export const de_GetDomainNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDomainNamesCommandError(output, context);
+    return de_GetDomainNamesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfDomainName(data.items, context);
+    contents.Items = de___listOfDomainName(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -4531,7 +4914,10 @@ export const deserializeAws_restJson1GetDomainNamesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetDomainNamesCommandError = async (
+/**
+ * deserializeAws_restJson1GetDomainNamesCommandError
+ */
+const de_GetDomainNamesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainNamesCommandOutput> => {
@@ -4543,13 +4929,13 @@ const deserializeAws_restJson1GetDomainNamesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4561,12 +4947,15 @@ const deserializeAws_restJson1GetDomainNamesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1GetIntegrationCommand
+ */
+export const de_GetIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetIntegrationCommandError(output, context);
+    return de_GetIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4615,13 +5004,13 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
     contents.PayloadFormatVersion = __expectString(data.payloadFormatVersion);
   }
   if (data.requestParameters != null) {
-    contents.RequestParameters = deserializeAws_restJson1IntegrationParameters(data.requestParameters, context);
+    contents.RequestParameters = de_IntegrationParameters(data.requestParameters, context);
   }
   if (data.requestTemplates != null) {
-    contents.RequestTemplates = deserializeAws_restJson1TemplateMap(data.requestTemplates, context);
+    contents.RequestTemplates = de_TemplateMap(data.requestTemplates, context);
   }
   if (data.responseParameters != null) {
-    contents.ResponseParameters = deserializeAws_restJson1ResponseParameters(data.responseParameters, context);
+    contents.ResponseParameters = de_ResponseParameters(data.responseParameters, context);
   }
   if (data.templateSelectionExpression != null) {
     contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
@@ -4630,12 +5019,15 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
     contents.TimeoutInMillis = __expectInt32(data.timeoutInMillis);
   }
   if (data.tlsConfig != null) {
-    contents.TlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
+    contents.TlsConfig = de_TlsConfig(data.tlsConfig, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1GetIntegrationCommandError
+ */
+const de_GetIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationCommandOutput> => {
@@ -4647,10 +5039,10 @@ const deserializeAws_restJson1GetIntegrationCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4662,12 +5054,15 @@ const deserializeAws_restJson1GetIntegrationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetIntegrationResponseCommand = async (
+/**
+ * deserializeAws_restJson1GetIntegrationResponseCommand
+ */
+export const de_GetIntegrationResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetIntegrationResponseCommandError(output, context);
+    return de_GetIntegrationResponseCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4683,10 +5078,10 @@ export const deserializeAws_restJson1GetIntegrationResponseCommand = async (
     contents.IntegrationResponseKey = __expectString(data.integrationResponseKey);
   }
   if (data.responseParameters != null) {
-    contents.ResponseParameters = deserializeAws_restJson1IntegrationParameters(data.responseParameters, context);
+    contents.ResponseParameters = de_IntegrationParameters(data.responseParameters, context);
   }
   if (data.responseTemplates != null) {
-    contents.ResponseTemplates = deserializeAws_restJson1TemplateMap(data.responseTemplates, context);
+    contents.ResponseTemplates = de_TemplateMap(data.responseTemplates, context);
   }
   if (data.templateSelectionExpression != null) {
     contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
@@ -4694,7 +5089,10 @@ export const deserializeAws_restJson1GetIntegrationResponseCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetIntegrationResponseCommandError = async (
+/**
+ * deserializeAws_restJson1GetIntegrationResponseCommandError
+ */
+const de_GetIntegrationResponseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationResponseCommandOutput> => {
@@ -4706,10 +5104,10 @@ const deserializeAws_restJson1GetIntegrationResponseCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4721,19 +5119,22 @@ const deserializeAws_restJson1GetIntegrationResponseCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetIntegrationResponsesCommand = async (
+/**
+ * deserializeAws_restJson1GetIntegrationResponsesCommand
+ */
+export const de_GetIntegrationResponsesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationResponsesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetIntegrationResponsesCommandError(output, context);
+    return de_GetIntegrationResponsesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfIntegrationResponse(data.items, context);
+    contents.Items = de___listOfIntegrationResponse(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -4741,7 +5142,10 @@ export const deserializeAws_restJson1GetIntegrationResponsesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetIntegrationResponsesCommandError = async (
+/**
+ * deserializeAws_restJson1GetIntegrationResponsesCommandError
+ */
+const de_GetIntegrationResponsesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationResponsesCommandOutput> => {
@@ -4753,13 +5157,13 @@ const deserializeAws_restJson1GetIntegrationResponsesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4771,19 +5175,22 @@ const deserializeAws_restJson1GetIntegrationResponsesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetIntegrationsCommand = async (
+/**
+ * deserializeAws_restJson1GetIntegrationsCommand
+ */
+export const de_GetIntegrationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetIntegrationsCommandError(output, context);
+    return de_GetIntegrationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfIntegration(data.items, context);
+    contents.Items = de___listOfIntegration(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -4791,7 +5198,10 @@ export const deserializeAws_restJson1GetIntegrationsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetIntegrationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetIntegrationsCommandError
+ */
+const de_GetIntegrationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationsCommandOutput> => {
@@ -4803,13 +5213,13 @@ const deserializeAws_restJson1GetIntegrationsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4821,12 +5231,15 @@ const deserializeAws_restJson1GetIntegrationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetModelCommand = async (
+/**
+ * deserializeAws_restJson1GetModelCommand
+ */
+export const de_GetModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetModelCommandError(output, context);
+    return de_GetModelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4850,7 +5263,10 @@ export const deserializeAws_restJson1GetModelCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetModelCommandError = async (
+/**
+ * deserializeAws_restJson1GetModelCommandError
+ */
+const de_GetModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelCommandOutput> => {
@@ -4862,10 +5278,10 @@ const deserializeAws_restJson1GetModelCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4877,19 +5293,22 @@ const deserializeAws_restJson1GetModelCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetModelsCommand = async (
+/**
+ * deserializeAws_restJson1GetModelsCommand
+ */
+export const de_GetModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetModelsCommandError(output, context);
+    return de_GetModelsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfModel(data.items, context);
+    contents.Items = de___listOfModel(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -4897,7 +5316,10 @@ export const deserializeAws_restJson1GetModelsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetModelsCommandError = async (
+/**
+ * deserializeAws_restJson1GetModelsCommandError
+ */
+const de_GetModelsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelsCommandOutput> => {
@@ -4909,13 +5331,13 @@ const deserializeAws_restJson1GetModelsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4927,12 +5349,15 @@ const deserializeAws_restJson1GetModelsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetModelTemplateCommand = async (
+/**
+ * deserializeAws_restJson1GetModelTemplateCommand
+ */
+export const de_GetModelTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetModelTemplateCommandError(output, context);
+    return de_GetModelTemplateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4944,7 +5369,10 @@ export const deserializeAws_restJson1GetModelTemplateCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetModelTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1GetModelTemplateCommandError
+ */
+const de_GetModelTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelTemplateCommandOutput> => {
@@ -4956,10 +5384,10 @@ const deserializeAws_restJson1GetModelTemplateCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4971,12 +5399,15 @@ const deserializeAws_restJson1GetModelTemplateCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetRouteCommand = async (
+/**
+ * deserializeAws_restJson1GetRouteCommand
+ */
+export const de_GetRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRouteCommandError(output, context);
+    return de_GetRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4989,7 +5420,7 @@ export const deserializeAws_restJson1GetRouteCommand = async (
     contents.ApiKeyRequired = __expectBoolean(data.apiKeyRequired);
   }
   if (data.authorizationScopes != null) {
-    contents.AuthorizationScopes = deserializeAws_restJson1AuthorizationScopes(data.authorizationScopes, context);
+    contents.AuthorizationScopes = de_AuthorizationScopes(data.authorizationScopes, context);
   }
   if (data.authorizationType != null) {
     contents.AuthorizationType = __expectString(data.authorizationType);
@@ -5004,10 +5435,10 @@ export const deserializeAws_restJson1GetRouteCommand = async (
     contents.OperationName = __expectString(data.operationName);
   }
   if (data.requestModels != null) {
-    contents.RequestModels = deserializeAws_restJson1RouteModels(data.requestModels, context);
+    contents.RequestModels = de_RouteModels(data.requestModels, context);
   }
   if (data.requestParameters != null) {
-    contents.RequestParameters = deserializeAws_restJson1RouteParameters(data.requestParameters, context);
+    contents.RequestParameters = de_RouteParameters(data.requestParameters, context);
   }
   if (data.routeId != null) {
     contents.RouteId = __expectString(data.routeId);
@@ -5024,7 +5455,10 @@ export const deserializeAws_restJson1GetRouteCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetRouteCommandError = async (
+/**
+ * deserializeAws_restJson1GetRouteCommandError
+ */
+const de_GetRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRouteCommandOutput> => {
@@ -5036,10 +5470,10 @@ const deserializeAws_restJson1GetRouteCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5051,12 +5485,15 @@ const deserializeAws_restJson1GetRouteCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetRouteResponseCommand = async (
+/**
+ * deserializeAws_restJson1GetRouteResponseCommand
+ */
+export const de_GetRouteResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRouteResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRouteResponseCommandError(output, context);
+    return de_GetRouteResponseCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5066,10 +5503,10 @@ export const deserializeAws_restJson1GetRouteResponseCommand = async (
     contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
   if (data.responseModels != null) {
-    contents.ResponseModels = deserializeAws_restJson1RouteModels(data.responseModels, context);
+    contents.ResponseModels = de_RouteModels(data.responseModels, context);
   }
   if (data.responseParameters != null) {
-    contents.ResponseParameters = deserializeAws_restJson1RouteParameters(data.responseParameters, context);
+    contents.ResponseParameters = de_RouteParameters(data.responseParameters, context);
   }
   if (data.routeResponseId != null) {
     contents.RouteResponseId = __expectString(data.routeResponseId);
@@ -5080,7 +5517,10 @@ export const deserializeAws_restJson1GetRouteResponseCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetRouteResponseCommandError = async (
+/**
+ * deserializeAws_restJson1GetRouteResponseCommandError
+ */
+const de_GetRouteResponseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRouteResponseCommandOutput> => {
@@ -5092,10 +5532,10 @@ const deserializeAws_restJson1GetRouteResponseCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5107,19 +5547,22 @@ const deserializeAws_restJson1GetRouteResponseCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetRouteResponsesCommand = async (
+/**
+ * deserializeAws_restJson1GetRouteResponsesCommand
+ */
+export const de_GetRouteResponsesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRouteResponsesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRouteResponsesCommandError(output, context);
+    return de_GetRouteResponsesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfRouteResponse(data.items, context);
+    contents.Items = de___listOfRouteResponse(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -5127,7 +5570,10 @@ export const deserializeAws_restJson1GetRouteResponsesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetRouteResponsesCommandError = async (
+/**
+ * deserializeAws_restJson1GetRouteResponsesCommandError
+ */
+const de_GetRouteResponsesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRouteResponsesCommandOutput> => {
@@ -5139,13 +5585,13 @@ const deserializeAws_restJson1GetRouteResponsesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5157,19 +5603,22 @@ const deserializeAws_restJson1GetRouteResponsesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetRoutesCommand = async (
+/**
+ * deserializeAws_restJson1GetRoutesCommand
+ */
+export const de_GetRoutesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRoutesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRoutesCommandError(output, context);
+    return de_GetRoutesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfRoute(data.items, context);
+    contents.Items = de___listOfRoute(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -5177,7 +5626,10 @@ export const deserializeAws_restJson1GetRoutesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetRoutesCommandError = async (
+/**
+ * deserializeAws_restJson1GetRoutesCommandError
+ */
+const de_GetRoutesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRoutesCommandOutput> => {
@@ -5189,13 +5641,13 @@ const deserializeAws_restJson1GetRoutesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5207,19 +5659,22 @@ const deserializeAws_restJson1GetRoutesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetStageCommand = async (
+/**
+ * deserializeAws_restJson1GetStageCommand
+ */
+export const de_GetStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetStageCommandError(output, context);
+    return de_GetStageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessLogSettings != null) {
-    contents.AccessLogSettings = deserializeAws_restJson1AccessLogSettings(data.accessLogSettings, context);
+    contents.AccessLogSettings = de_AccessLogSettings(data.accessLogSettings, context);
   }
   if (data.apiGatewayManaged != null) {
     contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
@@ -5234,7 +5689,7 @@ export const deserializeAws_restJson1GetStageCommand = async (
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.defaultRouteSettings != null) {
-    contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
+    contents.DefaultRouteSettings = de_RouteSettings(data.defaultRouteSettings, context);
   }
   if (data.deploymentId != null) {
     contents.DeploymentId = __expectString(data.deploymentId);
@@ -5249,21 +5704,24 @@ export const deserializeAws_restJson1GetStageCommand = async (
     contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdatedDate));
   }
   if (data.routeSettings != null) {
-    contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
+    contents.RouteSettings = de_RouteSettingsMap(data.routeSettings, context);
   }
   if (data.stageName != null) {
     contents.StageName = __expectString(data.stageName);
   }
   if (data.stageVariables != null) {
-    contents.StageVariables = deserializeAws_restJson1StageVariablesMap(data.stageVariables, context);
+    contents.StageVariables = de_StageVariablesMap(data.stageVariables, context);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetStageCommandError = async (
+/**
+ * deserializeAws_restJson1GetStageCommandError
+ */
+const de_GetStageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStageCommandOutput> => {
@@ -5275,10 +5733,10 @@ const deserializeAws_restJson1GetStageCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5290,19 +5748,22 @@ const deserializeAws_restJson1GetStageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetStagesCommand = async (
+/**
+ * deserializeAws_restJson1GetStagesCommand
+ */
+export const de_GetStagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetStagesCommandError(output, context);
+    return de_GetStagesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfStage(data.items, context);
+    contents.Items = de___listOfStage(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -5310,7 +5771,10 @@ export const deserializeAws_restJson1GetStagesCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetStagesCommandError = async (
+/**
+ * deserializeAws_restJson1GetStagesCommandError
+ */
+const de_GetStagesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStagesCommandOutput> => {
@@ -5322,13 +5786,13 @@ const deserializeAws_restJson1GetStagesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5340,24 +5804,30 @@ const deserializeAws_restJson1GetStagesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetTagsCommand = async (
+/**
+ * deserializeAws_restJson1GetTagsCommand
+ */
+export const de_GetTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetTagsCommandError(output, context);
+    return de_GetTagsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetTagsCommandError = async (
+/**
+ * deserializeAws_restJson1GetTagsCommandError
+ */
+const de_GetTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> => {
@@ -5369,16 +5839,16 @@ const deserializeAws_restJson1GetTagsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5390,12 +5860,15 @@ const deserializeAws_restJson1GetTagsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetVpcLinkCommand = async (
+/**
+ * deserializeAws_restJson1GetVpcLinkCommand
+ */
+export const de_GetVpcLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVpcLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetVpcLinkCommandError(output, context);
+    return de_GetVpcLinkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5408,13 +5881,13 @@ export const deserializeAws_restJson1GetVpcLinkCommand = async (
     contents.Name = __expectString(data.name);
   }
   if (data.securityGroupIds != null) {
-    contents.SecurityGroupIds = deserializeAws_restJson1SecurityGroupIdList(data.securityGroupIds, context);
+    contents.SecurityGroupIds = de_SecurityGroupIdList(data.securityGroupIds, context);
   }
   if (data.subnetIds != null) {
-    contents.SubnetIds = deserializeAws_restJson1SubnetIdList(data.subnetIds, context);
+    contents.SubnetIds = de_SubnetIdList(data.subnetIds, context);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   if (data.vpcLinkId != null) {
     contents.VpcLinkId = __expectString(data.vpcLinkId);
@@ -5431,7 +5904,10 @@ export const deserializeAws_restJson1GetVpcLinkCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetVpcLinkCommandError = async (
+/**
+ * deserializeAws_restJson1GetVpcLinkCommandError
+ */
+const de_GetVpcLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVpcLinkCommandOutput> => {
@@ -5443,10 +5919,10 @@ const deserializeAws_restJson1GetVpcLinkCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5458,19 +5934,22 @@ const deserializeAws_restJson1GetVpcLinkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetVpcLinksCommand = async (
+/**
+ * deserializeAws_restJson1GetVpcLinksCommand
+ */
+export const de_GetVpcLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVpcLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetVpcLinksCommandError(output, context);
+    return de_GetVpcLinksCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.items != null) {
-    contents.Items = deserializeAws_restJson1__listOfVpcLink(data.items, context);
+    contents.Items = de___listOfVpcLink(data.items, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -5478,7 +5957,10 @@ export const deserializeAws_restJson1GetVpcLinksCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetVpcLinksCommandError = async (
+/**
+ * deserializeAws_restJson1GetVpcLinksCommandError
+ */
+const de_GetVpcLinksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVpcLinksCommandOutput> => {
@@ -5490,10 +5972,10 @@ const deserializeAws_restJson1GetVpcLinksCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5505,12 +5987,15 @@ const deserializeAws_restJson1GetVpcLinksCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ImportApiCommand = async (
+/**
+ * deserializeAws_restJson1ImportApiCommand
+ */
+export const de_ImportApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportApiCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ImportApiCommandError(output, context);
+    return de_ImportApiCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5529,7 +6014,7 @@ export const deserializeAws_restJson1ImportApiCommand = async (
     contents.ApiKeySelectionExpression = __expectString(data.apiKeySelectionExpression);
   }
   if (data.corsConfiguration != null) {
-    contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
+    contents.CorsConfiguration = de_Cors(data.corsConfiguration, context);
   }
   if (data.createdDate != null) {
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
@@ -5544,7 +6029,7 @@ export const deserializeAws_restJson1ImportApiCommand = async (
     contents.DisableSchemaValidation = __expectBoolean(data.disableSchemaValidation);
   }
   if (data.importInfo != null) {
-    contents.ImportInfo = deserializeAws_restJson1__listOf__string(data.importInfo, context);
+    contents.ImportInfo = de___listOf__string(data.importInfo, context);
   }
   if (data.name != null) {
     contents.Name = __expectString(data.name);
@@ -5556,18 +6041,21 @@ export const deserializeAws_restJson1ImportApiCommand = async (
     contents.RouteSelectionExpression = __expectString(data.routeSelectionExpression);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   if (data.version != null) {
     contents.Version = __expectString(data.version);
   }
   if (data.warnings != null) {
-    contents.Warnings = deserializeAws_restJson1__listOf__string(data.warnings, context);
+    contents.Warnings = de___listOf__string(data.warnings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ImportApiCommandError = async (
+/**
+ * deserializeAws_restJson1ImportApiCommandError
+ */
+const de_ImportApiCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportApiCommandOutput> => {
@@ -5579,16 +6067,16 @@ const deserializeAws_restJson1ImportApiCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5600,12 +6088,15 @@ const deserializeAws_restJson1ImportApiCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ReimportApiCommand = async (
+/**
+ * deserializeAws_restJson1ReimportApiCommand
+ */
+export const de_ReimportApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReimportApiCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ReimportApiCommandError(output, context);
+    return de_ReimportApiCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5624,7 +6115,7 @@ export const deserializeAws_restJson1ReimportApiCommand = async (
     contents.ApiKeySelectionExpression = __expectString(data.apiKeySelectionExpression);
   }
   if (data.corsConfiguration != null) {
-    contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
+    contents.CorsConfiguration = de_Cors(data.corsConfiguration, context);
   }
   if (data.createdDate != null) {
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
@@ -5639,7 +6130,7 @@ export const deserializeAws_restJson1ReimportApiCommand = async (
     contents.DisableSchemaValidation = __expectBoolean(data.disableSchemaValidation);
   }
   if (data.importInfo != null) {
-    contents.ImportInfo = deserializeAws_restJson1__listOf__string(data.importInfo, context);
+    contents.ImportInfo = de___listOf__string(data.importInfo, context);
   }
   if (data.name != null) {
     contents.Name = __expectString(data.name);
@@ -5651,18 +6142,21 @@ export const deserializeAws_restJson1ReimportApiCommand = async (
     contents.RouteSelectionExpression = __expectString(data.routeSelectionExpression);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   if (data.version != null) {
     contents.Version = __expectString(data.version);
   }
   if (data.warnings != null) {
-    contents.Warnings = deserializeAws_restJson1__listOf__string(data.warnings, context);
+    contents.Warnings = de___listOf__string(data.warnings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ReimportApiCommandError = async (
+/**
+ * deserializeAws_restJson1ReimportApiCommandError
+ */
+const de_ReimportApiCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReimportApiCommandOutput> => {
@@ -5674,16 +6168,16 @@ const deserializeAws_restJson1ReimportApiCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5695,12 +6189,15 @@ const deserializeAws_restJson1ReimportApiCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ResetAuthorizersCacheCommand = async (
+/**
+ * deserializeAws_restJson1ResetAuthorizersCacheCommand
+ */
+export const de_ResetAuthorizersCacheCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetAuthorizersCacheCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ResetAuthorizersCacheCommandError(output, context);
+    return de_ResetAuthorizersCacheCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5709,7 +6206,10 @@ export const deserializeAws_restJson1ResetAuthorizersCacheCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ResetAuthorizersCacheCommandError = async (
+/**
+ * deserializeAws_restJson1ResetAuthorizersCacheCommandError
+ */
+const de_ResetAuthorizersCacheCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetAuthorizersCacheCommandOutput> => {
@@ -5721,10 +6221,10 @@ const deserializeAws_restJson1ResetAuthorizersCacheCommandError = async (
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5736,12 +6236,15 @@ const deserializeAws_restJson1ResetAuthorizersCacheCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5750,7 +6253,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -5762,16 +6268,16 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5783,12 +6289,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5797,7 +6306,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -5809,16 +6321,16 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5830,12 +6342,15 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateApiCommand = async (
+/**
+ * deserializeAws_restJson1UpdateApiCommand
+ */
+export const de_UpdateApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateApiCommandError(output, context);
+    return de_UpdateApiCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5854,7 +6369,7 @@ export const deserializeAws_restJson1UpdateApiCommand = async (
     contents.ApiKeySelectionExpression = __expectString(data.apiKeySelectionExpression);
   }
   if (data.corsConfiguration != null) {
-    contents.CorsConfiguration = deserializeAws_restJson1Cors(data.corsConfiguration, context);
+    contents.CorsConfiguration = de_Cors(data.corsConfiguration, context);
   }
   if (data.createdDate != null) {
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
@@ -5869,7 +6384,7 @@ export const deserializeAws_restJson1UpdateApiCommand = async (
     contents.DisableSchemaValidation = __expectBoolean(data.disableSchemaValidation);
   }
   if (data.importInfo != null) {
-    contents.ImportInfo = deserializeAws_restJson1__listOf__string(data.importInfo, context);
+    contents.ImportInfo = de___listOf__string(data.importInfo, context);
   }
   if (data.name != null) {
     contents.Name = __expectString(data.name);
@@ -5881,18 +6396,21 @@ export const deserializeAws_restJson1UpdateApiCommand = async (
     contents.RouteSelectionExpression = __expectString(data.routeSelectionExpression);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   if (data.version != null) {
     contents.Version = __expectString(data.version);
   }
   if (data.warnings != null) {
-    contents.Warnings = deserializeAws_restJson1__listOf__string(data.warnings, context);
+    contents.Warnings = de___listOf__string(data.warnings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateApiCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateApiCommandError
+ */
+const de_UpdateApiCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApiCommandOutput> => {
@@ -5904,16 +6422,16 @@ const deserializeAws_restJson1UpdateApiCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5925,12 +6443,15 @@ const deserializeAws_restJson1UpdateApiCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateApiMappingCommand = async (
+/**
+ * deserializeAws_restJson1UpdateApiMappingCommand
+ */
+export const de_UpdateApiMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApiMappingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateApiMappingCommandError(output, context);
+    return de_UpdateApiMappingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5951,7 +6472,10 @@ export const deserializeAws_restJson1UpdateApiMappingCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateApiMappingCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateApiMappingCommandError
+ */
+const de_UpdateApiMappingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApiMappingCommandOutput> => {
@@ -5963,16 +6487,16 @@ const deserializeAws_restJson1UpdateApiMappingCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5984,12 +6508,15 @@ const deserializeAws_restJson1UpdateApiMappingCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateAuthorizerCommand = async (
+/**
+ * deserializeAws_restJson1UpdateAuthorizerCommand
+ */
+export const de_UpdateAuthorizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateAuthorizerCommandError(output, context);
+    return de_UpdateAuthorizerCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6017,13 +6544,13 @@ export const deserializeAws_restJson1UpdateAuthorizerCommand = async (
     contents.EnableSimpleResponses = __expectBoolean(data.enableSimpleResponses);
   }
   if (data.identitySource != null) {
-    contents.IdentitySource = deserializeAws_restJson1IdentitySourceList(data.identitySource, context);
+    contents.IdentitySource = de_IdentitySourceList(data.identitySource, context);
   }
   if (data.identityValidationExpression != null) {
     contents.IdentityValidationExpression = __expectString(data.identityValidationExpression);
   }
   if (data.jwtConfiguration != null) {
-    contents.JwtConfiguration = deserializeAws_restJson1JWTConfiguration(data.jwtConfiguration, context);
+    contents.JwtConfiguration = de_JWTConfiguration(data.jwtConfiguration, context);
   }
   if (data.name != null) {
     contents.Name = __expectString(data.name);
@@ -6031,7 +6558,10 @@ export const deserializeAws_restJson1UpdateAuthorizerCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateAuthorizerCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateAuthorizerCommandError
+ */
+const de_UpdateAuthorizerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAuthorizerCommandOutput> => {
@@ -6043,16 +6573,16 @@ const deserializeAws_restJson1UpdateAuthorizerCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6064,12 +6594,15 @@ const deserializeAws_restJson1UpdateAuthorizerCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDeploymentCommand
+ */
+export const de_UpdateDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDeploymentCommandError(output, context);
+    return de_UpdateDeploymentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6096,7 +6629,10 @@ export const deserializeAws_restJson1UpdateDeploymentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDeploymentCommandError
+ */
+const de_UpdateDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeploymentCommandOutput> => {
@@ -6108,16 +6644,16 @@ const deserializeAws_restJson1UpdateDeploymentCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6129,12 +6665,15 @@ const deserializeAws_restJson1UpdateDeploymentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateDomainNameCommand = async (
+/**
+ * deserializeAws_restJson1UpdateDomainNameCommand
+ */
+export const de_UpdateDomainNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateDomainNameCommandError(output, context);
+    return de_UpdateDomainNameCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6147,24 +6686,21 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
     contents.DomainName = __expectString(data.domainName);
   }
   if (data.domainNameConfigurations != null) {
-    contents.DomainNameConfigurations = deserializeAws_restJson1DomainNameConfigurations(
-      data.domainNameConfigurations,
-      context
-    );
+    contents.DomainNameConfigurations = de_DomainNameConfigurations(data.domainNameConfigurations, context);
   }
   if (data.mutualTlsAuthentication != null) {
-    contents.MutualTlsAuthentication = deserializeAws_restJson1MutualTlsAuthentication(
-      data.mutualTlsAuthentication,
-      context
-    );
+    contents.MutualTlsAuthentication = de_MutualTlsAuthentication(data.mutualTlsAuthentication, context);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateDomainNameCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateDomainNameCommandError
+ */
+const de_UpdateDomainNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainNameCommandOutput> => {
@@ -6176,16 +6712,16 @@ const deserializeAws_restJson1UpdateDomainNameCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6197,12 +6733,15 @@ const deserializeAws_restJson1UpdateDomainNameCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateIntegrationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateIntegrationCommand
+ */
+export const de_UpdateIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateIntegrationCommandError(output, context);
+    return de_UpdateIntegrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6251,13 +6790,13 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
     contents.PayloadFormatVersion = __expectString(data.payloadFormatVersion);
   }
   if (data.requestParameters != null) {
-    contents.RequestParameters = deserializeAws_restJson1IntegrationParameters(data.requestParameters, context);
+    contents.RequestParameters = de_IntegrationParameters(data.requestParameters, context);
   }
   if (data.requestTemplates != null) {
-    contents.RequestTemplates = deserializeAws_restJson1TemplateMap(data.requestTemplates, context);
+    contents.RequestTemplates = de_TemplateMap(data.requestTemplates, context);
   }
   if (data.responseParameters != null) {
-    contents.ResponseParameters = deserializeAws_restJson1ResponseParameters(data.responseParameters, context);
+    contents.ResponseParameters = de_ResponseParameters(data.responseParameters, context);
   }
   if (data.templateSelectionExpression != null) {
     contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
@@ -6266,12 +6805,15 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
     contents.TimeoutInMillis = __expectInt32(data.timeoutInMillis);
   }
   if (data.tlsConfig != null) {
-    contents.TlsConfig = deserializeAws_restJson1TlsConfig(data.tlsConfig, context);
+    contents.TlsConfig = de_TlsConfig(data.tlsConfig, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateIntegrationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateIntegrationCommandError
+ */
+const de_UpdateIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIntegrationCommandOutput> => {
@@ -6283,16 +6825,16 @@ const deserializeAws_restJson1UpdateIntegrationCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6304,12 +6846,15 @@ const deserializeAws_restJson1UpdateIntegrationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateIntegrationResponseCommand = async (
+/**
+ * deserializeAws_restJson1UpdateIntegrationResponseCommand
+ */
+export const de_UpdateIntegrationResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateIntegrationResponseCommandError(output, context);
+    return de_UpdateIntegrationResponseCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6325,10 +6870,10 @@ export const deserializeAws_restJson1UpdateIntegrationResponseCommand = async (
     contents.IntegrationResponseKey = __expectString(data.integrationResponseKey);
   }
   if (data.responseParameters != null) {
-    contents.ResponseParameters = deserializeAws_restJson1IntegrationParameters(data.responseParameters, context);
+    contents.ResponseParameters = de_IntegrationParameters(data.responseParameters, context);
   }
   if (data.responseTemplates != null) {
-    contents.ResponseTemplates = deserializeAws_restJson1TemplateMap(data.responseTemplates, context);
+    contents.ResponseTemplates = de_TemplateMap(data.responseTemplates, context);
   }
   if (data.templateSelectionExpression != null) {
     contents.TemplateSelectionExpression = __expectString(data.templateSelectionExpression);
@@ -6336,7 +6881,10 @@ export const deserializeAws_restJson1UpdateIntegrationResponseCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateIntegrationResponseCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateIntegrationResponseCommandError
+ */
+const de_UpdateIntegrationResponseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIntegrationResponseCommandOutput> => {
@@ -6348,16 +6896,16 @@ const deserializeAws_restJson1UpdateIntegrationResponseCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6369,12 +6917,15 @@ const deserializeAws_restJson1UpdateIntegrationResponseCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateModelCommand = async (
+/**
+ * deserializeAws_restJson1UpdateModelCommand
+ */
+export const de_UpdateModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateModelCommandError(output, context);
+    return de_UpdateModelCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6398,7 +6949,10 @@ export const deserializeAws_restJson1UpdateModelCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateModelCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateModelCommandError
+ */
+const de_UpdateModelCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateModelCommandOutput> => {
@@ -6410,16 +6964,16 @@ const deserializeAws_restJson1UpdateModelCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6431,12 +6985,15 @@ const deserializeAws_restJson1UpdateModelCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateRouteCommand = async (
+/**
+ * deserializeAws_restJson1UpdateRouteCommand
+ */
+export const de_UpdateRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateRouteCommandError(output, context);
+    return de_UpdateRouteCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6449,7 +7006,7 @@ export const deserializeAws_restJson1UpdateRouteCommand = async (
     contents.ApiKeyRequired = __expectBoolean(data.apiKeyRequired);
   }
   if (data.authorizationScopes != null) {
-    contents.AuthorizationScopes = deserializeAws_restJson1AuthorizationScopes(data.authorizationScopes, context);
+    contents.AuthorizationScopes = de_AuthorizationScopes(data.authorizationScopes, context);
   }
   if (data.authorizationType != null) {
     contents.AuthorizationType = __expectString(data.authorizationType);
@@ -6464,10 +7021,10 @@ export const deserializeAws_restJson1UpdateRouteCommand = async (
     contents.OperationName = __expectString(data.operationName);
   }
   if (data.requestModels != null) {
-    contents.RequestModels = deserializeAws_restJson1RouteModels(data.requestModels, context);
+    contents.RequestModels = de_RouteModels(data.requestModels, context);
   }
   if (data.requestParameters != null) {
-    contents.RequestParameters = deserializeAws_restJson1RouteParameters(data.requestParameters, context);
+    contents.RequestParameters = de_RouteParameters(data.requestParameters, context);
   }
   if (data.routeId != null) {
     contents.RouteId = __expectString(data.routeId);
@@ -6484,7 +7041,10 @@ export const deserializeAws_restJson1UpdateRouteCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateRouteCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateRouteCommandError
+ */
+const de_UpdateRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRouteCommandOutput> => {
@@ -6496,16 +7056,16 @@ const deserializeAws_restJson1UpdateRouteCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6517,12 +7077,15 @@ const deserializeAws_restJson1UpdateRouteCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateRouteResponseCommand = async (
+/**
+ * deserializeAws_restJson1UpdateRouteResponseCommand
+ */
+export const de_UpdateRouteResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRouteResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateRouteResponseCommandError(output, context);
+    return de_UpdateRouteResponseCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6532,10 +7095,10 @@ export const deserializeAws_restJson1UpdateRouteResponseCommand = async (
     contents.ModelSelectionExpression = __expectString(data.modelSelectionExpression);
   }
   if (data.responseModels != null) {
-    contents.ResponseModels = deserializeAws_restJson1RouteModels(data.responseModels, context);
+    contents.ResponseModels = de_RouteModels(data.responseModels, context);
   }
   if (data.responseParameters != null) {
-    contents.ResponseParameters = deserializeAws_restJson1RouteParameters(data.responseParameters, context);
+    contents.ResponseParameters = de_RouteParameters(data.responseParameters, context);
   }
   if (data.routeResponseId != null) {
     contents.RouteResponseId = __expectString(data.routeResponseId);
@@ -6546,7 +7109,10 @@ export const deserializeAws_restJson1UpdateRouteResponseCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateRouteResponseCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateRouteResponseCommandError
+ */
+const de_UpdateRouteResponseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRouteResponseCommandOutput> => {
@@ -6558,16 +7124,16 @@ const deserializeAws_restJson1UpdateRouteResponseCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6579,19 +7145,22 @@ const deserializeAws_restJson1UpdateRouteResponseCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateStageCommand = async (
+/**
+ * deserializeAws_restJson1UpdateStageCommand
+ */
+export const de_UpdateStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateStageCommandError(output, context);
+    return de_UpdateStageCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.accessLogSettings != null) {
-    contents.AccessLogSettings = deserializeAws_restJson1AccessLogSettings(data.accessLogSettings, context);
+    contents.AccessLogSettings = de_AccessLogSettings(data.accessLogSettings, context);
   }
   if (data.apiGatewayManaged != null) {
     contents.ApiGatewayManaged = __expectBoolean(data.apiGatewayManaged);
@@ -6606,7 +7175,7 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.createdDate));
   }
   if (data.defaultRouteSettings != null) {
-    contents.DefaultRouteSettings = deserializeAws_restJson1RouteSettings(data.defaultRouteSettings, context);
+    contents.DefaultRouteSettings = de_RouteSettings(data.defaultRouteSettings, context);
   }
   if (data.deploymentId != null) {
     contents.DeploymentId = __expectString(data.deploymentId);
@@ -6621,21 +7190,24 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
     contents.LastUpdatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.lastUpdatedDate));
   }
   if (data.routeSettings != null) {
-    contents.RouteSettings = deserializeAws_restJson1RouteSettingsMap(data.routeSettings, context);
+    contents.RouteSettings = de_RouteSettingsMap(data.routeSettings, context);
   }
   if (data.stageName != null) {
     contents.StageName = __expectString(data.stageName);
   }
   if (data.stageVariables != null) {
-    contents.StageVariables = deserializeAws_restJson1StageVariablesMap(data.stageVariables, context);
+    contents.StageVariables = de_StageVariablesMap(data.stageVariables, context);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateStageCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateStageCommandError
+ */
+const de_UpdateStageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStageCommandOutput> => {
@@ -6647,16 +7219,16 @@ const deserializeAws_restJson1UpdateStageCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6668,12 +7240,15 @@ const deserializeAws_restJson1UpdateStageCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
+/**
+ * deserializeAws_restJson1UpdateVpcLinkCommand
+ */
+export const de_UpdateVpcLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVpcLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateVpcLinkCommandError(output, context);
+    return de_UpdateVpcLinkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6686,13 +7261,13 @@ export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
     contents.Name = __expectString(data.name);
   }
   if (data.securityGroupIds != null) {
-    contents.SecurityGroupIds = deserializeAws_restJson1SecurityGroupIdList(data.securityGroupIds, context);
+    contents.SecurityGroupIds = de_SecurityGroupIdList(data.securityGroupIds, context);
   }
   if (data.subnetIds != null) {
-    contents.SubnetIds = deserializeAws_restJson1SubnetIdList(data.subnetIds, context);
+    contents.SubnetIds = de_SubnetIdList(data.subnetIds, context);
   }
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+    contents.Tags = de_Tags(data.tags, context);
   }
   if (data.vpcLinkId != null) {
     contents.VpcLinkId = __expectString(data.vpcLinkId);
@@ -6709,7 +7284,10 @@ export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateVpcLinkCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateVpcLinkCommandError
+ */
+const de_UpdateVpcLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVpcLinkCommandOutput> => {
@@ -6721,13 +7299,13 @@ const deserializeAws_restJson1UpdateVpcLinkCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6740,7 +7318,10 @@ const deserializeAws_restJson1UpdateVpcLinkCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -6756,10 +7337,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -6772,10 +7353,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -6788,10 +7369,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -6807,7 +7388,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
@@ -6826,7 +7410,10 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1__listOf__string = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1__listOf__string
+ */
+const se___listOf__string = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6834,14 +7421,20 @@ const serializeAws_restJson1__listOf__string = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_restJson1AccessLogSettings = (input: AccessLogSettings, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AccessLogSettings
+ */
+const se_AccessLogSettings = (input: AccessLogSettings, context: __SerdeContext): any => {
   return {
     ...(input.DestinationArn != null && { destinationArn: input.DestinationArn }),
     ...(input.Format != null && { format: input.Format }),
   };
 };
 
-const serializeAws_restJson1AuthorizationScopes = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AuthorizationScopes
+ */
+const se_AuthorizationScopes = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6849,26 +7442,24 @@ const serializeAws_restJson1AuthorizationScopes = (input: string[], context: __S
     });
 };
 
-const serializeAws_restJson1Cors = (input: Cors, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Cors
+ */
+const se_Cors = (input: Cors, context: __SerdeContext): any => {
   return {
     ...(input.AllowCredentials != null && { allowCredentials: input.AllowCredentials }),
-    ...(input.AllowHeaders != null && {
-      allowHeaders: serializeAws_restJson1CorsHeaderList(input.AllowHeaders, context),
-    }),
-    ...(input.AllowMethods != null && {
-      allowMethods: serializeAws_restJson1CorsMethodList(input.AllowMethods, context),
-    }),
-    ...(input.AllowOrigins != null && {
-      allowOrigins: serializeAws_restJson1CorsOriginList(input.AllowOrigins, context),
-    }),
-    ...(input.ExposeHeaders != null && {
-      exposeHeaders: serializeAws_restJson1CorsHeaderList(input.ExposeHeaders, context),
-    }),
+    ...(input.AllowHeaders != null && { allowHeaders: se_CorsHeaderList(input.AllowHeaders, context) }),
+    ...(input.AllowMethods != null && { allowMethods: se_CorsMethodList(input.AllowMethods, context) }),
+    ...(input.AllowOrigins != null && { allowOrigins: se_CorsOriginList(input.AllowOrigins, context) }),
+    ...(input.ExposeHeaders != null && { exposeHeaders: se_CorsHeaderList(input.ExposeHeaders, context) }),
     ...(input.MaxAge != null && { maxAge: input.MaxAge }),
   };
 };
 
-const serializeAws_restJson1CorsHeaderList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CorsHeaderList
+ */
+const se_CorsHeaderList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6876,7 +7467,10 @@ const serializeAws_restJson1CorsHeaderList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_restJson1CorsMethodList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CorsMethodList
+ */
+const se_CorsMethodList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6884,7 +7478,10 @@ const serializeAws_restJson1CorsMethodList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_restJson1CorsOriginList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CorsOriginList
+ */
+const se_CorsOriginList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6892,10 +7489,10 @@ const serializeAws_restJson1CorsOriginList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_restJson1DomainNameConfiguration = (
-  input: DomainNameConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1DomainNameConfiguration
+ */
+const se_DomainNameConfiguration = (input: DomainNameConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.ApiGatewayDomainName != null && { apiGatewayDomainName: input.ApiGatewayDomainName }),
     ...(input.CertificateArn != null && { certificateArn: input.CertificateArn }),
@@ -6914,18 +7511,21 @@ const serializeAws_restJson1DomainNameConfiguration = (
   };
 };
 
-const serializeAws_restJson1DomainNameConfigurations = (
-  input: DomainNameConfiguration[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1DomainNameConfigurations
+ */
+const se_DomainNameConfigurations = (input: DomainNameConfiguration[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1DomainNameConfiguration(entry, context);
+      return se_DomainNameConfiguration(entry, context);
     });
 };
 
-const serializeAws_restJson1IdentitySourceList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1IdentitySourceList
+ */
+const se_IdentitySourceList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6933,7 +7533,10 @@ const serializeAws_restJson1IdentitySourceList = (input: string[], context: __Se
     });
 };
 
-const serializeAws_restJson1IntegrationParameters = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1IntegrationParameters
+ */
+const se_IntegrationParameters = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6943,43 +7546,52 @@ const serializeAws_restJson1IntegrationParameters = (input: Record<string, strin
   }, {});
 };
 
-const serializeAws_restJson1JWTConfiguration = (input: JWTConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1JWTConfiguration
+ */
+const se_JWTConfiguration = (input: JWTConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Audience != null && { audience: serializeAws_restJson1__listOf__string(input.Audience, context) }),
+    ...(input.Audience != null && { audience: se___listOf__string(input.Audience, context) }),
     ...(input.Issuer != null && { issuer: input.Issuer }),
   };
 };
 
-const serializeAws_restJson1MutualTlsAuthenticationInput = (
-  input: MutualTlsAuthenticationInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1MutualTlsAuthenticationInput
+ */
+const se_MutualTlsAuthenticationInput = (input: MutualTlsAuthenticationInput, context: __SerdeContext): any => {
   return {
     ...(input.TruststoreUri != null && { truststoreUri: input.TruststoreUri }),
     ...(input.TruststoreVersion != null && { truststoreVersion: input.TruststoreVersion }),
   };
 };
 
-const serializeAws_restJson1ParameterConstraints = (input: ParameterConstraints, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ParameterConstraints
+ */
+const se_ParameterConstraints = (input: ParameterConstraints, context: __SerdeContext): any => {
   return {
     ...(input.Required != null && { required: input.Required }),
   };
 };
 
-const serializeAws_restJson1ResponseParameters = (
-  input: Record<string, Record<string, string>>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ResponseParameters
+ */
+const se_ResponseParameters = (input: Record<string, Record<string, string>>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1IntegrationParameters(value, context);
+    acc[key] = se_IntegrationParameters(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1RouteModels = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RouteModels
+ */
+const se_RouteModels = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6989,20 +7601,23 @@ const serializeAws_restJson1RouteModels = (input: Record<string, string>, contex
   }, {});
 };
 
-const serializeAws_restJson1RouteParameters = (
-  input: Record<string, ParameterConstraints>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1RouteParameters
+ */
+const se_RouteParameters = (input: Record<string, ParameterConstraints>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1ParameterConstraints(value, context);
+    acc[key] = se_ParameterConstraints(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1RouteSettings = (input: RouteSettings, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RouteSettings
+ */
+const se_RouteSettings = (input: RouteSettings, context: __SerdeContext): any => {
   return {
     ...(input.DataTraceEnabled != null && { dataTraceEnabled: input.DataTraceEnabled }),
     ...(input.DetailedMetricsEnabled != null && { detailedMetricsEnabled: input.DetailedMetricsEnabled }),
@@ -7012,17 +7627,23 @@ const serializeAws_restJson1RouteSettings = (input: RouteSettings, context: __Se
   };
 };
 
-const serializeAws_restJson1RouteSettingsMap = (input: Record<string, RouteSettings>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RouteSettingsMap
+ */
+const se_RouteSettingsMap = (input: Record<string, RouteSettings>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_restJson1RouteSettings(value, context);
+    acc[key] = se_RouteSettings(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_restJson1SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SecurityGroupIdList
+ */
+const se_SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7030,7 +7651,10 @@ const serializeAws_restJson1SecurityGroupIdList = (input: string[], context: __S
     });
 };
 
-const serializeAws_restJson1StageVariablesMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1StageVariablesMap
+ */
+const se_StageVariablesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7040,7 +7664,10 @@ const serializeAws_restJson1StageVariablesMap = (input: Record<string, string>, 
   }, {});
 };
 
-const serializeAws_restJson1SubnetIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SubnetIdList
+ */
+const se_SubnetIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7048,7 +7675,10 @@ const serializeAws_restJson1SubnetIdList = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_restJson1Tags = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Tags
+ */
+const se_Tags = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7058,7 +7688,10 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
   }, {});
 };
 
-const serializeAws_restJson1TemplateMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TemplateMap
+ */
+const se_TemplateMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7068,13 +7701,19 @@ const serializeAws_restJson1TemplateMap = (input: Record<string, string>, contex
   }, {});
 };
 
-const serializeAws_restJson1TlsConfigInput = (input: TlsConfigInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TlsConfigInput
+ */
+const se_TlsConfigInput = (input: TlsConfigInput, context: __SerdeContext): any => {
   return {
     ...(input.ServerNameToVerify != null && { serverNameToVerify: input.ServerNameToVerify }),
   };
 };
 
-const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1__listOf__string
+ */
+const de___listOf__string = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7086,185 +7725,225 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfApi = (output: any, context: __SerdeContext): Api[] => {
+/**
+ * deserializeAws_restJson1__listOfApi
+ */
+const de___listOfApi = (output: any, context: __SerdeContext): Api[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Api(entry, context);
+      return de_Api(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfApiMapping = (output: any, context: __SerdeContext): ApiMapping[] => {
+/**
+ * deserializeAws_restJson1__listOfApiMapping
+ */
+const de___listOfApiMapping = (output: any, context: __SerdeContext): ApiMapping[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ApiMapping(entry, context);
+      return de_ApiMapping(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfAuthorizer = (output: any, context: __SerdeContext): Authorizer[] => {
+/**
+ * deserializeAws_restJson1__listOfAuthorizer
+ */
+const de___listOfAuthorizer = (output: any, context: __SerdeContext): Authorizer[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Authorizer(entry, context);
+      return de_Authorizer(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfDeployment = (output: any, context: __SerdeContext): Deployment[] => {
+/**
+ * deserializeAws_restJson1__listOfDeployment
+ */
+const de___listOfDeployment = (output: any, context: __SerdeContext): Deployment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Deployment(entry, context);
+      return de_Deployment(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfDomainName = (output: any, context: __SerdeContext): DomainName[] => {
+/**
+ * deserializeAws_restJson1__listOfDomainName
+ */
+const de___listOfDomainName = (output: any, context: __SerdeContext): DomainName[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DomainName(entry, context);
+      return de_DomainName(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfIntegration = (output: any, context: __SerdeContext): Integration[] => {
+/**
+ * deserializeAws_restJson1__listOfIntegration
+ */
+const de___listOfIntegration = (output: any, context: __SerdeContext): Integration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Integration(entry, context);
+      return de_Integration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfIntegrationResponse = (
-  output: any,
-  context: __SerdeContext
-): IntegrationResponse[] => {
+/**
+ * deserializeAws_restJson1__listOfIntegrationResponse
+ */
+const de___listOfIntegrationResponse = (output: any, context: __SerdeContext): IntegrationResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1IntegrationResponse(entry, context);
+      return de_IntegrationResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfModel = (output: any, context: __SerdeContext): Model[] => {
+/**
+ * deserializeAws_restJson1__listOfModel
+ */
+const de___listOfModel = (output: any, context: __SerdeContext): Model[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Model(entry, context);
+      return de_Model(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfRoute = (output: any, context: __SerdeContext): Route[] => {
+/**
+ * deserializeAws_restJson1__listOfRoute
+ */
+const de___listOfRoute = (output: any, context: __SerdeContext): Route[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Route(entry, context);
+      return de_Route(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfRouteResponse = (output: any, context: __SerdeContext): RouteResponse[] => {
+/**
+ * deserializeAws_restJson1__listOfRouteResponse
+ */
+const de___listOfRouteResponse = (output: any, context: __SerdeContext): RouteResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1RouteResponse(entry, context);
+      return de_RouteResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfStage = (output: any, context: __SerdeContext): Stage[] => {
+/**
+ * deserializeAws_restJson1__listOfStage
+ */
+const de___listOfStage = (output: any, context: __SerdeContext): Stage[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Stage(entry, context);
+      return de_Stage(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfVpcLink = (output: any, context: __SerdeContext): VpcLink[] => {
+/**
+ * deserializeAws_restJson1__listOfVpcLink
+ */
+const de___listOfVpcLink = (output: any, context: __SerdeContext): VpcLink[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1VpcLink(entry, context);
+      return de_VpcLink(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AccessLogSettings = (output: any, context: __SerdeContext): AccessLogSettings => {
+/**
+ * deserializeAws_restJson1AccessLogSettings
+ */
+const de_AccessLogSettings = (output: any, context: __SerdeContext): AccessLogSettings => {
   return {
     DestinationArn: __expectString(output.destinationArn),
     Format: __expectString(output.format),
   } as any;
 };
 
-const deserializeAws_restJson1Api = (output: any, context: __SerdeContext): Api => {
+/**
+ * deserializeAws_restJson1Api
+ */
+const de_Api = (output: any, context: __SerdeContext): Api => {
   return {
     ApiEndpoint: __expectString(output.apiEndpoint),
     ApiGatewayManaged: __expectBoolean(output.apiGatewayManaged),
     ApiId: __expectString(output.apiId),
     ApiKeySelectionExpression: __expectString(output.apiKeySelectionExpression),
-    CorsConfiguration:
-      output.corsConfiguration != null ? deserializeAws_restJson1Cors(output.corsConfiguration, context) : undefined,
+    CorsConfiguration: output.corsConfiguration != null ? de_Cors(output.corsConfiguration, context) : undefined,
     CreatedDate:
       output.createdDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdDate)) : undefined,
     Description: __expectString(output.description),
     DisableExecuteApiEndpoint: __expectBoolean(output.disableExecuteApiEndpoint),
     DisableSchemaValidation: __expectBoolean(output.disableSchemaValidation),
-    ImportInfo:
-      output.importInfo != null ? deserializeAws_restJson1__listOf__string(output.importInfo, context) : undefined,
+    ImportInfo: output.importInfo != null ? de___listOf__string(output.importInfo, context) : undefined,
     Name: __expectString(output.name),
     ProtocolType: __expectString(output.protocolType),
     RouteSelectionExpression: __expectString(output.routeSelectionExpression),
-    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
     Version: __expectString(output.version),
-    Warnings: output.warnings != null ? deserializeAws_restJson1__listOf__string(output.warnings, context) : undefined,
+    Warnings: output.warnings != null ? de___listOf__string(output.warnings, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ApiMapping = (output: any, context: __SerdeContext): ApiMapping => {
+/**
+ * deserializeAws_restJson1ApiMapping
+ */
+const de_ApiMapping = (output: any, context: __SerdeContext): ApiMapping => {
   return {
     ApiId: __expectString(output.apiId),
     ApiMappingId: __expectString(output.apiMappingId),
@@ -7273,7 +7952,10 @@ const deserializeAws_restJson1ApiMapping = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_restJson1AuthorizationScopes = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1AuthorizationScopes
+ */
+const de_AuthorizationScopes = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7285,7 +7967,10 @@ const deserializeAws_restJson1AuthorizationScopes = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_restJson1Authorizer = (output: any, context: __SerdeContext): Authorizer => {
+/**
+ * deserializeAws_restJson1Authorizer
+ */
+const de_Authorizer = (output: any, context: __SerdeContext): Authorizer => {
   return {
     AuthorizerCredentialsArn: __expectString(output.authorizerCredentialsArn),
     AuthorizerId: __expectString(output.authorizerId),
@@ -7294,35 +7979,32 @@ const deserializeAws_restJson1Authorizer = (output: any, context: __SerdeContext
     AuthorizerType: __expectString(output.authorizerType),
     AuthorizerUri: __expectString(output.authorizerUri),
     EnableSimpleResponses: __expectBoolean(output.enableSimpleResponses),
-    IdentitySource:
-      output.identitySource != null
-        ? deserializeAws_restJson1IdentitySourceList(output.identitySource, context)
-        : undefined,
+    IdentitySource: output.identitySource != null ? de_IdentitySourceList(output.identitySource, context) : undefined,
     IdentityValidationExpression: __expectString(output.identityValidationExpression),
     JwtConfiguration:
-      output.jwtConfiguration != null
-        ? deserializeAws_restJson1JWTConfiguration(output.jwtConfiguration, context)
-        : undefined,
+      output.jwtConfiguration != null ? de_JWTConfiguration(output.jwtConfiguration, context) : undefined,
     Name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_restJson1Cors = (output: any, context: __SerdeContext): Cors => {
+/**
+ * deserializeAws_restJson1Cors
+ */
+const de_Cors = (output: any, context: __SerdeContext): Cors => {
   return {
     AllowCredentials: __expectBoolean(output.allowCredentials),
-    AllowHeaders:
-      output.allowHeaders != null ? deserializeAws_restJson1CorsHeaderList(output.allowHeaders, context) : undefined,
-    AllowMethods:
-      output.allowMethods != null ? deserializeAws_restJson1CorsMethodList(output.allowMethods, context) : undefined,
-    AllowOrigins:
-      output.allowOrigins != null ? deserializeAws_restJson1CorsOriginList(output.allowOrigins, context) : undefined,
-    ExposeHeaders:
-      output.exposeHeaders != null ? deserializeAws_restJson1CorsHeaderList(output.exposeHeaders, context) : undefined,
+    AllowHeaders: output.allowHeaders != null ? de_CorsHeaderList(output.allowHeaders, context) : undefined,
+    AllowMethods: output.allowMethods != null ? de_CorsMethodList(output.allowMethods, context) : undefined,
+    AllowOrigins: output.allowOrigins != null ? de_CorsOriginList(output.allowOrigins, context) : undefined,
+    ExposeHeaders: output.exposeHeaders != null ? de_CorsHeaderList(output.exposeHeaders, context) : undefined,
     MaxAge: __expectInt32(output.maxAge),
   } as any;
 };
 
-const deserializeAws_restJson1CorsHeaderList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1CorsHeaderList
+ */
+const de_CorsHeaderList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7334,7 +8016,10 @@ const deserializeAws_restJson1CorsHeaderList = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_restJson1CorsMethodList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1CorsMethodList
+ */
+const de_CorsMethodList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7346,7 +8031,10 @@ const deserializeAws_restJson1CorsMethodList = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_restJson1CorsOriginList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1CorsOriginList
+ */
+const de_CorsOriginList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7358,7 +8046,10 @@ const deserializeAws_restJson1CorsOriginList = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext): Deployment => {
+/**
+ * deserializeAws_restJson1Deployment
+ */
+const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
   return {
     AutoDeployed: __expectBoolean(output.autoDeployed),
     CreatedDate:
@@ -7370,26 +8061,29 @@ const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_restJson1DomainName = (output: any, context: __SerdeContext): DomainName => {
+/**
+ * deserializeAws_restJson1DomainName
+ */
+const de_DomainName = (output: any, context: __SerdeContext): DomainName => {
   return {
     ApiMappingSelectionExpression: __expectString(output.apiMappingSelectionExpression),
     DomainName: __expectString(output.domainName),
     DomainNameConfigurations:
       output.domainNameConfigurations != null
-        ? deserializeAws_restJson1DomainNameConfigurations(output.domainNameConfigurations, context)
+        ? de_DomainNameConfigurations(output.domainNameConfigurations, context)
         : undefined,
     MutualTlsAuthentication:
       output.mutualTlsAuthentication != null
-        ? deserializeAws_restJson1MutualTlsAuthentication(output.mutualTlsAuthentication, context)
+        ? de_MutualTlsAuthentication(output.mutualTlsAuthentication, context)
         : undefined,
-    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1DomainNameConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DomainNameConfiguration => {
+/**
+ * deserializeAws_restJson1DomainNameConfiguration
+ */
+const de_DomainNameConfiguration = (output: any, context: __SerdeContext): DomainNameConfiguration => {
   return {
     ApiGatewayDomainName: __expectString(output.apiGatewayDomainName),
     CertificateArn: __expectString(output.certificateArn),
@@ -7407,22 +8101,25 @@ const deserializeAws_restJson1DomainNameConfiguration = (
   } as any;
 };
 
-const deserializeAws_restJson1DomainNameConfigurations = (
-  output: any,
-  context: __SerdeContext
-): DomainNameConfiguration[] => {
+/**
+ * deserializeAws_restJson1DomainNameConfigurations
+ */
+const de_DomainNameConfigurations = (output: any, context: __SerdeContext): DomainNameConfiguration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DomainNameConfiguration(entry, context);
+      return de_DomainNameConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1IdentitySourceList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1IdentitySourceList
+ */
+const de_IdentitySourceList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7434,7 +8131,10 @@ const deserializeAws_restJson1IdentitySourceList = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_restJson1Integration = (output: any, context: __SerdeContext): Integration => {
+/**
+ * deserializeAws_restJson1Integration
+ */
+const de_Integration = (output: any, context: __SerdeContext): Integration => {
   return {
     ApiGatewayManaged: __expectBoolean(output.apiGatewayManaged),
     ConnectionId: __expectString(output.connectionId),
@@ -7451,27 +8151,20 @@ const deserializeAws_restJson1Integration = (output: any, context: __SerdeContex
     PassthroughBehavior: __expectString(output.passthroughBehavior),
     PayloadFormatVersion: __expectString(output.payloadFormatVersion),
     RequestParameters:
-      output.requestParameters != null
-        ? deserializeAws_restJson1IntegrationParameters(output.requestParameters, context)
-        : undefined,
-    RequestTemplates:
-      output.requestTemplates != null
-        ? deserializeAws_restJson1TemplateMap(output.requestTemplates, context)
-        : undefined,
+      output.requestParameters != null ? de_IntegrationParameters(output.requestParameters, context) : undefined,
+    RequestTemplates: output.requestTemplates != null ? de_TemplateMap(output.requestTemplates, context) : undefined,
     ResponseParameters:
-      output.responseParameters != null
-        ? deserializeAws_restJson1ResponseParameters(output.responseParameters, context)
-        : undefined,
+      output.responseParameters != null ? de_ResponseParameters(output.responseParameters, context) : undefined,
     TemplateSelectionExpression: __expectString(output.templateSelectionExpression),
     TimeoutInMillis: __expectInt32(output.timeoutInMillis),
-    TlsConfig: output.tlsConfig != null ? deserializeAws_restJson1TlsConfig(output.tlsConfig, context) : undefined,
+    TlsConfig: output.tlsConfig != null ? de_TlsConfig(output.tlsConfig, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1IntegrationParameters = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_restJson1IntegrationParameters
+ */
+const de_IntegrationParameters = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7481,31 +8174,35 @@ const deserializeAws_restJson1IntegrationParameters = (
   }, {});
 };
 
-const deserializeAws_restJson1IntegrationResponse = (output: any, context: __SerdeContext): IntegrationResponse => {
+/**
+ * deserializeAws_restJson1IntegrationResponse
+ */
+const de_IntegrationResponse = (output: any, context: __SerdeContext): IntegrationResponse => {
   return {
     ContentHandlingStrategy: __expectString(output.contentHandlingStrategy),
     IntegrationResponseId: __expectString(output.integrationResponseId),
     IntegrationResponseKey: __expectString(output.integrationResponseKey),
     ResponseParameters:
-      output.responseParameters != null
-        ? deserializeAws_restJson1IntegrationParameters(output.responseParameters, context)
-        : undefined,
-    ResponseTemplates:
-      output.responseTemplates != null
-        ? deserializeAws_restJson1TemplateMap(output.responseTemplates, context)
-        : undefined,
+      output.responseParameters != null ? de_IntegrationParameters(output.responseParameters, context) : undefined,
+    ResponseTemplates: output.responseTemplates != null ? de_TemplateMap(output.responseTemplates, context) : undefined,
     TemplateSelectionExpression: __expectString(output.templateSelectionExpression),
   } as any;
 };
 
-const deserializeAws_restJson1JWTConfiguration = (output: any, context: __SerdeContext): JWTConfiguration => {
+/**
+ * deserializeAws_restJson1JWTConfiguration
+ */
+const de_JWTConfiguration = (output: any, context: __SerdeContext): JWTConfiguration => {
   return {
-    Audience: output.audience != null ? deserializeAws_restJson1__listOf__string(output.audience, context) : undefined,
+    Audience: output.audience != null ? de___listOf__string(output.audience, context) : undefined,
     Issuer: __expectString(output.issuer),
   } as any;
 };
 
-const deserializeAws_restJson1Model = (output: any, context: __SerdeContext): Model => {
+/**
+ * deserializeAws_restJson1Model
+ */
+const de_Model = (output: any, context: __SerdeContext): Model => {
   return {
     ContentType: __expectString(output.contentType),
     Description: __expectString(output.description),
@@ -7515,57 +8212,56 @@ const deserializeAws_restJson1Model = (output: any, context: __SerdeContext): Mo
   } as any;
 };
 
-const deserializeAws_restJson1MutualTlsAuthentication = (
-  output: any,
-  context: __SerdeContext
-): MutualTlsAuthentication => {
+/**
+ * deserializeAws_restJson1MutualTlsAuthentication
+ */
+const de_MutualTlsAuthentication = (output: any, context: __SerdeContext): MutualTlsAuthentication => {
   return {
     TruststoreUri: __expectString(output.truststoreUri),
     TruststoreVersion: __expectString(output.truststoreVersion),
     TruststoreWarnings:
-      output.truststoreWarnings != null
-        ? deserializeAws_restJson1__listOf__string(output.truststoreWarnings, context)
-        : undefined,
+      output.truststoreWarnings != null ? de___listOf__string(output.truststoreWarnings, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
+/**
+ * deserializeAws_restJson1ParameterConstraints
+ */
+const de_ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
   return {
     Required: __expectBoolean(output.required),
   } as any;
 };
 
-const deserializeAws_restJson1ResponseParameters = (
-  output: any,
-  context: __SerdeContext
-): Record<string, Record<string, string>> => {
+/**
+ * deserializeAws_restJson1ResponseParameters
+ */
+const de_ResponseParameters = (output: any, context: __SerdeContext): Record<string, Record<string, string>> => {
   return Object.entries(output).reduce((acc: Record<string, Record<string, string>>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1IntegrationParameters(value, context);
+    acc[key] = de_IntegrationParameters(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1Route = (output: any, context: __SerdeContext): Route => {
+/**
+ * deserializeAws_restJson1Route
+ */
+const de_Route = (output: any, context: __SerdeContext): Route => {
   return {
     ApiGatewayManaged: __expectBoolean(output.apiGatewayManaged),
     ApiKeyRequired: __expectBoolean(output.apiKeyRequired),
     AuthorizationScopes:
-      output.authorizationScopes != null
-        ? deserializeAws_restJson1AuthorizationScopes(output.authorizationScopes, context)
-        : undefined,
+      output.authorizationScopes != null ? de_AuthorizationScopes(output.authorizationScopes, context) : undefined,
     AuthorizationType: __expectString(output.authorizationType),
     AuthorizerId: __expectString(output.authorizerId),
     ModelSelectionExpression: __expectString(output.modelSelectionExpression),
     OperationName: __expectString(output.operationName),
-    RequestModels:
-      output.requestModels != null ? deserializeAws_restJson1RouteModels(output.requestModels, context) : undefined,
+    RequestModels: output.requestModels != null ? de_RouteModels(output.requestModels, context) : undefined,
     RequestParameters:
-      output.requestParameters != null
-        ? deserializeAws_restJson1RouteParameters(output.requestParameters, context)
-        : undefined,
+      output.requestParameters != null ? de_RouteParameters(output.requestParameters, context) : undefined,
     RouteId: __expectString(output.routeId),
     RouteKey: __expectString(output.routeKey),
     RouteResponseSelectionExpression: __expectString(output.routeResponseSelectionExpression),
@@ -7573,7 +8269,10 @@ const deserializeAws_restJson1Route = (output: any, context: __SerdeContext): Ro
   } as any;
 };
 
-const deserializeAws_restJson1RouteModels = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1RouteModels
+ */
+const de_RouteModels = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7583,34 +8282,37 @@ const deserializeAws_restJson1RouteModels = (output: any, context: __SerdeContex
   }, {});
 };
 
-const deserializeAws_restJson1RouteParameters = (
-  output: any,
-  context: __SerdeContext
-): Record<string, ParameterConstraints> => {
+/**
+ * deserializeAws_restJson1RouteParameters
+ */
+const de_RouteParameters = (output: any, context: __SerdeContext): Record<string, ParameterConstraints> => {
   return Object.entries(output).reduce((acc: Record<string, ParameterConstraints>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1ParameterConstraints(value, context);
+    acc[key] = de_ParameterConstraints(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1RouteResponse = (output: any, context: __SerdeContext): RouteResponse => {
+/**
+ * deserializeAws_restJson1RouteResponse
+ */
+const de_RouteResponse = (output: any, context: __SerdeContext): RouteResponse => {
   return {
     ModelSelectionExpression: __expectString(output.modelSelectionExpression),
-    ResponseModels:
-      output.responseModels != null ? deserializeAws_restJson1RouteModels(output.responseModels, context) : undefined,
+    ResponseModels: output.responseModels != null ? de_RouteModels(output.responseModels, context) : undefined,
     ResponseParameters:
-      output.responseParameters != null
-        ? deserializeAws_restJson1RouteParameters(output.responseParameters, context)
-        : undefined,
+      output.responseParameters != null ? de_RouteParameters(output.responseParameters, context) : undefined,
     RouteResponseId: __expectString(output.routeResponseId),
     RouteResponseKey: __expectString(output.routeResponseKey),
   } as any;
 };
 
-const deserializeAws_restJson1RouteSettings = (output: any, context: __SerdeContext): RouteSettings => {
+/**
+ * deserializeAws_restJson1RouteSettings
+ */
+const de_RouteSettings = (output: any, context: __SerdeContext): RouteSettings => {
   return {
     DataTraceEnabled: __expectBoolean(output.dataTraceEnabled),
     DetailedMetricsEnabled: __expectBoolean(output.detailedMetricsEnabled),
@@ -7620,20 +8322,23 @@ const deserializeAws_restJson1RouteSettings = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_restJson1RouteSettingsMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, RouteSettings> => {
+/**
+ * deserializeAws_restJson1RouteSettingsMap
+ */
+const de_RouteSettingsMap = (output: any, context: __SerdeContext): Record<string, RouteSettings> => {
   return Object.entries(output).reduce((acc: Record<string, RouteSettings>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1RouteSettings(value, context);
+    acc[key] = de_RouteSettings(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1SecurityGroupIdList
+ */
+const de_SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7645,21 +8350,20 @@ const deserializeAws_restJson1SecurityGroupIdList = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): Stage => {
+/**
+ * deserializeAws_restJson1Stage
+ */
+const de_Stage = (output: any, context: __SerdeContext): Stage => {
   return {
     AccessLogSettings:
-      output.accessLogSettings != null
-        ? deserializeAws_restJson1AccessLogSettings(output.accessLogSettings, context)
-        : undefined,
+      output.accessLogSettings != null ? de_AccessLogSettings(output.accessLogSettings, context) : undefined,
     ApiGatewayManaged: __expectBoolean(output.apiGatewayManaged),
     AutoDeploy: __expectBoolean(output.autoDeploy),
     ClientCertificateId: __expectString(output.clientCertificateId),
     CreatedDate:
       output.createdDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdDate)) : undefined,
     DefaultRouteSettings:
-      output.defaultRouteSettings != null
-        ? deserializeAws_restJson1RouteSettings(output.defaultRouteSettings, context)
-        : undefined,
+      output.defaultRouteSettings != null ? de_RouteSettings(output.defaultRouteSettings, context) : undefined,
     DeploymentId: __expectString(output.deploymentId),
     Description: __expectString(output.description),
     LastDeploymentStatusMessage: __expectString(output.lastDeploymentStatusMessage),
@@ -7667,20 +8371,17 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
       output.lastUpdatedDate != null
         ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.lastUpdatedDate))
         : undefined,
-    RouteSettings:
-      output.routeSettings != null
-        ? deserializeAws_restJson1RouteSettingsMap(output.routeSettings, context)
-        : undefined,
+    RouteSettings: output.routeSettings != null ? de_RouteSettingsMap(output.routeSettings, context) : undefined,
     StageName: __expectString(output.stageName),
-    StageVariables:
-      output.stageVariables != null
-        ? deserializeAws_restJson1StageVariablesMap(output.stageVariables, context)
-        : undefined,
-    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    StageVariables: output.stageVariables != null ? de_StageVariablesMap(output.stageVariables, context) : undefined,
+    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1StageVariablesMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1StageVariablesMap
+ */
+const de_StageVariablesMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7690,7 +8391,10 @@ const deserializeAws_restJson1StageVariablesMap = (output: any, context: __Serde
   }, {});
 };
 
-const deserializeAws_restJson1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1SubnetIdList
+ */
+const de_SubnetIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7702,7 +8406,10 @@ const deserializeAws_restJson1SubnetIdList = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1Tags
+ */
+const de_Tags = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7712,7 +8419,10 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
   }, {});
 };
 
-const deserializeAws_restJson1TemplateMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TemplateMap
+ */
+const de_TemplateMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7722,23 +8432,27 @@ const deserializeAws_restJson1TemplateMap = (output: any, context: __SerdeContex
   }, {});
 };
 
-const deserializeAws_restJson1TlsConfig = (output: any, context: __SerdeContext): TlsConfig => {
+/**
+ * deserializeAws_restJson1TlsConfig
+ */
+const de_TlsConfig = (output: any, context: __SerdeContext): TlsConfig => {
   return {
     ServerNameToVerify: __expectString(output.serverNameToVerify),
   } as any;
 };
 
-const deserializeAws_restJson1VpcLink = (output: any, context: __SerdeContext): VpcLink => {
+/**
+ * deserializeAws_restJson1VpcLink
+ */
+const de_VpcLink = (output: any, context: __SerdeContext): VpcLink => {
   return {
     CreatedDate:
       output.createdDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdDate)) : undefined,
     Name: __expectString(output.name),
     SecurityGroupIds:
-      output.securityGroupIds != null
-        ? deserializeAws_restJson1SecurityGroupIdList(output.securityGroupIds, context)
-        : undefined,
-    SubnetIds: output.subnetIds != null ? deserializeAws_restJson1SubnetIdList(output.subnetIds, context) : undefined,
-    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+      output.securityGroupIds != null ? de_SecurityGroupIdList(output.securityGroupIds, context) : undefined,
+    SubnetIds: output.subnetIds != null ? de_SubnetIdList(output.subnetIds, context) : undefined,
+    Tags: output.tags != null ? de_Tags(output.tags, context) : undefined,
     VpcLinkId: __expectString(output.vpcLinkId),
     VpcLinkStatus: __expectString(output.vpcLinkStatus),
     VpcLinkStatusMessage: __expectString(output.vpcLinkStatusMessage),

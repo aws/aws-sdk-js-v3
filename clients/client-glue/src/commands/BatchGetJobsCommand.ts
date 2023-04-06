@@ -16,10 +16,7 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchGetJobsRequest } from "../models/models_0";
 import { BatchGetJobsResponse, BatchGetJobsResponseFilterSensitiveLog } from "../models/models_2";
-import {
-  deserializeAws_json1_1BatchGetJobsCommand,
-  serializeAws_json1_1BatchGetJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetJobsCommand, se_BatchGetJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class BatchGetJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetJobsCommand(input, context);
+    return se_BatchGetJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetJobsCommandOutput> {
-    return deserializeAws_json1_1BatchGetJobsCommand(output, context);
+    return de_BatchGetJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

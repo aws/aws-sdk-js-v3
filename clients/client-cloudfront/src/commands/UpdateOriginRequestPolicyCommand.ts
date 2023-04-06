@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { UpdateOriginRequestPolicyRequest, UpdateOriginRequestPolicyResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlUpdateOriginRequestPolicyCommand,
-  serializeAws_restXmlUpdateOriginRequestPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { de_UpdateOriginRequestPolicyCommand, se_UpdateOriginRequestPolicyCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -213,7 +210,7 @@ export class UpdateOriginRequestPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateOriginRequestPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateOriginRequestPolicyCommand(input, context);
+    return se_UpdateOriginRequestPolicyCommand(input, context);
   }
 
   /**
@@ -223,7 +220,7 @@ export class UpdateOriginRequestPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOriginRequestPolicyCommandOutput> {
-    return deserializeAws_restXmlUpdateOriginRequestPolicyCommand(output, context);
+    return de_UpdateOriginRequestPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

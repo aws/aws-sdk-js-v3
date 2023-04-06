@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { GetArtifactUrlRequest, GetArtifactUrlResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetArtifactUrlCommand,
-  serializeAws_restJson1GetArtifactUrlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetArtifactUrlCommand, se_GetArtifactUrlCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetArtifactUrlCommand extends $Command<
    * @internal
    */
   private serialize(input: GetArtifactUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetArtifactUrlCommand(input, context);
+    return se_GetArtifactUrlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetArtifactUrlCommandOutput> {
-    return deserializeAws_restJson1GetArtifactUrlCommand(output, context);
+    return de_GetArtifactUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

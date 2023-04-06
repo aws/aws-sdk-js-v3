@@ -15,10 +15,7 @@ import {
 
 import { DescribeRuleGroupRequest, DescribeRuleGroupResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DescribeRuleGroupCommand,
-  serializeAws_json1_0DescribeRuleGroupCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeRuleGroupCommand, se_DescribeRuleGroupCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DescribeRuleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeRuleGroupCommand(input, context);
+    return se_DescribeRuleGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRuleGroupCommandOutput> {
-    return deserializeAws_json1_0DescribeRuleGroupCommand(output, context);
+    return de_DescribeRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeRuntimeConfigurationInput, DescribeRuntimeConfigurationOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeRuntimeConfigurationCommand,
-  serializeAws_json1_1DescribeRuntimeConfigurationCommand,
+  de_DescribeRuntimeConfigurationCommand,
+  se_DescribeRuntimeConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRuntimeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRuntimeConfigurationCommand(input, context);
+    return se_DescribeRuntimeConfigurationCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRuntimeConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeRuntimeConfigurationCommand(output, context);
+    return de_DescribeRuntimeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

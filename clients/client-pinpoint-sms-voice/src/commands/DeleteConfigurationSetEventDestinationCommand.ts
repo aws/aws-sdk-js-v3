@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
 import {
-  deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand,
+  de_DeleteConfigurationSetEventDestinationCommand,
+  se_DeleteConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     input: DeleteConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand(input, context);
+    return se_DeleteConfigurationSetEventDestinationCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand(output, context);
+    return de_DeleteConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

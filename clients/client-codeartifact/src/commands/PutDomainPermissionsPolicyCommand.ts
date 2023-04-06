@@ -15,10 +15,7 @@ import {
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { PutDomainPermissionsPolicyRequest, PutDomainPermissionsPolicyResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutDomainPermissionsPolicyCommand,
-  serializeAws_restJson1PutDomainPermissionsPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutDomainPermissionsPolicyCommand, se_PutDomainPermissionsPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -163,7 +160,7 @@ export class PutDomainPermissionsPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutDomainPermissionsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDomainPermissionsPolicyCommand(input, context);
+    return se_PutDomainPermissionsPolicyCommand(input, context);
   }
 
   /**
@@ -173,7 +170,7 @@ export class PutDomainPermissionsPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDomainPermissionsPolicyCommandOutput> {
-    return deserializeAws_restJson1PutDomainPermissionsPolicyCommand(output, context);
+    return de_PutDomainPermissionsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

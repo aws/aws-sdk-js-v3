@@ -15,10 +15,7 @@ import {
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
 import { ListObjectsInput, ListObjectsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListObjectsCommand,
-  serializeAws_restJson1ListObjectsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListObjectsCommand, se_ListObjectsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListObjectsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListObjectsCommand(input, context);
+    return se_ListObjectsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectsCommandOutput> {
-    return deserializeAws_restJson1ListObjectsCommand(output, context);
+    return de_ListObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

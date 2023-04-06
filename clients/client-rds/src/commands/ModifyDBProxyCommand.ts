@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyDBProxyRequest, ModifyDBProxyResponse } from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBProxyCommand,
-  serializeAws_queryModifyDBProxyCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBProxyCommand, se_ModifyDBProxyCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -145,14 +142,14 @@ export class ModifyDBProxyCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBProxyCommand(input, context);
+    return se_ModifyDBProxyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBProxyCommandOutput> {
-    return deserializeAws_queryModifyDBProxyCommand(output, context);
+    return de_ModifyDBProxyCommand(output, context);
   }
 
   // Start section: command_body_extra

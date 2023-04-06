@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetTagValuesInput, GetTagValuesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTagValuesCommand,
-  serializeAws_json1_1GetTagValuesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetTagValuesCommand, se_GetTagValuesCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
@@ -164,14 +161,14 @@ export class GetTagValuesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTagValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTagValuesCommand(input, context);
+    return se_GetTagValuesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagValuesCommandOutput> {
-    return deserializeAws_json1_1GetTagValuesCommand(output, context);
+    return de_GetTagValuesCommand(output, context);
   }
 
   // Start section: command_body_extra

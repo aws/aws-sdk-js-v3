@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { DeleteLayerVersionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLayerVersionCommand,
-  serializeAws_restJson1DeleteLayerVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLayerVersionCommand, se_DeleteLayerVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteLayerVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLayerVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLayerVersionCommand(input, context);
+    return se_DeleteLayerVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLayerVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteLayerVersionCommand(output, context);
+    return de_DeleteLayerVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

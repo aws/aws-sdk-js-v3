@@ -19,8 +19,8 @@ import {
   DeleteLaunchConfigurationTemplateResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommand,
-  serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand,
+  de_DeleteLaunchConfigurationTemplateCommand,
+  se_DeleteLaunchConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -137,7 +137,7 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     input: DeleteLaunchConfigurationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand(input, context);
+    return se_DeleteLaunchConfigurationTemplateCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLaunchConfigurationTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommand(output, context);
+    return de_DeleteLaunchConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

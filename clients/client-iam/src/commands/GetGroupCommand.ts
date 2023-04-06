@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetGroupRequest, GetGroupResponse } from "../models/models_0";
-import { deserializeAws_queryGetGroupCommand, serializeAws_queryGetGroupCommand } from "../protocols/Aws_query";
+import { de_GetGroupCommand, se_GetGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -122,14 +122,14 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
    * @internal
    */
   private serialize(input: GetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetGroupCommand(input, context);
+    return se_GetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupCommandOutput> {
-    return deserializeAws_queryGetGroupCommand(output, context);
+    return de_GetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

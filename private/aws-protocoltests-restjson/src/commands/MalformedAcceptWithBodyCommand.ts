@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreetingStruct } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedAcceptWithBodyCommand,
-  serializeAws_restJson1MalformedAcceptWithBodyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedAcceptWithBodyCommand, se_MalformedAcceptWithBodyCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class MalformedAcceptWithBodyCommand extends $Command<
    * @internal
    */
   private serialize(input: MalformedAcceptWithBodyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedAcceptWithBodyCommand(input, context);
+    return se_MalformedAcceptWithBodyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedAcceptWithBodyCommandOutput> {
-    return deserializeAws_restJson1MalformedAcceptWithBodyCommand(output, context);
+    return de_MalformedAcceptWithBodyCommand(output, context);
   }
 
   // Start section: command_body_extra

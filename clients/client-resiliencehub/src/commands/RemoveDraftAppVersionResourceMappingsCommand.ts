@@ -18,8 +18,8 @@ import {
   RemoveDraftAppVersionResourceMappingsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand,
-  serializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand,
+  de_RemoveDraftAppVersionResourceMappingsCommand,
+  se_RemoveDraftAppVersionResourceMappingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -171,7 +171,7 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
     input: RemoveDraftAppVersionResourceMappingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand(input, context);
+    return se_RemoveDraftAppVersionResourceMappingsCommand(input, context);
   }
 
   /**
@@ -181,7 +181,7 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveDraftAppVersionResourceMappingsCommandOutput> {
-    return deserializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand(output, context);
+    return de_RemoveDraftAppVersionResourceMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

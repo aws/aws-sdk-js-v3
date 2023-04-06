@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HttpChecksumRequiredInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpChecksumRequiredCommand,
-  serializeAws_restJson1HttpChecksumRequiredCommand,
-} from "../protocols/Aws_restJson1";
+import { de_HttpChecksumRequiredCommand, se_HttpChecksumRequiredCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -109,14 +106,14 @@ export class HttpChecksumRequiredCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpChecksumRequiredCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpChecksumRequiredCommand(input, context);
+    return se_HttpChecksumRequiredCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpChecksumRequiredCommandOutput> {
-    return deserializeAws_restJson1HttpChecksumRequiredCommand(output, context);
+    return de_HttpChecksumRequiredCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetLendingAnalysisSummaryRequest, GetLendingAnalysisSummaryResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLendingAnalysisSummaryCommand,
-  serializeAws_json1_1GetLendingAnalysisSummaryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetLendingAnalysisSummaryCommand, se_GetLendingAnalysisSummaryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -165,7 +162,7 @@ export class GetLendingAnalysisSummaryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLendingAnalysisSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLendingAnalysisSummaryCommand(input, context);
+    return se_GetLendingAnalysisSummaryCommand(input, context);
   }
 
   /**
@@ -175,7 +172,7 @@ export class GetLendingAnalysisSummaryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLendingAnalysisSummaryCommandOutput> {
-    return deserializeAws_json1_1GetLendingAnalysisSummaryCommand(output, context);
+    return de_GetLendingAnalysisSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

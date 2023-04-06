@@ -23,10 +23,7 @@ import {
   ChangePasswordRequestFilterSensitiveLog,
   ChangePasswordResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ChangePasswordCommand,
-  serializeAws_json1_1ChangePasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ChangePasswordCommand, se_ChangePasswordCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class ChangePasswordCommand extends $Command<
    * @internal
    */
   private serialize(input: ChangePasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ChangePasswordCommand(input, context);
+    return se_ChangePasswordCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangePasswordCommandOutput> {
-    return deserializeAws_json1_1ChangePasswordCommand(output, context);
+    return de_ChangePasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

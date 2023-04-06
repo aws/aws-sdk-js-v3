@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { UnarchiveFindingsRequest, UnarchiveFindingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UnarchiveFindingsCommand,
-  serializeAws_restJson1UnarchiveFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UnarchiveFindingsCommand, se_UnarchiveFindingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class UnarchiveFindingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UnarchiveFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnarchiveFindingsCommand(input, context);
+    return se_UnarchiveFindingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnarchiveFindingsCommandOutput> {
-    return deserializeAws_restJson1UnarchiveFindingsCommand(output, context);
+    return de_UnarchiveFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

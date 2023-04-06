@@ -19,10 +19,7 @@ import {
   GetInstanceAccessOutput,
   GetInstanceAccessOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetInstanceAccessCommand,
-  serializeAws_json1_1GetInstanceAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetInstanceAccessCommand, se_GetInstanceAccessCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class GetInstanceAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInstanceAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceAccessCommand(input, context);
+    return se_GetInstanceAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceAccessCommandOutput> {
-    return deserializeAws_json1_1GetInstanceAccessCommand(output, context);
+    return de_GetInstanceAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

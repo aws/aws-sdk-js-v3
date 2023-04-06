@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { CreateProfileJobRequest, CreateProfileJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProfileJobCommand,
-  serializeAws_restJson1CreateProfileJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateProfileJobCommand, se_CreateProfileJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -217,14 +214,14 @@ export class CreateProfileJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateProfileJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProfileJobCommand(input, context);
+    return se_CreateProfileJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProfileJobCommandOutput> {
-    return deserializeAws_restJson1CreateProfileJobCommand(output, context);
+    return de_CreateProfileJobCommand(output, context);
   }
 
   // Start section: command_body_extra

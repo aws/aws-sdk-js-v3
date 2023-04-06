@@ -19,8 +19,8 @@ import {
   GetSavingsPlansPurchaseRecommendationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand,
-  serializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand,
+  de_GetSavingsPlansPurchaseRecommendationCommand,
+  se_GetSavingsPlansPurchaseRecommendationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -211,7 +211,7 @@ export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
     input: GetSavingsPlansPurchaseRecommendationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand(input, context);
+    return se_GetSavingsPlansPurchaseRecommendationCommand(input, context);
   }
 
   /**
@@ -221,7 +221,7 @@ export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> {
-    return deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand(output, context);
+    return de_GetSavingsPlansPurchaseRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

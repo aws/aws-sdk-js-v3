@@ -23,8 +23,8 @@ import {
   CancelReplicationTaskAssessmentRunResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CancelReplicationTaskAssessmentRunCommand,
-  serializeAws_json1_1CancelReplicationTaskAssessmentRunCommand,
+  de_CancelReplicationTaskAssessmentRunCommand,
+  se_CancelReplicationTaskAssessmentRunCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
     input: CancelReplicationTaskAssessmentRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelReplicationTaskAssessmentRunCommand(input, context);
+    return se_CancelReplicationTaskAssessmentRunCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelReplicationTaskAssessmentRunCommandOutput> {
-    return deserializeAws_json1_1CancelReplicationTaskAssessmentRunCommand(output, context);
+    return de_CancelReplicationTaskAssessmentRunCommand(output, context);
   }
 
   // Start section: command_body_extra

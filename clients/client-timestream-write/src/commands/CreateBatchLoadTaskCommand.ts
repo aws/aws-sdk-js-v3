@@ -19,10 +19,7 @@ import {
   CreateBatchLoadTaskRequestFilterSensitiveLog,
   CreateBatchLoadTaskResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateBatchLoadTaskCommand,
-  serializeAws_json1_0CreateBatchLoadTaskCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateBatchLoadTaskCommand, se_CreateBatchLoadTaskCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -232,14 +229,14 @@ export class CreateBatchLoadTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBatchLoadTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateBatchLoadTaskCommand(input, context);
+    return se_CreateBatchLoadTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBatchLoadTaskCommandOutput> {
-    return deserializeAws_json1_0CreateBatchLoadTaskCommand(output, context);
+    return de_CreateBatchLoadTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

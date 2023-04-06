@@ -19,8 +19,8 @@ import {
   ReplaceIamInstanceProfileAssociationResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommand,
-  serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand,
+  de_ReplaceIamInstanceProfileAssociationCommand,
+  se_ReplaceIamInstanceProfileAssociationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -136,7 +136,7 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     input: ReplaceIamInstanceProfileAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand(input, context);
+    return se_ReplaceIamInstanceProfileAssociationCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceIamInstanceProfileAssociationCommandOutput> {
-    return deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommand(output, context);
+    return de_ReplaceIamInstanceProfileAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

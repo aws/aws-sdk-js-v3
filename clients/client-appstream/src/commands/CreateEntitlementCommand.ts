@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { CreateEntitlementRequest, CreateEntitlementResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEntitlementCommand,
-  serializeAws_json1_1CreateEntitlementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateEntitlementCommand, se_CreateEntitlementCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateEntitlementCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEntitlementCommand(input, context);
+    return se_CreateEntitlementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEntitlementCommandOutput> {
-    return deserializeAws_json1_1CreateEntitlementCommand(output, context);
+    return de_CreateEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonEnumsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1JsonEnumsCommand,
-  serializeAws_restJson1JsonEnumsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_JsonEnumsCommand, se_JsonEnumsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -118,14 +115,14 @@ export class JsonEnumsCommand extends $Command<
    * @internal
    */
   private serialize(input: JsonEnumsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1JsonEnumsCommand(input, context);
+    return se_JsonEnumsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonEnumsCommandOutput> {
-    return deserializeAws_restJson1JsonEnumsCommand(output, context);
+    return de_JsonEnumsCommand(output, context);
   }
 
   // Start section: command_body_extra

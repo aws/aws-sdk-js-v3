@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DeleteFleetLocationsInput, DeleteFleetLocationsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteFleetLocationsCommand,
-  serializeAws_json1_1DeleteFleetLocationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFleetLocationsCommand, se_DeleteFleetLocationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class DeleteFleetLocationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFleetLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFleetLocationsCommand(input, context);
+    return se_DeleteFleetLocationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetLocationsCommandOutput> {
-    return deserializeAws_json1_1DeleteFleetLocationsCommand(output, context);
+    return de_DeleteFleetLocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisassociateIamInstanceProfileRequest, DisassociateIamInstanceProfileResult } from "../models/models_5";
 import {
-  deserializeAws_ec2DisassociateIamInstanceProfileCommand,
-  serializeAws_ec2DisassociateIamInstanceProfileCommand,
+  de_DisassociateIamInstanceProfileCommand,
+  se_DisassociateIamInstanceProfileCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -151,7 +151,7 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     input: DisassociateIamInstanceProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateIamInstanceProfileCommand(input, context);
+    return se_DisassociateIamInstanceProfileCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateIamInstanceProfileCommandOutput> {
-    return deserializeAws_ec2DisassociateIamInstanceProfileCommand(output, context);
+    return de_DisassociateIamInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

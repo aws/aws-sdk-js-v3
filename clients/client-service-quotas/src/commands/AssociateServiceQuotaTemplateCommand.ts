@@ -15,8 +15,8 @@ import {
 
 import { AssociateServiceQuotaTemplateRequest, AssociateServiceQuotaTemplateResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateServiceQuotaTemplateCommand,
-  serializeAws_json1_1AssociateServiceQuotaTemplateCommand,
+  de_AssociateServiceQuotaTemplateCommand,
+  se_AssociateServiceQuotaTemplateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
@@ -149,7 +149,7 @@ export class AssociateServiceQuotaTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateServiceQuotaTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateServiceQuotaTemplateCommand(input, context);
+    return se_AssociateServiceQuotaTemplateCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class AssociateServiceQuotaTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateServiceQuotaTemplateCommandOutput> {
-    return deserializeAws_json1_1AssociateServiceQuotaTemplateCommand(output, context);
+    return de_AssociateServiceQuotaTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

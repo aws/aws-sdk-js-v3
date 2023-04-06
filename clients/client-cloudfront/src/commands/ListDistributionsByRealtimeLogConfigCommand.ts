@@ -20,8 +20,8 @@ import {
   ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommand,
-  serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand,
+  de_ListDistributionsByRealtimeLogConfigCommand,
+  se_ListDistributionsByRealtimeLogConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -144,7 +144,7 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
     input: ListDistributionsByRealtimeLogConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand(input, context);
+    return se_ListDistributionsByRealtimeLogConfigCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByRealtimeLogConfigCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommand(output, context);
+    return de_ListDistributionsByRealtimeLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

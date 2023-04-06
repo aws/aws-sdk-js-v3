@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { RestoreSnapshotFromRecycleBinRequest, RestoreSnapshotFromRecycleBinResult } from "../models/models_6";
-import {
-  deserializeAws_ec2RestoreSnapshotFromRecycleBinCommand,
-  serializeAws_ec2RestoreSnapshotFromRecycleBinCommand,
-} from "../protocols/Aws_ec2";
+import { de_RestoreSnapshotFromRecycleBinCommand, se_RestoreSnapshotFromRecycleBinCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class RestoreSnapshotFromRecycleBinCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreSnapshotFromRecycleBinCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RestoreSnapshotFromRecycleBinCommand(input, context);
+    return se_RestoreSnapshotFromRecycleBinCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class RestoreSnapshotFromRecycleBinCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreSnapshotFromRecycleBinCommandOutput> {
-    return deserializeAws_ec2RestoreSnapshotFromRecycleBinCommand(output, context);
+    return de_RestoreSnapshotFromRecycleBinCommand(output, context);
   }
 
   // Start section: command_body_extra

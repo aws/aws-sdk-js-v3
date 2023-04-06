@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateDeviceFleetRequest } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateDeviceFleetCommand,
-  serializeAws_json1_1UpdateDeviceFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDeviceFleetCommand, se_UpdateDeviceFleetCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -132,14 +129,14 @@ export class UpdateDeviceFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDeviceFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDeviceFleetCommand(input, context);
+    return se_UpdateDeviceFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceFleetCommandOutput> {
-    return deserializeAws_json1_1UpdateDeviceFleetCommand(output, context);
+    return de_UpdateDeviceFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

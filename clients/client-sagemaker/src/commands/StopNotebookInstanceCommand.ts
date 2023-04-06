@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopNotebookInstanceInput } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopNotebookInstanceCommand,
-  serializeAws_json1_1StopNotebookInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopNotebookInstanceCommand, se_StopNotebookInstanceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -128,14 +125,14 @@ export class StopNotebookInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: StopNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopNotebookInstanceCommand(input, context);
+    return se_StopNotebookInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopNotebookInstanceCommandOutput> {
-    return deserializeAws_json1_1StopNotebookInstanceCommand(output, context);
+    return de_StopNotebookInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

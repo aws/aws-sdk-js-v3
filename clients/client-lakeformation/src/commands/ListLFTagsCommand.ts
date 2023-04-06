@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { ListLFTagsRequest, ListLFTagsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLFTagsCommand,
-  serializeAws_restJson1ListLFTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLFTagsCommand, se_ListLFTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListLFTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLFTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLFTagsCommand(input, context);
+    return se_ListLFTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLFTagsCommandOutput> {
-    return deserializeAws_restJson1ListLFTagsCommand(output, context);
+    return de_ListLFTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

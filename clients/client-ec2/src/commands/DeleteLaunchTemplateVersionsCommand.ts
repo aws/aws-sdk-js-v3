@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteLaunchTemplateVersionsRequest, DeleteLaunchTemplateVersionsResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteLaunchTemplateVersionsCommand,
-  serializeAws_ec2DeleteLaunchTemplateVersionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteLaunchTemplateVersionsCommand, se_DeleteLaunchTemplateVersionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -156,7 +153,7 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLaunchTemplateVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteLaunchTemplateVersionsCommand(input, context);
+    return se_DeleteLaunchTemplateVersionsCommand(input, context);
   }
 
   /**
@@ -166,7 +163,7 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLaunchTemplateVersionsCommandOutput> {
-    return deserializeAws_ec2DeleteLaunchTemplateVersionsCommand(output, context);
+    return de_DeleteLaunchTemplateVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

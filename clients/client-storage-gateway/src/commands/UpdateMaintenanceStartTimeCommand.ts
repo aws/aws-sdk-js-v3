@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateMaintenanceStartTimeInput, UpdateMaintenanceStartTimeOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateMaintenanceStartTimeCommand,
-  serializeAws_json1_1UpdateMaintenanceStartTimeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateMaintenanceStartTimeCommand, se_UpdateMaintenanceStartTimeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -152,7 +149,7 @@ export class UpdateMaintenanceStartTimeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMaintenanceStartTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMaintenanceStartTimeCommand(input, context);
+    return se_UpdateMaintenanceStartTimeCommand(input, context);
   }
 
   /**
@@ -162,7 +159,7 @@ export class UpdateMaintenanceStartTimeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMaintenanceStartTimeCommandOutput> {
-    return deserializeAws_json1_1UpdateMaintenanceStartTimeCommand(output, context);
+    return de_UpdateMaintenanceStartTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

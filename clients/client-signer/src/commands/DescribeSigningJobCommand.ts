@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSigningJobRequest, DescribeSigningJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSigningJobCommand,
-  serializeAws_restJson1DescribeSigningJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeSigningJobCommand, se_DescribeSigningJobCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
@@ -135,14 +132,14 @@ export class DescribeSigningJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSigningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSigningJobCommand(input, context);
+    return se_DescribeSigningJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSigningJobCommandOutput> {
-    return deserializeAws_restJson1DescribeSigningJobCommand(output, context);
+    return de_DescribeSigningJobCommand(output, context);
   }
 
   // Start section: command_body_extra

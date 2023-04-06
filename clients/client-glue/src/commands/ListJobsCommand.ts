@@ -15,7 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { ListJobsRequest, ListJobsResponse } from "../models/models_2";
-import { deserializeAws_json1_1ListJobsCommand, serializeAws_json1_1ListJobsCommand } from "../protocols/Aws_json1_1";
+import { de_ListJobsCommand, se_ListJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +130,14 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
    * @internal
    */
   private serialize(input: ListJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListJobsCommand(input, context);
+    return se_ListJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobsCommandOutput> {
-    return deserializeAws_json1_1ListJobsCommand(output, context);
+    return de_ListJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

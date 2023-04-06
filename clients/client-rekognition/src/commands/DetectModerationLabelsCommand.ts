@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectModerationLabelsRequest, DetectModerationLabelsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectModerationLabelsCommand,
-  serializeAws_json1_1DetectModerationLabelsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectModerationLabelsCommand, se_DetectModerationLabelsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -181,14 +178,14 @@ export class DetectModerationLabelsCommand extends $Command<
    * @internal
    */
   private serialize(input: DetectModerationLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectModerationLabelsCommand(input, context);
+    return se_DetectModerationLabelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectModerationLabelsCommandOutput> {
-    return deserializeAws_json1_1DetectModerationLabelsCommand(output, context);
+    return de_DetectModerationLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

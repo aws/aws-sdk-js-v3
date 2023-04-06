@@ -15,7 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SendMessageRequest, SendMessageResult } from "../models/models_0";
-import { deserializeAws_querySendMessageCommand, serializeAws_querySendMessageCommand } from "../protocols/Aws_query";
+import { de_SendMessageCommand, se_SendMessageCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -160,14 +160,14 @@ export class SendMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: SendMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendMessageCommand(input, context);
+    return se_SendMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendMessageCommandOutput> {
-    return deserializeAws_querySendMessageCommand(output, context);
+    return de_SendMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

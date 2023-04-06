@@ -16,8 +16,8 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { RegisterOrganizationAdminAccountRequest, RegisterOrganizationAdminAccountResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1RegisterOrganizationAdminAccountCommand,
-  serializeAws_restJson1RegisterOrganizationAdminAccountCommand,
+  de_RegisterOrganizationAdminAccountCommand,
+  se_RegisterOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class RegisterOrganizationAdminAccountCommand extends $Command<
     input: RegisterOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterOrganizationAdminAccountCommand(input, context);
+    return se_RegisterOrganizationAdminAccountCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class RegisterOrganizationAdminAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_restJson1RegisterOrganizationAdminAccountCommand(output, context);
+    return de_RegisterOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

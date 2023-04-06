@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListSecurityProfilePermissionsRequest, ListSecurityProfilePermissionsResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListSecurityProfilePermissionsCommand,
-  serializeAws_restJson1ListSecurityProfilePermissionsCommand,
+  de_ListSecurityProfilePermissionsCommand,
+  se_ListSecurityProfilePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class ListSecurityProfilePermissionsCommand extends $Command<
     input: ListSecurityProfilePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSecurityProfilePermissionsCommand(input, context);
+    return se_ListSecurityProfilePermissionsCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class ListSecurityProfilePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSecurityProfilePermissionsCommandOutput> {
-    return deserializeAws_restJson1ListSecurityProfilePermissionsCommand(output, context);
+    return de_ListSecurityProfilePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

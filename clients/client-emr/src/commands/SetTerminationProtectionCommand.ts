@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { SetTerminationProtectionInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetTerminationProtectionCommand,
-  serializeAws_json1_1SetTerminationProtectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetTerminationProtectionCommand, se_SetTerminationProtectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class SetTerminationProtectionCommand extends $Command<
    * @internal
    */
   private serialize(input: SetTerminationProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetTerminationProtectionCommand(input, context);
+    return se_SetTerminationProtectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTerminationProtectionCommandOutput> {
-    return deserializeAws_json1_1SetTerminationProtectionCommand(output, context);
+    return de_SetTerminationProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

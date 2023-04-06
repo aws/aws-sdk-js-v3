@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { UpdatePartitionRequest, UpdatePartitionResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdatePartitionCommand,
-  serializeAws_json1_1UpdatePartitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePartitionCommand, se_UpdatePartitionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -206,14 +203,14 @@ export class UpdatePartitionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePartitionCommand(input, context);
+    return se_UpdatePartitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePartitionCommandOutput> {
-    return deserializeAws_json1_1UpdatePartitionCommand(output, context);
+    return de_UpdatePartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

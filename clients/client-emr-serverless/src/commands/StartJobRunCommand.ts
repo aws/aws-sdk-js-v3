@@ -15,10 +15,7 @@ import {
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { StartJobRunRequest, StartJobRunRequestFilterSensitiveLog, StartJobRunResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartJobRunCommand,
-  serializeAws_restJson1StartJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartJobRunCommand, se_StartJobRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class StartJobRunCommand extends $Command<
    * @internal
    */
   private serialize(input: StartJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartJobRunCommand(input, context);
+    return se_StartJobRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartJobRunCommandOutput> {
-    return deserializeAws_restJson1StartJobRunCommand(output, context);
+    return de_StartJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

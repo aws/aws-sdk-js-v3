@@ -16,10 +16,7 @@ import {
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { DescribeIdentityInput, IdentityDescription } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeIdentityCommand,
-  serializeAws_json1_1DescribeIdentityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeIdentityCommand, se_DescribeIdentityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeIdentityCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeIdentityCommand(input, context);
+    return se_DescribeIdentityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIdentityCommandOutput> {
-    return deserializeAws_json1_1DescribeIdentityCommand(output, context);
+    return de_DescribeIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

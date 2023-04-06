@@ -15,10 +15,7 @@ import {
 
 import { CreateConnectPeerRequest, CreateConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1CreateConnectPeerCommand,
-  serializeAws_restJson1CreateConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateConnectPeerCommand, se_CreateConnectPeerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class CreateConnectPeerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConnectPeerCommand(input, context);
+    return se_CreateConnectPeerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectPeerCommandOutput> {
-    return deserializeAws_restJson1CreateConnectPeerCommand(output, context);
+    return de_CreateConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { UpdateLedgerPermissionsModeRequest, UpdateLedgerPermissionsModeResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateLedgerPermissionsModeCommand,
-  serializeAws_restJson1UpdateLedgerPermissionsModeCommand,
+  de_UpdateLedgerPermissionsModeCommand,
+  se_UpdateLedgerPermissionsModeCommand,
 } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
@@ -135,7 +135,7 @@ export class UpdateLedgerPermissionsModeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLedgerPermissionsModeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLedgerPermissionsModeCommand(input, context);
+    return se_UpdateLedgerPermissionsModeCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class UpdateLedgerPermissionsModeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLedgerPermissionsModeCommandOutput> {
-    return deserializeAws_restJson1UpdateLedgerPermissionsModeCommand(output, context);
+    return de_UpdateLedgerPermissionsModeCommand(output, context);
   }
 
   // Start section: command_body_extra

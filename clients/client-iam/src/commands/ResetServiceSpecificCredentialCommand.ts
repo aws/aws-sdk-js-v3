@@ -20,8 +20,8 @@ import {
   ResetServiceSpecificCredentialResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryResetServiceSpecificCredentialCommand,
-  serializeAws_queryResetServiceSpecificCredentialCommand,
+  de_ResetServiceSpecificCredentialCommand,
+  se_ResetServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -137,7 +137,7 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     input: ResetServiceSpecificCredentialCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryResetServiceSpecificCredentialCommand(input, context);
+    return se_ResetServiceSpecificCredentialCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetServiceSpecificCredentialCommandOutput> {
-    return deserializeAws_queryResetServiceSpecificCredentialCommand(output, context);
+    return de_ResetServiceSpecificCredentialCommand(output, context);
   }
 
   // Start section: command_body_extra

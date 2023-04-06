@@ -20,8 +20,8 @@ import {
   UpdateMaintenanceWindowTargetResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1UpdateMaintenanceWindowTargetCommand,
-  serializeAws_json1_1UpdateMaintenanceWindowTargetCommand,
+  de_UpdateMaintenanceWindowTargetCommand,
+  se_UpdateMaintenanceWindowTargetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -174,7 +174,7 @@ export class UpdateMaintenanceWindowTargetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMaintenanceWindowTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMaintenanceWindowTargetCommand(input, context);
+    return se_UpdateMaintenanceWindowTargetCommand(input, context);
   }
 
   /**
@@ -184,7 +184,7 @@ export class UpdateMaintenanceWindowTargetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateMaintenanceWindowTargetCommandOutput> {
-    return deserializeAws_json1_1UpdateMaintenanceWindowTargetCommand(output, context);
+    return de_UpdateMaintenanceWindowTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

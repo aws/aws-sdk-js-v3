@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelRotateSecretRequest, CancelRotateSecretResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelRotateSecretCommand,
-  serializeAws_json1_1CancelRotateSecretCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelRotateSecretCommand, se_CancelRotateSecretCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -182,14 +179,14 @@ export class CancelRotateSecretCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelRotateSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelRotateSecretCommand(input, context);
+    return se_CancelRotateSecretCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelRotateSecretCommandOutput> {
-    return deserializeAws_json1_1CancelRotateSecretCommand(output, context);
+    return de_CancelRotateSecretCommand(output, context);
   }
 
   // Start section: command_body_extra

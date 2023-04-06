@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { UpdateRegistryInput, UpdateRegistryResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateRegistryCommand,
-  serializeAws_json1_1UpdateRegistryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRegistryCommand, se_UpdateRegistryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UpdateRegistryCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRegistryCommand(input, context);
+    return se_UpdateRegistryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegistryCommandOutput> {
-    return deserializeAws_json1_1UpdateRegistryCommand(output, context);
+    return de_UpdateRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

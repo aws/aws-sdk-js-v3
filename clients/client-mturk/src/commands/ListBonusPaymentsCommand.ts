@@ -15,10 +15,7 @@ import {
 
 import { ListBonusPaymentsRequest, ListBonusPaymentsResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1ListBonusPaymentsCommand,
-  serializeAws_json1_1ListBonusPaymentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListBonusPaymentsCommand, se_ListBonusPaymentsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListBonusPaymentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBonusPaymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBonusPaymentsCommand(input, context);
+    return se_ListBonusPaymentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBonusPaymentsCommandOutput> {
-    return deserializeAws_json1_1ListBonusPaymentsCommand(output, context);
+    return de_ListBonusPaymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

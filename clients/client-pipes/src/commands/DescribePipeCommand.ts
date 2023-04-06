@@ -15,10 +15,7 @@ import {
 
 import { DescribePipeRequest, DescribePipeResponse, DescribePipeResponseFilterSensitiveLog } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import {
-  deserializeAws_restJson1DescribePipeCommand,
-  serializeAws_restJson1DescribePipeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribePipeCommand, se_DescribePipeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DescribePipeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePipeCommand(input, context);
+    return se_DescribePipeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePipeCommandOutput> {
-    return deserializeAws_restJson1DescribePipeCommand(output, context);
+    return de_DescribePipeCommand(output, context);
   }
 
   // Start section: command_body_extra

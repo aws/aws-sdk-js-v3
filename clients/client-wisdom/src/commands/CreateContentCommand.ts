@@ -18,10 +18,7 @@ import {
   CreateContentResponse,
   CreateContentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateContentCommand,
-  serializeAws_restJson1CreateContentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateContentCommand, se_CreateContentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -153,14 +150,14 @@ export class CreateContentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateContentCommand(input, context);
+    return se_CreateContentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContentCommandOutput> {
-    return deserializeAws_restJson1CreateContentCommand(output, context);
+    return de_CreateContentCommand(output, context);
   }
 
   // Start section: command_body_extra

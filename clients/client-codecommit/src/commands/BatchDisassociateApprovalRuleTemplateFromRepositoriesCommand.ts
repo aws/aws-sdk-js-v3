@@ -19,8 +19,8 @@ import {
   BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand,
-  serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand,
+  de_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand,
+  se_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -172,7 +172,7 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
     input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(input, context);
+    return se_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(input, context);
   }
 
   /**
@@ -182,7 +182,7 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> {
-    return deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(output, context);
+    return de_BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

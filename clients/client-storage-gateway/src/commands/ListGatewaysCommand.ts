@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListGatewaysInput, ListGatewaysOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGatewaysCommand,
-  serializeAws_json1_1ListGatewaysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListGatewaysCommand, se_ListGatewaysCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -162,14 +159,14 @@ export class ListGatewaysCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGatewaysCommand(input, context);
+    return se_ListGatewaysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGatewaysCommandOutput> {
-    return deserializeAws_json1_1ListGatewaysCommand(output, context);
+    return de_ListGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

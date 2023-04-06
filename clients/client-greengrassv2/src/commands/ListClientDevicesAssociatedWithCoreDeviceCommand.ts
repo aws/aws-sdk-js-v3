@@ -19,8 +19,8 @@ import {
   ListClientDevicesAssociatedWithCoreDeviceResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommand,
-  serializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommand,
+  de_ListClientDevicesAssociatedWithCoreDeviceCommand,
+  se_ListClientDevicesAssociatedWithCoreDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -155,7 +155,7 @@ export class ListClientDevicesAssociatedWithCoreDeviceCommand extends $Command<
     input: ListClientDevicesAssociatedWithCoreDeviceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommand(input, context);
+    return se_ListClientDevicesAssociatedWithCoreDeviceCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class ListClientDevicesAssociatedWithCoreDeviceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListClientDevicesAssociatedWithCoreDeviceCommandOutput> {
-    return deserializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommand(output, context);
+    return de_ListClientDevicesAssociatedWithCoreDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

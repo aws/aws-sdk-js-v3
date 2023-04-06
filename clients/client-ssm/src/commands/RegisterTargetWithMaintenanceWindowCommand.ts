@@ -19,8 +19,8 @@ import {
   RegisterTargetWithMaintenanceWindowResult,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand,
-  serializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand,
+  de_RegisterTargetWithMaintenanceWindowCommand,
+  se_RegisterTargetWithMaintenanceWindowCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -161,7 +161,7 @@ export class RegisterTargetWithMaintenanceWindowCommand extends $Command<
     input: RegisterTargetWithMaintenanceWindowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand(input, context);
+    return se_RegisterTargetWithMaintenanceWindowCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class RegisterTargetWithMaintenanceWindowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterTargetWithMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand(output, context);
+    return de_RegisterTargetWithMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

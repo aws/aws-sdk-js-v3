@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { StartQueryRequest, StartQueryResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartQueryCommand,
-  serializeAws_json1_1StartQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartQueryCommand, se_StartQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class StartQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: StartQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartQueryCommand(input, context);
+    return se_StartQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartQueryCommandOutput> {
-    return deserializeAws_json1_1StartQueryCommand(output, context);
+    return de_StartQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

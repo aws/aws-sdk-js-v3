@@ -19,10 +19,7 @@ import {
   CreateWhatIfForecastExportRequestFilterSensitiveLog,
   CreateWhatIfForecastExportResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWhatIfForecastExportCommand,
-  serializeAws_json1_1CreateWhatIfForecastExportCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWhatIfForecastExportCommand, se_CreateWhatIfForecastExportCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -174,7 +171,7 @@ export class CreateWhatIfForecastExportCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWhatIfForecastExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWhatIfForecastExportCommand(input, context);
+    return se_CreateWhatIfForecastExportCommand(input, context);
   }
 
   /**
@@ -184,7 +181,7 @@ export class CreateWhatIfForecastExportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateWhatIfForecastExportCommandOutput> {
-    return deserializeAws_json1_1CreateWhatIfForecastExportCommand(output, context);
+    return de_CreateWhatIfForecastExportCommand(output, context);
   }
 
   // Start section: command_body_extra

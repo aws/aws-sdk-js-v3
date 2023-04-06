@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { CreateDiskSnapshotRequest, CreateDiskSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDiskSnapshotCommand,
-  serializeAws_json1_1CreateDiskSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDiskSnapshotCommand, se_CreateDiskSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -176,14 +173,14 @@ export class CreateDiskSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDiskSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDiskSnapshotCommand(input, context);
+    return se_CreateDiskSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDiskSnapshotCommandOutput> {
-    return deserializeAws_json1_1CreateDiskSnapshotCommand(output, context);
+    return de_CreateDiskSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { DisassociateProductFromPortfolioInput, DisassociateProductFromPortfolioOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateProductFromPortfolioCommand,
-  serializeAws_json1_1DisassociateProductFromPortfolioCommand,
+  de_DisassociateProductFromPortfolioCommand,
+  se_DisassociateProductFromPortfolioCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -137,7 +137,7 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
     input: DisassociateProductFromPortfolioCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateProductFromPortfolioCommand(input, context);
+    return se_DisassociateProductFromPortfolioCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateProductFromPortfolioCommandOutput> {
-    return deserializeAws_json1_1DisassociateProductFromPortfolioCommand(output, context);
+    return de_DisassociateProductFromPortfolioCommand(output, context);
   }
 
   // Start section: command_body_extra

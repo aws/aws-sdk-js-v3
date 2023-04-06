@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { RemoveListenerCertificatesInput, RemoveListenerCertificatesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryRemoveListenerCertificatesCommand,
-  serializeAws_queryRemoveListenerCertificatesCommand,
-} from "../protocols/Aws_query";
+import { de_RemoveListenerCertificatesCommand, se_RemoveListenerCertificatesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class RemoveListenerCertificatesCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveListenerCertificatesCommand(input, context);
+    return se_RemoveListenerCertificatesCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class RemoveListenerCertificatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveListenerCertificatesCommandOutput> {
-    return deserializeAws_queryRemoveListenerCertificatesCommand(output, context);
+    return de_RemoveListenerCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

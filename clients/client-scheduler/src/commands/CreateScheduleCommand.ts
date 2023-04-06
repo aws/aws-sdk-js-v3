@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateScheduleInput, CreateScheduleOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateScheduleCommand,
-  serializeAws_restJson1CreateScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateScheduleCommand, se_CreateScheduleCommand } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
@@ -227,14 +224,14 @@ export class CreateScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateScheduleCommand(input, context);
+    return se_CreateScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduleCommandOutput> {
-    return deserializeAws_restJson1CreateScheduleCommand(output, context);
+    return de_CreateScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

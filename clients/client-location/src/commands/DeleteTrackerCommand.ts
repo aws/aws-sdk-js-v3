@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { DeleteTrackerRequest, DeleteTrackerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTrackerCommand,
-  serializeAws_restJson1DeleteTrackerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTrackerCommand, se_DeleteTrackerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteTrackerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTrackerCommand(input, context);
+    return se_DeleteTrackerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrackerCommandOutput> {
-    return deserializeAws_restJson1DeleteTrackerCommand(output, context);
+    return de_DeleteTrackerCommand(output, context);
   }
 
   // Start section: command_body_extra

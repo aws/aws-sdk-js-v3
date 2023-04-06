@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { ListLayersRequest, ListLayersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLayersCommand,
-  serializeAws_restJson1ListLayersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLayersCommand, se_ListLayersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListLayersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLayersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLayersCommand(input, context);
+    return se_ListLayersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLayersCommandOutput> {
-    return deserializeAws_restJson1ListLayersCommand(output, context);
+    return de_ListLayersCommand(output, context);
   }
 
   // Start section: command_body_extra

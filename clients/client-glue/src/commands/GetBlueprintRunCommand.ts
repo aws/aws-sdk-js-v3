@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetBlueprintRunRequest, GetBlueprintRunResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetBlueprintRunCommand,
-  serializeAws_json1_1GetBlueprintRunCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetBlueprintRunCommand, se_GetBlueprintRunCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetBlueprintRunCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBlueprintRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetBlueprintRunCommand(input, context);
+    return se_GetBlueprintRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlueprintRunCommandOutput> {
-    return deserializeAws_json1_1GetBlueprintRunCommand(output, context);
+    return de_GetBlueprintRunCommand(output, context);
   }
 
   // Start section: command_body_extra

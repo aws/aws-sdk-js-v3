@@ -15,10 +15,7 @@ import {
 
 import { GetConnectionsRequest, GetConnectionsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetConnectionsCommand,
-  serializeAws_restJson1GetConnectionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectionsCommand, se_GetConnectionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetConnectionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectionsCommand(input, context);
+    return se_GetConnectionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionsCommandOutput> {
-    return deserializeAws_restJson1GetConnectionsCommand(output, context);
+    return de_GetConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { StartRunRequest, StartRunResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1StartRunCommand,
-  serializeAws_restJson1StartRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartRunCommand, se_StartRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class StartRunCommand extends $Command<StartRunCommandInput, StartRunComm
    * @internal
    */
   private serialize(input: StartRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartRunCommand(input, context);
+    return se_StartRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRunCommandOutput> {
-    return deserializeAws_restJson1StartRunCommand(output, context);
+    return de_StartRunCommand(output, context);
   }
 
   // Start section: command_body_extra

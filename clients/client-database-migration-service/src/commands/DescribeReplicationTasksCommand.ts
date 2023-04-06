@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeReplicationTasksCommand,
-  serializeAws_json1_1DescribeReplicationTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeReplicationTasksCommand, se_DescribeReplicationTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class DescribeReplicationTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeReplicationTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationTasksCommand(input, context);
+    return se_DescribeReplicationTasksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReplicationTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationTasksCommand(output, context);
+    return de_DescribeReplicationTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DescribeBackupJobInput, DescribeBackupJobOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBackupJobCommand,
-  serializeAws_restJson1DescribeBackupJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeBackupJobCommand, se_DescribeBackupJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribeBackupJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBackupJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBackupJobCommand(input, context);
+    return se_DescribeBackupJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupJobCommandOutput> {
-    return deserializeAws_restJson1DescribeBackupJobCommand(output, context);
+    return de_DescribeBackupJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { IgnoresWrappingXmlNameOutput } from "../models/models_0";
-import {
-  deserializeAws_ec2IgnoresWrappingXmlNameCommand,
-  serializeAws_ec2IgnoresWrappingXmlNameCommand,
-} from "../protocols/Aws_ec2";
+import { de_IgnoresWrappingXmlNameCommand, se_IgnoresWrappingXmlNameCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -107,14 +104,14 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
    * @internal
    */
   private serialize(input: IgnoresWrappingXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2IgnoresWrappingXmlNameCommand(input, context);
+    return se_IgnoresWrappingXmlNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IgnoresWrappingXmlNameCommandOutput> {
-    return deserializeAws_ec2IgnoresWrappingXmlNameCommand(output, context);
+    return de_IgnoresWrappingXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

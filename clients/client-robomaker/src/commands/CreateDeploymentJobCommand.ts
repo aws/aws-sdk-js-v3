@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDeploymentJobRequest, CreateDeploymentJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDeploymentJobCommand,
-  serializeAws_restJson1CreateDeploymentJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDeploymentJobCommand, se_CreateDeploymentJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -185,14 +182,14 @@ export class CreateDeploymentJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDeploymentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeploymentJobCommand(input, context);
+    return se_CreateDeploymentJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentJobCommandOutput> {
-    return deserializeAws_restJson1CreateDeploymentJobCommand(output, context);
+    return de_CreateDeploymentJobCommand(output, context);
   }
 
   // Start section: command_body_extra

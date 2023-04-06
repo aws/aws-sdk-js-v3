@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { CreateServiceProfileRequest, CreateServiceProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateServiceProfileCommand,
-  serializeAws_restJson1CreateServiceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateServiceProfileCommand, se_CreateServiceProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class CreateServiceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateServiceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateServiceProfileCommand(input, context);
+    return se_CreateServiceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceProfileCommandOutput> {
-    return deserializeAws_restJson1CreateServiceProfileCommand(output, context);
+    return de_CreateServiceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

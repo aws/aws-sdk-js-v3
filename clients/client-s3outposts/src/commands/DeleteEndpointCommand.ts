@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteEndpointRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteEndpointCommand,
-  serializeAws_restJson1DeleteEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEndpointCommand, se_DeleteEndpointCommand } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
 /**
@@ -156,14 +153,14 @@ export class DeleteEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEndpointCommand(input, context);
+    return se_DeleteEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointCommandOutput> {
-    return deserializeAws_restJson1DeleteEndpointCommand(output, context);
+    return de_DeleteEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetConnectionRequest, GetConnectionResponse } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1GetConnectionCommand,
-  serializeAws_restJson1GetConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectionCommand, se_GetConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectionCommand(input, context);
+    return se_GetConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionCommandOutput> {
-    return deserializeAws_restJson1GetConnectionCommand(output, context);
+    return de_GetConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

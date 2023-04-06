@@ -18,10 +18,7 @@ import {
   DescribeTemplateDefinitionResponse,
   DescribeTemplateDefinitionResponseFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeTemplateDefinitionCommand,
-  serializeAws_restJson1DescribeTemplateDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeTemplateDefinitionCommand, se_DescribeTemplateDefinitionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -165,7 +162,7 @@ export class DescribeTemplateDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTemplateDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTemplateDefinitionCommand(input, context);
+    return se_DescribeTemplateDefinitionCommand(input, context);
   }
 
   /**
@@ -175,7 +172,7 @@ export class DescribeTemplateDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTemplateDefinitionCommandOutput> {
-    return deserializeAws_restJson1DescribeTemplateDefinitionCommand(output, context);
+    return de_DescribeTemplateDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

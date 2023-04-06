@@ -15,10 +15,7 @@ import {
 
 import { GetCampaignActivitiesRequest, GetCampaignActivitiesResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetCampaignActivitiesCommand,
-  serializeAws_restJson1GetCampaignActivitiesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCampaignActivitiesCommand, se_GetCampaignActivitiesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class GetCampaignActivitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCampaignActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCampaignActivitiesCommand(input, context);
+    return se_GetCampaignActivitiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignActivitiesCommandOutput> {
-    return deserializeAws_restJson1GetCampaignActivitiesCommand(output, context);
+    return de_GetCampaignActivitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyVpcEndpointRequest, ModifyVpcEndpointResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVpcEndpointCommand,
-  serializeAws_ec2ModifyVpcEndpointCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyVpcEndpointCommand, se_ModifyVpcEndpointCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class ModifyVpcEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcEndpointCommand(input, context);
+    return se_ModifyVpcEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVpcEndpointCommandOutput> {
-    return deserializeAws_ec2ModifyVpcEndpointCommand(output, context);
+    return de_ModifyVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

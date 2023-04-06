@@ -15,10 +15,7 @@ import {
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { RemoveTagsFromCertificateRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveTagsFromCertificateCommand,
-  serializeAws_json1_1RemoveTagsFromCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RemoveTagsFromCertificateCommand, se_RemoveTagsFromCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,7 +148,7 @@ export class RemoveTagsFromCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveTagsFromCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTagsFromCertificateCommand(input, context);
+    return se_RemoveTagsFromCertificateCommand(input, context);
   }
 
   /**
@@ -161,7 +158,7 @@ export class RemoveTagsFromCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveTagsFromCertificateCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsFromCertificateCommand(output, context);
+    return de_RemoveTagsFromCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

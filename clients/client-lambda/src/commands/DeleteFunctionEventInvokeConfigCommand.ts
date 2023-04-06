@@ -16,8 +16,8 @@ import {
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { DeleteFunctionEventInvokeConfigRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommand,
-  serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand,
+  de_DeleteFunctionEventInvokeConfigCommand,
+  se_DeleteFunctionEventInvokeConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     input: DeleteFunctionEventInvokeConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand(input, context);
+    return se_DeleteFunctionEventInvokeConfigCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> {
-    return deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommand(output, context);
+    return de_DeleteFunctionEventInvokeConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryModifyDBInstanceCommand,
-  serializeAws_queryModifyDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBInstanceCommand, se_ModifyDBInstanceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -227,14 +224,14 @@ export class ModifyDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBInstanceCommand(input, context);
+    return se_ModifyDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBInstanceCommandOutput> {
-    return deserializeAws_queryModifyDBInstanceCommand(output, context);
+    return de_ModifyDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

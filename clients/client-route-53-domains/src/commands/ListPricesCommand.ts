@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListPricesRequest, ListPricesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPricesCommand,
-  serializeAws_json1_1ListPricesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPricesCommand, se_ListPricesCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -147,14 +144,14 @@ export class ListPricesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPricesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPricesCommand(input, context);
+    return se_ListPricesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPricesCommandOutput> {
-    return deserializeAws_json1_1ListPricesCommand(output, context);
+    return de_ListPricesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { CreateRouteCalculatorRequest, CreateRouteCalculatorResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRouteCalculatorCommand,
-  serializeAws_restJson1CreateRouteCalculatorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRouteCalculatorCommand, se_CreateRouteCalculatorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class CreateRouteCalculatorCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRouteCalculatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRouteCalculatorCommand(input, context);
+    return se_CreateRouteCalculatorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteCalculatorCommandOutput> {
-    return deserializeAws_restJson1CreateRouteCalculatorCommand(output, context);
+    return de_CreateRouteCalculatorCommand(output, context);
   }
 
   // Start section: command_body_extra

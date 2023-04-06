@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RegisterWorkspaceDirectoryRequest, RegisterWorkspaceDirectoryResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterWorkspaceDirectoryCommand,
-  serializeAws_json1_1RegisterWorkspaceDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterWorkspaceDirectoryCommand, se_RegisterWorkspaceDirectoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -164,7 +161,7 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterWorkspaceDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterWorkspaceDirectoryCommand(input, context);
+    return se_RegisterWorkspaceDirectoryCommand(input, context);
   }
 
   /**
@@ -174,7 +171,7 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterWorkspaceDirectoryCommandOutput> {
-    return deserializeAws_json1_1RegisterWorkspaceDirectoryCommand(output, context);
+    return de_RegisterWorkspaceDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,8 +23,8 @@ import {
   DescribeComponentConfigurationRecommendationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommand,
-  serializeAws_json1_1DescribeComponentConfigurationRecommendationCommand,
+  de_DescribeComponentConfigurationRecommendationCommand,
+  se_DescribeComponentConfigurationRecommendationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -150,7 +150,7 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
     input: DescribeComponentConfigurationRecommendationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeComponentConfigurationRecommendationCommand(input, context);
+    return se_DescribeComponentConfigurationRecommendationCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeComponentConfigurationRecommendationCommandOutput> {
-    return deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommand(output, context);
+    return de_DescribeComponentConfigurationRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

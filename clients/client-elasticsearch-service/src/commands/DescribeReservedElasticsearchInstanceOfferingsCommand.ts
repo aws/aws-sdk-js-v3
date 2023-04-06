@@ -23,8 +23,8 @@ import {
   DescribeReservedElasticsearchInstanceOfferingsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsCommand,
-  serializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsCommand,
+  de_DescribeReservedElasticsearchInstanceOfferingsCommand,
+  se_DescribeReservedElasticsearchInstanceOfferingsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -153,7 +153,7 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
     input: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsCommand(input, context);
+    return se_DescribeReservedElasticsearchInstanceOfferingsCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput> {
-    return deserializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsCommand(output, context);
+    return de_DescribeReservedElasticsearchInstanceOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

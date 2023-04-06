@@ -15,10 +15,7 @@ import {
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { CreateDevEnvironmentRequest, CreateDevEnvironmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDevEnvironmentCommand,
-  serializeAws_restJson1CreateDevEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDevEnvironmentCommand, se_CreateDevEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class CreateDevEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDevEnvironmentCommand(input, context);
+    return se_CreateDevEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDevEnvironmentCommandOutput> {
-    return deserializeAws_restJson1CreateDevEnvironmentCommand(output, context);
+    return de_CreateDevEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

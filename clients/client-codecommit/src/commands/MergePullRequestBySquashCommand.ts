@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { MergePullRequestBySquashInput, MergePullRequestBySquashOutput } from "../models/models_1";
-import {
-  deserializeAws_json1_1MergePullRequestBySquashCommand,
-  serializeAws_json1_1MergePullRequestBySquashCommand,
-} from "../protocols/Aws_json1_1";
+import { de_MergePullRequestBySquashCommand, se_MergePullRequestBySquashCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -277,14 +274,14 @@ export class MergePullRequestBySquashCommand extends $Command<
    * @internal
    */
   private serialize(input: MergePullRequestBySquashCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1MergePullRequestBySquashCommand(input, context);
+    return se_MergePullRequestBySquashCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MergePullRequestBySquashCommandOutput> {
-    return deserializeAws_json1_1MergePullRequestBySquashCommand(output, context);
+    return de_MergePullRequestBySquashCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { DeleteFirewallManagerRuleGroupsRequest, DeleteFirewallManagerRuleGroupsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand,
-  serializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand,
+  de_DeleteFirewallManagerRuleGroupsCommand,
+  se_DeleteFirewallManagerRuleGroupsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
@@ -167,7 +167,7 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
     input: DeleteFirewallManagerRuleGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand(input, context);
+    return se_DeleteFirewallManagerRuleGroupsCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFirewallManagerRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand(output, context);
+    return de_DeleteFirewallManagerRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

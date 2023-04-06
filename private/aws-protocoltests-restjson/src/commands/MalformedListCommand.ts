@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MalformedListInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedListCommand,
-  serializeAws_restJson1MalformedListCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedListCommand, se_MalformedListCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class MalformedListCommand extends $Command<
    * @internal
    */
   private serialize(input: MalformedListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedListCommand(input, context);
+    return se_MalformedListCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedListCommandOutput> {
-    return deserializeAws_restJson1MalformedListCommand(output, context);
+    return de_MalformedListCommand(output, context);
   }
 
   // Start section: command_body_extra

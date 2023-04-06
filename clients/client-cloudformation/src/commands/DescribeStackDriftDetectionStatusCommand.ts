@@ -16,8 +16,8 @@ import {
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DescribeStackDriftDetectionStatusInput, DescribeStackDriftDetectionStatusOutput } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeStackDriftDetectionStatusCommand,
-  serializeAws_queryDescribeStackDriftDetectionStatusCommand,
+  de_DescribeStackDriftDetectionStatusCommand,
+  se_DescribeStackDriftDetectionStatusCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -137,7 +137,7 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command<
     input: DescribeStackDriftDetectionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeStackDriftDetectionStatusCommand(input, context);
+    return se_DescribeStackDriftDetectionStatusCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStackDriftDetectionStatusCommandOutput> {
-    return deserializeAws_queryDescribeStackDriftDetectionStatusCommand(output, context);
+    return de_DescribeStackDriftDetectionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

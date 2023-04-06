@@ -15,10 +15,7 @@ import {
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { CreateFindingsReportRequest, CreateFindingsReportResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFindingsReportCommand,
-  serializeAws_restJson1CreateFindingsReportCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateFindingsReportCommand, se_CreateFindingsReportCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -260,14 +257,14 @@ export class CreateFindingsReportCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFindingsReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFindingsReportCommand(input, context);
+    return se_CreateFindingsReportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFindingsReportCommandOutput> {
-    return deserializeAws_restJson1CreateFindingsReportCommand(output, context);
+    return de_CreateFindingsReportCommand(output, context);
   }
 
   // Start section: command_body_extra

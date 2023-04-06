@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateSubscriberRequest, CreateSubscriberResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSubscriberCommand,
-  serializeAws_restJson1CreateSubscriberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSubscriberCommand, se_CreateSubscriberCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -165,14 +162,14 @@ export class CreateSubscriberCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSubscriberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSubscriberCommand(input, context);
+    return se_CreateSubscriberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubscriberCommandOutput> {
-    return deserializeAws_restJson1CreateSubscriberCommand(output, context);
+    return de_CreateSubscriberCommand(output, context);
   }
 
   // Start section: command_body_extra

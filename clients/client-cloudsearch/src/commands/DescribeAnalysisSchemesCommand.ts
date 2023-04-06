@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DescribeAnalysisSchemesRequest, DescribeAnalysisSchemesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAnalysisSchemesCommand,
-  serializeAws_queryDescribeAnalysisSchemesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeAnalysisSchemesCommand, se_DescribeAnalysisSchemesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeAnalysisSchemesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAnalysisSchemesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAnalysisSchemesCommand(input, context);
+    return se_DescribeAnalysisSchemesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnalysisSchemesCommandOutput> {
-    return deserializeAws_queryDescribeAnalysisSchemesCommand(output, context);
+    return de_DescribeAnalysisSchemesCommand(output, context);
   }
 
   // Start section: command_body_extra

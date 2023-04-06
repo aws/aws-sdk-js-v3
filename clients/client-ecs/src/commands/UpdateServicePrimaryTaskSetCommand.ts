@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateServicePrimaryTaskSetCommand,
-  serializeAws_json1_1UpdateServicePrimaryTaskSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateServicePrimaryTaskSetCommand, se_UpdateServicePrimaryTaskSetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,7 +158,7 @@ export class UpdateServicePrimaryTaskSetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateServicePrimaryTaskSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServicePrimaryTaskSetCommand(input, context);
+    return se_UpdateServicePrimaryTaskSetCommand(input, context);
   }
 
   /**
@@ -171,7 +168,7 @@ export class UpdateServicePrimaryTaskSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServicePrimaryTaskSetCommandOutput> {
-    return deserializeAws_json1_1UpdateServicePrimaryTaskSetCommand(output, context);
+    return de_UpdateServicePrimaryTaskSetCommand(output, context);
   }
 
   // Start section: command_body_extra

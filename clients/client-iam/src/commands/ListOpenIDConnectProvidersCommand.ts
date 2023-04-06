@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListOpenIDConnectProvidersRequest, ListOpenIDConnectProvidersResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListOpenIDConnectProvidersCommand,
-  serializeAws_queryListOpenIDConnectProvidersCommand,
-} from "../protocols/Aws_query";
+import { de_ListOpenIDConnectProvidersCommand, se_ListOpenIDConnectProvidersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -127,7 +124,7 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOpenIDConnectProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListOpenIDConnectProvidersCommand(input, context);
+    return se_ListOpenIDConnectProvidersCommand(input, context);
   }
 
   /**
@@ -137,7 +134,7 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOpenIDConnectProvidersCommandOutput> {
-    return deserializeAws_queryListOpenIDConnectProvidersCommand(output, context);
+    return de_ListOpenIDConnectProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

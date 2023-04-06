@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { SetTagsForResourceRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetTagsForResourceCommand,
-  serializeAws_json1_1SetTagsForResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetTagsForResourceCommand, se_SetTagsForResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class SetTagsForResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: SetTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetTagsForResourceCommand(input, context);
+    return se_SetTagsForResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTagsForResourceCommandOutput> {
-    return deserializeAws_json1_1SetTagsForResourceCommand(output, context);
+    return de_SetTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

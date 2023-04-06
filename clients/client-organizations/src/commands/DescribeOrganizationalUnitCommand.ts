@@ -15,10 +15,7 @@ import {
 
 import { DescribeOrganizationalUnitRequest, DescribeOrganizationalUnitResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DescribeOrganizationalUnitCommand,
-  serializeAws_json1_1DescribeOrganizationalUnitCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeOrganizationalUnitCommand, se_DescribeOrganizationalUnitCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -272,7 +269,7 @@ export class DescribeOrganizationalUnitCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeOrganizationalUnitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationalUnitCommand(input, context);
+    return se_DescribeOrganizationalUnitCommand(input, context);
   }
 
   /**
@@ -282,7 +279,7 @@ export class DescribeOrganizationalUnitCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationalUnitCommand(output, context);
+    return de_DescribeOrganizationalUnitCommand(output, context);
   }
 
   // Start section: command_body_extra

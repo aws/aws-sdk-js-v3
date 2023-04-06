@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { StopGUISessionRequest, StopGUISessionResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1StopGUISessionCommand,
-  serializeAws_json1_1StopGUISessionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopGUISessionCommand, se_StopGUISessionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class StopGUISessionCommand extends $Command<
    * @internal
    */
   private serialize(input: StopGUISessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopGUISessionCommand(input, context);
+    return se_StopGUISessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopGUISessionCommandOutput> {
-    return deserializeAws_json1_1StopGUISessionCommand(output, context);
+    return de_StopGUISessionCommand(output, context);
   }
 
   // Start section: command_body_extra

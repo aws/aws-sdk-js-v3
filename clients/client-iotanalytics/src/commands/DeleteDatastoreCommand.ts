@@ -15,10 +15,7 @@ import {
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import { DeleteDatastoreRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDatastoreCommand,
-  serializeAws_restJson1DeleteDatastoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDatastoreCommand, se_DeleteDatastoreCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteDatastoreCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatastoreCommand(input, context);
+    return se_DeleteDatastoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatastoreCommandOutput> {
-    return deserializeAws_restJson1DeleteDatastoreCommand(output, context);
+    return de_DeleteDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

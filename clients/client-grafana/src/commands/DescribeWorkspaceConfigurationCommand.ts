@@ -16,8 +16,8 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import { DescribeWorkspaceConfigurationRequest, DescribeWorkspaceConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeWorkspaceConfigurationCommand,
-  serializeAws_restJson1DescribeWorkspaceConfigurationCommand,
+  de_DescribeWorkspaceConfigurationCommand,
+  se_DescribeWorkspaceConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -137,7 +137,7 @@ export class DescribeWorkspaceConfigurationCommand extends $Command<
     input: DescribeWorkspaceConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorkspaceConfigurationCommand(input, context);
+    return se_DescribeWorkspaceConfigurationCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DescribeWorkspaceConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeWorkspaceConfigurationCommand(output, context);
+    return de_DescribeWorkspaceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

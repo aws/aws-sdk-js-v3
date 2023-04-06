@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { ReloadTablesMessage, ReloadTablesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ReloadTablesCommand,
-  serializeAws_json1_1ReloadTablesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ReloadTablesCommand, se_ReloadTablesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ReloadTablesCommand extends $Command<
    * @internal
    */
   private serialize(input: ReloadTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReloadTablesCommand(input, context);
+    return se_ReloadTablesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReloadTablesCommandOutput> {
-    return deserializeAws_json1_1ReloadTablesCommand(output, context);
+    return de_ReloadTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

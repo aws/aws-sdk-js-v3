@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RemoveProfilePermissionRequest, RemoveProfilePermissionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveProfilePermissionCommand,
-  serializeAws_restJson1RemoveProfilePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveProfilePermissionCommand, se_RemoveProfilePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
@@ -141,14 +138,14 @@ export class RemoveProfilePermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveProfilePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveProfilePermissionCommand(input, context);
+    return se_RemoveProfilePermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveProfilePermissionCommandOutput> {
-    return deserializeAws_restJson1RemoveProfilePermissionCommand(output, context);
+    return de_RemoveProfilePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

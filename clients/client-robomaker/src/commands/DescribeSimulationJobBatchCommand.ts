@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSimulationJobBatchRequest, DescribeSimulationJobBatchResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSimulationJobBatchCommand,
-  serializeAws_restJson1DescribeSimulationJobBatchCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeSimulationJobBatchCommand, se_DescribeSimulationJobBatchCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -130,7 +127,7 @@ export class DescribeSimulationJobBatchCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSimulationJobBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSimulationJobBatchCommand(input, context);
+    return se_DescribeSimulationJobBatchCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class DescribeSimulationJobBatchCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSimulationJobBatchCommandOutput> {
-    return deserializeAws_restJson1DescribeSimulationJobBatchCommand(output, context);
+    return de_DescribeSimulationJobBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

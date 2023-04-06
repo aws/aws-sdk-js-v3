@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { TerminateClientVpnConnectionsRequest, TerminateClientVpnConnectionsResult } from "../models/models_7";
-import {
-  deserializeAws_ec2TerminateClientVpnConnectionsCommand,
-  serializeAws_ec2TerminateClientVpnConnectionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_TerminateClientVpnConnectionsCommand, se_TerminateClientVpnConnectionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,7 +122,7 @@ export class TerminateClientVpnConnectionsCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateClientVpnConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2TerminateClientVpnConnectionsCommand(input, context);
+    return se_TerminateClientVpnConnectionsCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class TerminateClientVpnConnectionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateClientVpnConnectionsCommandOutput> {
-    return deserializeAws_ec2TerminateClientVpnConnectionsCommand(output, context);
+    return de_TerminateClientVpnConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

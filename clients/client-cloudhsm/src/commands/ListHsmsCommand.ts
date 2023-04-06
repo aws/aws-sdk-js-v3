@@ -15,7 +15,7 @@ import {
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { ListHsmsRequest, ListHsmsResponse } from "../models/models_0";
-import { deserializeAws_json1_1ListHsmsCommand, serializeAws_json1_1ListHsmsCommand } from "../protocols/Aws_json1_1";
+import { de_ListHsmsCommand, se_ListHsmsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +139,14 @@ export class ListHsmsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHsmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHsmsCommand(input, context);
+    return se_ListHsmsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHsmsCommandOutput> {
-    return deserializeAws_json1_1ListHsmsCommand(output, context);
+    return de_ListHsmsCommand(output, context);
   }
 
   // Start section: command_body_extra

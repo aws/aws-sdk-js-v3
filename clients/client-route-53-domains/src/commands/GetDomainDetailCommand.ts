@@ -18,10 +18,7 @@ import {
   GetDomainDetailResponse,
   GetDomainDetailResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDomainDetailCommand,
-  serializeAws_json1_1GetDomainDetailCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDomainDetailCommand, se_GetDomainDetailCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -135,14 +132,14 @@ export class GetDomainDetailCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDomainDetailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDomainDetailCommand(input, context);
+    return se_GetDomainDetailCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainDetailCommandOutput> {
-    return deserializeAws_json1_1GetDomainDetailCommand(output, context);
+    return de_GetDomainDetailCommand(output, context);
   }
 
   // Start section: command_body_extra

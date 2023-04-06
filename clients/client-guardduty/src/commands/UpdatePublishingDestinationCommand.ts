@@ -16,8 +16,8 @@ import {
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { UpdatePublishingDestinationRequest, UpdatePublishingDestinationResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdatePublishingDestinationCommand,
-  serializeAws_restJson1UpdatePublishingDestinationCommand,
+  de_UpdatePublishingDestinationCommand,
+  se_UpdatePublishingDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -134,7 +134,7 @@ export class UpdatePublishingDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePublishingDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePublishingDestinationCommand(input, context);
+    return se_UpdatePublishingDestinationCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class UpdatePublishingDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePublishingDestinationCommandOutput> {
-    return deserializeAws_restJson1UpdatePublishingDestinationCommand(output, context);
+    return de_UpdatePublishingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

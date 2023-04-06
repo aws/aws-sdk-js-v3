@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListServiceQuotasRequest, ListServiceQuotasResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServiceQuotasCommand,
-  serializeAws_json1_1ListServiceQuotasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListServiceQuotasCommand, se_ListServiceQuotasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -143,14 +140,14 @@ export class ListServiceQuotasCommand extends $Command<
    * @internal
    */
   private serialize(input: ListServiceQuotasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServiceQuotasCommand(input, context);
+    return se_ListServiceQuotasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServiceQuotasCommandOutput> {
-    return deserializeAws_json1_1ListServiceQuotasCommand(output, context);
+    return de_ListServiceQuotasCommand(output, context);
   }
 
   // Start section: command_body_extra

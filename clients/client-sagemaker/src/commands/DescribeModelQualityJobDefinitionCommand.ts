@@ -18,8 +18,8 @@ import {
   DescribeModelQualityJobDefinitionResponse,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1DescribeModelQualityJobDefinitionCommand,
-  serializeAws_json1_1DescribeModelQualityJobDefinitionCommand,
+  de_DescribeModelQualityJobDefinitionCommand,
+  se_DescribeModelQualityJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -131,7 +131,7 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
     input: DescribeModelQualityJobDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelQualityJobDefinitionCommand(input, context);
+    return se_DescribeModelQualityJobDefinitionCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class DescribeModelQualityJobDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeModelQualityJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1DescribeModelQualityJobDefinitionCommand(output, context);
+    return de_DescribeModelQualityJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

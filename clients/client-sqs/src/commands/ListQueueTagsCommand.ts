@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListQueueTagsRequest, ListQueueTagsResult } from "../models/models_0";
-import {
-  deserializeAws_queryListQueueTagsCommand,
-  serializeAws_queryListQueueTagsCommand,
-} from "../protocols/Aws_query";
+import { de_ListQueueTagsCommand, se_ListQueueTagsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -124,14 +121,14 @@ export class ListQueueTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListQueueTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListQueueTagsCommand(input, context);
+    return se_ListQueueTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueueTagsCommandOutput> {
-    return deserializeAws_queryListQueueTagsCommand(output, context);
+    return de_ListQueueTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

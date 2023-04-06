@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { EnableMetricsCollectionQuery } from "../models/models_0";
-import {
-  deserializeAws_queryEnableMetricsCollectionCommand,
-  serializeAws_queryEnableMetricsCollectionCommand,
-} from "../protocols/Aws_query";
+import { de_EnableMetricsCollectionCommand, se_EnableMetricsCollectionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class EnableMetricsCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableMetricsCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableMetricsCollectionCommand(input, context);
+    return se_EnableMetricsCollectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableMetricsCollectionCommandOutput> {
-    return deserializeAws_queryEnableMetricsCollectionCommand(output, context);
+    return de_EnableMetricsCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

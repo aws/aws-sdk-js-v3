@@ -15,10 +15,7 @@ import {
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { CreateApiDestinationRequest, CreateApiDestinationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateApiDestinationCommand,
-  serializeAws_json1_1CreateApiDestinationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateApiDestinationCommand, se_CreateApiDestinationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class CreateApiDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateApiDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateApiDestinationCommand(input, context);
+    return se_CreateApiDestinationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApiDestinationCommandOutput> {
-    return deserializeAws_json1_1CreateApiDestinationCommand(output, context);
+    return de_CreateApiDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

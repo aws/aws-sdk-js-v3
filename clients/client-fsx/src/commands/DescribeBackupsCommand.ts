@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBackupsCommand,
-  serializeAws_json1_1DescribeBackupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeBackupsCommand, se_DescribeBackupsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -211,14 +208,14 @@ export class DescribeBackupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBackupsCommand(input, context);
+    return se_DescribeBackupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupsCommandOutput> {
-    return deserializeAws_json1_1DescribeBackupsCommand(output, context);
+    return de_DescribeBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

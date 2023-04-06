@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { GetProjectRequest, GetProjectResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetProjectCommand,
-  serializeAws_json1_1GetProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetProjectCommand, se_GetProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class GetProjectCommand extends $Command<
    * @internal
    */
   private serialize(input: GetProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetProjectCommand(input, context);
+    return se_GetProjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProjectCommandOutput> {
-    return deserializeAws_json1_1GetProjectCommand(output, context);
+    return de_GetProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

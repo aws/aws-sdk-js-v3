@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { DeleteLabelGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteLabelGroupCommand,
-  serializeAws_json1_0DeleteLabelGroupCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteLabelGroupCommand, se_DeleteLabelGroupCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteLabelGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLabelGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteLabelGroupCommand(input, context);
+    return se_DeleteLabelGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLabelGroupCommandOutput> {
-    return deserializeAws_json1_0DeleteLabelGroupCommand(output, context);
+    return de_DeleteLabelGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

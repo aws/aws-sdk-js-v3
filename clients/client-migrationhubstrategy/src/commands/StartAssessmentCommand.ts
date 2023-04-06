@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { StartAssessmentRequest, StartAssessmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartAssessmentCommand,
-  serializeAws_restJson1StartAssessmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartAssessmentCommand, se_StartAssessmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class StartAssessmentCommand extends $Command<
    * @internal
    */
   private serialize(input: StartAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartAssessmentCommand(input, context);
+    return se_StartAssessmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAssessmentCommandOutput> {
-    return deserializeAws_restJson1StartAssessmentCommand(output, context);
+    return de_StartAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

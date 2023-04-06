@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeactivateContactChannelRequest, DeactivateContactChannelResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeactivateContactChannelCommand,
-  serializeAws_json1_1DeactivateContactChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeactivateContactChannelCommand, se_DeactivateContactChannelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -137,14 +134,14 @@ export class DeactivateContactChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeactivateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeactivateContactChannelCommand(input, context);
+    return se_DeactivateContactChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateContactChannelCommandOutput> {
-    return deserializeAws_json1_1DeactivateContactChannelCommand(output, context);
+    return de_DeactivateContactChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

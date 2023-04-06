@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HttpRequestWithFloatLabelsInput } from "../models/models_0";
-import {
-  deserializeAws_restXmlHttpRequestWithFloatLabelsCommand,
-  serializeAws_restXmlHttpRequestWithFloatLabelsCommand,
-} from "../protocols/Aws_restXml";
+import { de_HttpRequestWithFloatLabelsCommand, se_HttpRequestWithFloatLabelsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -83,7 +80,7 @@ export class HttpRequestWithFloatLabelsCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpRequestWithFloatLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpRequestWithFloatLabelsCommand(input, context);
+    return se_HttpRequestWithFloatLabelsCommand(input, context);
   }
 
   /**
@@ -93,7 +90,7 @@ export class HttpRequestWithFloatLabelsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithFloatLabelsCommandOutput> {
-    return deserializeAws_restXmlHttpRequestWithFloatLabelsCommand(output, context);
+    return de_HttpRequestWithFloatLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

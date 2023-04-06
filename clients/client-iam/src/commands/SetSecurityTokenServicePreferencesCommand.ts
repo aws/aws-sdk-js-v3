@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { SetSecurityTokenServicePreferencesRequest } from "../models/models_0";
 import {
-  deserializeAws_querySetSecurityTokenServicePreferencesCommand,
-  serializeAws_querySetSecurityTokenServicePreferencesCommand,
+  de_SetSecurityTokenServicePreferencesCommand,
+  se_SetSecurityTokenServicePreferencesCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -156,7 +156,7 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     input: SetSecurityTokenServicePreferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetSecurityTokenServicePreferencesCommand(input, context);
+    return se_SetSecurityTokenServicePreferencesCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetSecurityTokenServicePreferencesCommandOutput> {
-    return deserializeAws_querySetSecurityTokenServicePreferencesCommand(output, context);
+    return de_SetSecurityTokenServicePreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListObjectVersionsOutput, ListObjectVersionsRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlListObjectVersionsCommand,
-  serializeAws_restXmlListObjectVersionsCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListObjectVersionsCommand, se_ListObjectVersionsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -212,14 +209,14 @@ export class ListObjectVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListObjectVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListObjectVersionsCommand(input, context);
+    return se_ListObjectVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectVersionsCommandOutput> {
-    return deserializeAws_restXmlListObjectVersionsCommand(output, context);
+    return de_ListObjectVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

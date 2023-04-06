@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DescribeFunctionRequest, DescribeFunctionResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlDescribeFunctionCommand,
-  serializeAws_restXmlDescribeFunctionCommand,
-} from "../protocols/Aws_restXml";
+import { de_DescribeFunctionCommand, se_DescribeFunctionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DescribeFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDescribeFunctionCommand(input, context);
+    return se_DescribeFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFunctionCommandOutput> {
-    return deserializeAws_restXmlDescribeFunctionCommand(output, context);
+    return de_DescribeFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   AddApplicationCloudWatchLoggingOptionResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand,
-  serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand,
+  de_AddApplicationCloudWatchLoggingOptionCommand,
+  se_AddApplicationCloudWatchLoggingOptionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -155,7 +155,7 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     input: AddApplicationCloudWatchLoggingOptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand(input, context);
+    return se_AddApplicationCloudWatchLoggingOptionCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput> {
-    return deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand(output, context);
+    return de_AddApplicationCloudWatchLoggingOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

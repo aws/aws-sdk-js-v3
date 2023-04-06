@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateTemplatePermissionsRequest, UpdateTemplatePermissionsResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateTemplatePermissionsCommand,
-  serializeAws_restJson1UpdateTemplatePermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateTemplatePermissionsCommand, se_UpdateTemplatePermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -161,7 +158,7 @@ export class UpdateTemplatePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTemplatePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTemplatePermissionsCommand(input, context);
+    return se_UpdateTemplatePermissionsCommand(input, context);
   }
 
   /**
@@ -171,7 +168,7 @@ export class UpdateTemplatePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTemplatePermissionsCommandOutput> {
-    return deserializeAws_restJson1UpdateTemplatePermissionsCommand(output, context);
+    return de_UpdateTemplatePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

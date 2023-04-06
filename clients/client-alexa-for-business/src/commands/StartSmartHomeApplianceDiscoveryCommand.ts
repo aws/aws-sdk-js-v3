@@ -16,8 +16,8 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { StartSmartHomeApplianceDiscoveryRequest, StartSmartHomeApplianceDiscoveryResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand,
-  serializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand,
+  de_StartSmartHomeApplianceDiscoveryCommand,
+  se_StartSmartHomeApplianceDiscoveryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -129,7 +129,7 @@ export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
     input: StartSmartHomeApplianceDiscoveryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand(input, context);
+    return se_StartSmartHomeApplianceDiscoveryCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartSmartHomeApplianceDiscoveryCommandOutput> {
-    return deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand(output, context);
+    return de_StartSmartHomeApplianceDiscoveryCommand(output, context);
   }
 
   // Start section: command_body_extra

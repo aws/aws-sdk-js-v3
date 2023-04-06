@@ -15,10 +15,7 @@ import {
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
 import { DescribeFHIRDatastoreRequest, DescribeFHIRDatastoreResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeFHIRDatastoreCommand,
-  serializeAws_json1_0DescribeFHIRDatastoreCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeFHIRDatastoreCommand, se_DescribeFHIRDatastoreCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeFHIRDatastoreCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFHIRDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeFHIRDatastoreCommand(input, context);
+    return se_DescribeFHIRDatastoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFHIRDatastoreCommandOutput> {
-    return deserializeAws_json1_0DescribeFHIRDatastoreCommand(output, context);
+    return de_DescribeFHIRDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

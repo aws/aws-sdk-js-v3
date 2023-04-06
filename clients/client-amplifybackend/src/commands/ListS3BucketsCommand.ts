@@ -15,10 +15,7 @@ import {
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { ListS3BucketsRequest, ListS3BucketsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListS3BucketsCommand,
-  serializeAws_restJson1ListS3BucketsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListS3BucketsCommand, se_ListS3BucketsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class ListS3BucketsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListS3BucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListS3BucketsCommand(input, context);
+    return se_ListS3BucketsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListS3BucketsCommandOutput> {
-    return deserializeAws_restJson1ListS3BucketsCommand(output, context);
+    return de_ListS3BucketsCommand(output, context);
   }
 
   // Start section: command_body_extra

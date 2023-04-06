@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeActionTargetsRequest, DescribeActionTargetsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeActionTargetsCommand,
-  serializeAws_restJson1DescribeActionTargetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeActionTargetsCommand, se_DescribeActionTargetsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -137,14 +134,14 @@ export class DescribeActionTargetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeActionTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeActionTargetsCommand(input, context);
+    return se_DescribeActionTargetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActionTargetsCommandOutput> {
-    return deserializeAws_restJson1DescribeActionTargetsCommand(output, context);
+    return de_DescribeActionTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

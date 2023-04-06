@@ -15,10 +15,7 @@ import {
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { CreateRuleGroupsNamespaceRequest, CreateRuleGroupsNamespaceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRuleGroupsNamespaceCommand,
-  serializeAws_restJson1CreateRuleGroupsNamespaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRuleGroupsNamespaceCommand, se_CreateRuleGroupsNamespaceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class CreateRuleGroupsNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRuleGroupsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRuleGroupsNamespaceCommand(input, context);
+    return se_CreateRuleGroupsNamespaceCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class CreateRuleGroupsNamespaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRuleGroupsNamespaceCommandOutput> {
-    return deserializeAws_restJson1CreateRuleGroupsNamespaceCommand(output, context);
+    return de_CreateRuleGroupsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

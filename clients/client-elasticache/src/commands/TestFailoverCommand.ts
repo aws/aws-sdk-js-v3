@@ -15,7 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { TestFailoverMessage, TestFailoverResult } from "../models/models_0";
-import { deserializeAws_queryTestFailoverCommand, serializeAws_queryTestFailoverCommand } from "../protocols/Aws_query";
+import { de_TestFailoverCommand, se_TestFailoverCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -205,14 +205,14 @@ export class TestFailoverCommand extends $Command<
    * @internal
    */
   private serialize(input: TestFailoverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTestFailoverCommand(input, context);
+    return se_TestFailoverCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestFailoverCommandOutput> {
-    return deserializeAws_queryTestFailoverCommand(output, context);
+    return de_TestFailoverCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { UpdateWorkGroupInput, UpdateWorkGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateWorkGroupCommand,
-  serializeAws_json1_1UpdateWorkGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateWorkGroupCommand, se_UpdateWorkGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class UpdateWorkGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWorkGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWorkGroupCommand(input, context);
+    return se_UpdateWorkGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateWorkGroupCommand(output, context);
+    return de_UpdateWorkGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

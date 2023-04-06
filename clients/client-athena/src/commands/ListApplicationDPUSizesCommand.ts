@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { ListApplicationDPUSizesInput, ListApplicationDPUSizesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApplicationDPUSizesCommand,
-  serializeAws_json1_1ListApplicationDPUSizesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListApplicationDPUSizesCommand, se_ListApplicationDPUSizesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListApplicationDPUSizesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListApplicationDPUSizesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApplicationDPUSizesCommand(input, context);
+    return se_ListApplicationDPUSizesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationDPUSizesCommandOutput> {
-    return deserializeAws_json1_1ListApplicationDPUSizesCommand(output, context);
+    return de_ListApplicationDPUSizesCommand(output, context);
   }
 
   // Start section: command_body_extra

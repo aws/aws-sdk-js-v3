@@ -19,10 +19,7 @@ import {
   InvokeScreenAutomationRequestFilterSensitiveLog,
   InvokeScreenAutomationResult,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1InvokeScreenAutomationCommand,
-  serializeAws_restJson1InvokeScreenAutomationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InvokeScreenAutomationCommand, se_InvokeScreenAutomationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -175,14 +172,14 @@ export class InvokeScreenAutomationCommand extends $Command<
    * @internal
    */
   private serialize(input: InvokeScreenAutomationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InvokeScreenAutomationCommand(input, context);
+    return se_InvokeScreenAutomationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeScreenAutomationCommandOutput> {
-    return deserializeAws_restJson1InvokeScreenAutomationCommand(output, context);
+    return de_InvokeScreenAutomationCommand(output, context);
   }
 
   // Start section: command_body_extra

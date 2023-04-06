@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { AcceptMatchInput, AcceptMatchOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1AcceptMatchCommand,
-  serializeAws_json1_1AcceptMatchCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AcceptMatchCommand, se_AcceptMatchCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class AcceptMatchCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptMatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptMatchCommand(input, context);
+    return se_AcceptMatchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptMatchCommandOutput> {
-    return deserializeAws_json1_1AcceptMatchCommand(output, context);
+    return de_AcceptMatchCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { ListHypervisorsInput, ListHypervisorsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListHypervisorsCommand,
-  serializeAws_json1_0ListHypervisorsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListHypervisorsCommand, se_ListHypervisorsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListHypervisorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHypervisorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListHypervisorsCommand(input, context);
+    return se_ListHypervisorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHypervisorsCommandOutput> {
-    return deserializeAws_json1_0ListHypervisorsCommand(output, context);
+    return de_ListHypervisorsCommand(output, context);
   }
 
   // Start section: command_body_extra

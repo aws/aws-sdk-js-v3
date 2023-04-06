@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAccessRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAccessCommand,
-  serializeAws_json1_1DeleteAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAccessCommand, se_DeleteAccessCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -133,14 +130,14 @@ export class DeleteAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAccessCommand(input, context);
+    return se_DeleteAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessCommandOutput> {
-    return deserializeAws_json1_1DeleteAccessCommand(output, context);
+    return de_DeleteAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

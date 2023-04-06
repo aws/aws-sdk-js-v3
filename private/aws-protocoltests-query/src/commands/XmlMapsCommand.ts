@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlMapsOutput } from "../models/models_0";
-import { deserializeAws_queryXmlMapsCommand, serializeAws_queryXmlMapsCommand } from "../protocols/Aws_query";
+import { de_XmlMapsCommand, se_XmlMapsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -102,14 +102,14 @@ export class XmlMapsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryXmlMapsCommand(input, context);
+    return se_XmlMapsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlMapsCommandOutput> {
-    return deserializeAws_queryXmlMapsCommand(output, context);
+    return de_XmlMapsCommand(output, context);
   }
 
   // Start section: command_body_extra

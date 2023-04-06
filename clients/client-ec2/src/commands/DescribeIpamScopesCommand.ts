@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeIpamScopesRequest, DescribeIpamScopesResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeIpamScopesCommand,
-  serializeAws_ec2DescribeIpamScopesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeIpamScopesCommand, se_DescribeIpamScopesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeIpamScopesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeIpamScopesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIpamScopesCommand(input, context);
+    return se_DescribeIpamScopesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIpamScopesCommandOutput> {
-    return deserializeAws_ec2DescribeIpamScopesCommand(output, context);
+    return de_DescribeIpamScopesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateRoutingProfileDefaultOutboundQueueRequest } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommand,
-  serializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommand,
+  de_UpdateRoutingProfileDefaultOutboundQueueCommand,
+  se_UpdateRoutingProfileDefaultOutboundQueueCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<
     input: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommand(input, context);
+    return se_UpdateRoutingProfileDefaultOutboundQueueCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRoutingProfileDefaultOutboundQueueCommandOutput> {
-    return deserializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommand(output, context);
+    return de_UpdateRoutingProfileDefaultOutboundQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

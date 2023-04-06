@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateDocumentRequest, UpdateDocumentRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDocumentCommand,
-  serializeAws_restJson1UpdateDocumentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDocumentCommand, se_UpdateDocumentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -157,14 +154,14 @@ export class UpdateDocumentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDocumentCommand(input, context);
+    return se_UpdateDocumentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentCommandOutput> {
-    return deserializeAws_restJson1UpdateDocumentCommand(output, context);
+    return de_UpdateDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

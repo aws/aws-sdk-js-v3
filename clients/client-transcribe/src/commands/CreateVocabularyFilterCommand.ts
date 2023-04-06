@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateVocabularyFilterRequest, CreateVocabularyFilterResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVocabularyFilterCommand,
-  serializeAws_json1_1CreateVocabularyFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateVocabularyFilterCommand, se_CreateVocabularyFilterCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -159,14 +156,14 @@ export class CreateVocabularyFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVocabularyFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVocabularyFilterCommand(input, context);
+    return se_CreateVocabularyFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVocabularyFilterCommandOutput> {
-    return deserializeAws_json1_1CreateVocabularyFilterCommand(output, context);
+    return de_CreateVocabularyFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

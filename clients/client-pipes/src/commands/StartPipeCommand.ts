@@ -15,10 +15,7 @@ import {
 
 import { StartPipeRequest, StartPipeResponse } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import {
-  deserializeAws_restJson1StartPipeCommand,
-  serializeAws_restJson1StartPipeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartPipeCommand, se_StartPipeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class StartPipeCommand extends $Command<
    * @internal
    */
   private serialize(input: StartPipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartPipeCommand(input, context);
+    return se_StartPipeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPipeCommandOutput> {
-    return deserializeAws_restJson1StartPipeCommand(output, context);
+    return de_StartPipeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { DeleteHITRequest, DeleteHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { deserializeAws_json1_1DeleteHITCommand, serializeAws_json1_1DeleteHITCommand } from "../protocols/Aws_json1_1";
+import { de_DeleteHITCommand, se_DeleteHITCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +156,14 @@ export class DeleteHITCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteHITCommand(input, context);
+    return se_DeleteHITCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHITCommandOutput> {
-    return deserializeAws_json1_1DeleteHITCommand(output, context);
+    return de_DeleteHITCommand(output, context);
   }
 
   // Start section: command_body_extra

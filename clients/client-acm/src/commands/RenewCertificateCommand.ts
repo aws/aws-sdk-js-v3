@@ -15,10 +15,7 @@ import {
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { RenewCertificateRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1RenewCertificateCommand,
-  serializeAws_json1_1RenewCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RenewCertificateCommand, se_RenewCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class RenewCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: RenewCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RenewCertificateCommand(input, context);
+    return se_RenewCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RenewCertificateCommandOutput> {
-    return deserializeAws_json1_1RenewCertificateCommand(output, context);
+    return de_RenewCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

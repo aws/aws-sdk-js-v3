@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListPromptsRequest, ListPromptsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListPromptsCommand,
-  serializeAws_restJson1ListPromptsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPromptsCommand, se_ListPromptsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListPromptsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPromptsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPromptsCommand(input, context);
+    return se_ListPromptsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPromptsCommandOutput> {
-    return deserializeAws_restJson1ListPromptsCommand(output, context);
+    return de_ListPromptsCommand(output, context);
   }
 
   // Start section: command_body_extra

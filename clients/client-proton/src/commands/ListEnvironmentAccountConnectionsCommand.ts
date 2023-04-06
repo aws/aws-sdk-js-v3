@@ -15,8 +15,8 @@ import {
 
 import { ListEnvironmentAccountConnectionsInput, ListEnvironmentAccountConnectionsOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0ListEnvironmentAccountConnectionsCommand,
-  serializeAws_json1_0ListEnvironmentAccountConnectionsCommand,
+  de_ListEnvironmentAccountConnectionsCommand,
+  se_ListEnvironmentAccountConnectionsCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -145,7 +145,7 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command<
     input: ListEnvironmentAccountConnectionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListEnvironmentAccountConnectionsCommand(input, context);
+    return se_ListEnvironmentAccountConnectionsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListEnvironmentAccountConnectionsCommandOutput> {
-    return deserializeAws_json1_0ListEnvironmentAccountConnectionsCommand(output, context);
+    return de_ListEnvironmentAccountConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

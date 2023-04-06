@@ -19,10 +19,7 @@ import {
   BatchUpdateUserRequestFilterSensitiveLog,
   BatchUpdateUserResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpdateUserCommand,
-  serializeAws_restJson1BatchUpdateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchUpdateUserCommand, se_BatchUpdateUserCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class BatchUpdateUserCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchUpdateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateUserCommand(input, context);
+    return se_BatchUpdateUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateUserCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateUserCommand(output, context);
+    return de_BatchUpdateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

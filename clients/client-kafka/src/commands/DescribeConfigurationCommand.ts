@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { DescribeConfigurationRequest, DescribeConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeConfigurationCommand,
-  serializeAws_restJson1DescribeConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeConfigurationCommand, se_DescribeConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DescribeConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeConfigurationCommand(input, context);
+    return se_DescribeConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeConfigurationCommand(output, context);
+    return de_DescribeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

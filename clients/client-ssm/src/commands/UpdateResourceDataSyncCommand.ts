@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateResourceDataSyncRequest, UpdateResourceDataSyncResult } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateResourceDataSyncCommand,
-  serializeAws_json1_1UpdateResourceDataSyncCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateResourceDataSyncCommand, se_UpdateResourceDataSyncCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -159,14 +156,14 @@ export class UpdateResourceDataSyncCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateResourceDataSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateResourceDataSyncCommand(input, context);
+    return se_UpdateResourceDataSyncCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceDataSyncCommandOutput> {
-    return deserializeAws_json1_1UpdateResourceDataSyncCommand(output, context);
+    return de_UpdateResourceDataSyncCommand(output, context);
   }
 
   // Start section: command_body_extra

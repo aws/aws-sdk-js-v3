@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { SearchUsersRequest, SearchUsersResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1SearchUsersCommand,
-  serializeAws_restJson1SearchUsersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchUsersCommand, se_SearchUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -191,14 +188,14 @@ export class SearchUsersCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchUsersCommand(input, context);
+    return se_SearchUsersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchUsersCommandOutput> {
-    return deserializeAws_restJson1SearchUsersCommand(output, context);
+    return de_SearchUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

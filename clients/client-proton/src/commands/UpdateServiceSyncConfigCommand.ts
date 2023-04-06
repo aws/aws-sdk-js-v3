@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateServiceSyncConfigInput, UpdateServiceSyncConfigOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateServiceSyncConfigCommand,
-  serializeAws_json1_0UpdateServiceSyncConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateServiceSyncConfigCommand, se_UpdateServiceSyncConfigCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -142,14 +139,14 @@ export class UpdateServiceSyncConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateServiceSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateServiceSyncConfigCommand(input, context);
+    return se_UpdateServiceSyncConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceSyncConfigCommandOutput> {
-    return deserializeAws_json1_0UpdateServiceSyncConfigCommand(output, context);
+    return de_UpdateServiceSyncConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

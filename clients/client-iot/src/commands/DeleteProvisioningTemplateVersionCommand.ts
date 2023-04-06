@@ -19,8 +19,8 @@ import {
   DeleteProvisioningTemplateVersionResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1DeleteProvisioningTemplateVersionCommand,
-  serializeAws_restJson1DeleteProvisioningTemplateVersionCommand,
+  de_DeleteProvisioningTemplateVersionCommand,
+  se_DeleteProvisioningTemplateVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -153,7 +153,7 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
     input: DeleteProvisioningTemplateVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProvisioningTemplateVersionCommand(input, context);
+    return se_DeleteProvisioningTemplateVersionCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisioningTemplateVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteProvisioningTemplateVersionCommand(output, context);
+    return de_DeleteProvisioningTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

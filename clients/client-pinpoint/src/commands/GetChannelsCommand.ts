@@ -15,10 +15,7 @@ import {
 
 import { GetChannelsRequest, GetChannelsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetChannelsCommand,
-  serializeAws_restJson1GetChannelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetChannelsCommand, se_GetChannelsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetChannelsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetChannelsCommand(input, context);
+    return se_GetChannelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelsCommandOutput> {
-    return deserializeAws_restJson1GetChannelsCommand(output, context);
+    return de_GetChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

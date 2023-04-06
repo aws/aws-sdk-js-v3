@@ -20,8 +20,8 @@ import {
   DescribeWorkerConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeWorkerConfigurationCommand,
-  serializeAws_restJson1DescribeWorkerConfigurationCommand,
+  de_DescribeWorkerConfigurationCommand,
+  se_DescribeWorkerConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -153,7 +153,7 @@ export class DescribeWorkerConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWorkerConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorkerConfigurationCommand(input, context);
+    return se_DescribeWorkerConfigurationCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DescribeWorkerConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkerConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeWorkerConfigurationCommand(output, context);
+    return de_DescribeWorkerConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

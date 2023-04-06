@@ -14,8 +14,8 @@ import {
 
 import { HttpRequestWithRegexLiteralInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1HttpRequestWithRegexLiteralCommand,
-  serializeAws_restJson1HttpRequestWithRegexLiteralCommand,
+  de_HttpRequestWithRegexLiteralCommand,
+  se_HttpRequestWithRegexLiteralCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -83,7 +83,7 @@ export class HttpRequestWithRegexLiteralCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpRequestWithRegexLiteralCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpRequestWithRegexLiteralCommand(input, context);
+    return se_HttpRequestWithRegexLiteralCommand(input, context);
   }
 
   /**
@@ -93,7 +93,7 @@ export class HttpRequestWithRegexLiteralCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithRegexLiteralCommandOutput> {
-    return deserializeAws_restJson1HttpRequestWithRegexLiteralCommand(output, context);
+    return de_HttpRequestWithRegexLiteralCommand(output, context);
   }
 
   // Start section: command_body_extra

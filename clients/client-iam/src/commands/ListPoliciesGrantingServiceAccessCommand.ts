@@ -19,8 +19,8 @@ import {
   ListPoliciesGrantingServiceAccessResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryListPoliciesGrantingServiceAccessCommand,
-  serializeAws_queryListPoliciesGrantingServiceAccessCommand,
+  de_ListPoliciesGrantingServiceAccessCommand,
+  se_ListPoliciesGrantingServiceAccessCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -227,7 +227,7 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
     input: ListPoliciesGrantingServiceAccessCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListPoliciesGrantingServiceAccessCommand(input, context);
+    return se_ListPoliciesGrantingServiceAccessCommand(input, context);
   }
 
   /**
@@ -237,7 +237,7 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> {
-    return deserializeAws_queryListPoliciesGrantingServiceAccessCommand(output, context);
+    return de_ListPoliciesGrantingServiceAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

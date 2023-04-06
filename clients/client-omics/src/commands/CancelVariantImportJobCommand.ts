@@ -15,10 +15,7 @@ import {
 
 import { CancelVariantImportRequest, CancelVariantImportResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1CancelVariantImportJobCommand,
-  serializeAws_restJson1CancelVariantImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelVariantImportJobCommand, se_CancelVariantImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class CancelVariantImportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelVariantImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelVariantImportJobCommand(input, context);
+    return se_CancelVariantImportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelVariantImportJobCommandOutput> {
-    return deserializeAws_restJson1CancelVariantImportJobCommand(output, context);
+    return de_CancelVariantImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

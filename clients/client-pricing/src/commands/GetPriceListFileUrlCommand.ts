@@ -15,10 +15,7 @@ import {
 
 import { GetPriceListFileUrlRequest, GetPriceListFileUrlResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import {
-  deserializeAws_json1_1GetPriceListFileUrlCommand,
-  serializeAws_json1_1GetPriceListFileUrlCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetPriceListFileUrlCommand, se_GetPriceListFileUrlCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetPriceListFileUrlCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPriceListFileUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPriceListFileUrlCommand(input, context);
+    return se_GetPriceListFileUrlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPriceListFileUrlCommandOutput> {
-    return deserializeAws_json1_1GetPriceListFileUrlCommand(output, context);
+    return de_GetPriceListFileUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

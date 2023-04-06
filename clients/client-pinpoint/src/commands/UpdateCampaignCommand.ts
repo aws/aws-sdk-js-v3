@@ -15,10 +15,7 @@ import {
 
 import { UpdateCampaignRequest, UpdateCampaignResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateCampaignCommand,
-  serializeAws_restJson1UpdateCampaignCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateCampaignCommand, se_UpdateCampaignCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -506,14 +503,14 @@ export class UpdateCampaignCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCampaignCommand(input, context);
+    return se_UpdateCampaignCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCampaignCommandOutput> {
-    return deserializeAws_restJson1UpdateCampaignCommand(output, context);
+    return de_UpdateCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

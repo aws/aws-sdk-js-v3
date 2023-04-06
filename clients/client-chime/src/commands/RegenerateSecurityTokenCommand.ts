@@ -19,10 +19,7 @@ import {
   RegenerateSecurityTokenResponse,
   RegenerateSecurityTokenResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1RegenerateSecurityTokenCommand,
-  serializeAws_restJson1RegenerateSecurityTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RegenerateSecurityTokenCommand, se_RegenerateSecurityTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class RegenerateSecurityTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: RegenerateSecurityTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegenerateSecurityTokenCommand(input, context);
+    return se_RegenerateSecurityTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegenerateSecurityTokenCommandOutput> {
-    return deserializeAws_restJson1RegenerateSecurityTokenCommand(output, context);
+    return de_RegenerateSecurityTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

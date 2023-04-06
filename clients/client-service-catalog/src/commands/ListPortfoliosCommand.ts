@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListPortfoliosInput, ListPortfoliosOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPortfoliosCommand,
-  serializeAws_json1_1ListPortfoliosCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPortfoliosCommand, se_ListPortfoliosCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -125,14 +122,14 @@ export class ListPortfoliosCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPortfoliosCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPortfoliosCommand(input, context);
+    return se_ListPortfoliosCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPortfoliosCommandOutput> {
-    return deserializeAws_json1_1ListPortfoliosCommand(output, context);
+    return de_ListPortfoliosCommand(output, context);
   }
 
   // Start section: command_body_extra

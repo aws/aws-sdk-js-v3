@@ -16,8 +16,8 @@ import {
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0DisableKinesisStreamingDestinationCommand,
-  serializeAws_json1_0DisableKinesisStreamingDestinationCommand,
+  de_DisableKinesisStreamingDestinationCommand,
+  se_DisableKinesisStreamingDestinationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -154,7 +154,7 @@ export class DisableKinesisStreamingDestinationCommand extends $Command<
     input: DisableKinesisStreamingDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisableKinesisStreamingDestinationCommand(input, context);
+    return se_DisableKinesisStreamingDestinationCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class DisableKinesisStreamingDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableKinesisStreamingDestinationCommandOutput> {
-    return deserializeAws_json1_0DisableKinesisStreamingDestinationCommand(output, context);
+    return de_DisableKinesisStreamingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateDomainRequest, AssociateDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateDomainCommand,
-  serializeAws_restJson1AssociateDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateDomainCommand, se_AssociateDomainCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
@@ -143,14 +140,14 @@ export class AssociateDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateDomainCommand(input, context);
+    return se_AssociateDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDomainCommandOutput> {
-    return deserializeAws_restJson1AssociateDomainCommand(output, context);
+    return de_AssociateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

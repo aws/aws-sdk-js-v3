@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCreateConfigurationSetCommand,
-  serializeAws_queryCreateConfigurationSetCommand,
-} from "../protocols/Aws_query";
+import { de_CreateConfigurationSetCommand, se_CreateConfigurationSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -139,14 +136,14 @@ export class CreateConfigurationSetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateConfigurationSetCommand(input, context);
+    return se_CreateConfigurationSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfigurationSetCommandOutput> {
-    return deserializeAws_queryCreateConfigurationSetCommand(output, context);
+    return de_CreateConfigurationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

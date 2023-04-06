@@ -18,10 +18,7 @@ import {
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
 import { GetChunkInput, GetChunkOutput, GetChunkOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetChunkCommand,
-  serializeAws_restJson1GetChunkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetChunkCommand, se_GetChunkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class GetChunkCommand extends $Command<
    * @internal
    */
   private serialize(input: GetChunkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetChunkCommand(input, context);
+    return se_GetChunkCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class GetChunkCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetChunkCommandOutput> {
-    return deserializeAws_restJson1GetChunkCommand(output, context);
+    return de_GetChunkCommand(output, context);
   }
 
   // Start section: command_body_extra

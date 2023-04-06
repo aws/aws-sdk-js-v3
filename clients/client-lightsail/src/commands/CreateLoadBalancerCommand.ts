@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { CreateLoadBalancerRequest, CreateLoadBalancerResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLoadBalancerCommand,
-  serializeAws_json1_1CreateLoadBalancerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLoadBalancerCommand, se_CreateLoadBalancerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class CreateLoadBalancerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLoadBalancerCommand(input, context);
+    return se_CreateLoadBalancerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerCommandOutput> {
-    return deserializeAws_json1_1CreateLoadBalancerCommand(output, context);
+    return de_CreateLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

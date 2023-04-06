@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { DeleteAnomalySubscriptionRequest, DeleteAnomalySubscriptionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAnomalySubscriptionCommand,
-  serializeAws_json1_1DeleteAnomalySubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAnomalySubscriptionCommand, se_DeleteAnomalySubscriptionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAnomalySubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAnomalySubscriptionCommand(input, context);
+    return se_DeleteAnomalySubscriptionCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAnomalySubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteAnomalySubscriptionCommand(output, context);
+    return de_DeleteAnomalySubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

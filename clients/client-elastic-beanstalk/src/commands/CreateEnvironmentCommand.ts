@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { CreateEnvironmentMessage, EnvironmentDescription } from "../models/models_0";
-import {
-  deserializeAws_queryCreateEnvironmentCommand,
-  serializeAws_queryCreateEnvironmentCommand,
-} from "../protocols/Aws_query";
+import { de_CreateEnvironmentCommand, se_CreateEnvironmentCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -197,14 +194,14 @@ export class CreateEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateEnvironmentCommand(input, context);
+    return se_CreateEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
-    return deserializeAws_queryCreateEnvironmentCommand(output, context);
+    return de_CreateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

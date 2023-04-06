@@ -19,10 +19,7 @@ import {
   CreateTestGridUrlResult,
   CreateTestGridUrlResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateTestGridUrlCommand,
-  serializeAws_json1_1CreateTestGridUrlCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateTestGridUrlCommand, se_CreateTestGridUrlCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class CreateTestGridUrlCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTestGridUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTestGridUrlCommand(input, context);
+    return se_CreateTestGridUrlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTestGridUrlCommandOutput> {
-    return deserializeAws_json1_1CreateTestGridUrlCommand(output, context);
+    return de_CreateTestGridUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

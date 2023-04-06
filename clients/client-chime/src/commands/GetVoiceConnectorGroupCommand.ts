@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetVoiceConnectorGroupRequest, GetVoiceConnectorGroupResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetVoiceConnectorGroupCommand,
-  serializeAws_restJson1GetVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVoiceConnectorGroupCommand, se_GetVoiceConnectorGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetVoiceConnectorGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorGroupCommand(input, context);
+    return se_GetVoiceConnectorGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorGroupCommand(output, context);
+    return de_GetVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

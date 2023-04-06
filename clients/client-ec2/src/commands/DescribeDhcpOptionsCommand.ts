@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeDhcpOptionsRequest, DescribeDhcpOptionsResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeDhcpOptionsCommand,
-  serializeAws_ec2DescribeDhcpOptionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeDhcpOptionsCommand, se_DescribeDhcpOptionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class DescribeDhcpOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDhcpOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeDhcpOptionsCommand(input, context);
+    return se_DescribeDhcpOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDhcpOptionsCommandOutput> {
-    return deserializeAws_ec2DescribeDhcpOptionsCommand(output, context);
+    return de_DescribeDhcpOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { CreateRoleRequest, CreateRoleResponse } from "../models/models_0";
-import { deserializeAws_queryCreateRoleCommand, serializeAws_queryCreateRoleCommand } from "../protocols/Aws_query";
+import { de_CreateRoleCommand, se_CreateRoleCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -179,14 +179,14 @@ export class CreateRoleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateRoleCommand(input, context);
+    return se_CreateRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRoleCommandOutput> {
-    return deserializeAws_queryCreateRoleCommand(output, context);
+    return de_CreateRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

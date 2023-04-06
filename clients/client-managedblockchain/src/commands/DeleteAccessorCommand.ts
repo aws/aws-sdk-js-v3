@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import { DeleteAccessorInput, DeleteAccessorOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAccessorCommand,
-  serializeAws_restJson1DeleteAccessorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAccessorCommand, se_DeleteAccessorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteAccessorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccessorCommand(input, context);
+    return se_DeleteAccessorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessorCommandOutput> {
-    return deserializeAws_restJson1DeleteAccessorCommand(output, context);
+    return de_DeleteAccessorCommand(output, context);
   }
 
   // Start section: command_body_extra

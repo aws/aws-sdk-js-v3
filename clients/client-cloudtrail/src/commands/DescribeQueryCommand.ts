@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { DescribeQueryRequest, DescribeQueryResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeQueryCommand,
-  serializeAws_json1_1DescribeQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeQueryCommand, se_DescribeQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DescribeQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQueryCommand(input, context);
+    return se_DescribeQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueryCommandOutput> {
-    return deserializeAws_json1_1DescribeQueryCommand(output, context);
+    return de_DescribeQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

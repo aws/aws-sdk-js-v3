@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { GetMacieSessionRequest, GetMacieSessionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMacieSessionCommand,
-  serializeAws_restJson1GetMacieSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMacieSessionCommand, se_GetMacieSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetMacieSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMacieSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMacieSessionCommand(input, context);
+    return se_GetMacieSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMacieSessionCommandOutput> {
-    return deserializeAws_restJson1GetMacieSessionCommand(output, context);
+    return de_GetMacieSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

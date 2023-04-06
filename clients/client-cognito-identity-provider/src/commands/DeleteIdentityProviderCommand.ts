@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { DeleteIdentityProviderRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteIdentityProviderCommand,
-  serializeAws_json1_1DeleteIdentityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteIdentityProviderCommand, se_DeleteIdentityProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class DeleteIdentityProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteIdentityProviderCommand(input, context);
+    return se_DeleteIdentityProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityProviderCommandOutput> {
-    return deserializeAws_json1_1DeleteIdentityProviderCommand(output, context);
+    return de_DeleteIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

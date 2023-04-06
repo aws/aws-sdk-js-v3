@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteVpcPeeringConnectionRequest, DeleteVpcPeeringConnectionResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteVpcPeeringConnectionCommand,
-  serializeAws_ec2DeleteVpcPeeringConnectionCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteVpcPeeringConnectionCommand, se_DeleteVpcPeeringConnectionCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,7 +122,7 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVpcPeeringConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpcPeeringConnectionCommand(input, context);
+    return se_DeleteVpcPeeringConnectionCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcPeeringConnectionCommandOutput> {
-    return deserializeAws_ec2DeleteVpcPeeringConnectionCommand(output, context);
+    return de_DeleteVpcPeeringConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

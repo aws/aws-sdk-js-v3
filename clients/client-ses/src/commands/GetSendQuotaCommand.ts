@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetSendQuotaResponse } from "../models/models_0";
-import { deserializeAws_queryGetSendQuotaCommand, serializeAws_queryGetSendQuotaCommand } from "../protocols/Aws_query";
+import { de_GetSendQuotaCommand, se_GetSendQuotaCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -130,14 +130,14 @@ export class GetSendQuotaCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSendQuotaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetSendQuotaCommand(input, context);
+    return se_GetSendQuotaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSendQuotaCommandOutput> {
-    return deserializeAws_queryGetSendQuotaCommand(output, context);
+    return de_GetSendQuotaCommand(output, context);
   }
 
   // Start section: command_body_extra

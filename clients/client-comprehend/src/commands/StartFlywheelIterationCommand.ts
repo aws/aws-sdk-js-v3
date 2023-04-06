@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { StartFlywheelIterationRequest, StartFlywheelIterationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartFlywheelIterationCommand,
-  serializeAws_json1_1StartFlywheelIterationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartFlywheelIterationCommand, se_StartFlywheelIterationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class StartFlywheelIterationCommand extends $Command<
    * @internal
    */
   private serialize(input: StartFlywheelIterationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartFlywheelIterationCommand(input, context);
+    return se_StartFlywheelIterationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFlywheelIterationCommandOutput> {
-    return deserializeAws_json1_1StartFlywheelIterationCommand(output, context);
+    return de_StartFlywheelIterationCommand(output, context);
   }
 
   // Start section: command_body_extra

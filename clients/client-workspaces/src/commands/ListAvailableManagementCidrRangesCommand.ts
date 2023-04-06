@@ -15,8 +15,8 @@ import {
 
 import { ListAvailableManagementCidrRangesRequest, ListAvailableManagementCidrRangesResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListAvailableManagementCidrRangesCommand,
-  serializeAws_json1_1ListAvailableManagementCidrRangesCommand,
+  de_ListAvailableManagementCidrRangesCommand,
+  se_ListAvailableManagementCidrRangesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -140,7 +140,7 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
     input: ListAvailableManagementCidrRangesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableManagementCidrRangesCommand(input, context);
+    return se_ListAvailableManagementCidrRangesCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableManagementCidrRangesCommandOutput> {
-    return deserializeAws_json1_1ListAvailableManagementCidrRangesCommand(output, context);
+    return de_ListAvailableManagementCidrRangesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RollbackTransactionRequest, RollbackTransactionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RollbackTransactionCommand,
-  serializeAws_restJson1RollbackTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RollbackTransactionCommand, se_RollbackTransactionCommand } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
@@ -144,14 +141,14 @@ export class RollbackTransactionCommand extends $Command<
    * @internal
    */
   private serialize(input: RollbackTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RollbackTransactionCommand(input, context);
+    return se_RollbackTransactionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RollbackTransactionCommandOutput> {
-    return deserializeAws_restJson1RollbackTransactionCommand(output, context);
+    return de_RollbackTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

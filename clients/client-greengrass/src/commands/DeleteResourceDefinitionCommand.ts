@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { DeleteResourceDefinitionRequest, DeleteResourceDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResourceDefinitionCommand,
-  serializeAws_restJson1DeleteResourceDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteResourceDefinitionCommand, se_DeleteResourceDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class DeleteResourceDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResourceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourceDefinitionCommand(input, context);
+    return se_DeleteResourceDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteResourceDefinitionCommand(output, context);
+    return de_DeleteResourceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { ListStackResourcesInput, ListStackResourcesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryListStackResourcesCommand,
-  serializeAws_queryListStackResourcesCommand,
-} from "../protocols/Aws_query";
+import { de_ListStackResourcesCommand, se_ListStackResourcesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class ListStackResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListStackResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListStackResourcesCommand(input, context);
+    return se_ListStackResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStackResourcesCommandOutput> {
-    return deserializeAws_queryListStackResourcesCommand(output, context);
+    return de_ListStackResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   CreateNetworkAnalyzerConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateNetworkAnalyzerConfigurationCommand,
-  serializeAws_restJson1CreateNetworkAnalyzerConfigurationCommand,
+  de_CreateNetworkAnalyzerConfigurationCommand,
+  se_CreateNetworkAnalyzerConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -164,7 +164,7 @@ export class CreateNetworkAnalyzerConfigurationCommand extends $Command<
     input: CreateNetworkAnalyzerConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNetworkAnalyzerConfigurationCommand(input, context);
+    return se_CreateNetworkAnalyzerConfigurationCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class CreateNetworkAnalyzerConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateNetworkAnalyzerConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateNetworkAnalyzerConfigurationCommand(output, context);
+    return de_CreateNetworkAnalyzerConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

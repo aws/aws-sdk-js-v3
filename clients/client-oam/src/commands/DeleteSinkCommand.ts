@@ -15,10 +15,7 @@ import {
 
 import { DeleteSinkInput, DeleteSinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1DeleteSinkCommand,
-  serializeAws_restJson1DeleteSinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSinkCommand, se_DeleteSinkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteSinkCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSinkCommand(input, context);
+    return se_DeleteSinkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSinkCommandOutput> {
-    return deserializeAws_restJson1DeleteSinkCommand(output, context);
+    return de_DeleteSinkCommand(output, context);
   }
 
   // Start section: command_body_extra

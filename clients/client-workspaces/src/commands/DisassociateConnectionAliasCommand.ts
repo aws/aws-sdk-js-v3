@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateConnectionAliasRequest, DisassociateConnectionAliasResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateConnectionAliasCommand,
-  serializeAws_json1_1DisassociateConnectionAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateConnectionAliasCommand, se_DisassociateConnectionAliasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -143,7 +140,7 @@ export class DisassociateConnectionAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateConnectionAliasCommand(input, context);
+    return se_DisassociateConnectionAliasCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class DisassociateConnectionAliasCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateConnectionAliasCommandOutput> {
-    return deserializeAws_json1_1DisassociateConnectionAliasCommand(output, context);
+    return de_DisassociateConnectionAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

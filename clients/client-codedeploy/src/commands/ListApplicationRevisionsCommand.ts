@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { ListApplicationRevisionsInput, ListApplicationRevisionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApplicationRevisionsCommand,
-  serializeAws_json1_1ListApplicationRevisionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListApplicationRevisionsCommand, se_ListApplicationRevisionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class ListApplicationRevisionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListApplicationRevisionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApplicationRevisionsCommand(input, context);
+    return se_ListApplicationRevisionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationRevisionsCommandOutput> {
-    return deserializeAws_json1_1ListApplicationRevisionsCommand(output, context);
+    return de_ListApplicationRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

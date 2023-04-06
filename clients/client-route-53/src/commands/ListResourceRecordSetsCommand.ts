@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListResourceRecordSetsRequest, ListResourceRecordSetsResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlListResourceRecordSetsCommand,
-  serializeAws_restXmlListResourceRecordSetsCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListResourceRecordSetsCommand, se_ListResourceRecordSetsCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -202,14 +199,14 @@ export class ListResourceRecordSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourceRecordSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListResourceRecordSetsCommand(input, context);
+    return se_ListResourceRecordSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceRecordSetsCommandOutput> {
-    return deserializeAws_restXmlListResourceRecordSetsCommand(output, context);
+    return de_ListResourceRecordSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

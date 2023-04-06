@@ -20,10 +20,7 @@ import {
   RefreshTokenResponse,
   RefreshTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1RefreshTokenCommand,
-  serializeAws_restJson1RefreshTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RefreshTokenCommand, se_RefreshTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class RefreshTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: RefreshTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RefreshTokenCommand(input, context);
+    return se_RefreshTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshTokenCommandOutput> {
-    return deserializeAws_restJson1RefreshTokenCommand(output, context);
+    return de_RefreshTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

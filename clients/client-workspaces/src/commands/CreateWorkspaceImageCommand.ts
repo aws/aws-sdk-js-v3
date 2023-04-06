@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateWorkspaceImageRequest, CreateWorkspaceImageResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWorkspaceImageCommand,
-  serializeAws_json1_1CreateWorkspaceImageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWorkspaceImageCommand, se_CreateWorkspaceImageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -149,14 +146,14 @@ export class CreateWorkspaceImageCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkspaceImageCommand(input, context);
+    return se_CreateWorkspaceImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkspaceImageCommandOutput> {
-    return deserializeAws_json1_1CreateWorkspaceImageCommand(output, context);
+    return de_CreateWorkspaceImageCommand(output, context);
   }
 
   // Start section: command_body_extra

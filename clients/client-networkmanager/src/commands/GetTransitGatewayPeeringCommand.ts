@@ -15,10 +15,7 @@ import {
 
 import { GetTransitGatewayPeeringRequest, GetTransitGatewayPeeringResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetTransitGatewayPeeringCommand,
-  serializeAws_restJson1GetTransitGatewayPeeringCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTransitGatewayPeeringCommand, se_GetTransitGatewayPeeringCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetTransitGatewayPeeringCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTransitGatewayPeeringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTransitGatewayPeeringCommand(input, context);
+    return se_GetTransitGatewayPeeringCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTransitGatewayPeeringCommandOutput> {
-    return deserializeAws_restJson1GetTransitGatewayPeeringCommand(output, context);
+    return de_GetTransitGatewayPeeringCommand(output, context);
   }
 
   // Start section: command_body_extra

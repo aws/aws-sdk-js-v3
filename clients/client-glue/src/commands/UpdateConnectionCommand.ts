@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { UpdateConnectionRequest, UpdateConnectionResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateConnectionCommand,
-  serializeAws_json1_1UpdateConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateConnectionCommand, se_UpdateConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class UpdateConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConnectionCommand(input, context);
+    return se_UpdateConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectionCommandOutput> {
-    return deserializeAws_json1_1UpdateConnectionCommand(output, context);
+    return de_UpdateConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

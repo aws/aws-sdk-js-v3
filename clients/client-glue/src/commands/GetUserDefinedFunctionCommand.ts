@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetUserDefinedFunctionRequest, GetUserDefinedFunctionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetUserDefinedFunctionCommand,
-  serializeAws_json1_1GetUserDefinedFunctionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetUserDefinedFunctionCommand, se_GetUserDefinedFunctionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class GetUserDefinedFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUserDefinedFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUserDefinedFunctionCommand(input, context);
+    return se_GetUserDefinedFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserDefinedFunctionCommandOutput> {
-    return deserializeAws_json1_1GetUserDefinedFunctionCommand(output, context);
+    return de_GetUserDefinedFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ListPricingPlansAssociatedWithPricingRuleOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand,
-  serializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand,
+  de_ListPricingPlansAssociatedWithPricingRuleCommand,
+  se_ListPricingPlansAssociatedWithPricingRuleCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -159,7 +159,7 @@ export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
     input: ListPricingPlansAssociatedWithPricingRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand(input, context);
+    return se_ListPricingPlansAssociatedWithPricingRuleCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPricingPlansAssociatedWithPricingRuleCommandOutput> {
-    return deserializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand(output, context);
+    return de_ListPricingPlansAssociatedWithPricingRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

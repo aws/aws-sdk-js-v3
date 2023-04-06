@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { CreateVehicleRequest, CreateVehicleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateVehicleCommand,
-  serializeAws_json1_0CreateVehicleCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateVehicleCommand, se_CreateVehicleCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class CreateVehicleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVehicleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateVehicleCommand(input, context);
+    return se_CreateVehicleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVehicleCommandOutput> {
-    return deserializeAws_json1_0CreateVehicleCommand(output, context);
+    return de_CreateVehicleCommand(output, context);
   }
 
   // Start section: command_body_extra

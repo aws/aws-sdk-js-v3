@@ -27,10 +27,7 @@ import {
   PostContentResponse,
   PostContentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1PostContentCommand,
-  serializeAws_restJson1PostContentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PostContentCommand, se_PostContentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -280,7 +277,7 @@ export class PostContentCommand extends $Command<
    * @internal
    */
   private serialize(input: PostContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PostContentCommand(input, context);
+    return se_PostContentCommand(input, context);
   }
 
   /**
@@ -290,7 +287,7 @@ export class PostContentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<PostContentCommandOutput> {
-    return deserializeAws_restJson1PostContentCommand(output, context);
+    return de_PostContentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ListStepsInput, ListStepsOutput } from "../models/models_0";
-import { deserializeAws_json1_1ListStepsCommand, serializeAws_json1_1ListStepsCommand } from "../protocols/Aws_json1_1";
+import { de_ListStepsCommand, se_ListStepsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +130,14 @@ export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsC
    * @internal
    */
   private serialize(input: ListStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStepsCommand(input, context);
+    return se_ListStepsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStepsCommandOutput> {
-    return deserializeAws_json1_1ListStepsCommand(output, context);
+    return de_ListStepsCommand(output, context);
   }
 
   // Start section: command_body_extra

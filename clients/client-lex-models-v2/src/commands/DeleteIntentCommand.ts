@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { DeleteIntentRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteIntentCommand,
-  serializeAws_restJson1DeleteIntentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteIntentCommand, se_DeleteIntentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteIntentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteIntentCommand(input, context);
+    return se_DeleteIntentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIntentCommandOutput> {
-    return deserializeAws_restJson1DeleteIntentCommand(output, context);
+    return de_DeleteIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

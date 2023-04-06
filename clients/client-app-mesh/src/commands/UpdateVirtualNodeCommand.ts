@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { UpdateVirtualNodeInput, UpdateVirtualNodeOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateVirtualNodeCommand,
-  serializeAws_restJson1UpdateVirtualNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateVirtualNodeCommand, se_UpdateVirtualNodeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -377,14 +374,14 @@ export class UpdateVirtualNodeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVirtualNodeCommand(input, context);
+    return se_UpdateVirtualNodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualNodeCommandOutput> {
-    return deserializeAws_restJson1UpdateVirtualNodeCommand(output, context);
+    return de_UpdateVirtualNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

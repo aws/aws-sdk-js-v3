@@ -16,8 +16,8 @@ import {
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { DescribeIdentityProviderConfigRequest, DescribeIdentityProviderConfigResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeIdentityProviderConfigCommand,
-  serializeAws_restJson1DescribeIdentityProviderConfigCommand,
+  de_DescribeIdentityProviderConfigCommand,
+  se_DescribeIdentityProviderConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -150,7 +150,7 @@ export class DescribeIdentityProviderConfigCommand extends $Command<
     input: DescribeIdentityProviderConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeIdentityProviderConfigCommand(input, context);
+    return se_DescribeIdentityProviderConfigCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DescribeIdentityProviderConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIdentityProviderConfigCommandOutput> {
-    return deserializeAws_restJson1DescribeIdentityProviderConfigCommand(output, context);
+    return de_DescribeIdentityProviderConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { ListDevelopmentSchemaArnsRequest, ListDevelopmentSchemaArnsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDevelopmentSchemaArnsCommand,
-  serializeAws_restJson1ListDevelopmentSchemaArnsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDevelopmentSchemaArnsCommand, se_ListDevelopmentSchemaArnsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDevelopmentSchemaArnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDevelopmentSchemaArnsCommand(input, context);
+    return se_ListDevelopmentSchemaArnsCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDevelopmentSchemaArnsCommandOutput> {
-    return deserializeAws_restJson1ListDevelopmentSchemaArnsCommand(output, context);
+    return de_ListDevelopmentSchemaArnsCommand(output, context);
   }
 
   // Start section: command_body_extra

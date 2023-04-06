@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartCelebrityRecognitionRequest, StartCelebrityRecognitionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartCelebrityRecognitionCommand,
-  serializeAws_json1_1StartCelebrityRecognitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartCelebrityRecognitionCommand, se_StartCelebrityRecognitionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -175,7 +172,7 @@ export class StartCelebrityRecognitionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartCelebrityRecognitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartCelebrityRecognitionCommand(input, context);
+    return se_StartCelebrityRecognitionCommand(input, context);
   }
 
   /**
@@ -185,7 +182,7 @@ export class StartCelebrityRecognitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartCelebrityRecognitionCommandOutput> {
-    return deserializeAws_json1_1StartCelebrityRecognitionCommand(output, context);
+    return de_StartCelebrityRecognitionCommand(output, context);
   }
 
   // Start section: command_body_extra

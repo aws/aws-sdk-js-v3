@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
-  serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
+  de_RemoveSourceIdentifierFromSubscriptionCommand,
+  se_RemoveSourceIdentifierFromSubscriptionCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -136,7 +136,7 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     input: RemoveSourceIdentifierFromSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(input, context);
+    return se_RemoveSourceIdentifierFromSubscriptionCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> {
-    return deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(output, context);
+    return de_RemoveSourceIdentifierFromSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

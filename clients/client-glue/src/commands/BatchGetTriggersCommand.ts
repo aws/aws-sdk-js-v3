@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchGetTriggersRequest, BatchGetTriggersResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetTriggersCommand,
-  serializeAws_json1_1BatchGetTriggersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetTriggersCommand, se_BatchGetTriggersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class BatchGetTriggersCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetTriggersCommand(input, context);
+    return se_BatchGetTriggersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetTriggersCommandOutput> {
-    return deserializeAws_json1_1BatchGetTriggersCommand(output, context);
+    return de_BatchGetTriggersCommand(output, context);
   }
 
   // Start section: command_body_extra

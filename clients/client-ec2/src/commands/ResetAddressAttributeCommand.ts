@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ResetAddressAttributeRequest, ResetAddressAttributeResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ResetAddressAttributeCommand,
-  serializeAws_ec2ResetAddressAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { de_ResetAddressAttributeCommand, se_ResetAddressAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class ResetAddressAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetAddressAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ResetAddressAttributeCommand(input, context);
+    return se_ResetAddressAttributeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetAddressAttributeCommandOutput> {
-    return deserializeAws_ec2ResetAddressAttributeCommand(output, context);
+    return de_ResetAddressAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

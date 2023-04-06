@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { UpdateDomainEntryRequest, UpdateDomainEntryResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateDomainEntryCommand,
-  serializeAws_json1_1UpdateDomainEntryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDomainEntryCommand, se_UpdateDomainEntryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class UpdateDomainEntryCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDomainEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDomainEntryCommand(input, context);
+    return se_UpdateDomainEntryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainEntryCommandOutput> {
-    return deserializeAws_json1_1UpdateDomainEntryCommand(output, context);
+    return de_UpdateDomainEntryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,10 +20,7 @@ import {
   UpdateConfigurationProfileRequest,
   UpdateConfigurationProfileRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConfigurationProfileCommand,
-  serializeAws_restJson1UpdateConfigurationProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateConfigurationProfileCommand, se_UpdateConfigurationProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -167,7 +164,7 @@ export class UpdateConfigurationProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConfigurationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConfigurationProfileCommand(input, context);
+    return se_UpdateConfigurationProfileCommand(input, context);
   }
 
   /**
@@ -177,7 +174,7 @@ export class UpdateConfigurationProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateConfigurationProfileCommand(output, context);
+    return de_UpdateConfigurationProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteFeatureGroupRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteFeatureGroupCommand,
-  serializeAws_json1_1DeleteFeatureGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFeatureGroupCommand, se_DeleteFeatureGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -128,14 +125,14 @@ export class DeleteFeatureGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFeatureGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFeatureGroupCommand(input, context);
+    return se_DeleteFeatureGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFeatureGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteFeatureGroupCommand(output, context);
+    return de_DeleteFeatureGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

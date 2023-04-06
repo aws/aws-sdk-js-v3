@@ -19,10 +19,7 @@ import {
   DescribeSpotInstanceRequestsResult,
   DescribeSpotInstanceRequestsResultFilterSensitiveLog,
 } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSpotInstanceRequestsCommand,
-  serializeAws_ec2DescribeSpotInstanceRequestsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeSpotInstanceRequestsCommand, se_DescribeSpotInstanceRequestsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -210,7 +207,7 @@ export class DescribeSpotInstanceRequestsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSpotInstanceRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSpotInstanceRequestsCommand(input, context);
+    return se_DescribeSpotInstanceRequestsCommand(input, context);
   }
 
   /**
@@ -220,7 +217,7 @@ export class DescribeSpotInstanceRequestsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSpotInstanceRequestsCommandOutput> {
-    return deserializeAws_ec2DescribeSpotInstanceRequestsCommand(output, context);
+    return de_DescribeSpotInstanceRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

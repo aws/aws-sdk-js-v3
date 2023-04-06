@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyDBProxyTargetGroupRequest, ModifyDBProxyTargetGroupResponse } from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBProxyTargetGroupCommand,
-  serializeAws_queryModifyDBProxyTargetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBProxyTargetGroupCommand, se_ModifyDBProxyTargetGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -140,14 +137,14 @@ export class ModifyDBProxyTargetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBProxyTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBProxyTargetGroupCommand(input, context);
+    return se_ModifyDBProxyTargetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBProxyTargetGroupCommandOutput> {
-    return deserializeAws_queryModifyDBProxyTargetGroupCommand(output, context);
+    return de_ModifyDBProxyTargetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

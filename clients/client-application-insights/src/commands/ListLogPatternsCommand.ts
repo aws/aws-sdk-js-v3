@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import { ListLogPatternsRequest, ListLogPatternsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLogPatternsCommand,
-  serializeAws_json1_1ListLogPatternsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLogPatternsCommand, se_ListLogPatternsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListLogPatternsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLogPatternsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLogPatternsCommand(input, context);
+    return se_ListLogPatternsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogPatternsCommandOutput> {
-    return deserializeAws_json1_1ListLogPatternsCommand(output, context);
+    return de_ListLogPatternsCommand(output, context);
   }
 
   // Start section: command_body_extra

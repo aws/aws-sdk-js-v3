@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSpaceRequest, DescribeSpaceResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeSpaceCommand,
-  serializeAws_json1_1DescribeSpaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSpaceCommand, se_DescribeSpaceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -122,14 +119,14 @@ export class DescribeSpaceCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSpaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSpaceCommand(input, context);
+    return se_DescribeSpaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSpaceCommandOutput> {
-    return deserializeAws_json1_1DescribeSpaceCommand(output, context);
+    return de_DescribeSpaceCommand(output, context);
   }
 
   // Start section: command_body_extra

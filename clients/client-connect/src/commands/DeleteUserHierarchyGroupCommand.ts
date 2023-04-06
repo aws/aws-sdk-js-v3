@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DeleteUserHierarchyGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteUserHierarchyGroupCommand,
-  serializeAws_restJson1DeleteUserHierarchyGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteUserHierarchyGroupCommand, se_DeleteUserHierarchyGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteUserHierarchyGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteUserHierarchyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteUserHierarchyGroupCommand(input, context);
+    return se_DeleteUserHierarchyGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteUserHierarchyGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteUserHierarchyGroupCommand(output, context);
+    return de_DeleteUserHierarchyGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

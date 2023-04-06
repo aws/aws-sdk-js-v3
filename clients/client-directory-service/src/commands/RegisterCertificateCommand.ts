@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { RegisterCertificateRequest, RegisterCertificateResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterCertificateCommand,
-  serializeAws_json1_1RegisterCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterCertificateCommand, se_RegisterCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class RegisterCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterCertificateCommand(input, context);
+    return se_RegisterCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterCertificateCommandOutput> {
-    return deserializeAws_json1_1RegisterCertificateCommand(output, context);
+    return de_RegisterCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

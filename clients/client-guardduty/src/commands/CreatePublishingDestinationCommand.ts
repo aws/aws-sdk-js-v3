@@ -16,8 +16,8 @@ import {
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { CreatePublishingDestinationRequest, CreatePublishingDestinationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreatePublishingDestinationCommand,
-  serializeAws_restJson1CreatePublishingDestinationCommand,
+  de_CreatePublishingDestinationCommand,
+  se_CreatePublishingDestinationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -135,7 +135,7 @@ export class CreatePublishingDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePublishingDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePublishingDestinationCommand(input, context);
+    return se_CreatePublishingDestinationCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class CreatePublishingDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePublishingDestinationCommandOutput> {
-    return deserializeAws_restJson1CreatePublishingDestinationCommand(output, context);
+    return de_CreatePublishingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

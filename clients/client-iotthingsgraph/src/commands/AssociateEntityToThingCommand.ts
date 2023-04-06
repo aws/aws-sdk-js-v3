@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { AssociateEntityToThingRequest, AssociateEntityToThingResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateEntityToThingCommand,
-  serializeAws_json1_1AssociateEntityToThingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateEntityToThingCommand, se_AssociateEntityToThingCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class AssociateEntityToThingCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateEntityToThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateEntityToThingCommand(input, context);
+    return se_AssociateEntityToThingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateEntityToThingCommandOutput> {
-    return deserializeAws_json1_1AssociateEntityToThingCommand(output, context);
+    return de_AssociateEntityToThingCommand(output, context);
   }
 
   // Start section: command_body_extra

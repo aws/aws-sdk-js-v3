@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { UpdateNamedQueryInput, UpdateNamedQueryOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateNamedQueryCommand,
-  serializeAws_json1_1UpdateNamedQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateNamedQueryCommand, se_UpdateNamedQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class UpdateNamedQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNamedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNamedQueryCommand(input, context);
+    return se_UpdateNamedQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNamedQueryCommandOutput> {
-    return deserializeAws_json1_1UpdateNamedQueryCommand(output, context);
+    return de_UpdateNamedQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

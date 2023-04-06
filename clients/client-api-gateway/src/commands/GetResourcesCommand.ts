@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GetResourcesRequest, Resources } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourcesCommand,
-  serializeAws_restJson1GetResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetResourcesCommand, se_GetResourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourcesCommand(input, context);
+    return se_GetResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcesCommandOutput> {
-    return deserializeAws_restJson1GetResourcesCommand(output, context);
+    return de_GetResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteDatabaseRequest, DeleteDatabaseResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteDatabaseCommand,
-  serializeAws_json1_1DeleteDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDatabaseCommand, se_DeleteDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteDatabaseCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDatabaseCommand(input, context);
+    return se_DeleteDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatabaseCommandOutput> {
-    return deserializeAws_json1_1DeleteDatabaseCommand(output, context);
+    return de_DeleteDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
 import { TagProjectRequest, TagProjectResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1TagProjectCommand,
-  serializeAws_json1_1TagProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TagProjectCommand, se_TagProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class TagProjectCommand extends $Command<
    * @internal
    */
   private serialize(input: TagProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagProjectCommand(input, context);
+    return se_TagProjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagProjectCommandOutput> {
-    return deserializeAws_json1_1TagProjectCommand(output, context);
+    return de_TagProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

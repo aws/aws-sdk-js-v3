@@ -19,10 +19,7 @@ import {
   UpdateCustomKeyStoreRequestFilterSensitiveLog,
   UpdateCustomKeyStoreResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCustomKeyStoreCommand,
-  serializeAws_json1_1UpdateCustomKeyStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateCustomKeyStoreCommand, se_UpdateCustomKeyStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -460,14 +457,14 @@ export class UpdateCustomKeyStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCustomKeyStoreCommand(input, context);
+    return se_UpdateCustomKeyStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCustomKeyStoreCommandOutput> {
-    return deserializeAws_json1_1UpdateCustomKeyStoreCommand(output, context);
+    return de_UpdateCustomKeyStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

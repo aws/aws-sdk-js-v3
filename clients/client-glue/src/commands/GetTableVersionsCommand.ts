@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetTableVersionsRequest, GetTableVersionsResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetTableVersionsCommand,
-  serializeAws_json1_1GetTableVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetTableVersionsCommand, se_GetTableVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetTableVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTableVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTableVersionsCommand(input, context);
+    return se_GetTableVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableVersionsCommandOutput> {
-    return deserializeAws_json1_1GetTableVersionsCommand(output, context);
+    return de_GetTableVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

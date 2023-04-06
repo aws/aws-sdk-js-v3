@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ModifyInstanceFleetInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyInstanceFleetCommand,
-  serializeAws_json1_1ModifyInstanceFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyInstanceFleetCommand, se_ModifyInstanceFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class ModifyInstanceFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyInstanceFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyInstanceFleetCommand(input, context);
+    return se_ModifyInstanceFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyInstanceFleetCommandOutput> {
-    return deserializeAws_json1_1ModifyInstanceFleetCommand(output, context);
+    return de_ModifyInstanceFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

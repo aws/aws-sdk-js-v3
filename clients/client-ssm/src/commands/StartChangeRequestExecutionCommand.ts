@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartChangeRequestExecutionRequest, StartChangeRequestExecutionResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1StartChangeRequestExecutionCommand,
-  serializeAws_json1_1StartChangeRequestExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartChangeRequestExecutionCommand, se_StartChangeRequestExecutionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -216,7 +213,7 @@ export class StartChangeRequestExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartChangeRequestExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartChangeRequestExecutionCommand(input, context);
+    return se_StartChangeRequestExecutionCommand(input, context);
   }
 
   /**
@@ -226,7 +223,7 @@ export class StartChangeRequestExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartChangeRequestExecutionCommandOutput> {
-    return deserializeAws_json1_1StartChangeRequestExecutionCommand(output, context);
+    return de_StartChangeRequestExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

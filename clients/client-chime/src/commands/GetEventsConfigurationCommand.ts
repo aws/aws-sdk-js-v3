@@ -19,10 +19,7 @@ import {
   GetEventsConfigurationResponse,
   GetEventsConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEventsConfigurationCommand,
-  serializeAws_restJson1GetEventsConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEventsConfigurationCommand, se_GetEventsConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class GetEventsConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEventsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEventsConfigurationCommand(input, context);
+    return se_GetEventsConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetEventsConfigurationCommand(output, context);
+    return de_GetEventsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

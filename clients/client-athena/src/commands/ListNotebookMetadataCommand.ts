@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { ListNotebookMetadataInput, ListNotebookMetadataOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListNotebookMetadataCommand,
-  serializeAws_json1_1ListNotebookMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListNotebookMetadataCommand, se_ListNotebookMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListNotebookMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: ListNotebookMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListNotebookMetadataCommand(input, context);
+    return se_ListNotebookMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotebookMetadataCommandOutput> {
-    return deserializeAws_json1_1ListNotebookMetadataCommand(output, context);
+    return de_ListNotebookMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

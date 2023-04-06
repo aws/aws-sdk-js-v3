@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteFleetMetricRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFleetMetricCommand,
-  serializeAws_restJson1DeleteFleetMetricCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFleetMetricCommand, se_DeleteFleetMetricCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DeleteFleetMetricCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFleetMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFleetMetricCommand(input, context);
+    return se_DeleteFleetMetricCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetMetricCommandOutput> {
-    return deserializeAws_restJson1DeleteFleetMetricCommand(output, context);
+    return de_DeleteFleetMetricCommand(output, context);
   }
 
   // Start section: command_body_extra

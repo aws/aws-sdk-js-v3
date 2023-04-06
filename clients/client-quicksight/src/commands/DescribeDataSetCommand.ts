@@ -18,10 +18,7 @@ import {
   DescribeDataSetResponse,
   DescribeDataSetResponseFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeDataSetCommand,
-  serializeAws_restJson1DescribeDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDataSetCommand, se_DescribeDataSetCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -143,14 +140,14 @@ export class DescribeDataSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDataSetCommand(input, context);
+    return se_DescribeDataSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSetCommandOutput> {
-    return deserializeAws_restJson1DescribeDataSetCommand(output, context);
+    return de_DescribeDataSetCommand(output, context);
   }
 
   // Start section: command_body_extra

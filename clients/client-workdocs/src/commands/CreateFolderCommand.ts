@@ -19,10 +19,7 @@ import {
   CreateFolderResponse,
   CreateFolderResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFolderCommand,
-  serializeAws_restJson1CreateFolderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateFolderCommand, se_CreateFolderCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -157,14 +154,14 @@ export class CreateFolderCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFolderCommand(input, context);
+    return se_CreateFolderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFolderCommandOutput> {
-    return deserializeAws_restJson1CreateFolderCommand(output, context);
+    return de_CreateFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { PutAlternateContactRequest, PutAlternateContactRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAlternateContactCommand,
-  serializeAws_restJson1PutAlternateContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutAlternateContactCommand, se_PutAlternateContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class PutAlternateContactCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAlternateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAlternateContactCommand(input, context);
+    return se_PutAlternateContactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAlternateContactCommandOutput> {
-    return deserializeAws_restJson1PutAlternateContactCommand(output, context);
+    return de_PutAlternateContactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetSubscriptionStateRequest, GetSubscriptionStateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSubscriptionStateCommand,
-  serializeAws_json1_1GetSubscriptionStateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSubscriptionStateCommand, se_GetSubscriptionStateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -121,14 +118,14 @@ export class GetSubscriptionStateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSubscriptionStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSubscriptionStateCommand(input, context);
+    return se_GetSubscriptionStateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSubscriptionStateCommandOutput> {
-    return deserializeAws_json1_1GetSubscriptionStateCommand(output, context);
+    return de_GetSubscriptionStateCommand(output, context);
   }
 
   // Start section: command_body_extra

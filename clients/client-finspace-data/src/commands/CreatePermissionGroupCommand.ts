@@ -19,10 +19,7 @@ import {
   CreatePermissionGroupRequestFilterSensitiveLog,
   CreatePermissionGroupResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreatePermissionGroupCommand,
-  serializeAws_restJson1CreatePermissionGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreatePermissionGroupCommand, se_CreatePermissionGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class CreatePermissionGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePermissionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreatePermissionGroupCommand(input, context);
+    return se_CreatePermissionGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePermissionGroupCommandOutput> {
-    return deserializeAws_restJson1CreatePermissionGroupCommand(output, context);
+    return de_CreatePermissionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

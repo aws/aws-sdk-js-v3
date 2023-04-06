@@ -15,10 +15,7 @@ import {
 
 import { GetRunGroupRequest, GetRunGroupResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetRunGroupCommand,
-  serializeAws_restJson1GetRunGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRunGroupCommand, se_GetRunGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetRunGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRunGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRunGroupCommand(input, context);
+    return se_GetRunGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRunGroupCommandOutput> {
-    return deserializeAws_restJson1GetRunGroupCommand(output, context);
+    return de_GetRunGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

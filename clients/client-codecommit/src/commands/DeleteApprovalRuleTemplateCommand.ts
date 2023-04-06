@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { DeleteApprovalRuleTemplateInput, DeleteApprovalRuleTemplateOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteApprovalRuleTemplateCommand,
-  serializeAws_json1_1DeleteApprovalRuleTemplateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteApprovalRuleTemplateCommand, se_DeleteApprovalRuleTemplateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class DeleteApprovalRuleTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteApprovalRuleTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApprovalRuleTemplateCommand(input, context);
+    return se_DeleteApprovalRuleTemplateCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class DeleteApprovalRuleTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApprovalRuleTemplateCommandOutput> {
-    return deserializeAws_json1_1DeleteApprovalRuleTemplateCommand(output, context);
+    return de_DeleteApprovalRuleTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

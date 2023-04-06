@@ -19,10 +19,7 @@ import {
   CreateStorageVirtualMachineRequestFilterSensitiveLog,
   CreateStorageVirtualMachineResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStorageVirtualMachineCommand,
-  serializeAws_json1_1CreateStorageVirtualMachineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateStorageVirtualMachineCommand, se_CreateStorageVirtualMachineCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -173,7 +170,7 @@ export class CreateStorageVirtualMachineCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStorageVirtualMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStorageVirtualMachineCommand(input, context);
+    return se_CreateStorageVirtualMachineCommand(input, context);
   }
 
   /**
@@ -183,7 +180,7 @@ export class CreateStorageVirtualMachineCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateStorageVirtualMachineCommandOutput> {
-    return deserializeAws_json1_1CreateStorageVirtualMachineCommand(output, context);
+    return de_CreateStorageVirtualMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

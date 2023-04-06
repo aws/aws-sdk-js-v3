@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { GetTestGridSessionRequest, GetTestGridSessionResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTestGridSessionCommand,
-  serializeAws_json1_1GetTestGridSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetTestGridSessionCommand, se_GetTestGridSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetTestGridSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTestGridSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTestGridSessionCommand(input, context);
+    return se_GetTestGridSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTestGridSessionCommandOutput> {
-    return deserializeAws_json1_1GetTestGridSessionCommand(output, context);
+    return de_GetTestGridSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

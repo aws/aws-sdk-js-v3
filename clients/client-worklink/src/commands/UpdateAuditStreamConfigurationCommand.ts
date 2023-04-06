@@ -15,8 +15,8 @@ import {
 
 import { UpdateAuditStreamConfigurationRequest, UpdateAuditStreamConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateAuditStreamConfigurationCommand,
-  serializeAws_restJson1UpdateAuditStreamConfigurationCommand,
+  de_UpdateAuditStreamConfigurationCommand,
+  se_UpdateAuditStreamConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
@@ -143,7 +143,7 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<
     input: UpdateAuditStreamConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAuditStreamConfigurationCommand(input, context);
+    return se_UpdateAuditStreamConfigurationCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAuditStreamConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateAuditStreamConfigurationCommand(output, context);
+    return de_UpdateAuditStreamConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

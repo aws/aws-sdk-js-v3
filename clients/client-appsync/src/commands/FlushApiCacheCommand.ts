@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { FlushApiCacheRequest, FlushApiCacheResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1FlushApiCacheCommand,
-  serializeAws_restJson1FlushApiCacheCommand,
-} from "../protocols/Aws_restJson1";
+import { de_FlushApiCacheCommand, se_FlushApiCacheCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class FlushApiCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: FlushApiCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1FlushApiCacheCommand(input, context);
+    return se_FlushApiCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FlushApiCacheCommandOutput> {
-    return deserializeAws_restJson1FlushApiCacheCommand(output, context);
+    return de_FlushApiCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

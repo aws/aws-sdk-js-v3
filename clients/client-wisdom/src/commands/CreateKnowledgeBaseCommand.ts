@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateKnowledgeBaseRequest, CreateKnowledgeBaseResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateKnowledgeBaseCommand,
-  serializeAws_restJson1CreateKnowledgeBaseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateKnowledgeBaseCommand, se_CreateKnowledgeBaseCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -179,14 +176,14 @@ export class CreateKnowledgeBaseCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateKnowledgeBaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateKnowledgeBaseCommand(input, context);
+    return se_CreateKnowledgeBaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKnowledgeBaseCommandOutput> {
-    return deserializeAws_restJson1CreateKnowledgeBaseCommand(output, context);
+    return de_CreateKnowledgeBaseCommand(output, context);
   }
 
   // Start section: command_body_extra

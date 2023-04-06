@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConstantQueryStringInput } from "../models/models_0";
-import {
-  deserializeAws_restXmlConstantQueryStringCommand,
-  serializeAws_restXmlConstantQueryStringCommand,
-} from "../protocols/Aws_restXml";
+import { de_ConstantQueryStringCommand, se_ConstantQueryStringCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -110,14 +107,14 @@ export class ConstantQueryStringCommand extends $Command<
    * @internal
    */
   private serialize(input: ConstantQueryStringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlConstantQueryStringCommand(input, context);
+    return se_ConstantQueryStringCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConstantQueryStringCommandOutput> {
-    return deserializeAws_restXmlConstantQueryStringCommand(output, context);
+    return de_ConstantQueryStringCommand(output, context);
   }
 
   // Start section: command_body_extra

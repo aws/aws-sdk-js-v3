@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { PutUserStatusRequest, PutUserStatusResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1PutUserStatusCommand,
-  serializeAws_restJson1PutUserStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutUserStatusCommand, se_PutUserStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class PutUserStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: PutUserStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutUserStatusCommand(input, context);
+    return se_PutUserStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutUserStatusCommandOutput> {
-    return deserializeAws_restJson1PutUserStatusCommand(output, context);
+    return de_PutUserStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { GetResourceShareAssociationsRequest, GetResourceShareAssociationsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetResourceShareAssociationsCommand,
-  serializeAws_restJson1GetResourceShareAssociationsCommand,
+  de_GetResourceShareAssociationsCommand,
+  se_GetResourceShareAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
@@ -151,7 +151,7 @@ export class GetResourceShareAssociationsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourceShareAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceShareAssociationsCommand(input, context);
+    return se_GetResourceShareAssociationsCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class GetResourceShareAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResourceShareAssociationsCommandOutput> {
-    return deserializeAws_restJson1GetResourceShareAssociationsCommand(output, context);
+    return de_GetResourceShareAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

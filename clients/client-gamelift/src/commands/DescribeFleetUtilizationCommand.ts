@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeFleetUtilizationInput, DescribeFleetUtilizationOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetUtilizationCommand,
-  serializeAws_json1_1DescribeFleetUtilizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeFleetUtilizationCommand, se_DescribeFleetUtilizationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -173,14 +170,14 @@ export class DescribeFleetUtilizationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFleetUtilizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetUtilizationCommand(input, context);
+    return se_DescribeFleetUtilizationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFleetUtilizationCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetUtilizationCommand(output, context);
+    return de_DescribeFleetUtilizationCommand(output, context);
   }
 
   // Start section: command_body_extra

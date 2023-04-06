@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyVpnTunnelCertificateRequest, ModifyVpnTunnelCertificateResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyVpnTunnelCertificateCommand,
-  serializeAws_ec2ModifyVpnTunnelCertificateCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyVpnTunnelCertificateCommand, se_ModifyVpnTunnelCertificateCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -122,7 +119,7 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyVpnTunnelCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpnTunnelCertificateCommand(input, context);
+    return se_ModifyVpnTunnelCertificateCommand(input, context);
   }
 
   /**
@@ -132,7 +129,7 @@ export class ModifyVpnTunnelCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpnTunnelCertificateCommandOutput> {
-    return deserializeAws_ec2ModifyVpnTunnelCertificateCommand(output, context);
+    return de_ModifyVpnTunnelCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { PutNotificationChannelRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutNotificationChannelCommand,
-  serializeAws_json1_1PutNotificationChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutNotificationChannelCommand, se_PutNotificationChannelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class PutNotificationChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: PutNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutNotificationChannelCommand(input, context);
+    return se_PutNotificationChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutNotificationChannelCommandOutput> {
-    return deserializeAws_json1_1PutNotificationChannelCommand(output, context);
+    return de_PutNotificationChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

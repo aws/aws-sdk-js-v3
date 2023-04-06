@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { UpgradeAppliedSchemaRequest, UpgradeAppliedSchemaResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpgradeAppliedSchemaCommand,
-  serializeAws_restJson1UpgradeAppliedSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpgradeAppliedSchemaCommand, se_UpgradeAppliedSchemaCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class UpgradeAppliedSchemaCommand extends $Command<
    * @internal
    */
   private serialize(input: UpgradeAppliedSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpgradeAppliedSchemaCommand(input, context);
+    return se_UpgradeAppliedSchemaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpgradeAppliedSchemaCommandOutput> {
-    return deserializeAws_restJson1UpgradeAppliedSchemaCommand(output, context);
+    return de_UpgradeAppliedSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

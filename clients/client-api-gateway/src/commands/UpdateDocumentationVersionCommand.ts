@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DocumentationVersion, UpdateDocumentationVersionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDocumentationVersionCommand,
-  serializeAws_restJson1UpdateDocumentationVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDocumentationVersionCommand, se_UpdateDocumentationVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class UpdateDocumentationVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDocumentationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDocumentationVersionCommand(input, context);
+    return se_UpdateDocumentationVersionCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class UpdateDocumentationVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDocumentationVersionCommandOutput> {
-    return deserializeAws_restJson1UpdateDocumentationVersionCommand(output, context);
+    return de_UpdateDocumentationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { DescribeRulesPackagesRequest, DescribeRulesPackagesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRulesPackagesCommand,
-  serializeAws_json1_1DescribeRulesPackagesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRulesPackagesCommand, se_DescribeRulesPackagesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class DescribeRulesPackagesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRulesPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRulesPackagesCommand(input, context);
+    return se_DescribeRulesPackagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRulesPackagesCommandOutput> {
-    return deserializeAws_json1_1DescribeRulesPackagesCommand(output, context);
+    return de_DescribeRulesPackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DescribeUserGroupsMessage, DescribeUserGroupsResult } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeUserGroupsCommand,
-  serializeAws_queryDescribeUserGroupsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeUserGroupsCommand, se_DescribeUserGroupsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DescribeUserGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUserGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeUserGroupsCommand(input, context);
+    return se_DescribeUserGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserGroupsCommandOutput> {
-    return deserializeAws_queryDescribeUserGroupsCommand(output, context);
+    return de_DescribeUserGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

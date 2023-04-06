@@ -15,10 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { BatchUpdateClusterRequest, BatchUpdateClusterResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchUpdateClusterCommand,
-  serializeAws_json1_1BatchUpdateClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchUpdateClusterCommand, se_BatchUpdateClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class BatchUpdateClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchUpdateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchUpdateClusterCommand(input, context);
+    return se_BatchUpdateClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateClusterCommandOutput> {
-    return deserializeAws_json1_1BatchUpdateClusterCommand(output, context);
+    return de_BatchUpdateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

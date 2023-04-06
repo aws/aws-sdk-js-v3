@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSecretsRequest, ListSecretsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSecretsCommand,
-  serializeAws_json1_1ListSecretsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSecretsCommand, se_ListSecretsCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -189,14 +186,14 @@ export class ListSecretsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSecretsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSecretsCommand(input, context);
+    return se_ListSecretsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecretsCommandOutput> {
-    return deserializeAws_json1_1ListSecretsCommand(output, context);
+    return de_ListSecretsCommand(output, context);
   }
 
   // Start section: command_body_extra

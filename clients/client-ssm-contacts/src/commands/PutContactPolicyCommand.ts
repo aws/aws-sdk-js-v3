@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutContactPolicyRequest, PutContactPolicyResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutContactPolicyCommand,
-  serializeAws_json1_1PutContactPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutContactPolicyCommand, se_PutContactPolicyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -142,14 +139,14 @@ export class PutContactPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutContactPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutContactPolicyCommand(input, context);
+    return se_PutContactPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutContactPolicyCommandOutput> {
-    return deserializeAws_json1_1PutContactPolicyCommand(output, context);
+    return de_PutContactPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

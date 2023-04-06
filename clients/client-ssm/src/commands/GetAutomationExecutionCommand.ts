@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAutomationExecutionRequest, GetAutomationExecutionResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetAutomationExecutionCommand,
-  serializeAws_json1_1GetAutomationExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAutomationExecutionCommand, se_GetAutomationExecutionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -127,14 +124,14 @@ export class GetAutomationExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAutomationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAutomationExecutionCommand(input, context);
+    return se_GetAutomationExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutomationExecutionCommandOutput> {
-    return deserializeAws_json1_1GetAutomationExecutionCommand(output, context);
+    return de_GetAutomationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

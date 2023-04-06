@@ -18,8 +18,8 @@ import {
   UpdateNotebookInstanceLifecycleConfigOutput,
 } from "../models/models_4";
 import {
-  deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand,
-  serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand,
+  de_UpdateNotebookInstanceLifecycleConfigCommand,
+  se_UpdateNotebookInstanceLifecycleConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -142,7 +142,7 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<
     input: UpdateNotebookInstanceLifecycleConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand(input, context);
+    return se_UpdateNotebookInstanceLifecycleConfigCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput> {
-    return deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand(output, context);
+    return de_UpdateNotebookInstanceLifecycleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

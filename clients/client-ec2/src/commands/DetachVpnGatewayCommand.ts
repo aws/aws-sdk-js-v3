@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DetachVpnGatewayRequest } from "../models/models_5";
-import {
-  deserializeAws_ec2DetachVpnGatewayCommand,
-  serializeAws_ec2DetachVpnGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { de_DetachVpnGatewayCommand, se_DetachVpnGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DetachVpnGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachVpnGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DetachVpnGatewayCommand(input, context);
+    return se_DetachVpnGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachVpnGatewayCommandOutput> {
-    return deserializeAws_ec2DetachVpnGatewayCommand(output, context);
+    return de_DetachVpnGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

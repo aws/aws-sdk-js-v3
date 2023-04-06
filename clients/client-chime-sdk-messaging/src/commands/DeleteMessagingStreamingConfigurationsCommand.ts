@@ -20,8 +20,8 @@ import {
 } from "../ChimeSDKMessagingClient";
 import { DeleteMessagingStreamingConfigurationsRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand,
-  serializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand,
+  de_DeleteMessagingStreamingConfigurationsCommand,
+  se_DeleteMessagingStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class DeleteMessagingStreamingConfigurationsCommand extends $Command<
     input: DeleteMessagingStreamingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand(input, context);
+    return se_DeleteMessagingStreamingConfigurationsCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DeleteMessagingStreamingConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommand(output, context);
+    return de_DeleteMessagingStreamingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

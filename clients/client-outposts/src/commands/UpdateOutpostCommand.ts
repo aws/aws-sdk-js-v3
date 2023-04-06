@@ -15,10 +15,7 @@ import {
 
 import { UpdateOutpostInput, UpdateOutpostOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1UpdateOutpostCommand,
-  serializeAws_restJson1UpdateOutpostCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateOutpostCommand, se_UpdateOutpostCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class UpdateOutpostCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateOutpostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateOutpostCommand(input, context);
+    return se_UpdateOutpostCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOutpostCommandOutput> {
-    return deserializeAws_restJson1UpdateOutpostCommand(output, context);
+    return de_UpdateOutpostCommand(output, context);
   }
 
   // Start section: command_body_extra

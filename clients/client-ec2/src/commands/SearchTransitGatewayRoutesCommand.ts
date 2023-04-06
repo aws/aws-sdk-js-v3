@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { SearchTransitGatewayRoutesRequest, SearchTransitGatewayRoutesResult } from "../models/models_6";
-import {
-  deserializeAws_ec2SearchTransitGatewayRoutesCommand,
-  serializeAws_ec2SearchTransitGatewayRoutesCommand,
-} from "../protocols/Aws_ec2";
+import { de_SearchTransitGatewayRoutesCommand, se_SearchTransitGatewayRoutesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -130,7 +127,7 @@ export class SearchTransitGatewayRoutesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchTransitGatewayRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2SearchTransitGatewayRoutesCommand(input, context);
+    return se_SearchTransitGatewayRoutesCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class SearchTransitGatewayRoutesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchTransitGatewayRoutesCommandOutput> {
-    return deserializeAws_ec2SearchTransitGatewayRoutesCommand(output, context);
+    return de_SearchTransitGatewayRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

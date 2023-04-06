@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { DeleteDomainNameRequest, DeleteDomainNameResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDomainNameCommand,
-  serializeAws_restJson1DeleteDomainNameCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDomainNameCommand, se_DeleteDomainNameCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteDomainNameCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDomainNameCommand(input, context);
+    return se_DeleteDomainNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainNameCommandOutput> {
-    return deserializeAws_restJson1DeleteDomainNameCommand(output, context);
+    return de_DeleteDomainNameCommand(output, context);
   }
 
   // Start section: command_body_extra

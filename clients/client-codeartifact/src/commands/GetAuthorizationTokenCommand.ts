@@ -15,10 +15,7 @@ import {
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { GetAuthorizationTokenRequest, GetAuthorizationTokenResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAuthorizationTokenCommand,
-  serializeAws_restJson1GetAuthorizationTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAuthorizationTokenCommand, se_GetAuthorizationTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class GetAuthorizationTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAuthorizationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAuthorizationTokenCommand(input, context);
+    return se_GetAuthorizationTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAuthorizationTokenCommandOutput> {
-    return deserializeAws_restJson1GetAuthorizationTokenCommand(output, context);
+    return de_GetAuthorizationTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

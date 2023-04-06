@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListControlPanelsRequest, ListControlPanelsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListControlPanelsCommand,
-  serializeAws_restJson1ListControlPanelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListControlPanelsCommand, se_ListControlPanelsCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -141,14 +138,14 @@ export class ListControlPanelsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListControlPanelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListControlPanelsCommand(input, context);
+    return se_ListControlPanelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListControlPanelsCommandOutput> {
-    return deserializeAws_restJson1ListControlPanelsCommand(output, context);
+    return de_ListControlPanelsCommand(output, context);
   }
 
   // Start section: command_body_extra

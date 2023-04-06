@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListMonitoringAlertHistoryRequest, ListMonitoringAlertHistoryResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListMonitoringAlertHistoryCommand,
-  serializeAws_json1_1ListMonitoringAlertHistoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListMonitoringAlertHistoryCommand, se_ListMonitoringAlertHistoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -131,7 +128,7 @@ export class ListMonitoringAlertHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMonitoringAlertHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMonitoringAlertHistoryCommand(input, context);
+    return se_ListMonitoringAlertHistoryCommand(input, context);
   }
 
   /**
@@ -141,7 +138,7 @@ export class ListMonitoringAlertHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMonitoringAlertHistoryCommandOutput> {
-    return deserializeAws_json1_1ListMonitoringAlertHistoryCommand(output, context);
+    return de_ListMonitoringAlertHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

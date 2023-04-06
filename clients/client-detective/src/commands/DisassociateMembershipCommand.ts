@@ -15,10 +15,7 @@ import {
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { DisassociateMembershipRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateMembershipCommand,
-  serializeAws_restJson1DisassociateMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateMembershipCommand, se_DisassociateMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DisassociateMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateMembershipCommand(input, context);
+    return se_DisassociateMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMembershipCommandOutput> {
-    return deserializeAws_restJson1DisassociateMembershipCommand(output, context);
+    return de_DisassociateMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

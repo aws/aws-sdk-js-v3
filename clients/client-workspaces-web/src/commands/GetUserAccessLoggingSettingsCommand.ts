@@ -15,8 +15,8 @@ import {
 
 import { GetUserAccessLoggingSettingsRequest, GetUserAccessLoggingSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetUserAccessLoggingSettingsCommand,
-  serializeAws_restJson1GetUserAccessLoggingSettingsCommand,
+  de_GetUserAccessLoggingSettingsCommand,
+  se_GetUserAccessLoggingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
@@ -137,7 +137,7 @@ export class GetUserAccessLoggingSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUserAccessLoggingSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUserAccessLoggingSettingsCommand(input, context);
+    return se_GetUserAccessLoggingSettingsCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class GetUserAccessLoggingSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUserAccessLoggingSettingsCommandOutput> {
-    return deserializeAws_restJson1GetUserAccessLoggingSettingsCommand(output, context);
+    return de_GetUserAccessLoggingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

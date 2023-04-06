@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CreateCacheParameterGroupMessage, CreateCacheParameterGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateCacheParameterGroupCommand,
-  serializeAws_queryCreateCacheParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CreateCacheParameterGroupCommand, se_CreateCacheParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -183,7 +180,7 @@ export class CreateCacheParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateCacheParameterGroupCommand(input, context);
+    return se_CreateCacheParameterGroupCommand(input, context);
   }
 
   /**
@@ -193,7 +190,7 @@ export class CreateCacheParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCacheParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateCacheParameterGroupCommand(output, context);
+    return de_CreateCacheParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { ListAvailableZonesRequest, ListAvailableZonesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAvailableZonesCommand,
-  serializeAws_json1_1ListAvailableZonesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAvailableZonesCommand, se_ListAvailableZonesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListAvailableZonesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAvailableZonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableZonesCommand(input, context);
+    return se_ListAvailableZonesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAvailableZonesCommandOutput> {
-    return deserializeAws_json1_1ListAvailableZonesCommand(output, context);
+    return de_ListAvailableZonesCommand(output, context);
   }
 
   // Start section: command_body_extra

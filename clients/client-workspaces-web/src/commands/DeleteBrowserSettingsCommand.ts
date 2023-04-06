@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteBrowserSettingsRequest, DeleteBrowserSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBrowserSettingsCommand,
-  serializeAws_restJson1DeleteBrowserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteBrowserSettingsCommand, se_DeleteBrowserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -135,14 +132,14 @@ export class DeleteBrowserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBrowserSettingsCommand(input, context);
+    return se_DeleteBrowserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1DeleteBrowserSettingsCommand(output, context);
+    return de_DeleteBrowserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

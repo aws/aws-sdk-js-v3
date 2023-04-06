@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetWebACLRequest, GetWebACLResponse } from "../models/models_0";
-import { deserializeAws_json1_1GetWebACLCommand, serializeAws_json1_1GetWebACLCommand } from "../protocols/Aws_json1_1";
+import { de_GetWebACLCommand, se_GetWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -160,14 +160,14 @@ export class GetWebACLCommand extends $Command<GetWebACLCommandInput, GetWebACLC
    * @internal
    */
   private serialize(input: GetWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetWebACLCommand(input, context);
+    return se_GetWebACLCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWebACLCommandOutput> {
-    return deserializeAws_json1_1GetWebACLCommand(output, context);
+    return de_GetWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

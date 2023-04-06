@@ -18,10 +18,7 @@ import {
   DescribeInstancePatchStatesResult,
   DescribeInstancePatchStatesResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInstancePatchStatesCommand,
-  serializeAws_json1_1DescribeInstancePatchStatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeInstancePatchStatesCommand, se_DescribeInstancePatchStatesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -134,7 +131,7 @@ export class DescribeInstancePatchStatesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInstancePatchStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInstancePatchStatesCommand(input, context);
+    return se_DescribeInstancePatchStatesCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class DescribeInstancePatchStatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstancePatchStatesCommandOutput> {
-    return deserializeAws_json1_1DescribeInstancePatchStatesCommand(output, context);
+    return de_DescribeInstancePatchStatesCommand(output, context);
   }
 
   // Start section: command_body_extra

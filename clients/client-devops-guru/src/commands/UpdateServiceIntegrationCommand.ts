@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { UpdateServiceIntegrationRequest, UpdateServiceIntegrationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateServiceIntegrationCommand,
-  serializeAws_restJson1UpdateServiceIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateServiceIntegrationCommand, se_UpdateServiceIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class UpdateServiceIntegrationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateServiceIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateServiceIntegrationCommand(input, context);
+    return se_UpdateServiceIntegrationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceIntegrationCommandOutput> {
-    return deserializeAws_restJson1UpdateServiceIntegrationCommand(output, context);
+    return de_UpdateServiceIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

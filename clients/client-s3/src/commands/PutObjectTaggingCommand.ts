@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlPutObjectTaggingCommand,
-  serializeAws_restXmlPutObjectTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutObjectTaggingCommand, se_PutObjectTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -269,14 +266,14 @@ export class PutObjectTaggingCommand extends $Command<
    * @internal
    */
   private serialize(input: PutObjectTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutObjectTaggingCommand(input, context);
+    return se_PutObjectTaggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectTaggingCommandOutput> {
-    return deserializeAws_restXmlPutObjectTaggingCommand(output, context);
+    return de_PutObjectTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

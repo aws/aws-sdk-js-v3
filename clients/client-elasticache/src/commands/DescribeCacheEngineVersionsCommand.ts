@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CacheEngineVersionMessage, DescribeCacheEngineVersionsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeCacheEngineVersionsCommand,
-  serializeAws_queryDescribeCacheEngineVersionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeCacheEngineVersionsCommand, se_DescribeCacheEngineVersionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -225,7 +222,7 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCacheEngineVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeCacheEngineVersionsCommand(input, context);
+    return se_DescribeCacheEngineVersionsCommand(input, context);
   }
 
   /**
@@ -235,7 +232,7 @@ export class DescribeCacheEngineVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCacheEngineVersionsCommandOutput> {
-    return deserializeAws_queryDescribeCacheEngineVersionsCommand(output, context);
+    return de_DescribeCacheEngineVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

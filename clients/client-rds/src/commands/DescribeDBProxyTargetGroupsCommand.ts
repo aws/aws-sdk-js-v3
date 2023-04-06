@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDBProxyTargetGroupsRequest, DescribeDBProxyTargetGroupsResponse } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBProxyTargetGroupsCommand,
-  serializeAws_queryDescribeDBProxyTargetGroupsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBProxyTargetGroupsCommand, se_DescribeDBProxyTargetGroupsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -142,7 +139,7 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBProxyTargetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBProxyTargetGroupsCommand(input, context);
+    return se_DescribeDBProxyTargetGroupsCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBProxyTargetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBProxyTargetGroupsCommand(output, context);
+    return de_DescribeDBProxyTargetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

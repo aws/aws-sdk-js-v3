@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListPolicyVersionsRequest, ListPolicyVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListPolicyVersionsCommand,
-  serializeAws_queryListPolicyVersionsCommand,
-} from "../protocols/Aws_query";
+import { de_ListPolicyVersionsCommand, se_ListPolicyVersionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListPolicyVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPolicyVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPolicyVersionsCommand(input, context);
+    return se_ListPolicyVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyVersionsCommandOutput> {
-    return deserializeAws_queryListPolicyVersionsCommand(output, context);
+    return de_ListPolicyVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

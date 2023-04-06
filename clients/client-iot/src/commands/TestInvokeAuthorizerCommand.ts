@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1TestInvokeAuthorizerCommand,
-  serializeAws_restJson1TestInvokeAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TestInvokeAuthorizerCommand, se_TestInvokeAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class TestInvokeAuthorizerCommand extends $Command<
    * @internal
    */
   private serialize(input: TestInvokeAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestInvokeAuthorizerCommand(input, context);
+    return se_TestInvokeAuthorizerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestInvokeAuthorizerCommandOutput> {
-    return deserializeAws_restJson1TestInvokeAuthorizerCommand(output, context);
+    return de_TestInvokeAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

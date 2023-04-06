@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
 import { DeleteMediaPipelineRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMediaPipelineCommand,
-  serializeAws_restJson1DeleteMediaPipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMediaPipelineCommand, se_DeleteMediaPipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteMediaPipelineCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMediaPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMediaPipelineCommand(input, context);
+    return se_DeleteMediaPipelineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMediaPipelineCommandOutput> {
-    return deserializeAws_restJson1DeleteMediaPipelineCommand(output, context);
+    return de_DeleteMediaPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListOriginationNumbersRequest, ListOriginationNumbersResult } from "../models/models_0";
-import {
-  deserializeAws_queryListOriginationNumbersCommand,
-  serializeAws_queryListOriginationNumbersCommand,
-} from "../protocols/Aws_query";
+import { de_ListOriginationNumbersCommand, se_ListOriginationNumbersCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -139,14 +136,14 @@ export class ListOriginationNumbersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOriginationNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListOriginationNumbersCommand(input, context);
+    return se_ListOriginationNumbersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOriginationNumbersCommandOutput> {
-    return deserializeAws_queryListOriginationNumbersCommand(output, context);
+    return de_ListOriginationNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

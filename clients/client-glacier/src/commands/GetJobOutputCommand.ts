@@ -18,10 +18,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { GetJobOutputInput, GetJobOutputOutput, GetJobOutputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetJobOutputCommand,
-  serializeAws_restJson1GetJobOutputCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetJobOutputCommand, se_GetJobOutputCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -195,7 +192,7 @@ export class GetJobOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: GetJobOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJobOutputCommand(input, context);
+    return se_GetJobOutputCommand(input, context);
   }
 
   /**
@@ -205,7 +202,7 @@ export class GetJobOutputCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetJobOutputCommandOutput> {
-    return deserializeAws_restJson1GetJobOutputCommand(output, context);
+    return de_GetJobOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

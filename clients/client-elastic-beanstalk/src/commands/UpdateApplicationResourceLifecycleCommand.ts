@@ -19,8 +19,8 @@ import {
   UpdateApplicationResourceLifecycleMessage,
 } from "../models/models_0";
 import {
-  deserializeAws_queryUpdateApplicationResourceLifecycleCommand,
-  serializeAws_queryUpdateApplicationResourceLifecycleCommand,
+  de_UpdateApplicationResourceLifecycleCommand,
+  se_UpdateApplicationResourceLifecycleCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -147,7 +147,7 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     input: UpdateApplicationResourceLifecycleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateApplicationResourceLifecycleCommand(input, context);
+    return se_UpdateApplicationResourceLifecycleCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationResourceLifecycleCommandOutput> {
-    return deserializeAws_queryUpdateApplicationResourceLifecycleCommand(output, context);
+    return de_UpdateApplicationResourceLifecycleCommand(output, context);
   }
 
   // Start section: command_body_extra

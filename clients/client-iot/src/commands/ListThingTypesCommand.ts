@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListThingTypesRequest, ListThingTypesResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1ListThingTypesCommand,
-  serializeAws_restJson1ListThingTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListThingTypesCommand, se_ListThingTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListThingTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListThingTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListThingTypesCommand(input, context);
+    return se_ListThingTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingTypesCommandOutput> {
-    return deserializeAws_restJson1ListThingTypesCommand(output, context);
+    return de_ListThingTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeModelInput, DescribeModelOutput } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeModelCommand,
-  serializeAws_json1_1DescribeModelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeModelCommand, se_DescribeModelCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -119,14 +116,14 @@ export class DescribeModelCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeModelCommand(input, context);
+    return se_DescribeModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelCommandOutput> {
-    return deserializeAws_json1_1DescribeModelCommand(output, context);
+    return de_DescribeModelCommand(output, context);
   }
 
   // Start section: command_body_extra

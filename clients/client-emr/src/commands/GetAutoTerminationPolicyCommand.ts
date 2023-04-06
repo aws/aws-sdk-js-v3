@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { GetAutoTerminationPolicyInput, GetAutoTerminationPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAutoTerminationPolicyCommand,
-  serializeAws_json1_1GetAutoTerminationPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAutoTerminationPolicyCommand, se_GetAutoTerminationPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -120,14 +117,14 @@ export class GetAutoTerminationPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAutoTerminationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAutoTerminationPolicyCommand(input, context);
+    return se_GetAutoTerminationPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutoTerminationPolicyCommandOutput> {
-    return deserializeAws_json1_1GetAutoTerminationPolicyCommand(output, context);
+    return de_GetAutoTerminationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

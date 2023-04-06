@@ -23,8 +23,8 @@ import {
   DescribeCustomRoutingEndpointGroupResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommand,
-  serializeAws_json1_1DescribeCustomRoutingEndpointGroupCommand,
+  de_DescribeCustomRoutingEndpointGroupCommand,
+  se_DescribeCustomRoutingEndpointGroupCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeCustomRoutingEndpointGroupCommand extends $Command<
     input: DescribeCustomRoutingEndpointGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCustomRoutingEndpointGroupCommand(input, context);
+    return se_DescribeCustomRoutingEndpointGroupCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeCustomRoutingEndpointGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCustomRoutingEndpointGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommand(output, context);
+    return de_DescribeCustomRoutingEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

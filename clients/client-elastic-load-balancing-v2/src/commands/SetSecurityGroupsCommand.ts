@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { SetSecurityGroupsInput, SetSecurityGroupsOutput } from "../models/models_0";
-import {
-  deserializeAws_querySetSecurityGroupsCommand,
-  serializeAws_querySetSecurityGroupsCommand,
-} from "../protocols/Aws_query";
+import { de_SetSecurityGroupsCommand, se_SetSecurityGroupsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class SetSecurityGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: SetSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetSecurityGroupsCommand(input, context);
+    return se_SetSecurityGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSecurityGroupsCommandOutput> {
-    return deserializeAws_querySetSecurityGroupsCommand(output, context);
+    return de_SetSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

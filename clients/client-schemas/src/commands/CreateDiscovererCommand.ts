@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateDiscovererRequest, CreateDiscovererResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDiscovererCommand,
-  serializeAws_restJson1CreateDiscovererCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDiscovererCommand, se_CreateDiscovererCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -137,14 +134,14 @@ export class CreateDiscovererCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDiscovererCommand(input, context);
+    return se_CreateDiscovererCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDiscovererCommandOutput> {
-    return deserializeAws_restJson1CreateDiscovererCommand(output, context);
+    return de_CreateDiscovererCommand(output, context);
   }
 
   // Start section: command_body_extra

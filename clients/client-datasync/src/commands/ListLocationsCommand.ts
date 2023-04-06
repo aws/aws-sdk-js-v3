@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { ListLocationsRequest, ListLocationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLocationsCommand,
-  serializeAws_json1_1ListLocationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLocationsCommand, se_ListLocationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListLocationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLocationsCommand(input, context);
+    return se_ListLocationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLocationsCommandOutput> {
-    return deserializeAws_json1_1ListLocationsCommand(output, context);
+    return de_ListLocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

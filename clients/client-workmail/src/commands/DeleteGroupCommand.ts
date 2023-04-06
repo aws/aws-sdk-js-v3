@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteGroupRequest, DeleteGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGroupCommand,
-  serializeAws_json1_1DeleteGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteGroupCommand, se_DeleteGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -143,14 +140,14 @@ export class DeleteGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGroupCommand(input, context);
+    return se_DeleteGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteGroupCommand(output, context);
+    return de_DeleteGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

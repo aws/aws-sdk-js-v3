@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetRasterDataCollectionInput, GetRasterDataCollectionOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRasterDataCollectionCommand,
-  serializeAws_restJson1GetRasterDataCollectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRasterDataCollectionCommand, se_GetRasterDataCollectionCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -139,14 +136,14 @@ export class GetRasterDataCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRasterDataCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRasterDataCollectionCommand(input, context);
+    return se_GetRasterDataCollectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRasterDataCollectionCommandOutput> {
-    return deserializeAws_restJson1GetRasterDataCollectionCommand(output, context);
+    return de_GetRasterDataCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

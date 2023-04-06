@@ -18,10 +18,7 @@ import {
   DescribeGroupsRequestFilterSensitiveLog,
   DescribeGroupsResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeGroupsCommand,
-  serializeAws_restJson1DescribeGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeGroupsCommand, se_DescribeGroupsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -143,14 +140,14 @@ export class DescribeGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeGroupsCommand(input, context);
+    return se_DescribeGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupsCommandOutput> {
-    return deserializeAws_restJson1DescribeGroupsCommand(output, context);
+    return de_DescribeGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

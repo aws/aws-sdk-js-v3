@@ -16,8 +16,8 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { GetOriginAccessControlConfigRequest, GetOriginAccessControlConfigResult } from "../models/models_1";
 import {
-  deserializeAws_restXmlGetOriginAccessControlConfigCommand,
-  serializeAws_restXmlGetOriginAccessControlConfigCommand,
+  de_GetOriginAccessControlConfigCommand,
+  se_GetOriginAccessControlConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -128,7 +128,7 @@ export class GetOriginAccessControlConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: GetOriginAccessControlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetOriginAccessControlConfigCommand(input, context);
+    return se_GetOriginAccessControlConfigCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class GetOriginAccessControlConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOriginAccessControlConfigCommandOutput> {
-    return deserializeAws_restXmlGetOriginAccessControlConfigCommand(output, context);
+    return de_GetOriginAccessControlConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

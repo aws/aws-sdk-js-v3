@@ -16,8 +16,8 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeleteMonitoringSubscriptionRequest, DeleteMonitoringSubscriptionResult } from "../models/models_1";
 import {
-  deserializeAws_restXmlDeleteMonitoringSubscriptionCommand,
-  serializeAws_restXmlDeleteMonitoringSubscriptionCommand,
+  de_DeleteMonitoringSubscriptionCommand,
+  se_DeleteMonitoringSubscriptionCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -135,7 +135,7 @@ export class DeleteMonitoringSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMonitoringSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteMonitoringSubscriptionCommand(input, context);
+    return se_DeleteMonitoringSubscriptionCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class DeleteMonitoringSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMonitoringSubscriptionCommandOutput> {
-    return deserializeAws_restXmlDeleteMonitoringSubscriptionCommand(output, context);
+    return de_DeleteMonitoringSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

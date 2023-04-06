@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DetachInstancesFromLoadBalancerRequest, DetachInstancesFromLoadBalancerResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DetachInstancesFromLoadBalancerCommand,
-  serializeAws_json1_1DetachInstancesFromLoadBalancerCommand,
+  de_DetachInstancesFromLoadBalancerCommand,
+  se_DetachInstancesFromLoadBalancerCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -163,7 +163,7 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
     input: DetachInstancesFromLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachInstancesFromLoadBalancerCommand(input, context);
+    return se_DetachInstancesFromLoadBalancerCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachInstancesFromLoadBalancerCommandOutput> {
-    return deserializeAws_json1_1DetachInstancesFromLoadBalancerCommand(output, context);
+    return de_DetachInstancesFromLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

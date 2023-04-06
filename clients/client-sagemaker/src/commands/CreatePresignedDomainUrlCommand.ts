@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreatePresignedDomainUrlRequest, CreatePresignedDomainUrlResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreatePresignedDomainUrlCommand,
-  serializeAws_json1_1CreatePresignedDomainUrlCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePresignedDomainUrlCommand, se_CreatePresignedDomainUrlCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -143,14 +140,14 @@ export class CreatePresignedDomainUrlCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePresignedDomainUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePresignedDomainUrlCommand(input, context);
+    return se_CreatePresignedDomainUrlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePresignedDomainUrlCommandOutput> {
-    return deserializeAws_json1_1CreatePresignedDomainUrlCommand(output, context);
+    return de_CreatePresignedDomainUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

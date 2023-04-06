@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetManagedPrefixListAssociationsRequest, GetManagedPrefixListAssociationsResult } from "../models/models_5";
 import {
-  deserializeAws_ec2GetManagedPrefixListAssociationsCommand,
-  serializeAws_ec2GetManagedPrefixListAssociationsCommand,
+  de_GetManagedPrefixListAssociationsCommand,
+  se_GetManagedPrefixListAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -128,7 +128,7 @@ export class GetManagedPrefixListAssociationsCommand extends $Command<
     input: GetManagedPrefixListAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetManagedPrefixListAssociationsCommand(input, context);
+    return se_GetManagedPrefixListAssociationsCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class GetManagedPrefixListAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetManagedPrefixListAssociationsCommandOutput> {
-    return deserializeAws_ec2GetManagedPrefixListAssociationsCommand(output, context);
+    return de_GetManagedPrefixListAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

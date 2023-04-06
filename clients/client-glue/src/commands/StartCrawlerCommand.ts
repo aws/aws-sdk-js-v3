@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { StartCrawlerRequest, StartCrawlerResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1StartCrawlerCommand,
-  serializeAws_json1_1StartCrawlerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartCrawlerCommand, se_StartCrawlerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class StartCrawlerCommand extends $Command<
    * @internal
    */
   private serialize(input: StartCrawlerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartCrawlerCommand(input, context);
+    return se_StartCrawlerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCrawlerCommandOutput> {
-    return deserializeAws_json1_1StartCrawlerCommand(output, context);
+    return de_StartCrawlerCommand(output, context);
   }
 
   // Start section: command_body_extra

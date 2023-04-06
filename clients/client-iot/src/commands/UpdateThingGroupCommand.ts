@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateThingGroupRequest, UpdateThingGroupResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateThingGroupCommand,
-  serializeAws_restJson1UpdateThingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateThingGroupCommand, se_UpdateThingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class UpdateThingGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateThingGroupCommand(input, context);
+    return se_UpdateThingGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThingGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateThingGroupCommand(output, context);
+    return de_UpdateThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

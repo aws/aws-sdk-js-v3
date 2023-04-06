@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MalformedByteInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedByteCommand,
-  serializeAws_restJson1MalformedByteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedByteCommand, se_MalformedByteCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class MalformedByteCommand extends $Command<
    * @internal
    */
   private serialize(input: MalformedByteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedByteCommand(input, context);
+    return se_MalformedByteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedByteCommandOutput> {
-    return deserializeAws_restJson1MalformedByteCommand(output, context);
+    return de_MalformedByteCommand(output, context);
   }
 
   // Start section: command_body_extra

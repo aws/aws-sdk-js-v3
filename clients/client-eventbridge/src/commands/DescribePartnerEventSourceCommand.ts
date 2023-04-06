@@ -15,10 +15,7 @@ import {
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { DescribePartnerEventSourceRequest, DescribePartnerEventSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePartnerEventSourceCommand,
-  serializeAws_json1_1DescribePartnerEventSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribePartnerEventSourceCommand, se_DescribePartnerEventSourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,7 +129,7 @@ export class DescribePartnerEventSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePartnerEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePartnerEventSourceCommand(input, context);
+    return se_DescribePartnerEventSourceCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class DescribePartnerEventSourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePartnerEventSourceCommandOutput> {
-    return deserializeAws_json1_1DescribePartnerEventSourceCommand(output, context);
+    return de_DescribePartnerEventSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

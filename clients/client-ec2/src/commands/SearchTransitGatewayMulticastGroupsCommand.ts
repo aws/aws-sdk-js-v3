@@ -19,8 +19,8 @@ import {
   SearchTransitGatewayMulticastGroupsResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommand,
-  serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand,
+  de_SearchTransitGatewayMulticastGroupsCommand,
+  se_SearchTransitGatewayMulticastGroupsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -139,7 +139,7 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     input: SearchTransitGatewayMulticastGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand(input, context);
+    return se_SearchTransitGatewayMulticastGroupsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchTransitGatewayMulticastGroupsCommandOutput> {
-    return deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommand(output, context);
+    return de_SearchTransitGatewayMulticastGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

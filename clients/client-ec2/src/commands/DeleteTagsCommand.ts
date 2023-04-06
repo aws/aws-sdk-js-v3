@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteTagsRequest } from "../models/models_3";
-import { deserializeAws_ec2DeleteTagsCommand, serializeAws_ec2DeleteTagsCommand } from "../protocols/Aws_ec2";
+import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -147,14 +147,14 @@ export class DeleteTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTagsCommand(input, context);
+    return se_DeleteTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagsCommandOutput> {
-    return deserializeAws_ec2DeleteTagsCommand(output, context);
+    return de_DeleteTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

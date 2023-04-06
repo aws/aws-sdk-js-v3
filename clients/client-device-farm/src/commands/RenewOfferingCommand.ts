@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { RenewOfferingRequest, RenewOfferingResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RenewOfferingCommand,
-  serializeAws_json1_1RenewOfferingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RenewOfferingCommand, se_RenewOfferingCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class RenewOfferingCommand extends $Command<
    * @internal
    */
   private serialize(input: RenewOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RenewOfferingCommand(input, context);
+    return se_RenewOfferingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RenewOfferingCommandOutput> {
-    return deserializeAws_json1_1RenewOfferingCommand(output, context);
+    return de_RenewOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

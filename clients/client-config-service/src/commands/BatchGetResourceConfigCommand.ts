@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { BatchGetResourceConfigRequest, BatchGetResourceConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetResourceConfigCommand,
-  serializeAws_json1_1BatchGetResourceConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetResourceConfigCommand, se_BatchGetResourceConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class BatchGetResourceConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetResourceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetResourceConfigCommand(input, context);
+    return se_BatchGetResourceConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetResourceConfigCommandOutput> {
-    return deserializeAws_json1_1BatchGetResourceConfigCommand(output, context);
+    return de_BatchGetResourceConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

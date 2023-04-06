@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { CreateInstanceProfileRequest, CreateInstanceProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCreateInstanceProfileCommand,
-  serializeAws_queryCreateInstanceProfileCommand,
-} from "../protocols/Aws_query";
+import { de_CreateInstanceProfileCommand, se_CreateInstanceProfileCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -174,14 +171,14 @@ export class CreateInstanceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateInstanceProfileCommand(input, context);
+    return se_CreateInstanceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceProfileCommandOutput> {
-    return deserializeAws_queryCreateInstanceProfileCommand(output, context);
+    return de_CreateInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -17,10 +17,7 @@ import {
   AbortDocumentVersionUploadRequest,
   AbortDocumentVersionUploadRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1AbortDocumentVersionUploadCommand,
-  serializeAws_restJson1AbortDocumentVersionUploadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AbortDocumentVersionUploadCommand, se_AbortDocumentVersionUploadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -151,7 +148,7 @@ export class AbortDocumentVersionUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: AbortDocumentVersionUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AbortDocumentVersionUploadCommand(input, context);
+    return se_AbortDocumentVersionUploadCommand(input, context);
   }
 
   /**
@@ -161,7 +158,7 @@ export class AbortDocumentVersionUploadCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AbortDocumentVersionUploadCommandOutput> {
-    return deserializeAws_restJson1AbortDocumentVersionUploadCommand(output, context);
+    return de_AbortDocumentVersionUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

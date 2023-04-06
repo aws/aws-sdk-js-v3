@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { RevokeClientVpnIngressRequest, RevokeClientVpnIngressResult } from "../models/models_6";
-import {
-  deserializeAws_ec2RevokeClientVpnIngressCommand,
-  serializeAws_ec2RevokeClientVpnIngressCommand,
-} from "../protocols/Aws_ec2";
+import { de_RevokeClientVpnIngressCommand, se_RevokeClientVpnIngressCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class RevokeClientVpnIngressCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeClientVpnIngressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RevokeClientVpnIngressCommand(input, context);
+    return se_RevokeClientVpnIngressCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeClientVpnIngressCommandOutput> {
-    return deserializeAws_ec2RevokeClientVpnIngressCommand(output, context);
+    return de_RevokeClientVpnIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

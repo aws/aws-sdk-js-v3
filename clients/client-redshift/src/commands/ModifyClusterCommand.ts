@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyClusterMessage, ModifyClusterResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyClusterCommand,
-  serializeAws_queryModifyClusterCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyClusterCommand, se_ModifyClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -222,14 +219,14 @@ export class ModifyClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterCommand(input, context);
+    return se_ModifyClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterCommandOutput> {
-    return deserializeAws_queryModifyClusterCommand(output, context);
+    return de_ModifyClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

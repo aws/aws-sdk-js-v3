@@ -15,8 +15,8 @@ import {
 
 import { ListStandardsControlAssociationsRequest, ListStandardsControlAssociationsResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1ListStandardsControlAssociationsCommand,
-  serializeAws_restJson1ListStandardsControlAssociationsCommand,
+  de_ListStandardsControlAssociationsCommand,
+  se_ListStandardsControlAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
@@ -143,7 +143,7 @@ export class ListStandardsControlAssociationsCommand extends $Command<
     input: ListStandardsControlAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStandardsControlAssociationsCommand(input, context);
+    return se_ListStandardsControlAssociationsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class ListStandardsControlAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStandardsControlAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListStandardsControlAssociationsCommand(output, context);
+    return de_ListStandardsControlAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

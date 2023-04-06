@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RegisterTargetsRequest, RegisterTargetsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterTargetsCommand,
-  serializeAws_restJson1RegisterTargetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RegisterTargetsCommand, se_RegisterTargetsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -150,14 +147,14 @@ export class RegisterTargetsCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterTargetsCommand(input, context);
+    return se_RegisterTargetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTargetsCommandOutput> {
-    return deserializeAws_restJson1RegisterTargetsCommand(output, context);
+    return de_RegisterTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

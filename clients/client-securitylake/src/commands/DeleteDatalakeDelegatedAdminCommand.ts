@@ -15,8 +15,8 @@ import {
 
 import { DeleteDatalakeDelegatedAdminRequest, DeleteDatalakeDelegatedAdminResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommand,
-  serializeAws_restJson1DeleteDatalakeDelegatedAdminCommand,
+  de_DeleteDatalakeDelegatedAdminCommand,
+  se_DeleteDatalakeDelegatedAdminCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -140,7 +140,7 @@ export class DeleteDatalakeDelegatedAdminCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDatalakeDelegatedAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatalakeDelegatedAdminCommand(input, context);
+    return se_DeleteDatalakeDelegatedAdminCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DeleteDatalakeDelegatedAdminCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDatalakeDelegatedAdminCommandOutput> {
-    return deserializeAws_restJson1DeleteDatalakeDelegatedAdminCommand(output, context);
+    return de_DeleteDatalakeDelegatedAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { TagAttendeeRequest, TagAttendeeRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1TagAttendeeCommand,
-  serializeAws_restJson1TagAttendeeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TagAttendeeCommand, se_TagAttendeeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class TagAttendeeCommand extends $Command<
    * @internal
    */
   private serialize(input: TagAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagAttendeeCommand(input, context);
+    return se_TagAttendeeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagAttendeeCommandOutput> {
-    return deserializeAws_restJson1TagAttendeeCommand(output, context);
+    return de_TagAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

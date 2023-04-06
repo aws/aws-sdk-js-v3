@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { ModifyCacheSubnetGroupMessage, ModifyCacheSubnetGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryModifyCacheSubnetGroupCommand,
-  serializeAws_queryModifyCacheSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyCacheSubnetGroupCommand, se_ModifyCacheSubnetGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -195,14 +192,14 @@ export class ModifyCacheSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyCacheSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyCacheSubnetGroupCommand(input, context);
+    return se_ModifyCacheSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyCacheSubnetGroupCommandOutput> {
-    return deserializeAws_queryModifyCacheSubnetGroupCommand(output, context);
+    return de_ModifyCacheSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

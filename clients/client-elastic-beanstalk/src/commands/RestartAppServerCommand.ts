@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { RestartAppServerMessage } from "../models/models_0";
-import {
-  deserializeAws_queryRestartAppServerCommand,
-  serializeAws_queryRestartAppServerCommand,
-} from "../protocols/Aws_query";
+import { de_RestartAppServerCommand, se_RestartAppServerCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class RestartAppServerCommand extends $Command<
    * @internal
    */
   private serialize(input: RestartAppServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRestartAppServerCommand(input, context);
+    return se_RestartAppServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestartAppServerCommandOutput> {
-    return deserializeAws_queryRestartAppServerCommand(output, context);
+    return de_RestartAppServerCommand(output, context);
   }
 
   // Start section: command_body_extra

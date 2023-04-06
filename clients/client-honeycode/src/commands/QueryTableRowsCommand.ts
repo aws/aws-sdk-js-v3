@@ -20,10 +20,7 @@ import {
   QueryTableRowsResult,
   QueryTableRowsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1QueryTableRowsCommand,
-  serializeAws_restJson1QueryTableRowsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_QueryTableRowsCommand, se_QueryTableRowsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class QueryTableRowsCommand extends $Command<
    * @internal
    */
   private serialize(input: QueryTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1QueryTableRowsCommand(input, context);
+    return se_QueryTableRowsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryTableRowsCommandOutput> {
-    return deserializeAws_restJson1QueryTableRowsCommand(output, context);
+    return de_QueryTableRowsCommand(output, context);
   }
 
   // Start section: command_body_extra

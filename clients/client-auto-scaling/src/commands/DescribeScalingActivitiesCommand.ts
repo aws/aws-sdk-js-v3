@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { ActivitiesType, DescribeScalingActivitiesType } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeScalingActivitiesCommand,
-  serializeAws_queryDescribeScalingActivitiesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeScalingActivitiesCommand, se_DescribeScalingActivitiesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -169,7 +166,7 @@ export class DescribeScalingActivitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeScalingActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeScalingActivitiesCommand(input, context);
+    return se_DescribeScalingActivitiesCommand(input, context);
   }
 
   /**
@@ -179,7 +176,7 @@ export class DescribeScalingActivitiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingActivitiesCommandOutput> {
-    return deserializeAws_queryDescribeScalingActivitiesCommand(output, context);
+    return de_DescribeScalingActivitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

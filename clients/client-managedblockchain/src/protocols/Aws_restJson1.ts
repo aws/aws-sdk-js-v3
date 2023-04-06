@@ -101,7 +101,10 @@ import {
   VotingPolicy,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateAccessorCommand = async (
+/**
+ * serializeAws_restJson1CreateAccessorCommand
+ */
+export const se_CreateAccessorCommand = async (
   input: CreateAccessorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -114,7 +117,7 @@ export const serializeAws_restJson1CreateAccessorCommand = async (
   body = JSON.stringify({
     ...(input.AccessorType != null && { AccessorType: input.AccessorType }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -127,7 +130,10 @@ export const serializeAws_restJson1CreateAccessorCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateMemberCommand = async (
+/**
+ * serializeAws_restJson1CreateMemberCommand
+ */
+export const se_CreateMemberCommand = async (
   input: CreateMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -143,7 +149,7 @@ export const serializeAws_restJson1CreateMemberCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.InvitationId != null && { InvitationId: input.InvitationId }),
     ...(input.MemberConfiguration != null && {
-      MemberConfiguration: serializeAws_restJson1MemberConfiguration(input.MemberConfiguration, context),
+      MemberConfiguration: se_MemberConfiguration(input.MemberConfiguration, context),
     }),
   });
   return new __HttpRequest({
@@ -157,7 +163,10 @@ export const serializeAws_restJson1CreateMemberCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateNetworkCommand = async (
+/**
+ * serializeAws_restJson1CreateNetworkCommand
+ */
+export const se_CreateNetworkCommand = async (
   input: CreateNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -172,20 +181,15 @@ export const serializeAws_restJson1CreateNetworkCommand = async (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Framework != null && { Framework: input.Framework }),
     ...(input.FrameworkConfiguration != null && {
-      FrameworkConfiguration: serializeAws_restJson1NetworkFrameworkConfiguration(
-        input.FrameworkConfiguration,
-        context
-      ),
+      FrameworkConfiguration: se_NetworkFrameworkConfiguration(input.FrameworkConfiguration, context),
     }),
     ...(input.FrameworkVersion != null && { FrameworkVersion: input.FrameworkVersion }),
     ...(input.MemberConfiguration != null && {
-      MemberConfiguration: serializeAws_restJson1MemberConfiguration(input.MemberConfiguration, context),
+      MemberConfiguration: se_MemberConfiguration(input.MemberConfiguration, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
-    ...(input.VotingPolicy != null && {
-      VotingPolicy: serializeAws_restJson1VotingPolicy(input.VotingPolicy, context),
-    }),
+    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
+    ...(input.VotingPolicy != null && { VotingPolicy: se_VotingPolicy(input.VotingPolicy, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -198,7 +202,10 @@ export const serializeAws_restJson1CreateNetworkCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateNodeCommand = async (
+/**
+ * serializeAws_restJson1CreateNodeCommand
+ */
+export const se_CreateNodeCommand = async (
   input: CreateNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -214,9 +221,9 @@ export const serializeAws_restJson1CreateNodeCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.MemberId != null && { MemberId: input.MemberId }),
     ...(input.NodeConfiguration != null && {
-      NodeConfiguration: serializeAws_restJson1NodeConfiguration(input.NodeConfiguration, context),
+      NodeConfiguration: se_NodeConfiguration(input.NodeConfiguration, context),
     }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -229,7 +236,10 @@ export const serializeAws_restJson1CreateNodeCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateProposalCommand = async (
+/**
+ * serializeAws_restJson1CreateProposalCommand
+ */
+export const se_CreateProposalCommand = async (
   input: CreateProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -242,11 +252,11 @@ export const serializeAws_restJson1CreateProposalCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Actions != null && { Actions: serializeAws_restJson1ProposalActions(input.Actions, context) }),
+    ...(input.Actions != null && { Actions: se_ProposalActions(input.Actions, context) }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.MemberId != null && { MemberId: input.MemberId }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -259,7 +269,10 @@ export const serializeAws_restJson1CreateProposalCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteAccessorCommand = async (
+/**
+ * serializeAws_restJson1DeleteAccessorCommand
+ */
+export const se_DeleteAccessorCommand = async (
   input: DeleteAccessorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -279,7 +292,10 @@ export const serializeAws_restJson1DeleteAccessorCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteMemberCommand = async (
+/**
+ * serializeAws_restJson1DeleteMemberCommand
+ */
+export const se_DeleteMemberCommand = async (
   input: DeleteMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -301,7 +317,10 @@ export const serializeAws_restJson1DeleteMemberCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteNodeCommand = async (
+/**
+ * serializeAws_restJson1DeleteNodeCommand
+ */
+export const se_DeleteNodeCommand = async (
   input: DeleteNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -327,7 +346,10 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetAccessorCommand = async (
+/**
+ * serializeAws_restJson1GetAccessorCommand
+ */
+export const se_GetAccessorCommand = async (
   input: GetAccessorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -347,7 +369,10 @@ export const serializeAws_restJson1GetAccessorCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetMemberCommand = async (
+/**
+ * serializeAws_restJson1GetMemberCommand
+ */
+export const se_GetMemberCommand = async (
   input: GetMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -369,7 +394,10 @@ export const serializeAws_restJson1GetMemberCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetNetworkCommand = async (
+/**
+ * serializeAws_restJson1GetNetworkCommand
+ */
+export const se_GetNetworkCommand = async (
   input: GetNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -389,7 +417,10 @@ export const serializeAws_restJson1GetNetworkCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetNodeCommand = async (
+/**
+ * serializeAws_restJson1GetNodeCommand
+ */
+export const se_GetNodeCommand = async (
   input: GetNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -415,7 +446,10 @@ export const serializeAws_restJson1GetNodeCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetProposalCommand = async (
+/**
+ * serializeAws_restJson1GetProposalCommand
+ */
+export const se_GetProposalCommand = async (
   input: GetProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -438,7 +472,10 @@ export const serializeAws_restJson1GetProposalCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAccessorsCommand = async (
+/**
+ * serializeAws_restJson1ListAccessorsCommand
+ */
+export const se_ListAccessorsCommand = async (
   input: ListAccessorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -462,7 +499,10 @@ export const serializeAws_restJson1ListAccessorsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListInvitationsCommand = async (
+/**
+ * serializeAws_restJson1ListInvitationsCommand
+ */
+export const se_ListInvitationsCommand = async (
   input: ListInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -486,7 +526,10 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListMembersCommand = async (
+/**
+ * serializeAws_restJson1ListMembersCommand
+ */
+export const se_ListMembersCommand = async (
   input: ListMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -515,7 +558,10 @@ export const serializeAws_restJson1ListMembersCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListNetworksCommand = async (
+/**
+ * serializeAws_restJson1ListNetworksCommand
+ */
+export const se_ListNetworksCommand = async (
   input: ListNetworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -542,7 +588,10 @@ export const serializeAws_restJson1ListNetworksCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListNodesCommand = async (
+/**
+ * serializeAws_restJson1ListNodesCommand
+ */
+export const se_ListNodesCommand = async (
   input: ListNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -570,7 +619,10 @@ export const serializeAws_restJson1ListNodesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListProposalsCommand = async (
+/**
+ * serializeAws_restJson1ListProposalsCommand
+ */
+export const se_ListProposalsCommand = async (
   input: ListProposalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -596,7 +648,10 @@ export const serializeAws_restJson1ListProposalsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListProposalVotesCommand = async (
+/**
+ * serializeAws_restJson1ListProposalVotesCommand
+ */
+export const se_ListProposalVotesCommand = async (
   input: ListProposalVotesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -624,7 +679,10 @@ export const serializeAws_restJson1ListProposalVotesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -644,7 +702,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1RejectInvitationCommand = async (
+/**
+ * serializeAws_restJson1RejectInvitationCommand
+ */
+export const se_RejectInvitationCommand = async (
   input: RejectInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -672,7 +733,10 @@ export const serializeAws_restJson1RejectInvitationCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -684,7 +748,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -697,7 +761,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -724,7 +791,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateMemberCommand = async (
+/**
+ * serializeAws_restJson1UpdateMemberCommand
+ */
+export const se_UpdateMemberCommand = async (
   input: UpdateMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -739,10 +809,7 @@ export const serializeAws_restJson1UpdateMemberCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.LogPublishingConfiguration != null && {
-      LogPublishingConfiguration: serializeAws_restJson1MemberLogPublishingConfiguration(
-        input.LogPublishingConfiguration,
-        context
-      ),
+      LogPublishingConfiguration: se_MemberLogPublishingConfiguration(input.LogPublishingConfiguration, context),
     }),
   });
   return new __HttpRequest({
@@ -756,7 +823,10 @@ export const serializeAws_restJson1UpdateMemberCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateNodeCommand = async (
+/**
+ * serializeAws_restJson1UpdateNodeCommand
+ */
+export const se_UpdateNodeCommand = async (
   input: UpdateNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -771,10 +841,7 @@ export const serializeAws_restJson1UpdateNodeCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.LogPublishingConfiguration != null && {
-      LogPublishingConfiguration: serializeAws_restJson1NodeLogPublishingConfiguration(
-        input.LogPublishingConfiguration,
-        context
-      ),
+      LogPublishingConfiguration: se_NodeLogPublishingConfiguration(input.LogPublishingConfiguration, context),
     }),
     ...(input.MemberId != null && { MemberId: input.MemberId }),
   });
@@ -789,7 +856,10 @@ export const serializeAws_restJson1UpdateNodeCommand = async (
   });
 };
 
-export const serializeAws_restJson1VoteOnProposalCommand = async (
+/**
+ * serializeAws_restJson1VoteOnProposalCommand
+ */
+export const se_VoteOnProposalCommand = async (
   input: VoteOnProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -818,12 +888,15 @@ export const serializeAws_restJson1VoteOnProposalCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateAccessorCommand = async (
+/**
+ * deserializeAws_restJson1CreateAccessorCommand
+ */
+export const de_CreateAccessorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateAccessorCommandError(output, context);
+    return de_CreateAccessorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -838,7 +911,10 @@ export const deserializeAws_restJson1CreateAccessorCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateAccessorCommandError = async (
+/**
+ * deserializeAws_restJson1CreateAccessorCommandError
+ */
+const de_CreateAccessorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessorCommandOutput> => {
@@ -850,25 +926,25 @@ const deserializeAws_restJson1CreateAccessorCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.managedblockchain#ResourceAlreadyExistsException":
-      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -880,12 +956,15 @@ const deserializeAws_restJson1CreateAccessorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateMemberCommand = async (
+/**
+ * deserializeAws_restJson1CreateMemberCommand
+ */
+export const de_CreateMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateMemberCommandError(output, context);
+    return de_CreateMemberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -897,7 +976,10 @@ export const deserializeAws_restJson1CreateMemberCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateMemberCommandError = async (
+/**
+ * deserializeAws_restJson1CreateMemberCommandError
+ */
+const de_CreateMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMemberCommandOutput> => {
@@ -909,31 +991,31 @@ const deserializeAws_restJson1CreateMemberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.managedblockchain#ResourceAlreadyExistsException":
-      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -945,12 +1027,15 @@ const deserializeAws_restJson1CreateMemberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateNetworkCommand = async (
+/**
+ * deserializeAws_restJson1CreateNetworkCommand
+ */
+export const de_CreateNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNetworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateNetworkCommandError(output, context);
+    return de_CreateNetworkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -965,7 +1050,10 @@ export const deserializeAws_restJson1CreateNetworkCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateNetworkCommandError = async (
+/**
+ * deserializeAws_restJson1CreateNetworkCommandError
+ */
+const de_CreateNetworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNetworkCommandOutput> => {
@@ -977,25 +1065,25 @@ const deserializeAws_restJson1CreateNetworkCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.managedblockchain#ResourceAlreadyExistsException":
-      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1007,12 +1095,15 @@ const deserializeAws_restJson1CreateNetworkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateNodeCommand = async (
+/**
+ * deserializeAws_restJson1CreateNodeCommand
+ */
+export const de_CreateNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateNodeCommandError(output, context);
+    return de_CreateNodeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1024,7 +1115,10 @@ export const deserializeAws_restJson1CreateNodeCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateNodeCommandError = async (
+/**
+ * deserializeAws_restJson1CreateNodeCommandError
+ */
+const de_CreateNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNodeCommandOutput> => {
@@ -1036,31 +1130,31 @@ const deserializeAws_restJson1CreateNodeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.managedblockchain#ResourceAlreadyExistsException":
-      throw await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1072,12 +1166,15 @@ const deserializeAws_restJson1CreateNodeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateProposalCommand = async (
+/**
+ * deserializeAws_restJson1CreateProposalCommand
+ */
+export const de_CreateProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProposalCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateProposalCommandError(output, context);
+    return de_CreateProposalCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1089,7 +1186,10 @@ export const deserializeAws_restJson1CreateProposalCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateProposalCommandError = async (
+/**
+ * deserializeAws_restJson1CreateProposalCommandError
+ */
+const de_CreateProposalCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProposalCommandOutput> => {
@@ -1101,25 +1201,25 @@ const deserializeAws_restJson1CreateProposalCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1131,12 +1231,15 @@ const deserializeAws_restJson1CreateProposalCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteAccessorCommand = async (
+/**
+ * deserializeAws_restJson1DeleteAccessorCommand
+ */
+export const de_DeleteAccessorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteAccessorCommandError(output, context);
+    return de_DeleteAccessorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1145,7 +1248,10 @@ export const deserializeAws_restJson1DeleteAccessorCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteAccessorCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteAccessorCommandError
+ */
+const de_DeleteAccessorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessorCommandOutput> => {
@@ -1157,19 +1263,19 @@ const deserializeAws_restJson1DeleteAccessorCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1181,12 +1287,15 @@ const deserializeAws_restJson1DeleteAccessorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteMemberCommand = async (
+/**
+ * deserializeAws_restJson1DeleteMemberCommand
+ */
+export const de_DeleteMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteMemberCommandError(output, context);
+    return de_DeleteMemberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1195,7 +1304,10 @@ export const deserializeAws_restJson1DeleteMemberCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteMemberCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteMemberCommandError
+ */
+const de_DeleteMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMemberCommandOutput> => {
@@ -1207,22 +1319,22 @@ const deserializeAws_restJson1DeleteMemberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1234,12 +1346,15 @@ const deserializeAws_restJson1DeleteMemberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteNodeCommand = async (
+/**
+ * deserializeAws_restJson1DeleteNodeCommand
+ */
+export const de_DeleteNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteNodeCommandError(output, context);
+    return de_DeleteNodeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1248,7 +1363,10 @@ export const deserializeAws_restJson1DeleteNodeCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteNodeCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteNodeCommandError
+ */
+const de_DeleteNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNodeCommandOutput> => {
@@ -1260,22 +1378,22 @@ const deserializeAws_restJson1DeleteNodeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1287,24 +1405,30 @@ const deserializeAws_restJson1DeleteNodeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetAccessorCommand = async (
+/**
+ * deserializeAws_restJson1GetAccessorCommand
+ */
+export const de_GetAccessorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetAccessorCommandError(output, context);
+    return de_GetAccessorCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Accessor != null) {
-    contents.Accessor = deserializeAws_restJson1Accessor(data.Accessor, context);
+    contents.Accessor = de_Accessor(data.Accessor, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetAccessorCommandError = async (
+/**
+ * deserializeAws_restJson1GetAccessorCommandError
+ */
+const de_GetAccessorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessorCommandOutput> => {
@@ -1316,19 +1440,19 @@ const deserializeAws_restJson1GetAccessorCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1340,24 +1464,30 @@ const deserializeAws_restJson1GetAccessorCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetMemberCommand = async (
+/**
+ * deserializeAws_restJson1GetMemberCommand
+ */
+export const de_GetMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetMemberCommandError(output, context);
+    return de_GetMemberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Member != null) {
-    contents.Member = deserializeAws_restJson1Member(data.Member, context);
+    contents.Member = de_Member(data.Member, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetMemberCommandError = async (
+/**
+ * deserializeAws_restJson1GetMemberCommandError
+ */
+const de_GetMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMemberCommandOutput> => {
@@ -1369,19 +1499,19 @@ const deserializeAws_restJson1GetMemberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1393,24 +1523,30 @@ const deserializeAws_restJson1GetMemberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetNetworkCommand = async (
+/**
+ * deserializeAws_restJson1GetNetworkCommand
+ */
+export const de_GetNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNetworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetNetworkCommandError(output, context);
+    return de_GetNetworkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Network != null) {
-    contents.Network = deserializeAws_restJson1Network(data.Network, context);
+    contents.Network = de_Network(data.Network, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetNetworkCommandError = async (
+/**
+ * deserializeAws_restJson1GetNetworkCommandError
+ */
+const de_GetNetworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNetworkCommandOutput> => {
@@ -1422,19 +1558,19 @@ const deserializeAws_restJson1GetNetworkCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1446,24 +1582,30 @@ const deserializeAws_restJson1GetNetworkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetNodeCommand = async (
+/**
+ * deserializeAws_restJson1GetNodeCommand
+ */
+export const de_GetNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetNodeCommandError(output, context);
+    return de_GetNodeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Node != null) {
-    contents.Node = deserializeAws_restJson1Node(data.Node, context);
+    contents.Node = de_Node(data.Node, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetNodeCommandError = async (
+/**
+ * deserializeAws_restJson1GetNodeCommandError
+ */
+const de_GetNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNodeCommandOutput> => {
@@ -1475,19 +1617,19 @@ const deserializeAws_restJson1GetNodeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1499,24 +1641,30 @@ const deserializeAws_restJson1GetNodeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetProposalCommand = async (
+/**
+ * deserializeAws_restJson1GetProposalCommand
+ */
+export const de_GetProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProposalCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetProposalCommandError(output, context);
+    return de_GetProposalCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Proposal != null) {
-    contents.Proposal = deserializeAws_restJson1Proposal(data.Proposal, context);
+    contents.Proposal = de_Proposal(data.Proposal, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetProposalCommandError = async (
+/**
+ * deserializeAws_restJson1GetProposalCommandError
+ */
+const de_GetProposalCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProposalCommandOutput> => {
@@ -1528,19 +1676,19 @@ const deserializeAws_restJson1GetProposalCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1552,19 +1700,22 @@ const deserializeAws_restJson1GetProposalCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListAccessorsCommand = async (
+/**
+ * deserializeAws_restJson1ListAccessorsCommand
+ */
+export const de_ListAccessorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAccessorsCommandError(output, context);
+    return de_ListAccessorsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Accessors != null) {
-    contents.Accessors = deserializeAws_restJson1AccessorSummaryList(data.Accessors, context);
+    contents.Accessors = de_AccessorSummaryList(data.Accessors, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -1572,7 +1723,10 @@ export const deserializeAws_restJson1ListAccessorsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListAccessorsCommandError = async (
+/**
+ * deserializeAws_restJson1ListAccessorsCommandError
+ */
+const de_ListAccessorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessorsCommandOutput> => {
@@ -1584,16 +1738,16 @@ const deserializeAws_restJson1ListAccessorsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1605,19 +1759,22 @@ const deserializeAws_restJson1ListAccessorsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListInvitationsCommand = async (
+/**
+ * deserializeAws_restJson1ListInvitationsCommand
+ */
+export const de_ListInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListInvitationsCommandError(output, context);
+    return de_ListInvitationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Invitations != null) {
-    contents.Invitations = deserializeAws_restJson1InvitationList(data.Invitations, context);
+    contents.Invitations = de_InvitationList(data.Invitations, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -1625,7 +1782,10 @@ export const deserializeAws_restJson1ListInvitationsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListInvitationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListInvitationsCommandError
+ */
+const de_ListInvitationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> => {
@@ -1637,22 +1797,22 @@ const deserializeAws_restJson1ListInvitationsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
-      throw await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1664,19 +1824,22 @@ const deserializeAws_restJson1ListInvitationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListMembersCommand = async (
+/**
+ * deserializeAws_restJson1ListMembersCommand
+ */
+export const de_ListMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListMembersCommandError(output, context);
+    return de_ListMembersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Members != null) {
-    contents.Members = deserializeAws_restJson1MemberSummaryList(data.Members, context);
+    contents.Members = de_MemberSummaryList(data.Members, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -1684,7 +1847,10 @@ export const deserializeAws_restJson1ListMembersCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListMembersCommandError = async (
+/**
+ * deserializeAws_restJson1ListMembersCommandError
+ */
+const de_ListMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> => {
@@ -1696,16 +1862,16 @@ const deserializeAws_restJson1ListMembersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1717,19 +1883,22 @@ const deserializeAws_restJson1ListMembersCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListNetworksCommand = async (
+/**
+ * deserializeAws_restJson1ListNetworksCommand
+ */
+export const de_ListNetworksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNetworksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListNetworksCommandError(output, context);
+    return de_ListNetworksCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Networks != null) {
-    contents.Networks = deserializeAws_restJson1NetworkSummaryList(data.Networks, context);
+    contents.Networks = de_NetworkSummaryList(data.Networks, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -1737,7 +1906,10 @@ export const deserializeAws_restJson1ListNetworksCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListNetworksCommandError = async (
+/**
+ * deserializeAws_restJson1ListNetworksCommandError
+ */
+const de_ListNetworksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNetworksCommandOutput> => {
@@ -1749,16 +1921,16 @@ const deserializeAws_restJson1ListNetworksCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1770,12 +1942,15 @@ const deserializeAws_restJson1ListNetworksCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListNodesCommand = async (
+/**
+ * deserializeAws_restJson1ListNodesCommand
+ */
+export const de_ListNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNodesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListNodesCommandError(output, context);
+    return de_ListNodesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1785,12 +1960,15 @@ export const deserializeAws_restJson1ListNodesCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Nodes != null) {
-    contents.Nodes = deserializeAws_restJson1NodeSummaryList(data.Nodes, context);
+    contents.Nodes = de_NodeSummaryList(data.Nodes, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListNodesCommandError = async (
+/**
+ * deserializeAws_restJson1ListNodesCommandError
+ */
+const de_ListNodesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNodesCommandOutput> => {
@@ -1802,16 +1980,16 @@ const deserializeAws_restJson1ListNodesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1823,12 +2001,15 @@ const deserializeAws_restJson1ListNodesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListProposalsCommand = async (
+/**
+ * deserializeAws_restJson1ListProposalsCommand
+ */
+export const de_ListProposalsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProposalsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListProposalsCommandError(output, context);
+    return de_ListProposalsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1838,12 +2019,15 @@ export const deserializeAws_restJson1ListProposalsCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Proposals != null) {
-    contents.Proposals = deserializeAws_restJson1ProposalSummaryList(data.Proposals, context);
+    contents.Proposals = de_ProposalSummaryList(data.Proposals, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListProposalsCommandError = async (
+/**
+ * deserializeAws_restJson1ListProposalsCommandError
+ */
+const de_ListProposalsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProposalsCommandOutput> => {
@@ -1855,19 +2039,19 @@ const deserializeAws_restJson1ListProposalsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1879,12 +2063,15 @@ const deserializeAws_restJson1ListProposalsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListProposalVotesCommand = async (
+/**
+ * deserializeAws_restJson1ListProposalVotesCommand
+ */
+export const de_ListProposalVotesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProposalVotesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListProposalVotesCommandError(output, context);
+    return de_ListProposalVotesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1894,12 +2081,15 @@ export const deserializeAws_restJson1ListProposalVotesCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.ProposalVotes != null) {
-    contents.ProposalVotes = deserializeAws_restJson1ProposalVoteList(data.ProposalVotes, context);
+    contents.ProposalVotes = de_ProposalVoteList(data.ProposalVotes, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListProposalVotesCommandError = async (
+/**
+ * deserializeAws_restJson1ListProposalVotesCommandError
+ */
+const de_ListProposalVotesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProposalVotesCommandOutput> => {
@@ -1911,16 +2101,16 @@ const deserializeAws_restJson1ListProposalVotesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1932,24 +2122,30 @@ const deserializeAws_restJson1ListProposalVotesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1OutputTagMap(data.Tags, context);
+    contents.Tags = de_OutputTagMap(data.Tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1961,16 +2157,16 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1982,12 +2178,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RejectInvitationCommand = async (
+/**
+ * deserializeAws_restJson1RejectInvitationCommand
+ */
+export const de_RejectInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RejectInvitationCommandError(output, context);
+    return de_RejectInvitationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1996,7 +2195,10 @@ export const deserializeAws_restJson1RejectInvitationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RejectInvitationCommandError = async (
+/**
+ * deserializeAws_restJson1RejectInvitationCommandError
+ */
+const de_RejectInvitationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectInvitationCommandOutput> => {
@@ -2008,22 +2210,22 @@ const deserializeAws_restJson1RejectInvitationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IllegalActionException":
     case "com.amazonaws.managedblockchain#IllegalActionException":
-      throw await deserializeAws_restJson1IllegalActionExceptionResponse(parsedOutput, context);
+      throw await de_IllegalActionExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2035,12 +2237,15 @@ const deserializeAws_restJson1RejectInvitationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2049,7 +2254,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2061,19 +2269,19 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2085,12 +2293,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2099,7 +2310,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2111,16 +2325,16 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2132,12 +2346,15 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateMemberCommand = async (
+/**
+ * deserializeAws_restJson1UpdateMemberCommand
+ */
+export const de_UpdateMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateMemberCommandError(output, context);
+    return de_UpdateMemberCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2146,7 +2363,10 @@ export const deserializeAws_restJson1UpdateMemberCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateMemberCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateMemberCommandError
+ */
+const de_UpdateMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMemberCommandOutput> => {
@@ -2158,19 +2378,19 @@ const deserializeAws_restJson1UpdateMemberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2182,12 +2402,15 @@ const deserializeAws_restJson1UpdateMemberCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateNodeCommand = async (
+/**
+ * deserializeAws_restJson1UpdateNodeCommand
+ */
+export const de_UpdateNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateNodeCommandError(output, context);
+    return de_UpdateNodeCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2196,7 +2419,10 @@ export const deserializeAws_restJson1UpdateNodeCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateNodeCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateNodeCommandError
+ */
+const de_UpdateNodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNodeCommandOutput> => {
@@ -2208,19 +2434,19 @@ const deserializeAws_restJson1UpdateNodeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2232,12 +2458,15 @@ const deserializeAws_restJson1UpdateNodeCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1VoteOnProposalCommand = async (
+/**
+ * deserializeAws_restJson1VoteOnProposalCommand
+ */
+export const de_VoteOnProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VoteOnProposalCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1VoteOnProposalCommandError(output, context);
+    return de_VoteOnProposalCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2246,7 +2475,10 @@ export const deserializeAws_restJson1VoteOnProposalCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1VoteOnProposalCommandError = async (
+/**
+ * deserializeAws_restJson1VoteOnProposalCommandError
+ */
+const de_VoteOnProposalCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VoteOnProposalCommandOutput> => {
@@ -2258,22 +2490,22 @@ const deserializeAws_restJson1VoteOnProposalCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IllegalActionException":
     case "com.amazonaws.managedblockchain#IllegalActionException":
-      throw await deserializeAws_restJson1IllegalActionExceptionResponse(parsedOutput, context);
+      throw await de_IllegalActionExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2286,7 +2518,10 @@ const deserializeAws_restJson1VoteOnProposalCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -2302,7 +2537,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1IllegalActionExceptionResponse = async (
+/**
+ * deserializeAws_restJson1IllegalActionExceptionRes
+ */
+const de_IllegalActionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IllegalActionException> => {
@@ -2318,7 +2556,10 @@ const deserializeAws_restJson1IllegalActionExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServiceErrorExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServiceErrorExceptionRes
+ */
+const de_InternalServiceErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
@@ -2331,7 +2572,10 @@ const deserializeAws_restJson1InternalServiceErrorExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
@@ -2347,7 +2591,10 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceAlreadyExistsExceptionRes
+ */
+const de_ResourceAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
@@ -2363,7 +2610,10 @@ const deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceLimitExceededExceptionRes
+ */
+const de_ResourceLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
@@ -2379,7 +2629,10 @@ const deserializeAws_restJson1ResourceLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -2398,7 +2651,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotReadyExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotReadyExceptionRes
+ */
+const de_ResourceNotReadyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotReadyException> => {
@@ -2414,10 +2670,10 @@ const deserializeAws_restJson1ResourceNotReadyExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   const exception = new ThrottlingException({
@@ -2427,7 +2683,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
@@ -2446,10 +2705,10 @@ const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ApprovalThresholdPolicy = (
-  input: ApprovalThresholdPolicy,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ApprovalThresholdPolicy
+ */
+const se_ApprovalThresholdPolicy = (input: ApprovalThresholdPolicy, context: __SerdeContext): any => {
   return {
     ...(input.ProposalDurationInHours != null && { ProposalDurationInHours: input.ProposalDurationInHours }),
     ...(input.ThresholdComparator != null && { ThresholdComparator: input.ThresholdComparator }),
@@ -2457,7 +2716,10 @@ const serializeAws_restJson1ApprovalThresholdPolicy = (
   };
 };
 
-const serializeAws_restJson1InputTagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1InputTagMap
+ */
+const se_InputTagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2467,176 +2729,201 @@ const serializeAws_restJson1InputTagMap = (input: Record<string, string>, contex
   }, {});
 };
 
-const serializeAws_restJson1InviteAction = (input: InviteAction, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1InviteAction
+ */
+const se_InviteAction = (input: InviteAction, context: __SerdeContext): any => {
   return {
     ...(input.Principal != null && { Principal: input.Principal }),
   };
 };
 
-const serializeAws_restJson1InviteActionList = (input: InviteAction[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1InviteActionList
+ */
+const se_InviteActionList = (input: InviteAction[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1InviteAction(entry, context);
+      return se_InviteAction(entry, context);
     });
 };
 
-const serializeAws_restJson1LogConfiguration = (input: LogConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LogConfiguration
+ */
+const se_LogConfiguration = (input: LogConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Enabled != null && { Enabled: input.Enabled }),
   };
 };
 
-const serializeAws_restJson1LogConfigurations = (input: LogConfigurations, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LogConfigurations
+ */
+const se_LogConfigurations = (input: LogConfigurations, context: __SerdeContext): any => {
   return {
-    ...(input.Cloudwatch != null && { Cloudwatch: serializeAws_restJson1LogConfiguration(input.Cloudwatch, context) }),
+    ...(input.Cloudwatch != null && { Cloudwatch: se_LogConfiguration(input.Cloudwatch, context) }),
   };
 };
 
-const serializeAws_restJson1MemberConfiguration = (input: MemberConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1MemberConfiguration
+ */
+const se_MemberConfiguration = (input: MemberConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.FrameworkConfiguration != null && {
-      FrameworkConfiguration: serializeAws_restJson1MemberFrameworkConfiguration(input.FrameworkConfiguration, context),
+      FrameworkConfiguration: se_MemberFrameworkConfiguration(input.FrameworkConfiguration, context),
     }),
     ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
     ...(input.LogPublishingConfiguration != null && {
-      LogPublishingConfiguration: serializeAws_restJson1MemberLogPublishingConfiguration(
-        input.LogPublishingConfiguration,
-        context
-      ),
+      LogPublishingConfiguration: se_MemberLogPublishingConfiguration(input.LogPublishingConfiguration, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_InputTagMap(input.Tags, context) }),
   };
 };
 
-const serializeAws_restJson1MemberFabricConfiguration = (
-  input: MemberFabricConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1MemberFabricConfiguration
+ */
+const se_MemberFabricConfiguration = (input: MemberFabricConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.AdminPassword != null && { AdminPassword: input.AdminPassword }),
     ...(input.AdminUsername != null && { AdminUsername: input.AdminUsername }),
   };
 };
 
-const serializeAws_restJson1MemberFabricLogPublishingConfiguration = (
+/**
+ * serializeAws_restJson1MemberFabricLogPublishingConfiguration
+ */
+const se_MemberFabricLogPublishingConfiguration = (
   input: MemberFabricLogPublishingConfiguration,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CaLogs != null && { CaLogs: serializeAws_restJson1LogConfigurations(input.CaLogs, context) }),
+    ...(input.CaLogs != null && { CaLogs: se_LogConfigurations(input.CaLogs, context) }),
   };
 };
 
-const serializeAws_restJson1MemberFrameworkConfiguration = (
-  input: MemberFrameworkConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1MemberFrameworkConfiguration
+ */
+const se_MemberFrameworkConfiguration = (input: MemberFrameworkConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Fabric != null && { Fabric: serializeAws_restJson1MemberFabricConfiguration(input.Fabric, context) }),
+    ...(input.Fabric != null && { Fabric: se_MemberFabricConfiguration(input.Fabric, context) }),
   };
 };
 
-const serializeAws_restJson1MemberLogPublishingConfiguration = (
-  input: MemberLogPublishingConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1MemberLogPublishingConfiguration
+ */
+const se_MemberLogPublishingConfiguration = (input: MemberLogPublishingConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Fabric != null && {
-      Fabric: serializeAws_restJson1MemberFabricLogPublishingConfiguration(input.Fabric, context),
-    }),
+    ...(input.Fabric != null && { Fabric: se_MemberFabricLogPublishingConfiguration(input.Fabric, context) }),
   };
 };
 
-const serializeAws_restJson1NetworkFabricConfiguration = (
-  input: NetworkFabricConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1NetworkFabricConfiguration
+ */
+const se_NetworkFabricConfiguration = (input: NetworkFabricConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Edition != null && { Edition: input.Edition }),
   };
 };
 
-const serializeAws_restJson1NetworkFrameworkConfiguration = (
-  input: NetworkFrameworkConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1NetworkFrameworkConfiguration
+ */
+const se_NetworkFrameworkConfiguration = (input: NetworkFrameworkConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Fabric != null && { Fabric: serializeAws_restJson1NetworkFabricConfiguration(input.Fabric, context) }),
+    ...(input.Fabric != null && { Fabric: se_NetworkFabricConfiguration(input.Fabric, context) }),
   };
 };
 
-const serializeAws_restJson1NodeConfiguration = (input: NodeConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1NodeConfiguration
+ */
+const se_NodeConfiguration = (input: NodeConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.AvailabilityZone != null && { AvailabilityZone: input.AvailabilityZone }),
     ...(input.InstanceType != null && { InstanceType: input.InstanceType }),
     ...(input.LogPublishingConfiguration != null && {
-      LogPublishingConfiguration: serializeAws_restJson1NodeLogPublishingConfiguration(
-        input.LogPublishingConfiguration,
-        context
-      ),
+      LogPublishingConfiguration: se_NodeLogPublishingConfiguration(input.LogPublishingConfiguration, context),
     }),
     ...(input.StateDB != null && { StateDB: input.StateDB }),
   };
 };
 
-const serializeAws_restJson1NodeFabricLogPublishingConfiguration = (
+/**
+ * serializeAws_restJson1NodeFabricLogPublishingConfiguration
+ */
+const se_NodeFabricLogPublishingConfiguration = (
   input: NodeFabricLogPublishingConfiguration,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ChaincodeLogs != null && {
-      ChaincodeLogs: serializeAws_restJson1LogConfigurations(input.ChaincodeLogs, context),
-    }),
-    ...(input.PeerLogs != null && { PeerLogs: serializeAws_restJson1LogConfigurations(input.PeerLogs, context) }),
+    ...(input.ChaincodeLogs != null && { ChaincodeLogs: se_LogConfigurations(input.ChaincodeLogs, context) }),
+    ...(input.PeerLogs != null && { PeerLogs: se_LogConfigurations(input.PeerLogs, context) }),
   };
 };
 
-const serializeAws_restJson1NodeLogPublishingConfiguration = (
-  input: NodeLogPublishingConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1NodeLogPublishingConfiguration
+ */
+const se_NodeLogPublishingConfiguration = (input: NodeLogPublishingConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Fabric != null && {
-      Fabric: serializeAws_restJson1NodeFabricLogPublishingConfiguration(input.Fabric, context),
-    }),
+    ...(input.Fabric != null && { Fabric: se_NodeFabricLogPublishingConfiguration(input.Fabric, context) }),
   };
 };
 
-const serializeAws_restJson1ProposalActions = (input: ProposalActions, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ProposalActions
+ */
+const se_ProposalActions = (input: ProposalActions, context: __SerdeContext): any => {
   return {
-    ...(input.Invitations != null && {
-      Invitations: serializeAws_restJson1InviteActionList(input.Invitations, context),
-    }),
-    ...(input.Removals != null && { Removals: serializeAws_restJson1RemoveActionList(input.Removals, context) }),
+    ...(input.Invitations != null && { Invitations: se_InviteActionList(input.Invitations, context) }),
+    ...(input.Removals != null && { Removals: se_RemoveActionList(input.Removals, context) }),
   };
 };
 
-const serializeAws_restJson1RemoveAction = (input: RemoveAction, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RemoveAction
+ */
+const se_RemoveAction = (input: RemoveAction, context: __SerdeContext): any => {
   return {
     ...(input.MemberId != null && { MemberId: input.MemberId }),
   };
 };
 
-const serializeAws_restJson1RemoveActionList = (input: RemoveAction[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RemoveActionList
+ */
+const se_RemoveActionList = (input: RemoveAction[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1RemoveAction(entry, context);
+      return se_RemoveAction(entry, context);
     });
 };
 
-const serializeAws_restJson1VotingPolicy = (input: VotingPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1VotingPolicy
+ */
+const se_VotingPolicy = (input: VotingPolicy, context: __SerdeContext): any => {
   return {
     ...(input.ApprovalThresholdPolicy != null && {
-      ApprovalThresholdPolicy: serializeAws_restJson1ApprovalThresholdPolicy(input.ApprovalThresholdPolicy, context),
+      ApprovalThresholdPolicy: se_ApprovalThresholdPolicy(input.ApprovalThresholdPolicy, context),
     }),
   };
 };
 
-const deserializeAws_restJson1Accessor = (output: any, context: __SerdeContext): Accessor => {
+/**
+ * deserializeAws_restJson1Accessor
+ */
+const de_Accessor = (output: any, context: __SerdeContext): Accessor => {
   return {
     Arn: __expectString(output.Arn),
     BillingToken: __expectString(output.BillingToken),
@@ -2644,12 +2931,15 @@ const deserializeAws_restJson1Accessor = (output: any, context: __SerdeContext):
       output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     Id: __expectString(output.Id),
     Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_restJson1OutputTagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_OutputTagMap(output.Tags, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_restJson1AccessorSummary = (output: any, context: __SerdeContext): AccessorSummary => {
+/**
+ * deserializeAws_restJson1AccessorSummary
+ */
+const de_AccessorSummary = (output: any, context: __SerdeContext): AccessorSummary => {
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
@@ -2660,22 +2950,25 @@ const deserializeAws_restJson1AccessorSummary = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1AccessorSummaryList = (output: any, context: __SerdeContext): AccessorSummary[] => {
+/**
+ * deserializeAws_restJson1AccessorSummaryList
+ */
+const de_AccessorSummaryList = (output: any, context: __SerdeContext): AccessorSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AccessorSummary(entry, context);
+      return de_AccessorSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ApprovalThresholdPolicy = (
-  output: any,
-  context: __SerdeContext
-): ApprovalThresholdPolicy => {
+/**
+ * deserializeAws_restJson1ApprovalThresholdPolicy
+ */
+const de_ApprovalThresholdPolicy = (output: any, context: __SerdeContext): ApprovalThresholdPolicy => {
   return {
     ProposalDurationInHours: __expectInt32(output.ProposalDurationInHours),
     ThresholdComparator: __expectString(output.ThresholdComparator),
@@ -2683,7 +2976,10 @@ const deserializeAws_restJson1ApprovalThresholdPolicy = (
   } as any;
 };
 
-const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext): Invitation => {
+/**
+ * deserializeAws_restJson1Invitation
+ */
+const de_Invitation = (output: any, context: __SerdeContext): Invitation => {
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
@@ -2693,58 +2989,72 @@ const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext
         ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.ExpirationDate))
         : undefined,
     InvitationId: __expectString(output.InvitationId),
-    NetworkSummary:
-      output.NetworkSummary != null
-        ? deserializeAws_restJson1NetworkSummary(output.NetworkSummary, context)
-        : undefined,
+    NetworkSummary: output.NetworkSummary != null ? de_NetworkSummary(output.NetworkSummary, context) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_restJson1InvitationList = (output: any, context: __SerdeContext): Invitation[] => {
+/**
+ * deserializeAws_restJson1InvitationList
+ */
+const de_InvitationList = (output: any, context: __SerdeContext): Invitation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Invitation(entry, context);
+      return de_Invitation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1InviteAction = (output: any, context: __SerdeContext): InviteAction => {
+/**
+ * deserializeAws_restJson1InviteAction
+ */
+const de_InviteAction = (output: any, context: __SerdeContext): InviteAction => {
   return {
     Principal: __expectString(output.Principal),
   } as any;
 };
 
-const deserializeAws_restJson1InviteActionList = (output: any, context: __SerdeContext): InviteAction[] => {
+/**
+ * deserializeAws_restJson1InviteActionList
+ */
+const de_InviteActionList = (output: any, context: __SerdeContext): InviteAction[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1InviteAction(entry, context);
+      return de_InviteAction(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1LogConfiguration = (output: any, context: __SerdeContext): LogConfiguration => {
+/**
+ * deserializeAws_restJson1LogConfiguration
+ */
+const de_LogConfiguration = (output: any, context: __SerdeContext): LogConfiguration => {
   return {
     Enabled: __expectBoolean(output.Enabled),
   } as any;
 };
 
-const deserializeAws_restJson1LogConfigurations = (output: any, context: __SerdeContext): LogConfigurations => {
+/**
+ * deserializeAws_restJson1LogConfigurations
+ */
+const de_LogConfigurations = (output: any, context: __SerdeContext): LogConfigurations => {
   return {
-    Cloudwatch:
-      output.Cloudwatch != null ? deserializeAws_restJson1LogConfiguration(output.Cloudwatch, context) : undefined,
+    Cloudwatch: output.Cloudwatch != null ? de_LogConfiguration(output.Cloudwatch, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {
+/**
+ * deserializeAws_restJson1Member
+ */
+const de_Member = (output: any, context: __SerdeContext): Member => {
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
@@ -2752,62 +3062,68 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
     Description: __expectString(output.Description),
     FrameworkAttributes:
       output.FrameworkAttributes != null
-        ? deserializeAws_restJson1MemberFrameworkAttributes(output.FrameworkAttributes, context)
+        ? de_MemberFrameworkAttributes(output.FrameworkAttributes, context)
         : undefined,
     Id: __expectString(output.Id),
     KmsKeyArn: __expectString(output.KmsKeyArn),
     LogPublishingConfiguration:
       output.LogPublishingConfiguration != null
-        ? deserializeAws_restJson1MemberLogPublishingConfiguration(output.LogPublishingConfiguration, context)
+        ? de_MemberLogPublishingConfiguration(output.LogPublishingConfiguration, context)
         : undefined,
     Name: __expectString(output.Name),
     NetworkId: __expectString(output.NetworkId),
     Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_restJson1OutputTagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_OutputTagMap(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1MemberFabricAttributes = (
-  output: any,
-  context: __SerdeContext
-): MemberFabricAttributes => {
+/**
+ * deserializeAws_restJson1MemberFabricAttributes
+ */
+const de_MemberFabricAttributes = (output: any, context: __SerdeContext): MemberFabricAttributes => {
   return {
     AdminUsername: __expectString(output.AdminUsername),
     CaEndpoint: __expectString(output.CaEndpoint),
   } as any;
 };
 
-const deserializeAws_restJson1MemberFabricLogPublishingConfiguration = (
+/**
+ * deserializeAws_restJson1MemberFabricLogPublishingConfiguration
+ */
+const de_MemberFabricLogPublishingConfiguration = (
   output: any,
   context: __SerdeContext
 ): MemberFabricLogPublishingConfiguration => {
   return {
-    CaLogs: output.CaLogs != null ? deserializeAws_restJson1LogConfigurations(output.CaLogs, context) : undefined,
+    CaLogs: output.CaLogs != null ? de_LogConfigurations(output.CaLogs, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1MemberFrameworkAttributes = (
-  output: any,
-  context: __SerdeContext
-): MemberFrameworkAttributes => {
+/**
+ * deserializeAws_restJson1MemberFrameworkAttributes
+ */
+const de_MemberFrameworkAttributes = (output: any, context: __SerdeContext): MemberFrameworkAttributes => {
   return {
-    Fabric: output.Fabric != null ? deserializeAws_restJson1MemberFabricAttributes(output.Fabric, context) : undefined,
+    Fabric: output.Fabric != null ? de_MemberFabricAttributes(output.Fabric, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1MemberLogPublishingConfiguration = (
+/**
+ * deserializeAws_restJson1MemberLogPublishingConfiguration
+ */
+const de_MemberLogPublishingConfiguration = (
   output: any,
   context: __SerdeContext
 ): MemberLogPublishingConfiguration => {
   return {
-    Fabric:
-      output.Fabric != null
-        ? deserializeAws_restJson1MemberFabricLogPublishingConfiguration(output.Fabric, context)
-        : undefined,
+    Fabric: output.Fabric != null ? de_MemberFabricLogPublishingConfiguration(output.Fabric, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1MemberSummary = (output: any, context: __SerdeContext): MemberSummary => {
+/**
+ * deserializeAws_restJson1MemberSummary
+ */
+const de_MemberSummary = (output: any, context: __SerdeContext): MemberSummary => {
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
@@ -2820,19 +3136,25 @@ const deserializeAws_restJson1MemberSummary = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_restJson1MemberSummaryList = (output: any, context: __SerdeContext): MemberSummary[] => {
+/**
+ * deserializeAws_restJson1MemberSummaryList
+ */
+const de_MemberSummaryList = (output: any, context: __SerdeContext): MemberSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1MemberSummary(entry, context);
+      return de_MemberSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): Network => {
+/**
+ * deserializeAws_restJson1Network
+ */
+const de_Network = (output: any, context: __SerdeContext): Network => {
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
@@ -2841,50 +3163,51 @@ const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): 
     Framework: __expectString(output.Framework),
     FrameworkAttributes:
       output.FrameworkAttributes != null
-        ? deserializeAws_restJson1NetworkFrameworkAttributes(output.FrameworkAttributes, context)
+        ? de_NetworkFrameworkAttributes(output.FrameworkAttributes, context)
         : undefined,
     FrameworkVersion: __expectString(output.FrameworkVersion),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_restJson1OutputTagMap(output.Tags, context) : undefined,
-    VotingPolicy:
-      output.VotingPolicy != null ? deserializeAws_restJson1VotingPolicy(output.VotingPolicy, context) : undefined,
+    Tags: output.Tags != null ? de_OutputTagMap(output.Tags, context) : undefined,
+    VotingPolicy: output.VotingPolicy != null ? de_VotingPolicy(output.VotingPolicy, context) : undefined,
     VpcEndpointServiceName: __expectString(output.VpcEndpointServiceName),
   } as any;
 };
 
-const deserializeAws_restJson1NetworkEthereumAttributes = (
-  output: any,
-  context: __SerdeContext
-): NetworkEthereumAttributes => {
+/**
+ * deserializeAws_restJson1NetworkEthereumAttributes
+ */
+const de_NetworkEthereumAttributes = (output: any, context: __SerdeContext): NetworkEthereumAttributes => {
   return {
     ChainId: __expectString(output.ChainId),
   } as any;
 };
 
-const deserializeAws_restJson1NetworkFabricAttributes = (
-  output: any,
-  context: __SerdeContext
-): NetworkFabricAttributes => {
+/**
+ * deserializeAws_restJson1NetworkFabricAttributes
+ */
+const de_NetworkFabricAttributes = (output: any, context: __SerdeContext): NetworkFabricAttributes => {
   return {
     Edition: __expectString(output.Edition),
     OrderingServiceEndpoint: __expectString(output.OrderingServiceEndpoint),
   } as any;
 };
 
-const deserializeAws_restJson1NetworkFrameworkAttributes = (
-  output: any,
-  context: __SerdeContext
-): NetworkFrameworkAttributes => {
+/**
+ * deserializeAws_restJson1NetworkFrameworkAttributes
+ */
+const de_NetworkFrameworkAttributes = (output: any, context: __SerdeContext): NetworkFrameworkAttributes => {
   return {
-    Ethereum:
-      output.Ethereum != null ? deserializeAws_restJson1NetworkEthereumAttributes(output.Ethereum, context) : undefined,
-    Fabric: output.Fabric != null ? deserializeAws_restJson1NetworkFabricAttributes(output.Fabric, context) : undefined,
+    Ethereum: output.Ethereum != null ? de_NetworkEthereumAttributes(output.Ethereum, context) : undefined,
+    Fabric: output.Fabric != null ? de_NetworkFabricAttributes(output.Fabric, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1NetworkSummary = (output: any, context: __SerdeContext): NetworkSummary => {
+/**
+ * deserializeAws_restJson1NetworkSummary
+ */
+const de_NetworkSummary = (output: any, context: __SerdeContext): NetworkSummary => {
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
@@ -2898,97 +3221,103 @@ const deserializeAws_restJson1NetworkSummary = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_restJson1NetworkSummaryList = (output: any, context: __SerdeContext): NetworkSummary[] => {
+/**
+ * deserializeAws_restJson1NetworkSummaryList
+ */
+const de_NetworkSummaryList = (output: any, context: __SerdeContext): NetworkSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1NetworkSummary(entry, context);
+      return de_NetworkSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Node => {
+/**
+ * deserializeAws_restJson1Node
+ */
+const de_Node = (output: any, context: __SerdeContext): Node => {
   return {
     Arn: __expectString(output.Arn),
     AvailabilityZone: __expectString(output.AvailabilityZone),
     CreationDate:
       output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
     FrameworkAttributes:
-      output.FrameworkAttributes != null
-        ? deserializeAws_restJson1NodeFrameworkAttributes(output.FrameworkAttributes, context)
-        : undefined,
+      output.FrameworkAttributes != null ? de_NodeFrameworkAttributes(output.FrameworkAttributes, context) : undefined,
     Id: __expectString(output.Id),
     InstanceType: __expectString(output.InstanceType),
     KmsKeyArn: __expectString(output.KmsKeyArn),
     LogPublishingConfiguration:
       output.LogPublishingConfiguration != null
-        ? deserializeAws_restJson1NodeLogPublishingConfiguration(output.LogPublishingConfiguration, context)
+        ? de_NodeLogPublishingConfiguration(output.LogPublishingConfiguration, context)
         : undefined,
     MemberId: __expectString(output.MemberId),
     NetworkId: __expectString(output.NetworkId),
     StateDB: __expectString(output.StateDB),
     Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_restJson1OutputTagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_OutputTagMap(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1NodeEthereumAttributes = (
-  output: any,
-  context: __SerdeContext
-): NodeEthereumAttributes => {
+/**
+ * deserializeAws_restJson1NodeEthereumAttributes
+ */
+const de_NodeEthereumAttributes = (output: any, context: __SerdeContext): NodeEthereumAttributes => {
   return {
     HttpEndpoint: __expectString(output.HttpEndpoint),
     WebSocketEndpoint: __expectString(output.WebSocketEndpoint),
   } as any;
 };
 
-const deserializeAws_restJson1NodeFabricAttributes = (output: any, context: __SerdeContext): NodeFabricAttributes => {
+/**
+ * deserializeAws_restJson1NodeFabricAttributes
+ */
+const de_NodeFabricAttributes = (output: any, context: __SerdeContext): NodeFabricAttributes => {
   return {
     PeerEndpoint: __expectString(output.PeerEndpoint),
     PeerEventEndpoint: __expectString(output.PeerEventEndpoint),
   } as any;
 };
 
-const deserializeAws_restJson1NodeFabricLogPublishingConfiguration = (
+/**
+ * deserializeAws_restJson1NodeFabricLogPublishingConfiguration
+ */
+const de_NodeFabricLogPublishingConfiguration = (
   output: any,
   context: __SerdeContext
 ): NodeFabricLogPublishingConfiguration => {
   return {
-    ChaincodeLogs:
-      output.ChaincodeLogs != null
-        ? deserializeAws_restJson1LogConfigurations(output.ChaincodeLogs, context)
-        : undefined,
-    PeerLogs: output.PeerLogs != null ? deserializeAws_restJson1LogConfigurations(output.PeerLogs, context) : undefined,
+    ChaincodeLogs: output.ChaincodeLogs != null ? de_LogConfigurations(output.ChaincodeLogs, context) : undefined,
+    PeerLogs: output.PeerLogs != null ? de_LogConfigurations(output.PeerLogs, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1NodeFrameworkAttributes = (
-  output: any,
-  context: __SerdeContext
-): NodeFrameworkAttributes => {
+/**
+ * deserializeAws_restJson1NodeFrameworkAttributes
+ */
+const de_NodeFrameworkAttributes = (output: any, context: __SerdeContext): NodeFrameworkAttributes => {
   return {
-    Ethereum:
-      output.Ethereum != null ? deserializeAws_restJson1NodeEthereumAttributes(output.Ethereum, context) : undefined,
-    Fabric: output.Fabric != null ? deserializeAws_restJson1NodeFabricAttributes(output.Fabric, context) : undefined,
+    Ethereum: output.Ethereum != null ? de_NodeEthereumAttributes(output.Ethereum, context) : undefined,
+    Fabric: output.Fabric != null ? de_NodeFabricAttributes(output.Fabric, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1NodeLogPublishingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): NodeLogPublishingConfiguration => {
+/**
+ * deserializeAws_restJson1NodeLogPublishingConfiguration
+ */
+const de_NodeLogPublishingConfiguration = (output: any, context: __SerdeContext): NodeLogPublishingConfiguration => {
   return {
-    Fabric:
-      output.Fabric != null
-        ? deserializeAws_restJson1NodeFabricLogPublishingConfiguration(output.Fabric, context)
-        : undefined,
+    Fabric: output.Fabric != null ? de_NodeFabricLogPublishingConfiguration(output.Fabric, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1NodeSummary = (output: any, context: __SerdeContext): NodeSummary => {
+/**
+ * deserializeAws_restJson1NodeSummary
+ */
+const de_NodeSummary = (output: any, context: __SerdeContext): NodeSummary => {
   return {
     Arn: __expectString(output.Arn),
     AvailabilityZone: __expectString(output.AvailabilityZone),
@@ -3000,19 +3329,25 @@ const deserializeAws_restJson1NodeSummary = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_restJson1NodeSummaryList = (output: any, context: __SerdeContext): NodeSummary[] => {
+/**
+ * deserializeAws_restJson1NodeSummaryList
+ */
+const de_NodeSummaryList = (output: any, context: __SerdeContext): NodeSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1NodeSummary(entry, context);
+      return de_NodeSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1OutputTagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1OutputTagMap
+ */
+const de_OutputTagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3022,9 +3357,12 @@ const deserializeAws_restJson1OutputTagMap = (output: any, context: __SerdeConte
   }, {});
 };
 
-const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext): Proposal => {
+/**
+ * deserializeAws_restJson1Proposal
+ */
+const de_Proposal = (output: any, context: __SerdeContext): Proposal => {
   return {
-    Actions: output.Actions != null ? deserializeAws_restJson1ProposalActions(output.Actions, context) : undefined,
+    Actions: output.Actions != null ? de_ProposalActions(output.Actions, context) : undefined,
     Arn: __expectString(output.Arn),
     CreationDate:
       output.CreationDate != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationDate)) : undefined,
@@ -3040,20 +3378,25 @@ const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext):
     ProposedByMemberId: __expectString(output.ProposedByMemberId),
     ProposedByMemberName: __expectString(output.ProposedByMemberName),
     Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_restJson1OutputTagMap(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_OutputTagMap(output.Tags, context) : undefined,
     YesVoteCount: __expectInt32(output.YesVoteCount),
   } as any;
 };
 
-const deserializeAws_restJson1ProposalActions = (output: any, context: __SerdeContext): ProposalActions => {
+/**
+ * deserializeAws_restJson1ProposalActions
+ */
+const de_ProposalActions = (output: any, context: __SerdeContext): ProposalActions => {
   return {
-    Invitations:
-      output.Invitations != null ? deserializeAws_restJson1InviteActionList(output.Invitations, context) : undefined,
-    Removals: output.Removals != null ? deserializeAws_restJson1RemoveActionList(output.Removals, context) : undefined,
+    Invitations: output.Invitations != null ? de_InviteActionList(output.Invitations, context) : undefined,
+    Removals: output.Removals != null ? de_RemoveActionList(output.Removals, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ProposalSummary = (output: any, context: __SerdeContext): ProposalSummary => {
+/**
+ * deserializeAws_restJson1ProposalSummary
+ */
+const de_ProposalSummary = (output: any, context: __SerdeContext): ProposalSummary => {
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
@@ -3070,49 +3413,64 @@ const deserializeAws_restJson1ProposalSummary = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1ProposalSummaryList = (output: any, context: __SerdeContext): ProposalSummary[] => {
+/**
+ * deserializeAws_restJson1ProposalSummaryList
+ */
+const de_ProposalSummaryList = (output: any, context: __SerdeContext): ProposalSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ProposalSummary(entry, context);
+      return de_ProposalSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ProposalVoteList = (output: any, context: __SerdeContext): VoteSummary[] => {
+/**
+ * deserializeAws_restJson1ProposalVoteList
+ */
+const de_ProposalVoteList = (output: any, context: __SerdeContext): VoteSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1VoteSummary(entry, context);
+      return de_VoteSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1RemoveAction = (output: any, context: __SerdeContext): RemoveAction => {
+/**
+ * deserializeAws_restJson1RemoveAction
+ */
+const de_RemoveAction = (output: any, context: __SerdeContext): RemoveAction => {
   return {
     MemberId: __expectString(output.MemberId),
   } as any;
 };
 
-const deserializeAws_restJson1RemoveActionList = (output: any, context: __SerdeContext): RemoveAction[] => {
+/**
+ * deserializeAws_restJson1RemoveActionList
+ */
+const de_RemoveActionList = (output: any, context: __SerdeContext): RemoveAction[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1RemoveAction(entry, context);
+      return de_RemoveAction(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1VoteSummary = (output: any, context: __SerdeContext): VoteSummary => {
+/**
+ * deserializeAws_restJson1VoteSummary
+ */
+const de_VoteSummary = (output: any, context: __SerdeContext): VoteSummary => {
   return {
     MemberId: __expectString(output.MemberId),
     MemberName: __expectString(output.MemberName),
@@ -3120,11 +3478,14 @@ const deserializeAws_restJson1VoteSummary = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_restJson1VotingPolicy = (output: any, context: __SerdeContext): VotingPolicy => {
+/**
+ * deserializeAws_restJson1VotingPolicy
+ */
+const de_VotingPolicy = (output: any, context: __SerdeContext): VotingPolicy => {
   return {
     ApprovalThresholdPolicy:
       output.ApprovalThresholdPolicy != null
-        ? deserializeAws_restJson1ApprovalThresholdPolicy(output.ApprovalThresholdPolicy, context)
+        ? de_ApprovalThresholdPolicy(output.ApprovalThresholdPolicy, context)
         : undefined,
   } as any;
 };

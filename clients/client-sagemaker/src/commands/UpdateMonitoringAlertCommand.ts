@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateMonitoringAlertRequest, UpdateMonitoringAlertResponse } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateMonitoringAlertCommand,
-  serializeAws_json1_1UpdateMonitoringAlertCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateMonitoringAlertCommand, se_UpdateMonitoringAlertCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -130,14 +127,14 @@ export class UpdateMonitoringAlertCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMonitoringAlertCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMonitoringAlertCommand(input, context);
+    return se_UpdateMonitoringAlertCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMonitoringAlertCommandOutput> {
-    return deserializeAws_json1_1UpdateMonitoringAlertCommand(output, context);
+    return de_UpdateMonitoringAlertCommand(output, context);
   }
 
   // Start section: command_body_extra

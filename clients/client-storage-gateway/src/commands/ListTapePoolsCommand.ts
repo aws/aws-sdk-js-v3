@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTapePoolsInput, ListTapePoolsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTapePoolsCommand,
-  serializeAws_json1_1ListTapePoolsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTapePoolsCommand, se_ListTapePoolsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -138,14 +135,14 @@ export class ListTapePoolsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTapePoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTapePoolsCommand(input, context);
+    return se_ListTapePoolsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTapePoolsCommandOutput> {
-    return deserializeAws_json1_1ListTapePoolsCommand(output, context);
+    return de_ListTapePoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

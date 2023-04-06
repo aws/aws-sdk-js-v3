@@ -15,10 +15,7 @@ import {
 
 import { UpdatePackageRequest, UpdatePackageResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1UpdatePackageCommand,
-  serializeAws_restJson1UpdatePackageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePackageCommand, se_UpdatePackageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UpdatePackageCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePackageCommand(input, context);
+    return se_UpdatePackageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePackageCommandOutput> {
-    return deserializeAws_restJson1UpdatePackageCommand(output, context);
+    return de_UpdatePackageCommand(output, context);
   }
 
   // Start section: command_body_extra

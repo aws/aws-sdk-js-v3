@@ -15,10 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { IssueCertificateRequest, IssueCertificateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1IssueCertificateCommand,
-  serializeAws_json1_1IssueCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_IssueCertificateCommand, se_IssueCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -262,14 +259,14 @@ export class IssueCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: IssueCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1IssueCertificateCommand(input, context);
+    return se_IssueCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IssueCertificateCommandOutput> {
-    return deserializeAws_json1_1IssueCertificateCommand(output, context);
+    return de_IssueCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { DescribeLocationObjectStorageRequest, DescribeLocationObjectStorageResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeLocationObjectStorageCommand,
-  serializeAws_json1_1DescribeLocationObjectStorageCommand,
+  de_DescribeLocationObjectStorageCommand,
+  se_DescribeLocationObjectStorageCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -128,7 +128,7 @@ export class DescribeLocationObjectStorageCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLocationObjectStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationObjectStorageCommand(input, context);
+    return se_DescribeLocationObjectStorageCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class DescribeLocationObjectStorageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocationObjectStorageCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationObjectStorageCommand(output, context);
+    return de_DescribeLocationObjectStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

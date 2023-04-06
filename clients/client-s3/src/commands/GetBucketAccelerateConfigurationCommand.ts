@@ -15,8 +15,8 @@ import {
 
 import { GetBucketAccelerateConfigurationOutput, GetBucketAccelerateConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetBucketAccelerateConfigurationCommand,
-  serializeAws_restXmlGetBucketAccelerateConfigurationCommand,
+  de_GetBucketAccelerateConfigurationCommand,
+  se_GetBucketAccelerateConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -158,7 +158,7 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
     input: GetBucketAccelerateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketAccelerateConfigurationCommand(input, context);
+    return se_GetBucketAccelerateConfigurationCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketAccelerateConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketAccelerateConfigurationCommand(output, context);
+    return de_GetBucketAccelerateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

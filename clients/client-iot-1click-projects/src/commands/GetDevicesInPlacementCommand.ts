@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
 import { GetDevicesInPlacementRequest, GetDevicesInPlacementResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDevicesInPlacementCommand,
-  serializeAws_restJson1GetDevicesInPlacementCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDevicesInPlacementCommand, se_GetDevicesInPlacementCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetDevicesInPlacementCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDevicesInPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDevicesInPlacementCommand(input, context);
+    return se_GetDevicesInPlacementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevicesInPlacementCommandOutput> {
-    return deserializeAws_restJson1GetDevicesInPlacementCommand(output, context);
+    return de_GetDevicesInPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetProductsRequest, GetProductsResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import {
-  deserializeAws_json1_1GetProductsCommand,
-  serializeAws_json1_1GetProductsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetProductsCommand, se_GetProductsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetProductsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetProductsCommand(input, context);
+    return se_GetProductsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetProductsCommandOutput> {
-    return deserializeAws_json1_1GetProductsCommand(output, context);
+    return de_GetProductsCommand(output, context);
   }
 
   // Start section: command_body_extra

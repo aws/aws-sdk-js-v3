@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAccountSettingDefaultCommand,
-  serializeAws_json1_1PutAccountSettingDefaultCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutAccountSettingDefaultCommand, se_PutAccountSettingDefaultCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class PutAccountSettingDefaultCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAccountSettingDefaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAccountSettingDefaultCommand(input, context);
+    return se_PutAccountSettingDefaultCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountSettingDefaultCommandOutput> {
-    return deserializeAws_json1_1PutAccountSettingDefaultCommand(output, context);
+    return de_PutAccountSettingDefaultCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ListRepositoriesForApprovalRuleTemplateOutput,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand,
-  serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand,
+  de_ListRepositoriesForApprovalRuleTemplateCommand,
+  se_ListRepositoriesForApprovalRuleTemplateCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -171,7 +171,7 @@ export class ListRepositoriesForApprovalRuleTemplateCommand extends $Command<
     input: ListRepositoriesForApprovalRuleTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand(input, context);
+    return se_ListRepositoriesForApprovalRuleTemplateCommand(input, context);
   }
 
   /**
@@ -181,7 +181,7 @@ export class ListRepositoriesForApprovalRuleTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput> {
-    return deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateCommand(output, context);
+    return de_ListRepositoriesForApprovalRuleTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

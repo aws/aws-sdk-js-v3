@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { RemoveSourceServerActionRequest, RemoveSourceServerActionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveSourceServerActionCommand,
-  serializeAws_restJson1RemoveSourceServerActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveSourceServerActionCommand, se_RemoveSourceServerActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class RemoveSourceServerActionCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveSourceServerActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveSourceServerActionCommand(input, context);
+    return se_RemoveSourceServerActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveSourceServerActionCommandOutput> {
-    return deserializeAws_restJson1RemoveSourceServerActionCommand(output, context);
+    return de_RemoveSourceServerActionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { DescribeEventsDetectionJobRequest, DescribeEventsDetectionJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventsDetectionJobCommand,
-  serializeAws_json1_1DescribeEventsDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEventsDetectionJobCommand, se_DescribeEventsDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,7 +129,7 @@ export class DescribeEventsDetectionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventsDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventsDetectionJobCommand(input, context);
+    return se_DescribeEventsDetectionJobCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class DescribeEventsDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventsDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeEventsDetectionJobCommand(output, context);
+    return de_DescribeEventsDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

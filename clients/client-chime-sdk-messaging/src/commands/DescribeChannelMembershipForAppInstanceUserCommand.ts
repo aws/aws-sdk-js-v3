@@ -24,8 +24,8 @@ import {
   DescribeChannelMembershipForAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand,
-  serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand,
+  de_DescribeChannelMembershipForAppInstanceUserCommand,
+  se_DescribeChannelMembershipForAppInstanceUserCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -166,7 +166,7 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
     input: DescribeChannelMembershipForAppInstanceUserCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand(input, context);
+    return se_DescribeChannelMembershipForAppInstanceUserCommand(input, context);
   }
 
   /**
@@ -176,7 +176,7 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand(output, context);
+    return de_DescribeChannelMembershipForAppInstanceUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ListFailuresForLicenseConfigurationOperationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,
-  serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,
+  de_ListFailuresForLicenseConfigurationOperationsCommand,
+  se_ListFailuresForLicenseConfigurationOperationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     input: ListFailuresForLicenseConfigurationOperationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(input, context);
+    return se_ListFailuresForLicenseConfigurationOperationsCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> {
-    return deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(output, context);
+    return de_ListFailuresForLicenseConfigurationOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

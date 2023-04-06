@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateRecoveryGroupRequest, CreateRecoveryGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRecoveryGroupCommand,
-  serializeAws_restJson1CreateRecoveryGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRecoveryGroupCommand, se_CreateRecoveryGroupCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -145,14 +142,14 @@ export class CreateRecoveryGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRecoveryGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRecoveryGroupCommand(input, context);
+    return se_CreateRecoveryGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRecoveryGroupCommandOutput> {
-    return deserializeAws_restJson1CreateRecoveryGroupCommand(output, context);
+    return de_CreateRecoveryGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DescribeLifecycleConfigurationRequest, LifecycleConfigurationDescription } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeLifecycleConfigurationCommand,
-  serializeAws_restJson1DescribeLifecycleConfigurationCommand,
+  de_DescribeLifecycleConfigurationCommand,
+  se_DescribeLifecycleConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -164,7 +164,7 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
     input: DescribeLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeLifecycleConfigurationCommand(input, context);
+    return se_DescribeLifecycleConfigurationCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeLifecycleConfigurationCommand(output, context);
+    return de_DescribeLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

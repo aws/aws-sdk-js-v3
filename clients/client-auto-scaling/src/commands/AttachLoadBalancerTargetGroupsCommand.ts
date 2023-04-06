@@ -16,8 +16,8 @@ import {
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { AttachLoadBalancerTargetGroupsResultType, AttachLoadBalancerTargetGroupsType } from "../models/models_0";
 import {
-  deserializeAws_queryAttachLoadBalancerTargetGroupsCommand,
-  serializeAws_queryAttachLoadBalancerTargetGroupsCommand,
+  de_AttachLoadBalancerTargetGroupsCommand,
+  se_AttachLoadBalancerTargetGroupsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -178,7 +178,7 @@ export class AttachLoadBalancerTargetGroupsCommand extends $Command<
     input: AttachLoadBalancerTargetGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAttachLoadBalancerTargetGroupsCommand(input, context);
+    return se_AttachLoadBalancerTargetGroupsCommand(input, context);
   }
 
   /**
@@ -188,7 +188,7 @@ export class AttachLoadBalancerTargetGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachLoadBalancerTargetGroupsCommandOutput> {
-    return deserializeAws_queryAttachLoadBalancerTargetGroupsCommand(output, context);
+    return de_AttachLoadBalancerTargetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

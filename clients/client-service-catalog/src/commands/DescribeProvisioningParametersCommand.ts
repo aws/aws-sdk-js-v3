@@ -15,8 +15,8 @@ import {
 
 import { DescribeProvisioningParametersInput, DescribeProvisioningParametersOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeProvisioningParametersCommand,
-  serializeAws_json1_1DescribeProvisioningParametersCommand,
+  de_DescribeProvisioningParametersCommand,
+  se_DescribeProvisioningParametersCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -144,7 +144,7 @@ export class DescribeProvisioningParametersCommand extends $Command<
     input: DescribeProvisioningParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProvisioningParametersCommand(input, context);
+    return se_DescribeProvisioningParametersCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DescribeProvisioningParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisioningParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeProvisioningParametersCommand(output, context);
+    return de_DescribeProvisioningParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

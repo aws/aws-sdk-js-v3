@@ -15,10 +15,7 @@ import {
 
 import { ListEmailIdentitiesRequest, ListEmailIdentitiesResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1ListEmailIdentitiesCommand,
-  serializeAws_restJson1ListEmailIdentitiesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEmailIdentitiesCommand, se_ListEmailIdentitiesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListEmailIdentitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEmailIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEmailIdentitiesCommand(input, context);
+    return se_ListEmailIdentitiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEmailIdentitiesCommandOutput> {
-    return deserializeAws_restJson1ListEmailIdentitiesCommand(output, context);
+    return de_ListEmailIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

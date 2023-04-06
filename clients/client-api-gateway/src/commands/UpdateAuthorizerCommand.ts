@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { Authorizer, UpdateAuthorizerRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateAuthorizerCommand,
-  serializeAws_restJson1UpdateAuthorizerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAuthorizerCommand, se_UpdateAuthorizerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateAuthorizerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAuthorizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAuthorizerCommand(input, context);
+    return se_UpdateAuthorizerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAuthorizerCommandOutput> {
-    return deserializeAws_restJson1UpdateAuthorizerCommand(output, context);
+    return de_UpdateAuthorizerCommand(output, context);
   }
 
   // Start section: command_body_extra

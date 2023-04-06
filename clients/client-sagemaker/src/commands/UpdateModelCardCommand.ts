@@ -18,10 +18,7 @@ import {
   UpdateModelCardRequestFilterSensitiveLog,
   UpdateModelCardResponse,
 } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateModelCardCommand,
-  serializeAws_json1_1UpdateModelCardCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateModelCardCommand, se_UpdateModelCardCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -140,14 +137,14 @@ export class UpdateModelCardCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateModelCardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateModelCardCommand(input, context);
+    return se_UpdateModelCardCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelCardCommandOutput> {
-    return deserializeAws_json1_1UpdateModelCardCommand(output, context);
+    return de_UpdateModelCardCommand(output, context);
   }
 
   // Start section: command_body_extra

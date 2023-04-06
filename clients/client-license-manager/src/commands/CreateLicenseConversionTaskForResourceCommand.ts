@@ -19,8 +19,8 @@ import {
   CreateLicenseConversionTaskForResourceResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommand,
-  serializeAws_json1_1CreateLicenseConversionTaskForResourceCommand,
+  de_CreateLicenseConversionTaskForResourceCommand,
+  se_CreateLicenseConversionTaskForResourceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -154,7 +154,7 @@ export class CreateLicenseConversionTaskForResourceCommand extends $Command<
     input: CreateLicenseConversionTaskForResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLicenseConversionTaskForResourceCommand(input, context);
+    return se_CreateLicenseConversionTaskForResourceCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class CreateLicenseConversionTaskForResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLicenseConversionTaskForResourceCommandOutput> {
-    return deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommand(output, context);
+    return de_CreateLicenseConversionTaskForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

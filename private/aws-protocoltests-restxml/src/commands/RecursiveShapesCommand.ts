@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RecursiveShapesInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlRecursiveShapesCommand,
-  serializeAws_restXmlRecursiveShapesCommand,
-} from "../protocols/Aws_restXml";
+import { de_RecursiveShapesCommand, se_RecursiveShapesCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -119,14 +116,14 @@ export class RecursiveShapesCommand extends $Command<
    * @internal
    */
   private serialize(input: RecursiveShapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlRecursiveShapesCommand(input, context);
+    return se_RecursiveShapesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecursiveShapesCommandOutput> {
-    return deserializeAws_restXmlRecursiveShapesCommand(output, context);
+    return de_RecursiveShapesCommand(output, context);
   }
 
   // Start section: command_body_extra

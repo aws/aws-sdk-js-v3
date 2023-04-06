@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopStreamProcessorRequest, StopStreamProcessorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopStreamProcessorCommand,
-  serializeAws_json1_1StopStreamProcessorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopStreamProcessorCommand, se_StopStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -143,14 +140,14 @@ export class StopStreamProcessorCommand extends $Command<
    * @internal
    */
   private serialize(input: StopStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopStreamProcessorCommand(input, context);
+    return se_StopStreamProcessorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1StopStreamProcessorCommand(output, context);
+    return de_StopStreamProcessorCommand(output, context);
   }
 
   // Start section: command_body_extra

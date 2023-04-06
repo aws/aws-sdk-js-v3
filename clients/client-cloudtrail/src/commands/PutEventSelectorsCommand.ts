@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { PutEventSelectorsRequest, PutEventSelectorsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutEventSelectorsCommand,
-  serializeAws_json1_1PutEventSelectorsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutEventSelectorsCommand, se_PutEventSelectorsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -299,14 +296,14 @@ export class PutEventSelectorsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutEventSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutEventSelectorsCommand(input, context);
+    return se_PutEventSelectorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventSelectorsCommandOutput> {
-    return deserializeAws_json1_1PutEventSelectorsCommand(output, context);
+    return de_PutEventSelectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

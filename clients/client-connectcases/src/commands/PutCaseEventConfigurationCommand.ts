@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { PutCaseEventConfigurationRequest, PutCaseEventConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutCaseEventConfigurationCommand,
-  serializeAws_restJson1PutCaseEventConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutCaseEventConfigurationCommand, se_PutCaseEventConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,7 +149,7 @@ export class PutCaseEventConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutCaseEventConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutCaseEventConfigurationCommand(input, context);
+    return se_PutCaseEventConfigurationCommand(input, context);
   }
 
   /**
@@ -162,7 +159,7 @@ export class PutCaseEventConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutCaseEventConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutCaseEventConfigurationCommand(output, context);
+    return de_PutCaseEventConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

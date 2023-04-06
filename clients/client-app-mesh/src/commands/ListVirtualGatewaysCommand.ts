@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { ListVirtualGatewaysInput, ListVirtualGatewaysOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVirtualGatewaysCommand,
-  serializeAws_restJson1ListVirtualGatewaysCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVirtualGatewaysCommand, se_ListVirtualGatewaysCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListVirtualGatewaysCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVirtualGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVirtualGatewaysCommand(input, context);
+    return se_ListVirtualGatewaysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualGatewaysCommandOutput> {
-    return deserializeAws_restJson1ListVirtualGatewaysCommand(output, context);
+    return de_ListVirtualGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

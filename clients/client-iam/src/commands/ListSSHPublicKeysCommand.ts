@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListSSHPublicKeysRequest, ListSSHPublicKeysResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListSSHPublicKeysCommand,
-  serializeAws_queryListSSHPublicKeysCommand,
-} from "../protocols/Aws_query";
+import { de_ListSSHPublicKeysCommand, se_ListSSHPublicKeysCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListSSHPublicKeysCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSSHPublicKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListSSHPublicKeysCommand(input, context);
+    return se_ListSSHPublicKeysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSSHPublicKeysCommandOutput> {
-    return deserializeAws_queryListSSHPublicKeysCommand(output, context);
+    return de_ListSSHPublicKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

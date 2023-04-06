@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { GetTrafficDistributionRequest, GetTrafficDistributionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTrafficDistributionCommand,
-  serializeAws_restJson1GetTrafficDistributionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTrafficDistributionCommand, se_GetTrafficDistributionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetTrafficDistributionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTrafficDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTrafficDistributionCommand(input, context);
+    return se_GetTrafficDistributionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrafficDistributionCommandOutput> {
-    return deserializeAws_restJson1GetTrafficDistributionCommand(output, context);
+    return de_GetTrafficDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

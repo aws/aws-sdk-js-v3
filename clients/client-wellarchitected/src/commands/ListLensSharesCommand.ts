@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListLensSharesInput, ListLensSharesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLensSharesCommand,
-  serializeAws_restJson1ListLensSharesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLensSharesCommand, se_ListLensSharesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -139,14 +136,14 @@ export class ListLensSharesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLensSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLensSharesCommand(input, context);
+    return se_ListLensSharesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLensSharesCommandOutput> {
-    return deserializeAws_restJson1ListLensSharesCommand(output, context);
+    return de_ListLensSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

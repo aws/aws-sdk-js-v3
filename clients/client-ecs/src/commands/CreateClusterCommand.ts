@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateClusterCommand,
-  serializeAws_json1_1CreateClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -202,14 +199,14 @@ export class CreateClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateClusterCommand(input, context);
+    return se_CreateClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
-    return deserializeAws_json1_1CreateClusterCommand(output, context);
+    return de_CreateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

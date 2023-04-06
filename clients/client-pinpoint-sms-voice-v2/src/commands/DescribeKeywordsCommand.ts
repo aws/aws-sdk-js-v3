@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0DescribeKeywordsCommand,
-  serializeAws_json1_0DescribeKeywordsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeKeywordsCommand, se_DescribeKeywordsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class DescribeKeywordsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeKeywordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeKeywordsCommand(input, context);
+    return se_DescribeKeywordsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeKeywordsCommandOutput> {
-    return deserializeAws_json1_0DescribeKeywordsCommand(output, context);
+    return de_DescribeKeywordsCommand(output, context);
   }
 
   // Start section: command_body_extra

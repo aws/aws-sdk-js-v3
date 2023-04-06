@@ -20,8 +20,8 @@ import {
 } from "../MigrationHubStrategyClient";
 import { GetRecommendationReportDetailsRequest, GetRecommendationReportDetailsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetRecommendationReportDetailsCommand,
-  serializeAws_restJson1GetRecommendationReportDetailsCommand,
+  de_GetRecommendationReportDetailsCommand,
+  se_GetRecommendationReportDetailsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class GetRecommendationReportDetailsCommand extends $Command<
     input: GetRecommendationReportDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecommendationReportDetailsCommand(input, context);
+    return se_GetRecommendationReportDetailsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class GetRecommendationReportDetailsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecommendationReportDetailsCommandOutput> {
-    return deserializeAws_restJson1GetRecommendationReportDetailsCommand(output, context);
+    return de_GetRecommendationReportDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

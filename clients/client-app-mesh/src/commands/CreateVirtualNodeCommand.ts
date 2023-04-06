@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { CreateVirtualNodeInput, CreateVirtualNodeOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVirtualNodeCommand,
-  serializeAws_restJson1CreateVirtualNodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateVirtualNodeCommand, se_CreateVirtualNodeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -406,14 +403,14 @@ export class CreateVirtualNodeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVirtualNodeCommand(input, context);
+    return se_CreateVirtualNodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualNodeCommandOutput> {
-    return deserializeAws_restJson1CreateVirtualNodeCommand(output, context);
+    return de_CreateVirtualNodeCommand(output, context);
   }
 
   // Start section: command_body_extra

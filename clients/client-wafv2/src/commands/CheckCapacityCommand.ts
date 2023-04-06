@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CheckCapacityRequest, CheckCapacityResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CheckCapacityCommand,
-  serializeAws_json1_1CheckCapacityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CheckCapacityCommand, se_CheckCapacityCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -926,14 +923,14 @@ export class CheckCapacityCommand extends $Command<
    * @internal
    */
   private serialize(input: CheckCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CheckCapacityCommand(input, context);
+    return se_CheckCapacityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckCapacityCommandOutput> {
-    return deserializeAws_json1_1CheckCapacityCommand(output, context);
+    return de_CheckCapacityCommand(output, context);
   }
 
   // Start section: command_body_extra

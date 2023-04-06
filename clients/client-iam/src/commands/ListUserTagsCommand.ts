@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListUserTagsRequest, ListUserTagsResponse } from "../models/models_0";
-import { deserializeAws_queryListUserTagsCommand, serializeAws_queryListUserTagsCommand } from "../protocols/Aws_query";
+import { de_ListUserTagsCommand, se_ListUserTagsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -152,14 +152,14 @@ export class ListUserTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUserTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListUserTagsCommand(input, context);
+    return se_ListUserTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserTagsCommandOutput> {
-    return deserializeAws_queryListUserTagsCommand(output, context);
+    return de_ListUserTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

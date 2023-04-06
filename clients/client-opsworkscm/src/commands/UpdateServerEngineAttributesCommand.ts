@@ -20,8 +20,8 @@ import {
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
-  deserializeAws_json1_1UpdateServerEngineAttributesCommand,
-  serializeAws_json1_1UpdateServerEngineAttributesCommand,
+  de_UpdateServerEngineAttributesCommand,
+  se_UpdateServerEngineAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class UpdateServerEngineAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateServerEngineAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateServerEngineAttributesCommand(input, context);
+    return se_UpdateServerEngineAttributesCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServerEngineAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateServerEngineAttributesCommand(output, context);
+    return de_UpdateServerEngineAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

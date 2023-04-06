@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListPhoneNumbersRequest, ListPhoneNumbersResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListPhoneNumbersCommand,
-  serializeAws_restJson1ListPhoneNumbersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPhoneNumbersCommand, se_ListPhoneNumbersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class ListPhoneNumbersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPhoneNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPhoneNumbersCommand(input, context);
+    return se_ListPhoneNumbersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPhoneNumbersCommandOutput> {
-    return deserializeAws_restJson1ListPhoneNumbersCommand(output, context);
+    return de_ListPhoneNumbersCommand(output, context);
   }
 
   // Start section: command_body_extra

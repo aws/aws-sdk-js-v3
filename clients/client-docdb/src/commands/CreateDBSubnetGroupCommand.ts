@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBSubnetGroupCommand,
-  serializeAws_queryCreateDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBSubnetGroupCommand, se_CreateDBSubnetGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class CreateDBSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBSubnetGroupCommand(input, context);
+    return se_CreateDBSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryCreateDBSubnetGroupCommand(output, context);
+    return de_CreateDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

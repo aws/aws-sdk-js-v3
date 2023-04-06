@@ -15,8 +15,8 @@ import {
 
 import { UpdateUserAccessLoggingSettingsRequest, UpdateUserAccessLoggingSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateUserAccessLoggingSettingsCommand,
-  serializeAws_restJson1UpdateUserAccessLoggingSettingsCommand,
+  de_UpdateUserAccessLoggingSettingsCommand,
+  se_UpdateUserAccessLoggingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
@@ -142,7 +142,7 @@ export class UpdateUserAccessLoggingSettingsCommand extends $Command<
     input: UpdateUserAccessLoggingSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserAccessLoggingSettingsCommand(input, context);
+    return se_UpdateUserAccessLoggingSettingsCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class UpdateUserAccessLoggingSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserAccessLoggingSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateUserAccessLoggingSettingsCommand(output, context);
+    return de_UpdateUserAccessLoggingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

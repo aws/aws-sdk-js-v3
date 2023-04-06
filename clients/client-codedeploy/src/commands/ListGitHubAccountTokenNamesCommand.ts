@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { ListGitHubAccountTokenNamesInput, ListGitHubAccountTokenNamesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGitHubAccountTokenNamesCommand,
-  serializeAws_json1_1ListGitHubAccountTokenNamesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListGitHubAccountTokenNamesCommand, se_ListGitHubAccountTokenNamesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,7 +126,7 @@ export class ListGitHubAccountTokenNamesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGitHubAccountTokenNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGitHubAccountTokenNamesCommand(input, context);
+    return se_ListGitHubAccountTokenNamesCommand(input, context);
   }
 
   /**
@@ -139,7 +136,7 @@ export class ListGitHubAccountTokenNamesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGitHubAccountTokenNamesCommandOutput> {
-    return deserializeAws_json1_1ListGitHubAccountTokenNamesCommand(output, context);
+    return de_ListGitHubAccountTokenNamesCommand(output, context);
   }
 
   // Start section: command_body_extra

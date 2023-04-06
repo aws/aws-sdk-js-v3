@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import { DeleteWorkflowStepGroupRequest, DeleteWorkflowStepGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkflowStepGroupCommand,
-  serializeAws_restJson1DeleteWorkflowStepGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteWorkflowStepGroupCommand, se_DeleteWorkflowStepGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteWorkflowStepGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkflowStepGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkflowStepGroupCommand(input, context);
+    return se_DeleteWorkflowStepGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowStepGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkflowStepGroupCommand(output, context);
+    return de_DeleteWorkflowStepGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

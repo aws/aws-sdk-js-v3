@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { AdminDisableProviderForUserRequest, AdminDisableProviderForUserResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminDisableProviderForUserCommand,
-  serializeAws_json1_1AdminDisableProviderForUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminDisableProviderForUserCommand, se_AdminDisableProviderForUserCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -188,7 +185,7 @@ export class AdminDisableProviderForUserCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminDisableProviderForUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminDisableProviderForUserCommand(input, context);
+    return se_AdminDisableProviderForUserCommand(input, context);
   }
 
   /**
@@ -198,7 +195,7 @@ export class AdminDisableProviderForUserCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AdminDisableProviderForUserCommandOutput> {
-    return deserializeAws_json1_1AdminDisableProviderForUserCommand(output, context);
+    return de_AdminDisableProviderForUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateContactChannelRequest, UpdateContactChannelResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateContactChannelCommand,
-  serializeAws_json1_1UpdateContactChannelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateContactChannelCommand, se_UpdateContactChannelCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -146,14 +143,14 @@ export class UpdateContactChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateContactChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateContactChannelCommand(input, context);
+    return se_UpdateContactChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactChannelCommandOutput> {
-    return deserializeAws_json1_1UpdateContactChannelCommand(output, context);
+    return de_UpdateContactChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

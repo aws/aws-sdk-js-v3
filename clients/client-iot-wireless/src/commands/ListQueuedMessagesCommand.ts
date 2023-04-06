@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { ListQueuedMessagesRequest, ListQueuedMessagesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListQueuedMessagesCommand,
-  serializeAws_restJson1ListQueuedMessagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListQueuedMessagesCommand, se_ListQueuedMessagesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListQueuedMessagesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListQueuedMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListQueuedMessagesCommand(input, context);
+    return se_ListQueuedMessagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueuedMessagesCommandOutput> {
-    return deserializeAws_restJson1ListQueuedMessagesCommand(output, context);
+    return de_ListQueuedMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { ListJobRunsRequest, ListJobRunsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListJobRunsCommand,
-  serializeAws_restJson1ListJobRunsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListJobRunsCommand, se_ListJobRunsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListJobRunsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListJobRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListJobRunsCommand(input, context);
+    return se_ListJobRunsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobRunsCommandOutput> {
-    return deserializeAws_restJson1ListJobRunsCommand(output, context);
+    return de_ListJobRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

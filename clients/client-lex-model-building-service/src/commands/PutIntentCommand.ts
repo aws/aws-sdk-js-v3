@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { PutIntentRequest, PutIntentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutIntentCommand,
-  serializeAws_restJson1PutIntentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutIntentCommand, se_PutIntentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -571,14 +568,14 @@ export class PutIntentCommand extends $Command<
    * @internal
    */
   private serialize(input: PutIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutIntentCommand(input, context);
+    return se_PutIntentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIntentCommandOutput> {
-    return deserializeAws_restJson1PutIntentCommand(output, context);
+    return de_PutIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

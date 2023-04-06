@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListCheckDetailsInput, ListCheckDetailsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCheckDetailsCommand,
-  serializeAws_restJson1ListCheckDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCheckDetailsCommand, se_ListCheckDetailsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -141,14 +138,14 @@ export class ListCheckDetailsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCheckDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCheckDetailsCommand(input, context);
+    return se_ListCheckDetailsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCheckDetailsCommandOutput> {
-    return deserializeAws_restJson1ListCheckDetailsCommand(output, context);
+    return de_ListCheckDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

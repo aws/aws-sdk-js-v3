@@ -15,8 +15,8 @@ import {
 
 import { ClusterSecurityGroupMessage, DescribeClusterSecurityGroupsMessage } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeClusterSecurityGroupsCommand,
-  serializeAws_queryDescribeClusterSecurityGroupsCommand,
+  de_DescribeClusterSecurityGroupsCommand,
+  se_DescribeClusterSecurityGroupsCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -149,7 +149,7 @@ export class DescribeClusterSecurityGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeClusterSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterSecurityGroupsCommand(input, context);
+    return se_DescribeClusterSecurityGroupsCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class DescribeClusterSecurityGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterSecurityGroupsCommandOutput> {
-    return deserializeAws_queryDescribeClusterSecurityGroupsCommand(output, context);
+    return de_DescribeClusterSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

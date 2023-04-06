@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDeviceFleetReportRequest, GetDeviceFleetReportResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1GetDeviceFleetReportCommand,
-  serializeAws_json1_1GetDeviceFleetReportCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDeviceFleetReportCommand, se_GetDeviceFleetReportCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -120,14 +117,14 @@ export class GetDeviceFleetReportCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDeviceFleetReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDeviceFleetReportCommand(input, context);
+    return se_GetDeviceFleetReportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceFleetReportCommandOutput> {
-    return deserializeAws_json1_1GetDeviceFleetReportCommand(output, context);
+    return de_GetDeviceFleetReportCommand(output, context);
   }
 
   // Start section: command_body_extra

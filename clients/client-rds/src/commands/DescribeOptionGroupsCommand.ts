@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeOptionGroupsMessage, OptionGroups } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeOptionGroupsCommand,
-  serializeAws_queryDescribeOptionGroupsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeOptionGroupsCommand, se_DescribeOptionGroupsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -71,16 +68,31 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  *  <p>The specified option group could not be found.</p>
  *
  *
- * @example To list information about DB option groups
+ * @example To describe the available option groups
  * ```javascript
- * // This example lists information for all option groups for the specified DB engine.
+ * // The following example lists the options groups for an Oracle Database 19c instance.
  * const input = {
- *   "EngineName": "mysql",
- *   "MajorEngineVersion": "5.6"
+ *   "EngineName": "oracle-ee",
+ *   "MajorEngineVersion": "19"
  * };
  * const command = new DescribeOptionGroupsCommand(input);
- * await client.send(command);
- * // example id: describe-option-groups-4ef478a1-66d5-45f2-bec3-e608720418a4
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "OptionGroupsList": [
+ *     {
+ *       "AllowsVpcAndNonVpcInstanceMemberships": true,
+ *       "EngineName": "oracle-ee",
+ *       "MajorEngineVersion": "19",
+ *       "OptionGroupArn": "arn:aws:rds:us-west-1:111122223333:og:default:oracle-ee-19",
+ *       "OptionGroupDescription": "Default option group for oracle-ee 19",
+ *       "OptionGroupName": "default:oracle-ee-19",
+ *       "Options": []
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-available-option-groups-1680283066000
  * ```
  *
  */
@@ -147,14 +159,14 @@ export class DescribeOptionGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeOptionGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeOptionGroupsCommand(input, context);
+    return se_DescribeOptionGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOptionGroupsCommandOutput> {
-    return deserializeAws_queryDescribeOptionGroupsCommand(output, context);
+    return de_DescribeOptionGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

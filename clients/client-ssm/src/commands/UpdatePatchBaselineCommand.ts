@@ -19,10 +19,7 @@ import {
   UpdatePatchBaselineResult,
   UpdatePatchBaselineResultFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdatePatchBaselineCommand,
-  serializeAws_json1_1UpdatePatchBaselineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePatchBaselineCommand, se_UpdatePatchBaselineCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -190,14 +187,14 @@ export class UpdatePatchBaselineCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePatchBaselineCommand(input, context);
+    return se_UpdatePatchBaselineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePatchBaselineCommandOutput> {
-    return deserializeAws_json1_1UpdatePatchBaselineCommand(output, context);
+    return de_UpdatePatchBaselineCommand(output, context);
   }
 
   // Start section: command_body_extra

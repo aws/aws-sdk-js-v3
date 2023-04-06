@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetOperationRequest, GetOperationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOperationCommand,
-  serializeAws_json1_1GetOperationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetOperationCommand, se_GetOperationCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -155,14 +152,14 @@ export class GetOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOperationCommand(input, context);
+    return se_GetOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationCommandOutput> {
-    return deserializeAws_json1_1GetOperationCommand(output, context);
+    return de_GetOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

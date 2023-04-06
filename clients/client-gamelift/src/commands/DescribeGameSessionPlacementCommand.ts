@@ -16,8 +16,8 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeGameSessionPlacementInput, DescribeGameSessionPlacementOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeGameSessionPlacementCommand,
-  serializeAws_json1_1DescribeGameSessionPlacementCommand,
+  de_DescribeGameSessionPlacementCommand,
+  se_DescribeGameSessionPlacementCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -143,7 +143,7 @@ export class DescribeGameSessionPlacementCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeGameSessionPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeGameSessionPlacementCommand(input, context);
+    return se_DescribeGameSessionPlacementCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGameSessionPlacementCommandOutput> {
-    return deserializeAws_json1_1DescribeGameSessionPlacementCommand(output, context);
+    return de_DescribeGameSessionPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

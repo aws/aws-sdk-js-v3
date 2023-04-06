@@ -18,8 +18,8 @@ import {
   DescribeMaintenanceWindowExecutionsResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand,
+  de_DescribeMaintenanceWindowExecutionsCommand,
+  se_DescribeMaintenanceWindowExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -143,7 +143,7 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
     input: DescribeMaintenanceWindowExecutionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand(input, context);
+    return se_DescribeMaintenanceWindowExecutionsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand(output, context);
+    return de_DescribeMaintenanceWindowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSubscriptionsInput, ListSubscriptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListSubscriptionsCommand,
-  serializeAws_queryListSubscriptionsCommand,
-} from "../protocols/Aws_query";
+import { de_ListSubscriptionsCommand, se_ListSubscriptionsCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListSubscriptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListSubscriptionsCommand(input, context);
+    return se_ListSubscriptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscriptionsCommandOutput> {
-    return deserializeAws_queryListSubscriptionsCommand(output, context);
+    return de_ListSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

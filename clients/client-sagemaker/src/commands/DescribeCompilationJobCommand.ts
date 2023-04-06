@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeCompilationJobRequest, DescribeCompilationJobResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeCompilationJobCommand,
-  serializeAws_json1_1DescribeCompilationJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCompilationJobCommand, se_DescribeCompilationJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -125,14 +122,14 @@ export class DescribeCompilationJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCompilationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCompilationJobCommand(input, context);
+    return se_DescribeCompilationJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCompilationJobCommandOutput> {
-    return deserializeAws_json1_1DescribeCompilationJobCommand(output, context);
+    return de_DescribeCompilationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

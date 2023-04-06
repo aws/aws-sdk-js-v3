@@ -20,8 +20,8 @@ import {
 } from "../GlobalAcceleratorClient";
 import { RemoveCustomRoutingEndpointsRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1RemoveCustomRoutingEndpointsCommand,
-  serializeAws_json1_1RemoveCustomRoutingEndpointsCommand,
+  de_RemoveCustomRoutingEndpointsCommand,
+  se_RemoveCustomRoutingEndpointsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class RemoveCustomRoutingEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveCustomRoutingEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveCustomRoutingEndpointsCommand(input, context);
+    return se_RemoveCustomRoutingEndpointsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class RemoveCustomRoutingEndpointsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveCustomRoutingEndpointsCommandOutput> {
-    return deserializeAws_json1_1RemoveCustomRoutingEndpointsCommand(output, context);
+    return de_RemoveCustomRoutingEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

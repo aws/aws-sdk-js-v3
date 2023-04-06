@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { GetWorkflowStepsRequest, GetWorkflowStepsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorkflowStepsCommand,
-  serializeAws_restJson1GetWorkflowStepsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetWorkflowStepsCommand, se_GetWorkflowStepsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetWorkflowStepsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetWorkflowStepsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorkflowStepsCommand(input, context);
+    return se_GetWorkflowStepsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowStepsCommandOutput> {
-    return deserializeAws_restJson1GetWorkflowStepsCommand(output, context);
+    return de_GetWorkflowStepsCommand(output, context);
   }
 
   // Start section: command_body_extra

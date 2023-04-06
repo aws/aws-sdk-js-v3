@@ -16,8 +16,8 @@ import {
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { PutBandwidthRateLimitScheduleInput, PutBandwidthRateLimitScheduleOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0PutBandwidthRateLimitScheduleCommand,
-  serializeAws_json1_0PutBandwidthRateLimitScheduleCommand,
+  de_PutBandwidthRateLimitScheduleCommand,
+  se_PutBandwidthRateLimitScheduleCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -150,7 +150,7 @@ export class PutBandwidthRateLimitScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBandwidthRateLimitScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutBandwidthRateLimitScheduleCommand(input, context);
+    return se_PutBandwidthRateLimitScheduleCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class PutBandwidthRateLimitScheduleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBandwidthRateLimitScheduleCommandOutput> {
-    return deserializeAws_json1_0PutBandwidthRateLimitScheduleCommand(output, context);
+    return de_PutBandwidthRateLimitScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ListRelatedResourcesForAuditFindingResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListRelatedResourcesForAuditFindingCommand,
-  serializeAws_restJson1ListRelatedResourcesForAuditFindingCommand,
+  de_ListRelatedResourcesForAuditFindingCommand,
+  se_ListRelatedResourcesForAuditFindingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -178,7 +178,7 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
     input: ListRelatedResourcesForAuditFindingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRelatedResourcesForAuditFindingCommand(input, context);
+    return se_ListRelatedResourcesForAuditFindingCommand(input, context);
   }
 
   /**
@@ -188,7 +188,7 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRelatedResourcesForAuditFindingCommandOutput> {
-    return deserializeAws_restJson1ListRelatedResourcesForAuditFindingCommand(output, context);
+    return de_ListRelatedResourcesForAuditFindingCommand(output, context);
   }
 
   // Start section: command_body_extra

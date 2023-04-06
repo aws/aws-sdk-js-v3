@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { DeleteDashboardsInput, DeleteDashboardsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDashboardsCommand,
-  serializeAws_queryDeleteDashboardsCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDashboardsCommand, se_DeleteDashboardsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteDashboardsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDashboardsCommand(input, context);
+    return se_DeleteDashboardsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDashboardsCommandOutput> {
-    return deserializeAws_queryDeleteDashboardsCommand(output, context);
+    return de_DeleteDashboardsCommand(output, context);
   }
 
   // Start section: command_body_extra

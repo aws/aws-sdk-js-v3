@@ -15,10 +15,7 @@ import {
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { DeleteBatchPredictionInput, DeleteBatchPredictionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBatchPredictionCommand,
-  serializeAws_json1_1DeleteBatchPredictionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteBatchPredictionCommand, se_DeleteBatchPredictionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteBatchPredictionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBatchPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBatchPredictionCommand(input, context);
+    return se_DeleteBatchPredictionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBatchPredictionCommandOutput> {
-    return deserializeAws_json1_1DeleteBatchPredictionCommand(output, context);
+    return de_DeleteBatchPredictionCommand(output, context);
   }
 
   // Start section: command_body_extra

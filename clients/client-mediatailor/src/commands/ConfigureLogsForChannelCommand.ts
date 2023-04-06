@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { ConfigureLogsForChannelRequest, ConfigureLogsForChannelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ConfigureLogsForChannelCommand,
-  serializeAws_restJson1ConfigureLogsForChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ConfigureLogsForChannelCommand, se_ConfigureLogsForChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class ConfigureLogsForChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: ConfigureLogsForChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfigureLogsForChannelCommand(input, context);
+    return se_ConfigureLogsForChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureLogsForChannelCommandOutput> {
-    return deserializeAws_restJson1ConfigureLogsForChannelCommand(output, context);
+    return de_ConfigureLogsForChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

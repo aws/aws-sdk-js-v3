@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { CreateProgramRequest, CreateProgramResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProgramCommand,
-  serializeAws_restJson1CreateProgramCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateProgramCommand, se_CreateProgramCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class CreateProgramCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateProgramCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProgramCommand(input, context);
+    return se_CreateProgramCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProgramCommandOutput> {
-    return deserializeAws_restJson1CreateProgramCommand(output, context);
+    return de_CreateProgramCommand(output, context);
   }
 
   // Start section: command_body_extra

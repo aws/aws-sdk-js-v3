@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { GetPublicKeyRequest, GetPublicKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetPublicKeyCommand,
-  serializeAws_json1_1GetPublicKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetPublicKeyCommand, se_GetPublicKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -261,14 +258,14 @@ export class GetPublicKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPublicKeyCommand(input, context);
+    return se_GetPublicKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicKeyCommandOutput> {
-    return deserializeAws_json1_1GetPublicKeyCommand(output, context);
+    return de_GetPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeTaskInput, DescribeTaskOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTaskCommand,
-  serializeAws_restJson1DescribeTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeTaskCommand, se_DescribeTaskCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -137,14 +134,14 @@ export class DescribeTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTaskCommand(input, context);
+    return se_DescribeTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskCommandOutput> {
-    return deserializeAws_restJson1DescribeTaskCommand(output, context);
+    return de_DescribeTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

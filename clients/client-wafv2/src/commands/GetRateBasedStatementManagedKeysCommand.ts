@@ -15,8 +15,8 @@ import {
 
 import { GetRateBasedStatementManagedKeysRequest, GetRateBasedStatementManagedKeysResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand,
-  serializeAws_json1_1GetRateBasedStatementManagedKeysCommand,
+  de_GetRateBasedStatementManagedKeysCommand,
+  se_GetRateBasedStatementManagedKeysCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
@@ -176,7 +176,7 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
     input: GetRateBasedStatementManagedKeysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRateBasedStatementManagedKeysCommand(input, context);
+    return se_GetRateBasedStatementManagedKeysCommand(input, context);
   }
 
   /**
@@ -186,7 +186,7 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRateBasedStatementManagedKeysCommandOutput> {
-    return deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand(output, context);
+    return de_GetRateBasedStatementManagedKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { ListEventBusesRequest, ListEventBusesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEventBusesCommand,
-  serializeAws_json1_1ListEventBusesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEventBusesCommand, se_ListEventBusesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class ListEventBusesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEventBusesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEventBusesCommand(input, context);
+    return se_ListEventBusesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventBusesCommandOutput> {
-    return deserializeAws_json1_1ListEventBusesCommand(output, context);
+    return de_ListEventBusesCommand(output, context);
   }
 
   // Start section: command_body_extra

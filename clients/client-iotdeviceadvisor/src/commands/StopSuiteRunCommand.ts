@@ -15,10 +15,7 @@ import {
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
 import { StopSuiteRunRequest, StopSuiteRunResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopSuiteRunCommand,
-  serializeAws_restJson1StopSuiteRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopSuiteRunCommand, se_StopSuiteRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class StopSuiteRunCommand extends $Command<
    * @internal
    */
   private serialize(input: StopSuiteRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopSuiteRunCommand(input, context);
+    return se_StopSuiteRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSuiteRunCommandOutput> {
-    return deserializeAws_restJson1StopSuiteRunCommand(output, context);
+    return de_StopSuiteRunCommand(output, context);
   }
 
   // Start section: command_body_extra

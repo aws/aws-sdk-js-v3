@@ -19,8 +19,8 @@ import {
   DescribeEnvironmentManagedActionHistoryResult,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommand,
-  serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand,
+  de_DescribeEnvironmentManagedActionHistoryCommand,
+  se_DescribeEnvironmentManagedActionHistoryCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
     input: DescribeEnvironmentManagedActionHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand(input, context);
+    return se_DescribeEnvironmentManagedActionHistoryCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommand(output, context);
+    return de_DescribeEnvironmentManagedActionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

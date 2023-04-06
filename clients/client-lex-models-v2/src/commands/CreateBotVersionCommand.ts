@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { CreateBotVersionRequest, CreateBotVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBotVersionCommand,
-  serializeAws_restJson1CreateBotVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBotVersionCommand, se_CreateBotVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class CreateBotVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBotVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBotVersionCommand(input, context);
+    return se_CreateBotVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBotVersionCommandOutput> {
-    return deserializeAws_restJson1CreateBotVersionCommand(output, context);
+    return de_CreateBotVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

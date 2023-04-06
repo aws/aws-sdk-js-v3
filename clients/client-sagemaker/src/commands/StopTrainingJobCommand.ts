@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopTrainingJobRequest } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopTrainingJobCommand,
-  serializeAws_json1_1StopTrainingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopTrainingJobCommand, se_StopTrainingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -129,14 +126,14 @@ export class StopTrainingJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopTrainingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTrainingJobCommand(input, context);
+    return se_StopTrainingJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTrainingJobCommandOutput> {
-    return deserializeAws_json1_1StopTrainingJobCommand(output, context);
+    return de_StopTrainingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

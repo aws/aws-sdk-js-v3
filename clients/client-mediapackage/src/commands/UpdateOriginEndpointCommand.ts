@@ -15,10 +15,7 @@ import {
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
 import { UpdateOriginEndpointRequest, UpdateOriginEndpointResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateOriginEndpointCommand,
-  serializeAws_restJson1UpdateOriginEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateOriginEndpointCommand, se_UpdateOriginEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -295,14 +292,14 @@ export class UpdateOriginEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateOriginEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateOriginEndpointCommand(input, context);
+    return se_UpdateOriginEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOriginEndpointCommandOutput> {
-    return deserializeAws_restJson1UpdateOriginEndpointCommand(output, context);
+    return de_UpdateOriginEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

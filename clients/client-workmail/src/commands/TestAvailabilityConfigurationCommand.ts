@@ -19,8 +19,8 @@ import {
   TestAvailabilityConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1TestAvailabilityConfigurationCommand,
-  serializeAws_json1_1TestAvailabilityConfigurationCommand,
+  de_TestAvailabilityConfigurationCommand,
+  se_TestAvailabilityConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -156,7 +156,7 @@ export class TestAvailabilityConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: TestAvailabilityConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TestAvailabilityConfigurationCommand(input, context);
+    return se_TestAvailabilityConfigurationCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class TestAvailabilityConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TestAvailabilityConfigurationCommandOutput> {
-    return deserializeAws_json1_1TestAvailabilityConfigurationCommand(output, context);
+    return de_TestAvailabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DescribeBrokerEngineTypesRequest, DescribeBrokerEngineTypesResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1DescribeBrokerEngineTypesCommand,
-  serializeAws_restJson1DescribeBrokerEngineTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeBrokerEngineTypesCommand, se_DescribeBrokerEngineTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,7 +128,7 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBrokerEngineTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBrokerEngineTypesCommand(input, context);
+    return se_DescribeBrokerEngineTypesCommand(input, context);
   }
 
   /**
@@ -141,7 +138,7 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBrokerEngineTypesCommandOutput> {
-    return deserializeAws_restJson1DescribeBrokerEngineTypesCommand(output, context);
+    return de_DescribeBrokerEngineTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

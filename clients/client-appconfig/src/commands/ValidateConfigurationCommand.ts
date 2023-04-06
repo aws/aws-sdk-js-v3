@@ -15,10 +15,7 @@ import {
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { ValidateConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1ValidateConfigurationCommand,
-  serializeAws_restJson1ValidateConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ValidateConfigurationCommand, se_ValidateConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ValidateConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: ValidateConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ValidateConfigurationCommand(input, context);
+    return se_ValidateConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ValidateConfigurationCommandOutput> {
-    return deserializeAws_restJson1ValidateConfigurationCommand(output, context);
+    return de_ValidateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

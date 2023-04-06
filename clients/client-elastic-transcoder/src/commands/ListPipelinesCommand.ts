@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
 import { ListPipelinesRequest, ListPipelinesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPipelinesCommand,
-  serializeAws_restJson1ListPipelinesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPipelinesCommand, se_ListPipelinesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListPipelinesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPipelinesCommand(input, context);
+    return se_ListPipelinesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelinesCommandOutput> {
-    return deserializeAws_restJson1ListPipelinesCommand(output, context);
+    return de_ListPipelinesCommand(output, context);
   }
 
   // Start section: command_body_extra

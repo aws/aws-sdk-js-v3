@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DismissUserContactRequest, DismissUserContactResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DismissUserContactCommand,
-  serializeAws_restJson1DismissUserContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DismissUserContactCommand, se_DismissUserContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DismissUserContactCommand extends $Command<
    * @internal
    */
   private serialize(input: DismissUserContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DismissUserContactCommand(input, context);
+    return se_DismissUserContactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DismissUserContactCommandOutput> {
-    return deserializeAws_restJson1DismissUserContactCommand(output, context);
+    return de_DismissUserContactCommand(output, context);
   }
 
   // Start section: command_body_extra

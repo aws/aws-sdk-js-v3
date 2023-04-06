@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { GetAnomalySubscriptionsRequest, GetAnomalySubscriptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAnomalySubscriptionsCommand,
-  serializeAws_json1_1GetAnomalySubscriptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAnomalySubscriptionsCommand, se_GetAnomalySubscriptionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetAnomalySubscriptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAnomalySubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAnomalySubscriptionsCommand(input, context);
+    return se_GetAnomalySubscriptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomalySubscriptionsCommandOutput> {
-    return deserializeAws_json1_1GetAnomalySubscriptionsCommand(output, context);
+    return de_GetAnomalySubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

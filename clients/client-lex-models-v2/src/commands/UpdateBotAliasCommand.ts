@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { UpdateBotAliasRequest, UpdateBotAliasResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateBotAliasCommand,
-  serializeAws_restJson1UpdateBotAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBotAliasCommand, se_UpdateBotAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -188,14 +185,14 @@ export class UpdateBotAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBotAliasCommand(input, context);
+    return se_UpdateBotAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBotAliasCommandOutput> {
-    return deserializeAws_restJson1UpdateBotAliasCommand(output, context);
+    return de_UpdateBotAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

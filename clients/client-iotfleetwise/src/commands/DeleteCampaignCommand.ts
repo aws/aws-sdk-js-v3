@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { DeleteCampaignRequest, DeleteCampaignResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteCampaignCommand,
-  serializeAws_json1_0DeleteCampaignCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteCampaignCommand, se_DeleteCampaignCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteCampaignCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteCampaignCommand(input, context);
+    return se_DeleteCampaignCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCampaignCommandOutput> {
-    return deserializeAws_json1_0DeleteCampaignCommand(output, context);
+    return de_DeleteCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

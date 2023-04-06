@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeleteOriginAccessControlRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteOriginAccessControlCommand,
-  serializeAws_restXmlDeleteOriginAccessControlCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteOriginAccessControlCommand, se_DeleteOriginAccessControlCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class DeleteOriginAccessControlCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteOriginAccessControlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteOriginAccessControlCommand(input, context);
+    return se_DeleteOriginAccessControlCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class DeleteOriginAccessControlCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteOriginAccessControlCommandOutput> {
-    return deserializeAws_restXmlDeleteOriginAccessControlCommand(output, context);
+    return de_DeleteOriginAccessControlCommand(output, context);
   }
 
   // Start section: command_body_extra

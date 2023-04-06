@@ -16,8 +16,8 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeVpcPeeringAuthorizationsInput, DescribeVpcPeeringAuthorizationsOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand,
-  serializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand,
+  de_DescribeVpcPeeringAuthorizationsCommand,
+  se_DescribeVpcPeeringAuthorizationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -142,7 +142,7 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
     input: DescribeVpcPeeringAuthorizationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand(input, context);
+    return se_DescribeVpcPeeringAuthorizationsCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DescribeVpcPeeringAuthorizationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcPeeringAuthorizationsCommandOutput> {
-    return deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand(output, context);
+    return de_DescribeVpcPeeringAuthorizationsCommand(output, context);
   }
 
   // Start section: command_body_extra

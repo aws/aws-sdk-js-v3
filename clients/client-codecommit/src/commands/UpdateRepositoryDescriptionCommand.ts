@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { UpdateRepositoryDescriptionInput } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateRepositoryDescriptionCommand,
-  serializeAws_json1_1UpdateRepositoryDescriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRepositoryDescriptionCommand, se_UpdateRepositoryDescriptionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,7 +158,7 @@ export class UpdateRepositoryDescriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRepositoryDescriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRepositoryDescriptionCommand(input, context);
+    return se_UpdateRepositoryDescriptionCommand(input, context);
   }
 
   /**
@@ -171,7 +168,7 @@ export class UpdateRepositoryDescriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRepositoryDescriptionCommandOutput> {
-    return deserializeAws_json1_1UpdateRepositoryDescriptionCommand(output, context);
+    return de_UpdateRepositoryDescriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,10 +18,7 @@ import {
   CreateWorkforceRequestFilterSensitiveLog,
   CreateWorkforceResponse,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateWorkforceCommand,
-  serializeAws_json1_1CreateWorkforceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWorkforceCommand, se_CreateWorkforceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -175,14 +172,14 @@ export class CreateWorkforceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkforceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkforceCommand(input, context);
+    return se_CreateWorkforceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkforceCommandOutput> {
-    return deserializeAws_json1_1CreateWorkforceCommand(output, context);
+    return de_CreateWorkforceCommand(output, context);
   }
 
   // Start section: command_body_extra

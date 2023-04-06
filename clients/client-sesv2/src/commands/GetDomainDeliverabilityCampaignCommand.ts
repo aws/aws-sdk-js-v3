@@ -15,8 +15,8 @@ import {
 
 import { GetDomainDeliverabilityCampaignRequest, GetDomainDeliverabilityCampaignResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand,
-  serializeAws_restJson1GetDomainDeliverabilityCampaignCommand,
+  de_GetDomainDeliverabilityCampaignCommand,
+  se_GetDomainDeliverabilityCampaignCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -136,7 +136,7 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
     input: GetDomainDeliverabilityCampaignCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainDeliverabilityCampaignCommand(input, context);
+    return se_GetDomainDeliverabilityCampaignCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDomainDeliverabilityCampaignCommandOutput> {
-    return deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand(output, context);
+    return de_GetDomainDeliverabilityCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

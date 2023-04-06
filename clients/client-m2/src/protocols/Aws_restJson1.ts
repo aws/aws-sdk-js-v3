@@ -137,7 +137,10 @@ import {
   VsamDetailAttributes,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CancelBatchJobExecutionCommand = async (
+/**
+ * serializeAws_restJson1CancelBatchJobExecutionCommand
+ */
+export const se_CancelBatchJobExecutionCommand = async (
   input: CancelBatchJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -167,7 +170,10 @@ export const serializeAws_restJson1CancelBatchJobExecutionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateApplicationCommand = async (
+/**
+ * serializeAws_restJson1CreateApplicationCommand
+ */
+export const se_CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -179,12 +185,12 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.definition != null && { definition: serializeAws_restJson1Definition(input.definition, context) }),
+    ...(input.definition != null && { definition: se_Definition(input.definition, context) }),
     ...(input.description != null && { description: input.description }),
     ...(input.engineType != null && { engineType: input.engineType }),
     ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
     ...(input.name != null && { name: input.name }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -197,7 +203,10 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDataSetImportTaskCommand = async (
+/**
+ * serializeAws_restJson1CreateDataSetImportTaskCommand
+ */
+export const se_CreateDataSetImportTaskCommand = async (
   input: CreateDataSetImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -219,9 +228,7 @@ export const serializeAws_restJson1CreateDataSetImportTaskCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.importConfig != null && {
-      importConfig: serializeAws_restJson1DataSetImportConfig(input.importConfig, context),
-    }),
+    ...(input.importConfig != null && { importConfig: se_DataSetImportConfig(input.importConfig, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -234,7 +241,10 @@ export const serializeAws_restJson1CreateDataSetImportTaskCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateDeploymentCommand = async (
+/**
+ * serializeAws_restJson1CreateDeploymentCommand
+ */
+export const se_CreateDeploymentCommand = async (
   input: CreateDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -269,7 +279,10 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateEnvironmentCommand = async (
+/**
+ * serializeAws_restJson1CreateEnvironmentCommand
+ */
+export const se_CreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -285,21 +298,19 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
     ...(input.engineType != null && { engineType: input.engineType }),
     ...(input.engineVersion != null && { engineVersion: input.engineVersion }),
     ...(input.highAvailabilityConfig != null && {
-      highAvailabilityConfig: serializeAws_restJson1HighAvailabilityConfig(input.highAvailabilityConfig, context),
+      highAvailabilityConfig: se_HighAvailabilityConfig(input.highAvailabilityConfig, context),
     }),
     ...(input.instanceType != null && { instanceType: input.instanceType }),
     ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
     ...(input.name != null && { name: input.name }),
     ...(input.preferredMaintenanceWindow != null && { preferredMaintenanceWindow: input.preferredMaintenanceWindow }),
     ...(input.publiclyAccessible != null && { publiclyAccessible: input.publiclyAccessible }),
-    ...(input.securityGroupIds != null && {
-      securityGroupIds: serializeAws_restJson1String50List(input.securityGroupIds, context),
-    }),
+    ...(input.securityGroupIds != null && { securityGroupIds: se_String50List(input.securityGroupIds, context) }),
     ...(input.storageConfigurations != null && {
-      storageConfigurations: serializeAws_restJson1StorageConfigurationList(input.storageConfigurations, context),
+      storageConfigurations: se_StorageConfigurationList(input.storageConfigurations, context),
     }),
-    ...(input.subnetIds != null && { subnetIds: serializeAws_restJson1String50List(input.subnetIds, context) }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.subnetIds != null && { subnetIds: se_String50List(input.subnetIds, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -312,7 +323,10 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteApplicationCommand = async (
+/**
+ * serializeAws_restJson1DeleteApplicationCommand
+ */
+export const se_DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -340,7 +354,10 @@ export const serializeAws_restJson1DeleteApplicationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteApplicationFromEnvironmentCommand = async (
+/**
+ * serializeAws_restJson1DeleteApplicationFromEnvironmentCommand
+ */
+export const se_DeleteApplicationFromEnvironmentCommand = async (
   input: DeleteApplicationFromEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -377,7 +394,10 @@ export const serializeAws_restJson1DeleteApplicationFromEnvironmentCommand = asy
   });
 };
 
-export const serializeAws_restJson1DeleteEnvironmentCommand = async (
+/**
+ * serializeAws_restJson1DeleteEnvironmentCommand
+ */
+export const se_DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -405,7 +425,10 @@ export const serializeAws_restJson1DeleteEnvironmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApplicationCommand = async (
+/**
+ * serializeAws_restJson1GetApplicationCommand
+ */
+export const se_GetApplicationCommand = async (
   input: GetApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -433,7 +456,10 @@ export const serializeAws_restJson1GetApplicationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetApplicationVersionCommand = async (
+/**
+ * serializeAws_restJson1GetApplicationVersionCommand
+ */
+export const se_GetApplicationVersionCommand = async (
   input: GetApplicationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -470,7 +496,10 @@ export const serializeAws_restJson1GetApplicationVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBatchJobExecutionCommand = async (
+/**
+ * serializeAws_restJson1GetBatchJobExecutionCommand
+ */
+export const se_GetBatchJobExecutionCommand = async (
   input: GetBatchJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -500,7 +529,10 @@ export const serializeAws_restJson1GetBatchJobExecutionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDataSetDetailsCommand = async (
+/**
+ * serializeAws_restJson1GetDataSetDetailsCommand
+ */
+export const se_GetDataSetDetailsCommand = async (
   input: GetDataSetDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -530,7 +562,10 @@ export const serializeAws_restJson1GetDataSetDetailsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDataSetImportTaskCommand = async (
+/**
+ * serializeAws_restJson1GetDataSetImportTaskCommand
+ */
+export const se_GetDataSetImportTaskCommand = async (
   input: GetDataSetImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -560,7 +595,10 @@ export const serializeAws_restJson1GetDataSetImportTaskCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDeploymentCommand = async (
+/**
+ * serializeAws_restJson1GetDeploymentCommand
+ */
+export const se_GetDeploymentCommand = async (
   input: GetDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -597,7 +635,10 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetEnvironmentCommand = async (
+/**
+ * serializeAws_restJson1GetEnvironmentCommand
+ */
+export const se_GetEnvironmentCommand = async (
   input: GetEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -625,7 +666,10 @@ export const serializeAws_restJson1GetEnvironmentCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListApplicationsCommand = async (
+/**
+ * serializeAws_restJson1ListApplicationsCommand
+ */
+export const se_ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -651,7 +695,10 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListApplicationVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListApplicationVersionsCommand
+ */
+export const se_ListApplicationVersionsCommand = async (
   input: ListApplicationVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -684,7 +731,10 @@ export const serializeAws_restJson1ListApplicationVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBatchJobDefinitionsCommand = async (
+/**
+ * serializeAws_restJson1ListBatchJobDefinitionsCommand
+ */
+export const se_ListBatchJobDefinitionsCommand = async (
   input: ListBatchJobDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -719,7 +769,10 @@ export const serializeAws_restJson1ListBatchJobDefinitionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBatchJobExecutionsCommand = async (
+/**
+ * serializeAws_restJson1ListBatchJobExecutionsCommand
+ */
+export const se_ListBatchJobExecutionsCommand = async (
   input: ListBatchJobExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -767,7 +820,10 @@ export const serializeAws_restJson1ListBatchJobExecutionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDataSetImportHistoryCommand = async (
+/**
+ * serializeAws_restJson1ListDataSetImportHistoryCommand
+ */
+export const se_ListDataSetImportHistoryCommand = async (
   input: ListDataSetImportHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -801,7 +857,10 @@ export const serializeAws_restJson1ListDataSetImportHistoryCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDataSetsCommand = async (
+/**
+ * serializeAws_restJson1ListDataSetsCommand
+ */
+export const se_ListDataSetsCommand = async (
   input: ListDataSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -835,7 +894,10 @@ export const serializeAws_restJson1ListDataSetsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListDeploymentsCommand = async (
+/**
+ * serializeAws_restJson1ListDeploymentsCommand
+ */
+export const se_ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -868,7 +930,10 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListEngineVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListEngineVersionsCommand
+ */
+export const se_ListEngineVersionsCommand = async (
   input: ListEngineVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -893,7 +958,10 @@ export const serializeAws_restJson1ListEngineVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListEnvironmentsCommand = async (
+/**
+ * serializeAws_restJson1ListEnvironmentsCommand
+ */
+export const se_ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -919,7 +987,10 @@ export const serializeAws_restJson1ListEnvironmentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -939,7 +1010,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartApplicationCommand = async (
+/**
+ * serializeAws_restJson1StartApplicationCommand
+ */
+export const se_StartApplicationCommand = async (
   input: StartApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -967,7 +1041,10 @@ export const serializeAws_restJson1StartApplicationCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartBatchJobCommand = async (
+/**
+ * serializeAws_restJson1StartBatchJobCommand
+ */
+export const se_StartBatchJobCommand = async (
   input: StartBatchJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -988,11 +1065,9 @@ export const serializeAws_restJson1StartBatchJobCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.batchJobIdentifier != null && {
-      batchJobIdentifier: serializeAws_restJson1BatchJobIdentifier(input.batchJobIdentifier, context),
+      batchJobIdentifier: se_BatchJobIdentifier(input.batchJobIdentifier, context),
     }),
-    ...(input.jobParams != null && {
-      jobParams: serializeAws_restJson1BatchJobParametersMap(input.jobParams, context),
-    }),
+    ...(input.jobParams != null && { jobParams: se_BatchJobParametersMap(input.jobParams, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1005,7 +1080,10 @@ export const serializeAws_restJson1StartBatchJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopApplicationCommand = async (
+/**
+ * serializeAws_restJson1StopApplicationCommand
+ */
+export const se_StopApplicationCommand = async (
   input: StopApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1038,7 +1116,10 @@ export const serializeAws_restJson1StopApplicationCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1050,7 +1131,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1063,7 +1144,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1090,7 +1174,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateApplicationCommand = async (
+/**
+ * serializeAws_restJson1UpdateApplicationCommand
+ */
+export const se_UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1111,7 +1198,7 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.currentApplicationVersion != null && { currentApplicationVersion: input.currentApplicationVersion }),
-    ...(input.definition != null && { definition: serializeAws_restJson1Definition(input.definition, context) }),
+    ...(input.definition != null && { definition: se_Definition(input.definition, context) }),
     ...(input.description != null && { description: input.description }),
   });
   return new __HttpRequest({
@@ -1125,7 +1212,10 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateEnvironmentCommand = async (
+/**
+ * serializeAws_restJson1UpdateEnvironmentCommand
+ */
+export const se_UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1164,12 +1254,15 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CancelBatchJobExecutionCommand = async (
+/**
+ * deserializeAws_restJson1CancelBatchJobExecutionCommand
+ */
+export const de_CancelBatchJobExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelBatchJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CancelBatchJobExecutionCommandError(output, context);
+    return de_CancelBatchJobExecutionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1178,7 +1271,10 @@ export const deserializeAws_restJson1CancelBatchJobExecutionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CancelBatchJobExecutionCommandError = async (
+/**
+ * deserializeAws_restJson1CancelBatchJobExecutionCommandError
+ */
+const de_CancelBatchJobExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelBatchJobExecutionCommandOutput> => {
@@ -1190,22 +1286,22 @@ const deserializeAws_restJson1CancelBatchJobExecutionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1217,12 +1313,15 @@ const deserializeAws_restJson1CancelBatchJobExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateApplicationCommand = async (
+/**
+ * deserializeAws_restJson1CreateApplicationCommand
+ */
+export const de_CreateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateApplicationCommandError(output, context);
+    return de_CreateApplicationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1240,7 +1339,10 @@ export const deserializeAws_restJson1CreateApplicationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateApplicationCommandError = async (
+/**
+ * deserializeAws_restJson1CreateApplicationCommandError
+ */
+const de_CreateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
@@ -1252,22 +1354,22 @@ const deserializeAws_restJson1CreateApplicationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.m2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1279,12 +1381,15 @@ const deserializeAws_restJson1CreateApplicationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateDataSetImportTaskCommand = async (
+/**
+ * deserializeAws_restJson1CreateDataSetImportTaskCommand
+ */
+export const de_CreateDataSetImportTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSetImportTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDataSetImportTaskCommandError(output, context);
+    return de_CreateDataSetImportTaskCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1296,7 +1401,10 @@ export const deserializeAws_restJson1CreateDataSetImportTaskCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateDataSetImportTaskCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDataSetImportTaskCommandError
+ */
+const de_CreateDataSetImportTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSetImportTaskCommandOutput> => {
@@ -1308,25 +1416,25 @@ const deserializeAws_restJson1CreateDataSetImportTaskCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.m2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1338,12 +1446,15 @@ const deserializeAws_restJson1CreateDataSetImportTaskCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1CreateDeploymentCommand
+ */
+export const de_CreateDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateDeploymentCommandError(output, context);
+    return de_CreateDeploymentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1355,7 +1466,10 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateDeploymentCommandError
+ */
+const de_CreateDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
@@ -1367,25 +1481,25 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.m2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1397,12 +1511,15 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateEnvironmentCommand = async (
+/**
+ * deserializeAws_restJson1CreateEnvironmentCommand
+ */
+export const de_CreateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateEnvironmentCommandError(output, context);
+    return de_CreateEnvironmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1414,7 +1531,10 @@ export const deserializeAws_restJson1CreateEnvironmentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateEnvironmentCommandError = async (
+/**
+ * deserializeAws_restJson1CreateEnvironmentCommandError
+ */
+const de_CreateEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentCommandOutput> => {
@@ -1426,22 +1546,22 @@ const deserializeAws_restJson1CreateEnvironmentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.m2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1453,12 +1573,15 @@ const deserializeAws_restJson1CreateEnvironmentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteApplicationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteApplicationCommand
+ */
+export const de_DeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteApplicationCommandError(output, context);
+    return de_DeleteApplicationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1467,7 +1590,10 @@ export const deserializeAws_restJson1DeleteApplicationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteApplicationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteApplicationCommandError
+ */
+const de_DeleteApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
@@ -1479,19 +1605,19 @@ const deserializeAws_restJson1DeleteApplicationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1503,12 +1629,15 @@ const deserializeAws_restJson1DeleteApplicationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteApplicationFromEnvironmentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteApplicationFromEnvironmentCommand
+ */
+export const de_DeleteApplicationFromEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationFromEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteApplicationFromEnvironmentCommandError(output, context);
+    return de_DeleteApplicationFromEnvironmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1517,7 +1646,10 @@ export const deserializeAws_restJson1DeleteApplicationFromEnvironmentCommand = a
   return contents;
 };
 
-const deserializeAws_restJson1DeleteApplicationFromEnvironmentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteApplicationFromEnvironmentCommandError
+ */
+const de_DeleteApplicationFromEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationFromEnvironmentCommandOutput> => {
@@ -1529,22 +1661,22 @@ const deserializeAws_restJson1DeleteApplicationFromEnvironmentCommandError = asy
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1556,12 +1688,15 @@ const deserializeAws_restJson1DeleteApplicationFromEnvironmentCommandError = asy
   }
 };
 
-export const deserializeAws_restJson1DeleteEnvironmentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteEnvironmentCommand
+ */
+export const de_DeleteEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteEnvironmentCommandError(output, context);
+    return de_DeleteEnvironmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1570,7 +1705,10 @@ export const deserializeAws_restJson1DeleteEnvironmentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteEnvironmentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteEnvironmentCommandError
+ */
+const de_DeleteEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentCommandOutput> => {
@@ -1582,19 +1720,19 @@ const deserializeAws_restJson1DeleteEnvironmentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1606,12 +1744,15 @@ const deserializeAws_restJson1DeleteEnvironmentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetApplicationCommand = async (
+/**
+ * deserializeAws_restJson1GetApplicationCommand
+ */
+export const de_GetApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApplicationCommandError(output, context);
+    return de_GetApplicationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1627,7 +1768,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
   }
   if (data.deployedVersion != null) {
-    contents.deployedVersion = deserializeAws_restJson1DeployedVersionSummary(data.deployedVersion, context);
+    contents.deployedVersion = de_DeployedVersionSummary(data.deployedVersion, context);
   }
   if (data.description != null) {
     contents.description = __expectString(data.description);
@@ -1645,19 +1786,19 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     contents.lastStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartTime)));
   }
   if (data.latestVersion != null) {
-    contents.latestVersion = deserializeAws_restJson1ApplicationVersionSummary(data.latestVersion, context);
+    contents.latestVersion = de_ApplicationVersionSummary(data.latestVersion, context);
   }
   if (data.listenerArns != null) {
-    contents.listenerArns = deserializeAws_restJson1ArnList(data.listenerArns, context);
+    contents.listenerArns = de_ArnList(data.listenerArns, context);
   }
   if (data.listenerPorts != null) {
-    contents.listenerPorts = deserializeAws_restJson1PortList(data.listenerPorts, context);
+    contents.listenerPorts = de_PortList(data.listenerPorts, context);
   }
   if (data.loadBalancerDnsName != null) {
     contents.loadBalancerDnsName = __expectString(data.loadBalancerDnsName);
   }
   if (data.logGroups != null) {
-    contents.logGroups = deserializeAws_restJson1LogGroupSummaries(data.logGroups, context);
+    contents.logGroups = de_LogGroupSummaries(data.logGroups, context);
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -1669,15 +1810,18 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
     contents.statusReason = __expectString(data.statusReason);
   }
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   if (data.targetGroupArns != null) {
-    contents.targetGroupArns = deserializeAws_restJson1ArnList(data.targetGroupArns, context);
+    contents.targetGroupArns = de_ArnList(data.targetGroupArns, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetApplicationCommandError = async (
+/**
+ * deserializeAws_restJson1GetApplicationCommandError
+ */
+const de_GetApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
@@ -1689,19 +1833,19 @@ const deserializeAws_restJson1GetApplicationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1713,12 +1857,15 @@ const deserializeAws_restJson1GetApplicationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetApplicationVersionCommand = async (
+/**
+ * deserializeAws_restJson1GetApplicationVersionCommand
+ */
+export const de_GetApplicationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetApplicationVersionCommandError(output, context);
+    return de_GetApplicationVersionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1748,7 +1895,10 @@ export const deserializeAws_restJson1GetApplicationVersionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetApplicationVersionCommandError = async (
+/**
+ * deserializeAws_restJson1GetApplicationVersionCommandError
+ */
+const de_GetApplicationVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationVersionCommandOutput> => {
@@ -1760,19 +1910,19 @@ const deserializeAws_restJson1GetApplicationVersionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1784,12 +1934,15 @@ const deserializeAws_restJson1GetApplicationVersionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetBatchJobExecutionCommand = async (
+/**
+ * deserializeAws_restJson1GetBatchJobExecutionCommand
+ */
+export const de_GetBatchJobExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBatchJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBatchJobExecutionCommandError(output, context);
+    return de_GetBatchJobExecutionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1799,10 +1952,7 @@ export const deserializeAws_restJson1GetBatchJobExecutionCommand = async (
     contents.applicationId = __expectString(data.applicationId);
   }
   if (data.batchJobIdentifier != null) {
-    contents.batchJobIdentifier = deserializeAws_restJson1BatchJobIdentifier(
-      __expectUnion(data.batchJobIdentifier),
-      context
-    );
+    contents.batchJobIdentifier = de_BatchJobIdentifier(__expectUnion(data.batchJobIdentifier), context);
   }
   if (data.endTime != null) {
     contents.endTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.endTime)));
@@ -1837,7 +1987,10 @@ export const deserializeAws_restJson1GetBatchJobExecutionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetBatchJobExecutionCommandError = async (
+/**
+ * deserializeAws_restJson1GetBatchJobExecutionCommandError
+ */
+const de_GetBatchJobExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBatchJobExecutionCommandOutput> => {
@@ -1849,19 +2002,19 @@ const deserializeAws_restJson1GetBatchJobExecutionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1873,12 +2026,15 @@ const deserializeAws_restJson1GetBatchJobExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDataSetDetailsCommand = async (
+/**
+ * deserializeAws_restJson1GetDataSetDetailsCommand
+ */
+export const de_GetDataSetDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataSetDetailsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDataSetDetailsCommandError(output, context);
+    return de_GetDataSetDetailsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1894,7 +2050,7 @@ export const deserializeAws_restJson1GetDataSetDetailsCommand = async (
     contents.dataSetName = __expectString(data.dataSetName);
   }
   if (data.dataSetOrg != null) {
-    contents.dataSetOrg = deserializeAws_restJson1DatasetDetailOrgAttributes(__expectUnion(data.dataSetOrg), context);
+    contents.dataSetOrg = de_DatasetDetailOrgAttributes(__expectUnion(data.dataSetOrg), context);
   }
   if (data.lastReferencedTime != null) {
     contents.lastReferencedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastReferencedTime)));
@@ -1911,7 +2067,10 @@ export const deserializeAws_restJson1GetDataSetDetailsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetDataSetDetailsCommandError = async (
+/**
+ * deserializeAws_restJson1GetDataSetDetailsCommandError
+ */
+const de_GetDataSetDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataSetDetailsCommandOutput> => {
@@ -1923,19 +2082,19 @@ const deserializeAws_restJson1GetDataSetDetailsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1947,12 +2106,15 @@ const deserializeAws_restJson1GetDataSetDetailsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDataSetImportTaskCommand = async (
+/**
+ * deserializeAws_restJson1GetDataSetImportTaskCommand
+ */
+export const de_GetDataSetImportTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataSetImportTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDataSetImportTaskCommandError(output, context);
+    return de_GetDataSetImportTaskCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1962,7 +2124,7 @@ export const deserializeAws_restJson1GetDataSetImportTaskCommand = async (
     contents.status = __expectString(data.status);
   }
   if (data.summary != null) {
-    contents.summary = deserializeAws_restJson1DataSetImportSummary(data.summary, context);
+    contents.summary = de_DataSetImportSummary(data.summary, context);
   }
   if (data.taskId != null) {
     contents.taskId = __expectString(data.taskId);
@@ -1970,7 +2132,10 @@ export const deserializeAws_restJson1GetDataSetImportTaskCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetDataSetImportTaskCommandError = async (
+/**
+ * deserializeAws_restJson1GetDataSetImportTaskCommandError
+ */
+const de_GetDataSetImportTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataSetImportTaskCommandOutput> => {
@@ -1982,19 +2147,19 @@ const deserializeAws_restJson1GetDataSetImportTaskCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2006,12 +2171,15 @@ const deserializeAws_restJson1GetDataSetImportTaskCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDeploymentCommand = async (
+/**
+ * deserializeAws_restJson1GetDeploymentCommand
+ */
+export const de_GetDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeploymentCommandError(output, context);
+    return de_GetDeploymentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2041,7 +2209,10 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetDeploymentCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeploymentCommandError
+ */
+const de_GetDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
@@ -2053,19 +2224,19 @@ const deserializeAws_restJson1GetDeploymentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2077,12 +2248,15 @@ const deserializeAws_restJson1GetDeploymentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetEnvironmentCommand = async (
+/**
+ * deserializeAws_restJson1GetEnvironmentCommand
+ */
+export const de_GetEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetEnvironmentCommandError(output, context);
+    return de_GetEnvironmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2110,10 +2284,7 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
     contents.environmentId = __expectString(data.environmentId);
   }
   if (data.highAvailabilityConfig != null) {
-    contents.highAvailabilityConfig = deserializeAws_restJson1HighAvailabilityConfig(
-      data.highAvailabilityConfig,
-      context
-    );
+    contents.highAvailabilityConfig = de_HighAvailabilityConfig(data.highAvailabilityConfig, context);
   }
   if (data.instanceType != null) {
     contents.instanceType = __expectString(data.instanceType);
@@ -2128,7 +2299,7 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
     contents.name = __expectString(data.name);
   }
   if (data.pendingMaintenance != null) {
-    contents.pendingMaintenance = deserializeAws_restJson1PendingMaintenance(data.pendingMaintenance, context);
+    contents.pendingMaintenance = de_PendingMaintenance(data.pendingMaintenance, context);
   }
   if (data.preferredMaintenanceWindow != null) {
     contents.preferredMaintenanceWindow = __expectString(data.preferredMaintenanceWindow);
@@ -2137,7 +2308,7 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
     contents.publiclyAccessible = __expectBoolean(data.publiclyAccessible);
   }
   if (data.securityGroupIds != null) {
-    contents.securityGroupIds = deserializeAws_restJson1String50List(data.securityGroupIds, context);
+    contents.securityGroupIds = de_String50List(data.securityGroupIds, context);
   }
   if (data.status != null) {
     contents.status = __expectString(data.status);
@@ -2146,16 +2317,13 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
     contents.statusReason = __expectString(data.statusReason);
   }
   if (data.storageConfigurations != null) {
-    contents.storageConfigurations = deserializeAws_restJson1StorageConfigurationList(
-      data.storageConfigurations,
-      context
-    );
+    contents.storageConfigurations = de_StorageConfigurationList(data.storageConfigurations, context);
   }
   if (data.subnetIds != null) {
-    contents.subnetIds = deserializeAws_restJson1String50List(data.subnetIds, context);
+    contents.subnetIds = de_String50List(data.subnetIds, context);
   }
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   if (data.vpcId != null) {
     contents.vpcId = __expectString(data.vpcId);
@@ -2163,7 +2331,10 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetEnvironmentCommandError = async (
+/**
+ * deserializeAws_restJson1GetEnvironmentCommandError
+ */
+const de_GetEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEnvironmentCommandOutput> => {
@@ -2175,19 +2346,19 @@ const deserializeAws_restJson1GetEnvironmentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2199,19 +2370,22 @@ const deserializeAws_restJson1GetEnvironmentCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListApplicationsCommand = async (
+/**
+ * deserializeAws_restJson1ListApplicationsCommand
+ */
+export const de_ListApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListApplicationsCommandError(output, context);
+    return de_ListApplicationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applications != null) {
-    contents.applications = deserializeAws_restJson1ApplicationSummaryList(data.applications, context);
+    contents.applications = de_ApplicationSummaryList(data.applications, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -2219,7 +2393,10 @@ export const deserializeAws_restJson1ListApplicationsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListApplicationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListApplicationsCommandError
+ */
+const de_ListApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
@@ -2231,16 +2408,16 @@ const deserializeAws_restJson1ListApplicationsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2252,22 +2429,22 @@ const deserializeAws_restJson1ListApplicationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListApplicationVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListApplicationVersionsCommand
+ */
+export const de_ListApplicationVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListApplicationVersionsCommandError(output, context);
+    return de_ListApplicationVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.applicationVersions != null) {
-    contents.applicationVersions = deserializeAws_restJson1ApplicationVersionSummaryList(
-      data.applicationVersions,
-      context
-    );
+    contents.applicationVersions = de_ApplicationVersionSummaryList(data.applicationVersions, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -2275,7 +2452,10 @@ export const deserializeAws_restJson1ListApplicationVersionsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListApplicationVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListApplicationVersionsCommandError
+ */
+const de_ListApplicationVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationVersionsCommandOutput> => {
@@ -2287,19 +2467,19 @@ const deserializeAws_restJson1ListApplicationVersionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2311,19 +2491,22 @@ const deserializeAws_restJson1ListApplicationVersionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListBatchJobDefinitionsCommand = async (
+/**
+ * deserializeAws_restJson1ListBatchJobDefinitionsCommand
+ */
+export const de_ListBatchJobDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBatchJobDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBatchJobDefinitionsCommandError(output, context);
+    return de_ListBatchJobDefinitionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.batchJobDefinitions != null) {
-    contents.batchJobDefinitions = deserializeAws_restJson1BatchJobDefinitions(data.batchJobDefinitions, context);
+    contents.batchJobDefinitions = de_BatchJobDefinitions(data.batchJobDefinitions, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -2331,7 +2514,10 @@ export const deserializeAws_restJson1ListBatchJobDefinitionsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListBatchJobDefinitionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBatchJobDefinitionsCommandError
+ */
+const de_ListBatchJobDefinitionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBatchJobDefinitionsCommandOutput> => {
@@ -2343,19 +2529,19 @@ const deserializeAws_restJson1ListBatchJobDefinitionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2367,22 +2553,22 @@ const deserializeAws_restJson1ListBatchJobDefinitionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListBatchJobExecutionsCommand = async (
+/**
+ * deserializeAws_restJson1ListBatchJobExecutionsCommand
+ */
+export const de_ListBatchJobExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBatchJobExecutionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBatchJobExecutionsCommandError(output, context);
+    return de_ListBatchJobExecutionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.batchJobExecutions != null) {
-    contents.batchJobExecutions = deserializeAws_restJson1BatchJobExecutionSummaryList(
-      data.batchJobExecutions,
-      context
-    );
+    contents.batchJobExecutions = de_BatchJobExecutionSummaryList(data.batchJobExecutions, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -2390,7 +2576,10 @@ export const deserializeAws_restJson1ListBatchJobExecutionsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListBatchJobExecutionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBatchJobExecutionsCommandError
+ */
+const de_ListBatchJobExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBatchJobExecutionsCommandOutput> => {
@@ -2402,19 +2591,19 @@ const deserializeAws_restJson1ListBatchJobExecutionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2426,19 +2615,22 @@ const deserializeAws_restJson1ListBatchJobExecutionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListDataSetImportHistoryCommand = async (
+/**
+ * deserializeAws_restJson1ListDataSetImportHistoryCommand
+ */
+export const de_ListDataSetImportHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSetImportHistoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDataSetImportHistoryCommandError(output, context);
+    return de_ListDataSetImportHistoryCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dataSetImportTasks != null) {
-    contents.dataSetImportTasks = deserializeAws_restJson1DataSetImportTaskList(data.dataSetImportTasks, context);
+    contents.dataSetImportTasks = de_DataSetImportTaskList(data.dataSetImportTasks, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -2446,7 +2638,10 @@ export const deserializeAws_restJson1ListDataSetImportHistoryCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListDataSetImportHistoryCommandError = async (
+/**
+ * deserializeAws_restJson1ListDataSetImportHistoryCommandError
+ */
+const de_ListDataSetImportHistoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSetImportHistoryCommandOutput> => {
@@ -2458,19 +2653,19 @@ const deserializeAws_restJson1ListDataSetImportHistoryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2482,19 +2677,22 @@ const deserializeAws_restJson1ListDataSetImportHistoryCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListDataSetsCommand = async (
+/**
+ * deserializeAws_restJson1ListDataSetsCommand
+ */
+export const de_ListDataSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDataSetsCommandError(output, context);
+    return de_ListDataSetsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.dataSets != null) {
-    contents.dataSets = deserializeAws_restJson1DataSetsSummaryList(data.dataSets, context);
+    contents.dataSets = de_DataSetsSummaryList(data.dataSets, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -2502,7 +2700,10 @@ export const deserializeAws_restJson1ListDataSetsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListDataSetsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDataSetsCommandError
+ */
+const de_ListDataSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSetsCommandOutput> => {
@@ -2514,19 +2715,19 @@ const deserializeAws_restJson1ListDataSetsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2538,19 +2739,22 @@ const deserializeAws_restJson1ListDataSetsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListDeploymentsCommand = async (
+/**
+ * deserializeAws_restJson1ListDeploymentsCommand
+ */
+export const de_ListDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListDeploymentsCommandError(output, context);
+    return de_ListDeploymentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.deployments != null) {
-    contents.deployments = deserializeAws_restJson1DeploymentList(data.deployments, context);
+    contents.deployments = de_DeploymentList(data.deployments, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -2558,7 +2762,10 @@ export const deserializeAws_restJson1ListDeploymentsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListDeploymentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListDeploymentsCommandError
+ */
+const de_ListDeploymentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> => {
@@ -2570,19 +2777,19 @@ const deserializeAws_restJson1ListDeploymentsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2594,19 +2801,22 @@ const deserializeAws_restJson1ListDeploymentsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListEngineVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListEngineVersionsCommand
+ */
+export const de_ListEngineVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEngineVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEngineVersionsCommandError(output, context);
+    return de_ListEngineVersionsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.engineVersions != null) {
-    contents.engineVersions = deserializeAws_restJson1EngineVersionsSummaryList(data.engineVersions, context);
+    contents.engineVersions = de_EngineVersionsSummaryList(data.engineVersions, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -2614,7 +2824,10 @@ export const deserializeAws_restJson1ListEngineVersionsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListEngineVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListEngineVersionsCommandError
+ */
+const de_ListEngineVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEngineVersionsCommandOutput> => {
@@ -2626,16 +2839,16 @@ const deserializeAws_restJson1ListEngineVersionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2647,19 +2860,22 @@ const deserializeAws_restJson1ListEngineVersionsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListEnvironmentsCommand = async (
+/**
+ * deserializeAws_restJson1ListEnvironmentsCommand
+ */
+export const de_ListEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnvironmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEnvironmentsCommandError(output, context);
+    return de_ListEnvironmentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.environments != null) {
-    contents.environments = deserializeAws_restJson1EnvironmentSummaryList(data.environments, context);
+    contents.environments = de_EnvironmentSummaryList(data.environments, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -2667,7 +2883,10 @@ export const deserializeAws_restJson1ListEnvironmentsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListEnvironmentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListEnvironmentsCommandError
+ */
+const de_ListEnvironmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnvironmentsCommandOutput> => {
@@ -2679,16 +2898,16 @@ const deserializeAws_restJson1ListEnvironmentsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2700,24 +2919,30 @@ const deserializeAws_restJson1ListEnvironmentsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -2729,19 +2954,19 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2753,12 +2978,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartApplicationCommand = async (
+/**
+ * deserializeAws_restJson1StartApplicationCommand
+ */
+export const de_StartApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartApplicationCommandError(output, context);
+    return de_StartApplicationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2767,7 +2995,10 @@ export const deserializeAws_restJson1StartApplicationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StartApplicationCommandError = async (
+/**
+ * deserializeAws_restJson1StartApplicationCommandError
+ */
+const de_StartApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartApplicationCommandOutput> => {
@@ -2779,22 +3010,22 @@ const deserializeAws_restJson1StartApplicationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2806,12 +3037,15 @@ const deserializeAws_restJson1StartApplicationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartBatchJobCommand = async (
+/**
+ * deserializeAws_restJson1StartBatchJobCommand
+ */
+export const de_StartBatchJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBatchJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartBatchJobCommandError(output, context);
+    return de_StartBatchJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2823,7 +3057,10 @@ export const deserializeAws_restJson1StartBatchJobCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StartBatchJobCommandError = async (
+/**
+ * deserializeAws_restJson1StartBatchJobCommandError
+ */
+const de_StartBatchJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBatchJobCommandOutput> => {
@@ -2835,22 +3072,22 @@ const deserializeAws_restJson1StartBatchJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2862,12 +3099,15 @@ const deserializeAws_restJson1StartBatchJobCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StopApplicationCommand = async (
+/**
+ * deserializeAws_restJson1StopApplicationCommand
+ */
+export const de_StopApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopApplicationCommandError(output, context);
+    return de_StopApplicationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2876,7 +3116,10 @@ export const deserializeAws_restJson1StopApplicationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StopApplicationCommandError = async (
+/**
+ * deserializeAws_restJson1StopApplicationCommandError
+ */
+const de_StopApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopApplicationCommandOutput> => {
@@ -2888,22 +3131,22 @@ const deserializeAws_restJson1StopApplicationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2915,12 +3158,15 @@ const deserializeAws_restJson1StopApplicationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2929,7 +3175,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2941,22 +3190,22 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.m2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2968,12 +3217,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2982,7 +3234,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2994,19 +3249,19 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3018,12 +3273,15 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateApplicationCommand = async (
+/**
+ * deserializeAws_restJson1UpdateApplicationCommand
+ */
+export const de_UpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateApplicationCommandError(output, context);
+    return de_UpdateApplicationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3035,7 +3293,10 @@ export const deserializeAws_restJson1UpdateApplicationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateApplicationCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateApplicationCommandError
+ */
+const de_UpdateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
@@ -3047,22 +3308,22 @@ const deserializeAws_restJson1UpdateApplicationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3074,12 +3335,15 @@ const deserializeAws_restJson1UpdateApplicationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateEnvironmentCommand = async (
+/**
+ * deserializeAws_restJson1UpdateEnvironmentCommand
+ */
+export const de_UpdateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateEnvironmentCommandError(output, context);
+    return de_UpdateEnvironmentCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3091,7 +3355,10 @@ export const deserializeAws_restJson1UpdateEnvironmentCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateEnvironmentCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateEnvironmentCommandError
+ */
+const de_UpdateEnvironmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> => {
@@ -3103,25 +3370,25 @@ const deserializeAws_restJson1UpdateEnvironmentCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.m2#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.m2#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.m2#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.m2#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.m2#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.m2#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3134,7 +3401,10 @@ const deserializeAws_restJson1UpdateEnvironmentCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -3150,10 +3420,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -3172,7 +3442,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -3193,7 +3466,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -3215,7 +3491,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -3243,10 +3522,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
     retryAfterSeconds: [
       () => void 0 !== parsedOutput.headers["retry-after"],
@@ -3270,14 +3549,14 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.fieldList != null) {
-    contents.fieldList = deserializeAws_restJson1ValidationExceptionFieldList(data.fieldList, context);
+    contents.fieldList = de_ValidationExceptionFieldList(data.fieldList, context);
   }
   if (data.message != null) {
     contents.message = __expectString(data.message);
@@ -3292,7 +3571,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AlternateKey = (input: AlternateKey, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AlternateKey
+ */
+const se_AlternateKey = (input: AlternateKey, context: __SerdeContext): any => {
   return {
     ...(input.allowDuplicates != null && { allowDuplicates: input.allowDuplicates }),
     ...(input.length != null && { length: input.length }),
@@ -3301,27 +3583,32 @@ const serializeAws_restJson1AlternateKey = (input: AlternateKey, context: __Serd
   };
 };
 
-const serializeAws_restJson1AlternateKeyList = (input: AlternateKey[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AlternateKeyList
+ */
+const se_AlternateKeyList = (input: AlternateKey[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1AlternateKey(entry, context);
+      return se_AlternateKey(entry, context);
     });
 };
 
-const serializeAws_restJson1BatchJobIdentifier = (input: BatchJobIdentifier, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1BatchJobIdentifier
+ */
+const se_BatchJobIdentifier = (input: BatchJobIdentifier, context: __SerdeContext): any => {
   return BatchJobIdentifier.visit(input, {
-    fileBatchJobIdentifier: (value) => ({
-      fileBatchJobIdentifier: serializeAws_restJson1FileBatchJobIdentifier(value, context),
-    }),
-    scriptBatchJobIdentifier: (value) => ({
-      scriptBatchJobIdentifier: serializeAws_restJson1ScriptBatchJobIdentifier(value, context),
-    }),
+    fileBatchJobIdentifier: (value) => ({ fileBatchJobIdentifier: se_FileBatchJobIdentifier(value, context) }),
+    scriptBatchJobIdentifier: (value) => ({ scriptBatchJobIdentifier: se_ScriptBatchJobIdentifier(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1BatchJobParametersMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1BatchJobParametersMap
+ */
+const se_BatchJobParametersMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3331,54 +3618,66 @@ const serializeAws_restJson1BatchJobParametersMap = (input: Record<string, strin
   }, {});
 };
 
-const serializeAws_restJson1DataSet = (input: DataSet, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DataSet
+ */
+const se_DataSet = (input: DataSet, context: __SerdeContext): any => {
   return {
     ...(input.datasetName != null && { datasetName: input.datasetName }),
-    ...(input.datasetOrg != null && {
-      datasetOrg: serializeAws_restJson1DatasetOrgAttributes(input.datasetOrg, context),
-    }),
-    ...(input.recordLength != null && {
-      recordLength: serializeAws_restJson1RecordLength(input.recordLength, context),
-    }),
+    ...(input.datasetOrg != null && { datasetOrg: se_DatasetOrgAttributes(input.datasetOrg, context) }),
+    ...(input.recordLength != null && { recordLength: se_RecordLength(input.recordLength, context) }),
     ...(input.relativePath != null && { relativePath: input.relativePath }),
     ...(input.storageType != null && { storageType: input.storageType }),
   };
 };
 
-const serializeAws_restJson1DataSetImportConfig = (input: DataSetImportConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DataSetImportConfig
+ */
+const se_DataSetImportConfig = (input: DataSetImportConfig, context: __SerdeContext): any => {
   return DataSetImportConfig.visit(input, {
-    dataSets: (value) => ({ dataSets: serializeAws_restJson1DataSetImportList(value, context) }),
+    dataSets: (value) => ({ dataSets: se_DataSetImportList(value, context) }),
     s3Location: (value) => ({ s3Location: value }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1DataSetImportItem = (input: DataSetImportItem, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DataSetImportItem
+ */
+const se_DataSetImportItem = (input: DataSetImportItem, context: __SerdeContext): any => {
   return {
-    ...(input.dataSet != null && { dataSet: serializeAws_restJson1DataSet(input.dataSet, context) }),
-    ...(input.externalLocation != null && {
-      externalLocation: serializeAws_restJson1ExternalLocation(input.externalLocation, context),
-    }),
+    ...(input.dataSet != null && { dataSet: se_DataSet(input.dataSet, context) }),
+    ...(input.externalLocation != null && { externalLocation: se_ExternalLocation(input.externalLocation, context) }),
   };
 };
 
-const serializeAws_restJson1DataSetImportList = (input: DataSetImportItem[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DataSetImportList
+ */
+const se_DataSetImportList = (input: DataSetImportItem[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1DataSetImportItem(entry, context);
+      return se_DataSetImportItem(entry, context);
     });
 };
 
-const serializeAws_restJson1DatasetOrgAttributes = (input: DatasetOrgAttributes, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DatasetOrgAttributes
+ */
+const se_DatasetOrgAttributes = (input: DatasetOrgAttributes, context: __SerdeContext): any => {
   return DatasetOrgAttributes.visit(input, {
-    gdg: (value) => ({ gdg: serializeAws_restJson1GdgAttributes(value, context) }),
-    vsam: (value) => ({ vsam: serializeAws_restJson1VsamAttributes(value, context) }),
+    gdg: (value) => ({ gdg: se_GdgAttributes(value, context) }),
+    vsam: (value) => ({ vsam: se_VsamAttributes(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1Definition = (input: Definition, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Definition
+ */
+const se_Definition = (input: Definition, context: __SerdeContext): any => {
   return Definition.visit(input, {
     content: (value) => ({ content: value }),
     s3Location: (value) => ({ s3Location: value }),
@@ -3386,54 +3685,69 @@ const serializeAws_restJson1Definition = (input: Definition, context: __SerdeCon
   });
 };
 
-const serializeAws_restJson1EfsStorageConfiguration = (
-  input: EfsStorageConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1EfsStorageConfiguration
+ */
+const se_EfsStorageConfiguration = (input: EfsStorageConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.fileSystemId != null && { "file-system-id": input.fileSystemId }),
     ...(input.mountPoint != null && { "mount-point": input.mountPoint }),
   };
 };
 
-const serializeAws_restJson1ExternalLocation = (input: ExternalLocation, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ExternalLocation
+ */
+const se_ExternalLocation = (input: ExternalLocation, context: __SerdeContext): any => {
   return ExternalLocation.visit(input, {
     s3Location: (value) => ({ s3Location: value }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1FileBatchJobIdentifier = (input: FileBatchJobIdentifier, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FileBatchJobIdentifier
+ */
+const se_FileBatchJobIdentifier = (input: FileBatchJobIdentifier, context: __SerdeContext): any => {
   return {
     ...(input.fileName != null && { fileName: input.fileName }),
     ...(input.folderPath != null && { folderPath: input.folderPath }),
   };
 };
 
-const serializeAws_restJson1FsxStorageConfiguration = (
-  input: FsxStorageConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1FsxStorageConfiguration
+ */
+const se_FsxStorageConfiguration = (input: FsxStorageConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.fileSystemId != null && { "file-system-id": input.fileSystemId }),
     ...(input.mountPoint != null && { "mount-point": input.mountPoint }),
   };
 };
 
-const serializeAws_restJson1GdgAttributes = (input: GdgAttributes, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1GdgAttributes
+ */
+const se_GdgAttributes = (input: GdgAttributes, context: __SerdeContext): any => {
   return {
     ...(input.limit != null && { limit: input.limit }),
     ...(input.rollDisposition != null && { rollDisposition: input.rollDisposition }),
   };
 };
 
-const serializeAws_restJson1HighAvailabilityConfig = (input: HighAvailabilityConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1HighAvailabilityConfig
+ */
+const se_HighAvailabilityConfig = (input: HighAvailabilityConfig, context: __SerdeContext): any => {
   return {
     ...(input.desiredCapacity != null && { desiredCapacity: input.desiredCapacity }),
   };
 };
 
-const serializeAws_restJson1PrimaryKey = (input: PrimaryKey, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PrimaryKey
+ */
+const se_PrimaryKey = (input: PrimaryKey, context: __SerdeContext): any => {
   return {
     ...(input.length != null && { length: input.length }),
     ...(input.name != null && { name: input.name }),
@@ -3441,42 +3755,51 @@ const serializeAws_restJson1PrimaryKey = (input: PrimaryKey, context: __SerdeCon
   };
 };
 
-const serializeAws_restJson1RecordLength = (input: RecordLength, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RecordLength
+ */
+const se_RecordLength = (input: RecordLength, context: __SerdeContext): any => {
   return {
     ...(input.max != null && { max: input.max }),
     ...(input.min != null && { min: input.min }),
   };
 };
 
-const serializeAws_restJson1ScriptBatchJobIdentifier = (
-  input: ScriptBatchJobIdentifier,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ScriptBatchJobIdentifier
+ */
+const se_ScriptBatchJobIdentifier = (input: ScriptBatchJobIdentifier, context: __SerdeContext): any => {
   return {
     ...(input.scriptName != null && { scriptName: input.scriptName }),
   };
 };
 
-const serializeAws_restJson1StorageConfiguration = (input: StorageConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1StorageConfiguration
+ */
+const se_StorageConfiguration = (input: StorageConfiguration, context: __SerdeContext): any => {
   return StorageConfiguration.visit(input, {
-    efs: (value) => ({ efs: serializeAws_restJson1EfsStorageConfiguration(value, context) }),
-    fsx: (value) => ({ fsx: serializeAws_restJson1FsxStorageConfiguration(value, context) }),
+    efs: (value) => ({ efs: se_EfsStorageConfiguration(value, context) }),
+    fsx: (value) => ({ fsx: se_FsxStorageConfiguration(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1StorageConfigurationList = (
-  input: StorageConfiguration[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1StorageConfigurationList
+ */
+const se_StorageConfigurationList = (input: StorageConfiguration[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1StorageConfiguration(entry, context);
+      return se_StorageConfiguration(entry, context);
     });
 };
 
-const serializeAws_restJson1String50List = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1String50List
+ */
+const se_String50List = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3484,7 +3807,10 @@ const serializeAws_restJson1String50List = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagMap
+ */
+const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3494,19 +3820,23 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
   }, {});
 };
 
-const serializeAws_restJson1VsamAttributes = (input: VsamAttributes, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1VsamAttributes
+ */
+const se_VsamAttributes = (input: VsamAttributes, context: __SerdeContext): any => {
   return {
-    ...(input.alternateKeys != null && {
-      alternateKeys: serializeAws_restJson1AlternateKeyList(input.alternateKeys, context),
-    }),
+    ...(input.alternateKeys != null && { alternateKeys: se_AlternateKeyList(input.alternateKeys, context) }),
     ...(input.compressed != null && { compressed: input.compressed }),
     ...(input.encoding != null && { encoding: input.encoding }),
     ...(input.format != null && { format: input.format }),
-    ...(input.primaryKey != null && { primaryKey: serializeAws_restJson1PrimaryKey(input.primaryKey, context) }),
+    ...(input.primaryKey != null && { primaryKey: se_PrimaryKey(input.primaryKey, context) }),
   };
 };
 
-const deserializeAws_restJson1AlternateKey = (output: any, context: __SerdeContext): AlternateKey => {
+/**
+ * deserializeAws_restJson1AlternateKey
+ */
+const de_AlternateKey = (output: any, context: __SerdeContext): AlternateKey => {
   return {
     allowDuplicates: __expectBoolean(output.allowDuplicates),
     length: __expectInt32(output.length),
@@ -3515,19 +3845,25 @@ const deserializeAws_restJson1AlternateKey = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_restJson1AlternateKeyList = (output: any, context: __SerdeContext): AlternateKey[] => {
+/**
+ * deserializeAws_restJson1AlternateKeyList
+ */
+const de_AlternateKeyList = (output: any, context: __SerdeContext): AlternateKey[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1AlternateKey(entry, context);
+      return de_AlternateKey(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
+/**
+ * deserializeAws_restJson1ApplicationSummary
+ */
+const de_ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
   return {
     applicationArn: __expectString(output.applicationArn),
     applicationId: __expectString(output.applicationId),
@@ -3550,22 +3886,25 @@ const deserializeAws_restJson1ApplicationSummary = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_restJson1ApplicationSummaryList = (output: any, context: __SerdeContext): ApplicationSummary[] => {
+/**
+ * deserializeAws_restJson1ApplicationSummaryList
+ */
+const de_ApplicationSummaryList = (output: any, context: __SerdeContext): ApplicationSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ApplicationSummary(entry, context);
+      return de_ApplicationSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ApplicationVersionSummary = (
-  output: any,
-  context: __SerdeContext
-): ApplicationVersionSummary => {
+/**
+ * deserializeAws_restJson1ApplicationVersionSummary
+ */
+const de_ApplicationVersionSummary = (output: any, context: __SerdeContext): ApplicationVersionSummary => {
   return {
     applicationVersion: __expectInt32(output.applicationVersion),
     creationTime:
@@ -3577,22 +3916,25 @@ const deserializeAws_restJson1ApplicationVersionSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1ApplicationVersionSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ApplicationVersionSummary[] => {
+/**
+ * deserializeAws_restJson1ApplicationVersionSummaryList
+ */
+const de_ApplicationVersionSummaryList = (output: any, context: __SerdeContext): ApplicationVersionSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ApplicationVersionSummary(entry, context);
+      return de_ApplicationVersionSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ArnList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1ArnList
+ */
+const de_ArnList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3604,44 +3946,47 @@ const deserializeAws_restJson1ArnList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_restJson1BatchJobDefinition = (output: any, context: __SerdeContext): BatchJobDefinition => {
+/**
+ * deserializeAws_restJson1BatchJobDefinition
+ */
+const de_BatchJobDefinition = (output: any, context: __SerdeContext): BatchJobDefinition => {
   if (output.fileBatchJobDefinition != null) {
     return {
-      fileBatchJobDefinition: deserializeAws_restJson1FileBatchJobDefinition(output.fileBatchJobDefinition, context),
+      fileBatchJobDefinition: de_FileBatchJobDefinition(output.fileBatchJobDefinition, context),
     };
   }
   if (output.scriptBatchJobDefinition != null) {
     return {
-      scriptBatchJobDefinition: deserializeAws_restJson1ScriptBatchJobDefinition(
-        output.scriptBatchJobDefinition,
-        context
-      ),
+      scriptBatchJobDefinition: de_ScriptBatchJobDefinition(output.scriptBatchJobDefinition, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1BatchJobDefinitions = (output: any, context: __SerdeContext): BatchJobDefinition[] => {
+/**
+ * deserializeAws_restJson1BatchJobDefinitions
+ */
+const de_BatchJobDefinitions = (output: any, context: __SerdeContext): BatchJobDefinition[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1BatchJobDefinition(__expectUnion(entry), context);
+      return de_BatchJobDefinition(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BatchJobExecutionSummary = (
-  output: any,
-  context: __SerdeContext
-): BatchJobExecutionSummary => {
+/**
+ * deserializeAws_restJson1BatchJobExecutionSummary
+ */
+const de_BatchJobExecutionSummary = (output: any, context: __SerdeContext): BatchJobExecutionSummary => {
   return {
     applicationId: __expectString(output.applicationId),
     batchJobIdentifier:
       output.batchJobIdentifier != null
-        ? deserializeAws_restJson1BatchJobIdentifier(__expectUnion(output.batchJobIdentifier), context)
+        ? de_BatchJobIdentifier(__expectUnion(output.batchJobIdentifier), context)
         : undefined,
     endTime:
       output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
@@ -3656,56 +4001,59 @@ const deserializeAws_restJson1BatchJobExecutionSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1BatchJobExecutionSummaryList = (
-  output: any,
-  context: __SerdeContext
-): BatchJobExecutionSummary[] => {
+/**
+ * deserializeAws_restJson1BatchJobExecutionSummaryList
+ */
+const de_BatchJobExecutionSummaryList = (output: any, context: __SerdeContext): BatchJobExecutionSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1BatchJobExecutionSummary(entry, context);
+      return de_BatchJobExecutionSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BatchJobIdentifier = (output: any, context: __SerdeContext): BatchJobIdentifier => {
+/**
+ * deserializeAws_restJson1BatchJobIdentifier
+ */
+const de_BatchJobIdentifier = (output: any, context: __SerdeContext): BatchJobIdentifier => {
   if (output.fileBatchJobIdentifier != null) {
     return {
-      fileBatchJobIdentifier: deserializeAws_restJson1FileBatchJobIdentifier(output.fileBatchJobIdentifier, context),
+      fileBatchJobIdentifier: de_FileBatchJobIdentifier(output.fileBatchJobIdentifier, context),
     };
   }
   if (output.scriptBatchJobIdentifier != null) {
     return {
-      scriptBatchJobIdentifier: deserializeAws_restJson1ScriptBatchJobIdentifier(
-        output.scriptBatchJobIdentifier,
-        context
-      ),
+      scriptBatchJobIdentifier: de_ScriptBatchJobIdentifier(output.scriptBatchJobIdentifier, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1DatasetDetailOrgAttributes = (
-  output: any,
-  context: __SerdeContext
-): DatasetDetailOrgAttributes => {
+/**
+ * deserializeAws_restJson1DatasetDetailOrgAttributes
+ */
+const de_DatasetDetailOrgAttributes = (output: any, context: __SerdeContext): DatasetDetailOrgAttributes => {
   if (output.gdg != null) {
     return {
-      gdg: deserializeAws_restJson1GdgDetailAttributes(output.gdg, context),
+      gdg: de_GdgDetailAttributes(output.gdg, context),
     };
   }
   if (output.vsam != null) {
     return {
-      vsam: deserializeAws_restJson1VsamDetailAttributes(output.vsam, context),
+      vsam: de_VsamDetailAttributes(output.vsam, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1DataSetImportSummary = (output: any, context: __SerdeContext): DataSetImportSummary => {
+/**
+ * deserializeAws_restJson1DataSetImportSummary
+ */
+const de_DataSetImportSummary = (output: any, context: __SerdeContext): DataSetImportSummary => {
   return {
     failed: __expectInt32(output.failed),
     inProgress: __expectInt32(output.inProgress),
@@ -3715,39 +4063,51 @@ const deserializeAws_restJson1DataSetImportSummary = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_restJson1DataSetImportTask = (output: any, context: __SerdeContext): DataSetImportTask => {
+/**
+ * deserializeAws_restJson1DataSetImportTask
+ */
+const de_DataSetImportTask = (output: any, context: __SerdeContext): DataSetImportTask => {
   return {
     status: __expectString(output.status),
-    summary: output.summary != null ? deserializeAws_restJson1DataSetImportSummary(output.summary, context) : undefined,
+    summary: output.summary != null ? de_DataSetImportSummary(output.summary, context) : undefined,
     taskId: __expectString(output.taskId),
   } as any;
 };
 
-const deserializeAws_restJson1DataSetImportTaskList = (output: any, context: __SerdeContext): DataSetImportTask[] => {
+/**
+ * deserializeAws_restJson1DataSetImportTaskList
+ */
+const de_DataSetImportTaskList = (output: any, context: __SerdeContext): DataSetImportTask[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DataSetImportTask(entry, context);
+      return de_DataSetImportTask(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DataSetsSummaryList = (output: any, context: __SerdeContext): DataSetSummary[] => {
+/**
+ * deserializeAws_restJson1DataSetsSummaryList
+ */
+const de_DataSetsSummaryList = (output: any, context: __SerdeContext): DataSetSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DataSetSummary(entry, context);
+      return de_DataSetSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DataSetSummary = (output: any, context: __SerdeContext): DataSetSummary => {
+/**
+ * deserializeAws_restJson1DataSetSummary
+ */
+const de_DataSetSummary = (output: any, context: __SerdeContext): DataSetSummary => {
   return {
     creationTime:
       output.creationTime != null
@@ -3767,10 +4127,10 @@ const deserializeAws_restJson1DataSetSummary = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_restJson1DeployedVersionSummary = (
-  output: any,
-  context: __SerdeContext
-): DeployedVersionSummary => {
+/**
+ * deserializeAws_restJson1DeployedVersionSummary
+ */
+const de_DeployedVersionSummary = (output: any, context: __SerdeContext): DeployedVersionSummary => {
   return {
     applicationVersion: __expectInt32(output.applicationVersion),
     status: __expectString(output.status),
@@ -3778,19 +4138,25 @@ const deserializeAws_restJson1DeployedVersionSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1DeploymentList = (output: any, context: __SerdeContext): DeploymentSummary[] => {
+/**
+ * deserializeAws_restJson1DeploymentList
+ */
+const de_DeploymentList = (output: any, context: __SerdeContext): DeploymentSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DeploymentSummary(entry, context);
+      return de_DeploymentSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DeploymentSummary = (output: any, context: __SerdeContext): DeploymentSummary => {
+/**
+ * deserializeAws_restJson1DeploymentSummary
+ */
+const de_DeploymentSummary = (output: any, context: __SerdeContext): DeploymentSummary => {
   return {
     applicationId: __expectString(output.applicationId),
     applicationVersion: __expectInt32(output.applicationVersion),
@@ -3805,39 +4171,45 @@ const deserializeAws_restJson1DeploymentSummary = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_restJson1EfsStorageConfiguration = (
-  output: any,
-  context: __SerdeContext
-): EfsStorageConfiguration => {
+/**
+ * deserializeAws_restJson1EfsStorageConfiguration
+ */
+const de_EfsStorageConfiguration = (output: any, context: __SerdeContext): EfsStorageConfiguration => {
   return {
     fileSystemId: __expectString(output["file-system-id"]),
     mountPoint: __expectString(output["mount-point"]),
   } as any;
 };
 
-const deserializeAws_restJson1EngineVersionsSummary = (output: any, context: __SerdeContext): EngineVersionsSummary => {
+/**
+ * deserializeAws_restJson1EngineVersionsSummary
+ */
+const de_EngineVersionsSummary = (output: any, context: __SerdeContext): EngineVersionsSummary => {
   return {
     engineType: __expectString(output.engineType),
     engineVersion: __expectString(output.engineVersion),
   } as any;
 };
 
-const deserializeAws_restJson1EngineVersionsSummaryList = (
-  output: any,
-  context: __SerdeContext
-): EngineVersionsSummary[] => {
+/**
+ * deserializeAws_restJson1EngineVersionsSummaryList
+ */
+const de_EngineVersionsSummaryList = (output: any, context: __SerdeContext): EngineVersionsSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1EngineVersionsSummary(entry, context);
+      return de_EngineVersionsSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EnvironmentSummary = (output: any, context: __SerdeContext): EnvironmentSummary => {
+/**
+ * deserializeAws_restJson1EnvironmentSummary
+ */
+const de_EnvironmentSummary = (output: any, context: __SerdeContext): EnvironmentSummary => {
   return {
     creationTime:
       output.creationTime != null
@@ -3853,84 +4225,99 @@ const deserializeAws_restJson1EnvironmentSummary = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_restJson1EnvironmentSummaryList = (output: any, context: __SerdeContext): EnvironmentSummary[] => {
+/**
+ * deserializeAws_restJson1EnvironmentSummaryList
+ */
+const de_EnvironmentSummaryList = (output: any, context: __SerdeContext): EnvironmentSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1EnvironmentSummary(entry, context);
+      return de_EnvironmentSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1FileBatchJobDefinition = (
-  output: any,
-  context: __SerdeContext
-): FileBatchJobDefinition => {
+/**
+ * deserializeAws_restJson1FileBatchJobDefinition
+ */
+const de_FileBatchJobDefinition = (output: any, context: __SerdeContext): FileBatchJobDefinition => {
   return {
     fileName: __expectString(output.fileName),
     folderPath: __expectString(output.folderPath),
   } as any;
 };
 
-const deserializeAws_restJson1FileBatchJobIdentifier = (
-  output: any,
-  context: __SerdeContext
-): FileBatchJobIdentifier => {
+/**
+ * deserializeAws_restJson1FileBatchJobIdentifier
+ */
+const de_FileBatchJobIdentifier = (output: any, context: __SerdeContext): FileBatchJobIdentifier => {
   return {
     fileName: __expectString(output.fileName),
     folderPath: __expectString(output.folderPath),
   } as any;
 };
 
-const deserializeAws_restJson1FsxStorageConfiguration = (
-  output: any,
-  context: __SerdeContext
-): FsxStorageConfiguration => {
+/**
+ * deserializeAws_restJson1FsxStorageConfiguration
+ */
+const de_FsxStorageConfiguration = (output: any, context: __SerdeContext): FsxStorageConfiguration => {
   return {
     fileSystemId: __expectString(output["file-system-id"]),
     mountPoint: __expectString(output["mount-point"]),
   } as any;
 };
 
-const deserializeAws_restJson1GdgDetailAttributes = (output: any, context: __SerdeContext): GdgDetailAttributes => {
+/**
+ * deserializeAws_restJson1GdgDetailAttributes
+ */
+const de_GdgDetailAttributes = (output: any, context: __SerdeContext): GdgDetailAttributes => {
   return {
     limit: __expectInt32(output.limit),
     rollDisposition: __expectString(output.rollDisposition),
   } as any;
 };
 
-const deserializeAws_restJson1HighAvailabilityConfig = (
-  output: any,
-  context: __SerdeContext
-): HighAvailabilityConfig => {
+/**
+ * deserializeAws_restJson1HighAvailabilityConfig
+ */
+const de_HighAvailabilityConfig = (output: any, context: __SerdeContext): HighAvailabilityConfig => {
   return {
     desiredCapacity: __expectInt32(output.desiredCapacity),
   } as any;
 };
 
-const deserializeAws_restJson1LogGroupSummaries = (output: any, context: __SerdeContext): LogGroupSummary[] => {
+/**
+ * deserializeAws_restJson1LogGroupSummaries
+ */
+const de_LogGroupSummaries = (output: any, context: __SerdeContext): LogGroupSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1LogGroupSummary(entry, context);
+      return de_LogGroupSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1LogGroupSummary = (output: any, context: __SerdeContext): LogGroupSummary => {
+/**
+ * deserializeAws_restJson1LogGroupSummary
+ */
+const de_LogGroupSummary = (output: any, context: __SerdeContext): LogGroupSummary => {
   return {
     logGroupName: __expectString(output.logGroupName),
     logType: __expectString(output.logType),
   } as any;
 };
 
-const deserializeAws_restJson1MaintenanceSchedule = (output: any, context: __SerdeContext): MaintenanceSchedule => {
+/**
+ * deserializeAws_restJson1MaintenanceSchedule
+ */
+const de_MaintenanceSchedule = (output: any, context: __SerdeContext): MaintenanceSchedule => {
   return {
     endTime:
       output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
@@ -3939,15 +4326,20 @@ const deserializeAws_restJson1MaintenanceSchedule = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_restJson1PendingMaintenance = (output: any, context: __SerdeContext): PendingMaintenance => {
+/**
+ * deserializeAws_restJson1PendingMaintenance
+ */
+const de_PendingMaintenance = (output: any, context: __SerdeContext): PendingMaintenance => {
   return {
     engineVersion: __expectString(output.engineVersion),
-    schedule:
-      output.schedule != null ? deserializeAws_restJson1MaintenanceSchedule(output.schedule, context) : undefined,
+    schedule: output.schedule != null ? de_MaintenanceSchedule(output.schedule, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1PortList = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_restJson1PortList
+ */
+const de_PortList = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3959,7 +4351,10 @@ const deserializeAws_restJson1PortList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_restJson1PrimaryKey = (output: any, context: __SerdeContext): PrimaryKey => {
+/**
+ * deserializeAws_restJson1PrimaryKey
+ */
+const de_PrimaryKey = (output: any, context: __SerdeContext): PrimaryKey => {
   return {
     length: __expectInt32(output.length),
     name: __expectString(output.name),
@@ -3967,54 +4362,60 @@ const deserializeAws_restJson1PrimaryKey = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_restJson1ScriptBatchJobDefinition = (
-  output: any,
-  context: __SerdeContext
-): ScriptBatchJobDefinition => {
+/**
+ * deserializeAws_restJson1ScriptBatchJobDefinition
+ */
+const de_ScriptBatchJobDefinition = (output: any, context: __SerdeContext): ScriptBatchJobDefinition => {
   return {
     scriptName: __expectString(output.scriptName),
   } as any;
 };
 
-const deserializeAws_restJson1ScriptBatchJobIdentifier = (
-  output: any,
-  context: __SerdeContext
-): ScriptBatchJobIdentifier => {
+/**
+ * deserializeAws_restJson1ScriptBatchJobIdentifier
+ */
+const de_ScriptBatchJobIdentifier = (output: any, context: __SerdeContext): ScriptBatchJobIdentifier => {
   return {
     scriptName: __expectString(output.scriptName),
   } as any;
 };
 
-const deserializeAws_restJson1StorageConfiguration = (output: any, context: __SerdeContext): StorageConfiguration => {
+/**
+ * deserializeAws_restJson1StorageConfiguration
+ */
+const de_StorageConfiguration = (output: any, context: __SerdeContext): StorageConfiguration => {
   if (output.efs != null) {
     return {
-      efs: deserializeAws_restJson1EfsStorageConfiguration(output.efs, context),
+      efs: de_EfsStorageConfiguration(output.efs, context),
     };
   }
   if (output.fsx != null) {
     return {
-      fsx: deserializeAws_restJson1FsxStorageConfiguration(output.fsx, context),
+      fsx: de_FsxStorageConfiguration(output.fsx, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1StorageConfigurationList = (
-  output: any,
-  context: __SerdeContext
-): StorageConfiguration[] => {
+/**
+ * deserializeAws_restJson1StorageConfigurationList
+ */
+const de_StorageConfigurationList = (output: any, context: __SerdeContext): StorageConfiguration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1StorageConfiguration(__expectUnion(entry), context);
+      return de_StorageConfiguration(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1String50List = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1String50List
+ */
+const de_String50List = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4026,7 +4427,10 @@ const deserializeAws_restJson1String50List = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TagMap
+ */
+const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -4036,41 +4440,41 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
   }, {});
 };
 
-const deserializeAws_restJson1ValidationExceptionField = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField => {
+/**
+ * deserializeAws_restJson1ValidationExceptionField
+ */
+const de_ValidationExceptionField = (output: any, context: __SerdeContext): ValidationExceptionField => {
   return {
     message: __expectString(output.message),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_restJson1ValidationExceptionFieldList = (
-  output: any,
-  context: __SerdeContext
-): ValidationExceptionField[] => {
+/**
+ * deserializeAws_restJson1ValidationExceptionFieldList
+ */
+const de_ValidationExceptionFieldList = (output: any, context: __SerdeContext): ValidationExceptionField[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ValidationExceptionField(entry, context);
+      return de_ValidationExceptionField(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1VsamDetailAttributes = (output: any, context: __SerdeContext): VsamDetailAttributes => {
+/**
+ * deserializeAws_restJson1VsamDetailAttributes
+ */
+const de_VsamDetailAttributes = (output: any, context: __SerdeContext): VsamDetailAttributes => {
   return {
-    alternateKeys:
-      output.alternateKeys != null
-        ? deserializeAws_restJson1AlternateKeyList(output.alternateKeys, context)
-        : undefined,
+    alternateKeys: output.alternateKeys != null ? de_AlternateKeyList(output.alternateKeys, context) : undefined,
     cacheAtStartup: __expectBoolean(output.cacheAtStartup),
     compressed: __expectBoolean(output.compressed),
     encoding: __expectString(output.encoding),
-    primaryKey: output.primaryKey != null ? deserializeAws_restJson1PrimaryKey(output.primaryKey, context) : undefined,
+    primaryKey: output.primaryKey != null ? de_PrimaryKey(output.primaryKey, context) : undefined,
     recordFormat: __expectString(output.recordFormat),
   } as any;
 };

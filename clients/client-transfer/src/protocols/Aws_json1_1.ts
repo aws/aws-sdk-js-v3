@@ -260,7 +260,10 @@ import {
 } from "../models/models_0";
 import { TransferServiceException as __BaseException } from "../models/TransferServiceException";
 
-export const serializeAws_json1_1CreateAccessCommand = async (
+/**
+ * serializeAws_json1_1CreateAccessCommand
+ */
+export const se_CreateAccessCommand = async (
   input: CreateAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -269,11 +272,14 @@ export const serializeAws_json1_1CreateAccessCommand = async (
     "x-amz-target": "TransferService.CreateAccess",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateAccessRequest(input, context));
+  body = JSON.stringify(se_CreateAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateAgreementCommand = async (
+/**
+ * serializeAws_json1_1CreateAgreementCommand
+ */
+export const se_CreateAgreementCommand = async (
   input: CreateAgreementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -282,11 +288,14 @@ export const serializeAws_json1_1CreateAgreementCommand = async (
     "x-amz-target": "TransferService.CreateAgreement",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateAgreementRequest(input, context));
+  body = JSON.stringify(se_CreateAgreementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateConnectorCommand = async (
+/**
+ * serializeAws_json1_1CreateConnectorCommand
+ */
+export const se_CreateConnectorCommand = async (
   input: CreateConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -295,11 +304,14 @@ export const serializeAws_json1_1CreateConnectorCommand = async (
     "x-amz-target": "TransferService.CreateConnector",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateConnectorRequest(input, context));
+  body = JSON.stringify(se_CreateConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateProfileCommand = async (
+/**
+ * serializeAws_json1_1CreateProfileCommand
+ */
+export const se_CreateProfileCommand = async (
   input: CreateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -308,11 +320,14 @@ export const serializeAws_json1_1CreateProfileCommand = async (
     "x-amz-target": "TransferService.CreateProfile",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateProfileRequest(input, context));
+  body = JSON.stringify(se_CreateProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateServerCommand = async (
+/**
+ * serializeAws_json1_1CreateServerCommand
+ */
+export const se_CreateServerCommand = async (
   input: CreateServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -321,11 +336,14 @@ export const serializeAws_json1_1CreateServerCommand = async (
     "x-amz-target": "TransferService.CreateServer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateServerRequest(input, context));
+  body = JSON.stringify(se_CreateServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUserCommand = async (
+/**
+ * serializeAws_json1_1CreateUserCommand
+ */
+export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -334,11 +352,14 @@ export const serializeAws_json1_1CreateUserCommand = async (
     "x-amz-target": "TransferService.CreateUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
+  body = JSON.stringify(se_CreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateWorkflowCommand = async (
+/**
+ * serializeAws_json1_1CreateWorkflowCommand
+ */
+export const se_CreateWorkflowCommand = async (
   input: CreateWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -347,11 +368,14 @@ export const serializeAws_json1_1CreateWorkflowCommand = async (
     "x-amz-target": "TransferService.CreateWorkflow",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateWorkflowRequest(input, context));
+  body = JSON.stringify(se_CreateWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteAccessCommand = async (
+/**
+ * serializeAws_json1_1DeleteAccessCommand
+ */
+export const se_DeleteAccessCommand = async (
   input: DeleteAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -360,11 +384,14 @@ export const serializeAws_json1_1DeleteAccessCommand = async (
     "x-amz-target": "TransferService.DeleteAccess",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteAccessRequest(input, context));
+  body = JSON.stringify(se_DeleteAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteAgreementCommand = async (
+/**
+ * serializeAws_json1_1DeleteAgreementCommand
+ */
+export const se_DeleteAgreementCommand = async (
   input: DeleteAgreementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -373,11 +400,14 @@ export const serializeAws_json1_1DeleteAgreementCommand = async (
     "x-amz-target": "TransferService.DeleteAgreement",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteAgreementRequest(input, context));
+  body = JSON.stringify(se_DeleteAgreementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteCertificateCommand = async (
+/**
+ * serializeAws_json1_1DeleteCertificateCommand
+ */
+export const se_DeleteCertificateCommand = async (
   input: DeleteCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -386,11 +416,14 @@ export const serializeAws_json1_1DeleteCertificateCommand = async (
     "x-amz-target": "TransferService.DeleteCertificate",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteCertificateRequest(input, context));
+  body = JSON.stringify(se_DeleteCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteConnectorCommand = async (
+/**
+ * serializeAws_json1_1DeleteConnectorCommand
+ */
+export const se_DeleteConnectorCommand = async (
   input: DeleteConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -399,11 +432,14 @@ export const serializeAws_json1_1DeleteConnectorCommand = async (
     "x-amz-target": "TransferService.DeleteConnector",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteConnectorRequest(input, context));
+  body = JSON.stringify(se_DeleteConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteHostKeyCommand = async (
+/**
+ * serializeAws_json1_1DeleteHostKeyCommand
+ */
+export const se_DeleteHostKeyCommand = async (
   input: DeleteHostKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -412,11 +448,14 @@ export const serializeAws_json1_1DeleteHostKeyCommand = async (
     "x-amz-target": "TransferService.DeleteHostKey",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteHostKeyRequest(input, context));
+  body = JSON.stringify(se_DeleteHostKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteProfileCommand = async (
+/**
+ * serializeAws_json1_1DeleteProfileCommand
+ */
+export const se_DeleteProfileCommand = async (
   input: DeleteProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -425,11 +464,14 @@ export const serializeAws_json1_1DeleteProfileCommand = async (
     "x-amz-target": "TransferService.DeleteProfile",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteProfileRequest(input, context));
+  body = JSON.stringify(se_DeleteProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteServerCommand = async (
+/**
+ * serializeAws_json1_1DeleteServerCommand
+ */
+export const se_DeleteServerCommand = async (
   input: DeleteServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -438,11 +480,14 @@ export const serializeAws_json1_1DeleteServerCommand = async (
     "x-amz-target": "TransferService.DeleteServer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteServerRequest(input, context));
+  body = JSON.stringify(se_DeleteServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteSshPublicKeyCommand = async (
+/**
+ * serializeAws_json1_1DeleteSshPublicKeyCommand
+ */
+export const se_DeleteSshPublicKeyCommand = async (
   input: DeleteSshPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -451,11 +496,14 @@ export const serializeAws_json1_1DeleteSshPublicKeyCommand = async (
     "x-amz-target": "TransferService.DeleteSshPublicKey",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteSshPublicKeyRequest(input, context));
+  body = JSON.stringify(se_DeleteSshPublicKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUserCommand = async (
+/**
+ * serializeAws_json1_1DeleteUserCommand
+ */
+export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -464,11 +512,14 @@ export const serializeAws_json1_1DeleteUserCommand = async (
     "x-amz-target": "TransferService.DeleteUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
+  body = JSON.stringify(se_DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteWorkflowCommand = async (
+/**
+ * serializeAws_json1_1DeleteWorkflowCommand
+ */
+export const se_DeleteWorkflowCommand = async (
   input: DeleteWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -477,11 +528,14 @@ export const serializeAws_json1_1DeleteWorkflowCommand = async (
     "x-amz-target": "TransferService.DeleteWorkflow",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteWorkflowRequest(input, context));
+  body = JSON.stringify(se_DeleteWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeAccessCommand = async (
+/**
+ * serializeAws_json1_1DescribeAccessCommand
+ */
+export const se_DescribeAccessCommand = async (
   input: DescribeAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -490,11 +544,14 @@ export const serializeAws_json1_1DescribeAccessCommand = async (
     "x-amz-target": "TransferService.DescribeAccess",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeAccessRequest(input, context));
+  body = JSON.stringify(se_DescribeAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeAgreementCommand = async (
+/**
+ * serializeAws_json1_1DescribeAgreementCommand
+ */
+export const se_DescribeAgreementCommand = async (
   input: DescribeAgreementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -503,11 +560,14 @@ export const serializeAws_json1_1DescribeAgreementCommand = async (
     "x-amz-target": "TransferService.DescribeAgreement",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeAgreementRequest(input, context));
+  body = JSON.stringify(se_DescribeAgreementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCertificateCommand = async (
+/**
+ * serializeAws_json1_1DescribeCertificateCommand
+ */
+export const se_DescribeCertificateCommand = async (
   input: DescribeCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -516,11 +576,14 @@ export const serializeAws_json1_1DescribeCertificateCommand = async (
     "x-amz-target": "TransferService.DescribeCertificate",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCertificateRequest(input, context));
+  body = JSON.stringify(se_DescribeCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeConnectorCommand = async (
+/**
+ * serializeAws_json1_1DescribeConnectorCommand
+ */
+export const se_DescribeConnectorCommand = async (
   input: DescribeConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -529,11 +592,14 @@ export const serializeAws_json1_1DescribeConnectorCommand = async (
     "x-amz-target": "TransferService.DescribeConnector",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeConnectorRequest(input, context));
+  body = JSON.stringify(se_DescribeConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeExecutionCommand = async (
+/**
+ * serializeAws_json1_1DescribeExecutionCommand
+ */
+export const se_DescribeExecutionCommand = async (
   input: DescribeExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -542,11 +608,14 @@ export const serializeAws_json1_1DescribeExecutionCommand = async (
     "x-amz-target": "TransferService.DescribeExecution",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeExecutionRequest(input, context));
+  body = JSON.stringify(se_DescribeExecutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeHostKeyCommand = async (
+/**
+ * serializeAws_json1_1DescribeHostKeyCommand
+ */
+export const se_DescribeHostKeyCommand = async (
   input: DescribeHostKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -555,11 +624,14 @@ export const serializeAws_json1_1DescribeHostKeyCommand = async (
     "x-amz-target": "TransferService.DescribeHostKey",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeHostKeyRequest(input, context));
+  body = JSON.stringify(se_DescribeHostKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProfileCommand = async (
+/**
+ * serializeAws_json1_1DescribeProfileCommand
+ */
+export const se_DescribeProfileCommand = async (
   input: DescribeProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -568,11 +640,14 @@ export const serializeAws_json1_1DescribeProfileCommand = async (
     "x-amz-target": "TransferService.DescribeProfile",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeProfileRequest(input, context));
+  body = JSON.stringify(se_DescribeProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSecurityPolicyCommand = async (
+/**
+ * serializeAws_json1_1DescribeSecurityPolicyCommand
+ */
+export const se_DescribeSecurityPolicyCommand = async (
   input: DescribeSecurityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -581,11 +656,14 @@ export const serializeAws_json1_1DescribeSecurityPolicyCommand = async (
     "x-amz-target": "TransferService.DescribeSecurityPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSecurityPolicyRequest(input, context));
+  body = JSON.stringify(se_DescribeSecurityPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeServerCommand = async (
+/**
+ * serializeAws_json1_1DescribeServerCommand
+ */
+export const se_DescribeServerCommand = async (
   input: DescribeServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -594,11 +672,14 @@ export const serializeAws_json1_1DescribeServerCommand = async (
     "x-amz-target": "TransferService.DescribeServer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeServerRequest(input, context));
+  body = JSON.stringify(se_DescribeServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUserCommand = async (
+/**
+ * serializeAws_json1_1DescribeUserCommand
+ */
+export const se_DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -607,11 +688,14 @@ export const serializeAws_json1_1DescribeUserCommand = async (
     "x-amz-target": "TransferService.DescribeUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUserRequest(input, context));
+  body = JSON.stringify(se_DescribeUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeWorkflowCommand = async (
+/**
+ * serializeAws_json1_1DescribeWorkflowCommand
+ */
+export const se_DescribeWorkflowCommand = async (
   input: DescribeWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -620,11 +704,14 @@ export const serializeAws_json1_1DescribeWorkflowCommand = async (
     "x-amz-target": "TransferService.DescribeWorkflow",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeWorkflowRequest(input, context));
+  body = JSON.stringify(se_DescribeWorkflowRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ImportCertificateCommand = async (
+/**
+ * serializeAws_json1_1ImportCertificateCommand
+ */
+export const se_ImportCertificateCommand = async (
   input: ImportCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -633,11 +720,14 @@ export const serializeAws_json1_1ImportCertificateCommand = async (
     "x-amz-target": "TransferService.ImportCertificate",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ImportCertificateRequest(input, context));
+  body = JSON.stringify(se_ImportCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ImportHostKeyCommand = async (
+/**
+ * serializeAws_json1_1ImportHostKeyCommand
+ */
+export const se_ImportHostKeyCommand = async (
   input: ImportHostKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -646,11 +736,14 @@ export const serializeAws_json1_1ImportHostKeyCommand = async (
     "x-amz-target": "TransferService.ImportHostKey",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ImportHostKeyRequest(input, context));
+  body = JSON.stringify(se_ImportHostKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ImportSshPublicKeyCommand = async (
+/**
+ * serializeAws_json1_1ImportSshPublicKeyCommand
+ */
+export const se_ImportSshPublicKeyCommand = async (
   input: ImportSshPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -659,11 +752,14 @@ export const serializeAws_json1_1ImportSshPublicKeyCommand = async (
     "x-amz-target": "TransferService.ImportSshPublicKey",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ImportSshPublicKeyRequest(input, context));
+  body = JSON.stringify(se_ImportSshPublicKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAccessesCommand = async (
+/**
+ * serializeAws_json1_1ListAccessesCommand
+ */
+export const se_ListAccessesCommand = async (
   input: ListAccessesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -672,11 +768,14 @@ export const serializeAws_json1_1ListAccessesCommand = async (
     "x-amz-target": "TransferService.ListAccesses",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAccessesRequest(input, context));
+  body = JSON.stringify(se_ListAccessesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAgreementsCommand = async (
+/**
+ * serializeAws_json1_1ListAgreementsCommand
+ */
+export const se_ListAgreementsCommand = async (
   input: ListAgreementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -685,11 +784,14 @@ export const serializeAws_json1_1ListAgreementsCommand = async (
     "x-amz-target": "TransferService.ListAgreements",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAgreementsRequest(input, context));
+  body = JSON.stringify(se_ListAgreementsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListCertificatesCommand = async (
+/**
+ * serializeAws_json1_1ListCertificatesCommand
+ */
+export const se_ListCertificatesCommand = async (
   input: ListCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -698,11 +800,14 @@ export const serializeAws_json1_1ListCertificatesCommand = async (
     "x-amz-target": "TransferService.ListCertificates",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListCertificatesRequest(input, context));
+  body = JSON.stringify(se_ListCertificatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListConnectorsCommand = async (
+/**
+ * serializeAws_json1_1ListConnectorsCommand
+ */
+export const se_ListConnectorsCommand = async (
   input: ListConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -711,11 +816,14 @@ export const serializeAws_json1_1ListConnectorsCommand = async (
     "x-amz-target": "TransferService.ListConnectors",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListConnectorsRequest(input, context));
+  body = JSON.stringify(se_ListConnectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListExecutionsCommand = async (
+/**
+ * serializeAws_json1_1ListExecutionsCommand
+ */
+export const se_ListExecutionsCommand = async (
   input: ListExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -724,11 +832,14 @@ export const serializeAws_json1_1ListExecutionsCommand = async (
     "x-amz-target": "TransferService.ListExecutions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListExecutionsRequest(input, context));
+  body = JSON.stringify(se_ListExecutionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListHostKeysCommand = async (
+/**
+ * serializeAws_json1_1ListHostKeysCommand
+ */
+export const se_ListHostKeysCommand = async (
   input: ListHostKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -737,11 +848,14 @@ export const serializeAws_json1_1ListHostKeysCommand = async (
     "x-amz-target": "TransferService.ListHostKeys",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListHostKeysRequest(input, context));
+  body = JSON.stringify(se_ListHostKeysRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListProfilesCommand = async (
+/**
+ * serializeAws_json1_1ListProfilesCommand
+ */
+export const se_ListProfilesCommand = async (
   input: ListProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -750,11 +864,14 @@ export const serializeAws_json1_1ListProfilesCommand = async (
     "x-amz-target": "TransferService.ListProfiles",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListProfilesRequest(input, context));
+  body = JSON.stringify(se_ListProfilesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSecurityPoliciesCommand = async (
+/**
+ * serializeAws_json1_1ListSecurityPoliciesCommand
+ */
+export const se_ListSecurityPoliciesCommand = async (
   input: ListSecurityPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -763,11 +880,14 @@ export const serializeAws_json1_1ListSecurityPoliciesCommand = async (
     "x-amz-target": "TransferService.ListSecurityPolicies",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSecurityPoliciesRequest(input, context));
+  body = JSON.stringify(se_ListSecurityPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListServersCommand = async (
+/**
+ * serializeAws_json1_1ListServersCommand
+ */
+export const se_ListServersCommand = async (
   input: ListServersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -776,11 +896,14 @@ export const serializeAws_json1_1ListServersCommand = async (
     "x-amz-target": "TransferService.ListServers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListServersRequest(input, context));
+  body = JSON.stringify(se_ListServersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -789,11 +912,14 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "x-amz-target": "TransferService.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListUsersCommand = async (
+/**
+ * serializeAws_json1_1ListUsersCommand
+ */
+export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -802,11 +928,14 @@ export const serializeAws_json1_1ListUsersCommand = async (
     "x-amz-target": "TransferService.ListUsers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
+  body = JSON.stringify(se_ListUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListWorkflowsCommand = async (
+/**
+ * serializeAws_json1_1ListWorkflowsCommand
+ */
+export const se_ListWorkflowsCommand = async (
   input: ListWorkflowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -815,11 +944,14 @@ export const serializeAws_json1_1ListWorkflowsCommand = async (
     "x-amz-target": "TransferService.ListWorkflows",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListWorkflowsRequest(input, context));
+  body = JSON.stringify(se_ListWorkflowsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SendWorkflowStepStateCommand = async (
+/**
+ * serializeAws_json1_1SendWorkflowStepStateCommand
+ */
+export const se_SendWorkflowStepStateCommand = async (
   input: SendWorkflowStepStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -828,11 +960,14 @@ export const serializeAws_json1_1SendWorkflowStepStateCommand = async (
     "x-amz-target": "TransferService.SendWorkflowStepState",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SendWorkflowStepStateRequest(input, context));
+  body = JSON.stringify(se_SendWorkflowStepStateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartFileTransferCommand = async (
+/**
+ * serializeAws_json1_1StartFileTransferCommand
+ */
+export const se_StartFileTransferCommand = async (
   input: StartFileTransferCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -841,11 +976,14 @@ export const serializeAws_json1_1StartFileTransferCommand = async (
     "x-amz-target": "TransferService.StartFileTransfer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartFileTransferRequest(input, context));
+  body = JSON.stringify(se_StartFileTransferRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartServerCommand = async (
+/**
+ * serializeAws_json1_1StartServerCommand
+ */
+export const se_StartServerCommand = async (
   input: StartServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -854,11 +992,14 @@ export const serializeAws_json1_1StartServerCommand = async (
     "x-amz-target": "TransferService.StartServer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartServerRequest(input, context));
+  body = JSON.stringify(se_StartServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopServerCommand = async (
+/**
+ * serializeAws_json1_1StopServerCommand
+ */
+export const se_StopServerCommand = async (
   input: StopServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -867,11 +1008,14 @@ export const serializeAws_json1_1StopServerCommand = async (
     "x-amz-target": "TransferService.StopServer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopServerRequest(input, context));
+  body = JSON.stringify(se_StopServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -880,11 +1024,14 @@ export const serializeAws_json1_1TagResourceCommand = async (
     "x-amz-target": "TransferService.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TestIdentityProviderCommand = async (
+/**
+ * serializeAws_json1_1TestIdentityProviderCommand
+ */
+export const se_TestIdentityProviderCommand = async (
   input: TestIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -893,11 +1040,14 @@ export const serializeAws_json1_1TestIdentityProviderCommand = async (
     "x-amz-target": "TransferService.TestIdentityProvider",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TestIdentityProviderRequest(input, context));
+  body = JSON.stringify(se_TestIdentityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -906,11 +1056,14 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "x-amz-target": "TransferService.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateAccessCommand = async (
+/**
+ * serializeAws_json1_1UpdateAccessCommand
+ */
+export const se_UpdateAccessCommand = async (
   input: UpdateAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -919,11 +1072,14 @@ export const serializeAws_json1_1UpdateAccessCommand = async (
     "x-amz-target": "TransferService.UpdateAccess",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateAccessRequest(input, context));
+  body = JSON.stringify(se_UpdateAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateAgreementCommand = async (
+/**
+ * serializeAws_json1_1UpdateAgreementCommand
+ */
+export const se_UpdateAgreementCommand = async (
   input: UpdateAgreementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -932,11 +1088,14 @@ export const serializeAws_json1_1UpdateAgreementCommand = async (
     "x-amz-target": "TransferService.UpdateAgreement",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateAgreementRequest(input, context));
+  body = JSON.stringify(se_UpdateAgreementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateCertificateCommand = async (
+/**
+ * serializeAws_json1_1UpdateCertificateCommand
+ */
+export const se_UpdateCertificateCommand = async (
   input: UpdateCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -945,11 +1104,14 @@ export const serializeAws_json1_1UpdateCertificateCommand = async (
     "x-amz-target": "TransferService.UpdateCertificate",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateCertificateRequest(input, context));
+  body = JSON.stringify(se_UpdateCertificateRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateConnectorCommand = async (
+/**
+ * serializeAws_json1_1UpdateConnectorCommand
+ */
+export const se_UpdateConnectorCommand = async (
   input: UpdateConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -958,11 +1120,14 @@ export const serializeAws_json1_1UpdateConnectorCommand = async (
     "x-amz-target": "TransferService.UpdateConnector",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateConnectorRequest(input, context));
+  body = JSON.stringify(se_UpdateConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateHostKeyCommand = async (
+/**
+ * serializeAws_json1_1UpdateHostKeyCommand
+ */
+export const se_UpdateHostKeyCommand = async (
   input: UpdateHostKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -971,11 +1136,14 @@ export const serializeAws_json1_1UpdateHostKeyCommand = async (
     "x-amz-target": "TransferService.UpdateHostKey",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateHostKeyRequest(input, context));
+  body = JSON.stringify(se_UpdateHostKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateProfileCommand = async (
+/**
+ * serializeAws_json1_1UpdateProfileCommand
+ */
+export const se_UpdateProfileCommand = async (
   input: UpdateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -984,11 +1152,14 @@ export const serializeAws_json1_1UpdateProfileCommand = async (
     "x-amz-target": "TransferService.UpdateProfile",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateProfileRequest(input, context));
+  body = JSON.stringify(se_UpdateProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateServerCommand = async (
+/**
+ * serializeAws_json1_1UpdateServerCommand
+ */
+export const se_UpdateServerCommand = async (
   input: UpdateServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -997,11 +1168,14 @@ export const serializeAws_json1_1UpdateServerCommand = async (
     "x-amz-target": "TransferService.UpdateServer",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateServerRequest(input, context));
+  body = JSON.stringify(se_UpdateServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateUserCommand = async (
+/**
+ * serializeAws_json1_1UpdateUserCommand
+ */
+export const se_UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1010,20 +1184,23 @@ export const serializeAws_json1_1UpdateUserCommand = async (
     "x-amz-target": "TransferService.UpdateUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateUserRequest(input, context));
+  body = JSON.stringify(se_UpdateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateAccessCommand = async (
+/**
+ * deserializeAws_json1_1CreateAccessCommand
+ */
+export const de_CreateAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateAccessCommandError(output, context);
+    return de_CreateAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAccessResponse(data, context);
+  contents = de_CreateAccessResponse(data, context);
   const response: CreateAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1031,7 +1208,10 @@ export const deserializeAws_json1_1CreateAccessCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateAccessCommandError = async (
+/**
+ * deserializeAws_json1_1CreateAccessCommandError
+ */
+const de_CreateAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessCommandOutput> => {
@@ -1043,19 +1223,19 @@ const deserializeAws_json1_1CreateAccessCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1067,16 +1247,19 @@ const deserializeAws_json1_1CreateAccessCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateAgreementCommand = async (
+/**
+ * deserializeAws_json1_1CreateAgreementCommand
+ */
+export const de_CreateAgreementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAgreementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateAgreementCommandError(output, context);
+    return de_CreateAgreementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAgreementResponse(data, context);
+  contents = de_CreateAgreementResponse(data, context);
   const response: CreateAgreementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1084,7 +1267,10 @@ export const deserializeAws_json1_1CreateAgreementCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateAgreementCommandError = async (
+/**
+ * deserializeAws_json1_1CreateAgreementCommandError
+ */
+const de_CreateAgreementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAgreementCommandOutput> => {
@@ -1096,22 +1282,22 @@ const deserializeAws_json1_1CreateAgreementCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1123,16 +1309,19 @@ const deserializeAws_json1_1CreateAgreementCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateConnectorCommand = async (
+/**
+ * deserializeAws_json1_1CreateConnectorCommand
+ */
+export const de_CreateConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateConnectorCommandError(output, context);
+    return de_CreateConnectorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateConnectorResponse(data, context);
+  contents = de_CreateConnectorResponse(data, context);
   const response: CreateConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1140,7 +1329,10 @@ export const deserializeAws_json1_1CreateConnectorCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateConnectorCommandError = async (
+/**
+ * deserializeAws_json1_1CreateConnectorCommandError
+ */
+const de_CreateConnectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorCommandOutput> => {
@@ -1152,22 +1344,22 @@ const deserializeAws_json1_1CreateConnectorCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1179,16 +1371,19 @@ const deserializeAws_json1_1CreateConnectorCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateProfileCommand = async (
+/**
+ * deserializeAws_json1_1CreateProfileCommand
+ */
+export const de_CreateProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateProfileCommandError(output, context);
+    return de_CreateProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProfileResponse(data, context);
+  contents = de_CreateProfileResponse(data, context);
   const response: CreateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1196,7 +1391,10 @@ export const deserializeAws_json1_1CreateProfileCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateProfileCommandError = async (
+/**
+ * deserializeAws_json1_1CreateProfileCommandError
+ */
+const de_CreateProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProfileCommandOutput> => {
@@ -1208,19 +1406,19 @@ const deserializeAws_json1_1CreateProfileCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1232,16 +1430,19 @@ const deserializeAws_json1_1CreateProfileCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateServerCommand = async (
+/**
+ * deserializeAws_json1_1CreateServerCommand
+ */
+export const de_CreateServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateServerCommandError(output, context);
+    return de_CreateServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateServerResponse(data, context);
+  contents = de_CreateServerResponse(data, context);
   const response: CreateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1249,7 +1450,10 @@ export const deserializeAws_json1_1CreateServerCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateServerCommandError = async (
+/**
+ * deserializeAws_json1_1CreateServerCommandError
+ */
+const de_CreateServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServerCommandOutput> => {
@@ -1261,25 +1465,25 @@ const deserializeAws_json1_1CreateServerCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.transfer#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1291,16 +1495,19 @@ const deserializeAws_json1_1CreateServerCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateUserCommand = async (
+/**
+ * deserializeAws_json1_1CreateUserCommand
+ */
+export const de_CreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUserCommandError(output, context);
+    return de_CreateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserResponse(data, context);
+  contents = de_CreateUserResponse(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1308,7 +1515,10 @@ export const deserializeAws_json1_1CreateUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateUserCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUserCommandError
+ */
+const de_CreateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
@@ -1320,19 +1530,19 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1344,16 +1554,19 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateWorkflowCommand = async (
+/**
+ * deserializeAws_json1_1CreateWorkflowCommand
+ */
+export const de_CreateWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkflowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateWorkflowCommandError(output, context);
+    return de_CreateWorkflowCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWorkflowResponse(data, context);
+  contents = de_CreateWorkflowResponse(data, context);
   const response: CreateWorkflowCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1361,7 +1574,10 @@ export const deserializeAws_json1_1CreateWorkflowCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateWorkflowCommandError = async (
+/**
+ * deserializeAws_json1_1CreateWorkflowCommandError
+ */
+const de_CreateWorkflowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkflowCommandOutput> => {
@@ -1373,22 +1589,22 @@ const deserializeAws_json1_1CreateWorkflowCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.transfer#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1400,12 +1616,15 @@ const deserializeAws_json1_1CreateWorkflowCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteAccessCommand = async (
+/**
+ * deserializeAws_json1_1DeleteAccessCommand
+ */
+export const de_DeleteAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteAccessCommandError(output, context);
+    return de_DeleteAccessCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAccessCommandOutput = {
@@ -1414,7 +1633,10 @@ export const deserializeAws_json1_1DeleteAccessCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteAccessCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteAccessCommandError
+ */
+const de_DeleteAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessCommandOutput> => {
@@ -1426,16 +1648,16 @@ const deserializeAws_json1_1DeleteAccessCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1447,12 +1669,15 @@ const deserializeAws_json1_1DeleteAccessCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteAgreementCommand = async (
+/**
+ * deserializeAws_json1_1DeleteAgreementCommand
+ */
+export const de_DeleteAgreementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAgreementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteAgreementCommandError(output, context);
+    return de_DeleteAgreementCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAgreementCommandOutput = {
@@ -1461,7 +1686,10 @@ export const deserializeAws_json1_1DeleteAgreementCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteAgreementCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteAgreementCommandError
+ */
+const de_DeleteAgreementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAgreementCommandOutput> => {
@@ -1473,16 +1701,16 @@ const deserializeAws_json1_1DeleteAgreementCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1494,12 +1722,15 @@ const deserializeAws_json1_1DeleteAgreementCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteCertificateCommand = async (
+/**
+ * deserializeAws_json1_1DeleteCertificateCommand
+ */
+export const de_DeleteCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteCertificateCommandError(output, context);
+    return de_DeleteCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCertificateCommandOutput = {
@@ -1508,7 +1739,10 @@ export const deserializeAws_json1_1DeleteCertificateCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteCertificateCommandError
+ */
+const de_DeleteCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCertificateCommandOutput> => {
@@ -1520,16 +1754,16 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1541,12 +1775,15 @@ const deserializeAws_json1_1DeleteCertificateCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteConnectorCommand = async (
+/**
+ * deserializeAws_json1_1DeleteConnectorCommand
+ */
+export const de_DeleteConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteConnectorCommandError(output, context);
+    return de_DeleteConnectorCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteConnectorCommandOutput = {
@@ -1555,7 +1792,10 @@ export const deserializeAws_json1_1DeleteConnectorCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteConnectorCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteConnectorCommandError
+ */
+const de_DeleteConnectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectorCommandOutput> => {
@@ -1567,16 +1807,16 @@ const deserializeAws_json1_1DeleteConnectorCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1588,12 +1828,15 @@ const deserializeAws_json1_1DeleteConnectorCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteHostKeyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteHostKeyCommand
+ */
+export const de_DeleteHostKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHostKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteHostKeyCommandError(output, context);
+    return de_DeleteHostKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteHostKeyCommandOutput = {
@@ -1602,7 +1845,10 @@ export const deserializeAws_json1_1DeleteHostKeyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteHostKeyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteHostKeyCommandError
+ */
+const de_DeleteHostKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHostKeyCommandOutput> => {
@@ -1614,19 +1860,19 @@ const deserializeAws_json1_1DeleteHostKeyCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1638,12 +1884,15 @@ const deserializeAws_json1_1DeleteHostKeyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteProfileCommand = async (
+/**
+ * deserializeAws_json1_1DeleteProfileCommand
+ */
+export const de_DeleteProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteProfileCommandError(output, context);
+    return de_DeleteProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteProfileCommandOutput = {
@@ -1652,7 +1901,10 @@ export const deserializeAws_json1_1DeleteProfileCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteProfileCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteProfileCommandError
+ */
+const de_DeleteProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProfileCommandOutput> => {
@@ -1664,16 +1916,16 @@ const deserializeAws_json1_1DeleteProfileCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1685,12 +1937,15 @@ const deserializeAws_json1_1DeleteProfileCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteServerCommand = async (
+/**
+ * deserializeAws_json1_1DeleteServerCommand
+ */
+export const de_DeleteServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteServerCommandError(output, context);
+    return de_DeleteServerCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteServerCommandOutput = {
@@ -1699,7 +1954,10 @@ export const deserializeAws_json1_1DeleteServerCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteServerCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteServerCommandError
+ */
+const de_DeleteServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServerCommandOutput> => {
@@ -1711,19 +1969,19 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.transfer#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1735,12 +1993,15 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteSshPublicKeyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteSshPublicKeyCommand
+ */
+export const de_DeleteSshPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSshPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteSshPublicKeyCommandError(output, context);
+    return de_DeleteSshPublicKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSshPublicKeyCommandOutput = {
@@ -1749,7 +2010,10 @@ export const deserializeAws_json1_1DeleteSshPublicKeyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteSshPublicKeyCommandError
+ */
+const de_DeleteSshPublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSshPublicKeyCommandOutput> => {
@@ -1761,19 +2025,19 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1785,12 +2049,15 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteUserCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUserCommand
+ */
+export const de_DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUserCommandError(output, context);
+    return de_DeleteUserCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserCommandOutput = {
@@ -1799,7 +2066,10 @@ export const deserializeAws_json1_1DeleteUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteUserCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUserCommandError
+ */
+const de_DeleteUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
@@ -1811,16 +2081,16 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1832,12 +2102,15 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteWorkflowCommand = async (
+/**
+ * deserializeAws_json1_1DeleteWorkflowCommand
+ */
+export const de_DeleteWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkflowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteWorkflowCommandError(output, context);
+    return de_DeleteWorkflowCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteWorkflowCommandOutput = {
@@ -1846,7 +2119,10 @@ export const deserializeAws_json1_1DeleteWorkflowCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteWorkflowCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteWorkflowCommandError
+ */
+const de_DeleteWorkflowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkflowCommandOutput> => {
@@ -1858,19 +2134,19 @@ const deserializeAws_json1_1DeleteWorkflowCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.transfer#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1882,16 +2158,19 @@ const deserializeAws_json1_1DeleteWorkflowCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeAccessCommand = async (
+/**
+ * deserializeAws_json1_1DescribeAccessCommand
+ */
+export const de_DescribeAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeAccessCommandError(output, context);
+    return de_DescribeAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAccessResponse(data, context);
+  contents = de_DescribeAccessResponse(data, context);
   const response: DescribeAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1899,7 +2178,10 @@ export const deserializeAws_json1_1DescribeAccessCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeAccessCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeAccessCommandError
+ */
+const de_DescribeAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccessCommandOutput> => {
@@ -1911,16 +2193,16 @@ const deserializeAws_json1_1DescribeAccessCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1932,16 +2214,19 @@ const deserializeAws_json1_1DescribeAccessCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeAgreementCommand = async (
+/**
+ * deserializeAws_json1_1DescribeAgreementCommand
+ */
+export const de_DescribeAgreementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAgreementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeAgreementCommandError(output, context);
+    return de_DescribeAgreementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAgreementResponse(data, context);
+  contents = de_DescribeAgreementResponse(data, context);
   const response: DescribeAgreementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1949,7 +2234,10 @@ export const deserializeAws_json1_1DescribeAgreementCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeAgreementCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeAgreementCommandError
+ */
+const de_DescribeAgreementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAgreementCommandOutput> => {
@@ -1961,16 +2249,16 @@ const deserializeAws_json1_1DescribeAgreementCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1982,16 +2270,19 @@ const deserializeAws_json1_1DescribeAgreementCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeCertificateCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCertificateCommand
+ */
+export const de_DescribeCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCertificateCommandError(output, context);
+    return de_DescribeCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCertificateResponse(data, context);
+  contents = de_DescribeCertificateResponse(data, context);
   const response: DescribeCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1999,7 +2290,10 @@ export const deserializeAws_json1_1DescribeCertificateCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCertificateCommandError
+ */
+const de_DescribeCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateCommandOutput> => {
@@ -2011,16 +2305,16 @@ const deserializeAws_json1_1DescribeCertificateCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2032,16 +2326,19 @@ const deserializeAws_json1_1DescribeCertificateCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeConnectorCommand = async (
+/**
+ * deserializeAws_json1_1DescribeConnectorCommand
+ */
+export const de_DescribeConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeConnectorCommandError(output, context);
+    return de_DescribeConnectorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeConnectorResponse(data, context);
+  contents = de_DescribeConnectorResponse(data, context);
   const response: DescribeConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2049,7 +2346,10 @@ export const deserializeAws_json1_1DescribeConnectorCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeConnectorCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeConnectorCommandError
+ */
+const de_DescribeConnectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConnectorCommandOutput> => {
@@ -2061,16 +2361,16 @@ const deserializeAws_json1_1DescribeConnectorCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2082,16 +2382,19 @@ const deserializeAws_json1_1DescribeConnectorCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeExecutionCommand = async (
+/**
+ * deserializeAws_json1_1DescribeExecutionCommand
+ */
+export const de_DescribeExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeExecutionCommandError(output, context);
+    return de_DescribeExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeExecutionResponse(data, context);
+  contents = de_DescribeExecutionResponse(data, context);
   const response: DescribeExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2099,7 +2402,10 @@ export const deserializeAws_json1_1DescribeExecutionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeExecutionCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeExecutionCommandError
+ */
+const de_DescribeExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExecutionCommandOutput> => {
@@ -2111,16 +2417,16 @@ const deserializeAws_json1_1DescribeExecutionCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2132,16 +2438,19 @@ const deserializeAws_json1_1DescribeExecutionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeHostKeyCommand = async (
+/**
+ * deserializeAws_json1_1DescribeHostKeyCommand
+ */
+export const de_DescribeHostKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHostKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeHostKeyCommandError(output, context);
+    return de_DescribeHostKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeHostKeyResponse(data, context);
+  contents = de_DescribeHostKeyResponse(data, context);
   const response: DescribeHostKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2149,7 +2458,10 @@ export const deserializeAws_json1_1DescribeHostKeyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeHostKeyCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeHostKeyCommandError
+ */
+const de_DescribeHostKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHostKeyCommandOutput> => {
@@ -2161,16 +2473,16 @@ const deserializeAws_json1_1DescribeHostKeyCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2182,16 +2494,19 @@ const deserializeAws_json1_1DescribeHostKeyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeProfileCommand = async (
+/**
+ * deserializeAws_json1_1DescribeProfileCommand
+ */
+export const de_DescribeProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeProfileCommandError(output, context);
+    return de_DescribeProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProfileResponse(data, context);
+  contents = de_DescribeProfileResponse(data, context);
   const response: DescribeProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2199,7 +2514,10 @@ export const deserializeAws_json1_1DescribeProfileCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeProfileCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeProfileCommandError
+ */
+const de_DescribeProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProfileCommandOutput> => {
@@ -2211,16 +2529,16 @@ const deserializeAws_json1_1DescribeProfileCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2232,16 +2550,19 @@ const deserializeAws_json1_1DescribeProfileCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeSecurityPolicyCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSecurityPolicyCommand
+ */
+export const de_DescribeSecurityPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSecurityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSecurityPolicyCommandError(output, context);
+    return de_DescribeSecurityPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSecurityPolicyResponse(data, context);
+  contents = de_DescribeSecurityPolicyResponse(data, context);
   const response: DescribeSecurityPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2249,7 +2570,10 @@ export const deserializeAws_json1_1DescribeSecurityPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeSecurityPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSecurityPolicyCommandError
+ */
+const de_DescribeSecurityPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSecurityPolicyCommandOutput> => {
@@ -2261,16 +2585,16 @@ const deserializeAws_json1_1DescribeSecurityPolicyCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2282,16 +2606,19 @@ const deserializeAws_json1_1DescribeSecurityPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeServerCommand = async (
+/**
+ * deserializeAws_json1_1DescribeServerCommand
+ */
+export const de_DescribeServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeServerCommandError(output, context);
+    return de_DescribeServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeServerResponse(data, context);
+  contents = de_DescribeServerResponse(data, context);
   const response: DescribeServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2299,7 +2626,10 @@ export const deserializeAws_json1_1DescribeServerCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeServerCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeServerCommandError
+ */
+const de_DescribeServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServerCommandOutput> => {
@@ -2311,16 +2641,16 @@ const deserializeAws_json1_1DescribeServerCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2332,16 +2662,19 @@ const deserializeAws_json1_1DescribeServerCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeUserCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUserCommand
+ */
+export const de_DescribeUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUserCommandError(output, context);
+    return de_DescribeUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserResponse(data, context);
+  contents = de_DescribeUserResponse(data, context);
   const response: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2349,7 +2682,10 @@ export const deserializeAws_json1_1DescribeUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeUserCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUserCommandError
+ */
+const de_DescribeUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> => {
@@ -2361,16 +2697,16 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2382,16 +2718,19 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeWorkflowCommand = async (
+/**
+ * deserializeAws_json1_1DescribeWorkflowCommand
+ */
+export const de_DescribeWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkflowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeWorkflowCommandError(output, context);
+    return de_DescribeWorkflowCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeWorkflowResponse(data, context);
+  contents = de_DescribeWorkflowResponse(data, context);
   const response: DescribeWorkflowCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2399,7 +2738,10 @@ export const deserializeAws_json1_1DescribeWorkflowCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeWorkflowCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeWorkflowCommandError
+ */
+const de_DescribeWorkflowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkflowCommandOutput> => {
@@ -2411,16 +2753,16 @@ const deserializeAws_json1_1DescribeWorkflowCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2432,16 +2774,19 @@ const deserializeAws_json1_1DescribeWorkflowCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ImportCertificateCommand = async (
+/**
+ * deserializeAws_json1_1ImportCertificateCommand
+ */
+export const de_ImportCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ImportCertificateCommandError(output, context);
+    return de_ImportCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportCertificateResponse(data, context);
+  contents = de_ImportCertificateResponse(data, context);
   const response: ImportCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2449,7 +2794,10 @@ export const deserializeAws_json1_1ImportCertificateCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ImportCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1ImportCertificateCommandError
+ */
+const de_ImportCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportCertificateCommandOutput> => {
@@ -2461,16 +2809,16 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2482,16 +2830,19 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ImportHostKeyCommand = async (
+/**
+ * deserializeAws_json1_1ImportHostKeyCommand
+ */
+export const de_ImportHostKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportHostKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ImportHostKeyCommandError(output, context);
+    return de_ImportHostKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportHostKeyResponse(data, context);
+  contents = de_ImportHostKeyResponse(data, context);
   const response: ImportHostKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2499,7 +2850,10 @@ export const deserializeAws_json1_1ImportHostKeyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ImportHostKeyCommandError = async (
+/**
+ * deserializeAws_json1_1ImportHostKeyCommandError
+ */
+const de_ImportHostKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportHostKeyCommandOutput> => {
@@ -2511,22 +2865,22 @@ const deserializeAws_json1_1ImportHostKeyCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2538,16 +2892,19 @@ const deserializeAws_json1_1ImportHostKeyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ImportSshPublicKeyCommand = async (
+/**
+ * deserializeAws_json1_1ImportSshPublicKeyCommand
+ */
+export const de_ImportSshPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportSshPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ImportSshPublicKeyCommandError(output, context);
+    return de_ImportSshPublicKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportSshPublicKeyResponse(data, context);
+  contents = de_ImportSshPublicKeyResponse(data, context);
   const response: ImportSshPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2555,7 +2912,10 @@ export const deserializeAws_json1_1ImportSshPublicKeyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
+/**
+ * deserializeAws_json1_1ImportSshPublicKeyCommandError
+ */
+const de_ImportSshPublicKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportSshPublicKeyCommandOutput> => {
@@ -2567,22 +2927,22 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2594,16 +2954,19 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAccessesCommand = async (
+/**
+ * deserializeAws_json1_1ListAccessesCommand
+ */
+export const de_ListAccessesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAccessesCommandError(output, context);
+    return de_ListAccessesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAccessesResponse(data, context);
+  contents = de_ListAccessesResponse(data, context);
   const response: ListAccessesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2611,7 +2974,10 @@ export const deserializeAws_json1_1ListAccessesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAccessesCommandError = async (
+/**
+ * deserializeAws_json1_1ListAccessesCommandError
+ */
+const de_ListAccessesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessesCommandOutput> => {
@@ -2623,19 +2989,19 @@ const deserializeAws_json1_1ListAccessesCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2647,16 +3013,19 @@ const deserializeAws_json1_1ListAccessesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAgreementsCommand = async (
+/**
+ * deserializeAws_json1_1ListAgreementsCommand
+ */
+export const de_ListAgreementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAgreementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAgreementsCommandError(output, context);
+    return de_ListAgreementsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAgreementsResponse(data, context);
+  contents = de_ListAgreementsResponse(data, context);
   const response: ListAgreementsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2664,7 +3033,10 @@ export const deserializeAws_json1_1ListAgreementsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAgreementsCommandError = async (
+/**
+ * deserializeAws_json1_1ListAgreementsCommandError
+ */
+const de_ListAgreementsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAgreementsCommandOutput> => {
@@ -2676,19 +3048,19 @@ const deserializeAws_json1_1ListAgreementsCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2700,16 +3072,19 @@ const deserializeAws_json1_1ListAgreementsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListCertificatesCommand = async (
+/**
+ * deserializeAws_json1_1ListCertificatesCommand
+ */
+export const de_ListCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListCertificatesCommandError(output, context);
+    return de_ListCertificatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCertificatesResponse(data, context);
+  contents = de_ListCertificatesResponse(data, context);
   const response: ListCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2717,7 +3092,10 @@ export const deserializeAws_json1_1ListCertificatesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListCertificatesCommandError = async (
+/**
+ * deserializeAws_json1_1ListCertificatesCommandError
+ */
+const de_ListCertificatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCertificatesCommandOutput> => {
@@ -2729,19 +3107,19 @@ const deserializeAws_json1_1ListCertificatesCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2753,16 +3131,19 @@ const deserializeAws_json1_1ListCertificatesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListConnectorsCommand = async (
+/**
+ * deserializeAws_json1_1ListConnectorsCommand
+ */
+export const de_ListConnectorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListConnectorsCommandError(output, context);
+    return de_ListConnectorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListConnectorsResponse(data, context);
+  contents = de_ListConnectorsResponse(data, context);
   const response: ListConnectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2770,7 +3151,10 @@ export const deserializeAws_json1_1ListConnectorsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListConnectorsCommandError = async (
+/**
+ * deserializeAws_json1_1ListConnectorsCommandError
+ */
+const de_ListConnectorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorsCommandOutput> => {
@@ -2782,19 +3166,19 @@ const deserializeAws_json1_1ListConnectorsCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2806,16 +3190,19 @@ const deserializeAws_json1_1ListConnectorsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListExecutionsCommand = async (
+/**
+ * deserializeAws_json1_1ListExecutionsCommand
+ */
+export const de_ListExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListExecutionsCommandError(output, context);
+    return de_ListExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListExecutionsResponse(data, context);
+  contents = de_ListExecutionsResponse(data, context);
   const response: ListExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2823,7 +3210,10 @@ export const deserializeAws_json1_1ListExecutionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListExecutionsCommandError = async (
+/**
+ * deserializeAws_json1_1ListExecutionsCommandError
+ */
+const de_ListExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExecutionsCommandOutput> => {
@@ -2835,19 +3225,19 @@ const deserializeAws_json1_1ListExecutionsCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2859,16 +3249,19 @@ const deserializeAws_json1_1ListExecutionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListHostKeysCommand = async (
+/**
+ * deserializeAws_json1_1ListHostKeysCommand
+ */
+export const de_ListHostKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHostKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListHostKeysCommandError(output, context);
+    return de_ListHostKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListHostKeysResponse(data, context);
+  contents = de_ListHostKeysResponse(data, context);
   const response: ListHostKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2876,7 +3269,10 @@ export const deserializeAws_json1_1ListHostKeysCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListHostKeysCommandError = async (
+/**
+ * deserializeAws_json1_1ListHostKeysCommandError
+ */
+const de_ListHostKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHostKeysCommandOutput> => {
@@ -2888,19 +3284,19 @@ const deserializeAws_json1_1ListHostKeysCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2912,16 +3308,19 @@ const deserializeAws_json1_1ListHostKeysCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListProfilesCommand = async (
+/**
+ * deserializeAws_json1_1ListProfilesCommand
+ */
+export const de_ListProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProfilesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListProfilesCommandError(output, context);
+    return de_ListProfilesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProfilesResponse(data, context);
+  contents = de_ListProfilesResponse(data, context);
   const response: ListProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2929,7 +3328,10 @@ export const deserializeAws_json1_1ListProfilesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListProfilesCommandError = async (
+/**
+ * deserializeAws_json1_1ListProfilesCommandError
+ */
+const de_ListProfilesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProfilesCommandOutput> => {
@@ -2941,19 +3343,19 @@ const deserializeAws_json1_1ListProfilesCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2965,16 +3367,19 @@ const deserializeAws_json1_1ListProfilesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListSecurityPoliciesCommand = async (
+/**
+ * deserializeAws_json1_1ListSecurityPoliciesCommand
+ */
+export const de_ListSecurityPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSecurityPoliciesCommandError(output, context);
+    return de_ListSecurityPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSecurityPoliciesResponse(data, context);
+  contents = de_ListSecurityPoliciesResponse(data, context);
   const response: ListSecurityPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2982,7 +3387,10 @@ export const deserializeAws_json1_1ListSecurityPoliciesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListSecurityPoliciesCommandError = async (
+/**
+ * deserializeAws_json1_1ListSecurityPoliciesCommandError
+ */
+const de_ListSecurityPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityPoliciesCommandOutput> => {
@@ -2994,16 +3402,16 @@ const deserializeAws_json1_1ListSecurityPoliciesCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3015,16 +3423,19 @@ const deserializeAws_json1_1ListSecurityPoliciesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListServersCommand = async (
+/**
+ * deserializeAws_json1_1ListServersCommand
+ */
+export const de_ListServersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListServersCommandError(output, context);
+    return de_ListServersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListServersResponse(data, context);
+  contents = de_ListServersResponse(data, context);
   const response: ListServersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3032,7 +3443,10 @@ export const deserializeAws_json1_1ListServersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListServersCommandError = async (
+/**
+ * deserializeAws_json1_1ListServersCommandError
+ */
+const de_ListServersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServersCommandOutput> => {
@@ -3044,16 +3458,16 @@ const deserializeAws_json1_1ListServersCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3065,16 +3479,19 @@ const deserializeAws_json1_1ListServersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3082,7 +3499,10 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -3094,16 +3514,16 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3115,16 +3535,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListUsersCommand = async (
+/**
+ * deserializeAws_json1_1ListUsersCommand
+ */
+export const de_ListUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListUsersCommandError(output, context);
+    return de_ListUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUsersResponse(data, context);
+  contents = de_ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3132,7 +3555,10 @@ export const deserializeAws_json1_1ListUsersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListUsersCommandError = async (
+/**
+ * deserializeAws_json1_1ListUsersCommandError
+ */
+const de_ListUsersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
@@ -3144,19 +3570,19 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3168,16 +3594,19 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListWorkflowsCommand = async (
+/**
+ * deserializeAws_json1_1ListWorkflowsCommand
+ */
+export const de_ListWorkflowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkflowsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListWorkflowsCommandError(output, context);
+    return de_ListWorkflowsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListWorkflowsResponse(data, context);
+  contents = de_ListWorkflowsResponse(data, context);
   const response: ListWorkflowsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3185,7 +3614,10 @@ export const deserializeAws_json1_1ListWorkflowsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListWorkflowsCommandError = async (
+/**
+ * deserializeAws_json1_1ListWorkflowsCommandError
+ */
+const de_ListWorkflowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkflowsCommandOutput> => {
@@ -3197,16 +3629,16 @@ const deserializeAws_json1_1ListWorkflowsCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3218,16 +3650,19 @@ const deserializeAws_json1_1ListWorkflowsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SendWorkflowStepStateCommand = async (
+/**
+ * deserializeAws_json1_1SendWorkflowStepStateCommand
+ */
+export const de_SendWorkflowStepStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendWorkflowStepStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SendWorkflowStepStateCommandError(output, context);
+    return de_SendWorkflowStepStateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SendWorkflowStepStateResponse(data, context);
+  contents = de_SendWorkflowStepStateResponse(data, context);
   const response: SendWorkflowStepStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3235,7 +3670,10 @@ export const deserializeAws_json1_1SendWorkflowStepStateCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SendWorkflowStepStateCommandError = async (
+/**
+ * deserializeAws_json1_1SendWorkflowStepStateCommandError
+ */
+const de_SendWorkflowStepStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendWorkflowStepStateCommandOutput> => {
@@ -3247,22 +3685,22 @@ const deserializeAws_json1_1SendWorkflowStepStateCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.transfer#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3274,16 +3712,19 @@ const deserializeAws_json1_1SendWorkflowStepStateCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartFileTransferCommand = async (
+/**
+ * deserializeAws_json1_1StartFileTransferCommand
+ */
+export const de_StartFileTransferCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFileTransferCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartFileTransferCommandError(output, context);
+    return de_StartFileTransferCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartFileTransferResponse(data, context);
+  contents = de_StartFileTransferResponse(data, context);
   const response: StartFileTransferCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3291,7 +3732,10 @@ export const deserializeAws_json1_1StartFileTransferCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartFileTransferCommandError = async (
+/**
+ * deserializeAws_json1_1StartFileTransferCommandError
+ */
+const de_StartFileTransferCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFileTransferCommandOutput> => {
@@ -3303,19 +3747,19 @@ const deserializeAws_json1_1StartFileTransferCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3327,12 +3771,15 @@ const deserializeAws_json1_1StartFileTransferCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartServerCommand = async (
+/**
+ * deserializeAws_json1_1StartServerCommand
+ */
+export const de_StartServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartServerCommandError(output, context);
+    return de_StartServerCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StartServerCommandOutput = {
@@ -3341,7 +3788,10 @@ export const deserializeAws_json1_1StartServerCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartServerCommandError = async (
+/**
+ * deserializeAws_json1_1StartServerCommandError
+ */
+const de_StartServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartServerCommandOutput> => {
@@ -3353,19 +3803,19 @@ const deserializeAws_json1_1StartServerCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3377,12 +3827,15 @@ const deserializeAws_json1_1StartServerCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StopServerCommand = async (
+/**
+ * deserializeAws_json1_1StopServerCommand
+ */
+export const de_StopServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopServerCommandError(output, context);
+    return de_StopServerCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopServerCommandOutput = {
@@ -3391,7 +3844,10 @@ export const deserializeAws_json1_1StopServerCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StopServerCommandError = async (
+/**
+ * deserializeAws_json1_1StopServerCommandError
+ */
+const de_StopServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopServerCommandOutput> => {
@@ -3403,19 +3859,19 @@ const deserializeAws_json1_1StopServerCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3427,12 +3883,15 @@ const deserializeAws_json1_1StopServerCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
@@ -3441,7 +3900,10 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -3453,16 +3915,16 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3474,16 +3936,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TestIdentityProviderCommand = async (
+/**
+ * deserializeAws_json1_1TestIdentityProviderCommand
+ */
+export const de_TestIdentityProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestIdentityProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TestIdentityProviderCommandError(output, context);
+    return de_TestIdentityProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TestIdentityProviderResponse(data, context);
+  contents = de_TestIdentityProviderResponse(data, context);
   const response: TestIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3491,7 +3956,10 @@ export const deserializeAws_json1_1TestIdentityProviderCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TestIdentityProviderCommandError = async (
+/**
+ * deserializeAws_json1_1TestIdentityProviderCommandError
+ */
+const de_TestIdentityProviderCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestIdentityProviderCommandOutput> => {
@@ -3503,16 +3971,16 @@ const deserializeAws_json1_1TestIdentityProviderCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3524,12 +3992,15 @@ const deserializeAws_json1_1TestIdentityProviderCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
@@ -3538,7 +4009,10 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -3550,16 +4024,16 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3571,16 +4045,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateAccessCommand = async (
+/**
+ * deserializeAws_json1_1UpdateAccessCommand
+ */
+export const de_UpdateAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateAccessCommandError(output, context);
+    return de_UpdateAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAccessResponse(data, context);
+  contents = de_UpdateAccessResponse(data, context);
   const response: UpdateAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3588,7 +4065,10 @@ export const deserializeAws_json1_1UpdateAccessCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateAccessCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateAccessCommandError
+ */
+const de_UpdateAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccessCommandOutput> => {
@@ -3600,22 +4080,22 @@ const deserializeAws_json1_1UpdateAccessCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3627,16 +4107,19 @@ const deserializeAws_json1_1UpdateAccessCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateAgreementCommand = async (
+/**
+ * deserializeAws_json1_1UpdateAgreementCommand
+ */
+export const de_UpdateAgreementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAgreementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateAgreementCommandError(output, context);
+    return de_UpdateAgreementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAgreementResponse(data, context);
+  contents = de_UpdateAgreementResponse(data, context);
   const response: UpdateAgreementCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3644,7 +4127,10 @@ export const deserializeAws_json1_1UpdateAgreementCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateAgreementCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateAgreementCommandError
+ */
+const de_UpdateAgreementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAgreementCommandOutput> => {
@@ -3656,22 +4142,22 @@ const deserializeAws_json1_1UpdateAgreementCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3683,16 +4169,19 @@ const deserializeAws_json1_1UpdateAgreementCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateCertificateCommand = async (
+/**
+ * deserializeAws_json1_1UpdateCertificateCommand
+ */
+export const de_UpdateCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateCertificateCommandError(output, context);
+    return de_UpdateCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateCertificateResponse(data, context);
+  contents = de_UpdateCertificateResponse(data, context);
   const response: UpdateCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3700,7 +4189,10 @@ export const deserializeAws_json1_1UpdateCertificateCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateCertificateCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateCertificateCommandError
+ */
+const de_UpdateCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCertificateCommandOutput> => {
@@ -3712,19 +4204,19 @@ const deserializeAws_json1_1UpdateCertificateCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3736,16 +4228,19 @@ const deserializeAws_json1_1UpdateCertificateCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateConnectorCommand = async (
+/**
+ * deserializeAws_json1_1UpdateConnectorCommand
+ */
+export const de_UpdateConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateConnectorCommandError(output, context);
+    return de_UpdateConnectorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateConnectorResponse(data, context);
+  contents = de_UpdateConnectorResponse(data, context);
   const response: UpdateConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3753,7 +4248,10 @@ export const deserializeAws_json1_1UpdateConnectorCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateConnectorCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateConnectorCommandError
+ */
+const de_UpdateConnectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectorCommandOutput> => {
@@ -3765,22 +4263,22 @@ const deserializeAws_json1_1UpdateConnectorCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3792,16 +4290,19 @@ const deserializeAws_json1_1UpdateConnectorCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateHostKeyCommand = async (
+/**
+ * deserializeAws_json1_1UpdateHostKeyCommand
+ */
+export const de_UpdateHostKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHostKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateHostKeyCommandError(output, context);
+    return de_UpdateHostKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateHostKeyResponse(data, context);
+  contents = de_UpdateHostKeyResponse(data, context);
   const response: UpdateHostKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3809,7 +4310,10 @@ export const deserializeAws_json1_1UpdateHostKeyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateHostKeyCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateHostKeyCommandError
+ */
+const de_UpdateHostKeyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHostKeyCommandOutput> => {
@@ -3821,19 +4325,19 @@ const deserializeAws_json1_1UpdateHostKeyCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3845,16 +4349,19 @@ const deserializeAws_json1_1UpdateHostKeyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateProfileCommand = async (
+/**
+ * deserializeAws_json1_1UpdateProfileCommand
+ */
+export const de_UpdateProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateProfileCommandError(output, context);
+    return de_UpdateProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProfileResponse(data, context);
+  contents = de_UpdateProfileResponse(data, context);
   const response: UpdateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3862,7 +4369,10 @@ export const deserializeAws_json1_1UpdateProfileCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateProfileCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateProfileCommandError
+ */
+const de_UpdateProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProfileCommandOutput> => {
@@ -3874,19 +4384,19 @@ const deserializeAws_json1_1UpdateProfileCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3898,16 +4408,19 @@ const deserializeAws_json1_1UpdateProfileCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateServerCommand = async (
+/**
+ * deserializeAws_json1_1UpdateServerCommand
+ */
+export const de_UpdateServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateServerCommandError(output, context);
+    return de_UpdateServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateServerResponse(data, context);
+  contents = de_UpdateServerResponse(data, context);
   const response: UpdateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3915,7 +4428,10 @@ export const deserializeAws_json1_1UpdateServerCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateServerCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateServerCommandError
+ */
+const de_UpdateServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServerCommandOutput> => {
@@ -3927,28 +4443,28 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.transfer#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.transfer#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceExistsException":
     case "com.amazonaws.transfer#ResourceExistsException":
-      throw await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3960,16 +4476,19 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateUserCommand = async (
+/**
+ * deserializeAws_json1_1UpdateUserCommand
+ */
+export const de_UpdateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateUserCommandError(output, context);
+    return de_UpdateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserResponse(data, context);
+  contents = de_UpdateUserResponse(data, context);
   const response: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3977,7 +4496,10 @@ export const deserializeAws_json1_1UpdateUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateUserCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateUserCommandError
+ */
+const de_UpdateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
@@ -3989,19 +4511,19 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
-      throw await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.transfer#InvalidRequestException":
-      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4013,12 +4535,15 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4026,12 +4551,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4039,12 +4564,15 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServiceErrorResponse = async (
+/**
+ * deserializeAws_json1_1InternalServiceErrorRes
+ */
+const de_InternalServiceErrorRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceError(body, context);
+  const deserialized: any = de_InternalServiceError(body, context);
   const exception = new InternalServiceError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4052,12 +4580,15 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidNextTokenExceptionRes
+ */
+const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
+  const deserialized: any = de_InvalidNextTokenException(body, context);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4065,12 +4596,15 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(body, context);
+  const deserialized: any = de_InvalidRequestException(body, context);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4078,12 +4612,15 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceExistsExceptionRes
+ */
+const de_ResourceExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceExistsException(body, context);
+  const deserialized: any = de_ResourceExistsException(body, context);
   const exception = new ResourceExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4091,12 +4628,15 @@ const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4104,12 +4644,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(body, context);
+  const deserialized: any = de_ServiceUnavailableException(body, context);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4117,12 +4660,12 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const deserialized: any = de_ThrottlingException(body, context);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4130,7 +4673,10 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AddressAllocationIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddressAllocationIds
+ */
+const se_AddressAllocationIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4138,7 +4684,10 @@ const serializeAws_json1_1AddressAllocationIds = (input: string[], context: __Se
     });
 };
 
-const serializeAws_json1_1As2ConnectorConfig = (input: As2ConnectorConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1As2ConnectorConfig
+ */
+const se_As2ConnectorConfig = (input: As2ConnectorConfig, context: __SerdeContext): any => {
   return {
     ...(input.Compression != null && { Compression: input.Compression }),
     ...(input.EncryptionAlgorithm != null && { EncryptionAlgorithm: input.EncryptionAlgorithm }),
@@ -4151,7 +4700,10 @@ const serializeAws_json1_1As2ConnectorConfig = (input: As2ConnectorConfig, conte
   };
 };
 
-const serializeAws_json1_1As2Transports = (input: (As2Transport | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1As2Transports
+ */
+const se_As2Transports = (input: (As2Transport | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4159,7 +4711,10 @@ const serializeAws_json1_1As2Transports = (input: (As2Transport | string)[], con
     });
 };
 
-const serializeAws_json1_1CertificateIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CertificateIds
+ */
+const se_CertificateIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4167,10 +4722,13 @@ const serializeAws_json1_1CertificateIds = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_json1_1CopyStepDetails = (input: CopyStepDetails, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CopyStepDetails
+ */
+const se_CopyStepDetails = (input: CopyStepDetails, context: __SerdeContext): any => {
   return {
     ...(input.DestinationFileLocation != null && {
-      DestinationFileLocation: serializeAws_json1_1InputFileLocation(input.DestinationFileLocation, context),
+      DestinationFileLocation: se_InputFileLocation(input.DestinationFileLocation, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OverwriteExisting != null && { OverwriteExisting: input.OverwriteExisting }),
@@ -4178,22 +4736,28 @@ const serializeAws_json1_1CopyStepDetails = (input: CopyStepDetails, context: __
   };
 };
 
-const serializeAws_json1_1CreateAccessRequest = (input: CreateAccessRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateAccessRequest
+ */
+const se_CreateAccessRequest = (input: CreateAccessRequest, context: __SerdeContext): any => {
   return {
     ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
     ...(input.HomeDirectory != null && { HomeDirectory: input.HomeDirectory }),
     ...(input.HomeDirectoryMappings != null && {
-      HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(input.HomeDirectoryMappings, context),
+      HomeDirectoryMappings: se_HomeDirectoryMappings(input.HomeDirectoryMappings, context),
     }),
     ...(input.HomeDirectoryType != null && { HomeDirectoryType: input.HomeDirectoryType }),
     ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.PosixProfile != null && { PosixProfile: serializeAws_json1_1PosixProfile(input.PosixProfile, context) }),
+    ...(input.PosixProfile != null && { PosixProfile: se_PosixProfile(input.PosixProfile, context) }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1CreateAgreementRequest = (input: CreateAgreementRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateAgreementRequest
+ */
+const se_CreateAgreementRequest = (input: CreateAgreementRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessRole != null && { AccessRole: input.AccessRole }),
     ...(input.BaseDirectory != null && { BaseDirectory: input.BaseDirectory }),
@@ -4202,42 +4766,47 @@ const serializeAws_json1_1CreateAgreementRequest = (input: CreateAgreementReques
     ...(input.PartnerProfileId != null && { PartnerProfileId: input.PartnerProfileId }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
     ...(input.Status != null && { Status: input.Status }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateConnectorRequest = (input: CreateConnectorRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateConnectorRequest
+ */
+const se_CreateConnectorRequest = (input: CreateConnectorRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessRole != null && { AccessRole: input.AccessRole }),
-    ...(input.As2Config != null && { As2Config: serializeAws_json1_1As2ConnectorConfig(input.As2Config, context) }),
+    ...(input.As2Config != null && { As2Config: se_As2ConnectorConfig(input.As2Config, context) }),
     ...(input.LoggingRole != null && { LoggingRole: input.LoggingRole }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.Url != null && { Url: input.Url }),
   };
 };
 
-const serializeAws_json1_1CreateProfileRequest = (input: CreateProfileRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateProfileRequest
+ */
+const se_CreateProfileRequest = (input: CreateProfileRequest, context: __SerdeContext): any => {
   return {
     ...(input.As2Id != null && { As2Id: input.As2Id }),
-    ...(input.CertificateIds != null && {
-      CertificateIds: serializeAws_json1_1CertificateIds(input.CertificateIds, context),
-    }),
+    ...(input.CertificateIds != null && { CertificateIds: se_CertificateIds(input.CertificateIds, context) }),
     ...(input.ProfileType != null && { ProfileType: input.ProfileType }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateServerRequest = (input: CreateServerRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateServerRequest
+ */
+const se_CreateServerRequest = (input: CreateServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.Certificate != null && { Certificate: input.Certificate }),
     ...(input.Domain != null && { Domain: input.Domain }),
-    ...(input.EndpointDetails != null && {
-      EndpointDetails: serializeAws_json1_1EndpointDetails(input.EndpointDetails, context),
-    }),
+    ...(input.EndpointDetails != null && { EndpointDetails: se_EndpointDetails(input.EndpointDetails, context) }),
     ...(input.EndpointType != null && { EndpointType: input.EndpointType }),
     ...(input.HostKey != null && { HostKey: input.HostKey }),
     ...(input.IdentityProviderDetails != null && {
-      IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(input.IdentityProviderDetails, context),
+      IdentityProviderDetails: se_IdentityProviderDetails(input.IdentityProviderDetails, context),
     }),
     ...(input.IdentityProviderType != null && { IdentityProviderType: input.IdentityProviderType }),
     ...(input.LoggingRole != null && { LoggingRole: input.LoggingRole }),
@@ -4247,47 +4816,50 @@ const serializeAws_json1_1CreateServerRequest = (input: CreateServerRequest, con
     ...(input.PreAuthenticationLoginBanner != null && {
       PreAuthenticationLoginBanner: input.PreAuthenticationLoginBanner,
     }),
-    ...(input.ProtocolDetails != null && {
-      ProtocolDetails: serializeAws_json1_1ProtocolDetails(input.ProtocolDetails, context),
-    }),
-    ...(input.Protocols != null && { Protocols: serializeAws_json1_1Protocols(input.Protocols, context) }),
+    ...(input.ProtocolDetails != null && { ProtocolDetails: se_ProtocolDetails(input.ProtocolDetails, context) }),
+    ...(input.Protocols != null && { Protocols: se_Protocols(input.Protocols, context) }),
     ...(input.SecurityPolicyName != null && { SecurityPolicyName: input.SecurityPolicyName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.WorkflowDetails != null && {
-      WorkflowDetails: serializeAws_json1_1WorkflowDetails(input.WorkflowDetails, context),
-    }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
+    ...(input.WorkflowDetails != null && { WorkflowDetails: se_WorkflowDetails(input.WorkflowDetails, context) }),
   };
 };
 
-const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateUserRequest
+ */
+const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.HomeDirectory != null && { HomeDirectory: input.HomeDirectory }),
     ...(input.HomeDirectoryMappings != null && {
-      HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(input.HomeDirectoryMappings, context),
+      HomeDirectoryMappings: se_HomeDirectoryMappings(input.HomeDirectoryMappings, context),
     }),
     ...(input.HomeDirectoryType != null && { HomeDirectoryType: input.HomeDirectoryType }),
     ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.PosixProfile != null && { PosixProfile: serializeAws_json1_1PosixProfile(input.PosixProfile, context) }),
+    ...(input.PosixProfile != null && { PosixProfile: se_PosixProfile(input.PosixProfile, context) }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
     ...(input.SshPublicKeyBody != null && { SshPublicKeyBody: input.SshPublicKeyBody }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.UserName != null && { UserName: input.UserName }),
   };
 };
 
-const serializeAws_json1_1CreateWorkflowRequest = (input: CreateWorkflowRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateWorkflowRequest
+ */
+const se_CreateWorkflowRequest = (input: CreateWorkflowRequest, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
-    ...(input.OnExceptionSteps != null && {
-      OnExceptionSteps: serializeAws_json1_1WorkflowSteps(input.OnExceptionSteps, context),
-    }),
-    ...(input.Steps != null && { Steps: serializeAws_json1_1WorkflowSteps(input.Steps, context) }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.OnExceptionSteps != null && { OnExceptionSteps: se_WorkflowSteps(input.OnExceptionSteps, context) }),
+    ...(input.Steps != null && { Steps: se_WorkflowSteps(input.Steps, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CustomStepDetails = (input: CustomStepDetails, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CustomStepDetails
+ */
+const se_CustomStepDetails = (input: CustomStepDetails, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
@@ -4296,10 +4868,13 @@ const serializeAws_json1_1CustomStepDetails = (input: CustomStepDetails, context
   };
 };
 
-const serializeAws_json1_1DecryptStepDetails = (input: DecryptStepDetails, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DecryptStepDetails
+ */
+const se_DecryptStepDetails = (input: DecryptStepDetails, context: __SerdeContext): any => {
   return {
     ...(input.DestinationFileLocation != null && {
-      DestinationFileLocation: serializeAws_json1_1InputFileLocation(input.DestinationFileLocation, context),
+      DestinationFileLocation: se_InputFileLocation(input.DestinationFileLocation, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OverwriteExisting != null && { OverwriteExisting: input.OverwriteExisting }),
@@ -4308,58 +4883,76 @@ const serializeAws_json1_1DecryptStepDetails = (input: DecryptStepDetails, conte
   };
 };
 
-const serializeAws_json1_1DeleteAccessRequest = (input: DeleteAccessRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteAccessRequest
+ */
+const se_DeleteAccessRequest = (input: DeleteAccessRequest, context: __SerdeContext): any => {
   return {
     ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1DeleteAgreementRequest = (input: DeleteAgreementRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteAgreementRequest
+ */
+const se_DeleteAgreementRequest = (input: DeleteAgreementRequest, context: __SerdeContext): any => {
   return {
     ...(input.AgreementId != null && { AgreementId: input.AgreementId }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1DeleteCertificateRequest = (
-  input: DeleteCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteCertificateRequest
+ */
+const se_DeleteCertificateRequest = (input: DeleteCertificateRequest, context: __SerdeContext): any => {
   return {
     ...(input.CertificateId != null && { CertificateId: input.CertificateId }),
   };
 };
 
-const serializeAws_json1_1DeleteConnectorRequest = (input: DeleteConnectorRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteConnectorRequest
+ */
+const se_DeleteConnectorRequest = (input: DeleteConnectorRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConnectorId != null && { ConnectorId: input.ConnectorId }),
   };
 };
 
-const serializeAws_json1_1DeleteHostKeyRequest = (input: DeleteHostKeyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteHostKeyRequest
+ */
+const se_DeleteHostKeyRequest = (input: DeleteHostKeyRequest, context: __SerdeContext): any => {
   return {
     ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1DeleteProfileRequest = (input: DeleteProfileRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteProfileRequest
+ */
+const se_DeleteProfileRequest = (input: DeleteProfileRequest, context: __SerdeContext): any => {
   return {
     ...(input.ProfileId != null && { ProfileId: input.ProfileId }),
   };
 };
 
-const serializeAws_json1_1DeleteServerRequest = (input: DeleteServerRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteServerRequest
+ */
+const se_DeleteServerRequest = (input: DeleteServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1DeleteSshPublicKeyRequest = (
-  input: DeleteSshPublicKeyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteSshPublicKeyRequest
+ */
+const se_DeleteSshPublicKeyRequest = (input: DeleteSshPublicKeyRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId != null && { ServerId: input.ServerId }),
     ...(input.SshPublicKeyId != null && { SshPublicKeyId: input.SshPublicKeyId }),
@@ -4367,134 +4960,168 @@ const serializeAws_json1_1DeleteSshPublicKeyRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteStepDetails = (input: DeleteStepDetails, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteStepDetails
+ */
+const se_DeleteStepDetails = (input: DeleteStepDetails, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
   };
 };
 
-const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteUserRequest
+ */
+const se_DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId != null && { ServerId: input.ServerId }),
     ...(input.UserName != null && { UserName: input.UserName }),
   };
 };
 
-const serializeAws_json1_1DeleteWorkflowRequest = (input: DeleteWorkflowRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteWorkflowRequest
+ */
+const se_DeleteWorkflowRequest = (input: DeleteWorkflowRequest, context: __SerdeContext): any => {
   return {
     ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
   };
 };
 
-const serializeAws_json1_1DescribeAccessRequest = (input: DescribeAccessRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeAccessRequest
+ */
+const se_DescribeAccessRequest = (input: DescribeAccessRequest, context: __SerdeContext): any => {
   return {
     ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1DescribeAgreementRequest = (
-  input: DescribeAgreementRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeAgreementRequest
+ */
+const se_DescribeAgreementRequest = (input: DescribeAgreementRequest, context: __SerdeContext): any => {
   return {
     ...(input.AgreementId != null && { AgreementId: input.AgreementId }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1DescribeCertificateRequest = (
-  input: DescribeCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeCertificateRequest
+ */
+const se_DescribeCertificateRequest = (input: DescribeCertificateRequest, context: __SerdeContext): any => {
   return {
     ...(input.CertificateId != null && { CertificateId: input.CertificateId }),
   };
 };
 
-const serializeAws_json1_1DescribeConnectorRequest = (
-  input: DescribeConnectorRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeConnectorRequest
+ */
+const se_DescribeConnectorRequest = (input: DescribeConnectorRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConnectorId != null && { ConnectorId: input.ConnectorId }),
   };
 };
 
-const serializeAws_json1_1DescribeExecutionRequest = (
-  input: DescribeExecutionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeExecutionRequest
+ */
+const se_DescribeExecutionRequest = (input: DescribeExecutionRequest, context: __SerdeContext): any => {
   return {
     ...(input.ExecutionId != null && { ExecutionId: input.ExecutionId }),
     ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
   };
 };
 
-const serializeAws_json1_1DescribeHostKeyRequest = (input: DescribeHostKeyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeHostKeyRequest
+ */
+const se_DescribeHostKeyRequest = (input: DescribeHostKeyRequest, context: __SerdeContext): any => {
   return {
     ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1DescribeProfileRequest = (input: DescribeProfileRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeProfileRequest
+ */
+const se_DescribeProfileRequest = (input: DescribeProfileRequest, context: __SerdeContext): any => {
   return {
     ...(input.ProfileId != null && { ProfileId: input.ProfileId }),
   };
 };
 
-const serializeAws_json1_1DescribeSecurityPolicyRequest = (
-  input: DescribeSecurityPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeSecurityPolicyRequest
+ */
+const se_DescribeSecurityPolicyRequest = (input: DescribeSecurityPolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecurityPolicyName != null && { SecurityPolicyName: input.SecurityPolicyName }),
   };
 };
 
-const serializeAws_json1_1DescribeServerRequest = (input: DescribeServerRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeServerRequest
+ */
+const se_DescribeServerRequest = (input: DescribeServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeUserRequest
+ */
+const se_DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId != null && { ServerId: input.ServerId }),
     ...(input.UserName != null && { UserName: input.UserName }),
   };
 };
 
-const serializeAws_json1_1DescribeWorkflowRequest = (input: DescribeWorkflowRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeWorkflowRequest
+ */
+const se_DescribeWorkflowRequest = (input: DescribeWorkflowRequest, context: __SerdeContext): any => {
   return {
     ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
   };
 };
 
-const serializeAws_json1_1EfsFileLocation = (input: EfsFileLocation, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EfsFileLocation
+ */
+const se_EfsFileLocation = (input: EfsFileLocation, context: __SerdeContext): any => {
   return {
     ...(input.FileSystemId != null && { FileSystemId: input.FileSystemId }),
     ...(input.Path != null && { Path: input.Path }),
   };
 };
 
-const serializeAws_json1_1EndpointDetails = (input: EndpointDetails, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EndpointDetails
+ */
+const se_EndpointDetails = (input: EndpointDetails, context: __SerdeContext): any => {
   return {
     ...(input.AddressAllocationIds != null && {
-      AddressAllocationIds: serializeAws_json1_1AddressAllocationIds(input.AddressAllocationIds, context),
+      AddressAllocationIds: se_AddressAllocationIds(input.AddressAllocationIds, context),
     }),
-    ...(input.SecurityGroupIds != null && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
-    }),
-    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.SecurityGroupIds != null && { SecurityGroupIds: se_SecurityGroupIds(input.SecurityGroupIds, context) }),
+    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIds(input.SubnetIds, context) }),
     ...(input.VpcEndpointId != null && { VpcEndpointId: input.VpcEndpointId }),
     ...(input.VpcId != null && { VpcId: input.VpcId }),
   };
 };
 
-const serializeAws_json1_1FilePaths = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FilePaths
+ */
+const se_FilePaths = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4502,22 +5129,31 @@ const serializeAws_json1_1FilePaths = (input: string[], context: __SerdeContext)
     });
 };
 
-const serializeAws_json1_1HomeDirectoryMapEntry = (input: HomeDirectoryMapEntry, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1HomeDirectoryMapEntry
+ */
+const se_HomeDirectoryMapEntry = (input: HomeDirectoryMapEntry, context: __SerdeContext): any => {
   return {
     ...(input.Entry != null && { Entry: input.Entry }),
     ...(input.Target != null && { Target: input.Target }),
   };
 };
 
-const serializeAws_json1_1HomeDirectoryMappings = (input: HomeDirectoryMapEntry[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1HomeDirectoryMappings
+ */
+const se_HomeDirectoryMappings = (input: HomeDirectoryMapEntry[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1HomeDirectoryMapEntry(entry, context);
+      return se_HomeDirectoryMapEntry(entry, context);
     });
 };
 
-const serializeAws_json1_1IdentityProviderDetails = (input: IdentityProviderDetails, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1IdentityProviderDetails
+ */
+const se_IdentityProviderDetails = (input: IdentityProviderDetails, context: __SerdeContext): any => {
   return {
     ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
     ...(input.Function != null && { Function: input.Function }),
@@ -4526,10 +5162,10 @@ const serializeAws_json1_1IdentityProviderDetails = (input: IdentityProviderDeta
   };
 };
 
-const serializeAws_json1_1ImportCertificateRequest = (
-  input: ImportCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ImportCertificateRequest
+ */
+const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: __SerdeContext): any => {
   return {
     ...(input.ActiveDate != null && { ActiveDate: Math.round(input.ActiveDate.getTime() / 1000) }),
     ...(input.Certificate != null && { Certificate: input.Certificate }),
@@ -4537,24 +5173,27 @@ const serializeAws_json1_1ImportCertificateRequest = (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.InactiveDate != null && { InactiveDate: Math.round(input.InactiveDate.getTime() / 1000) }),
     ...(input.PrivateKey != null && { PrivateKey: input.PrivateKey }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.Usage != null && { Usage: input.Usage }),
   };
 };
 
-const serializeAws_json1_1ImportHostKeyRequest = (input: ImportHostKeyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ImportHostKeyRequest
+ */
+const se_ImportHostKeyRequest = (input: ImportHostKeyRequest, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.HostKeyBody != null && { HostKeyBody: input.HostKeyBody }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1ImportSshPublicKeyRequest = (
-  input: ImportSshPublicKeyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ImportSshPublicKeyRequest
+ */
+const se_ImportSshPublicKeyRequest = (input: ImportSshPublicKeyRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId != null && { ServerId: input.ServerId }),
     ...(input.SshPublicKeyBody != null && { SshPublicKeyBody: input.SshPublicKeyBody }),
@@ -4562,26 +5201,20 @@ const serializeAws_json1_1ImportSshPublicKeyRequest = (
   };
 };
 
-const serializeAws_json1_1InputFileLocation = (input: InputFileLocation, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InputFileLocation
+ */
+const se_InputFileLocation = (input: InputFileLocation, context: __SerdeContext): any => {
   return {
-    ...(input.EfsFileLocation != null && {
-      EfsFileLocation: serializeAws_json1_1EfsFileLocation(input.EfsFileLocation, context),
-    }),
-    ...(input.S3FileLocation != null && {
-      S3FileLocation: serializeAws_json1_1S3InputFileLocation(input.S3FileLocation, context),
-    }),
+    ...(input.EfsFileLocation != null && { EfsFileLocation: se_EfsFileLocation(input.EfsFileLocation, context) }),
+    ...(input.S3FileLocation != null && { S3FileLocation: se_S3InputFileLocation(input.S3FileLocation, context) }),
   };
 };
 
-const serializeAws_json1_1ListAccessesRequest = (input: ListAccessesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.ServerId != null && { ServerId: input.ServerId }),
-  };
-};
-
-const serializeAws_json1_1ListAgreementsRequest = (input: ListAgreementsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListAccessesRequest
+ */
+const se_ListAccessesRequest = (input: ListAccessesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -4589,21 +5222,41 @@ const serializeAws_json1_1ListAgreementsRequest = (input: ListAgreementsRequest,
   };
 };
 
-const serializeAws_json1_1ListCertificatesRequest = (input: ListCertificatesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListAgreementsRequest
+ */
+const se_ListAgreementsRequest = (input: ListAgreementsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ServerId != null && { ServerId: input.ServerId }),
+  };
+};
+
+/**
+ * serializeAws_json1_1ListCertificatesRequest
+ */
+const se_ListCertificatesRequest = (input: ListCertificatesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListConnectorsRequest = (input: ListConnectorsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListConnectorsRequest
+ */
+const se_ListConnectorsRequest = (input: ListConnectorsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListExecutionsRequest = (input: ListExecutionsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListExecutionsRequest
+ */
+const se_ListExecutionsRequest = (input: ListExecutionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -4611,7 +5264,10 @@ const serializeAws_json1_1ListExecutionsRequest = (input: ListExecutionsRequest,
   };
 };
 
-const serializeAws_json1_1ListHostKeysRequest = (input: ListHostKeysRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListHostKeysRequest
+ */
+const se_ListHostKeysRequest = (input: ListHostKeysRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -4619,7 +5275,10 @@ const serializeAws_json1_1ListHostKeysRequest = (input: ListHostKeysRequest, con
   };
 };
 
-const serializeAws_json1_1ListProfilesRequest = (input: ListProfilesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListProfilesRequest
+ */
+const se_ListProfilesRequest = (input: ListProfilesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -4627,27 +5286,30 @@ const serializeAws_json1_1ListProfilesRequest = (input: ListProfilesRequest, con
   };
 };
 
-const serializeAws_json1_1ListSecurityPoliciesRequest = (
-  input: ListSecurityPoliciesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListSecurityPoliciesRequest
+ */
+const se_ListSecurityPoliciesRequest = (input: ListSecurityPoliciesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListServersRequest = (input: ListServersRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListServersRequest
+ */
+const se_ListServersRequest = (input: ListServersRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Arn != null && { Arn: input.Arn }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -4655,7 +5317,10 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
-const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListUsersRequest
+ */
+const se_ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -4663,51 +5328,65 @@ const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: 
   };
 };
 
-const serializeAws_json1_1ListWorkflowsRequest = (input: ListWorkflowsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListWorkflowsRequest
+ */
+const se_ListWorkflowsRequest = (input: ListWorkflowsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1OnPartialUploadWorkflowDetails = (input: WorkflowDetail[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OnPartialUploadWorkflowDetails
+ */
+const se_OnPartialUploadWorkflowDetails = (input: WorkflowDetail[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1WorkflowDetail(entry, context);
+      return se_WorkflowDetail(entry, context);
     });
 };
 
-const serializeAws_json1_1OnUploadWorkflowDetails = (input: WorkflowDetail[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OnUploadWorkflowDetails
+ */
+const se_OnUploadWorkflowDetails = (input: WorkflowDetail[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1WorkflowDetail(entry, context);
+      return se_WorkflowDetail(entry, context);
     });
 };
 
-const serializeAws_json1_1PosixProfile = (input: PosixProfile, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PosixProfile
+ */
+const se_PosixProfile = (input: PosixProfile, context: __SerdeContext): any => {
   return {
     ...(input.Gid != null && { Gid: input.Gid }),
-    ...(input.SecondaryGids != null && {
-      SecondaryGids: serializeAws_json1_1SecondaryGids(input.SecondaryGids, context),
-    }),
+    ...(input.SecondaryGids != null && { SecondaryGids: se_SecondaryGids(input.SecondaryGids, context) }),
     ...(input.Uid != null && { Uid: input.Uid }),
   };
 };
 
-const serializeAws_json1_1ProtocolDetails = (input: ProtocolDetails, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProtocolDetails
+ */
+const se_ProtocolDetails = (input: ProtocolDetails, context: __SerdeContext): any => {
   return {
-    ...(input.As2Transports != null && {
-      As2Transports: serializeAws_json1_1As2Transports(input.As2Transports, context),
-    }),
+    ...(input.As2Transports != null && { As2Transports: se_As2Transports(input.As2Transports, context) }),
     ...(input.PassiveIp != null && { PassiveIp: input.PassiveIp }),
     ...(input.SetStatOption != null && { SetStatOption: input.SetStatOption }),
     ...(input.TlsSessionResumptionMode != null && { TlsSessionResumptionMode: input.TlsSessionResumptionMode }),
   };
 };
 
-const serializeAws_json1_1Protocols = (input: (Protocol | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Protocols
+ */
+const se_Protocols = (input: (Protocol | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4715,29 +5394,41 @@ const serializeAws_json1_1Protocols = (input: (Protocol | string)[], context: __
     });
 };
 
-const serializeAws_json1_1S3InputFileLocation = (input: S3InputFileLocation, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1S3InputFileLocation
+ */
+const se_S3InputFileLocation = (input: S3InputFileLocation, context: __SerdeContext): any => {
   return {
     ...(input.Bucket != null && { Bucket: input.Bucket }),
     ...(input.Key != null && { Key: input.Key }),
   };
 };
 
-const serializeAws_json1_1S3Tag = (input: S3Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1S3Tag
+ */
+const se_S3Tag = (input: S3Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1S3Tags = (input: S3Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1S3Tags
+ */
+const se_S3Tags = (input: S3Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1S3Tag(entry, context);
+      return se_S3Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1SecondaryGids = (input: number[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SecondaryGids
+ */
+const se_SecondaryGids = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4745,7 +5436,10 @@ const serializeAws_json1_1SecondaryGids = (input: number[], context: __SerdeCont
     });
 };
 
-const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SecurityGroupIds
+ */
+const se_SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4753,10 +5447,10 @@ const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1SendWorkflowStepStateRequest = (
-  input: SendWorkflowStepStateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SendWorkflowStepStateRequest
+ */
+const se_SendWorkflowStepStateRequest = (input: SendWorkflowStepStateRequest, context: __SerdeContext): any => {
   return {
     ...(input.ExecutionId != null && { ExecutionId: input.ExecutionId }),
     ...(input.Status != null && { Status: input.Status }),
@@ -4765,29 +5459,38 @@ const serializeAws_json1_1SendWorkflowStepStateRequest = (
   };
 };
 
-const serializeAws_json1_1StartFileTransferRequest = (
-  input: StartFileTransferRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StartFileTransferRequest
+ */
+const se_StartFileTransferRequest = (input: StartFileTransferRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConnectorId != null && { ConnectorId: input.ConnectorId }),
-    ...(input.SendFilePaths != null && { SendFilePaths: serializeAws_json1_1FilePaths(input.SendFilePaths, context) }),
+    ...(input.SendFilePaths != null && { SendFilePaths: se_FilePaths(input.SendFilePaths, context) }),
   };
 };
 
-const serializeAws_json1_1StartServerRequest = (input: StartServerRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StartServerRequest
+ */
+const se_StartServerRequest = (input: StartServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1StopServerRequest = (input: StopServerRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StopServerRequest
+ */
+const se_StopServerRequest = (input: StopServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SubnetIds
+ */
+const se_SubnetIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4795,14 +5498,20 @@ const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext)
     });
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeys
+ */
+const se_TagKeys = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4810,33 +5519,42 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
     });
 };
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tags
+ */
+const se_Tags = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TagStepDetails = (input: TagStepDetails, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagStepDetails
+ */
+const se_TagStepDetails = (input: TagStepDetails, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1S3Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_S3Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1TestIdentityProviderRequest = (
-  input: TestIdentityProviderRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1TestIdentityProviderRequest
+ */
+const se_TestIdentityProviderRequest = (input: TestIdentityProviderRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId != null && { ServerId: input.ServerId }),
     ...(input.ServerProtocol != null && { ServerProtocol: input.ServerProtocol }),
@@ -4846,29 +5564,38 @@ const serializeAws_json1_1TestIdentityProviderRequest = (
   };
 };
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeys(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateAccessRequest = (input: UpdateAccessRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateAccessRequest
+ */
+const se_UpdateAccessRequest = (input: UpdateAccessRequest, context: __SerdeContext): any => {
   return {
     ...(input.ExternalId != null && { ExternalId: input.ExternalId }),
     ...(input.HomeDirectory != null && { HomeDirectory: input.HomeDirectory }),
     ...(input.HomeDirectoryMappings != null && {
-      HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(input.HomeDirectoryMappings, context),
+      HomeDirectoryMappings: se_HomeDirectoryMappings(input.HomeDirectoryMappings, context),
     }),
     ...(input.HomeDirectoryType != null && { HomeDirectoryType: input.HomeDirectoryType }),
     ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.PosixProfile != null && { PosixProfile: serializeAws_json1_1PosixProfile(input.PosixProfile, context) }),
+    ...(input.PosixProfile != null && { PosixProfile: se_PosixProfile(input.PosixProfile, context) }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
   };
 };
 
-const serializeAws_json1_1UpdateAgreementRequest = (input: UpdateAgreementRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateAgreementRequest
+ */
+const se_UpdateAgreementRequest = (input: UpdateAgreementRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessRole != null && { AccessRole: input.AccessRole }),
     ...(input.AgreementId != null && { AgreementId: input.AgreementId }),
@@ -4881,10 +5608,10 @@ const serializeAws_json1_1UpdateAgreementRequest = (input: UpdateAgreementReques
   };
 };
 
-const serializeAws_json1_1UpdateCertificateRequest = (
-  input: UpdateCertificateRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateCertificateRequest
+ */
+const se_UpdateCertificateRequest = (input: UpdateCertificateRequest, context: __SerdeContext): any => {
   return {
     ...(input.ActiveDate != null && { ActiveDate: Math.round(input.ActiveDate.getTime() / 1000) }),
     ...(input.CertificateId != null && { CertificateId: input.CertificateId }),
@@ -4893,17 +5620,23 @@ const serializeAws_json1_1UpdateCertificateRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateConnectorRequest = (input: UpdateConnectorRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateConnectorRequest
+ */
+const se_UpdateConnectorRequest = (input: UpdateConnectorRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccessRole != null && { AccessRole: input.AccessRole }),
-    ...(input.As2Config != null && { As2Config: serializeAws_json1_1As2ConnectorConfig(input.As2Config, context) }),
+    ...(input.As2Config != null && { As2Config: se_As2ConnectorConfig(input.As2Config, context) }),
     ...(input.ConnectorId != null && { ConnectorId: input.ConnectorId }),
     ...(input.LoggingRole != null && { LoggingRole: input.LoggingRole }),
     ...(input.Url != null && { Url: input.Url }),
   };
 };
 
-const serializeAws_json1_1UpdateHostKeyRequest = (input: UpdateHostKeyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateHostKeyRequest
+ */
+const se_UpdateHostKeyRequest = (input: UpdateHostKeyRequest, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.HostKeyId != null && { HostKeyId: input.HostKeyId }),
@@ -4911,25 +5644,27 @@ const serializeAws_json1_1UpdateHostKeyRequest = (input: UpdateHostKeyRequest, c
   };
 };
 
-const serializeAws_json1_1UpdateProfileRequest = (input: UpdateProfileRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateProfileRequest
+ */
+const se_UpdateProfileRequest = (input: UpdateProfileRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateIds != null && {
-      CertificateIds: serializeAws_json1_1CertificateIds(input.CertificateIds, context),
-    }),
+    ...(input.CertificateIds != null && { CertificateIds: se_CertificateIds(input.CertificateIds, context) }),
     ...(input.ProfileId != null && { ProfileId: input.ProfileId }),
   };
 };
 
-const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateServerRequest
+ */
+const se_UpdateServerRequest = (input: UpdateServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.Certificate != null && { Certificate: input.Certificate }),
-    ...(input.EndpointDetails != null && {
-      EndpointDetails: serializeAws_json1_1EndpointDetails(input.EndpointDetails, context),
-    }),
+    ...(input.EndpointDetails != null && { EndpointDetails: se_EndpointDetails(input.EndpointDetails, context) }),
     ...(input.EndpointType != null && { EndpointType: input.EndpointType }),
     ...(input.HostKey != null && { HostKey: input.HostKey }),
     ...(input.IdentityProviderDetails != null && {
-      IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(input.IdentityProviderDetails, context),
+      IdentityProviderDetails: se_IdentityProviderDetails(input.IdentityProviderDetails, context),
     }),
     ...(input.LoggingRole != null && { LoggingRole: input.LoggingRole }),
     ...(input.PostAuthenticationLoginBanner != null && {
@@ -4938,85 +5673,98 @@ const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, con
     ...(input.PreAuthenticationLoginBanner != null && {
       PreAuthenticationLoginBanner: input.PreAuthenticationLoginBanner,
     }),
-    ...(input.ProtocolDetails != null && {
-      ProtocolDetails: serializeAws_json1_1ProtocolDetails(input.ProtocolDetails, context),
-    }),
-    ...(input.Protocols != null && { Protocols: serializeAws_json1_1Protocols(input.Protocols, context) }),
+    ...(input.ProtocolDetails != null && { ProtocolDetails: se_ProtocolDetails(input.ProtocolDetails, context) }),
+    ...(input.Protocols != null && { Protocols: se_Protocols(input.Protocols, context) }),
     ...(input.SecurityPolicyName != null && { SecurityPolicyName: input.SecurityPolicyName }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
-    ...(input.WorkflowDetails != null && {
-      WorkflowDetails: serializeAws_json1_1WorkflowDetails(input.WorkflowDetails, context),
-    }),
+    ...(input.WorkflowDetails != null && { WorkflowDetails: se_WorkflowDetails(input.WorkflowDetails, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateUserRequest
+ */
+const se_UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.HomeDirectory != null && { HomeDirectory: input.HomeDirectory }),
     ...(input.HomeDirectoryMappings != null && {
-      HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(input.HomeDirectoryMappings, context),
+      HomeDirectoryMappings: se_HomeDirectoryMappings(input.HomeDirectoryMappings, context),
     }),
     ...(input.HomeDirectoryType != null && { HomeDirectoryType: input.HomeDirectoryType }),
     ...(input.Policy != null && { Policy: input.Policy }),
-    ...(input.PosixProfile != null && { PosixProfile: serializeAws_json1_1PosixProfile(input.PosixProfile, context) }),
+    ...(input.PosixProfile != null && { PosixProfile: se_PosixProfile(input.PosixProfile, context) }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.ServerId != null && { ServerId: input.ServerId }),
     ...(input.UserName != null && { UserName: input.UserName }),
   };
 };
 
-const serializeAws_json1_1WorkflowDetail = (input: WorkflowDetail, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1WorkflowDetail
+ */
+const se_WorkflowDetail = (input: WorkflowDetail, context: __SerdeContext): any => {
   return {
     ...(input.ExecutionRole != null && { ExecutionRole: input.ExecutionRole }),
     ...(input.WorkflowId != null && { WorkflowId: input.WorkflowId }),
   };
 };
 
-const serializeAws_json1_1WorkflowDetails = (input: WorkflowDetails, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1WorkflowDetails
+ */
+const se_WorkflowDetails = (input: WorkflowDetails, context: __SerdeContext): any => {
   return {
     ...(input.OnPartialUpload != null && {
-      OnPartialUpload: serializeAws_json1_1OnPartialUploadWorkflowDetails(input.OnPartialUpload, context),
+      OnPartialUpload: se_OnPartialUploadWorkflowDetails(input.OnPartialUpload, context),
     }),
-    ...(input.OnUpload != null && { OnUpload: serializeAws_json1_1OnUploadWorkflowDetails(input.OnUpload, context) }),
+    ...(input.OnUpload != null && { OnUpload: se_OnUploadWorkflowDetails(input.OnUpload, context) }),
   };
 };
 
-const serializeAws_json1_1WorkflowStep = (input: WorkflowStep, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1WorkflowStep
+ */
+const se_WorkflowStep = (input: WorkflowStep, context: __SerdeContext): any => {
   return {
-    ...(input.CopyStepDetails != null && {
-      CopyStepDetails: serializeAws_json1_1CopyStepDetails(input.CopyStepDetails, context),
-    }),
+    ...(input.CopyStepDetails != null && { CopyStepDetails: se_CopyStepDetails(input.CopyStepDetails, context) }),
     ...(input.CustomStepDetails != null && {
-      CustomStepDetails: serializeAws_json1_1CustomStepDetails(input.CustomStepDetails, context),
+      CustomStepDetails: se_CustomStepDetails(input.CustomStepDetails, context),
     }),
     ...(input.DecryptStepDetails != null && {
-      DecryptStepDetails: serializeAws_json1_1DecryptStepDetails(input.DecryptStepDetails, context),
+      DecryptStepDetails: se_DecryptStepDetails(input.DecryptStepDetails, context),
     }),
     ...(input.DeleteStepDetails != null && {
-      DeleteStepDetails: serializeAws_json1_1DeleteStepDetails(input.DeleteStepDetails, context),
+      DeleteStepDetails: se_DeleteStepDetails(input.DeleteStepDetails, context),
     }),
-    ...(input.TagStepDetails != null && {
-      TagStepDetails: serializeAws_json1_1TagStepDetails(input.TagStepDetails, context),
-    }),
+    ...(input.TagStepDetails != null && { TagStepDetails: se_TagStepDetails(input.TagStepDetails, context) }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };
 
-const serializeAws_json1_1WorkflowSteps = (input: WorkflowStep[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1WorkflowSteps
+ */
+const se_WorkflowSteps = (input: WorkflowStep[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1WorkflowStep(entry, context);
+      return se_WorkflowStep(entry, context);
     });
 };
 
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_1AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1AddressAllocationIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1AddressAllocationIds
+ */
+const de_AddressAllocationIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5028,7 +5776,10 @@ const deserializeAws_json1_1AddressAllocationIds = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_json1_1As2ConnectorConfig = (output: any, context: __SerdeContext): As2ConnectorConfig => {
+/**
+ * deserializeAws_json1_1As2ConnectorConfig
+ */
+const de_As2ConnectorConfig = (output: any, context: __SerdeContext): As2ConnectorConfig => {
   return {
     Compression: __expectString(output.Compression),
     EncryptionAlgorithm: __expectString(output.EncryptionAlgorithm),
@@ -5041,7 +5792,10 @@ const deserializeAws_json1_1As2ConnectorConfig = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1As2Transports = (output: any, context: __SerdeContext): (As2Transport | string)[] => {
+/**
+ * deserializeAws_json1_1As2Transports
+ */
+const de_As2Transports = (output: any, context: __SerdeContext): (As2Transport | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5053,7 +5807,10 @@ const deserializeAws_json1_1As2Transports = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_json1_1CertificateIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1CertificateIds
+ */
+const de_CertificateIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5065,17 +5822,23 @@ const deserializeAws_json1_1CertificateIds = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_1ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1CopyStepDetails = (output: any, context: __SerdeContext): CopyStepDetails => {
+/**
+ * deserializeAws_json1_1CopyStepDetails
+ */
+const de_CopyStepDetails = (output: any, context: __SerdeContext): CopyStepDetails => {
   return {
     DestinationFileLocation:
       output.DestinationFileLocation != null
-        ? deserializeAws_json1_1InputFileLocation(output.DestinationFileLocation, context)
+        ? de_InputFileLocation(output.DestinationFileLocation, context)
         : undefined,
     Name: __expectString(output.Name),
     OverwriteExisting: __expectString(output.OverwriteExisting),
@@ -5083,57 +5846,75 @@ const deserializeAws_json1_1CopyStepDetails = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1CreateAccessResponse = (output: any, context: __SerdeContext): CreateAccessResponse => {
+/**
+ * deserializeAws_json1_1CreateAccessResponse
+ */
+const de_CreateAccessResponse = (output: any, context: __SerdeContext): CreateAccessResponse => {
   return {
     ExternalId: __expectString(output.ExternalId),
     ServerId: __expectString(output.ServerId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateAgreementResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateAgreementResponse => {
+/**
+ * deserializeAws_json1_1CreateAgreementResponse
+ */
+const de_CreateAgreementResponse = (output: any, context: __SerdeContext): CreateAgreementResponse => {
   return {
     AgreementId: __expectString(output.AgreementId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateConnectorResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateConnectorResponse => {
+/**
+ * deserializeAws_json1_1CreateConnectorResponse
+ */
+const de_CreateConnectorResponse = (output: any, context: __SerdeContext): CreateConnectorResponse => {
   return {
     ConnectorId: __expectString(output.ConnectorId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateProfileResponse = (output: any, context: __SerdeContext): CreateProfileResponse => {
+/**
+ * deserializeAws_json1_1CreateProfileResponse
+ */
+const de_CreateProfileResponse = (output: any, context: __SerdeContext): CreateProfileResponse => {
   return {
     ProfileId: __expectString(output.ProfileId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateServerResponse = (output: any, context: __SerdeContext): CreateServerResponse => {
+/**
+ * deserializeAws_json1_1CreateServerResponse
+ */
+const de_CreateServerResponse = (output: any, context: __SerdeContext): CreateServerResponse => {
   return {
     ServerId: __expectString(output.ServerId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
+/**
+ * deserializeAws_json1_1CreateUserResponse
+ */
+const de_CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
   return {
     ServerId: __expectString(output.ServerId),
     UserName: __expectString(output.UserName),
   } as any;
 };
 
-const deserializeAws_json1_1CreateWorkflowResponse = (output: any, context: __SerdeContext): CreateWorkflowResponse => {
+/**
+ * deserializeAws_json1_1CreateWorkflowResponse
+ */
+const de_CreateWorkflowResponse = (output: any, context: __SerdeContext): CreateWorkflowResponse => {
   return {
     WorkflowId: __expectString(output.WorkflowId),
   } as any;
 };
 
-const deserializeAws_json1_1CustomStepDetails = (output: any, context: __SerdeContext): CustomStepDetails => {
+/**
+ * deserializeAws_json1_1CustomStepDetails
+ */
+const de_CustomStepDetails = (output: any, context: __SerdeContext): CustomStepDetails => {
   return {
     Name: __expectString(output.Name),
     SourceFileLocation: __expectString(output.SourceFileLocation),
@@ -5142,11 +5923,14 @@ const deserializeAws_json1_1CustomStepDetails = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1DecryptStepDetails = (output: any, context: __SerdeContext): DecryptStepDetails => {
+/**
+ * deserializeAws_json1_1DecryptStepDetails
+ */
+const de_DecryptStepDetails = (output: any, context: __SerdeContext): DecryptStepDetails => {
   return {
     DestinationFileLocation:
       output.DestinationFileLocation != null
-        ? deserializeAws_json1_1InputFileLocation(output.DestinationFileLocation, context)
+        ? de_InputFileLocation(output.DestinationFileLocation, context)
         : undefined,
     Name: __expectString(output.Name),
     OverwriteExisting: __expectString(output.OverwriteExisting),
@@ -5155,67 +5939,75 @@ const deserializeAws_json1_1DecryptStepDetails = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1DeleteStepDetails = (output: any, context: __SerdeContext): DeleteStepDetails => {
+/**
+ * deserializeAws_json1_1DeleteStepDetails
+ */
+const de_DeleteStepDetails = (output: any, context: __SerdeContext): DeleteStepDetails => {
   return {
     Name: __expectString(output.Name),
     SourceFileLocation: __expectString(output.SourceFileLocation),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeAccessResponse = (output: any, context: __SerdeContext): DescribeAccessResponse => {
+/**
+ * deserializeAws_json1_1DescribeAccessResponse
+ */
+const de_DescribeAccessResponse = (output: any, context: __SerdeContext): DescribeAccessResponse => {
   return {
-    Access: output.Access != null ? deserializeAws_json1_1DescribedAccess(output.Access, context) : undefined,
+    Access: output.Access != null ? de_DescribedAccess(output.Access, context) : undefined,
     ServerId: __expectString(output.ServerId),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeAgreementResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeAgreementResponse => {
+/**
+ * deserializeAws_json1_1DescribeAgreementResponse
+ */
+const de_DescribeAgreementResponse = (output: any, context: __SerdeContext): DescribeAgreementResponse => {
   return {
-    Agreement:
-      output.Agreement != null ? deserializeAws_json1_1DescribedAgreement(output.Agreement, context) : undefined,
+    Agreement: output.Agreement != null ? de_DescribedAgreement(output.Agreement, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeCertificateResponse => {
+/**
+ * deserializeAws_json1_1DescribeCertificateResponse
+ */
+const de_DescribeCertificateResponse = (output: any, context: __SerdeContext): DescribeCertificateResponse => {
   return {
-    Certificate:
-      output.Certificate != null ? deserializeAws_json1_1DescribedCertificate(output.Certificate, context) : undefined,
+    Certificate: output.Certificate != null ? de_DescribedCertificate(output.Certificate, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeConnectorResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeConnectorResponse => {
+/**
+ * deserializeAws_json1_1DescribeConnectorResponse
+ */
+const de_DescribeConnectorResponse = (output: any, context: __SerdeContext): DescribeConnectorResponse => {
   return {
-    Connector:
-      output.Connector != null ? deserializeAws_json1_1DescribedConnector(output.Connector, context) : undefined,
+    Connector: output.Connector != null ? de_DescribedConnector(output.Connector, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribedAccess = (output: any, context: __SerdeContext): DescribedAccess => {
+/**
+ * deserializeAws_json1_1DescribedAccess
+ */
+const de_DescribedAccess = (output: any, context: __SerdeContext): DescribedAccess => {
   return {
     ExternalId: __expectString(output.ExternalId),
     HomeDirectory: __expectString(output.HomeDirectory),
     HomeDirectoryMappings:
       output.HomeDirectoryMappings != null
-        ? deserializeAws_json1_1HomeDirectoryMappings(output.HomeDirectoryMappings, context)
+        ? de_HomeDirectoryMappings(output.HomeDirectoryMappings, context)
         : undefined,
     HomeDirectoryType: __expectString(output.HomeDirectoryType),
     Policy: __expectString(output.Policy),
-    PosixProfile:
-      output.PosixProfile != null ? deserializeAws_json1_1PosixProfile(output.PosixProfile, context) : undefined,
+    PosixProfile: output.PosixProfile != null ? de_PosixProfile(output.PosixProfile, context) : undefined,
     Role: __expectString(output.Role),
   } as any;
 };
 
-const deserializeAws_json1_1DescribedAgreement = (output: any, context: __SerdeContext): DescribedAgreement => {
+/**
+ * deserializeAws_json1_1DescribedAgreement
+ */
+const de_DescribedAgreement = (output: any, context: __SerdeContext): DescribedAgreement => {
   return {
     AccessRole: __expectString(output.AccessRole),
     AgreementId: __expectString(output.AgreementId),
@@ -5226,11 +6018,14 @@ const deserializeAws_json1_1DescribedAgreement = (output: any, context: __SerdeC
     PartnerProfileId: __expectString(output.PartnerProfileId),
     ServerId: __expectString(output.ServerId),
     Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribedCertificate = (output: any, context: __SerdeContext): DescribedCertificate => {
+/**
+ * deserializeAws_json1_1DescribedCertificate
+ */
+const de_DescribedCertificate = (output: any, context: __SerdeContext): DescribedCertificate => {
   return {
     ActiveDate:
       output.ActiveDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ActiveDate))) : undefined,
@@ -5253,49 +6048,49 @@ const deserializeAws_json1_1DescribedCertificate = (output: any, context: __Serd
         : undefined,
     Serial: __expectString(output.Serial),
     Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     Type: __expectString(output.Type),
     Usage: __expectString(output.Usage),
   } as any;
 };
 
-const deserializeAws_json1_1DescribedConnector = (output: any, context: __SerdeContext): DescribedConnector => {
+/**
+ * deserializeAws_json1_1DescribedConnector
+ */
+const de_DescribedConnector = (output: any, context: __SerdeContext): DescribedConnector => {
   return {
     AccessRole: __expectString(output.AccessRole),
     Arn: __expectString(output.Arn),
-    As2Config:
-      output.As2Config != null ? deserializeAws_json1_1As2ConnectorConfig(output.As2Config, context) : undefined,
+    As2Config: output.As2Config != null ? de_As2ConnectorConfig(output.As2Config, context) : undefined,
     ConnectorId: __expectString(output.ConnectorId),
     LoggingRole: __expectString(output.LoggingRole),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     Url: __expectString(output.Url),
   } as any;
 };
 
-const deserializeAws_json1_1DescribedExecution = (output: any, context: __SerdeContext): DescribedExecution => {
+/**
+ * deserializeAws_json1_1DescribedExecution
+ */
+const de_DescribedExecution = (output: any, context: __SerdeContext): DescribedExecution => {
   return {
     ExecutionId: __expectString(output.ExecutionId),
     ExecutionRole: __expectString(output.ExecutionRole),
     InitialFileLocation:
-      output.InitialFileLocation != null
-        ? deserializeAws_json1_1FileLocation(output.InitialFileLocation, context)
-        : undefined,
+      output.InitialFileLocation != null ? de_FileLocation(output.InitialFileLocation, context) : undefined,
     LoggingConfiguration:
-      output.LoggingConfiguration != null
-        ? deserializeAws_json1_1LoggingConfiguration(output.LoggingConfiguration, context)
-        : undefined,
-    PosixProfile:
-      output.PosixProfile != null ? deserializeAws_json1_1PosixProfile(output.PosixProfile, context) : undefined,
-    Results: output.Results != null ? deserializeAws_json1_1ExecutionResults(output.Results, context) : undefined,
-    ServiceMetadata:
-      output.ServiceMetadata != null
-        ? deserializeAws_json1_1ServiceMetadata(output.ServiceMetadata, context)
-        : undefined,
+      output.LoggingConfiguration != null ? de_LoggingConfiguration(output.LoggingConfiguration, context) : undefined,
+    PosixProfile: output.PosixProfile != null ? de_PosixProfile(output.PosixProfile, context) : undefined,
+    Results: output.Results != null ? de_ExecutionResults(output.Results, context) : undefined,
+    ServiceMetadata: output.ServiceMetadata != null ? de_ServiceMetadata(output.ServiceMetadata, context) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1DescribedHostKey = (output: any, context: __SerdeContext): DescribedHostKey => {
+/**
+ * deserializeAws_json1_1DescribedHostKey
+ */
+const de_DescribedHostKey = (output: any, context: __SerdeContext): DescribedHostKey => {
   return {
     Arn: __expectString(output.Arn),
     DateImported:
@@ -5305,266 +6100,281 @@ const deserializeAws_json1_1DescribedHostKey = (output: any, context: __SerdeCon
     Description: __expectString(output.Description),
     HostKeyFingerprint: __expectString(output.HostKeyFingerprint),
     HostKeyId: __expectString(output.HostKeyId),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1DescribedProfile = (output: any, context: __SerdeContext): DescribedProfile => {
+/**
+ * deserializeAws_json1_1DescribedProfile
+ */
+const de_DescribedProfile = (output: any, context: __SerdeContext): DescribedProfile => {
   return {
     Arn: __expectString(output.Arn),
     As2Id: __expectString(output.As2Id),
-    CertificateIds:
-      output.CertificateIds != null ? deserializeAws_json1_1CertificateIds(output.CertificateIds, context) : undefined,
+    CertificateIds: output.CertificateIds != null ? de_CertificateIds(output.CertificateIds, context) : undefined,
     ProfileId: __expectString(output.ProfileId),
     ProfileType: __expectString(output.ProfileType),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribedSecurityPolicy = (
-  output: any,
-  context: __SerdeContext
-): DescribedSecurityPolicy => {
+/**
+ * deserializeAws_json1_1DescribedSecurityPolicy
+ */
+const de_DescribedSecurityPolicy = (output: any, context: __SerdeContext): DescribedSecurityPolicy => {
   return {
     Fips: __expectBoolean(output.Fips),
     SecurityPolicyName: __expectString(output.SecurityPolicyName),
-    SshCiphers:
-      output.SshCiphers != null ? deserializeAws_json1_1SecurityPolicyOptions(output.SshCiphers, context) : undefined,
-    SshKexs: output.SshKexs != null ? deserializeAws_json1_1SecurityPolicyOptions(output.SshKexs, context) : undefined,
-    SshMacs: output.SshMacs != null ? deserializeAws_json1_1SecurityPolicyOptions(output.SshMacs, context) : undefined,
-    TlsCiphers:
-      output.TlsCiphers != null ? deserializeAws_json1_1SecurityPolicyOptions(output.TlsCiphers, context) : undefined,
+    SshCiphers: output.SshCiphers != null ? de_SecurityPolicyOptions(output.SshCiphers, context) : undefined,
+    SshKexs: output.SshKexs != null ? de_SecurityPolicyOptions(output.SshKexs, context) : undefined,
+    SshMacs: output.SshMacs != null ? de_SecurityPolicyOptions(output.SshMacs, context) : undefined,
+    TlsCiphers: output.TlsCiphers != null ? de_SecurityPolicyOptions(output.TlsCiphers, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeContext): DescribedServer => {
+/**
+ * deserializeAws_json1_1DescribedServer
+ */
+const de_DescribedServer = (output: any, context: __SerdeContext): DescribedServer => {
   return {
     Arn: __expectString(output.Arn),
     Certificate: __expectString(output.Certificate),
     Domain: __expectString(output.Domain),
-    EndpointDetails:
-      output.EndpointDetails != null
-        ? deserializeAws_json1_1EndpointDetails(output.EndpointDetails, context)
-        : undefined,
+    EndpointDetails: output.EndpointDetails != null ? de_EndpointDetails(output.EndpointDetails, context) : undefined,
     EndpointType: __expectString(output.EndpointType),
     HostKeyFingerprint: __expectString(output.HostKeyFingerprint),
     IdentityProviderDetails:
       output.IdentityProviderDetails != null
-        ? deserializeAws_json1_1IdentityProviderDetails(output.IdentityProviderDetails, context)
+        ? de_IdentityProviderDetails(output.IdentityProviderDetails, context)
         : undefined,
     IdentityProviderType: __expectString(output.IdentityProviderType),
     LoggingRole: __expectString(output.LoggingRole),
     PostAuthenticationLoginBanner: __expectString(output.PostAuthenticationLoginBanner),
     PreAuthenticationLoginBanner: __expectString(output.PreAuthenticationLoginBanner),
-    ProtocolDetails:
-      output.ProtocolDetails != null
-        ? deserializeAws_json1_1ProtocolDetails(output.ProtocolDetails, context)
-        : undefined,
-    Protocols: output.Protocols != null ? deserializeAws_json1_1Protocols(output.Protocols, context) : undefined,
+    ProtocolDetails: output.ProtocolDetails != null ? de_ProtocolDetails(output.ProtocolDetails, context) : undefined,
+    Protocols: output.Protocols != null ? de_Protocols(output.Protocols, context) : undefined,
     SecurityPolicyName: __expectString(output.SecurityPolicyName),
     ServerId: __expectString(output.ServerId),
     State: __expectString(output.State),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     UserCount: __expectInt32(output.UserCount),
-    WorkflowDetails:
-      output.WorkflowDetails != null
-        ? deserializeAws_json1_1WorkflowDetails(output.WorkflowDetails, context)
-        : undefined,
+    WorkflowDetails: output.WorkflowDetails != null ? de_WorkflowDetails(output.WorkflowDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribedUser = (output: any, context: __SerdeContext): DescribedUser => {
+/**
+ * deserializeAws_json1_1DescribedUser
+ */
+const de_DescribedUser = (output: any, context: __SerdeContext): DescribedUser => {
   return {
     Arn: __expectString(output.Arn),
     HomeDirectory: __expectString(output.HomeDirectory),
     HomeDirectoryMappings:
       output.HomeDirectoryMappings != null
-        ? deserializeAws_json1_1HomeDirectoryMappings(output.HomeDirectoryMappings, context)
+        ? de_HomeDirectoryMappings(output.HomeDirectoryMappings, context)
         : undefined,
     HomeDirectoryType: __expectString(output.HomeDirectoryType),
     Policy: __expectString(output.Policy),
-    PosixProfile:
-      output.PosixProfile != null ? deserializeAws_json1_1PosixProfile(output.PosixProfile, context) : undefined,
+    PosixProfile: output.PosixProfile != null ? de_PosixProfile(output.PosixProfile, context) : undefined,
     Role: __expectString(output.Role),
-    SshPublicKeys:
-      output.SshPublicKeys != null ? deserializeAws_json1_1SshPublicKeys(output.SshPublicKeys, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    SshPublicKeys: output.SshPublicKeys != null ? de_SshPublicKeys(output.SshPublicKeys, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     UserName: __expectString(output.UserName),
   } as any;
 };
 
-const deserializeAws_json1_1DescribedWorkflow = (output: any, context: __SerdeContext): DescribedWorkflow => {
+/**
+ * deserializeAws_json1_1DescribedWorkflow
+ */
+const de_DescribedWorkflow = (output: any, context: __SerdeContext): DescribedWorkflow => {
   return {
     Arn: __expectString(output.Arn),
     Description: __expectString(output.Description),
-    OnExceptionSteps:
-      output.OnExceptionSteps != null
-        ? deserializeAws_json1_1WorkflowSteps(output.OnExceptionSteps, context)
-        : undefined,
-    Steps: output.Steps != null ? deserializeAws_json1_1WorkflowSteps(output.Steps, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    OnExceptionSteps: output.OnExceptionSteps != null ? de_WorkflowSteps(output.OnExceptionSteps, context) : undefined,
+    Steps: output.Steps != null ? de_WorkflowSteps(output.Steps, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     WorkflowId: __expectString(output.WorkflowId),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeExecutionResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeExecutionResponse => {
+/**
+ * deserializeAws_json1_1DescribeExecutionResponse
+ */
+const de_DescribeExecutionResponse = (output: any, context: __SerdeContext): DescribeExecutionResponse => {
   return {
-    Execution:
-      output.Execution != null ? deserializeAws_json1_1DescribedExecution(output.Execution, context) : undefined,
+    Execution: output.Execution != null ? de_DescribedExecution(output.Execution, context) : undefined,
     WorkflowId: __expectString(output.WorkflowId),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeHostKeyResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeHostKeyResponse => {
+/**
+ * deserializeAws_json1_1DescribeHostKeyResponse
+ */
+const de_DescribeHostKeyResponse = (output: any, context: __SerdeContext): DescribeHostKeyResponse => {
   return {
-    HostKey: output.HostKey != null ? deserializeAws_json1_1DescribedHostKey(output.HostKey, context) : undefined,
+    HostKey: output.HostKey != null ? de_DescribedHostKey(output.HostKey, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeProfileResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeProfileResponse => {
+/**
+ * deserializeAws_json1_1DescribeProfileResponse
+ */
+const de_DescribeProfileResponse = (output: any, context: __SerdeContext): DescribeProfileResponse => {
   return {
-    Profile: output.Profile != null ? deserializeAws_json1_1DescribedProfile(output.Profile, context) : undefined,
+    Profile: output.Profile != null ? de_DescribedProfile(output.Profile, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeSecurityPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeSecurityPolicyResponse => {
+/**
+ * deserializeAws_json1_1DescribeSecurityPolicyResponse
+ */
+const de_DescribeSecurityPolicyResponse = (output: any, context: __SerdeContext): DescribeSecurityPolicyResponse => {
   return {
     SecurityPolicy:
-      output.SecurityPolicy != null
-        ? deserializeAws_json1_1DescribedSecurityPolicy(output.SecurityPolicy, context)
-        : undefined,
+      output.SecurityPolicy != null ? de_DescribedSecurityPolicy(output.SecurityPolicy, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeServerResponse = (output: any, context: __SerdeContext): DescribeServerResponse => {
+/**
+ * deserializeAws_json1_1DescribeServerResponse
+ */
+const de_DescribeServerResponse = (output: any, context: __SerdeContext): DescribeServerResponse => {
   return {
-    Server: output.Server != null ? deserializeAws_json1_1DescribedServer(output.Server, context) : undefined,
+    Server: output.Server != null ? de_DescribedServer(output.Server, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
+/**
+ * deserializeAws_json1_1DescribeUserResponse
+ */
+const de_DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
   return {
     ServerId: __expectString(output.ServerId),
-    User: output.User != null ? deserializeAws_json1_1DescribedUser(output.User, context) : undefined,
+    User: output.User != null ? de_DescribedUser(output.User, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeWorkflowResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeWorkflowResponse => {
+/**
+ * deserializeAws_json1_1DescribeWorkflowResponse
+ */
+const de_DescribeWorkflowResponse = (output: any, context: __SerdeContext): DescribeWorkflowResponse => {
   return {
-    Workflow: output.Workflow != null ? deserializeAws_json1_1DescribedWorkflow(output.Workflow, context) : undefined,
+    Workflow: output.Workflow != null ? de_DescribedWorkflow(output.Workflow, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EfsFileLocation = (output: any, context: __SerdeContext): EfsFileLocation => {
+/**
+ * deserializeAws_json1_1EfsFileLocation
+ */
+const de_EfsFileLocation = (output: any, context: __SerdeContext): EfsFileLocation => {
   return {
     FileSystemId: __expectString(output.FileSystemId),
     Path: __expectString(output.Path),
   } as any;
 };
 
-const deserializeAws_json1_1EndpointDetails = (output: any, context: __SerdeContext): EndpointDetails => {
+/**
+ * deserializeAws_json1_1EndpointDetails
+ */
+const de_EndpointDetails = (output: any, context: __SerdeContext): EndpointDetails => {
   return {
     AddressAllocationIds:
-      output.AddressAllocationIds != null
-        ? deserializeAws_json1_1AddressAllocationIds(output.AddressAllocationIds, context)
-        : undefined,
+      output.AddressAllocationIds != null ? de_AddressAllocationIds(output.AddressAllocationIds, context) : undefined,
     SecurityGroupIds:
-      output.SecurityGroupIds != null
-        ? deserializeAws_json1_1SecurityGroupIds(output.SecurityGroupIds, context)
-        : undefined,
-    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context) : undefined,
+      output.SecurityGroupIds != null ? de_SecurityGroupIds(output.SecurityGroupIds, context) : undefined,
+    SubnetIds: output.SubnetIds != null ? de_SubnetIds(output.SubnetIds, context) : undefined,
     VpcEndpointId: __expectString(output.VpcEndpointId),
     VpcId: __expectString(output.VpcId),
   } as any;
 };
 
-const deserializeAws_json1_1ExecutionError = (output: any, context: __SerdeContext): ExecutionError => {
+/**
+ * deserializeAws_json1_1ExecutionError
+ */
+const de_ExecutionError = (output: any, context: __SerdeContext): ExecutionError => {
   return {
     Message: __expectString(output.Message),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1ExecutionResults = (output: any, context: __SerdeContext): ExecutionResults => {
+/**
+ * deserializeAws_json1_1ExecutionResults
+ */
+const de_ExecutionResults = (output: any, context: __SerdeContext): ExecutionResults => {
   return {
     OnExceptionSteps:
-      output.OnExceptionSteps != null
-        ? deserializeAws_json1_1ExecutionStepResults(output.OnExceptionSteps, context)
-        : undefined,
-    Steps: output.Steps != null ? deserializeAws_json1_1ExecutionStepResults(output.Steps, context) : undefined,
+      output.OnExceptionSteps != null ? de_ExecutionStepResults(output.OnExceptionSteps, context) : undefined,
+    Steps: output.Steps != null ? de_ExecutionStepResults(output.Steps, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ExecutionStepResult = (output: any, context: __SerdeContext): ExecutionStepResult => {
+/**
+ * deserializeAws_json1_1ExecutionStepResult
+ */
+const de_ExecutionStepResult = (output: any, context: __SerdeContext): ExecutionStepResult => {
   return {
-    Error: output.Error != null ? deserializeAws_json1_1ExecutionError(output.Error, context) : undefined,
+    Error: output.Error != null ? de_ExecutionError(output.Error, context) : undefined,
     Outputs: __expectString(output.Outputs),
     StepType: __expectString(output.StepType),
   } as any;
 };
 
-const deserializeAws_json1_1ExecutionStepResults = (output: any, context: __SerdeContext): ExecutionStepResult[] => {
+/**
+ * deserializeAws_json1_1ExecutionStepResults
+ */
+const de_ExecutionStepResults = (output: any, context: __SerdeContext): ExecutionStepResult[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ExecutionStepResult(entry, context);
+      return de_ExecutionStepResult(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1FileLocation = (output: any, context: __SerdeContext): FileLocation => {
+/**
+ * deserializeAws_json1_1FileLocation
+ */
+const de_FileLocation = (output: any, context: __SerdeContext): FileLocation => {
   return {
-    EfsFileLocation:
-      output.EfsFileLocation != null
-        ? deserializeAws_json1_1EfsFileLocation(output.EfsFileLocation, context)
-        : undefined,
-    S3FileLocation:
-      output.S3FileLocation != null ? deserializeAws_json1_1S3FileLocation(output.S3FileLocation, context) : undefined,
+    EfsFileLocation: output.EfsFileLocation != null ? de_EfsFileLocation(output.EfsFileLocation, context) : undefined,
+    S3FileLocation: output.S3FileLocation != null ? de_S3FileLocation(output.S3FileLocation, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1HomeDirectoryMapEntry = (output: any, context: __SerdeContext): HomeDirectoryMapEntry => {
+/**
+ * deserializeAws_json1_1HomeDirectoryMapEntry
+ */
+const de_HomeDirectoryMapEntry = (output: any, context: __SerdeContext): HomeDirectoryMapEntry => {
   return {
     Entry: __expectString(output.Entry),
     Target: __expectString(output.Target),
   } as any;
 };
 
-const deserializeAws_json1_1HomeDirectoryMappings = (output: any, context: __SerdeContext): HomeDirectoryMapEntry[] => {
+/**
+ * deserializeAws_json1_1HomeDirectoryMappings
+ */
+const de_HomeDirectoryMappings = (output: any, context: __SerdeContext): HomeDirectoryMapEntry[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1HomeDirectoryMapEntry(entry, context);
+      return de_HomeDirectoryMapEntry(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1IdentityProviderDetails = (
-  output: any,
-  context: __SerdeContext
-): IdentityProviderDetails => {
+/**
+ * deserializeAws_json1_1IdentityProviderDetails
+ */
+const de_IdentityProviderDetails = (output: any, context: __SerdeContext): IdentityProviderDetails => {
   return {
     DirectoryId: __expectString(output.DirectoryId),
     Function: __expectString(output.Function),
@@ -5573,26 +6383,29 @@ const deserializeAws_json1_1IdentityProviderDetails = (
   } as any;
 };
 
-const deserializeAws_json1_1ImportCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): ImportCertificateResponse => {
+/**
+ * deserializeAws_json1_1ImportCertificateResponse
+ */
+const de_ImportCertificateResponse = (output: any, context: __SerdeContext): ImportCertificateResponse => {
   return {
     CertificateId: __expectString(output.CertificateId),
   } as any;
 };
 
-const deserializeAws_json1_1ImportHostKeyResponse = (output: any, context: __SerdeContext): ImportHostKeyResponse => {
+/**
+ * deserializeAws_json1_1ImportHostKeyResponse
+ */
+const de_ImportHostKeyResponse = (output: any, context: __SerdeContext): ImportHostKeyResponse => {
   return {
     HostKeyId: __expectString(output.HostKeyId),
     ServerId: __expectString(output.ServerId),
   } as any;
 };
 
-const deserializeAws_json1_1ImportSshPublicKeyResponse = (
-  output: any,
-  context: __SerdeContext
-): ImportSshPublicKeyResponse => {
+/**
+ * deserializeAws_json1_1ImportSshPublicKeyResponse
+ */
+const de_ImportSshPublicKeyResponse = (output: any, context: __SerdeContext): ImportSshPublicKeyResponse => {
   return {
     ServerId: __expectString(output.ServerId),
     SshPublicKeyId: __expectString(output.SshPublicKeyId),
@@ -5600,79 +6413,88 @@ const deserializeAws_json1_1ImportSshPublicKeyResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1InputFileLocation = (output: any, context: __SerdeContext): InputFileLocation => {
+/**
+ * deserializeAws_json1_1InputFileLocation
+ */
+const de_InputFileLocation = (output: any, context: __SerdeContext): InputFileLocation => {
   return {
-    EfsFileLocation:
-      output.EfsFileLocation != null
-        ? deserializeAws_json1_1EfsFileLocation(output.EfsFileLocation, context)
-        : undefined,
-    S3FileLocation:
-      output.S3FileLocation != null
-        ? deserializeAws_json1_1S3InputFileLocation(output.S3FileLocation, context)
-        : undefined,
+    EfsFileLocation: output.EfsFileLocation != null ? de_EfsFileLocation(output.EfsFileLocation, context) : undefined,
+    S3FileLocation: output.S3FileLocation != null ? de_S3InputFileLocation(output.S3FileLocation, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
+/**
+ * deserializeAws_json1_1InternalServiceError
+ */
+const de_InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNextTokenException => {
+/**
+ * deserializeAws_json1_1InvalidNextTokenException
+ */
+const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRequestException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRequestException => {
+/**
+ * deserializeAws_json1_1InvalidRequestException
+ */
+const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ListAccessesResponse = (output: any, context: __SerdeContext): ListAccessesResponse => {
+/**
+ * deserializeAws_json1_1ListAccessesResponse
+ */
+const de_ListAccessesResponse = (output: any, context: __SerdeContext): ListAccessesResponse => {
   return {
-    Accesses: output.Accesses != null ? deserializeAws_json1_1ListedAccesses(output.Accesses, context) : undefined,
+    Accesses: output.Accesses != null ? de_ListedAccesses(output.Accesses, context) : undefined,
     NextToken: __expectString(output.NextToken),
     ServerId: __expectString(output.ServerId),
   } as any;
 };
 
-const deserializeAws_json1_1ListAgreementsResponse = (output: any, context: __SerdeContext): ListAgreementsResponse => {
+/**
+ * deserializeAws_json1_1ListAgreementsResponse
+ */
+const de_ListAgreementsResponse = (output: any, context: __SerdeContext): ListAgreementsResponse => {
   return {
-    Agreements:
-      output.Agreements != null ? deserializeAws_json1_1ListedAgreements(output.Agreements, context) : undefined,
+    Agreements: output.Agreements != null ? de_ListedAgreements(output.Agreements, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListCertificatesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListCertificatesResponse => {
+/**
+ * deserializeAws_json1_1ListCertificatesResponse
+ */
+const de_ListCertificatesResponse = (output: any, context: __SerdeContext): ListCertificatesResponse => {
   return {
-    Certificates:
-      output.Certificates != null ? deserializeAws_json1_1ListedCertificates(output.Certificates, context) : undefined,
+    Certificates: output.Certificates != null ? de_ListedCertificates(output.Certificates, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListConnectorsResponse = (output: any, context: __SerdeContext): ListConnectorsResponse => {
+/**
+ * deserializeAws_json1_1ListConnectorsResponse
+ */
+const de_ListConnectorsResponse = (output: any, context: __SerdeContext): ListConnectorsResponse => {
   return {
-    Connectors:
-      output.Connectors != null ? deserializeAws_json1_1ListedConnectors(output.Connectors, context) : undefined,
+    Connectors: output.Connectors != null ? de_ListedConnectors(output.Connectors, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListedAccess = (output: any, context: __SerdeContext): ListedAccess => {
+/**
+ * deserializeAws_json1_1ListedAccess
+ */
+const de_ListedAccess = (output: any, context: __SerdeContext): ListedAccess => {
   return {
     ExternalId: __expectString(output.ExternalId),
     HomeDirectory: __expectString(output.HomeDirectory),
@@ -5681,19 +6503,25 @@ const deserializeAws_json1_1ListedAccess = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1ListedAccesses = (output: any, context: __SerdeContext): ListedAccess[] => {
+/**
+ * deserializeAws_json1_1ListedAccesses
+ */
+const de_ListedAccesses = (output: any, context: __SerdeContext): ListedAccess[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ListedAccess(entry, context);
+      return de_ListedAccess(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ListedAgreement = (output: any, context: __SerdeContext): ListedAgreement => {
+/**
+ * deserializeAws_json1_1ListedAgreement
+ */
+const de_ListedAgreement = (output: any, context: __SerdeContext): ListedAgreement => {
   return {
     AgreementId: __expectString(output.AgreementId),
     Arn: __expectString(output.Arn),
@@ -5705,19 +6533,25 @@ const deserializeAws_json1_1ListedAgreement = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1ListedAgreements = (output: any, context: __SerdeContext): ListedAgreement[] => {
+/**
+ * deserializeAws_json1_1ListedAgreements
+ */
+const de_ListedAgreements = (output: any, context: __SerdeContext): ListedAgreement[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ListedAgreement(entry, context);
+      return de_ListedAgreement(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ListedCertificate = (output: any, context: __SerdeContext): ListedCertificate => {
+/**
+ * deserializeAws_json1_1ListedCertificate
+ */
+const de_ListedCertificate = (output: any, context: __SerdeContext): ListedCertificate => {
   return {
     ActiveDate:
       output.ActiveDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ActiveDate))) : undefined,
@@ -5734,19 +6568,25 @@ const deserializeAws_json1_1ListedCertificate = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1ListedCertificates = (output: any, context: __SerdeContext): ListedCertificate[] => {
+/**
+ * deserializeAws_json1_1ListedCertificates
+ */
+const de_ListedCertificates = (output: any, context: __SerdeContext): ListedCertificate[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ListedCertificate(entry, context);
+      return de_ListedCertificate(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ListedConnector = (output: any, context: __SerdeContext): ListedConnector => {
+/**
+ * deserializeAws_json1_1ListedConnector
+ */
+const de_ListedConnector = (output: any, context: __SerdeContext): ListedConnector => {
   return {
     Arn: __expectString(output.Arn),
     ConnectorId: __expectString(output.ConnectorId),
@@ -5754,46 +6594,53 @@ const deserializeAws_json1_1ListedConnector = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1ListedConnectors = (output: any, context: __SerdeContext): ListedConnector[] => {
+/**
+ * deserializeAws_json1_1ListedConnectors
+ */
+const de_ListedConnectors = (output: any, context: __SerdeContext): ListedConnector[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ListedConnector(entry, context);
+      return de_ListedConnector(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ListedExecution = (output: any, context: __SerdeContext): ListedExecution => {
+/**
+ * deserializeAws_json1_1ListedExecution
+ */
+const de_ListedExecution = (output: any, context: __SerdeContext): ListedExecution => {
   return {
     ExecutionId: __expectString(output.ExecutionId),
     InitialFileLocation:
-      output.InitialFileLocation != null
-        ? deserializeAws_json1_1FileLocation(output.InitialFileLocation, context)
-        : undefined,
-    ServiceMetadata:
-      output.ServiceMetadata != null
-        ? deserializeAws_json1_1ServiceMetadata(output.ServiceMetadata, context)
-        : undefined,
+      output.InitialFileLocation != null ? de_FileLocation(output.InitialFileLocation, context) : undefined,
+    ServiceMetadata: output.ServiceMetadata != null ? de_ServiceMetadata(output.ServiceMetadata, context) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1ListedExecutions = (output: any, context: __SerdeContext): ListedExecution[] => {
+/**
+ * deserializeAws_json1_1ListedExecutions
+ */
+const de_ListedExecutions = (output: any, context: __SerdeContext): ListedExecution[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ListedExecution(entry, context);
+      return de_ListedExecution(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ListedHostKey = (output: any, context: __SerdeContext): ListedHostKey => {
+/**
+ * deserializeAws_json1_1ListedHostKey
+ */
+const de_ListedHostKey = (output: any, context: __SerdeContext): ListedHostKey => {
   return {
     Arn: __expectString(output.Arn),
     DateImported:
@@ -5807,19 +6654,25 @@ const deserializeAws_json1_1ListedHostKey = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1ListedHostKeys = (output: any, context: __SerdeContext): ListedHostKey[] => {
+/**
+ * deserializeAws_json1_1ListedHostKeys
+ */
+const de_ListedHostKeys = (output: any, context: __SerdeContext): ListedHostKey[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ListedHostKey(entry, context);
+      return de_ListedHostKey(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ListedProfile = (output: any, context: __SerdeContext): ListedProfile => {
+/**
+ * deserializeAws_json1_1ListedProfile
+ */
+const de_ListedProfile = (output: any, context: __SerdeContext): ListedProfile => {
   return {
     Arn: __expectString(output.Arn),
     As2Id: __expectString(output.As2Id),
@@ -5828,19 +6681,25 @@ const deserializeAws_json1_1ListedProfile = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1ListedProfiles = (output: any, context: __SerdeContext): ListedProfile[] => {
+/**
+ * deserializeAws_json1_1ListedProfiles
+ */
+const de_ListedProfiles = (output: any, context: __SerdeContext): ListedProfile[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ListedProfile(entry, context);
+      return de_ListedProfile(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ListedServer = (output: any, context: __SerdeContext): ListedServer => {
+/**
+ * deserializeAws_json1_1ListedServer
+ */
+const de_ListedServer = (output: any, context: __SerdeContext): ListedServer => {
   return {
     Arn: __expectString(output.Arn),
     Domain: __expectString(output.Domain),
@@ -5853,19 +6712,25 @@ const deserializeAws_json1_1ListedServer = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1ListedServers = (output: any, context: __SerdeContext): ListedServer[] => {
+/**
+ * deserializeAws_json1_1ListedServers
+ */
+const de_ListedServers = (output: any, context: __SerdeContext): ListedServer[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ListedServer(entry, context);
+      return de_ListedServer(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ListedUser = (output: any, context: __SerdeContext): ListedUser => {
+/**
+ * deserializeAws_json1_1ListedUser
+ */
+const de_ListedUser = (output: any, context: __SerdeContext): ListedUser => {
   return {
     Arn: __expectString(output.Arn),
     HomeDirectory: __expectString(output.HomeDirectory),
@@ -5876,19 +6741,25 @@ const deserializeAws_json1_1ListedUser = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_json1_1ListedUsers = (output: any, context: __SerdeContext): ListedUser[] => {
+/**
+ * deserializeAws_json1_1ListedUsers
+ */
+const de_ListedUsers = (output: any, context: __SerdeContext): ListedUser[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ListedUser(entry, context);
+      return de_ListedUser(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ListedWorkflow = (output: any, context: __SerdeContext): ListedWorkflow => {
+/**
+ * deserializeAws_json1_1ListedWorkflow
+ */
+const de_ListedWorkflow = (output: any, context: __SerdeContext): ListedWorkflow => {
   return {
     Arn: __expectString(output.Arn),
     Description: __expectString(output.Description),
@@ -5896,142 +6767,173 @@ const deserializeAws_json1_1ListedWorkflow = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1ListedWorkflows = (output: any, context: __SerdeContext): ListedWorkflow[] => {
+/**
+ * deserializeAws_json1_1ListedWorkflows
+ */
+const de_ListedWorkflows = (output: any, context: __SerdeContext): ListedWorkflow[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ListedWorkflow(entry, context);
+      return de_ListedWorkflow(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ListExecutionsResponse = (output: any, context: __SerdeContext): ListExecutionsResponse => {
+/**
+ * deserializeAws_json1_1ListExecutionsResponse
+ */
+const de_ListExecutionsResponse = (output: any, context: __SerdeContext): ListExecutionsResponse => {
   return {
-    Executions:
-      output.Executions != null ? deserializeAws_json1_1ListedExecutions(output.Executions, context) : undefined,
+    Executions: output.Executions != null ? de_ListedExecutions(output.Executions, context) : undefined,
     NextToken: __expectString(output.NextToken),
     WorkflowId: __expectString(output.WorkflowId),
   } as any;
 };
 
-const deserializeAws_json1_1ListHostKeysResponse = (output: any, context: __SerdeContext): ListHostKeysResponse => {
+/**
+ * deserializeAws_json1_1ListHostKeysResponse
+ */
+const de_ListHostKeysResponse = (output: any, context: __SerdeContext): ListHostKeysResponse => {
   return {
-    HostKeys: output.HostKeys != null ? deserializeAws_json1_1ListedHostKeys(output.HostKeys, context) : undefined,
+    HostKeys: output.HostKeys != null ? de_ListedHostKeys(output.HostKeys, context) : undefined,
     NextToken: __expectString(output.NextToken),
     ServerId: __expectString(output.ServerId),
   } as any;
 };
 
-const deserializeAws_json1_1ListProfilesResponse = (output: any, context: __SerdeContext): ListProfilesResponse => {
+/**
+ * deserializeAws_json1_1ListProfilesResponse
+ */
+const de_ListProfilesResponse = (output: any, context: __SerdeContext): ListProfilesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Profiles: output.Profiles != null ? deserializeAws_json1_1ListedProfiles(output.Profiles, context) : undefined,
+    Profiles: output.Profiles != null ? de_ListedProfiles(output.Profiles, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListSecurityPoliciesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSecurityPoliciesResponse => {
+/**
+ * deserializeAws_json1_1ListSecurityPoliciesResponse
+ */
+const de_ListSecurityPoliciesResponse = (output: any, context: __SerdeContext): ListSecurityPoliciesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     SecurityPolicyNames:
-      output.SecurityPolicyNames != null
-        ? deserializeAws_json1_1SecurityPolicyNames(output.SecurityPolicyNames, context)
-        : undefined,
+      output.SecurityPolicyNames != null ? de_SecurityPolicyNames(output.SecurityPolicyNames, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListServersResponse = (output: any, context: __SerdeContext): ListServersResponse => {
+/**
+ * deserializeAws_json1_1ListServersResponse
+ */
+const de_ListServersResponse = (output: any, context: __SerdeContext): ListServersResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Servers: output.Servers != null ? deserializeAws_json1_1ListedServers(output.Servers, context) : undefined,
+    Servers: output.Servers != null ? de_ListedServers(output.Servers, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_1ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
     Arn: __expectString(output.Arn),
     NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
+/**
+ * deserializeAws_json1_1ListUsersResponse
+ */
+const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     ServerId: __expectString(output.ServerId),
-    Users: output.Users != null ? deserializeAws_json1_1ListedUsers(output.Users, context) : undefined,
+    Users: output.Users != null ? de_ListedUsers(output.Users, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListWorkflowsResponse = (output: any, context: __SerdeContext): ListWorkflowsResponse => {
+/**
+ * deserializeAws_json1_1ListWorkflowsResponse
+ */
+const de_ListWorkflowsResponse = (output: any, context: __SerdeContext): ListWorkflowsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Workflows: output.Workflows != null ? deserializeAws_json1_1ListedWorkflows(output.Workflows, context) : undefined,
+    Workflows: output.Workflows != null ? de_ListedWorkflows(output.Workflows, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
+/**
+ * deserializeAws_json1_1LoggingConfiguration
+ */
+const de_LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
   return {
     LogGroupName: __expectString(output.LogGroupName),
     LoggingRole: __expectString(output.LoggingRole),
   } as any;
 };
 
-const deserializeAws_json1_1OnPartialUploadWorkflowDetails = (
-  output: any,
-  context: __SerdeContext
-): WorkflowDetail[] => {
+/**
+ * deserializeAws_json1_1OnPartialUploadWorkflowDetails
+ */
+const de_OnPartialUploadWorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1WorkflowDetail(entry, context);
+      return de_WorkflowDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1OnUploadWorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetail[] => {
+/**
+ * deserializeAws_json1_1OnUploadWorkflowDetails
+ */
+const de_OnUploadWorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1WorkflowDetail(entry, context);
+      return de_WorkflowDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PosixProfile = (output: any, context: __SerdeContext): PosixProfile => {
+/**
+ * deserializeAws_json1_1PosixProfile
+ */
+const de_PosixProfile = (output: any, context: __SerdeContext): PosixProfile => {
   return {
     Gid: __expectLong(output.Gid),
-    SecondaryGids:
-      output.SecondaryGids != null ? deserializeAws_json1_1SecondaryGids(output.SecondaryGids, context) : undefined,
+    SecondaryGids: output.SecondaryGids != null ? de_SecondaryGids(output.SecondaryGids, context) : undefined,
     Uid: __expectLong(output.Uid),
   } as any;
 };
 
-const deserializeAws_json1_1ProtocolDetails = (output: any, context: __SerdeContext): ProtocolDetails => {
+/**
+ * deserializeAws_json1_1ProtocolDetails
+ */
+const de_ProtocolDetails = (output: any, context: __SerdeContext): ProtocolDetails => {
   return {
-    As2Transports:
-      output.As2Transports != null ? deserializeAws_json1_1As2Transports(output.As2Transports, context) : undefined,
+    As2Transports: output.As2Transports != null ? de_As2Transports(output.As2Transports, context) : undefined,
     PassiveIp: __expectString(output.PassiveIp),
     SetStatOption: __expectString(output.SetStatOption),
     TlsSessionResumptionMode: __expectString(output.TlsSessionResumptionMode),
   } as any;
 };
 
-const deserializeAws_json1_1Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
+/**
+ * deserializeAws_json1_1Protocols
+ */
+const de_Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6043,10 +6945,10 @@ const deserializeAws_json1_1Protocols = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceExistsException = (
-  output: any,
-  context: __SerdeContext
-): ResourceExistsException => {
+/**
+ * deserializeAws_json1_1ResourceExistsException
+ */
+const de_ResourceExistsException = (output: any, context: __SerdeContext): ResourceExistsException => {
   return {
     Message: __expectString(output.Message),
     Resource: __expectString(output.Resource),
@@ -6054,10 +6956,10 @@ const deserializeAws_json1_1ResourceExistsException = (
   } as any;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
     Resource: __expectString(output.Resource),
@@ -6065,7 +6967,10 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_1S3FileLocation = (output: any, context: __SerdeContext): S3FileLocation => {
+/**
+ * deserializeAws_json1_1S3FileLocation
+ */
+const de_S3FileLocation = (output: any, context: __SerdeContext): S3FileLocation => {
   return {
     Bucket: __expectString(output.Bucket),
     Etag: __expectString(output.Etag),
@@ -6074,33 +6979,45 @@ const deserializeAws_json1_1S3FileLocation = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1S3InputFileLocation = (output: any, context: __SerdeContext): S3InputFileLocation => {
+/**
+ * deserializeAws_json1_1S3InputFileLocation
+ */
+const de_S3InputFileLocation = (output: any, context: __SerdeContext): S3InputFileLocation => {
   return {
     Bucket: __expectString(output.Bucket),
     Key: __expectString(output.Key),
   } as any;
 };
 
-const deserializeAws_json1_1S3Tag = (output: any, context: __SerdeContext): S3Tag => {
+/**
+ * deserializeAws_json1_1S3Tag
+ */
+const de_S3Tag = (output: any, context: __SerdeContext): S3Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1S3Tags = (output: any, context: __SerdeContext): S3Tag[] => {
+/**
+ * deserializeAws_json1_1S3Tags
+ */
+const de_S3Tags = (output: any, context: __SerdeContext): S3Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1S3Tag(entry, context);
+      return de_S3Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SecondaryGids = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_json1_1SecondaryGids
+ */
+const de_SecondaryGids = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6112,7 +7029,10 @@ const deserializeAws_json1_1SecondaryGids = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SecurityGroupIds
+ */
+const de_SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6124,7 +7044,10 @@ const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1SecurityPolicyNames = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SecurityPolicyNames
+ */
+const de_SecurityPolicyNames = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6136,7 +7059,10 @@ const deserializeAws_json1_1SecurityPolicyNames = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_json1_1SecurityPolicyOptions = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SecurityPolicyOptions
+ */
+const de_SecurityPolicyOptions = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6148,30 +7074,35 @@ const deserializeAws_json1_1SecurityPolicyOptions = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_json1_1SendWorkflowStepStateResponse = (
-  output: any,
-  context: __SerdeContext
-): SendWorkflowStepStateResponse => {
+/**
+ * deserializeAws_json1_1SendWorkflowStepStateResponse
+ */
+const de_SendWorkflowStepStateResponse = (output: any, context: __SerdeContext): SendWorkflowStepStateResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1ServiceMetadata = (output: any, context: __SerdeContext): ServiceMetadata => {
+/**
+ * deserializeAws_json1_1ServiceMetadata
+ */
+const de_ServiceMetadata = (output: any, context: __SerdeContext): ServiceMetadata => {
   return {
-    UserDetails:
-      output.UserDetails != null ? deserializeAws_json1_1UserDetails(output.UserDetails, context) : undefined,
+    UserDetails: output.UserDetails != null ? de_UserDetails(output.UserDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ServiceUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): ServiceUnavailableException => {
+/**
+ * deserializeAws_json1_1ServiceUnavailableException
+ */
+const de_ServiceUnavailableException = (output: any, context: __SerdeContext): ServiceUnavailableException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1SshPublicKey = (output: any, context: __SerdeContext): SshPublicKey => {
+/**
+ * deserializeAws_json1_1SshPublicKey
+ */
+const de_SshPublicKey = (output: any, context: __SerdeContext): SshPublicKey => {
   return {
     DateImported:
       output.DateImported != null
@@ -6182,28 +7113,34 @@ const deserializeAws_json1_1SshPublicKey = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1SshPublicKeys = (output: any, context: __SerdeContext): SshPublicKey[] => {
+/**
+ * deserializeAws_json1_1SshPublicKeys
+ */
+const de_SshPublicKeys = (output: any, context: __SerdeContext): SshPublicKey[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1SshPublicKey(entry, context);
+      return de_SshPublicKey(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1StartFileTransferResponse = (
-  output: any,
-  context: __SerdeContext
-): StartFileTransferResponse => {
+/**
+ * deserializeAws_json1_1StartFileTransferResponse
+ */
+const de_StartFileTransferResponse = (output: any, context: __SerdeContext): StartFileTransferResponse => {
   return {
     TransferId: __expectString(output.TransferId),
   } as any;
 };
 
-const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SubnetIds
+ */
+const de_SubnetIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6215,37 +7152,46 @@ const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1Tags
+ */
+const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagStepDetails = (output: any, context: __SerdeContext): TagStepDetails => {
+/**
+ * deserializeAws_json1_1TagStepDetails
+ */
+const de_TagStepDetails = (output: any, context: __SerdeContext): TagStepDetails => {
   return {
     Name: __expectString(output.Name),
     SourceFileLocation: __expectString(output.SourceFileLocation),
-    Tags: output.Tags != null ? deserializeAws_json1_1S3Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_S3Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1TestIdentityProviderResponse = (
-  output: any,
-  context: __SerdeContext
-): TestIdentityProviderResponse => {
+/**
+ * deserializeAws_json1_1TestIdentityProviderResponse
+ */
+const de_TestIdentityProviderResponse = (output: any, context: __SerdeContext): TestIdentityProviderResponse => {
   return {
     Message: __expectString(output.Message),
     Response: __expectString(output.Response),
@@ -6254,73 +7200,94 @@ const deserializeAws_json1_1TestIdentityProviderResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+/**
+ * deserializeAws_json1_1ThrottlingException
+ */
+const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     RetryAfterSeconds: __expectString(output.RetryAfterSeconds),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateAccessResponse = (output: any, context: __SerdeContext): UpdateAccessResponse => {
+/**
+ * deserializeAws_json1_1UpdateAccessResponse
+ */
+const de_UpdateAccessResponse = (output: any, context: __SerdeContext): UpdateAccessResponse => {
   return {
     ExternalId: __expectString(output.ExternalId),
     ServerId: __expectString(output.ServerId),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateAgreementResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateAgreementResponse => {
+/**
+ * deserializeAws_json1_1UpdateAgreementResponse
+ */
+const de_UpdateAgreementResponse = (output: any, context: __SerdeContext): UpdateAgreementResponse => {
   return {
     AgreementId: __expectString(output.AgreementId),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateCertificateResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateCertificateResponse => {
+/**
+ * deserializeAws_json1_1UpdateCertificateResponse
+ */
+const de_UpdateCertificateResponse = (output: any, context: __SerdeContext): UpdateCertificateResponse => {
   return {
     CertificateId: __expectString(output.CertificateId),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateConnectorResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateConnectorResponse => {
+/**
+ * deserializeAws_json1_1UpdateConnectorResponse
+ */
+const de_UpdateConnectorResponse = (output: any, context: __SerdeContext): UpdateConnectorResponse => {
   return {
     ConnectorId: __expectString(output.ConnectorId),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateHostKeyResponse = (output: any, context: __SerdeContext): UpdateHostKeyResponse => {
+/**
+ * deserializeAws_json1_1UpdateHostKeyResponse
+ */
+const de_UpdateHostKeyResponse = (output: any, context: __SerdeContext): UpdateHostKeyResponse => {
   return {
     HostKeyId: __expectString(output.HostKeyId),
     ServerId: __expectString(output.ServerId),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateProfileResponse = (output: any, context: __SerdeContext): UpdateProfileResponse => {
+/**
+ * deserializeAws_json1_1UpdateProfileResponse
+ */
+const de_UpdateProfileResponse = (output: any, context: __SerdeContext): UpdateProfileResponse => {
   return {
     ProfileId: __expectString(output.ProfileId),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateServerResponse = (output: any, context: __SerdeContext): UpdateServerResponse => {
+/**
+ * deserializeAws_json1_1UpdateServerResponse
+ */
+const de_UpdateServerResponse = (output: any, context: __SerdeContext): UpdateServerResponse => {
   return {
     ServerId: __expectString(output.ServerId),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateUserResponse = (output: any, context: __SerdeContext): UpdateUserResponse => {
+/**
+ * deserializeAws_json1_1UpdateUserResponse
+ */
+const de_UpdateUserResponse = (output: any, context: __SerdeContext): UpdateUserResponse => {
   return {
     ServerId: __expectString(output.ServerId),
     UserName: __expectString(output.UserName),
   } as any;
 };
 
-const deserializeAws_json1_1UserDetails = (output: any, context: __SerdeContext): UserDetails => {
+/**
+ * deserializeAws_json1_1UserDetails
+ */
+const de_UserDetails = (output: any, context: __SerdeContext): UserDetails => {
   return {
     ServerId: __expectString(output.ServerId),
     SessionId: __expectString(output.SessionId),
@@ -6328,56 +7295,55 @@ const deserializeAws_json1_1UserDetails = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1WorkflowDetail = (output: any, context: __SerdeContext): WorkflowDetail => {
+/**
+ * deserializeAws_json1_1WorkflowDetail
+ */
+const de_WorkflowDetail = (output: any, context: __SerdeContext): WorkflowDetail => {
   return {
     ExecutionRole: __expectString(output.ExecutionRole),
     WorkflowId: __expectString(output.WorkflowId),
   } as any;
 };
 
-const deserializeAws_json1_1WorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetails => {
+/**
+ * deserializeAws_json1_1WorkflowDetails
+ */
+const de_WorkflowDetails = (output: any, context: __SerdeContext): WorkflowDetails => {
   return {
     OnPartialUpload:
-      output.OnPartialUpload != null
-        ? deserializeAws_json1_1OnPartialUploadWorkflowDetails(output.OnPartialUpload, context)
-        : undefined,
-    OnUpload:
-      output.OnUpload != null ? deserializeAws_json1_1OnUploadWorkflowDetails(output.OnUpload, context) : undefined,
+      output.OnPartialUpload != null ? de_OnPartialUploadWorkflowDetails(output.OnPartialUpload, context) : undefined,
+    OnUpload: output.OnUpload != null ? de_OnUploadWorkflowDetails(output.OnUpload, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1WorkflowStep = (output: any, context: __SerdeContext): WorkflowStep => {
+/**
+ * deserializeAws_json1_1WorkflowStep
+ */
+const de_WorkflowStep = (output: any, context: __SerdeContext): WorkflowStep => {
   return {
-    CopyStepDetails:
-      output.CopyStepDetails != null
-        ? deserializeAws_json1_1CopyStepDetails(output.CopyStepDetails, context)
-        : undefined,
+    CopyStepDetails: output.CopyStepDetails != null ? de_CopyStepDetails(output.CopyStepDetails, context) : undefined,
     CustomStepDetails:
-      output.CustomStepDetails != null
-        ? deserializeAws_json1_1CustomStepDetails(output.CustomStepDetails, context)
-        : undefined,
+      output.CustomStepDetails != null ? de_CustomStepDetails(output.CustomStepDetails, context) : undefined,
     DecryptStepDetails:
-      output.DecryptStepDetails != null
-        ? deserializeAws_json1_1DecryptStepDetails(output.DecryptStepDetails, context)
-        : undefined,
+      output.DecryptStepDetails != null ? de_DecryptStepDetails(output.DecryptStepDetails, context) : undefined,
     DeleteStepDetails:
-      output.DeleteStepDetails != null
-        ? deserializeAws_json1_1DeleteStepDetails(output.DeleteStepDetails, context)
-        : undefined,
-    TagStepDetails:
-      output.TagStepDetails != null ? deserializeAws_json1_1TagStepDetails(output.TagStepDetails, context) : undefined,
+      output.DeleteStepDetails != null ? de_DeleteStepDetails(output.DeleteStepDetails, context) : undefined,
+    TagStepDetails: output.TagStepDetails != null ? de_TagStepDetails(output.TagStepDetails, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1WorkflowSteps = (output: any, context: __SerdeContext): WorkflowStep[] => {
+/**
+ * deserializeAws_json1_1WorkflowSteps
+ */
+const de_WorkflowSteps = (output: any, context: __SerdeContext): WorkflowStep[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1WorkflowStep(entry, context);
+      return de_WorkflowStep(entry, context);
     });
   return retVal;
 };

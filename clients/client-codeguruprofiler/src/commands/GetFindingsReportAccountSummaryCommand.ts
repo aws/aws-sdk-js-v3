@@ -16,8 +16,8 @@ import {
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { GetFindingsReportAccountSummaryRequest, GetFindingsReportAccountSummaryResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetFindingsReportAccountSummaryCommand,
-  serializeAws_restJson1GetFindingsReportAccountSummaryCommand,
+  de_GetFindingsReportAccountSummaryCommand,
+  se_GetFindingsReportAccountSummaryCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class GetFindingsReportAccountSummaryCommand extends $Command<
     input: GetFindingsReportAccountSummaryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingsReportAccountSummaryCommand(input, context);
+    return se_GetFindingsReportAccountSummaryCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class GetFindingsReportAccountSummaryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFindingsReportAccountSummaryCommandOutput> {
-    return deserializeAws_restJson1GetFindingsReportAccountSummaryCommand(output, context);
+    return de_GetFindingsReportAccountSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

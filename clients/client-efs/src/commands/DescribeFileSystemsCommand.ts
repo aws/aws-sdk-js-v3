@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFileSystemsCommand,
-  serializeAws_restJson1DescribeFileSystemsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeFileSystemsCommand, se_DescribeFileSystemsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -187,14 +184,14 @@ export class DescribeFileSystemsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFileSystemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFileSystemsCommand(input, context);
+    return se_DescribeFileSystemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileSystemsCommandOutput> {
-    return deserializeAws_restJson1DescribeFileSystemsCommand(output, context);
+    return de_DescribeFileSystemsCommand(output, context);
   }
 
   // Start section: command_body_extra

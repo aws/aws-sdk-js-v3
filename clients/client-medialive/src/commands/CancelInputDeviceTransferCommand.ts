@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { CancelInputDeviceTransferRequest, CancelInputDeviceTransferResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1CancelInputDeviceTransferCommand,
-  serializeAws_restJson1CancelInputDeviceTransferCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelInputDeviceTransferCommand, se_CancelInputDeviceTransferCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class CancelInputDeviceTransferCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelInputDeviceTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelInputDeviceTransferCommand(input, context);
+    return se_CancelInputDeviceTransferCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class CancelInputDeviceTransferCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelInputDeviceTransferCommandOutput> {
-    return deserializeAws_restJson1CancelInputDeviceTransferCommand(output, context);
+    return de_CancelInputDeviceTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

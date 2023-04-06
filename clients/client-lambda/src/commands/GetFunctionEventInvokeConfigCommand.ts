@@ -16,8 +16,8 @@ import {
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { FunctionEventInvokeConfig, GetFunctionEventInvokeConfigRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetFunctionEventInvokeConfigCommand,
-  serializeAws_restJson1GetFunctionEventInvokeConfigCommand,
+  de_GetFunctionEventInvokeConfigCommand,
+  se_GetFunctionEventInvokeConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -134,7 +134,7 @@ export class GetFunctionEventInvokeConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFunctionEventInvokeConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFunctionEventInvokeConfigCommand(input, context);
+    return se_GetFunctionEventInvokeConfigCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class GetFunctionEventInvokeConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFunctionEventInvokeConfigCommandOutput> {
-    return deserializeAws_restJson1GetFunctionEventInvokeConfigCommand(output, context);
+    return de_GetFunctionEventInvokeConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

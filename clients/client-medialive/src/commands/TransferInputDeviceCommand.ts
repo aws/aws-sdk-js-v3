@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { TransferInputDeviceRequest, TransferInputDeviceResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1TransferInputDeviceCommand,
-  serializeAws_restJson1TransferInputDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TransferInputDeviceCommand, se_TransferInputDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class TransferInputDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: TransferInputDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TransferInputDeviceCommand(input, context);
+    return se_TransferInputDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransferInputDeviceCommandOutput> {
-    return deserializeAws_restJson1TransferInputDeviceCommand(output, context);
+    return de_TransferInputDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

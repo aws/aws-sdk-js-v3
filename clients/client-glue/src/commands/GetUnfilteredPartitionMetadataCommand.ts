@@ -16,8 +16,8 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetUnfilteredPartitionMetadataRequest, GetUnfilteredPartitionMetadataResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetUnfilteredPartitionMetadataCommand,
-  serializeAws_json1_1GetUnfilteredPartitionMetadataCommand,
+  de_GetUnfilteredPartitionMetadataCommand,
+  se_GetUnfilteredPartitionMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -165,7 +165,7 @@ export class GetUnfilteredPartitionMetadataCommand extends $Command<
     input: GetUnfilteredPartitionMetadataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUnfilteredPartitionMetadataCommand(input, context);
+    return se_GetUnfilteredPartitionMetadataCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class GetUnfilteredPartitionMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUnfilteredPartitionMetadataCommandOutput> {
-    return deserializeAws_json1_1GetUnfilteredPartitionMetadataCommand(output, context);
+    return de_GetUnfilteredPartitionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

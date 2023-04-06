@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteOTAUpdateRequest, DeleteOTAUpdateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteOTAUpdateCommand,
-  serializeAws_restJson1DeleteOTAUpdateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteOTAUpdateCommand, se_DeleteOTAUpdateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeleteOTAUpdateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteOTAUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteOTAUpdateCommand(input, context);
+    return se_DeleteOTAUpdateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOTAUpdateCommandOutput> {
-    return deserializeAws_restJson1DeleteOTAUpdateCommand(output, context);
+    return de_DeleteOTAUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

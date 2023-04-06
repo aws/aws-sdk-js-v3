@@ -18,8 +18,8 @@ import {
   GetIdentityNotificationAttributesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGetIdentityNotificationAttributesCommand,
-  serializeAws_queryGetIdentityNotificationAttributesCommand,
+  de_GetIdentityNotificationAttributesCommand,
+  se_GetIdentityNotificationAttributesCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -163,7 +163,7 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     input: GetIdentityNotificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityNotificationAttributesCommand(input, context);
+    return se_GetIdentityNotificationAttributesCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityNotificationAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityNotificationAttributesCommand(output, context);
+    return de_GetIdentityNotificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

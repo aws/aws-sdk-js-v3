@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDomainInput, DomainDetail } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeDomainCommand,
-  serializeAws_json1_0DescribeDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeDomainCommand, se_DescribeDomainCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -150,14 +147,14 @@ export class DescribeDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeDomainCommand(input, context);
+    return se_DescribeDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainCommandOutput> {
-    return deserializeAws_json1_0DescribeDomainCommand(output, context);
+    return de_DescribeDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DeleteScriptInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteScriptCommand,
-  serializeAws_json1_1DeleteScriptCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteScriptCommand, se_DeleteScriptCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class DeleteScriptCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteScriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteScriptCommand(input, context);
+    return se_DeleteScriptCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScriptCommandOutput> {
-    return deserializeAws_json1_1DeleteScriptCommand(output, context);
+    return de_DeleteScriptCommand(output, context);
   }
 
   // Start section: command_body_extra

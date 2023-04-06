@@ -16,10 +16,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_queryCopyDBClusterSnapshotCommand,
-  serializeAws_queryCopyDBClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_CopyDBClusterSnapshotCommand, se_CopyDBClusterSnapshotCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class CopyDBClusterSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBClusterSnapshotCommand(input, context);
+    return se_CopyDBClusterSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBClusterSnapshotCommandOutput> {
-    return deserializeAws_queryCopyDBClusterSnapshotCommand(output, context);
+    return de_CopyDBClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

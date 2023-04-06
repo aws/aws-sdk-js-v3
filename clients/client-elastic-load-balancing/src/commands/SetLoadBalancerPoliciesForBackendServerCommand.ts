@@ -23,8 +23,8 @@ import {
   SetLoadBalancerPoliciesForBackendServerOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand,
-  serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand,
+  de_SetLoadBalancerPoliciesForBackendServerCommand,
+  se_SetLoadBalancerPoliciesForBackendServerCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -177,7 +177,7 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
     input: SetLoadBalancerPoliciesForBackendServerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand(input, context);
+    return se_SetLoadBalancerPoliciesForBackendServerCommand(input, context);
   }
 
   /**
@@ -187,7 +187,7 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> {
-    return deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand(output, context);
+    return de_SetLoadBalancerPoliciesForBackendServerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetEffectivePoliciesRequest, GetEffectivePoliciesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetEffectivePoliciesCommand,
-  serializeAws_restJson1GetEffectivePoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEffectivePoliciesCommand, se_GetEffectivePoliciesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class GetEffectivePoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEffectivePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEffectivePoliciesCommand(input, context);
+    return se_GetEffectivePoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEffectivePoliciesCommandOutput> {
-    return deserializeAws_restJson1GetEffectivePoliciesCommand(output, context);
+    return de_GetEffectivePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

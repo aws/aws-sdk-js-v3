@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import { DescribeRxNormInferenceJobRequest, DescribeRxNormInferenceJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRxNormInferenceJobCommand,
-  serializeAws_json1_1DescribeRxNormInferenceJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRxNormInferenceJobCommand, se_DescribeRxNormInferenceJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class DescribeRxNormInferenceJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRxNormInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRxNormInferenceJobCommand(input, context);
+    return se_DescribeRxNormInferenceJobCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class DescribeRxNormInferenceJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRxNormInferenceJobCommandOutput> {
-    return deserializeAws_json1_1DescribeRxNormInferenceJobCommand(output, context);
+    return de_DescribeRxNormInferenceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

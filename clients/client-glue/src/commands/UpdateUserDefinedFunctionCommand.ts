@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { UpdateUserDefinedFunctionRequest, UpdateUserDefinedFunctionResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateUserDefinedFunctionCommand,
-  serializeAws_json1_1UpdateUserDefinedFunctionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateUserDefinedFunctionCommand, se_UpdateUserDefinedFunctionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,7 +146,7 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateUserDefinedFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateUserDefinedFunctionCommand(input, context);
+    return se_UpdateUserDefinedFunctionCommand(input, context);
   }
 
   /**
@@ -159,7 +156,7 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateUserDefinedFunctionCommandOutput> {
-    return deserializeAws_json1_1UpdateUserDefinedFunctionCommand(output, context);
+    return de_UpdateUserDefinedFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

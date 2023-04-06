@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { DeleteLiveSourceRequest, DeleteLiveSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLiveSourceCommand,
-  serializeAws_restJson1DeleteLiveSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLiveSourceCommand, se_DeleteLiveSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class DeleteLiveSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLiveSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLiveSourceCommand(input, context);
+    return se_DeleteLiveSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLiveSourceCommandOutput> {
-    return deserializeAws_restJson1DeleteLiveSourceCommand(output, context);
+    return de_DeleteLiveSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

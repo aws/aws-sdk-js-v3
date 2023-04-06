@@ -15,10 +15,7 @@ import {
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { RegisterDeviceRequest, RegisterDeviceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterDeviceCommand,
-  serializeAws_restJson1RegisterDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RegisterDeviceCommand, se_RegisterDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -189,14 +186,14 @@ export class RegisterDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterDeviceCommand(input, context);
+    return se_RegisterDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterDeviceCommandOutput> {
-    return deserializeAws_restJson1RegisterDeviceCommand(output, context);
+    return de_RegisterDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

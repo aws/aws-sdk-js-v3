@@ -425,7 +425,10 @@ import {
   UpdateDeploymentGroupOutput,
 } from "../models/models_0";
 
-export const serializeAws_json1_1AddTagsToOnPremisesInstancesCommand = async (
+/**
+ * serializeAws_json1_1AddTagsToOnPremisesInstancesCommand
+ */
+export const se_AddTagsToOnPremisesInstancesCommand = async (
   input: AddTagsToOnPremisesInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -434,11 +437,14 @@ export const serializeAws_json1_1AddTagsToOnPremisesInstancesCommand = async (
     "x-amz-target": "CodeDeploy_20141006.AddTagsToOnPremisesInstances",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AddTagsToOnPremisesInstancesInput(input, context));
+  body = JSON.stringify(se_AddTagsToOnPremisesInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetApplicationRevisionsCommand = async (
+/**
+ * serializeAws_json1_1BatchGetApplicationRevisionsCommand
+ */
+export const se_BatchGetApplicationRevisionsCommand = async (
   input: BatchGetApplicationRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -447,11 +453,14 @@ export const serializeAws_json1_1BatchGetApplicationRevisionsCommand = async (
     "x-amz-target": "CodeDeploy_20141006.BatchGetApplicationRevisions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetApplicationRevisionsInput(input, context));
+  body = JSON.stringify(se_BatchGetApplicationRevisionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetApplicationsCommand = async (
+/**
+ * serializeAws_json1_1BatchGetApplicationsCommand
+ */
+export const se_BatchGetApplicationsCommand = async (
   input: BatchGetApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -460,11 +469,14 @@ export const serializeAws_json1_1BatchGetApplicationsCommand = async (
     "x-amz-target": "CodeDeploy_20141006.BatchGetApplications",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetApplicationsInput(input, context));
+  body = JSON.stringify(se_BatchGetApplicationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetDeploymentGroupsCommand = async (
+/**
+ * serializeAws_json1_1BatchGetDeploymentGroupsCommand
+ */
+export const se_BatchGetDeploymentGroupsCommand = async (
   input: BatchGetDeploymentGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -473,11 +485,14 @@ export const serializeAws_json1_1BatchGetDeploymentGroupsCommand = async (
     "x-amz-target": "CodeDeploy_20141006.BatchGetDeploymentGroups",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetDeploymentGroupsInput(input, context));
+  body = JSON.stringify(se_BatchGetDeploymentGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetDeploymentInstancesCommand = async (
+/**
+ * serializeAws_json1_1BatchGetDeploymentInstancesCommand
+ */
+export const se_BatchGetDeploymentInstancesCommand = async (
   input: BatchGetDeploymentInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -486,11 +501,14 @@ export const serializeAws_json1_1BatchGetDeploymentInstancesCommand = async (
     "x-amz-target": "CodeDeploy_20141006.BatchGetDeploymentInstances",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetDeploymentInstancesInput(input, context));
+  body = JSON.stringify(se_BatchGetDeploymentInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetDeploymentsCommand = async (
+/**
+ * serializeAws_json1_1BatchGetDeploymentsCommand
+ */
+export const se_BatchGetDeploymentsCommand = async (
   input: BatchGetDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -499,11 +517,14 @@ export const serializeAws_json1_1BatchGetDeploymentsCommand = async (
     "x-amz-target": "CodeDeploy_20141006.BatchGetDeployments",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetDeploymentsInput(input, context));
+  body = JSON.stringify(se_BatchGetDeploymentsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetDeploymentTargetsCommand = async (
+/**
+ * serializeAws_json1_1BatchGetDeploymentTargetsCommand
+ */
+export const se_BatchGetDeploymentTargetsCommand = async (
   input: BatchGetDeploymentTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -512,11 +533,14 @@ export const serializeAws_json1_1BatchGetDeploymentTargetsCommand = async (
     "x-amz-target": "CodeDeploy_20141006.BatchGetDeploymentTargets",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetDeploymentTargetsInput(input, context));
+  body = JSON.stringify(se_BatchGetDeploymentTargetsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchGetOnPremisesInstancesCommand = async (
+/**
+ * serializeAws_json1_1BatchGetOnPremisesInstancesCommand
+ */
+export const se_BatchGetOnPremisesInstancesCommand = async (
   input: BatchGetOnPremisesInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -525,11 +549,14 @@ export const serializeAws_json1_1BatchGetOnPremisesInstancesCommand = async (
     "x-amz-target": "CodeDeploy_20141006.BatchGetOnPremisesInstances",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchGetOnPremisesInstancesInput(input, context));
+  body = JSON.stringify(se_BatchGetOnPremisesInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ContinueDeploymentCommand = async (
+/**
+ * serializeAws_json1_1ContinueDeploymentCommand
+ */
+export const se_ContinueDeploymentCommand = async (
   input: ContinueDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -538,11 +565,14 @@ export const serializeAws_json1_1ContinueDeploymentCommand = async (
     "x-amz-target": "CodeDeploy_20141006.ContinueDeployment",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ContinueDeploymentInput(input, context));
+  body = JSON.stringify(se_ContinueDeploymentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateApplicationCommand = async (
+/**
+ * serializeAws_json1_1CreateApplicationCommand
+ */
+export const se_CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -551,11 +581,14 @@ export const serializeAws_json1_1CreateApplicationCommand = async (
     "x-amz-target": "CodeDeploy_20141006.CreateApplication",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateApplicationInput(input, context));
+  body = JSON.stringify(se_CreateApplicationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDeploymentCommand = async (
+/**
+ * serializeAws_json1_1CreateDeploymentCommand
+ */
+export const se_CreateDeploymentCommand = async (
   input: CreateDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -564,11 +597,14 @@ export const serializeAws_json1_1CreateDeploymentCommand = async (
     "x-amz-target": "CodeDeploy_20141006.CreateDeployment",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDeploymentInput(input, context));
+  body = JSON.stringify(se_CreateDeploymentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDeploymentConfigCommand = async (
+/**
+ * serializeAws_json1_1CreateDeploymentConfigCommand
+ */
+export const se_CreateDeploymentConfigCommand = async (
   input: CreateDeploymentConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -577,11 +613,14 @@ export const serializeAws_json1_1CreateDeploymentConfigCommand = async (
     "x-amz-target": "CodeDeploy_20141006.CreateDeploymentConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDeploymentConfigInput(input, context));
+  body = JSON.stringify(se_CreateDeploymentConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDeploymentGroupCommand = async (
+/**
+ * serializeAws_json1_1CreateDeploymentGroupCommand
+ */
+export const se_CreateDeploymentGroupCommand = async (
   input: CreateDeploymentGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -590,11 +629,14 @@ export const serializeAws_json1_1CreateDeploymentGroupCommand = async (
     "x-amz-target": "CodeDeploy_20141006.CreateDeploymentGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDeploymentGroupInput(input, context));
+  body = JSON.stringify(se_CreateDeploymentGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteApplicationCommand = async (
+/**
+ * serializeAws_json1_1DeleteApplicationCommand
+ */
+export const se_DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -603,11 +645,14 @@ export const serializeAws_json1_1DeleteApplicationCommand = async (
     "x-amz-target": "CodeDeploy_20141006.DeleteApplication",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteApplicationInput(input, context));
+  body = JSON.stringify(se_DeleteApplicationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteDeploymentConfigCommand = async (
+/**
+ * serializeAws_json1_1DeleteDeploymentConfigCommand
+ */
+export const se_DeleteDeploymentConfigCommand = async (
   input: DeleteDeploymentConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -616,11 +661,14 @@ export const serializeAws_json1_1DeleteDeploymentConfigCommand = async (
     "x-amz-target": "CodeDeploy_20141006.DeleteDeploymentConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteDeploymentConfigInput(input, context));
+  body = JSON.stringify(se_DeleteDeploymentConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteDeploymentGroupCommand = async (
+/**
+ * serializeAws_json1_1DeleteDeploymentGroupCommand
+ */
+export const se_DeleteDeploymentGroupCommand = async (
   input: DeleteDeploymentGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -629,11 +677,14 @@ export const serializeAws_json1_1DeleteDeploymentGroupCommand = async (
     "x-amz-target": "CodeDeploy_20141006.DeleteDeploymentGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteDeploymentGroupInput(input, context));
+  body = JSON.stringify(se_DeleteDeploymentGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteGitHubAccountTokenCommand = async (
+/**
+ * serializeAws_json1_1DeleteGitHubAccountTokenCommand
+ */
+export const se_DeleteGitHubAccountTokenCommand = async (
   input: DeleteGitHubAccountTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -642,11 +693,14 @@ export const serializeAws_json1_1DeleteGitHubAccountTokenCommand = async (
     "x-amz-target": "CodeDeploy_20141006.DeleteGitHubAccountToken",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteGitHubAccountTokenInput(input, context));
+  body = JSON.stringify(se_DeleteGitHubAccountTokenInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResourcesByExternalIdCommand = async (
+/**
+ * serializeAws_json1_1DeleteResourcesByExternalIdCommand
+ */
+export const se_DeleteResourcesByExternalIdCommand = async (
   input: DeleteResourcesByExternalIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -655,11 +709,14 @@ export const serializeAws_json1_1DeleteResourcesByExternalIdCommand = async (
     "x-amz-target": "CodeDeploy_20141006.DeleteResourcesByExternalId",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteResourcesByExternalIdInput(input, context));
+  body = JSON.stringify(se_DeleteResourcesByExternalIdInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeregisterOnPremisesInstanceCommand = async (
+/**
+ * serializeAws_json1_1DeregisterOnPremisesInstanceCommand
+ */
+export const se_DeregisterOnPremisesInstanceCommand = async (
   input: DeregisterOnPremisesInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -668,11 +725,14 @@ export const serializeAws_json1_1DeregisterOnPremisesInstanceCommand = async (
     "x-amz-target": "CodeDeploy_20141006.DeregisterOnPremisesInstance",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeregisterOnPremisesInstanceInput(input, context));
+  body = JSON.stringify(se_DeregisterOnPremisesInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetApplicationCommand = async (
+/**
+ * serializeAws_json1_1GetApplicationCommand
+ */
+export const se_GetApplicationCommand = async (
   input: GetApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -681,11 +741,14 @@ export const serializeAws_json1_1GetApplicationCommand = async (
     "x-amz-target": "CodeDeploy_20141006.GetApplication",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetApplicationInput(input, context));
+  body = JSON.stringify(se_GetApplicationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetApplicationRevisionCommand = async (
+/**
+ * serializeAws_json1_1GetApplicationRevisionCommand
+ */
+export const se_GetApplicationRevisionCommand = async (
   input: GetApplicationRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -694,11 +757,14 @@ export const serializeAws_json1_1GetApplicationRevisionCommand = async (
     "x-amz-target": "CodeDeploy_20141006.GetApplicationRevision",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetApplicationRevisionInput(input, context));
+  body = JSON.stringify(se_GetApplicationRevisionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDeploymentCommand = async (
+/**
+ * serializeAws_json1_1GetDeploymentCommand
+ */
+export const se_GetDeploymentCommand = async (
   input: GetDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -707,11 +773,14 @@ export const serializeAws_json1_1GetDeploymentCommand = async (
     "x-amz-target": "CodeDeploy_20141006.GetDeployment",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDeploymentInput(input, context));
+  body = JSON.stringify(se_GetDeploymentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDeploymentConfigCommand = async (
+/**
+ * serializeAws_json1_1GetDeploymentConfigCommand
+ */
+export const se_GetDeploymentConfigCommand = async (
   input: GetDeploymentConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -720,11 +789,14 @@ export const serializeAws_json1_1GetDeploymentConfigCommand = async (
     "x-amz-target": "CodeDeploy_20141006.GetDeploymentConfig",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDeploymentConfigInput(input, context));
+  body = JSON.stringify(se_GetDeploymentConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDeploymentGroupCommand = async (
+/**
+ * serializeAws_json1_1GetDeploymentGroupCommand
+ */
+export const se_GetDeploymentGroupCommand = async (
   input: GetDeploymentGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -733,11 +805,14 @@ export const serializeAws_json1_1GetDeploymentGroupCommand = async (
     "x-amz-target": "CodeDeploy_20141006.GetDeploymentGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDeploymentGroupInput(input, context));
+  body = JSON.stringify(se_GetDeploymentGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDeploymentInstanceCommand = async (
+/**
+ * serializeAws_json1_1GetDeploymentInstanceCommand
+ */
+export const se_GetDeploymentInstanceCommand = async (
   input: GetDeploymentInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -746,11 +821,14 @@ export const serializeAws_json1_1GetDeploymentInstanceCommand = async (
     "x-amz-target": "CodeDeploy_20141006.GetDeploymentInstance",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDeploymentInstanceInput(input, context));
+  body = JSON.stringify(se_GetDeploymentInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDeploymentTargetCommand = async (
+/**
+ * serializeAws_json1_1GetDeploymentTargetCommand
+ */
+export const se_GetDeploymentTargetCommand = async (
   input: GetDeploymentTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -759,11 +837,14 @@ export const serializeAws_json1_1GetDeploymentTargetCommand = async (
     "x-amz-target": "CodeDeploy_20141006.GetDeploymentTarget",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDeploymentTargetInput(input, context));
+  body = JSON.stringify(se_GetDeploymentTargetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetOnPremisesInstanceCommand = async (
+/**
+ * serializeAws_json1_1GetOnPremisesInstanceCommand
+ */
+export const se_GetOnPremisesInstanceCommand = async (
   input: GetOnPremisesInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -772,11 +853,14 @@ export const serializeAws_json1_1GetOnPremisesInstanceCommand = async (
     "x-amz-target": "CodeDeploy_20141006.GetOnPremisesInstance",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetOnPremisesInstanceInput(input, context));
+  body = JSON.stringify(se_GetOnPremisesInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListApplicationRevisionsCommand = async (
+/**
+ * serializeAws_json1_1ListApplicationRevisionsCommand
+ */
+export const se_ListApplicationRevisionsCommand = async (
   input: ListApplicationRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -785,11 +869,14 @@ export const serializeAws_json1_1ListApplicationRevisionsCommand = async (
     "x-amz-target": "CodeDeploy_20141006.ListApplicationRevisions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListApplicationRevisionsInput(input, context));
+  body = JSON.stringify(se_ListApplicationRevisionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListApplicationsCommand = async (
+/**
+ * serializeAws_json1_1ListApplicationsCommand
+ */
+export const se_ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -798,11 +885,14 @@ export const serializeAws_json1_1ListApplicationsCommand = async (
     "x-amz-target": "CodeDeploy_20141006.ListApplications",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListApplicationsInput(input, context));
+  body = JSON.stringify(se_ListApplicationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDeploymentConfigsCommand = async (
+/**
+ * serializeAws_json1_1ListDeploymentConfigsCommand
+ */
+export const se_ListDeploymentConfigsCommand = async (
   input: ListDeploymentConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -811,11 +901,14 @@ export const serializeAws_json1_1ListDeploymentConfigsCommand = async (
     "x-amz-target": "CodeDeploy_20141006.ListDeploymentConfigs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDeploymentConfigsInput(input, context));
+  body = JSON.stringify(se_ListDeploymentConfigsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDeploymentGroupsCommand = async (
+/**
+ * serializeAws_json1_1ListDeploymentGroupsCommand
+ */
+export const se_ListDeploymentGroupsCommand = async (
   input: ListDeploymentGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -824,11 +917,14 @@ export const serializeAws_json1_1ListDeploymentGroupsCommand = async (
     "x-amz-target": "CodeDeploy_20141006.ListDeploymentGroups",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDeploymentGroupsInput(input, context));
+  body = JSON.stringify(se_ListDeploymentGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDeploymentInstancesCommand = async (
+/**
+ * serializeAws_json1_1ListDeploymentInstancesCommand
+ */
+export const se_ListDeploymentInstancesCommand = async (
   input: ListDeploymentInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -837,11 +933,14 @@ export const serializeAws_json1_1ListDeploymentInstancesCommand = async (
     "x-amz-target": "CodeDeploy_20141006.ListDeploymentInstances",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDeploymentInstancesInput(input, context));
+  body = JSON.stringify(se_ListDeploymentInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDeploymentsCommand = async (
+/**
+ * serializeAws_json1_1ListDeploymentsCommand
+ */
+export const se_ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -850,11 +949,14 @@ export const serializeAws_json1_1ListDeploymentsCommand = async (
     "x-amz-target": "CodeDeploy_20141006.ListDeployments",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDeploymentsInput(input, context));
+  body = JSON.stringify(se_ListDeploymentsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDeploymentTargetsCommand = async (
+/**
+ * serializeAws_json1_1ListDeploymentTargetsCommand
+ */
+export const se_ListDeploymentTargetsCommand = async (
   input: ListDeploymentTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -863,11 +965,14 @@ export const serializeAws_json1_1ListDeploymentTargetsCommand = async (
     "x-amz-target": "CodeDeploy_20141006.ListDeploymentTargets",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDeploymentTargetsInput(input, context));
+  body = JSON.stringify(se_ListDeploymentTargetsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListGitHubAccountTokenNamesCommand = async (
+/**
+ * serializeAws_json1_1ListGitHubAccountTokenNamesCommand
+ */
+export const se_ListGitHubAccountTokenNamesCommand = async (
   input: ListGitHubAccountTokenNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -876,11 +981,14 @@ export const serializeAws_json1_1ListGitHubAccountTokenNamesCommand = async (
     "x-amz-target": "CodeDeploy_20141006.ListGitHubAccountTokenNames",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListGitHubAccountTokenNamesInput(input, context));
+  body = JSON.stringify(se_ListGitHubAccountTokenNamesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListOnPremisesInstancesCommand = async (
+/**
+ * serializeAws_json1_1ListOnPremisesInstancesCommand
+ */
+export const se_ListOnPremisesInstancesCommand = async (
   input: ListOnPremisesInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -889,11 +997,14 @@ export const serializeAws_json1_1ListOnPremisesInstancesCommand = async (
     "x-amz-target": "CodeDeploy_20141006.ListOnPremisesInstances",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListOnPremisesInstancesInput(input, context));
+  body = JSON.stringify(se_ListOnPremisesInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -902,11 +1013,14 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "x-amz-target": "CodeDeploy_20141006.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceInput(input, context));
+  body = JSON.stringify(se_ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand = async (
+/**
+ * serializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand
+ */
+export const se_PutLifecycleEventHookExecutionStatusCommand = async (
   input: PutLifecycleEventHookExecutionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -915,11 +1029,14 @@ export const serializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand = a
     "x-amz-target": "CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutLifecycleEventHookExecutionStatusInput(input, context));
+  body = JSON.stringify(se_PutLifecycleEventHookExecutionStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RegisterApplicationRevisionCommand = async (
+/**
+ * serializeAws_json1_1RegisterApplicationRevisionCommand
+ */
+export const se_RegisterApplicationRevisionCommand = async (
   input: RegisterApplicationRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -928,11 +1045,14 @@ export const serializeAws_json1_1RegisterApplicationRevisionCommand = async (
     "x-amz-target": "CodeDeploy_20141006.RegisterApplicationRevision",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RegisterApplicationRevisionInput(input, context));
+  body = JSON.stringify(se_RegisterApplicationRevisionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RegisterOnPremisesInstanceCommand = async (
+/**
+ * serializeAws_json1_1RegisterOnPremisesInstanceCommand
+ */
+export const se_RegisterOnPremisesInstanceCommand = async (
   input: RegisterOnPremisesInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -941,11 +1061,14 @@ export const serializeAws_json1_1RegisterOnPremisesInstanceCommand = async (
     "x-amz-target": "CodeDeploy_20141006.RegisterOnPremisesInstance",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RegisterOnPremisesInstanceInput(input, context));
+  body = JSON.stringify(se_RegisterOnPremisesInstanceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand = async (
+/**
+ * serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand
+ */
+export const se_RemoveTagsFromOnPremisesInstancesCommand = async (
   input: RemoveTagsFromOnPremisesInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -954,11 +1077,14 @@ export const serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand = asyn
     "x-amz-target": "CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RemoveTagsFromOnPremisesInstancesInput(input, context));
+  body = JSON.stringify(se_RemoveTagsFromOnPremisesInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand = async (
+/**
+ * serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand
+ */
+export const se_SkipWaitTimeForInstanceTerminationCommand = async (
   input: SkipWaitTimeForInstanceTerminationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -967,11 +1093,14 @@ export const serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand = asy
     "x-amz-target": "CodeDeploy_20141006.SkipWaitTimeForInstanceTermination",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SkipWaitTimeForInstanceTerminationInput(input, context));
+  body = JSON.stringify(se_SkipWaitTimeForInstanceTerminationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopDeploymentCommand = async (
+/**
+ * serializeAws_json1_1StopDeploymentCommand
+ */
+export const se_StopDeploymentCommand = async (
   input: StopDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -980,11 +1109,14 @@ export const serializeAws_json1_1StopDeploymentCommand = async (
     "x-amz-target": "CodeDeploy_20141006.StopDeployment",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopDeploymentInput(input, context));
+  body = JSON.stringify(se_StopDeploymentInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -993,11 +1125,14 @@ export const serializeAws_json1_1TagResourceCommand = async (
     "x-amz-target": "CodeDeploy_20141006.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
+  body = JSON.stringify(se_TagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1006,11 +1141,14 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "x-amz-target": "CodeDeploy_20141006.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
+  body = JSON.stringify(se_UntagResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateApplicationCommand = async (
+/**
+ * serializeAws_json1_1UpdateApplicationCommand
+ */
+export const se_UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1019,11 +1157,14 @@ export const serializeAws_json1_1UpdateApplicationCommand = async (
     "x-amz-target": "CodeDeploy_20141006.UpdateApplication",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateApplicationInput(input, context));
+  body = JSON.stringify(se_UpdateApplicationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateDeploymentGroupCommand = async (
+/**
+ * serializeAws_json1_1UpdateDeploymentGroupCommand
+ */
+export const se_UpdateDeploymentGroupCommand = async (
   input: UpdateDeploymentGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1032,16 +1173,19 @@ export const serializeAws_json1_1UpdateDeploymentGroupCommand = async (
     "x-amz-target": "CodeDeploy_20141006.UpdateDeploymentGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateDeploymentGroupInput(input, context));
+  body = JSON.stringify(se_UpdateDeploymentGroupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AddTagsToOnPremisesInstancesCommand = async (
+/**
+ * deserializeAws_json1_1AddTagsToOnPremisesInstancesCommand
+ */
+export const de_AddTagsToOnPremisesInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToOnPremisesInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AddTagsToOnPremisesInstancesCommandError(output, context);
+    return de_AddTagsToOnPremisesInstancesCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddTagsToOnPremisesInstancesCommandOutput = {
@@ -1050,7 +1194,10 @@ export const deserializeAws_json1_1AddTagsToOnPremisesInstancesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AddTagsToOnPremisesInstancesCommandError = async (
+/**
+ * deserializeAws_json1_1AddTagsToOnPremisesInstancesCommandError
+ */
+const de_AddTagsToOnPremisesInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToOnPremisesInstancesCommandOutput> => {
@@ -1062,25 +1209,25 @@ const deserializeAws_json1_1AddTagsToOnPremisesInstancesCommandError = async (
   switch (errorCode) {
     case "InstanceLimitExceededException":
     case "com.amazonaws.codedeploy#InstanceLimitExceededException":
-      throw await deserializeAws_json1_1InstanceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_InstanceLimitExceededExceptionRes(parsedOutput, context);
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      throw await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceNameRequiredExceptionRes(parsedOutput, context);
     case "InstanceNotRegisteredException":
     case "com.amazonaws.codedeploy#InstanceNotRegisteredException":
-      throw await deserializeAws_json1_1InstanceNotRegisteredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceNotRegisteredExceptionRes(parsedOutput, context);
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.codedeploy#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "TagLimitExceededException":
     case "com.amazonaws.codedeploy#TagLimitExceededException":
-      throw await deserializeAws_json1_1TagLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
     case "TagRequiredException":
     case "com.amazonaws.codedeploy#TagRequiredException":
-      throw await deserializeAws_json1_1TagRequiredExceptionResponse(parsedOutput, context);
+      throw await de_TagRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1092,16 +1239,19 @@ const deserializeAws_json1_1AddTagsToOnPremisesInstancesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchGetApplicationRevisionsCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetApplicationRevisionsCommand
+ */
+export const de_BatchGetApplicationRevisionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetApplicationRevisionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetApplicationRevisionsCommandError(output, context);
+    return de_BatchGetApplicationRevisionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetApplicationRevisionsOutput(data, context);
+  contents = de_BatchGetApplicationRevisionsOutput(data, context);
   const response: BatchGetApplicationRevisionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1109,7 +1259,10 @@ export const deserializeAws_json1_1BatchGetApplicationRevisionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchGetApplicationRevisionsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetApplicationRevisionsCommandError
+ */
+const de_BatchGetApplicationRevisionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetApplicationRevisionsCommandOutput> => {
@@ -1121,22 +1274,22 @@ const deserializeAws_json1_1BatchGetApplicationRevisionsCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      throw await deserializeAws_json1_1BatchLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_BatchLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidRevisionException":
     case "com.amazonaws.codedeploy#InvalidRevisionException":
-      throw await deserializeAws_json1_1InvalidRevisionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRevisionExceptionRes(parsedOutput, context);
     case "RevisionRequiredException":
     case "com.amazonaws.codedeploy#RevisionRequiredException":
-      throw await deserializeAws_json1_1RevisionRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RevisionRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1148,16 +1301,19 @@ const deserializeAws_json1_1BatchGetApplicationRevisionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchGetApplicationsCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetApplicationsCommand
+ */
+export const de_BatchGetApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetApplicationsCommandError(output, context);
+    return de_BatchGetApplicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetApplicationsOutput(data, context);
+  contents = de_BatchGetApplicationsOutput(data, context);
   const response: BatchGetApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1165,7 +1321,10 @@ export const deserializeAws_json1_1BatchGetApplicationsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchGetApplicationsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetApplicationsCommandError
+ */
+const de_BatchGetApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetApplicationsCommandOutput> => {
@@ -1177,16 +1336,16 @@ const deserializeAws_json1_1BatchGetApplicationsCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      throw await deserializeAws_json1_1BatchLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_BatchLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1198,16 +1357,19 @@ const deserializeAws_json1_1BatchGetApplicationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchGetDeploymentGroupsCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetDeploymentGroupsCommand
+ */
+export const de_BatchGetDeploymentGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetDeploymentGroupsCommandError(output, context);
+    return de_BatchGetDeploymentGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetDeploymentGroupsOutput(data, context);
+  contents = de_BatchGetDeploymentGroupsOutput(data, context);
   const response: BatchGetDeploymentGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1215,7 +1377,10 @@ export const deserializeAws_json1_1BatchGetDeploymentGroupsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchGetDeploymentGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetDeploymentGroupsCommandError
+ */
+const de_BatchGetDeploymentGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentGroupsCommandOutput> => {
@@ -1227,25 +1392,25 @@ const deserializeAws_json1_1BatchGetDeploymentGroupsCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      throw await deserializeAws_json1_1BatchLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_BatchLimitExceededExceptionRes(parsedOutput, context);
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1257,16 +1422,19 @@ const deserializeAws_json1_1BatchGetDeploymentGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchGetDeploymentInstancesCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetDeploymentInstancesCommand
+ */
+export const de_BatchGetDeploymentInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetDeploymentInstancesCommandError(output, context);
+    return de_BatchGetDeploymentInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetDeploymentInstancesOutput(data, context);
+  contents = de_BatchGetDeploymentInstancesOutput(data, context);
   const response: BatchGetDeploymentInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1274,7 +1442,10 @@ export const deserializeAws_json1_1BatchGetDeploymentInstancesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchGetDeploymentInstancesCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetDeploymentInstancesCommandError
+ */
+const de_BatchGetDeploymentInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentInstancesCommandOutput> => {
@@ -1286,25 +1457,25 @@ const deserializeAws_json1_1BatchGetDeploymentInstancesCommandError = async (
   switch (errorCode) {
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      throw await deserializeAws_json1_1BatchLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_BatchLimitExceededExceptionRes(parsedOutput, context);
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "InstanceIdRequiredException":
     case "com.amazonaws.codedeploy#InstanceIdRequiredException":
-      throw await deserializeAws_json1_1InstanceIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceIdRequiredExceptionRes(parsedOutput, context);
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      throw await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(parsedOutput, context);
+      throw await de_InvalidComputePlatformExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1316,16 +1487,19 @@ const deserializeAws_json1_1BatchGetDeploymentInstancesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchGetDeploymentsCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetDeploymentsCommand
+ */
+export const de_BatchGetDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetDeploymentsCommandError(output, context);
+    return de_BatchGetDeploymentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetDeploymentsOutput(data, context);
+  contents = de_BatchGetDeploymentsOutput(data, context);
   const response: BatchGetDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1333,7 +1507,10 @@ export const deserializeAws_json1_1BatchGetDeploymentsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchGetDeploymentsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetDeploymentsCommandError
+ */
+const de_BatchGetDeploymentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentsCommandOutput> => {
@@ -1345,13 +1522,13 @@ const deserializeAws_json1_1BatchGetDeploymentsCommandError = async (
   switch (errorCode) {
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      throw await deserializeAws_json1_1BatchLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_BatchLimitExceededExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1363,16 +1540,19 @@ const deserializeAws_json1_1BatchGetDeploymentsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchGetDeploymentTargetsCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetDeploymentTargetsCommand
+ */
+export const de_BatchGetDeploymentTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentTargetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetDeploymentTargetsCommandError(output, context);
+    return de_BatchGetDeploymentTargetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetDeploymentTargetsOutput(data, context);
+  contents = de_BatchGetDeploymentTargetsOutput(data, context);
   const response: BatchGetDeploymentTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1380,7 +1560,10 @@ export const deserializeAws_json1_1BatchGetDeploymentTargetsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchGetDeploymentTargetsCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetDeploymentTargetsCommandError
+ */
+const de_BatchGetDeploymentTargetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentTargetsCommandOutput> => {
@@ -1392,31 +1575,31 @@ const deserializeAws_json1_1BatchGetDeploymentTargetsCommandError = async (
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "DeploymentNotStartedException":
     case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      throw await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentNotStartedExceptionRes(parsedOutput, context);
     case "DeploymentTargetDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentTargetDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentTargetDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentTargetDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentTargetIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentTargetIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentTargetIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentTargetIdRequiredExceptionRes(parsedOutput, context);
     case "DeploymentTargetListSizeExceededException":
     case "com.amazonaws.codedeploy#DeploymentTargetListSizeExceededException":
-      throw await deserializeAws_json1_1DeploymentTargetListSizeExceededExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentTargetListSizeExceededExceptionRes(parsedOutput, context);
     case "InstanceDoesNotExistException":
     case "com.amazonaws.codedeploy#InstanceDoesNotExistException":
-      throw await deserializeAws_json1_1InstanceDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_InstanceDoesNotExistExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidDeploymentTargetIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentTargetIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentTargetIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentTargetIdExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1428,16 +1611,19 @@ const deserializeAws_json1_1BatchGetDeploymentTargetsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchGetOnPremisesInstancesCommand = async (
+/**
+ * deserializeAws_json1_1BatchGetOnPremisesInstancesCommand
+ */
+export const de_BatchGetOnPremisesInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetOnPremisesInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchGetOnPremisesInstancesCommandError(output, context);
+    return de_BatchGetOnPremisesInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetOnPremisesInstancesOutput(data, context);
+  contents = de_BatchGetOnPremisesInstancesOutput(data, context);
   const response: BatchGetOnPremisesInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1445,7 +1631,10 @@ export const deserializeAws_json1_1BatchGetOnPremisesInstancesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchGetOnPremisesInstancesCommandError = async (
+/**
+ * deserializeAws_json1_1BatchGetOnPremisesInstancesCommandError
+ */
+const de_BatchGetOnPremisesInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetOnPremisesInstancesCommandOutput> => {
@@ -1457,13 +1646,13 @@ const deserializeAws_json1_1BatchGetOnPremisesInstancesCommandError = async (
   switch (errorCode) {
     case "BatchLimitExceededException":
     case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      throw await deserializeAws_json1_1BatchLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_BatchLimitExceededExceptionRes(parsedOutput, context);
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      throw await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1475,12 +1664,15 @@ const deserializeAws_json1_1BatchGetOnPremisesInstancesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ContinueDeploymentCommand = async (
+/**
+ * deserializeAws_json1_1ContinueDeploymentCommand
+ */
+export const de_ContinueDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ContinueDeploymentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ContinueDeploymentCommandError(output, context);
+    return de_ContinueDeploymentCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ContinueDeploymentCommandOutput = {
@@ -1489,7 +1681,10 @@ export const deserializeAws_json1_1ContinueDeploymentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ContinueDeploymentCommandError = async (
+/**
+ * deserializeAws_json1_1ContinueDeploymentCommandError
+ */
+const de_ContinueDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ContinueDeploymentCommandOutput> => {
@@ -1501,28 +1696,28 @@ const deserializeAws_json1_1ContinueDeploymentCommandError = async (
   switch (errorCode) {
     case "DeploymentAlreadyCompletedException":
     case "com.amazonaws.codedeploy#DeploymentAlreadyCompletedException":
-      throw await deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentAlreadyCompletedExceptionRes(parsedOutput, context);
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "DeploymentIsNotInReadyStateException":
     case "com.amazonaws.codedeploy#DeploymentIsNotInReadyStateException":
-      throw await deserializeAws_json1_1DeploymentIsNotInReadyStateExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIsNotInReadyStateExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidDeploymentStatusException":
     case "com.amazonaws.codedeploy#InvalidDeploymentStatusException":
-      throw await deserializeAws_json1_1InvalidDeploymentStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentStatusExceptionRes(parsedOutput, context);
     case "InvalidDeploymentWaitTypeException":
     case "com.amazonaws.codedeploy#InvalidDeploymentWaitTypeException":
-      throw await deserializeAws_json1_1InvalidDeploymentWaitTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentWaitTypeExceptionRes(parsedOutput, context);
     case "UnsupportedActionForDeploymentTypeException":
     case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
-      throw await deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedActionForDeploymentTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1534,16 +1729,19 @@ const deserializeAws_json1_1ContinueDeploymentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateApplicationCommand = async (
+/**
+ * deserializeAws_json1_1CreateApplicationCommand
+ */
+export const de_CreateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateApplicationCommandError(output, context);
+    return de_CreateApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateApplicationOutput(data, context);
+  contents = de_CreateApplicationOutput(data, context);
   const response: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1551,7 +1749,10 @@ export const deserializeAws_json1_1CreateApplicationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateApplicationCommandError = async (
+/**
+ * deserializeAws_json1_1CreateApplicationCommandError
+ */
+const de_CreateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
@@ -1563,22 +1764,22 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
   switch (errorCode) {
     case "ApplicationAlreadyExistsException":
     case "com.amazonaws.codedeploy#ApplicationAlreadyExistsException":
-      throw await deserializeAws_json1_1ApplicationAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationAlreadyExistsExceptionRes(parsedOutput, context);
     case "ApplicationLimitExceededException":
     case "com.amazonaws.codedeploy#ApplicationLimitExceededException":
-      throw await deserializeAws_json1_1ApplicationLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationLimitExceededExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      throw await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(parsedOutput, context);
+      throw await de_InvalidComputePlatformExceptionRes(parsedOutput, context);
     case "InvalidTagsToAddException":
     case "com.amazonaws.codedeploy#InvalidTagsToAddException":
-      throw await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagsToAddExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1590,16 +1791,19 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateDeploymentCommand = async (
+/**
+ * deserializeAws_json1_1CreateDeploymentCommand
+ */
+export const de_CreateDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDeploymentCommandError(output, context);
+    return de_CreateDeploymentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDeploymentOutput(data, context);
+  contents = de_CreateDeploymentOutput(data, context);
   const response: CreateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1607,7 +1811,10 @@ export const deserializeAws_json1_1CreateDeploymentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateDeploymentCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDeploymentCommandError
+ */
+const de_CreateDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
@@ -1619,85 +1826,82 @@ const deserializeAws_json1_1CreateDeploymentCommandError = async (
   switch (errorCode) {
     case "AlarmsLimitExceededException":
     case "com.amazonaws.codedeploy#AlarmsLimitExceededException":
-      throw await deserializeAws_json1_1AlarmsLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_AlarmsLimitExceededExceptionRes(parsedOutput, context);
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
     case "DeploymentLimitExceededException":
     case "com.amazonaws.codedeploy#DeploymentLimitExceededException":
-      throw await deserializeAws_json1_1DeploymentLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentLimitExceededExceptionRes(parsedOutput, context);
     case "DescriptionTooLongException":
     case "com.amazonaws.codedeploy#DescriptionTooLongException":
-      throw await deserializeAws_json1_1DescriptionTooLongExceptionResponse(parsedOutput, context);
+      throw await de_DescriptionTooLongExceptionRes(parsedOutput, context);
     case "InvalidAlarmConfigException":
     case "com.amazonaws.codedeploy#InvalidAlarmConfigException":
-      throw await deserializeAws_json1_1InvalidAlarmConfigExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAlarmConfigExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidAutoRollbackConfigException":
     case "com.amazonaws.codedeploy#InvalidAutoRollbackConfigException":
-      throw await deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAutoRollbackConfigExceptionRes(parsedOutput, context);
     case "InvalidAutoScalingGroupException":
     case "com.amazonaws.codedeploy#InvalidAutoScalingGroupException":
-      throw await deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAutoScalingGroupExceptionRes(parsedOutput, context);
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
     case "InvalidFileExistsBehaviorException":
     case "com.amazonaws.codedeploy#InvalidFileExistsBehaviorException":
-      throw await deserializeAws_json1_1InvalidFileExistsBehaviorExceptionResponse(parsedOutput, context);
+      throw await de_InvalidFileExistsBehaviorExceptionRes(parsedOutput, context);
     case "InvalidGitHubAccountTokenException":
     case "com.amazonaws.codedeploy#InvalidGitHubAccountTokenException":
-      throw await deserializeAws_json1_1InvalidGitHubAccountTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGitHubAccountTokenExceptionRes(parsedOutput, context);
     case "InvalidIgnoreApplicationStopFailuresValueException":
     case "com.amazonaws.codedeploy#InvalidIgnoreApplicationStopFailuresValueException":
-      throw await deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_InvalidIgnoreApplicationStopFailuresValueExceptionRes(parsedOutput, context);
     case "InvalidLoadBalancerInfoException":
     case "com.amazonaws.codedeploy#InvalidLoadBalancerInfoException":
-      throw await deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLoadBalancerInfoExceptionRes(parsedOutput, context);
     case "InvalidRevisionException":
     case "com.amazonaws.codedeploy#InvalidRevisionException":
-      throw await deserializeAws_json1_1InvalidRevisionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRevisionExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.codedeploy#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "InvalidTargetInstancesException":
     case "com.amazonaws.codedeploy#InvalidTargetInstancesException":
-      throw await deserializeAws_json1_1InvalidTargetInstancesExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTargetInstancesExceptionRes(parsedOutput, context);
     case "InvalidTrafficRoutingConfigurationException":
     case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
-      throw await deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTrafficRoutingConfigurationExceptionRes(parsedOutput, context);
     case "InvalidUpdateOutdatedInstancesOnlyValueException":
     case "com.amazonaws.codedeploy#InvalidUpdateOutdatedInstancesOnlyValueException":
-      throw await deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidUpdateOutdatedInstancesOnlyValueExceptionRes(parsedOutput, context);
     case "RevisionDoesNotExistException":
     case "com.amazonaws.codedeploy#RevisionDoesNotExistException":
-      throw await deserializeAws_json1_1RevisionDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RevisionDoesNotExistExceptionRes(parsedOutput, context);
     case "RevisionRequiredException":
     case "com.amazonaws.codedeploy#RevisionRequiredException":
-      throw await deserializeAws_json1_1RevisionRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RevisionRequiredExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.codedeploy#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1709,16 +1913,19 @@ const deserializeAws_json1_1CreateDeploymentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateDeploymentConfigCommand = async (
+/**
+ * deserializeAws_json1_1CreateDeploymentConfigCommand
+ */
+export const de_CreateDeploymentConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDeploymentConfigCommandError(output, context);
+    return de_CreateDeploymentConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDeploymentConfigOutput(data, context);
+  contents = de_CreateDeploymentConfigOutput(data, context);
   const response: CreateDeploymentConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1726,7 +1933,10 @@ export const deserializeAws_json1_1CreateDeploymentConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateDeploymentConfigCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDeploymentConfigCommandError
+ */
+const de_CreateDeploymentConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentConfigCommandOutput> => {
@@ -1738,25 +1948,25 @@ const deserializeAws_json1_1CreateDeploymentConfigCommandError = async (
   switch (errorCode) {
     case "DeploymentConfigAlreadyExistsException":
     case "com.amazonaws.codedeploy#DeploymentConfigAlreadyExistsException":
-      throw await deserializeAws_json1_1DeploymentConfigAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigAlreadyExistsExceptionRes(parsedOutput, context);
     case "DeploymentConfigLimitExceededException":
     case "com.amazonaws.codedeploy#DeploymentConfigLimitExceededException":
-      throw await deserializeAws_json1_1DeploymentConfigLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigLimitExceededExceptionRes(parsedOutput, context);
     case "DeploymentConfigNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentConfigNameRequiredException":
-      throw await deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      throw await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(parsedOutput, context);
+      throw await de_InvalidComputePlatformExceptionRes(parsedOutput, context);
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
     case "InvalidMinimumHealthyHostValueException":
     case "com.amazonaws.codedeploy#InvalidMinimumHealthyHostValueException":
-      throw await deserializeAws_json1_1InvalidMinimumHealthyHostValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidMinimumHealthyHostValueExceptionRes(parsedOutput, context);
     case "InvalidTrafficRoutingConfigurationException":
     case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
-      throw await deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTrafficRoutingConfigurationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1768,16 +1978,19 @@ const deserializeAws_json1_1CreateDeploymentConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateDeploymentGroupCommand = async (
+/**
+ * deserializeAws_json1_1CreateDeploymentGroupCommand
+ */
+export const de_CreateDeploymentGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDeploymentGroupCommandError(output, context);
+    return de_CreateDeploymentGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDeploymentGroupOutput(data, context);
+  contents = de_CreateDeploymentGroupOutput(data, context);
   const response: CreateDeploymentGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1785,7 +1998,10 @@ export const deserializeAws_json1_1CreateDeploymentGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateDeploymentGroupCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDeploymentGroupCommandError
+ */
+const de_CreateDeploymentGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentGroupCommandOutput> => {
@@ -1797,103 +2013,103 @@ const deserializeAws_json1_1CreateDeploymentGroupCommandError = async (
   switch (errorCode) {
     case "AlarmsLimitExceededException":
     case "com.amazonaws.codedeploy#AlarmsLimitExceededException":
-      throw await deserializeAws_json1_1AlarmsLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_AlarmsLimitExceededExceptionRes(parsedOutput, context);
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupAlreadyExistsException":
     case "com.amazonaws.codedeploy#DeploymentGroupAlreadyExistsException":
-      throw await deserializeAws_json1_1DeploymentGroupAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupAlreadyExistsExceptionRes(parsedOutput, context);
     case "DeploymentGroupLimitExceededException":
     case "com.amazonaws.codedeploy#DeploymentGroupLimitExceededException":
-      throw await deserializeAws_json1_1DeploymentGroupLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupLimitExceededExceptionRes(parsedOutput, context);
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
     case "ECSServiceMappingLimitExceededException":
     case "com.amazonaws.codedeploy#ECSServiceMappingLimitExceededException":
-      throw await deserializeAws_json1_1ECSServiceMappingLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ECSServiceMappingLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidAlarmConfigException":
     case "com.amazonaws.codedeploy#InvalidAlarmConfigException":
-      throw await deserializeAws_json1_1InvalidAlarmConfigExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAlarmConfigExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidAutoRollbackConfigException":
     case "com.amazonaws.codedeploy#InvalidAutoRollbackConfigException":
-      throw await deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAutoRollbackConfigExceptionRes(parsedOutput, context);
     case "InvalidAutoScalingGroupException":
     case "com.amazonaws.codedeploy#InvalidAutoScalingGroupException":
-      throw await deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAutoScalingGroupExceptionRes(parsedOutput, context);
     case "InvalidBlueGreenDeploymentConfigurationException":
     case "com.amazonaws.codedeploy#InvalidBlueGreenDeploymentConfigurationException":
-      throw await deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBlueGreenDeploymentConfigurationExceptionRes(parsedOutput, context);
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentStyleException":
     case "com.amazonaws.codedeploy#InvalidDeploymentStyleException":
-      throw await deserializeAws_json1_1InvalidDeploymentStyleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentStyleExceptionRes(parsedOutput, context);
     case "InvalidEC2TagCombinationException":
     case "com.amazonaws.codedeploy#InvalidEC2TagCombinationException":
-      throw await deserializeAws_json1_1InvalidEC2TagCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEC2TagCombinationExceptionRes(parsedOutput, context);
     case "InvalidEC2TagException":
     case "com.amazonaws.codedeploy#InvalidEC2TagException":
-      throw await deserializeAws_json1_1InvalidEC2TagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEC2TagExceptionRes(parsedOutput, context);
     case "InvalidECSServiceException":
     case "com.amazonaws.codedeploy#InvalidECSServiceException":
-      throw await deserializeAws_json1_1InvalidECSServiceExceptionResponse(parsedOutput, context);
+      throw await de_InvalidECSServiceExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.codedeploy#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidLoadBalancerInfoException":
     case "com.amazonaws.codedeploy#InvalidLoadBalancerInfoException":
-      throw await deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLoadBalancerInfoExceptionRes(parsedOutput, context);
     case "InvalidOnPremisesTagCombinationException":
     case "com.amazonaws.codedeploy#InvalidOnPremisesTagCombinationException":
-      throw await deserializeAws_json1_1InvalidOnPremisesTagCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOnPremisesTagCombinationExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.codedeploy#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.codedeploy#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "InvalidTagsToAddException":
     case "com.amazonaws.codedeploy#InvalidTagsToAddException":
-      throw await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagsToAddExceptionRes(parsedOutput, context);
     case "InvalidTargetGroupPairException":
     case "com.amazonaws.codedeploy#InvalidTargetGroupPairException":
-      throw await deserializeAws_json1_1InvalidTargetGroupPairExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTargetGroupPairExceptionRes(parsedOutput, context);
     case "InvalidTrafficRoutingConfigurationException":
     case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
-      throw await deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTrafficRoutingConfigurationExceptionRes(parsedOutput, context);
     case "InvalidTriggerConfigException":
     case "com.amazonaws.codedeploy#InvalidTriggerConfigException":
-      throw await deserializeAws_json1_1InvalidTriggerConfigExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTriggerConfigExceptionRes(parsedOutput, context);
     case "LifecycleHookLimitExceededException":
     case "com.amazonaws.codedeploy#LifecycleHookLimitExceededException":
-      throw await deserializeAws_json1_1LifecycleHookLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LifecycleHookLimitExceededExceptionRes(parsedOutput, context);
     case "RoleRequiredException":
     case "com.amazonaws.codedeploy#RoleRequiredException":
-      throw await deserializeAws_json1_1RoleRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RoleRequiredExceptionRes(parsedOutput, context);
     case "TagSetListLimitExceededException":
     case "com.amazonaws.codedeploy#TagSetListLimitExceededException":
-      throw await deserializeAws_json1_1TagSetListLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_TagSetListLimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.codedeploy#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TriggerTargetsLimitExceededException":
     case "com.amazonaws.codedeploy#TriggerTargetsLimitExceededException":
-      throw await deserializeAws_json1_1TriggerTargetsLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_TriggerTargetsLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1905,12 +2121,15 @@ const deserializeAws_json1_1CreateDeploymentGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteApplicationCommand = async (
+/**
+ * deserializeAws_json1_1DeleteApplicationCommand
+ */
+export const de_DeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteApplicationCommandError(output, context);
+    return de_DeleteApplicationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteApplicationCommandOutput = {
@@ -1919,7 +2138,10 @@ export const deserializeAws_json1_1DeleteApplicationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteApplicationCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteApplicationCommandError
+ */
+const de_DeleteApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
@@ -1931,13 +2153,13 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
   switch (errorCode) {
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.codedeploy#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1949,12 +2171,15 @@ const deserializeAws_json1_1DeleteApplicationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteDeploymentConfigCommand = async (
+/**
+ * deserializeAws_json1_1DeleteDeploymentConfigCommand
+ */
+export const de_DeleteDeploymentConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteDeploymentConfigCommandError(output, context);
+    return de_DeleteDeploymentConfigCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDeploymentConfigCommandOutput = {
@@ -1963,7 +2188,10 @@ export const deserializeAws_json1_1DeleteDeploymentConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteDeploymentConfigCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteDeploymentConfigCommandError
+ */
+const de_DeleteDeploymentConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentConfigCommandOutput> => {
@@ -1975,16 +2203,16 @@ const deserializeAws_json1_1DeleteDeploymentConfigCommandError = async (
   switch (errorCode) {
     case "DeploymentConfigInUseException":
     case "com.amazonaws.codedeploy#DeploymentConfigInUseException":
-      throw await deserializeAws_json1_1DeploymentConfigInUseExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigInUseExceptionRes(parsedOutput, context);
     case "DeploymentConfigNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentConfigNameRequiredException":
-      throw await deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.codedeploy#InvalidOperationException":
-      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1996,16 +2224,19 @@ const deserializeAws_json1_1DeleteDeploymentConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteDeploymentGroupCommand = async (
+/**
+ * deserializeAws_json1_1DeleteDeploymentGroupCommand
+ */
+export const de_DeleteDeploymentGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteDeploymentGroupCommandError(output, context);
+    return de_DeleteDeploymentGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDeploymentGroupOutput(data, context);
+  contents = de_DeleteDeploymentGroupOutput(data, context);
   const response: DeleteDeploymentGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2013,7 +2244,10 @@ export const deserializeAws_json1_1DeleteDeploymentGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteDeploymentGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteDeploymentGroupCommandError
+ */
+const de_DeleteDeploymentGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentGroupCommandOutput> => {
@@ -2025,19 +2259,19 @@ const deserializeAws_json1_1DeleteDeploymentGroupCommandError = async (
   switch (errorCode) {
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.codedeploy#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2049,16 +2283,19 @@ const deserializeAws_json1_1DeleteDeploymentGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteGitHubAccountTokenCommand = async (
+/**
+ * deserializeAws_json1_1DeleteGitHubAccountTokenCommand
+ */
+export const de_DeleteGitHubAccountTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGitHubAccountTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteGitHubAccountTokenCommandError(output, context);
+    return de_DeleteGitHubAccountTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteGitHubAccountTokenOutput(data, context);
+  contents = de_DeleteGitHubAccountTokenOutput(data, context);
   const response: DeleteGitHubAccountTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2066,7 +2303,10 @@ export const deserializeAws_json1_1DeleteGitHubAccountTokenCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteGitHubAccountTokenCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteGitHubAccountTokenCommandError
+ */
+const de_DeleteGitHubAccountTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGitHubAccountTokenCommandOutput> => {
@@ -2078,19 +2318,19 @@ const deserializeAws_json1_1DeleteGitHubAccountTokenCommandError = async (
   switch (errorCode) {
     case "GitHubAccountTokenDoesNotExistException":
     case "com.amazonaws.codedeploy#GitHubAccountTokenDoesNotExistException":
-      throw await deserializeAws_json1_1GitHubAccountTokenDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_GitHubAccountTokenDoesNotExistExceptionRes(parsedOutput, context);
     case "GitHubAccountTokenNameRequiredException":
     case "com.amazonaws.codedeploy#GitHubAccountTokenNameRequiredException":
-      throw await deserializeAws_json1_1GitHubAccountTokenNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_GitHubAccountTokenNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidGitHubAccountTokenNameException":
     case "com.amazonaws.codedeploy#InvalidGitHubAccountTokenNameException":
-      throw await deserializeAws_json1_1InvalidGitHubAccountTokenNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidGitHubAccountTokenNameExceptionRes(parsedOutput, context);
     case "OperationNotSupportedException":
     case "com.amazonaws.codedeploy#OperationNotSupportedException":
-      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "ResourceValidationException":
     case "com.amazonaws.codedeploy#ResourceValidationException":
-      throw await deserializeAws_json1_1ResourceValidationExceptionResponse(parsedOutput, context);
+      throw await de_ResourceValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2102,16 +2342,19 @@ const deserializeAws_json1_1DeleteGitHubAccountTokenCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteResourcesByExternalIdCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResourcesByExternalIdCommand
+ */
+export const de_DeleteResourcesByExternalIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcesByExternalIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResourcesByExternalIdCommandError(output, context);
+    return de_DeleteResourcesByExternalIdCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteResourcesByExternalIdOutput(data, context);
+  contents = de_DeleteResourcesByExternalIdOutput(data, context);
   const response: DeleteResourcesByExternalIdCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2119,7 +2362,10 @@ export const deserializeAws_json1_1DeleteResourcesByExternalIdCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteResourcesByExternalIdCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResourcesByExternalIdCommandError
+ */
+const de_DeleteResourcesByExternalIdCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcesByExternalIdCommandOutput> => {
@@ -2137,12 +2383,15 @@ const deserializeAws_json1_1DeleteResourcesByExternalIdCommandError = async (
   });
 };
 
-export const deserializeAws_json1_1DeregisterOnPremisesInstanceCommand = async (
+/**
+ * deserializeAws_json1_1DeregisterOnPremisesInstanceCommand
+ */
+export const de_DeregisterOnPremisesInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterOnPremisesInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeregisterOnPremisesInstanceCommandError(output, context);
+    return de_DeregisterOnPremisesInstanceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeregisterOnPremisesInstanceCommandOutput = {
@@ -2151,7 +2400,10 @@ export const deserializeAws_json1_1DeregisterOnPremisesInstanceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeregisterOnPremisesInstanceCommandError = async (
+/**
+ * deserializeAws_json1_1DeregisterOnPremisesInstanceCommandError
+ */
+const de_DeregisterOnPremisesInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterOnPremisesInstanceCommandOutput> => {
@@ -2163,10 +2415,10 @@ const deserializeAws_json1_1DeregisterOnPremisesInstanceCommandError = async (
   switch (errorCode) {
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      throw await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2178,16 +2430,19 @@ const deserializeAws_json1_1DeregisterOnPremisesInstanceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetApplicationCommand = async (
+/**
+ * deserializeAws_json1_1GetApplicationCommand
+ */
+export const de_GetApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetApplicationCommandError(output, context);
+    return de_GetApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetApplicationOutput(data, context);
+  contents = de_GetApplicationOutput(data, context);
   const response: GetApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2195,7 +2450,10 @@ export const deserializeAws_json1_1GetApplicationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetApplicationCommandError = async (
+/**
+ * deserializeAws_json1_1GetApplicationCommandError
+ */
+const de_GetApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
@@ -2207,13 +2465,13 @@ const deserializeAws_json1_1GetApplicationCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2225,16 +2483,19 @@ const deserializeAws_json1_1GetApplicationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetApplicationRevisionCommand = async (
+/**
+ * deserializeAws_json1_1GetApplicationRevisionCommand
+ */
+export const de_GetApplicationRevisionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationRevisionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetApplicationRevisionCommandError(output, context);
+    return de_GetApplicationRevisionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetApplicationRevisionOutput(data, context);
+  contents = de_GetApplicationRevisionOutput(data, context);
   const response: GetApplicationRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2242,7 +2503,10 @@ export const deserializeAws_json1_1GetApplicationRevisionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetApplicationRevisionCommandError = async (
+/**
+ * deserializeAws_json1_1GetApplicationRevisionCommandError
+ */
+const de_GetApplicationRevisionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationRevisionCommandOutput> => {
@@ -2254,22 +2518,22 @@ const deserializeAws_json1_1GetApplicationRevisionCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidRevisionException":
     case "com.amazonaws.codedeploy#InvalidRevisionException":
-      throw await deserializeAws_json1_1InvalidRevisionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRevisionExceptionRes(parsedOutput, context);
     case "RevisionDoesNotExistException":
     case "com.amazonaws.codedeploy#RevisionDoesNotExistException":
-      throw await deserializeAws_json1_1RevisionDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_RevisionDoesNotExistExceptionRes(parsedOutput, context);
     case "RevisionRequiredException":
     case "com.amazonaws.codedeploy#RevisionRequiredException":
-      throw await deserializeAws_json1_1RevisionRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RevisionRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2281,16 +2545,19 @@ const deserializeAws_json1_1GetApplicationRevisionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetDeploymentCommand = async (
+/**
+ * deserializeAws_json1_1GetDeploymentCommand
+ */
+export const de_GetDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDeploymentCommandError(output, context);
+    return de_GetDeploymentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeploymentOutput(data, context);
+  contents = de_GetDeploymentOutput(data, context);
   const response: GetDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2298,7 +2565,10 @@ export const deserializeAws_json1_1GetDeploymentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetDeploymentCommandError = async (
+/**
+ * deserializeAws_json1_1GetDeploymentCommandError
+ */
+const de_GetDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
@@ -2310,13 +2580,13 @@ const deserializeAws_json1_1GetDeploymentCommandError = async (
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2328,16 +2598,19 @@ const deserializeAws_json1_1GetDeploymentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetDeploymentConfigCommand = async (
+/**
+ * deserializeAws_json1_1GetDeploymentConfigCommand
+ */
+export const de_GetDeploymentConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDeploymentConfigCommandError(output, context);
+    return de_GetDeploymentConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeploymentConfigOutput(data, context);
+  contents = de_GetDeploymentConfigOutput(data, context);
   const response: GetDeploymentConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2345,7 +2618,10 @@ export const deserializeAws_json1_1GetDeploymentConfigCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetDeploymentConfigCommandError = async (
+/**
+ * deserializeAws_json1_1GetDeploymentConfigCommandError
+ */
+const de_GetDeploymentConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentConfigCommandOutput> => {
@@ -2357,16 +2633,16 @@ const deserializeAws_json1_1GetDeploymentConfigCommandError = async (
   switch (errorCode) {
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentConfigNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentConfigNameRequiredException":
-      throw await deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      throw await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(parsedOutput, context);
+      throw await de_InvalidComputePlatformExceptionRes(parsedOutput, context);
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2378,16 +2654,19 @@ const deserializeAws_json1_1GetDeploymentConfigCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetDeploymentGroupCommand = async (
+/**
+ * deserializeAws_json1_1GetDeploymentGroupCommand
+ */
+export const de_GetDeploymentGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDeploymentGroupCommandError(output, context);
+    return de_GetDeploymentGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeploymentGroupOutput(data, context);
+  contents = de_GetDeploymentGroupOutput(data, context);
   const response: GetDeploymentGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2395,7 +2674,10 @@ export const deserializeAws_json1_1GetDeploymentGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetDeploymentGroupCommandError = async (
+/**
+ * deserializeAws_json1_1GetDeploymentGroupCommandError
+ */
+const de_GetDeploymentGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentGroupCommandOutput> => {
@@ -2407,25 +2689,25 @@ const deserializeAws_json1_1GetDeploymentGroupCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2437,16 +2719,19 @@ const deserializeAws_json1_1GetDeploymentGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetDeploymentInstanceCommand = async (
+/**
+ * deserializeAws_json1_1GetDeploymentInstanceCommand
+ */
+export const de_GetDeploymentInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDeploymentInstanceCommandError(output, context);
+    return de_GetDeploymentInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeploymentInstanceOutput(data, context);
+  contents = de_GetDeploymentInstanceOutput(data, context);
   const response: GetDeploymentInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2454,7 +2739,10 @@ export const deserializeAws_json1_1GetDeploymentInstanceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetDeploymentInstanceCommandError = async (
+/**
+ * deserializeAws_json1_1GetDeploymentInstanceCommandError
+ */
+const de_GetDeploymentInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentInstanceCommandOutput> => {
@@ -2466,25 +2754,25 @@ const deserializeAws_json1_1GetDeploymentInstanceCommandError = async (
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "InstanceDoesNotExistException":
     case "com.amazonaws.codedeploy#InstanceDoesNotExistException":
-      throw await deserializeAws_json1_1InstanceDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_InstanceDoesNotExistExceptionRes(parsedOutput, context);
     case "InstanceIdRequiredException":
     case "com.amazonaws.codedeploy#InstanceIdRequiredException":
-      throw await deserializeAws_json1_1InstanceIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceIdRequiredExceptionRes(parsedOutput, context);
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      throw await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(parsedOutput, context);
+      throw await de_InvalidComputePlatformExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2496,16 +2784,19 @@ const deserializeAws_json1_1GetDeploymentInstanceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetDeploymentTargetCommand = async (
+/**
+ * deserializeAws_json1_1GetDeploymentTargetCommand
+ */
+export const de_GetDeploymentTargetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentTargetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDeploymentTargetCommandError(output, context);
+    return de_GetDeploymentTargetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeploymentTargetOutput(data, context);
+  contents = de_GetDeploymentTargetOutput(data, context);
   const response: GetDeploymentTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2513,7 +2804,10 @@ export const deserializeAws_json1_1GetDeploymentTargetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetDeploymentTargetCommandError = async (
+/**
+ * deserializeAws_json1_1GetDeploymentTargetCommandError
+ */
+const de_GetDeploymentTargetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentTargetCommandOutput> => {
@@ -2525,28 +2819,28 @@ const deserializeAws_json1_1GetDeploymentTargetCommandError = async (
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "DeploymentNotStartedException":
     case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      throw await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentNotStartedExceptionRes(parsedOutput, context);
     case "DeploymentTargetDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentTargetDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentTargetDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentTargetDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentTargetIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentTargetIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentTargetIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentTargetIdRequiredExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidDeploymentTargetIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentTargetIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentTargetIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentTargetIdExceptionRes(parsedOutput, context);
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2558,16 +2852,19 @@ const deserializeAws_json1_1GetDeploymentTargetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetOnPremisesInstanceCommand = async (
+/**
+ * deserializeAws_json1_1GetOnPremisesInstanceCommand
+ */
+export const de_GetOnPremisesInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOnPremisesInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetOnPremisesInstanceCommandError(output, context);
+    return de_GetOnPremisesInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetOnPremisesInstanceOutput(data, context);
+  contents = de_GetOnPremisesInstanceOutput(data, context);
   const response: GetOnPremisesInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2575,7 +2872,10 @@ export const deserializeAws_json1_1GetOnPremisesInstanceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetOnPremisesInstanceCommandError = async (
+/**
+ * deserializeAws_json1_1GetOnPremisesInstanceCommandError
+ */
+const de_GetOnPremisesInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOnPremisesInstanceCommandOutput> => {
@@ -2587,13 +2887,13 @@ const deserializeAws_json1_1GetOnPremisesInstanceCommandError = async (
   switch (errorCode) {
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      throw await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceNameRequiredExceptionRes(parsedOutput, context);
     case "InstanceNotRegisteredException":
     case "com.amazonaws.codedeploy#InstanceNotRegisteredException":
-      throw await deserializeAws_json1_1InstanceNotRegisteredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceNotRegisteredExceptionRes(parsedOutput, context);
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2605,16 +2905,19 @@ const deserializeAws_json1_1GetOnPremisesInstanceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListApplicationRevisionsCommand = async (
+/**
+ * deserializeAws_json1_1ListApplicationRevisionsCommand
+ */
+export const de_ListApplicationRevisionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationRevisionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListApplicationRevisionsCommandError(output, context);
+    return de_ListApplicationRevisionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListApplicationRevisionsOutput(data, context);
+  contents = de_ListApplicationRevisionsOutput(data, context);
   const response: ListApplicationRevisionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2622,7 +2925,10 @@ export const deserializeAws_json1_1ListApplicationRevisionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListApplicationRevisionsCommandError = async (
+/**
+ * deserializeAws_json1_1ListApplicationRevisionsCommandError
+ */
+const de_ListApplicationRevisionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationRevisionsCommandOutput> => {
@@ -2634,34 +2940,34 @@ const deserializeAws_json1_1ListApplicationRevisionsCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "BucketNameFilterRequiredException":
     case "com.amazonaws.codedeploy#BucketNameFilterRequiredException":
-      throw await deserializeAws_json1_1BucketNameFilterRequiredExceptionResponse(parsedOutput, context);
+      throw await de_BucketNameFilterRequiredExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidBucketNameFilterException":
     case "com.amazonaws.codedeploy#InvalidBucketNameFilterException":
-      throw await deserializeAws_json1_1InvalidBucketNameFilterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBucketNameFilterExceptionRes(parsedOutput, context);
     case "InvalidDeployedStateFilterException":
     case "com.amazonaws.codedeploy#InvalidDeployedStateFilterException":
-      throw await deserializeAws_json1_1InvalidDeployedStateFilterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeployedStateFilterExceptionRes(parsedOutput, context);
     case "InvalidKeyPrefixFilterException":
     case "com.amazonaws.codedeploy#InvalidKeyPrefixFilterException":
-      throw await deserializeAws_json1_1InvalidKeyPrefixFilterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKeyPrefixFilterExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidSortByException":
     case "com.amazonaws.codedeploy#InvalidSortByException":
-      throw await deserializeAws_json1_1InvalidSortByExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSortByExceptionRes(parsedOutput, context);
     case "InvalidSortOrderException":
     case "com.amazonaws.codedeploy#InvalidSortOrderException":
-      throw await deserializeAws_json1_1InvalidSortOrderExceptionResponse(parsedOutput, context);
+      throw await de_InvalidSortOrderExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2673,16 +2979,19 @@ const deserializeAws_json1_1ListApplicationRevisionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListApplicationsCommand = async (
+/**
+ * deserializeAws_json1_1ListApplicationsCommand
+ */
+export const de_ListApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListApplicationsCommandError(output, context);
+    return de_ListApplicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListApplicationsOutput(data, context);
+  contents = de_ListApplicationsOutput(data, context);
   const response: ListApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2690,7 +2999,10 @@ export const deserializeAws_json1_1ListApplicationsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListApplicationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListApplicationsCommandError
+ */
+const de_ListApplicationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
@@ -2702,7 +3014,7 @@ const deserializeAws_json1_1ListApplicationsCommandError = async (
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2714,16 +3026,19 @@ const deserializeAws_json1_1ListApplicationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListDeploymentConfigsCommand = async (
+/**
+ * deserializeAws_json1_1ListDeploymentConfigsCommand
+ */
+export const de_ListDeploymentConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDeploymentConfigsCommandError(output, context);
+    return de_ListDeploymentConfigsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeploymentConfigsOutput(data, context);
+  contents = de_ListDeploymentConfigsOutput(data, context);
   const response: ListDeploymentConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2731,7 +3046,10 @@ export const deserializeAws_json1_1ListDeploymentConfigsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDeploymentConfigsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDeploymentConfigsCommandError
+ */
+const de_ListDeploymentConfigsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentConfigsCommandOutput> => {
@@ -2743,7 +3061,7 @@ const deserializeAws_json1_1ListDeploymentConfigsCommandError = async (
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2755,16 +3073,19 @@ const deserializeAws_json1_1ListDeploymentConfigsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListDeploymentGroupsCommand = async (
+/**
+ * deserializeAws_json1_1ListDeploymentGroupsCommand
+ */
+export const de_ListDeploymentGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDeploymentGroupsCommandError(output, context);
+    return de_ListDeploymentGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeploymentGroupsOutput(data, context);
+  contents = de_ListDeploymentGroupsOutput(data, context);
   const response: ListDeploymentGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2772,7 +3093,10 @@ export const deserializeAws_json1_1ListDeploymentGroupsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDeploymentGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDeploymentGroupsCommandError
+ */
+const de_ListDeploymentGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentGroupsCommandOutput> => {
@@ -2784,16 +3108,16 @@ const deserializeAws_json1_1ListDeploymentGroupsCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2805,16 +3129,19 @@ const deserializeAws_json1_1ListDeploymentGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListDeploymentInstancesCommand = async (
+/**
+ * deserializeAws_json1_1ListDeploymentInstancesCommand
+ */
+export const de_ListDeploymentInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDeploymentInstancesCommandError(output, context);
+    return de_ListDeploymentInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeploymentInstancesOutput(data, context);
+  contents = de_ListDeploymentInstancesOutput(data, context);
   const response: ListDeploymentInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2822,7 +3149,10 @@ export const deserializeAws_json1_1ListDeploymentInstancesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDeploymentInstancesCommandError = async (
+/**
+ * deserializeAws_json1_1ListDeploymentInstancesCommandError
+ */
+const de_ListDeploymentInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentInstancesCommandOutput> => {
@@ -2834,34 +3164,34 @@ const deserializeAws_json1_1ListDeploymentInstancesCommandError = async (
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "DeploymentNotStartedException":
     case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      throw await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentNotStartedExceptionRes(parsedOutput, context);
     case "InvalidComputePlatformException":
     case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      throw await deserializeAws_json1_1InvalidComputePlatformExceptionResponse(parsedOutput, context);
+      throw await de_InvalidComputePlatformExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidDeploymentInstanceTypeException":
     case "com.amazonaws.codedeploy#InvalidDeploymentInstanceTypeException":
-      throw await deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentInstanceTypeExceptionRes(parsedOutput, context);
     case "InvalidInstanceStatusException":
     case "com.amazonaws.codedeploy#InvalidInstanceStatusException":
-      throw await deserializeAws_json1_1InvalidInstanceStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceStatusExceptionRes(parsedOutput, context);
     case "InvalidInstanceTypeException":
     case "com.amazonaws.codedeploy#InvalidInstanceTypeException":
-      throw await deserializeAws_json1_1InvalidInstanceTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceTypeExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidTargetFilterNameException":
     case "com.amazonaws.codedeploy#InvalidTargetFilterNameException":
-      throw await deserializeAws_json1_1InvalidTargetFilterNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTargetFilterNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2873,16 +3203,19 @@ const deserializeAws_json1_1ListDeploymentInstancesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListDeploymentsCommand = async (
+/**
+ * deserializeAws_json1_1ListDeploymentsCommand
+ */
+export const de_ListDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDeploymentsCommandError(output, context);
+    return de_ListDeploymentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeploymentsOutput(data, context);
+  contents = de_ListDeploymentsOutput(data, context);
   const response: ListDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2890,7 +3223,10 @@ export const deserializeAws_json1_1ListDeploymentsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDeploymentsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDeploymentsCommandError
+ */
+const de_ListDeploymentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> => {
@@ -2902,37 +3238,37 @@ const deserializeAws_json1_1ListDeploymentsCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentStatusException":
     case "com.amazonaws.codedeploy#InvalidDeploymentStatusException":
-      throw await deserializeAws_json1_1InvalidDeploymentStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentStatusExceptionRes(parsedOutput, context);
     case "InvalidExternalIdException":
     case "com.amazonaws.codedeploy#InvalidExternalIdException":
-      throw await deserializeAws_json1_1InvalidExternalIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidExternalIdExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.codedeploy#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidTimeRangeException":
     case "com.amazonaws.codedeploy#InvalidTimeRangeException":
-      throw await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTimeRangeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2944,16 +3280,19 @@ const deserializeAws_json1_1ListDeploymentsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListDeploymentTargetsCommand = async (
+/**
+ * deserializeAws_json1_1ListDeploymentTargetsCommand
+ */
+export const de_ListDeploymentTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentTargetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDeploymentTargetsCommandError(output, context);
+    return de_ListDeploymentTargetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeploymentTargetsOutput(data, context);
+  contents = de_ListDeploymentTargetsOutput(data, context);
   const response: ListDeploymentTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2961,7 +3300,10 @@ export const deserializeAws_json1_1ListDeploymentTargetsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDeploymentTargetsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDeploymentTargetsCommandError
+ */
+const de_ListDeploymentTargetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentTargetsCommandOutput> => {
@@ -2973,28 +3315,28 @@ const deserializeAws_json1_1ListDeploymentTargetsCommandError = async (
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "DeploymentNotStartedException":
     case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      throw await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentNotStartedExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidDeploymentInstanceTypeException":
     case "com.amazonaws.codedeploy#InvalidDeploymentInstanceTypeException":
-      throw await deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentInstanceTypeExceptionRes(parsedOutput, context);
     case "InvalidInstanceStatusException":
     case "com.amazonaws.codedeploy#InvalidInstanceStatusException":
-      throw await deserializeAws_json1_1InvalidInstanceStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceStatusExceptionRes(parsedOutput, context);
     case "InvalidInstanceTypeException":
     case "com.amazonaws.codedeploy#InvalidInstanceTypeException":
-      throw await deserializeAws_json1_1InvalidInstanceTypeExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceTypeExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3006,16 +3348,19 @@ const deserializeAws_json1_1ListDeploymentTargetsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListGitHubAccountTokenNamesCommand = async (
+/**
+ * deserializeAws_json1_1ListGitHubAccountTokenNamesCommand
+ */
+export const de_ListGitHubAccountTokenNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGitHubAccountTokenNamesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListGitHubAccountTokenNamesCommandError(output, context);
+    return de_ListGitHubAccountTokenNamesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGitHubAccountTokenNamesOutput(data, context);
+  contents = de_ListGitHubAccountTokenNamesOutput(data, context);
   const response: ListGitHubAccountTokenNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3023,7 +3368,10 @@ export const deserializeAws_json1_1ListGitHubAccountTokenNamesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListGitHubAccountTokenNamesCommandError = async (
+/**
+ * deserializeAws_json1_1ListGitHubAccountTokenNamesCommandError
+ */
+const de_ListGitHubAccountTokenNamesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGitHubAccountTokenNamesCommandOutput> => {
@@ -3035,13 +3383,13 @@ const deserializeAws_json1_1ListGitHubAccountTokenNamesCommandError = async (
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "OperationNotSupportedException":
     case "com.amazonaws.codedeploy#OperationNotSupportedException":
-      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "ResourceValidationException":
     case "com.amazonaws.codedeploy#ResourceValidationException":
-      throw await deserializeAws_json1_1ResourceValidationExceptionResponse(parsedOutput, context);
+      throw await de_ResourceValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3053,16 +3401,19 @@ const deserializeAws_json1_1ListGitHubAccountTokenNamesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListOnPremisesInstancesCommand = async (
+/**
+ * deserializeAws_json1_1ListOnPremisesInstancesCommand
+ */
+export const de_ListOnPremisesInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOnPremisesInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListOnPremisesInstancesCommandError(output, context);
+    return de_ListOnPremisesInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListOnPremisesInstancesOutput(data, context);
+  contents = de_ListOnPremisesInstancesOutput(data, context);
   const response: ListOnPremisesInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3070,7 +3421,10 @@ export const deserializeAws_json1_1ListOnPremisesInstancesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListOnPremisesInstancesCommandError = async (
+/**
+ * deserializeAws_json1_1ListOnPremisesInstancesCommandError
+ */
+const de_ListOnPremisesInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOnPremisesInstancesCommandOutput> => {
@@ -3082,13 +3436,13 @@ const deserializeAws_json1_1ListOnPremisesInstancesCommandError = async (
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRegistrationStatusException":
     case "com.amazonaws.codedeploy#InvalidRegistrationStatusException":
-      throw await deserializeAws_json1_1InvalidRegistrationStatusExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRegistrationStatusExceptionRes(parsedOutput, context);
     case "InvalidTagFilterException":
     case "com.amazonaws.codedeploy#InvalidTagFilterException":
-      throw await deserializeAws_json1_1InvalidTagFilterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagFilterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3100,16 +3454,19 @@ const deserializeAws_json1_1ListOnPremisesInstancesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
+  contents = de_ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3117,7 +3474,10 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -3129,13 +3489,13 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "ArnNotSupportedException":
     case "com.amazonaws.codedeploy#ArnNotSupportedException":
-      throw await deserializeAws_json1_1ArnNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_ArnNotSupportedExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.codedeploy#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "ResourceArnRequiredException":
     case "com.amazonaws.codedeploy#ResourceArnRequiredException":
-      throw await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ResourceArnRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3147,16 +3507,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand = async (
+/**
+ * deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand
+ */
+export const de_PutLifecycleEventHookExecutionStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommandError(output, context);
+    return de_PutLifecycleEventHookExecutionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutLifecycleEventHookExecutionStatusOutput(data, context);
+  contents = de_PutLifecycleEventHookExecutionStatusOutput(data, context);
   const response: PutLifecycleEventHookExecutionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3164,7 +3527,10 @@ export const deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand =
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommandError = async (
+/**
+ * deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommandError
+ */
+const de_PutLifecycleEventHookExecutionStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput> => {
@@ -3176,28 +3542,25 @@ const deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommandError = a
   switch (errorCode) {
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidLifecycleEventHookExecutionIdException":
     case "com.amazonaws.codedeploy#InvalidLifecycleEventHookExecutionIdException":
-      throw await deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLifecycleEventHookExecutionIdExceptionRes(parsedOutput, context);
     case "InvalidLifecycleEventHookExecutionStatusException":
     case "com.amazonaws.codedeploy#InvalidLifecycleEventHookExecutionStatusException":
-      throw await deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      throw await de_InvalidLifecycleEventHookExecutionStatusExceptionRes(parsedOutput, context);
     case "LifecycleEventAlreadyCompletedException":
     case "com.amazonaws.codedeploy#LifecycleEventAlreadyCompletedException":
-      throw await deserializeAws_json1_1LifecycleEventAlreadyCompletedExceptionResponse(parsedOutput, context);
+      throw await de_LifecycleEventAlreadyCompletedExceptionRes(parsedOutput, context);
     case "UnsupportedActionForDeploymentTypeException":
     case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
-      throw await deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedActionForDeploymentTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3209,12 +3572,15 @@ const deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommandError = a
   }
 };
 
-export const deserializeAws_json1_1RegisterApplicationRevisionCommand = async (
+/**
+ * deserializeAws_json1_1RegisterApplicationRevisionCommand
+ */
+export const de_RegisterApplicationRevisionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterApplicationRevisionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RegisterApplicationRevisionCommandError(output, context);
+    return de_RegisterApplicationRevisionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RegisterApplicationRevisionCommandOutput = {
@@ -3223,7 +3589,10 @@ export const deserializeAws_json1_1RegisterApplicationRevisionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RegisterApplicationRevisionCommandError = async (
+/**
+ * deserializeAws_json1_1RegisterApplicationRevisionCommandError
+ */
+const de_RegisterApplicationRevisionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterApplicationRevisionCommandOutput> => {
@@ -3235,22 +3604,22 @@ const deserializeAws_json1_1RegisterApplicationRevisionCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "DescriptionTooLongException":
     case "com.amazonaws.codedeploy#DescriptionTooLongException":
-      throw await deserializeAws_json1_1DescriptionTooLongExceptionResponse(parsedOutput, context);
+      throw await de_DescriptionTooLongExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidRevisionException":
     case "com.amazonaws.codedeploy#InvalidRevisionException":
-      throw await deserializeAws_json1_1InvalidRevisionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRevisionExceptionRes(parsedOutput, context);
     case "RevisionRequiredException":
     case "com.amazonaws.codedeploy#RevisionRequiredException":
-      throw await deserializeAws_json1_1RevisionRequiredExceptionResponse(parsedOutput, context);
+      throw await de_RevisionRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3262,12 +3631,15 @@ const deserializeAws_json1_1RegisterApplicationRevisionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RegisterOnPremisesInstanceCommand = async (
+/**
+ * deserializeAws_json1_1RegisterOnPremisesInstanceCommand
+ */
+export const de_RegisterOnPremisesInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterOnPremisesInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RegisterOnPremisesInstanceCommandError(output, context);
+    return de_RegisterOnPremisesInstanceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RegisterOnPremisesInstanceCommandOutput = {
@@ -3276,7 +3648,10 @@ export const deserializeAws_json1_1RegisterOnPremisesInstanceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RegisterOnPremisesInstanceCommandError = async (
+/**
+ * deserializeAws_json1_1RegisterOnPremisesInstanceCommandError
+ */
+const de_RegisterOnPremisesInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterOnPremisesInstanceCommandOutput> => {
@@ -3288,34 +3663,34 @@ const deserializeAws_json1_1RegisterOnPremisesInstanceCommandError = async (
   switch (errorCode) {
     case "IamArnRequiredException":
     case "com.amazonaws.codedeploy#IamArnRequiredException":
-      throw await deserializeAws_json1_1IamArnRequiredExceptionResponse(parsedOutput, context);
+      throw await de_IamArnRequiredExceptionRes(parsedOutput, context);
     case "IamSessionArnAlreadyRegisteredException":
     case "com.amazonaws.codedeploy#IamSessionArnAlreadyRegisteredException":
-      throw await deserializeAws_json1_1IamSessionArnAlreadyRegisteredExceptionResponse(parsedOutput, context);
+      throw await de_IamSessionArnAlreadyRegisteredExceptionRes(parsedOutput, context);
     case "IamUserArnAlreadyRegisteredException":
     case "com.amazonaws.codedeploy#IamUserArnAlreadyRegisteredException":
-      throw await deserializeAws_json1_1IamUserArnAlreadyRegisteredExceptionResponse(parsedOutput, context);
+      throw await de_IamUserArnAlreadyRegisteredExceptionRes(parsedOutput, context);
     case "IamUserArnRequiredException":
     case "com.amazonaws.codedeploy#IamUserArnRequiredException":
-      throw await deserializeAws_json1_1IamUserArnRequiredExceptionResponse(parsedOutput, context);
+      throw await de_IamUserArnRequiredExceptionRes(parsedOutput, context);
     case "InstanceNameAlreadyRegisteredException":
     case "com.amazonaws.codedeploy#InstanceNameAlreadyRegisteredException":
-      throw await deserializeAws_json1_1InstanceNameAlreadyRegisteredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceNameAlreadyRegisteredExceptionRes(parsedOutput, context);
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      throw await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidIamSessionArnException":
     case "com.amazonaws.codedeploy#InvalidIamSessionArnException":
-      throw await deserializeAws_json1_1InvalidIamSessionArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidIamSessionArnExceptionRes(parsedOutput, context);
     case "InvalidIamUserArnException":
     case "com.amazonaws.codedeploy#InvalidIamUserArnException":
-      throw await deserializeAws_json1_1InvalidIamUserArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidIamUserArnExceptionRes(parsedOutput, context);
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
     case "MultipleIamArnsProvidedException":
     case "com.amazonaws.codedeploy#MultipleIamArnsProvidedException":
-      throw await deserializeAws_json1_1MultipleIamArnsProvidedExceptionResponse(parsedOutput, context);
+      throw await de_MultipleIamArnsProvidedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3327,12 +3702,15 @@ const deserializeAws_json1_1RegisterOnPremisesInstanceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand = async (
+/**
+ * deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand
+ */
+export const de_RemoveTagsFromOnPremisesInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommandError(output, context);
+    return de_RemoveTagsFromOnPremisesInstancesCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemoveTagsFromOnPremisesInstancesCommandOutput = {
@@ -3341,7 +3719,10 @@ export const deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand = as
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommandError = async (
+/**
+ * deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommandError
+ */
+const de_RemoveTagsFromOnPremisesInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> => {
@@ -3353,25 +3734,25 @@ const deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommandError = asyn
   switch (errorCode) {
     case "InstanceLimitExceededException":
     case "com.amazonaws.codedeploy#InstanceLimitExceededException":
-      throw await deserializeAws_json1_1InstanceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_InstanceLimitExceededExceptionRes(parsedOutput, context);
     case "InstanceNameRequiredException":
     case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      throw await deserializeAws_json1_1InstanceNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceNameRequiredExceptionRes(parsedOutput, context);
     case "InstanceNotRegisteredException":
     case "com.amazonaws.codedeploy#InstanceNotRegisteredException":
-      throw await deserializeAws_json1_1InstanceNotRegisteredExceptionResponse(parsedOutput, context);
+      throw await de_InstanceNotRegisteredExceptionRes(parsedOutput, context);
     case "InvalidInstanceNameException":
     case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await deserializeAws_json1_1InvalidInstanceNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.codedeploy#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "TagLimitExceededException":
     case "com.amazonaws.codedeploy#TagLimitExceededException":
-      throw await deserializeAws_json1_1TagLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
     case "TagRequiredException":
     case "com.amazonaws.codedeploy#TagRequiredException":
-      throw await deserializeAws_json1_1TagRequiredExceptionResponse(parsedOutput, context);
+      throw await de_TagRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3383,12 +3764,15 @@ const deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommandError = asyn
   }
 };
 
-export const deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand = async (
+/**
+ * deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand
+ */
+export const de_SkipWaitTimeForInstanceTerminationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommandError(output, context);
+    return de_SkipWaitTimeForInstanceTerminationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SkipWaitTimeForInstanceTerminationCommandOutput = {
@@ -3397,7 +3781,10 @@ export const deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand = a
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommandError = async (
+/**
+ * deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommandError
+ */
+const de_SkipWaitTimeForInstanceTerminationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> => {
@@ -3409,22 +3796,22 @@ const deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommandError = asy
   switch (errorCode) {
     case "DeploymentAlreadyCompletedException":
     case "com.amazonaws.codedeploy#DeploymentAlreadyCompletedException":
-      throw await deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentAlreadyCompletedExceptionRes(parsedOutput, context);
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "DeploymentNotStartedException":
     case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      throw await deserializeAws_json1_1DeploymentNotStartedExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentNotStartedExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "UnsupportedActionForDeploymentTypeException":
     case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
-      throw await deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedActionForDeploymentTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3436,16 +3823,19 @@ const deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommandError = asy
   }
 };
 
-export const deserializeAws_json1_1StopDeploymentCommand = async (
+/**
+ * deserializeAws_json1_1StopDeploymentCommand
+ */
+export const de_StopDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDeploymentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopDeploymentCommandError(output, context);
+    return de_StopDeploymentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopDeploymentOutput(data, context);
+  contents = de_StopDeploymentOutput(data, context);
   const response: StopDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3453,7 +3843,10 @@ export const deserializeAws_json1_1StopDeploymentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StopDeploymentCommandError = async (
+/**
+ * deserializeAws_json1_1StopDeploymentCommandError
+ */
+const de_StopDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDeploymentCommandOutput> => {
@@ -3465,22 +3858,22 @@ const deserializeAws_json1_1StopDeploymentCommandError = async (
   switch (errorCode) {
     case "DeploymentAlreadyCompletedException":
     case "com.amazonaws.codedeploy#DeploymentAlreadyCompletedException":
-      throw await deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentAlreadyCompletedExceptionRes(parsedOutput, context);
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentIdRequiredException":
     case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await deserializeAws_json1_1DeploymentIdRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await deserializeAws_json1_1InvalidDeploymentIdExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "UnsupportedActionForDeploymentTypeException":
     case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
-      throw await deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedActionForDeploymentTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3492,16 +3885,19 @@ const deserializeAws_json1_1StopDeploymentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceOutput(data, context);
+  contents = de_TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3509,7 +3905,10 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -3521,28 +3920,28 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ArnNotSupportedException":
     case "com.amazonaws.codedeploy#ArnNotSupportedException":
-      throw await deserializeAws_json1_1ArnNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_ArnNotSupportedExceptionRes(parsedOutput, context);
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.codedeploy#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidTagsToAddException":
     case "com.amazonaws.codedeploy#InvalidTagsToAddException":
-      throw await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagsToAddExceptionRes(parsedOutput, context);
     case "ResourceArnRequiredException":
     case "com.amazonaws.codedeploy#ResourceArnRequiredException":
-      throw await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ResourceArnRequiredExceptionRes(parsedOutput, context);
     case "TagRequiredException":
     case "com.amazonaws.codedeploy#TagRequiredException":
-      throw await deserializeAws_json1_1TagRequiredExceptionResponse(parsedOutput, context);
+      throw await de_TagRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3554,16 +3953,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceOutput(data, context);
+  contents = de_UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3571,7 +3973,10 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -3583,28 +3988,28 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ArnNotSupportedException":
     case "com.amazonaws.codedeploy#ArnNotSupportedException":
-      throw await deserializeAws_json1_1ArnNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_ArnNotSupportedExceptionRes(parsedOutput, context);
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.codedeploy#InvalidArnException":
-      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
     case "InvalidTagsToAddException":
     case "com.amazonaws.codedeploy#InvalidTagsToAddException":
-      throw await deserializeAws_json1_1InvalidTagsToAddExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagsToAddExceptionRes(parsedOutput, context);
     case "ResourceArnRequiredException":
     case "com.amazonaws.codedeploy#ResourceArnRequiredException":
-      throw await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ResourceArnRequiredExceptionRes(parsedOutput, context);
     case "TagRequiredException":
     case "com.amazonaws.codedeploy#TagRequiredException":
-      throw await deserializeAws_json1_1TagRequiredExceptionResponse(parsedOutput, context);
+      throw await de_TagRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3616,12 +4021,15 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateApplicationCommand = async (
+/**
+ * deserializeAws_json1_1UpdateApplicationCommand
+ */
+export const de_UpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateApplicationCommandError(output, context);
+    return de_UpdateApplicationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateApplicationCommandOutput = {
@@ -3630,7 +4038,10 @@ export const deserializeAws_json1_1UpdateApplicationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateApplicationCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateApplicationCommandError
+ */
+const de_UpdateApplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
@@ -3642,16 +4053,16 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
   switch (errorCode) {
     case "ApplicationAlreadyExistsException":
     case "com.amazonaws.codedeploy#ApplicationAlreadyExistsException":
-      throw await deserializeAws_json1_1ApplicationAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationAlreadyExistsExceptionRes(parsedOutput, context);
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3663,16 +4074,19 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateDeploymentGroupCommand = async (
+/**
+ * deserializeAws_json1_1UpdateDeploymentGroupCommand
+ */
+export const de_UpdateDeploymentGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeploymentGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateDeploymentGroupCommandError(output, context);
+    return de_UpdateDeploymentGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDeploymentGroupOutput(data, context);
+  contents = de_UpdateDeploymentGroupOutput(data, context);
   const response: UpdateDeploymentGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3680,7 +4094,10 @@ export const deserializeAws_json1_1UpdateDeploymentGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateDeploymentGroupCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateDeploymentGroupCommandError
+ */
+const de_UpdateDeploymentGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeploymentGroupCommandOutput> => {
@@ -3692,97 +4109,97 @@ const deserializeAws_json1_1UpdateDeploymentGroupCommandError = async (
   switch (errorCode) {
     case "AlarmsLimitExceededException":
     case "com.amazonaws.codedeploy#AlarmsLimitExceededException":
-      throw await deserializeAws_json1_1AlarmsLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_AlarmsLimitExceededExceptionRes(parsedOutput, context);
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
     case "ApplicationNameRequiredException":
     case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await deserializeAws_json1_1ApplicationNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupAlreadyExistsException":
     case "com.amazonaws.codedeploy#DeploymentGroupAlreadyExistsException":
-      throw await deserializeAws_json1_1DeploymentGroupAlreadyExistsExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupAlreadyExistsExceptionRes(parsedOutput, context);
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse(parsedOutput, context);
+      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
     case "ECSServiceMappingLimitExceededException":
     case "com.amazonaws.codedeploy#ECSServiceMappingLimitExceededException":
-      throw await deserializeAws_json1_1ECSServiceMappingLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ECSServiceMappingLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidAlarmConfigException":
     case "com.amazonaws.codedeploy#InvalidAlarmConfigException":
-      throw await deserializeAws_json1_1InvalidAlarmConfigExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAlarmConfigExceptionRes(parsedOutput, context);
     case "InvalidApplicationNameException":
     case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await deserializeAws_json1_1InvalidApplicationNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidAutoRollbackConfigException":
     case "com.amazonaws.codedeploy#InvalidAutoRollbackConfigException":
-      throw await deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAutoRollbackConfigExceptionRes(parsedOutput, context);
     case "InvalidAutoScalingGroupException":
     case "com.amazonaws.codedeploy#InvalidAutoScalingGroupException":
-      throw await deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse(parsedOutput, context);
+      throw await de_InvalidAutoScalingGroupExceptionRes(parsedOutput, context);
     case "InvalidBlueGreenDeploymentConfigurationException":
     case "com.amazonaws.codedeploy#InvalidBlueGreenDeploymentConfigurationException":
-      throw await deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidBlueGreenDeploymentConfigurationExceptionRes(parsedOutput, context);
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentStyleException":
     case "com.amazonaws.codedeploy#InvalidDeploymentStyleException":
-      throw await deserializeAws_json1_1InvalidDeploymentStyleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidDeploymentStyleExceptionRes(parsedOutput, context);
     case "InvalidEC2TagCombinationException":
     case "com.amazonaws.codedeploy#InvalidEC2TagCombinationException":
-      throw await deserializeAws_json1_1InvalidEC2TagCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEC2TagCombinationExceptionRes(parsedOutput, context);
     case "InvalidEC2TagException":
     case "com.amazonaws.codedeploy#InvalidEC2TagException":
-      throw await deserializeAws_json1_1InvalidEC2TagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidEC2TagExceptionRes(parsedOutput, context);
     case "InvalidECSServiceException":
     case "com.amazonaws.codedeploy#InvalidECSServiceException":
-      throw await deserializeAws_json1_1InvalidECSServiceExceptionResponse(parsedOutput, context);
+      throw await de_InvalidECSServiceExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.codedeploy#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidLoadBalancerInfoException":
     case "com.amazonaws.codedeploy#InvalidLoadBalancerInfoException":
-      throw await deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse(parsedOutput, context);
+      throw await de_InvalidLoadBalancerInfoExceptionRes(parsedOutput, context);
     case "InvalidOnPremisesTagCombinationException":
     case "com.amazonaws.codedeploy#InvalidOnPremisesTagCombinationException":
-      throw await deserializeAws_json1_1InvalidOnPremisesTagCombinationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidOnPremisesTagCombinationExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.codedeploy#InvalidRoleException":
-      throw await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.codedeploy#InvalidTagException":
-      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "InvalidTargetGroupPairException":
     case "com.amazonaws.codedeploy#InvalidTargetGroupPairException":
-      throw await deserializeAws_json1_1InvalidTargetGroupPairExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTargetGroupPairExceptionRes(parsedOutput, context);
     case "InvalidTrafficRoutingConfigurationException":
     case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
-      throw await deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTrafficRoutingConfigurationExceptionRes(parsedOutput, context);
     case "InvalidTriggerConfigException":
     case "com.amazonaws.codedeploy#InvalidTriggerConfigException":
-      throw await deserializeAws_json1_1InvalidTriggerConfigExceptionResponse(parsedOutput, context);
+      throw await de_InvalidTriggerConfigExceptionRes(parsedOutput, context);
     case "LifecycleHookLimitExceededException":
     case "com.amazonaws.codedeploy#LifecycleHookLimitExceededException":
-      throw await deserializeAws_json1_1LifecycleHookLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LifecycleHookLimitExceededExceptionRes(parsedOutput, context);
     case "TagSetListLimitExceededException":
     case "com.amazonaws.codedeploy#TagSetListLimitExceededException":
-      throw await deserializeAws_json1_1TagSetListLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_TagSetListLimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.codedeploy#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TriggerTargetsLimitExceededException":
     case "com.amazonaws.codedeploy#TriggerTargetsLimitExceededException":
-      throw await deserializeAws_json1_1TriggerTargetsLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_TriggerTargetsLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3794,12 +4211,15 @@ const deserializeAws_json1_1UpdateDeploymentGroupCommandError = async (
   }
 };
 
-const deserializeAws_json1_1AlarmsLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AlarmsLimitExceededExceptionRes
+ */
+const de_AlarmsLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlarmsLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AlarmsLimitExceededException(body, context);
+  const deserialized: any = de_AlarmsLimitExceededException(body, context);
   const exception = new AlarmsLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3807,12 +4227,15 @@ const deserializeAws_json1_1AlarmsLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApplicationAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApplicationAlreadyExistsExceptionRes
+ */
+const de_ApplicationAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApplicationAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApplicationAlreadyExistsException(body, context);
+  const deserialized: any = de_ApplicationAlreadyExistsException(body, context);
   const exception = new ApplicationAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3820,12 +4243,15 @@ const deserializeAws_json1_1ApplicationAlreadyExistsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApplicationDoesNotExistExceptionRes
+ */
+const de_ApplicationDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApplicationDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApplicationDoesNotExistException(body, context);
+  const deserialized: any = de_ApplicationDoesNotExistException(body, context);
   const exception = new ApplicationDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3833,12 +4259,15 @@ const deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApplicationLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApplicationLimitExceededExceptionRes
+ */
+const de_ApplicationLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApplicationLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApplicationLimitExceededException(body, context);
+  const deserialized: any = de_ApplicationLimitExceededException(body, context);
   const exception = new ApplicationLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3846,12 +4275,15 @@ const deserializeAws_json1_1ApplicationLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ApplicationNameRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ApplicationNameRequiredExceptionRes
+ */
+const de_ApplicationNameRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApplicationNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ApplicationNameRequiredException(body, context);
+  const deserialized: any = de_ApplicationNameRequiredException(body, context);
   const exception = new ApplicationNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3859,12 +4291,15 @@ const deserializeAws_json1_1ApplicationNameRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ArnNotSupportedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ArnNotSupportedExceptionRes
+ */
+const de_ArnNotSupportedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ArnNotSupportedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ArnNotSupportedException(body, context);
+  const deserialized: any = de_ArnNotSupportedException(body, context);
   const exception = new ArnNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3872,12 +4307,15 @@ const deserializeAws_json1_1ArnNotSupportedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BatchLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1BatchLimitExceededExceptionRes
+ */
+const de_BatchLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BatchLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BatchLimitExceededException(body, context);
+  const deserialized: any = de_BatchLimitExceededException(body, context);
   const exception = new BatchLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3885,12 +4323,15 @@ const deserializeAws_json1_1BatchLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1BucketNameFilterRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1BucketNameFilterRequiredExceptionRes
+ */
+const de_BucketNameFilterRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BucketNameFilterRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BucketNameFilterRequiredException(body, context);
+  const deserialized: any = de_BucketNameFilterRequiredException(body, context);
   const exception = new BucketNameFilterRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3898,12 +4339,15 @@ const deserializeAws_json1_1BucketNameFilterRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentAlreadyCompletedExceptionRes
+ */
+const de_DeploymentAlreadyCompletedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentAlreadyCompletedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentAlreadyCompletedException(body, context);
+  const deserialized: any = de_DeploymentAlreadyCompletedException(body, context);
   const exception = new DeploymentAlreadyCompletedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3911,12 +4355,15 @@ const deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentConfigAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentConfigAlreadyExistsExceptionRes
+ */
+const de_DeploymentConfigAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentConfigAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentConfigAlreadyExistsException(body, context);
+  const deserialized: any = de_DeploymentConfigAlreadyExistsException(body, context);
   const exception = new DeploymentConfigAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3924,12 +4371,15 @@ const deserializeAws_json1_1DeploymentConfigAlreadyExistsExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionRes
+ */
+const de_DeploymentConfigDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentConfigDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentConfigDoesNotExistException(body, context);
+  const deserialized: any = de_DeploymentConfigDoesNotExistException(body, context);
   const exception = new DeploymentConfigDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3937,12 +4387,15 @@ const deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentConfigInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentConfigInUseExceptionRes
+ */
+const de_DeploymentConfigInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentConfigInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentConfigInUseException(body, context);
+  const deserialized: any = de_DeploymentConfigInUseException(body, context);
   const exception = new DeploymentConfigInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3950,12 +4403,15 @@ const deserializeAws_json1_1DeploymentConfigInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentConfigLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentConfigLimitExceededExceptionRes
+ */
+const de_DeploymentConfigLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentConfigLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentConfigLimitExceededException(body, context);
+  const deserialized: any = de_DeploymentConfigLimitExceededException(body, context);
   const exception = new DeploymentConfigLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3963,12 +4419,15 @@ const deserializeAws_json1_1DeploymentConfigLimitExceededExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentConfigNameRequiredExceptionRes
+ */
+const de_DeploymentConfigNameRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentConfigNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentConfigNameRequiredException(body, context);
+  const deserialized: any = de_DeploymentConfigNameRequiredException(body, context);
   const exception = new DeploymentConfigNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3976,12 +4435,15 @@ const deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentDoesNotExistExceptionRes
+ */
+const de_DeploymentDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentDoesNotExistException(body, context);
+  const deserialized: any = de_DeploymentDoesNotExistException(body, context);
   const exception = new DeploymentDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3989,12 +4451,15 @@ const deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentGroupAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentGroupAlreadyExistsExceptionRes
+ */
+const de_DeploymentGroupAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentGroupAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentGroupAlreadyExistsException(body, context);
+  const deserialized: any = de_DeploymentGroupAlreadyExistsException(body, context);
   const exception = new DeploymentGroupAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4002,12 +4467,15 @@ const deserializeAws_json1_1DeploymentGroupAlreadyExistsExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionRes
+ */
+const de_DeploymentGroupDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentGroupDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentGroupDoesNotExistException(body, context);
+  const deserialized: any = de_DeploymentGroupDoesNotExistException(body, context);
   const exception = new DeploymentGroupDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4015,12 +4483,15 @@ const deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentGroupLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentGroupLimitExceededExceptionRes
+ */
+const de_DeploymentGroupLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentGroupLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentGroupLimitExceededException(body, context);
+  const deserialized: any = de_DeploymentGroupLimitExceededException(body, context);
   const exception = new DeploymentGroupLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4028,12 +4499,15 @@ const deserializeAws_json1_1DeploymentGroupLimitExceededExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentGroupNameRequiredExceptionRes
+ */
+const de_DeploymentGroupNameRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentGroupNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentGroupNameRequiredException(body, context);
+  const deserialized: any = de_DeploymentGroupNameRequiredException(body, context);
   const exception = new DeploymentGroupNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4041,12 +4515,15 @@ const deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentIdRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentIdRequiredExceptionRes
+ */
+const de_DeploymentIdRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentIdRequiredException(body, context);
+  const deserialized: any = de_DeploymentIdRequiredException(body, context);
   const exception = new DeploymentIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4054,12 +4531,15 @@ const deserializeAws_json1_1DeploymentIdRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentIsNotInReadyStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentIsNotInReadyStateExceptionRes
+ */
+const de_DeploymentIsNotInReadyStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentIsNotInReadyStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentIsNotInReadyStateException(body, context);
+  const deserialized: any = de_DeploymentIsNotInReadyStateException(body, context);
   const exception = new DeploymentIsNotInReadyStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4067,12 +4547,15 @@ const deserializeAws_json1_1DeploymentIsNotInReadyStateExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentLimitExceededExceptionRes
+ */
+const de_DeploymentLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentLimitExceededException(body, context);
+  const deserialized: any = de_DeploymentLimitExceededException(body, context);
   const exception = new DeploymentLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4080,12 +4563,15 @@ const deserializeAws_json1_1DeploymentLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentNotStartedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentNotStartedExceptionRes
+ */
+const de_DeploymentNotStartedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentNotStartedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentNotStartedException(body, context);
+  const deserialized: any = de_DeploymentNotStartedException(body, context);
   const exception = new DeploymentNotStartedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4093,12 +4579,15 @@ const deserializeAws_json1_1DeploymentNotStartedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentTargetDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentTargetDoesNotExistExceptionRes
+ */
+const de_DeploymentTargetDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentTargetDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentTargetDoesNotExistException(body, context);
+  const deserialized: any = de_DeploymentTargetDoesNotExistException(body, context);
   const exception = new DeploymentTargetDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4106,12 +4595,15 @@ const deserializeAws_json1_1DeploymentTargetDoesNotExistExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentTargetIdRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentTargetIdRequiredExceptionRes
+ */
+const de_DeploymentTargetIdRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentTargetIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentTargetIdRequiredException(body, context);
+  const deserialized: any = de_DeploymentTargetIdRequiredException(body, context);
   const exception = new DeploymentTargetIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4119,12 +4611,15 @@ const deserializeAws_json1_1DeploymentTargetIdRequiredExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DeploymentTargetListSizeExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DeploymentTargetListSizeExceededExceptionRes
+ */
+const de_DeploymentTargetListSizeExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentTargetListSizeExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DeploymentTargetListSizeExceededException(body, context);
+  const deserialized: any = de_DeploymentTargetListSizeExceededException(body, context);
   const exception = new DeploymentTargetListSizeExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4132,12 +4627,15 @@ const deserializeAws_json1_1DeploymentTargetListSizeExceededExceptionResponse = 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DescriptionTooLongExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DescriptionTooLongExceptionRes
+ */
+const de_DescriptionTooLongExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DescriptionTooLongException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DescriptionTooLongException(body, context);
+  const deserialized: any = de_DescriptionTooLongException(body, context);
   const exception = new DescriptionTooLongException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4145,12 +4643,15 @@ const deserializeAws_json1_1DescriptionTooLongExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ECSServiceMappingLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ECSServiceMappingLimitExceededExceptionRes
+ */
+const de_ECSServiceMappingLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ECSServiceMappingLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ECSServiceMappingLimitExceededException(body, context);
+  const deserialized: any = de_ECSServiceMappingLimitExceededException(body, context);
   const exception = new ECSServiceMappingLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4158,12 +4659,15 @@ const deserializeAws_json1_1ECSServiceMappingLimitExceededExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1GitHubAccountTokenDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1GitHubAccountTokenDoesNotExistExceptionRes
+ */
+const de_GitHubAccountTokenDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<GitHubAccountTokenDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1GitHubAccountTokenDoesNotExistException(body, context);
+  const deserialized: any = de_GitHubAccountTokenDoesNotExistException(body, context);
   const exception = new GitHubAccountTokenDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4171,12 +4675,15 @@ const deserializeAws_json1_1GitHubAccountTokenDoesNotExistExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1GitHubAccountTokenNameRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1GitHubAccountTokenNameRequiredExceptionRes
+ */
+const de_GitHubAccountTokenNameRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<GitHubAccountTokenNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1GitHubAccountTokenNameRequiredException(body, context);
+  const deserialized: any = de_GitHubAccountTokenNameRequiredException(body, context);
   const exception = new GitHubAccountTokenNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4184,12 +4691,15 @@ const deserializeAws_json1_1GitHubAccountTokenNameRequiredExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1IamArnRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1IamArnRequiredExceptionRes
+ */
+const de_IamArnRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IamArnRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IamArnRequiredException(body, context);
+  const deserialized: any = de_IamArnRequiredException(body, context);
   const exception = new IamArnRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4197,12 +4707,15 @@ const deserializeAws_json1_1IamArnRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1IamSessionArnAlreadyRegisteredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1IamSessionArnAlreadyRegisteredExceptionRes
+ */
+const de_IamSessionArnAlreadyRegisteredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IamSessionArnAlreadyRegisteredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IamSessionArnAlreadyRegisteredException(body, context);
+  const deserialized: any = de_IamSessionArnAlreadyRegisteredException(body, context);
   const exception = new IamSessionArnAlreadyRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4210,12 +4723,15 @@ const deserializeAws_json1_1IamSessionArnAlreadyRegisteredExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1IamUserArnAlreadyRegisteredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1IamUserArnAlreadyRegisteredExceptionRes
+ */
+const de_IamUserArnAlreadyRegisteredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IamUserArnAlreadyRegisteredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IamUserArnAlreadyRegisteredException(body, context);
+  const deserialized: any = de_IamUserArnAlreadyRegisteredException(body, context);
   const exception = new IamUserArnAlreadyRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4223,12 +4739,15 @@ const deserializeAws_json1_1IamUserArnAlreadyRegisteredExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1IamUserArnRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1IamUserArnRequiredExceptionRes
+ */
+const de_IamUserArnRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IamUserArnRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IamUserArnRequiredException(body, context);
+  const deserialized: any = de_IamUserArnRequiredException(body, context);
   const exception = new IamUserArnRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4236,12 +4755,15 @@ const deserializeAws_json1_1IamUserArnRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InstanceDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InstanceDoesNotExistExceptionRes
+ */
+const de_InstanceDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InstanceDoesNotExistException(body, context);
+  const deserialized: any = de_InstanceDoesNotExistException(body, context);
   const exception = new InstanceDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4249,12 +4771,15 @@ const deserializeAws_json1_1InstanceDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InstanceIdRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InstanceIdRequiredExceptionRes
+ */
+const de_InstanceIdRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceIdRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InstanceIdRequiredException(body, context);
+  const deserialized: any = de_InstanceIdRequiredException(body, context);
   const exception = new InstanceIdRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4262,12 +4787,15 @@ const deserializeAws_json1_1InstanceIdRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InstanceLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InstanceLimitExceededExceptionRes
+ */
+const de_InstanceLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InstanceLimitExceededException(body, context);
+  const deserialized: any = de_InstanceLimitExceededException(body, context);
   const exception = new InstanceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4275,12 +4803,15 @@ const deserializeAws_json1_1InstanceLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InstanceNameAlreadyRegisteredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InstanceNameAlreadyRegisteredExceptionRes
+ */
+const de_InstanceNameAlreadyRegisteredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceNameAlreadyRegisteredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InstanceNameAlreadyRegisteredException(body, context);
+  const deserialized: any = de_InstanceNameAlreadyRegisteredException(body, context);
   const exception = new InstanceNameAlreadyRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4288,12 +4819,15 @@ const deserializeAws_json1_1InstanceNameAlreadyRegisteredExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InstanceNameRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InstanceNameRequiredExceptionRes
+ */
+const de_InstanceNameRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceNameRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InstanceNameRequiredException(body, context);
+  const deserialized: any = de_InstanceNameRequiredException(body, context);
   const exception = new InstanceNameRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4301,12 +4835,15 @@ const deserializeAws_json1_1InstanceNameRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InstanceNotRegisteredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InstanceNotRegisteredExceptionRes
+ */
+const de_InstanceNotRegisteredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceNotRegisteredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InstanceNotRegisteredException(body, context);
+  const deserialized: any = de_InstanceNotRegisteredException(body, context);
   const exception = new InstanceNotRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4314,12 +4851,15 @@ const deserializeAws_json1_1InstanceNotRegisteredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidAlarmConfigExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidAlarmConfigExceptionRes
+ */
+const de_InvalidAlarmConfigExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAlarmConfigException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidAlarmConfigException(body, context);
+  const deserialized: any = de_InvalidAlarmConfigException(body, context);
   const exception = new InvalidAlarmConfigException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4327,12 +4867,15 @@ const deserializeAws_json1_1InvalidAlarmConfigExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidApplicationNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidApplicationNameExceptionRes
+ */
+const de_InvalidApplicationNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidApplicationNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidApplicationNameException(body, context);
+  const deserialized: any = de_InvalidApplicationNameException(body, context);
   const exception = new InvalidApplicationNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4340,12 +4883,12 @@ const deserializeAws_json1_1InvalidApplicationNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidArnExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidArnException> => {
+/**
+ * deserializeAws_json1_1InvalidArnExceptionRes
+ */
+const de_InvalidArnExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidArnException(body, context);
+  const deserialized: any = de_InvalidArnException(body, context);
   const exception = new InvalidArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4353,12 +4896,15 @@ const deserializeAws_json1_1InvalidArnExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidAutoRollbackConfigExceptionRes
+ */
+const de_InvalidAutoRollbackConfigExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAutoRollbackConfigException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidAutoRollbackConfigException(body, context);
+  const deserialized: any = de_InvalidAutoRollbackConfigException(body, context);
   const exception = new InvalidAutoRollbackConfigException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4366,12 +4912,15 @@ const deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidAutoScalingGroupExceptionRes
+ */
+const de_InvalidAutoScalingGroupExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAutoScalingGroupException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidAutoScalingGroupException(body, context);
+  const deserialized: any = de_InvalidAutoScalingGroupException(body, context);
   const exception = new InvalidAutoScalingGroupException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4379,12 +4928,15 @@ const deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationExceptionRes
+ */
+const de_InvalidBlueGreenDeploymentConfigurationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidBlueGreenDeploymentConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationException(body, context);
+  const deserialized: any = de_InvalidBlueGreenDeploymentConfigurationException(body, context);
   const exception = new InvalidBlueGreenDeploymentConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4392,12 +4944,15 @@ const deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationExceptionResp
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidBucketNameFilterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidBucketNameFilterExceptionRes
+ */
+const de_InvalidBucketNameFilterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidBucketNameFilterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidBucketNameFilterException(body, context);
+  const deserialized: any = de_InvalidBucketNameFilterException(body, context);
   const exception = new InvalidBucketNameFilterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4405,12 +4960,15 @@ const deserializeAws_json1_1InvalidBucketNameFilterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidComputePlatformExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidComputePlatformExceptionRes
+ */
+const de_InvalidComputePlatformExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidComputePlatformException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidComputePlatformException(body, context);
+  const deserialized: any = de_InvalidComputePlatformException(body, context);
   const exception = new InvalidComputePlatformException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4418,12 +4976,15 @@ const deserializeAws_json1_1InvalidComputePlatformExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDeployedStateFilterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDeployedStateFilterExceptionRes
+ */
+const de_InvalidDeployedStateFilterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeployedStateFilterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDeployedStateFilterException(body, context);
+  const deserialized: any = de_InvalidDeployedStateFilterException(body, context);
   const exception = new InvalidDeployedStateFilterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4431,12 +4992,15 @@ const deserializeAws_json1_1InvalidDeployedStateFilterExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDeploymentConfigNameExceptionRes
+ */
+const de_InvalidDeploymentConfigNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentConfigNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDeploymentConfigNameException(body, context);
+  const deserialized: any = de_InvalidDeploymentConfigNameException(body, context);
   const exception = new InvalidDeploymentConfigNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4444,12 +5008,15 @@ const deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDeploymentGroupNameExceptionRes
+ */
+const de_InvalidDeploymentGroupNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentGroupNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDeploymentGroupNameException(body, context);
+  const deserialized: any = de_InvalidDeploymentGroupNameException(body, context);
   const exception = new InvalidDeploymentGroupNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4457,12 +5024,15 @@ const deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDeploymentIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDeploymentIdExceptionRes
+ */
+const de_InvalidDeploymentIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDeploymentIdException(body, context);
+  const deserialized: any = de_InvalidDeploymentIdException(body, context);
   const exception = new InvalidDeploymentIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4470,12 +5040,15 @@ const deserializeAws_json1_1InvalidDeploymentIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionRes
+ */
+const de_InvalidDeploymentInstanceTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentInstanceTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDeploymentInstanceTypeException(body, context);
+  const deserialized: any = de_InvalidDeploymentInstanceTypeException(body, context);
   const exception = new InvalidDeploymentInstanceTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4483,12 +5056,15 @@ const deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDeploymentStatusExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDeploymentStatusExceptionRes
+ */
+const de_InvalidDeploymentStatusExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDeploymentStatusException(body, context);
+  const deserialized: any = de_InvalidDeploymentStatusException(body, context);
   const exception = new InvalidDeploymentStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4496,12 +5072,15 @@ const deserializeAws_json1_1InvalidDeploymentStatusExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDeploymentStyleExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDeploymentStyleExceptionRes
+ */
+const de_InvalidDeploymentStyleExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentStyleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDeploymentStyleException(body, context);
+  const deserialized: any = de_InvalidDeploymentStyleException(body, context);
   const exception = new InvalidDeploymentStyleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4509,12 +5088,15 @@ const deserializeAws_json1_1InvalidDeploymentStyleExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDeploymentTargetIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDeploymentTargetIdExceptionRes
+ */
+const de_InvalidDeploymentTargetIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentTargetIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDeploymentTargetIdException(body, context);
+  const deserialized: any = de_InvalidDeploymentTargetIdException(body, context);
   const exception = new InvalidDeploymentTargetIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4522,12 +5104,15 @@ const deserializeAws_json1_1InvalidDeploymentTargetIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidDeploymentWaitTypeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidDeploymentWaitTypeExceptionRes
+ */
+const de_InvalidDeploymentWaitTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentWaitTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidDeploymentWaitTypeException(body, context);
+  const deserialized: any = de_InvalidDeploymentWaitTypeException(body, context);
   const exception = new InvalidDeploymentWaitTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4535,12 +5120,15 @@ const deserializeAws_json1_1InvalidDeploymentWaitTypeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidEC2TagCombinationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidEC2TagCombinationExceptionRes
+ */
+const de_InvalidEC2TagCombinationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidEC2TagCombinationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidEC2TagCombinationException(body, context);
+  const deserialized: any = de_InvalidEC2TagCombinationException(body, context);
   const exception = new InvalidEC2TagCombinationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4548,12 +5136,15 @@ const deserializeAws_json1_1InvalidEC2TagCombinationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidEC2TagExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidEC2TagExceptionRes
+ */
+const de_InvalidEC2TagExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidEC2TagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidEC2TagException(body, context);
+  const deserialized: any = de_InvalidEC2TagException(body, context);
   const exception = new InvalidEC2TagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4561,12 +5152,15 @@ const deserializeAws_json1_1InvalidEC2TagExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidECSServiceExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidECSServiceExceptionRes
+ */
+const de_InvalidECSServiceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidECSServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidECSServiceException(body, context);
+  const deserialized: any = de_InvalidECSServiceException(body, context);
   const exception = new InvalidECSServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4574,12 +5168,15 @@ const deserializeAws_json1_1InvalidECSServiceExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidExternalIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidExternalIdExceptionRes
+ */
+const de_InvalidExternalIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidExternalIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidExternalIdException(body, context);
+  const deserialized: any = de_InvalidExternalIdException(body, context);
   const exception = new InvalidExternalIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4587,12 +5184,15 @@ const deserializeAws_json1_1InvalidExternalIdExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidFileExistsBehaviorExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidFileExistsBehaviorExceptionRes
+ */
+const de_InvalidFileExistsBehaviorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidFileExistsBehaviorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidFileExistsBehaviorException(body, context);
+  const deserialized: any = de_InvalidFileExistsBehaviorException(body, context);
   const exception = new InvalidFileExistsBehaviorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4600,12 +5200,15 @@ const deserializeAws_json1_1InvalidFileExistsBehaviorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidGitHubAccountTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidGitHubAccountTokenExceptionRes
+ */
+const de_InvalidGitHubAccountTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidGitHubAccountTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidGitHubAccountTokenException(body, context);
+  const deserialized: any = de_InvalidGitHubAccountTokenException(body, context);
   const exception = new InvalidGitHubAccountTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4613,12 +5216,15 @@ const deserializeAws_json1_1InvalidGitHubAccountTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidGitHubAccountTokenNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidGitHubAccountTokenNameExceptionRes
+ */
+const de_InvalidGitHubAccountTokenNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidGitHubAccountTokenNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidGitHubAccountTokenNameException(body, context);
+  const deserialized: any = de_InvalidGitHubAccountTokenNameException(body, context);
   const exception = new InvalidGitHubAccountTokenNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4626,12 +5232,15 @@ const deserializeAws_json1_1InvalidGitHubAccountTokenNameExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidIamSessionArnExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidIamSessionArnExceptionRes
+ */
+const de_InvalidIamSessionArnExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidIamSessionArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidIamSessionArnException(body, context);
+  const deserialized: any = de_InvalidIamSessionArnException(body, context);
   const exception = new InvalidIamSessionArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4639,12 +5248,15 @@ const deserializeAws_json1_1InvalidIamSessionArnExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidIamUserArnExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidIamUserArnExceptionRes
+ */
+const de_InvalidIamUserArnExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidIamUserArnException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidIamUserArnException(body, context);
+  const deserialized: any = de_InvalidIamUserArnException(body, context);
   const exception = new InvalidIamUserArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4652,12 +5264,15 @@ const deserializeAws_json1_1InvalidIamUserArnExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueExceptionRes
+ */
+const de_InvalidIgnoreApplicationStopFailuresValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidIgnoreApplicationStopFailuresValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueException(body, context);
+  const deserialized: any = de_InvalidIgnoreApplicationStopFailuresValueException(body, context);
   const exception = new InvalidIgnoreApplicationStopFailuresValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4665,12 +5280,15 @@ const deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueExceptionRe
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
+  const deserialized: any = de_InvalidInputException(body, context);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4678,12 +5296,15 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidInstanceNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidInstanceNameExceptionRes
+ */
+const de_InvalidInstanceNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInstanceNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInstanceNameException(body, context);
+  const deserialized: any = de_InvalidInstanceNameException(body, context);
   const exception = new InvalidInstanceNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4691,12 +5312,15 @@ const deserializeAws_json1_1InvalidInstanceNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidInstanceStatusExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidInstanceStatusExceptionRes
+ */
+const de_InvalidInstanceStatusExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInstanceStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInstanceStatusException(body, context);
+  const deserialized: any = de_InvalidInstanceStatusException(body, context);
   const exception = new InvalidInstanceStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4704,12 +5328,15 @@ const deserializeAws_json1_1InvalidInstanceStatusExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidInstanceTypeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidInstanceTypeExceptionRes
+ */
+const de_InvalidInstanceTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInstanceTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInstanceTypeException(body, context);
+  const deserialized: any = de_InvalidInstanceTypeException(body, context);
   const exception = new InvalidInstanceTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4717,12 +5344,15 @@ const deserializeAws_json1_1InvalidInstanceTypeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidKeyPrefixFilterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidKeyPrefixFilterExceptionRes
+ */
+const de_InvalidKeyPrefixFilterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidKeyPrefixFilterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidKeyPrefixFilterException(body, context);
+  const deserialized: any = de_InvalidKeyPrefixFilterException(body, context);
   const exception = new InvalidKeyPrefixFilterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4730,12 +5360,15 @@ const deserializeAws_json1_1InvalidKeyPrefixFilterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdExceptionRes
+ */
+const de_InvalidLifecycleEventHookExecutionIdExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLifecycleEventHookExecutionIdException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdException(body, context);
+  const deserialized: any = de_InvalidLifecycleEventHookExecutionIdException(body, context);
   const exception = new InvalidLifecycleEventHookExecutionIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4743,12 +5376,15 @@ const deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdExceptionRespons
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusExceptionRes
+ */
+const de_InvalidLifecycleEventHookExecutionStatusExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLifecycleEventHookExecutionStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusException(body, context);
+  const deserialized: any = de_InvalidLifecycleEventHookExecutionStatusException(body, context);
   const exception = new InvalidLifecycleEventHookExecutionStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4756,12 +5392,15 @@ const deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusExceptionRes
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidLoadBalancerInfoExceptionRes
+ */
+const de_InvalidLoadBalancerInfoExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLoadBalancerInfoException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidLoadBalancerInfoException(body, context);
+  const deserialized: any = de_InvalidLoadBalancerInfoException(body, context);
   const exception = new InvalidLoadBalancerInfoException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4769,12 +5408,15 @@ const deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidMinimumHealthyHostValueExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidMinimumHealthyHostValueExceptionRes
+ */
+const de_InvalidMinimumHealthyHostValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidMinimumHealthyHostValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidMinimumHealthyHostValueException(body, context);
+  const deserialized: any = de_InvalidMinimumHealthyHostValueException(body, context);
   const exception = new InvalidMinimumHealthyHostValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4782,12 +5424,15 @@ const deserializeAws_json1_1InvalidMinimumHealthyHostValueExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidNextTokenExceptionRes
+ */
+const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
+  const deserialized: any = de_InvalidNextTokenException(body, context);
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4795,12 +5440,15 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidOnPremisesTagCombinationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidOnPremisesTagCombinationExceptionRes
+ */
+const de_InvalidOnPremisesTagCombinationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOnPremisesTagCombinationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidOnPremisesTagCombinationException(body, context);
+  const deserialized: any = de_InvalidOnPremisesTagCombinationException(body, context);
   const exception = new InvalidOnPremisesTagCombinationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4808,12 +5456,15 @@ const deserializeAws_json1_1InvalidOnPremisesTagCombinationExceptionResponse = a
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidOperationExceptionRes
+ */
+const de_InvalidOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidOperationException(body, context);
+  const deserialized: any = de_InvalidOperationException(body, context);
   const exception = new InvalidOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4821,12 +5472,15 @@ const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRegistrationStatusExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRegistrationStatusExceptionRes
+ */
+const de_InvalidRegistrationStatusExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRegistrationStatusException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRegistrationStatusException(body, context);
+  const deserialized: any = de_InvalidRegistrationStatusException(body, context);
   const exception = new InvalidRegistrationStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4834,12 +5488,15 @@ const deserializeAws_json1_1InvalidRegistrationStatusExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRevisionExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRevisionExceptionRes
+ */
+const de_InvalidRevisionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRevisionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRevisionException(body, context);
+  const deserialized: any = de_InvalidRevisionException(body, context);
   const exception = new InvalidRevisionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4847,12 +5504,15 @@ const deserializeAws_json1_1InvalidRevisionExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidRoleExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidRoleExceptionRes
+ */
+const de_InvalidRoleExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRoleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRoleException(body, context);
+  const deserialized: any = de_InvalidRoleException(body, context);
   const exception = new InvalidRoleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4860,12 +5520,15 @@ const deserializeAws_json1_1InvalidRoleExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidSortByExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidSortByExceptionRes
+ */
+const de_InvalidSortByExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSortByException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidSortByException(body, context);
+  const deserialized: any = de_InvalidSortByException(body, context);
   const exception = new InvalidSortByException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4873,12 +5536,15 @@ const deserializeAws_json1_1InvalidSortByExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidSortOrderExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidSortOrderExceptionRes
+ */
+const de_InvalidSortOrderExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSortOrderException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidSortOrderException(body, context);
+  const deserialized: any = de_InvalidSortOrderException(body, context);
   const exception = new InvalidSortOrderException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4886,12 +5552,12 @@ const deserializeAws_json1_1InvalidSortOrderExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTagExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidTagException> => {
+/**
+ * deserializeAws_json1_1InvalidTagExceptionRes
+ */
+const de_InvalidTagExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTagException(body, context);
+  const deserialized: any = de_InvalidTagException(body, context);
   const exception = new InvalidTagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4899,12 +5565,15 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTagFilterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTagFilterExceptionRes
+ */
+const de_InvalidTagFilterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTagFilterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTagFilterException(body, context);
+  const deserialized: any = de_InvalidTagFilterException(body, context);
   const exception = new InvalidTagFilterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4912,12 +5581,15 @@ const deserializeAws_json1_1InvalidTagFilterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTagsToAddExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTagsToAddExceptionRes
+ */
+const de_InvalidTagsToAddExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTagsToAddException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTagsToAddException(body, context);
+  const deserialized: any = de_InvalidTagsToAddException(body, context);
   const exception = new InvalidTagsToAddException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4925,12 +5597,15 @@ const deserializeAws_json1_1InvalidTagsToAddExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTargetFilterNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTargetFilterNameExceptionRes
+ */
+const de_InvalidTargetFilterNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTargetFilterNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTargetFilterNameException(body, context);
+  const deserialized: any = de_InvalidTargetFilterNameException(body, context);
   const exception = new InvalidTargetFilterNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4938,12 +5613,15 @@ const deserializeAws_json1_1InvalidTargetFilterNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTargetGroupPairExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTargetGroupPairExceptionRes
+ */
+const de_InvalidTargetGroupPairExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTargetGroupPairException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTargetGroupPairException(body, context);
+  const deserialized: any = de_InvalidTargetGroupPairException(body, context);
   const exception = new InvalidTargetGroupPairException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4951,12 +5629,15 @@ const deserializeAws_json1_1InvalidTargetGroupPairExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTargetInstancesExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTargetInstancesExceptionRes
+ */
+const de_InvalidTargetInstancesExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTargetInstancesException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTargetInstancesException(body, context);
+  const deserialized: any = de_InvalidTargetInstancesException(body, context);
   const exception = new InvalidTargetInstancesException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4964,12 +5645,15 @@ const deserializeAws_json1_1InvalidTargetInstancesExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTimeRangeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTimeRangeExceptionRes
+ */
+const de_InvalidTimeRangeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTimeRangeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTimeRangeException(body, context);
+  const deserialized: any = de_InvalidTimeRangeException(body, context);
   const exception = new InvalidTimeRangeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4977,12 +5661,15 @@ const deserializeAws_json1_1InvalidTimeRangeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionRes
+ */
+const de_InvalidTrafficRoutingConfigurationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTrafficRoutingConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTrafficRoutingConfigurationException(body, context);
+  const deserialized: any = de_InvalidTrafficRoutingConfigurationException(body, context);
   const exception = new InvalidTrafficRoutingConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4990,12 +5677,15 @@ const deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidTriggerConfigExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidTriggerConfigExceptionRes
+ */
+const de_InvalidTriggerConfigExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTriggerConfigException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTriggerConfigException(body, context);
+  const deserialized: any = de_InvalidTriggerConfigException(body, context);
   const exception = new InvalidTriggerConfigException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5003,12 +5693,15 @@ const deserializeAws_json1_1InvalidTriggerConfigExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueExceptionRes
+ */
+const de_InvalidUpdateOutdatedInstancesOnlyValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidUpdateOutdatedInstancesOnlyValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueException(body, context);
+  const deserialized: any = de_InvalidUpdateOutdatedInstancesOnlyValueException(body, context);
   const exception = new InvalidUpdateOutdatedInstancesOnlyValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5016,12 +5709,15 @@ const deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueExceptionResp
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LifecycleEventAlreadyCompletedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LifecycleEventAlreadyCompletedExceptionRes
+ */
+const de_LifecycleEventAlreadyCompletedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LifecycleEventAlreadyCompletedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LifecycleEventAlreadyCompletedException(body, context);
+  const deserialized: any = de_LifecycleEventAlreadyCompletedException(body, context);
   const exception = new LifecycleEventAlreadyCompletedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5029,12 +5725,15 @@ const deserializeAws_json1_1LifecycleEventAlreadyCompletedExceptionResponse = as
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LifecycleHookLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LifecycleHookLimitExceededExceptionRes
+ */
+const de_LifecycleHookLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LifecycleHookLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LifecycleHookLimitExceededException(body, context);
+  const deserialized: any = de_LifecycleHookLimitExceededException(body, context);
   const exception = new LifecycleHookLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5042,12 +5741,15 @@ const deserializeAws_json1_1LifecycleHookLimitExceededExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MultipleIamArnsProvidedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MultipleIamArnsProvidedExceptionRes
+ */
+const de_MultipleIamArnsProvidedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MultipleIamArnsProvidedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MultipleIamArnsProvidedException(body, context);
+  const deserialized: any = de_MultipleIamArnsProvidedException(body, context);
   const exception = new MultipleIamArnsProvidedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5055,12 +5757,15 @@ const deserializeAws_json1_1MultipleIamArnsProvidedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OperationNotSupportedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1OperationNotSupportedExceptionRes
+ */
+const de_OperationNotSupportedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OperationNotSupportedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationNotSupportedException(body, context);
+  const deserialized: any = de_OperationNotSupportedException(body, context);
   const exception = new OperationNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5068,12 +5773,15 @@ const deserializeAws_json1_1OperationNotSupportedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceArnRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceArnRequiredExceptionRes
+ */
+const de_ResourceArnRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceArnRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceArnRequiredException(body, context);
+  const deserialized: any = de_ResourceArnRequiredException(body, context);
   const exception = new ResourceArnRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5081,12 +5789,15 @@ const deserializeAws_json1_1ResourceArnRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceValidationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceValidationExceptionRes
+ */
+const de_ResourceValidationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceValidationException(body, context);
+  const deserialized: any = de_ResourceValidationException(body, context);
   const exception = new ResourceValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5094,12 +5805,15 @@ const deserializeAws_json1_1ResourceValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RevisionDoesNotExistExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RevisionDoesNotExistExceptionRes
+ */
+const de_RevisionDoesNotExistExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RevisionDoesNotExistException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RevisionDoesNotExistException(body, context);
+  const deserialized: any = de_RevisionDoesNotExistException(body, context);
   const exception = new RevisionDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5107,12 +5821,15 @@ const deserializeAws_json1_1RevisionDoesNotExistExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RevisionRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RevisionRequiredExceptionRes
+ */
+const de_RevisionRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RevisionRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RevisionRequiredException(body, context);
+  const deserialized: any = de_RevisionRequiredException(body, context);
   const exception = new RevisionRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5120,12 +5837,15 @@ const deserializeAws_json1_1RevisionRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RoleRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RoleRequiredExceptionRes
+ */
+const de_RoleRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RoleRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RoleRequiredException(body, context);
+  const deserialized: any = de_RoleRequiredException(body, context);
   const exception = new RoleRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5133,12 +5853,15 @@ const deserializeAws_json1_1RoleRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TagLimitExceededExceptionRes
+ */
+const de_TagLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagLimitExceededException(body, context);
+  const deserialized: any = de_TagLimitExceededException(body, context);
   const exception = new TagLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5146,12 +5869,15 @@ const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagRequiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TagRequiredExceptionRes
+ */
+const de_TagRequiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagRequiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagRequiredException(body, context);
+  const deserialized: any = de_TagRequiredException(body, context);
   const exception = new TagRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5159,12 +5885,15 @@ const deserializeAws_json1_1TagRequiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagSetListLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TagSetListLimitExceededExceptionRes
+ */
+const de_TagSetListLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagSetListLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagSetListLimitExceededException(body, context);
+  const deserialized: any = de_TagSetListLimitExceededException(body, context);
   const exception = new TagSetListLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5172,12 +5901,12 @@ const deserializeAws_json1_1TagSetListLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const deserialized: any = de_ThrottlingException(body, context);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5185,12 +5914,15 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TriggerTargetsLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TriggerTargetsLimitExceededExceptionRes
+ */
+const de_TriggerTargetsLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TriggerTargetsLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TriggerTargetsLimitExceededException(body, context);
+  const deserialized: any = de_TriggerTargetsLimitExceededException(body, context);
   const exception = new TriggerTargetsLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5198,12 +5930,15 @@ const deserializeAws_json1_1TriggerTargetsLimitExceededExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionRes
+ */
+const de_UnsupportedActionForDeploymentTypeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedActionForDeploymentTypeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedActionForDeploymentTypeException(body, context);
+  const deserialized: any = de_UnsupportedActionForDeploymentTypeException(body, context);
   const exception = new UnsupportedActionForDeploymentTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5211,41 +5946,54 @@ const deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse 
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AddTagsToOnPremisesInstancesInput = (
+/**
+ * serializeAws_json1_1AddTagsToOnPremisesInstancesInput
+ */
+const se_AddTagsToOnPremisesInstancesInput = (
   input: AddTagsToOnPremisesInstancesInput,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceNames != null && {
-      instanceNames: serializeAws_json1_1InstanceNameList(input.instanceNames, context),
-    }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.instanceNames != null && { instanceNames: se_InstanceNameList(input.instanceNames, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_1Alarm = (input: Alarm, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Alarm
+ */
+const se_Alarm = (input: Alarm, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_1AlarmConfiguration = (input: AlarmConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AlarmConfiguration
+ */
+const se_AlarmConfiguration = (input: AlarmConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.alarms != null && { alarms: serializeAws_json1_1AlarmList(input.alarms, context) }),
+    ...(input.alarms != null && { alarms: se_AlarmList(input.alarms, context) }),
     ...(input.enabled != null && { enabled: input.enabled }),
     ...(input.ignorePollAlarmFailure != null && { ignorePollAlarmFailure: input.ignorePollAlarmFailure }),
   };
 };
 
-const serializeAws_json1_1AlarmList = (input: Alarm[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AlarmList
+ */
+const se_AlarmList = (input: Alarm[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Alarm(entry, context);
+      return se_Alarm(entry, context);
     });
 };
 
-const serializeAws_json1_1ApplicationsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ApplicationsList
+ */
+const se_ApplicationsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5253,27 +6001,30 @@ const serializeAws_json1_1ApplicationsList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1AppSpecContent = (input: AppSpecContent, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AppSpecContent
+ */
+const se_AppSpecContent = (input: AppSpecContent, context: __SerdeContext): any => {
   return {
     ...(input.content != null && { content: input.content }),
     ...(input.sha256 != null && { sha256: input.sha256 }),
   };
 };
 
-const serializeAws_json1_1AutoRollbackConfiguration = (
-  input: AutoRollbackConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AutoRollbackConfiguration
+ */
+const se_AutoRollbackConfiguration = (input: AutoRollbackConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.enabled != null && { enabled: input.enabled }),
-    ...(input.events != null && { events: serializeAws_json1_1AutoRollbackEventsList(input.events, context) }),
+    ...(input.events != null && { events: se_AutoRollbackEventsList(input.events, context) }),
   };
 };
 
-const serializeAws_json1_1AutoRollbackEventsList = (
-  input: (AutoRollbackEvent | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AutoRollbackEventsList
+ */
+const se_AutoRollbackEventsList = (input: (AutoRollbackEvent | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5281,7 +6032,10 @@ const serializeAws_json1_1AutoRollbackEventsList = (
     });
 };
 
-const serializeAws_json1_1AutoScalingGroupNameList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AutoScalingGroupNameList
+ */
+const se_AutoScalingGroupNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5289,97 +6043,91 @@ const serializeAws_json1_1AutoScalingGroupNameList = (input: string[], context: 
     });
 };
 
-const serializeAws_json1_1BatchGetApplicationRevisionsInput = (
+/**
+ * serializeAws_json1_1BatchGetApplicationRevisionsInput
+ */
+const se_BatchGetApplicationRevisionsInput = (
   input: BatchGetApplicationRevisionsInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
-    ...(input.revisions != null && { revisions: serializeAws_json1_1RevisionLocationList(input.revisions, context) }),
+    ...(input.revisions != null && { revisions: se_RevisionLocationList(input.revisions, context) }),
   };
 };
 
-const serializeAws_json1_1BatchGetApplicationsInput = (
-  input: BatchGetApplicationsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BatchGetApplicationsInput
+ */
+const se_BatchGetApplicationsInput = (input: BatchGetApplicationsInput, context: __SerdeContext): any => {
   return {
-    ...(input.applicationNames != null && {
-      applicationNames: serializeAws_json1_1ApplicationsList(input.applicationNames, context),
-    }),
+    ...(input.applicationNames != null && { applicationNames: se_ApplicationsList(input.applicationNames, context) }),
   };
 };
 
-const serializeAws_json1_1BatchGetDeploymentGroupsInput = (
-  input: BatchGetDeploymentGroupsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BatchGetDeploymentGroupsInput
+ */
+const se_BatchGetDeploymentGroupsInput = (input: BatchGetDeploymentGroupsInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
     ...(input.deploymentGroupNames != null && {
-      deploymentGroupNames: serializeAws_json1_1DeploymentGroupsList(input.deploymentGroupNames, context),
+      deploymentGroupNames: se_DeploymentGroupsList(input.deploymentGroupNames, context),
     }),
   };
 };
 
-const serializeAws_json1_1BatchGetDeploymentInstancesInput = (
-  input: BatchGetDeploymentInstancesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BatchGetDeploymentInstancesInput
+ */
+const se_BatchGetDeploymentInstancesInput = (input: BatchGetDeploymentInstancesInput, context: __SerdeContext): any => {
   return {
     ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
-    ...(input.instanceIds != null && { instanceIds: serializeAws_json1_1InstancesList(input.instanceIds, context) }),
+    ...(input.instanceIds != null && { instanceIds: se_InstancesList(input.instanceIds, context) }),
   };
 };
 
-const serializeAws_json1_1BatchGetDeploymentsInput = (
-  input: BatchGetDeploymentsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BatchGetDeploymentsInput
+ */
+const se_BatchGetDeploymentsInput = (input: BatchGetDeploymentsInput, context: __SerdeContext): any => {
   return {
-    ...(input.deploymentIds != null && {
-      deploymentIds: serializeAws_json1_1DeploymentsList(input.deploymentIds, context),
-    }),
+    ...(input.deploymentIds != null && { deploymentIds: se_DeploymentsList(input.deploymentIds, context) }),
   };
 };
 
-const serializeAws_json1_1BatchGetDeploymentTargetsInput = (
-  input: BatchGetDeploymentTargetsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BatchGetDeploymentTargetsInput
+ */
+const se_BatchGetDeploymentTargetsInput = (input: BatchGetDeploymentTargetsInput, context: __SerdeContext): any => {
   return {
     ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
-    ...(input.targetIds != null && { targetIds: serializeAws_json1_1TargetIdList(input.targetIds, context) }),
+    ...(input.targetIds != null && { targetIds: se_TargetIdList(input.targetIds, context) }),
   };
 };
 
-const serializeAws_json1_1BatchGetOnPremisesInstancesInput = (
-  input: BatchGetOnPremisesInstancesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BatchGetOnPremisesInstancesInput
+ */
+const se_BatchGetOnPremisesInstancesInput = (input: BatchGetOnPremisesInstancesInput, context: __SerdeContext): any => {
   return {
-    ...(input.instanceNames != null && {
-      instanceNames: serializeAws_json1_1InstanceNameList(input.instanceNames, context),
-    }),
+    ...(input.instanceNames != null && { instanceNames: se_InstanceNameList(input.instanceNames, context) }),
   };
 };
 
-const serializeAws_json1_1BlueGreenDeploymentConfiguration = (
-  input: BlueGreenDeploymentConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BlueGreenDeploymentConfiguration
+ */
+const se_BlueGreenDeploymentConfiguration = (input: BlueGreenDeploymentConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.deploymentReadyOption != null && {
-      deploymentReadyOption: serializeAws_json1_1DeploymentReadyOption(input.deploymentReadyOption, context),
+      deploymentReadyOption: se_DeploymentReadyOption(input.deploymentReadyOption, context),
     }),
     ...(input.greenFleetProvisioningOption != null && {
-      greenFleetProvisioningOption: serializeAws_json1_1GreenFleetProvisioningOption(
-        input.greenFleetProvisioningOption,
-        context
-      ),
+      greenFleetProvisioningOption: se_GreenFleetProvisioningOption(input.greenFleetProvisioningOption, context),
     }),
     ...(input.terminateBlueInstancesOnDeploymentSuccess != null && {
-      terminateBlueInstancesOnDeploymentSuccess: serializeAws_json1_1BlueInstanceTerminationOption(
+      terminateBlueInstancesOnDeploymentSuccess: se_BlueInstanceTerminationOption(
         input.terminateBlueInstancesOnDeploymentSuccess,
         context
       ),
@@ -5387,10 +6135,10 @@ const serializeAws_json1_1BlueGreenDeploymentConfiguration = (
   };
 };
 
-const serializeAws_json1_1BlueInstanceTerminationOption = (
-  input: BlueInstanceTerminationOption,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1BlueInstanceTerminationOption
+ */
+const se_BlueInstanceTerminationOption = (input: BlueInstanceTerminationOption, context: __SerdeContext): any => {
   return {
     ...(input.action != null && { action: input.action }),
     ...(input.terminationWaitTimeInMinutes != null && {
@@ -5399,97 +6147,92 @@ const serializeAws_json1_1BlueInstanceTerminationOption = (
   };
 };
 
-const serializeAws_json1_1ContinueDeploymentInput = (input: ContinueDeploymentInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ContinueDeploymentInput
+ */
+const se_ContinueDeploymentInput = (input: ContinueDeploymentInput, context: __SerdeContext): any => {
   return {
     ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
     ...(input.deploymentWaitType != null && { deploymentWaitType: input.deploymentWaitType }),
   };
 };
 
-const serializeAws_json1_1CreateApplicationInput = (input: CreateApplicationInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateApplicationInput
+ */
+const se_CreateApplicationInput = (input: CreateApplicationInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
     ...(input.computePlatform != null && { computePlatform: input.computePlatform }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateDeploymentConfigInput = (
-  input: CreateDeploymentConfigInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateDeploymentConfigInput
+ */
+const se_CreateDeploymentConfigInput = (input: CreateDeploymentConfigInput, context: __SerdeContext): any => {
   return {
     ...(input.computePlatform != null && { computePlatform: input.computePlatform }),
     ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
     ...(input.minimumHealthyHosts != null && {
-      minimumHealthyHosts: serializeAws_json1_1MinimumHealthyHosts(input.minimumHealthyHosts, context),
+      minimumHealthyHosts: se_MinimumHealthyHosts(input.minimumHealthyHosts, context),
     }),
     ...(input.trafficRoutingConfig != null && {
-      trafficRoutingConfig: serializeAws_json1_1TrafficRoutingConfig(input.trafficRoutingConfig, context),
+      trafficRoutingConfig: se_TrafficRoutingConfig(input.trafficRoutingConfig, context),
     }),
   };
 };
 
-const serializeAws_json1_1CreateDeploymentGroupInput = (
-  input: CreateDeploymentGroupInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateDeploymentGroupInput
+ */
+const se_CreateDeploymentGroupInput = (input: CreateDeploymentGroupInput, context: __SerdeContext): any => {
   return {
     ...(input.alarmConfiguration != null && {
-      alarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.alarmConfiguration, context),
+      alarmConfiguration: se_AlarmConfiguration(input.alarmConfiguration, context),
     }),
     ...(input.applicationName != null && { applicationName: input.applicationName }),
     ...(input.autoRollbackConfiguration != null && {
-      autoRollbackConfiguration: serializeAws_json1_1AutoRollbackConfiguration(
-        input.autoRollbackConfiguration,
-        context
-      ),
+      autoRollbackConfiguration: se_AutoRollbackConfiguration(input.autoRollbackConfiguration, context),
     }),
     ...(input.autoScalingGroups != null && {
-      autoScalingGroups: serializeAws_json1_1AutoScalingGroupNameList(input.autoScalingGroups, context),
+      autoScalingGroups: se_AutoScalingGroupNameList(input.autoScalingGroups, context),
     }),
     ...(input.blueGreenDeploymentConfiguration != null && {
-      blueGreenDeploymentConfiguration: serializeAws_json1_1BlueGreenDeploymentConfiguration(
+      blueGreenDeploymentConfiguration: se_BlueGreenDeploymentConfiguration(
         input.blueGreenDeploymentConfiguration,
         context
       ),
     }),
     ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
     ...(input.deploymentGroupName != null && { deploymentGroupName: input.deploymentGroupName }),
-    ...(input.deploymentStyle != null && {
-      deploymentStyle: serializeAws_json1_1DeploymentStyle(input.deploymentStyle, context),
-    }),
-    ...(input.ec2TagFilters != null && {
-      ec2TagFilters: serializeAws_json1_1EC2TagFilterList(input.ec2TagFilters, context),
-    }),
-    ...(input.ec2TagSet != null && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
-    ...(input.ecsServices != null && { ecsServices: serializeAws_json1_1ECSServiceList(input.ecsServices, context) }),
-    ...(input.loadBalancerInfo != null && {
-      loadBalancerInfo: serializeAws_json1_1LoadBalancerInfo(input.loadBalancerInfo, context),
-    }),
+    ...(input.deploymentStyle != null && { deploymentStyle: se_DeploymentStyle(input.deploymentStyle, context) }),
+    ...(input.ec2TagFilters != null && { ec2TagFilters: se_EC2TagFilterList(input.ec2TagFilters, context) }),
+    ...(input.ec2TagSet != null && { ec2TagSet: se_EC2TagSet(input.ec2TagSet, context) }),
+    ...(input.ecsServices != null && { ecsServices: se_ECSServiceList(input.ecsServices, context) }),
+    ...(input.loadBalancerInfo != null && { loadBalancerInfo: se_LoadBalancerInfo(input.loadBalancerInfo, context) }),
     ...(input.onPremisesInstanceTagFilters != null && {
-      onPremisesInstanceTagFilters: serializeAws_json1_1TagFilterList(input.onPremisesInstanceTagFilters, context),
+      onPremisesInstanceTagFilters: se_TagFilterList(input.onPremisesInstanceTagFilters, context),
     }),
-    ...(input.onPremisesTagSet != null && {
-      onPremisesTagSet: serializeAws_json1_1OnPremisesTagSet(input.onPremisesTagSet, context),
-    }),
+    ...(input.onPremisesTagSet != null && { onPremisesTagSet: se_OnPremisesTagSet(input.onPremisesTagSet, context) }),
     ...(input.outdatedInstancesStrategy != null && { outdatedInstancesStrategy: input.outdatedInstancesStrategy }),
     ...(input.serviceRoleArn != null && { serviceRoleArn: input.serviceRoleArn }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
     ...(input.triggerConfigurations != null && {
-      triggerConfigurations: serializeAws_json1_1TriggerConfigList(input.triggerConfigurations, context),
+      triggerConfigurations: se_TriggerConfigList(input.triggerConfigurations, context),
     }),
   };
 };
 
-const serializeAws_json1_1CreateDeploymentInput = (input: CreateDeploymentInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateDeploymentInput
+ */
+const se_CreateDeploymentInput = (input: CreateDeploymentInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
     ...(input.autoRollbackConfiguration != null && {
-      autoRollbackConfiguration: serializeAws_json1_1AutoRollbackConfiguration(
-        input.autoRollbackConfiguration,
-        context
-      ),
+      autoRollbackConfiguration: se_AutoRollbackConfiguration(input.autoRollbackConfiguration, context),
     }),
     ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
     ...(input.deploymentGroupName != null && { deploymentGroupName: input.deploymentGroupName }),
@@ -5499,62 +6242,66 @@ const serializeAws_json1_1CreateDeploymentInput = (input: CreateDeploymentInput,
       ignoreApplicationStopFailures: input.ignoreApplicationStopFailures,
     }),
     ...(input.overrideAlarmConfiguration != null && {
-      overrideAlarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.overrideAlarmConfiguration, context),
+      overrideAlarmConfiguration: se_AlarmConfiguration(input.overrideAlarmConfiguration, context),
     }),
-    ...(input.revision != null && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
-    ...(input.targetInstances != null && {
-      targetInstances: serializeAws_json1_1TargetInstances(input.targetInstances, context),
-    }),
+    ...(input.revision != null && { revision: se_RevisionLocation(input.revision, context) }),
+    ...(input.targetInstances != null && { targetInstances: se_TargetInstances(input.targetInstances, context) }),
     ...(input.updateOutdatedInstancesOnly != null && {
       updateOutdatedInstancesOnly: input.updateOutdatedInstancesOnly,
     }),
   };
 };
 
-const serializeAws_json1_1DeleteApplicationInput = (input: DeleteApplicationInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteApplicationInput
+ */
+const se_DeleteApplicationInput = (input: DeleteApplicationInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
   };
 };
 
-const serializeAws_json1_1DeleteDeploymentConfigInput = (
-  input: DeleteDeploymentConfigInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteDeploymentConfigInput
+ */
+const se_DeleteDeploymentConfigInput = (input: DeleteDeploymentConfigInput, context: __SerdeContext): any => {
   return {
     ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
   };
 };
 
-const serializeAws_json1_1DeleteDeploymentGroupInput = (
-  input: DeleteDeploymentGroupInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteDeploymentGroupInput
+ */
+const se_DeleteDeploymentGroupInput = (input: DeleteDeploymentGroupInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
     ...(input.deploymentGroupName != null && { deploymentGroupName: input.deploymentGroupName }),
   };
 };
 
-const serializeAws_json1_1DeleteGitHubAccountTokenInput = (
-  input: DeleteGitHubAccountTokenInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteGitHubAccountTokenInput
+ */
+const se_DeleteGitHubAccountTokenInput = (input: DeleteGitHubAccountTokenInput, context: __SerdeContext): any => {
   return {
     ...(input.tokenName != null && { tokenName: input.tokenName }),
   };
 };
 
-const serializeAws_json1_1DeleteResourcesByExternalIdInput = (
-  input: DeleteResourcesByExternalIdInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteResourcesByExternalIdInput
+ */
+const se_DeleteResourcesByExternalIdInput = (input: DeleteResourcesByExternalIdInput, context: __SerdeContext): any => {
   return {
     ...(input.externalId != null && { externalId: input.externalId }),
   };
 };
 
-const serializeAws_json1_1DeploymentGroupsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeploymentGroupsList
+ */
+const se_DeploymentGroupsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5562,14 +6309,20 @@ const serializeAws_json1_1DeploymentGroupsList = (input: string[], context: __Se
     });
 };
 
-const serializeAws_json1_1DeploymentReadyOption = (input: DeploymentReadyOption, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeploymentReadyOption
+ */
+const se_DeploymentReadyOption = (input: DeploymentReadyOption, context: __SerdeContext): any => {
   return {
     ...(input.actionOnTimeout != null && { actionOnTimeout: input.actionOnTimeout }),
     ...(input.waitTimeInMinutes != null && { waitTimeInMinutes: input.waitTimeInMinutes }),
   };
 };
 
-const serializeAws_json1_1DeploymentsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeploymentsList
+ */
+const se_DeploymentsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5577,10 +6330,10 @@ const serializeAws_json1_1DeploymentsList = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_1DeploymentStatusList = (
-  input: (DeploymentStatus | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeploymentStatusList
+ */
+const se_DeploymentStatusList = (input: (DeploymentStatus | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5588,14 +6341,20 @@ const serializeAws_json1_1DeploymentStatusList = (
     });
 };
 
-const serializeAws_json1_1DeploymentStyle = (input: DeploymentStyle, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeploymentStyle
+ */
+const se_DeploymentStyle = (input: DeploymentStyle, context: __SerdeContext): any => {
   return {
     ...(input.deploymentOption != null && { deploymentOption: input.deploymentOption }),
     ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
   };
 };
 
-const serializeAws_json1_1DeregisterOnPremisesInstanceInput = (
+/**
+ * serializeAws_json1_1DeregisterOnPremisesInstanceInput
+ */
+const se_DeregisterOnPremisesInstanceInput = (
   input: DeregisterOnPremisesInstanceInput,
   context: __SerdeContext
 ): any => {
@@ -5604,7 +6363,10 @@ const serializeAws_json1_1DeregisterOnPremisesInstanceInput = (
   };
 };
 
-const serializeAws_json1_1EC2TagFilter = (input: EC2TagFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EC2TagFilter
+ */
+const se_EC2TagFilter = (input: EC2TagFilter, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Type != null && { Type: input.Type }),
@@ -5612,60 +6374,82 @@ const serializeAws_json1_1EC2TagFilter = (input: EC2TagFilter, context: __SerdeC
   };
 };
 
-const serializeAws_json1_1EC2TagFilterList = (input: EC2TagFilter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EC2TagFilterList
+ */
+const se_EC2TagFilterList = (input: EC2TagFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1EC2TagFilter(entry, context);
+      return se_EC2TagFilter(entry, context);
     });
 };
 
-const serializeAws_json1_1EC2TagSet = (input: EC2TagSet, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EC2TagSet
+ */
+const se_EC2TagSet = (input: EC2TagSet, context: __SerdeContext): any => {
   return {
-    ...(input.ec2TagSetList != null && {
-      ec2TagSetList: serializeAws_json1_1EC2TagSetList(input.ec2TagSetList, context),
-    }),
+    ...(input.ec2TagSetList != null && { ec2TagSetList: se_EC2TagSetList(input.ec2TagSetList, context) }),
   };
 };
 
-const serializeAws_json1_1EC2TagSetList = (input: EC2TagFilter[][], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EC2TagSetList
+ */
+const se_EC2TagSetList = (input: EC2TagFilter[][], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1EC2TagFilterList(entry, context);
+      return se_EC2TagFilterList(entry, context);
     });
 };
 
-const serializeAws_json1_1ECSService = (input: ECSService, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ECSService
+ */
+const se_ECSService = (input: ECSService, context: __SerdeContext): any => {
   return {
     ...(input.clusterName != null && { clusterName: input.clusterName }),
     ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
-const serializeAws_json1_1ECSServiceList = (input: ECSService[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ECSServiceList
+ */
+const se_ECSServiceList = (input: ECSService[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ECSService(entry, context);
+      return se_ECSService(entry, context);
     });
 };
 
-const serializeAws_json1_1ELBInfo = (input: ELBInfo, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ELBInfo
+ */
+const se_ELBInfo = (input: ELBInfo, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_1ELBInfoList = (input: ELBInfo[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ELBInfoList
+ */
+const se_ELBInfoList = (input: ELBInfo[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ELBInfo(entry, context);
+      return se_ELBInfo(entry, context);
     });
 };
 
-const serializeAws_json1_1FilterValueList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FilterValueList
+ */
+const se_FilterValueList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5673,90 +6457,105 @@ const serializeAws_json1_1FilterValueList = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_1GetApplicationInput = (input: GetApplicationInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetApplicationInput
+ */
+const se_GetApplicationInput = (input: GetApplicationInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
   };
 };
 
-const serializeAws_json1_1GetApplicationRevisionInput = (
-  input: GetApplicationRevisionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetApplicationRevisionInput
+ */
+const se_GetApplicationRevisionInput = (input: GetApplicationRevisionInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
-    ...(input.revision != null && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
+    ...(input.revision != null && { revision: se_RevisionLocation(input.revision, context) }),
   };
 };
 
-const serializeAws_json1_1GetDeploymentConfigInput = (
-  input: GetDeploymentConfigInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetDeploymentConfigInput
+ */
+const se_GetDeploymentConfigInput = (input: GetDeploymentConfigInput, context: __SerdeContext): any => {
   return {
     ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
   };
 };
 
-const serializeAws_json1_1GetDeploymentGroupInput = (input: GetDeploymentGroupInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetDeploymentGroupInput
+ */
+const se_GetDeploymentGroupInput = (input: GetDeploymentGroupInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
     ...(input.deploymentGroupName != null && { deploymentGroupName: input.deploymentGroupName }),
   };
 };
 
-const serializeAws_json1_1GetDeploymentInput = (input: GetDeploymentInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetDeploymentInput
+ */
+const se_GetDeploymentInput = (input: GetDeploymentInput, context: __SerdeContext): any => {
   return {
     ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
   };
 };
 
-const serializeAws_json1_1GetDeploymentInstanceInput = (
-  input: GetDeploymentInstanceInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetDeploymentInstanceInput
+ */
+const se_GetDeploymentInstanceInput = (input: GetDeploymentInstanceInput, context: __SerdeContext): any => {
   return {
     ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
     ...(input.instanceId != null && { instanceId: input.instanceId }),
   };
 };
 
-const serializeAws_json1_1GetDeploymentTargetInput = (
-  input: GetDeploymentTargetInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetDeploymentTargetInput
+ */
+const se_GetDeploymentTargetInput = (input: GetDeploymentTargetInput, context: __SerdeContext): any => {
   return {
     ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
     ...(input.targetId != null && { targetId: input.targetId }),
   };
 };
 
-const serializeAws_json1_1GetOnPremisesInstanceInput = (
-  input: GetOnPremisesInstanceInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetOnPremisesInstanceInput
+ */
+const se_GetOnPremisesInstanceInput = (input: GetOnPremisesInstanceInput, context: __SerdeContext): any => {
   return {
     ...(input.instanceName != null && { instanceName: input.instanceName }),
   };
 };
 
-const serializeAws_json1_1GitHubLocation = (input: GitHubLocation, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GitHubLocation
+ */
+const se_GitHubLocation = (input: GitHubLocation, context: __SerdeContext): any => {
   return {
     ...(input.commitId != null && { commitId: input.commitId }),
     ...(input.repository != null && { repository: input.repository }),
   };
 };
 
-const serializeAws_json1_1GreenFleetProvisioningOption = (
-  input: GreenFleetProvisioningOption,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GreenFleetProvisioningOption
+ */
+const se_GreenFleetProvisioningOption = (input: GreenFleetProvisioningOption, context: __SerdeContext): any => {
   return {
     ...(input.action != null && { action: input.action }),
   };
 };
 
-const serializeAws_json1_1InstanceNameList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstanceNameList
+ */
+const se_InstanceNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5764,7 +6563,10 @@ const serializeAws_json1_1InstanceNameList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1InstancesList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstancesList
+ */
+const se_InstancesList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5772,7 +6574,10 @@ const serializeAws_json1_1InstancesList = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_json1_1InstanceStatusList = (input: (InstanceStatus | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstanceStatusList
+ */
+const se_InstanceStatusList = (input: (InstanceStatus | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5780,7 +6585,10 @@ const serializeAws_json1_1InstanceStatusList = (input: (InstanceStatus | string)
     });
 };
 
-const serializeAws_json1_1InstanceTypeList = (input: (_InstanceType | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InstanceTypeList
+ */
+const se_InstanceTypeList = (input: (_InstanceType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5788,10 +6596,10 @@ const serializeAws_json1_1InstanceTypeList = (input: (_InstanceType | string)[],
     });
 };
 
-const serializeAws_json1_1ListApplicationRevisionsInput = (
-  input: ListApplicationRevisionsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListApplicationRevisionsInput
+ */
+const se_ListApplicationRevisionsInput = (input: ListApplicationRevisionsInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
     ...(input.deployed != null && { deployed: input.deployed }),
@@ -5803,76 +6611,81 @@ const serializeAws_json1_1ListApplicationRevisionsInput = (
   };
 };
 
-const serializeAws_json1_1ListApplicationsInput = (input: ListApplicationsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListApplicationsInput
+ */
+const se_ListApplicationsInput = (input: ListApplicationsInput, context: __SerdeContext): any => {
   return {
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1ListDeploymentConfigsInput = (
-  input: ListDeploymentConfigsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListDeploymentConfigsInput
+ */
+const se_ListDeploymentConfigsInput = (input: ListDeploymentConfigsInput, context: __SerdeContext): any => {
   return {
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1ListDeploymentGroupsInput = (
-  input: ListDeploymentGroupsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListDeploymentGroupsInput
+ */
+const se_ListDeploymentGroupsInput = (input: ListDeploymentGroupsInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1ListDeploymentInstancesInput = (
-  input: ListDeploymentInstancesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListDeploymentInstancesInput
+ */
+const se_ListDeploymentInstancesInput = (input: ListDeploymentInstancesInput, context: __SerdeContext): any => {
   return {
     ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
     ...(input.instanceStatusFilter != null && {
-      instanceStatusFilter: serializeAws_json1_1InstanceStatusList(input.instanceStatusFilter, context),
+      instanceStatusFilter: se_InstanceStatusList(input.instanceStatusFilter, context),
     }),
     ...(input.instanceTypeFilter != null && {
-      instanceTypeFilter: serializeAws_json1_1InstanceTypeList(input.instanceTypeFilter, context),
+      instanceTypeFilter: se_InstanceTypeList(input.instanceTypeFilter, context),
     }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1ListDeploymentsInput = (input: ListDeploymentsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListDeploymentsInput
+ */
+const se_ListDeploymentsInput = (input: ListDeploymentsInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
-    ...(input.createTimeRange != null && {
-      createTimeRange: serializeAws_json1_1TimeRange(input.createTimeRange, context),
-    }),
+    ...(input.createTimeRange != null && { createTimeRange: se_TimeRange(input.createTimeRange, context) }),
     ...(input.deploymentGroupName != null && { deploymentGroupName: input.deploymentGroupName }),
     ...(input.externalId != null && { externalId: input.externalId }),
     ...(input.includeOnlyStatuses != null && {
-      includeOnlyStatuses: serializeAws_json1_1DeploymentStatusList(input.includeOnlyStatuses, context),
+      includeOnlyStatuses: se_DeploymentStatusList(input.includeOnlyStatuses, context),
     }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1ListDeploymentTargetsInput = (
-  input: ListDeploymentTargetsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListDeploymentTargetsInput
+ */
+const se_ListDeploymentTargetsInput = (input: ListDeploymentTargetsInput, context: __SerdeContext): any => {
   return {
     ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
-    ...(input.targetFilters != null && {
-      targetFilters: serializeAws_json1_1TargetFilters(input.targetFilters, context),
-    }),
+    ...(input.targetFilters != null && { targetFilters: se_TargetFilters(input.targetFilters, context) }),
   };
 };
 
-const serializeAws_json1_1ListenerArnList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListenerArnList
+ */
+const se_ListenerArnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5880,72 +6693,87 @@ const serializeAws_json1_1ListenerArnList = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_1ListGitHubAccountTokenNamesInput = (
-  input: ListGitHubAccountTokenNamesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListGitHubAccountTokenNamesInput
+ */
+const se_ListGitHubAccountTokenNamesInput = (input: ListGitHubAccountTokenNamesInput, context: __SerdeContext): any => {
   return {
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   };
 };
 
-const serializeAws_json1_1ListOnPremisesInstancesInput = (
-  input: ListOnPremisesInstancesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListOnPremisesInstancesInput
+ */
+const se_ListOnPremisesInstancesInput = (input: ListOnPremisesInstancesInput, context: __SerdeContext): any => {
   return {
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.registrationStatus != null && { registrationStatus: input.registrationStatus }),
-    ...(input.tagFilters != null && { tagFilters: serializeAws_json1_1TagFilterList(input.tagFilters, context) }),
+    ...(input.tagFilters != null && { tagFilters: se_TagFilterList(input.tagFilters, context) }),
   };
 };
 
-const serializeAws_json1_1ListTagsForResourceInput = (
-  input: ListTagsForResourceInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForResourceInput
+ */
+const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
-const serializeAws_json1_1LoadBalancerInfo = (input: LoadBalancerInfo, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1LoadBalancerInfo
+ */
+const se_LoadBalancerInfo = (input: LoadBalancerInfo, context: __SerdeContext): any => {
   return {
-    ...(input.elbInfoList != null && { elbInfoList: serializeAws_json1_1ELBInfoList(input.elbInfoList, context) }),
+    ...(input.elbInfoList != null && { elbInfoList: se_ELBInfoList(input.elbInfoList, context) }),
     ...(input.targetGroupInfoList != null && {
-      targetGroupInfoList: serializeAws_json1_1TargetGroupInfoList(input.targetGroupInfoList, context),
+      targetGroupInfoList: se_TargetGroupInfoList(input.targetGroupInfoList, context),
     }),
     ...(input.targetGroupPairInfoList != null && {
-      targetGroupPairInfoList: serializeAws_json1_1TargetGroupPairInfoList(input.targetGroupPairInfoList, context),
+      targetGroupPairInfoList: se_TargetGroupPairInfoList(input.targetGroupPairInfoList, context),
     }),
   };
 };
 
-const serializeAws_json1_1MinimumHealthyHosts = (input: MinimumHealthyHosts, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1MinimumHealthyHosts
+ */
+const se_MinimumHealthyHosts = (input: MinimumHealthyHosts, context: __SerdeContext): any => {
   return {
     ...(input.type != null && { type: input.type }),
     ...(input.value != null && { value: input.value }),
   };
 };
 
-const serializeAws_json1_1OnPremisesTagSet = (input: OnPremisesTagSet, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OnPremisesTagSet
+ */
+const se_OnPremisesTagSet = (input: OnPremisesTagSet, context: __SerdeContext): any => {
   return {
     ...(input.onPremisesTagSetList != null && {
-      onPremisesTagSetList: serializeAws_json1_1OnPremisesTagSetList(input.onPremisesTagSetList, context),
+      onPremisesTagSetList: se_OnPremisesTagSetList(input.onPremisesTagSetList, context),
     }),
   };
 };
 
-const serializeAws_json1_1OnPremisesTagSetList = (input: TagFilter[][], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OnPremisesTagSetList
+ */
+const se_OnPremisesTagSetList = (input: TagFilter[][], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1TagFilterList(entry, context);
+      return se_TagFilterList(entry, context);
     });
 };
 
-const serializeAws_json1_1PutLifecycleEventHookExecutionStatusInput = (
+/**
+ * serializeAws_json1_1PutLifecycleEventHookExecutionStatusInput
+ */
+const se_PutLifecycleEventHookExecutionStatusInput = (
   input: PutLifecycleEventHookExecutionStatusInput,
   context: __SerdeContext
 ): any => {
@@ -5958,28 +6786,31 @@ const serializeAws_json1_1PutLifecycleEventHookExecutionStatusInput = (
   };
 };
 
-const serializeAws_json1_1RawString = (input: RawString, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RawString
+ */
+const se_RawString = (input: RawString, context: __SerdeContext): any => {
   return {
     ...(input.content != null && { content: input.content }),
     ...(input.sha256 != null && { sha256: input.sha256 }),
   };
 };
 
-const serializeAws_json1_1RegisterApplicationRevisionInput = (
-  input: RegisterApplicationRevisionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RegisterApplicationRevisionInput
+ */
+const se_RegisterApplicationRevisionInput = (input: RegisterApplicationRevisionInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
     ...(input.description != null && { description: input.description }),
-    ...(input.revision != null && { revision: serializeAws_json1_1RevisionLocation(input.revision, context) }),
+    ...(input.revision != null && { revision: se_RevisionLocation(input.revision, context) }),
   };
 };
 
-const serializeAws_json1_1RegisterOnPremisesInstanceInput = (
-  input: RegisterOnPremisesInstanceInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RegisterOnPremisesInstanceInput
+ */
+const se_RegisterOnPremisesInstanceInput = (input: RegisterOnPremisesInstanceInput, context: __SerdeContext): any => {
   return {
     ...(input.iamSessionArn != null && { iamSessionArn: input.iamSessionArn }),
     ...(input.iamUserArn != null && { iamUserArn: input.iamUserArn }),
@@ -5987,41 +6818,47 @@ const serializeAws_json1_1RegisterOnPremisesInstanceInput = (
   };
 };
 
-const serializeAws_json1_1RemoveTagsFromOnPremisesInstancesInput = (
+/**
+ * serializeAws_json1_1RemoveTagsFromOnPremisesInstancesInput
+ */
+const se_RemoveTagsFromOnPremisesInstancesInput = (
   input: RemoveTagsFromOnPremisesInstancesInput,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.instanceNames != null && {
-      instanceNames: serializeAws_json1_1InstanceNameList(input.instanceNames, context),
-    }),
-    ...(input.tags != null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.instanceNames != null && { instanceNames: se_InstanceNameList(input.instanceNames, context) }),
+    ...(input.tags != null && { tags: se_TagList(input.tags, context) }),
   };
 };
 
-const serializeAws_json1_1RevisionLocation = (input: RevisionLocation, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RevisionLocation
+ */
+const se_RevisionLocation = (input: RevisionLocation, context: __SerdeContext): any => {
   return {
-    ...(input.appSpecContent != null && {
-      appSpecContent: serializeAws_json1_1AppSpecContent(input.appSpecContent, context),
-    }),
-    ...(input.gitHubLocation != null && {
-      gitHubLocation: serializeAws_json1_1GitHubLocation(input.gitHubLocation, context),
-    }),
+    ...(input.appSpecContent != null && { appSpecContent: se_AppSpecContent(input.appSpecContent, context) }),
+    ...(input.gitHubLocation != null && { gitHubLocation: se_GitHubLocation(input.gitHubLocation, context) }),
     ...(input.revisionType != null && { revisionType: input.revisionType }),
-    ...(input.s3Location != null && { s3Location: serializeAws_json1_1S3Location(input.s3Location, context) }),
-    ...(input.string != null && { string: serializeAws_json1_1RawString(input.string, context) }),
+    ...(input.s3Location != null && { s3Location: se_S3Location(input.s3Location, context) }),
+    ...(input.string != null && { string: se_RawString(input.string, context) }),
   };
 };
 
-const serializeAws_json1_1RevisionLocationList = (input: RevisionLocation[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RevisionLocationList
+ */
+const se_RevisionLocationList = (input: RevisionLocation[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1RevisionLocation(entry, context);
+      return se_RevisionLocation(entry, context);
     });
 };
 
-const serializeAws_json1_1S3Location = (input: S3Location, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1S3Location
+ */
+const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
     ...(input.bucket != null && { bucket: input.bucket }),
     ...(input.bundleType != null && { bundleType: input.bundleType }),
@@ -6031,7 +6868,10 @@ const serializeAws_json1_1S3Location = (input: S3Location, context: __SerdeConte
   };
 };
 
-const serializeAws_json1_1SkipWaitTimeForInstanceTerminationInput = (
+/**
+ * serializeAws_json1_1SkipWaitTimeForInstanceTerminationInput
+ */
+const se_SkipWaitTimeForInstanceTerminationInput = (
   input: SkipWaitTimeForInstanceTerminationInput,
   context: __SerdeContext
 ): any => {
@@ -6040,21 +6880,30 @@ const serializeAws_json1_1SkipWaitTimeForInstanceTerminationInput = (
   };
 };
 
-const serializeAws_json1_1StopDeploymentInput = (input: StopDeploymentInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StopDeploymentInput
+ */
+const se_StopDeploymentInput = (input: StopDeploymentInput, context: __SerdeContext): any => {
   return {
     ...(input.autoRollbackEnabled != null && { autoRollbackEnabled: input.autoRollbackEnabled }),
     ...(input.deploymentId != null && { deploymentId: input.deploymentId }),
   };
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagFilter
+ */
+const se_TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Type != null && { Type: input.Type }),
@@ -6062,15 +6911,21 @@ const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext
   };
 };
 
-const serializeAws_json1_1TagFilterList = (input: TagFilter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagFilterList
+ */
+const se_TagFilterList = (input: TagFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1TagFilter(entry, context);
+      return se_TagFilter(entry, context);
     });
 };
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6078,68 +6933,86 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourceInput
+ */
+const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1TargetFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetFilters
+ */
+const se_TargetFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [TargetFilterName | string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_json1_1FilterValueList(value, context);
+    acc[key] = se_FilterValueList(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_json1_1TargetGroupInfo = (input: TargetGroupInfo, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetGroupInfo
+ */
+const se_TargetGroupInfo = (input: TargetGroupInfo, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
   };
 };
 
-const serializeAws_json1_1TargetGroupInfoList = (input: TargetGroupInfo[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetGroupInfoList
+ */
+const se_TargetGroupInfoList = (input: TargetGroupInfo[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1TargetGroupInfo(entry, context);
+      return se_TargetGroupInfo(entry, context);
     });
 };
 
-const serializeAws_json1_1TargetGroupPairInfo = (input: TargetGroupPairInfo, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetGroupPairInfo
+ */
+const se_TargetGroupPairInfo = (input: TargetGroupPairInfo, context: __SerdeContext): any => {
   return {
-    ...(input.prodTrafficRoute != null && {
-      prodTrafficRoute: serializeAws_json1_1TrafficRoute(input.prodTrafficRoute, context),
-    }),
-    ...(input.targetGroups != null && {
-      targetGroups: serializeAws_json1_1TargetGroupInfoList(input.targetGroups, context),
-    }),
-    ...(input.testTrafficRoute != null && {
-      testTrafficRoute: serializeAws_json1_1TrafficRoute(input.testTrafficRoute, context),
-    }),
+    ...(input.prodTrafficRoute != null && { prodTrafficRoute: se_TrafficRoute(input.prodTrafficRoute, context) }),
+    ...(input.targetGroups != null && { targetGroups: se_TargetGroupInfoList(input.targetGroups, context) }),
+    ...(input.testTrafficRoute != null && { testTrafficRoute: se_TrafficRoute(input.testTrafficRoute, context) }),
   };
 };
 
-const serializeAws_json1_1TargetGroupPairInfoList = (input: TargetGroupPairInfo[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetGroupPairInfoList
+ */
+const se_TargetGroupPairInfoList = (input: TargetGroupPairInfo[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1TargetGroupPairInfo(entry, context);
+      return se_TargetGroupPairInfo(entry, context);
     });
 };
 
-const serializeAws_json1_1TargetIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetIdList
+ */
+const se_TargetIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6147,79 +7020,95 @@ const serializeAws_json1_1TargetIdList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_json1_1TargetInstances = (input: TargetInstances, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetInstances
+ */
+const se_TargetInstances = (input: TargetInstances, context: __SerdeContext): any => {
   return {
     ...(input.autoScalingGroups != null && {
-      autoScalingGroups: serializeAws_json1_1AutoScalingGroupNameList(input.autoScalingGroups, context),
+      autoScalingGroups: se_AutoScalingGroupNameList(input.autoScalingGroups, context),
     }),
-    ...(input.ec2TagSet != null && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
-    ...(input.tagFilters != null && { tagFilters: serializeAws_json1_1EC2TagFilterList(input.tagFilters, context) }),
+    ...(input.ec2TagSet != null && { ec2TagSet: se_EC2TagSet(input.ec2TagSet, context) }),
+    ...(input.tagFilters != null && { tagFilters: se_EC2TagFilterList(input.tagFilters, context) }),
   };
 };
 
-const serializeAws_json1_1TimeBasedCanary = (input: TimeBasedCanary, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TimeBasedCanary
+ */
+const se_TimeBasedCanary = (input: TimeBasedCanary, context: __SerdeContext): any => {
   return {
     ...(input.canaryInterval != null && { canaryInterval: input.canaryInterval }),
     ...(input.canaryPercentage != null && { canaryPercentage: input.canaryPercentage }),
   };
 };
 
-const serializeAws_json1_1TimeBasedLinear = (input: TimeBasedLinear, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TimeBasedLinear
+ */
+const se_TimeBasedLinear = (input: TimeBasedLinear, context: __SerdeContext): any => {
   return {
     ...(input.linearInterval != null && { linearInterval: input.linearInterval }),
     ...(input.linearPercentage != null && { linearPercentage: input.linearPercentage }),
   };
 };
 
-const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TimeRange
+ */
+const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
     ...(input.end != null && { end: Math.round(input.end.getTime() / 1000) }),
     ...(input.start != null && { start: Math.round(input.start.getTime() / 1000) }),
   };
 };
 
-const serializeAws_json1_1TrafficRoute = (input: TrafficRoute, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TrafficRoute
+ */
+const se_TrafficRoute = (input: TrafficRoute, context: __SerdeContext): any => {
   return {
-    ...(input.listenerArns != null && {
-      listenerArns: serializeAws_json1_1ListenerArnList(input.listenerArns, context),
-    }),
+    ...(input.listenerArns != null && { listenerArns: se_ListenerArnList(input.listenerArns, context) }),
   };
 };
 
-const serializeAws_json1_1TrafficRoutingConfig = (input: TrafficRoutingConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TrafficRoutingConfig
+ */
+const se_TrafficRoutingConfig = (input: TrafficRoutingConfig, context: __SerdeContext): any => {
   return {
-    ...(input.timeBasedCanary != null && {
-      timeBasedCanary: serializeAws_json1_1TimeBasedCanary(input.timeBasedCanary, context),
-    }),
-    ...(input.timeBasedLinear != null && {
-      timeBasedLinear: serializeAws_json1_1TimeBasedLinear(input.timeBasedLinear, context),
-    }),
+    ...(input.timeBasedCanary != null && { timeBasedCanary: se_TimeBasedCanary(input.timeBasedCanary, context) }),
+    ...(input.timeBasedLinear != null && { timeBasedLinear: se_TimeBasedLinear(input.timeBasedLinear, context) }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_json1_1TriggerConfig = (input: TriggerConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TriggerConfig
+ */
+const se_TriggerConfig = (input: TriggerConfig, context: __SerdeContext): any => {
   return {
-    ...(input.triggerEvents != null && {
-      triggerEvents: serializeAws_json1_1TriggerEventTypeList(input.triggerEvents, context),
-    }),
+    ...(input.triggerEvents != null && { triggerEvents: se_TriggerEventTypeList(input.triggerEvents, context) }),
     ...(input.triggerName != null && { triggerName: input.triggerName }),
     ...(input.triggerTargetArn != null && { triggerTargetArn: input.triggerTargetArn }),
   };
 };
 
-const serializeAws_json1_1TriggerConfigList = (input: TriggerConfig[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TriggerConfigList
+ */
+const se_TriggerConfigList = (input: TriggerConfig[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1TriggerConfig(entry, context);
+      return se_TriggerConfig(entry, context);
     });
 };
 
-const serializeAws_json1_1TriggerEventTypeList = (
-  input: (TriggerEventType | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1TriggerEventTypeList
+ */
+const se_TriggerEventTypeList = (input: (TriggerEventType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6227,108 +7116,115 @@ const serializeAws_json1_1TriggerEventTypeList = (
     });
 };
 
-const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourceInput
+ */
+const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateApplicationInput = (input: UpdateApplicationInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateApplicationInput
+ */
+const se_UpdateApplicationInput = (input: UpdateApplicationInput, context: __SerdeContext): any => {
   return {
     ...(input.applicationName != null && { applicationName: input.applicationName }),
     ...(input.newApplicationName != null && { newApplicationName: input.newApplicationName }),
   };
 };
 
-const serializeAws_json1_1UpdateDeploymentGroupInput = (
-  input: UpdateDeploymentGroupInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateDeploymentGroupInput
+ */
+const se_UpdateDeploymentGroupInput = (input: UpdateDeploymentGroupInput, context: __SerdeContext): any => {
   return {
     ...(input.alarmConfiguration != null && {
-      alarmConfiguration: serializeAws_json1_1AlarmConfiguration(input.alarmConfiguration, context),
+      alarmConfiguration: se_AlarmConfiguration(input.alarmConfiguration, context),
     }),
     ...(input.applicationName != null && { applicationName: input.applicationName }),
     ...(input.autoRollbackConfiguration != null && {
-      autoRollbackConfiguration: serializeAws_json1_1AutoRollbackConfiguration(
-        input.autoRollbackConfiguration,
-        context
-      ),
+      autoRollbackConfiguration: se_AutoRollbackConfiguration(input.autoRollbackConfiguration, context),
     }),
     ...(input.autoScalingGroups != null && {
-      autoScalingGroups: serializeAws_json1_1AutoScalingGroupNameList(input.autoScalingGroups, context),
+      autoScalingGroups: se_AutoScalingGroupNameList(input.autoScalingGroups, context),
     }),
     ...(input.blueGreenDeploymentConfiguration != null && {
-      blueGreenDeploymentConfiguration: serializeAws_json1_1BlueGreenDeploymentConfiguration(
+      blueGreenDeploymentConfiguration: se_BlueGreenDeploymentConfiguration(
         input.blueGreenDeploymentConfiguration,
         context
       ),
     }),
     ...(input.currentDeploymentGroupName != null && { currentDeploymentGroupName: input.currentDeploymentGroupName }),
     ...(input.deploymentConfigName != null && { deploymentConfigName: input.deploymentConfigName }),
-    ...(input.deploymentStyle != null && {
-      deploymentStyle: serializeAws_json1_1DeploymentStyle(input.deploymentStyle, context),
-    }),
-    ...(input.ec2TagFilters != null && {
-      ec2TagFilters: serializeAws_json1_1EC2TagFilterList(input.ec2TagFilters, context),
-    }),
-    ...(input.ec2TagSet != null && { ec2TagSet: serializeAws_json1_1EC2TagSet(input.ec2TagSet, context) }),
-    ...(input.ecsServices != null && { ecsServices: serializeAws_json1_1ECSServiceList(input.ecsServices, context) }),
-    ...(input.loadBalancerInfo != null && {
-      loadBalancerInfo: serializeAws_json1_1LoadBalancerInfo(input.loadBalancerInfo, context),
-    }),
+    ...(input.deploymentStyle != null && { deploymentStyle: se_DeploymentStyle(input.deploymentStyle, context) }),
+    ...(input.ec2TagFilters != null && { ec2TagFilters: se_EC2TagFilterList(input.ec2TagFilters, context) }),
+    ...(input.ec2TagSet != null && { ec2TagSet: se_EC2TagSet(input.ec2TagSet, context) }),
+    ...(input.ecsServices != null && { ecsServices: se_ECSServiceList(input.ecsServices, context) }),
+    ...(input.loadBalancerInfo != null && { loadBalancerInfo: se_LoadBalancerInfo(input.loadBalancerInfo, context) }),
     ...(input.newDeploymentGroupName != null && { newDeploymentGroupName: input.newDeploymentGroupName }),
     ...(input.onPremisesInstanceTagFilters != null && {
-      onPremisesInstanceTagFilters: serializeAws_json1_1TagFilterList(input.onPremisesInstanceTagFilters, context),
+      onPremisesInstanceTagFilters: se_TagFilterList(input.onPremisesInstanceTagFilters, context),
     }),
-    ...(input.onPremisesTagSet != null && {
-      onPremisesTagSet: serializeAws_json1_1OnPremisesTagSet(input.onPremisesTagSet, context),
-    }),
+    ...(input.onPremisesTagSet != null && { onPremisesTagSet: se_OnPremisesTagSet(input.onPremisesTagSet, context) }),
     ...(input.outdatedInstancesStrategy != null && { outdatedInstancesStrategy: input.outdatedInstancesStrategy }),
     ...(input.serviceRoleArn != null && { serviceRoleArn: input.serviceRoleArn }),
     ...(input.triggerConfigurations != null && {
-      triggerConfigurations: serializeAws_json1_1TriggerConfigList(input.triggerConfigurations, context),
+      triggerConfigurations: se_TriggerConfigList(input.triggerConfigurations, context),
     }),
   };
 };
 
-const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alarm => {
+/**
+ * deserializeAws_json1_1Alarm
+ */
+const de_Alarm = (output: any, context: __SerdeContext): Alarm => {
   return {
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_1AlarmConfiguration = (output: any, context: __SerdeContext): AlarmConfiguration => {
+/**
+ * deserializeAws_json1_1AlarmConfiguration
+ */
+const de_AlarmConfiguration = (output: any, context: __SerdeContext): AlarmConfiguration => {
   return {
-    alarms: output.alarms != null ? deserializeAws_json1_1AlarmList(output.alarms, context) : undefined,
+    alarms: output.alarms != null ? de_AlarmList(output.alarms, context) : undefined,
     enabled: __expectBoolean(output.enabled),
     ignorePollAlarmFailure: __expectBoolean(output.ignorePollAlarmFailure),
   } as any;
 };
 
-const deserializeAws_json1_1AlarmList = (output: any, context: __SerdeContext): Alarm[] => {
+/**
+ * deserializeAws_json1_1AlarmList
+ */
+const de_AlarmList = (output: any, context: __SerdeContext): Alarm[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Alarm(entry, context);
+      return de_Alarm(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AlarmsLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): AlarmsLimitExceededException => {
+/**
+ * deserializeAws_json1_1AlarmsLimitExceededException
+ */
+const de_AlarmsLimitExceededException = (output: any, context: __SerdeContext): AlarmsLimitExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ApplicationAlreadyExistsException = (
+/**
+ * deserializeAws_json1_1ApplicationAlreadyExistsException
+ */
+const de_ApplicationAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ApplicationAlreadyExistsException => {
@@ -6337,7 +7233,10 @@ const deserializeAws_json1_1ApplicationAlreadyExistsException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApplicationDoesNotExistException = (
+/**
+ * deserializeAws_json1_1ApplicationDoesNotExistException
+ */
+const de_ApplicationDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): ApplicationDoesNotExistException => {
@@ -6346,7 +7245,10 @@ const deserializeAws_json1_1ApplicationDoesNotExistException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApplicationInfo = (output: any, context: __SerdeContext): ApplicationInfo => {
+/**
+ * deserializeAws_json1_1ApplicationInfo
+ */
+const de_ApplicationInfo = (output: any, context: __SerdeContext): ApplicationInfo => {
   return {
     applicationId: __expectString(output.applicationId),
     applicationName: __expectString(output.applicationName),
@@ -6358,7 +7260,10 @@ const deserializeAws_json1_1ApplicationInfo = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1ApplicationLimitExceededException = (
+/**
+ * deserializeAws_json1_1ApplicationLimitExceededException
+ */
+const de_ApplicationLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): ApplicationLimitExceededException => {
@@ -6367,7 +7272,10 @@ const deserializeAws_json1_1ApplicationLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApplicationNameRequiredException = (
+/**
+ * deserializeAws_json1_1ApplicationNameRequiredException
+ */
+const de_ApplicationNameRequiredException = (
   output: any,
   context: __SerdeContext
 ): ApplicationNameRequiredException => {
@@ -6376,19 +7284,25 @@ const deserializeAws_json1_1ApplicationNameRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1ApplicationsInfoList = (output: any, context: __SerdeContext): ApplicationInfo[] => {
+/**
+ * deserializeAws_json1_1ApplicationsInfoList
+ */
+const de_ApplicationsInfoList = (output: any, context: __SerdeContext): ApplicationInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ApplicationInfo(entry, context);
+      return de_ApplicationInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ApplicationsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ApplicationsList
+ */
+const de_ApplicationsList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6400,36 +7314,39 @@ const deserializeAws_json1_1ApplicationsList = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1AppSpecContent = (output: any, context: __SerdeContext): AppSpecContent => {
+/**
+ * deserializeAws_json1_1AppSpecContent
+ */
+const de_AppSpecContent = (output: any, context: __SerdeContext): AppSpecContent => {
   return {
     content: __expectString(output.content),
     sha256: __expectString(output.sha256),
   } as any;
 };
 
-const deserializeAws_json1_1ArnNotSupportedException = (
-  output: any,
-  context: __SerdeContext
-): ArnNotSupportedException => {
+/**
+ * deserializeAws_json1_1ArnNotSupportedException
+ */
+const de_ArnNotSupportedException = (output: any, context: __SerdeContext): ArnNotSupportedException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1AutoRollbackConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AutoRollbackConfiguration => {
+/**
+ * deserializeAws_json1_1AutoRollbackConfiguration
+ */
+const de_AutoRollbackConfiguration = (output: any, context: __SerdeContext): AutoRollbackConfiguration => {
   return {
     enabled: __expectBoolean(output.enabled),
-    events: output.events != null ? deserializeAws_json1_1AutoRollbackEventsList(output.events, context) : undefined,
+    events: output.events != null ? de_AutoRollbackEventsList(output.events, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AutoRollbackEventsList = (
-  output: any,
-  context: __SerdeContext
-): (AutoRollbackEvent | string)[] => {
+/**
+ * deserializeAws_json1_1AutoRollbackEventsList
+ */
+const de_AutoRollbackEventsList = (output: any, context: __SerdeContext): (AutoRollbackEvent | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6441,26 +7358,35 @@ const deserializeAws_json1_1AutoRollbackEventsList = (
   return retVal;
 };
 
-const deserializeAws_json1_1AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
+/**
+ * deserializeAws_json1_1AutoScalingGroup
+ */
+const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
   return {
     hook: __expectString(output.hook),
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_1AutoScalingGroupList = (output: any, context: __SerdeContext): AutoScalingGroup[] => {
+/**
+ * deserializeAws_json1_1AutoScalingGroupList
+ */
+const de_AutoScalingGroupList = (output: any, context: __SerdeContext): AutoScalingGroup[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1AutoScalingGroup(entry, context);
+      return de_AutoScalingGroup(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AutoScalingGroupNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1AutoScalingGroupNameList
+ */
+const de_AutoScalingGroupNameList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6472,129 +7398,135 @@ const deserializeAws_json1_1AutoScalingGroupNameList = (output: any, context: __
   return retVal;
 };
 
-const deserializeAws_json1_1BatchGetApplicationRevisionsOutput = (
+/**
+ * deserializeAws_json1_1BatchGetApplicationRevisionsOutput
+ */
+const de_BatchGetApplicationRevisionsOutput = (
   output: any,
   context: __SerdeContext
 ): BatchGetApplicationRevisionsOutput => {
   return {
     applicationName: __expectString(output.applicationName),
     errorMessage: __expectString(output.errorMessage),
-    revisions: output.revisions != null ? deserializeAws_json1_1RevisionInfoList(output.revisions, context) : undefined,
+    revisions: output.revisions != null ? de_RevisionInfoList(output.revisions, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BatchGetApplicationsOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchGetApplicationsOutput => {
+/**
+ * deserializeAws_json1_1BatchGetApplicationsOutput
+ */
+const de_BatchGetApplicationsOutput = (output: any, context: __SerdeContext): BatchGetApplicationsOutput => {
   return {
     applicationsInfo:
-      output.applicationsInfo != null
-        ? deserializeAws_json1_1ApplicationsInfoList(output.applicationsInfo, context)
-        : undefined,
+      output.applicationsInfo != null ? de_ApplicationsInfoList(output.applicationsInfo, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BatchGetDeploymentGroupsOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchGetDeploymentGroupsOutput => {
+/**
+ * deserializeAws_json1_1BatchGetDeploymentGroupsOutput
+ */
+const de_BatchGetDeploymentGroupsOutput = (output: any, context: __SerdeContext): BatchGetDeploymentGroupsOutput => {
   return {
     deploymentGroupsInfo:
       output.deploymentGroupsInfo != null
-        ? deserializeAws_json1_1DeploymentGroupInfoList(output.deploymentGroupsInfo, context)
+        ? de_DeploymentGroupInfoList(output.deploymentGroupsInfo, context)
         : undefined,
     errorMessage: __expectString(output.errorMessage),
   } as any;
 };
 
-const deserializeAws_json1_1BatchGetDeploymentInstancesOutput = (
+/**
+ * deserializeAws_json1_1BatchGetDeploymentInstancesOutput
+ */
+const de_BatchGetDeploymentInstancesOutput = (
   output: any,
   context: __SerdeContext
 ): BatchGetDeploymentInstancesOutput => {
   return {
     errorMessage: __expectString(output.errorMessage),
     instancesSummary:
-      output.instancesSummary != null
-        ? deserializeAws_json1_1InstanceSummaryList(output.instancesSummary, context)
-        : undefined,
+      output.instancesSummary != null ? de_InstanceSummaryList(output.instancesSummary, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BatchGetDeploymentsOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchGetDeploymentsOutput => {
+/**
+ * deserializeAws_json1_1BatchGetDeploymentsOutput
+ */
+const de_BatchGetDeploymentsOutput = (output: any, context: __SerdeContext): BatchGetDeploymentsOutput => {
   return {
     deploymentsInfo:
-      output.deploymentsInfo != null
-        ? deserializeAws_json1_1DeploymentsInfoList(output.deploymentsInfo, context)
-        : undefined,
+      output.deploymentsInfo != null ? de_DeploymentsInfoList(output.deploymentsInfo, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BatchGetDeploymentTargetsOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchGetDeploymentTargetsOutput => {
+/**
+ * deserializeAws_json1_1BatchGetDeploymentTargetsOutput
+ */
+const de_BatchGetDeploymentTargetsOutput = (output: any, context: __SerdeContext): BatchGetDeploymentTargetsOutput => {
   return {
     deploymentTargets:
-      output.deploymentTargets != null
-        ? deserializeAws_json1_1DeploymentTargetList(output.deploymentTargets, context)
-        : undefined,
+      output.deploymentTargets != null ? de_DeploymentTargetList(output.deploymentTargets, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BatchGetOnPremisesInstancesOutput = (
+/**
+ * deserializeAws_json1_1BatchGetOnPremisesInstancesOutput
+ */
+const de_BatchGetOnPremisesInstancesOutput = (
   output: any,
   context: __SerdeContext
 ): BatchGetOnPremisesInstancesOutput => {
   return {
-    instanceInfos:
-      output.instanceInfos != null ? deserializeAws_json1_1InstanceInfoList(output.instanceInfos, context) : undefined,
+    instanceInfos: output.instanceInfos != null ? de_InstanceInfoList(output.instanceInfos, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BatchLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): BatchLimitExceededException => {
+/**
+ * deserializeAws_json1_1BatchLimitExceededException
+ */
+const de_BatchLimitExceededException = (output: any, context: __SerdeContext): BatchLimitExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1BlueGreenDeploymentConfiguration = (
+/**
+ * deserializeAws_json1_1BlueGreenDeploymentConfiguration
+ */
+const de_BlueGreenDeploymentConfiguration = (
   output: any,
   context: __SerdeContext
 ): BlueGreenDeploymentConfiguration => {
   return {
     deploymentReadyOption:
       output.deploymentReadyOption != null
-        ? deserializeAws_json1_1DeploymentReadyOption(output.deploymentReadyOption, context)
+        ? de_DeploymentReadyOption(output.deploymentReadyOption, context)
         : undefined,
     greenFleetProvisioningOption:
       output.greenFleetProvisioningOption != null
-        ? deserializeAws_json1_1GreenFleetProvisioningOption(output.greenFleetProvisioningOption, context)
+        ? de_GreenFleetProvisioningOption(output.greenFleetProvisioningOption, context)
         : undefined,
     terminateBlueInstancesOnDeploymentSuccess:
       output.terminateBlueInstancesOnDeploymentSuccess != null
-        ? deserializeAws_json1_1BlueInstanceTerminationOption(output.terminateBlueInstancesOnDeploymentSuccess, context)
+        ? de_BlueInstanceTerminationOption(output.terminateBlueInstancesOnDeploymentSuccess, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BlueInstanceTerminationOption = (
-  output: any,
-  context: __SerdeContext
-): BlueInstanceTerminationOption => {
+/**
+ * deserializeAws_json1_1BlueInstanceTerminationOption
+ */
+const de_BlueInstanceTerminationOption = (output: any, context: __SerdeContext): BlueInstanceTerminationOption => {
   return {
     action: __expectString(output.action),
     terminationWaitTimeInMinutes: __expectInt32(output.terminationWaitTimeInMinutes),
   } as any;
 };
 
-const deserializeAws_json1_1BucketNameFilterRequiredException = (
+/**
+ * deserializeAws_json1_1BucketNameFilterRequiredException
+ */
+const de_BucketNameFilterRequiredException = (
   output: any,
   context: __SerdeContext
 ): BucketNameFilterRequiredException => {
@@ -6603,7 +7535,10 @@ const deserializeAws_json1_1BucketNameFilterRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1CloudFormationTarget = (output: any, context: __SerdeContext): CloudFormationTarget => {
+/**
+ * deserializeAws_json1_1CloudFormationTarget
+ */
+const de_CloudFormationTarget = (output: any, context: __SerdeContext): CloudFormationTarget => {
   return {
     deploymentId: __expectString(output.deploymentId),
     lastUpdatedAt:
@@ -6611,9 +7546,7 @@ const deserializeAws_json1_1CloudFormationTarget = (output: any, context: __Serd
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lifecycleEvents:
-      output.lifecycleEvents != null
-        ? deserializeAws_json1_1LifecycleEventList(output.lifecycleEvents, context)
-        : undefined,
+      output.lifecycleEvents != null ? de_LifecycleEventList(output.lifecycleEvents, context) : undefined,
     resourceType: __expectString(output.resourceType),
     status: __expectString(output.status),
     targetId: __expectString(output.targetId),
@@ -6621,68 +7554,75 @@ const deserializeAws_json1_1CloudFormationTarget = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1CreateApplicationOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateApplicationOutput => {
+/**
+ * deserializeAws_json1_1CreateApplicationOutput
+ */
+const de_CreateApplicationOutput = (output: any, context: __SerdeContext): CreateApplicationOutput => {
   return {
     applicationId: __expectString(output.applicationId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateDeploymentConfigOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateDeploymentConfigOutput => {
+/**
+ * deserializeAws_json1_1CreateDeploymentConfigOutput
+ */
+const de_CreateDeploymentConfigOutput = (output: any, context: __SerdeContext): CreateDeploymentConfigOutput => {
   return {
     deploymentConfigId: __expectString(output.deploymentConfigId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateDeploymentGroupOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateDeploymentGroupOutput => {
+/**
+ * deserializeAws_json1_1CreateDeploymentGroupOutput
+ */
+const de_CreateDeploymentGroupOutput = (output: any, context: __SerdeContext): CreateDeploymentGroupOutput => {
   return {
     deploymentGroupId: __expectString(output.deploymentGroupId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateDeploymentOutput = (output: any, context: __SerdeContext): CreateDeploymentOutput => {
+/**
+ * deserializeAws_json1_1CreateDeploymentOutput
+ */
+const de_CreateDeploymentOutput = (output: any, context: __SerdeContext): CreateDeploymentOutput => {
   return {
     deploymentId: __expectString(output.deploymentId),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteDeploymentGroupOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteDeploymentGroupOutput => {
+/**
+ * deserializeAws_json1_1DeleteDeploymentGroupOutput
+ */
+const de_DeleteDeploymentGroupOutput = (output: any, context: __SerdeContext): DeleteDeploymentGroupOutput => {
   return {
     hooksNotCleanedUp:
-      output.hooksNotCleanedUp != null
-        ? deserializeAws_json1_1AutoScalingGroupList(output.hooksNotCleanedUp, context)
-        : undefined,
+      output.hooksNotCleanedUp != null ? de_AutoScalingGroupList(output.hooksNotCleanedUp, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteGitHubAccountTokenOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteGitHubAccountTokenOutput => {
+/**
+ * deserializeAws_json1_1DeleteGitHubAccountTokenOutput
+ */
+const de_DeleteGitHubAccountTokenOutput = (output: any, context: __SerdeContext): DeleteGitHubAccountTokenOutput => {
   return {
     tokenName: __expectString(output.tokenName),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteResourcesByExternalIdOutput = (
+/**
+ * deserializeAws_json1_1DeleteResourcesByExternalIdOutput
+ */
+const de_DeleteResourcesByExternalIdOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteResourcesByExternalIdOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeploymentAlreadyCompletedException = (
+/**
+ * deserializeAws_json1_1DeploymentAlreadyCompletedException
+ */
+const de_DeploymentAlreadyCompletedException = (
   output: any,
   context: __SerdeContext
 ): DeploymentAlreadyCompletedException => {
@@ -6691,7 +7631,10 @@ const deserializeAws_json1_1DeploymentAlreadyCompletedException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentConfigAlreadyExistsException = (
+/**
+ * deserializeAws_json1_1DeploymentConfigAlreadyExistsException
+ */
+const de_DeploymentConfigAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): DeploymentConfigAlreadyExistsException => {
@@ -6700,7 +7643,10 @@ const deserializeAws_json1_1DeploymentConfigAlreadyExistsException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentConfigDoesNotExistException = (
+/**
+ * deserializeAws_json1_1DeploymentConfigDoesNotExistException
+ */
+const de_DeploymentConfigDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): DeploymentConfigDoesNotExistException => {
@@ -6709,7 +7655,10 @@ const deserializeAws_json1_1DeploymentConfigDoesNotExistException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentConfigInfo = (output: any, context: __SerdeContext): DeploymentConfigInfo => {
+/**
+ * deserializeAws_json1_1DeploymentConfigInfo
+ */
+const de_DeploymentConfigInfo = (output: any, context: __SerdeContext): DeploymentConfigInfo => {
   return {
     computePlatform: __expectString(output.computePlatform),
     createTime:
@@ -6717,26 +7666,25 @@ const deserializeAws_json1_1DeploymentConfigInfo = (output: any, context: __Serd
     deploymentConfigId: __expectString(output.deploymentConfigId),
     deploymentConfigName: __expectString(output.deploymentConfigName),
     minimumHealthyHosts:
-      output.minimumHealthyHosts != null
-        ? deserializeAws_json1_1MinimumHealthyHosts(output.minimumHealthyHosts, context)
-        : undefined,
+      output.minimumHealthyHosts != null ? de_MinimumHealthyHosts(output.minimumHealthyHosts, context) : undefined,
     trafficRoutingConfig:
-      output.trafficRoutingConfig != null
-        ? deserializeAws_json1_1TrafficRoutingConfig(output.trafficRoutingConfig, context)
-        : undefined,
+      output.trafficRoutingConfig != null ? de_TrafficRoutingConfig(output.trafficRoutingConfig, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentConfigInUseException = (
-  output: any,
-  context: __SerdeContext
-): DeploymentConfigInUseException => {
+/**
+ * deserializeAws_json1_1DeploymentConfigInUseException
+ */
+const de_DeploymentConfigInUseException = (output: any, context: __SerdeContext): DeploymentConfigInUseException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentConfigLimitExceededException = (
+/**
+ * deserializeAws_json1_1DeploymentConfigLimitExceededException
+ */
+const de_DeploymentConfigLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): DeploymentConfigLimitExceededException => {
@@ -6745,7 +7693,10 @@ const deserializeAws_json1_1DeploymentConfigLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentConfigNameRequiredException = (
+/**
+ * deserializeAws_json1_1DeploymentConfigNameRequiredException
+ */
+const de_DeploymentConfigNameRequiredException = (
   output: any,
   context: __SerdeContext
 ): DeploymentConfigNameRequiredException => {
@@ -6754,7 +7705,10 @@ const deserializeAws_json1_1DeploymentConfigNameRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentConfigsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1DeploymentConfigsList
+ */
+const de_DeploymentConfigsList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6766,16 +7720,19 @@ const deserializeAws_json1_1DeploymentConfigsList = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_json1_1DeploymentDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): DeploymentDoesNotExistException => {
+/**
+ * deserializeAws_json1_1DeploymentDoesNotExistException
+ */
+const de_DeploymentDoesNotExistException = (output: any, context: __SerdeContext): DeploymentDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentGroupAlreadyExistsException = (
+/**
+ * deserializeAws_json1_1DeploymentGroupAlreadyExistsException
+ */
+const de_DeploymentGroupAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): DeploymentGroupAlreadyExistsException => {
@@ -6784,7 +7741,10 @@ const deserializeAws_json1_1DeploymentGroupAlreadyExistsException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentGroupDoesNotExistException = (
+/**
+ * deserializeAws_json1_1DeploymentGroupDoesNotExistException
+ */
+const de_DeploymentGroupDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): DeploymentGroupDoesNotExistException => {
@@ -6793,84 +7753,75 @@ const deserializeAws_json1_1DeploymentGroupDoesNotExistException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentGroupInfo = (output: any, context: __SerdeContext): DeploymentGroupInfo => {
+/**
+ * deserializeAws_json1_1DeploymentGroupInfo
+ */
+const de_DeploymentGroupInfo = (output: any, context: __SerdeContext): DeploymentGroupInfo => {
   return {
     alarmConfiguration:
-      output.alarmConfiguration != null
-        ? deserializeAws_json1_1AlarmConfiguration(output.alarmConfiguration, context)
-        : undefined,
+      output.alarmConfiguration != null ? de_AlarmConfiguration(output.alarmConfiguration, context) : undefined,
     applicationName: __expectString(output.applicationName),
     autoRollbackConfiguration:
       output.autoRollbackConfiguration != null
-        ? deserializeAws_json1_1AutoRollbackConfiguration(output.autoRollbackConfiguration, context)
+        ? de_AutoRollbackConfiguration(output.autoRollbackConfiguration, context)
         : undefined,
     autoScalingGroups:
-      output.autoScalingGroups != null
-        ? deserializeAws_json1_1AutoScalingGroupList(output.autoScalingGroups, context)
-        : undefined,
+      output.autoScalingGroups != null ? de_AutoScalingGroupList(output.autoScalingGroups, context) : undefined,
     blueGreenDeploymentConfiguration:
       output.blueGreenDeploymentConfiguration != null
-        ? deserializeAws_json1_1BlueGreenDeploymentConfiguration(output.blueGreenDeploymentConfiguration, context)
+        ? de_BlueGreenDeploymentConfiguration(output.blueGreenDeploymentConfiguration, context)
         : undefined,
     computePlatform: __expectString(output.computePlatform),
     deploymentConfigName: __expectString(output.deploymentConfigName),
     deploymentGroupId: __expectString(output.deploymentGroupId),
     deploymentGroupName: __expectString(output.deploymentGroupName),
-    deploymentStyle:
-      output.deploymentStyle != null
-        ? deserializeAws_json1_1DeploymentStyle(output.deploymentStyle, context)
-        : undefined,
-    ec2TagFilters:
-      output.ec2TagFilters != null ? deserializeAws_json1_1EC2TagFilterList(output.ec2TagFilters, context) : undefined,
-    ec2TagSet: output.ec2TagSet != null ? deserializeAws_json1_1EC2TagSet(output.ec2TagSet, context) : undefined,
-    ecsServices:
-      output.ecsServices != null ? deserializeAws_json1_1ECSServiceList(output.ecsServices, context) : undefined,
+    deploymentStyle: output.deploymentStyle != null ? de_DeploymentStyle(output.deploymentStyle, context) : undefined,
+    ec2TagFilters: output.ec2TagFilters != null ? de_EC2TagFilterList(output.ec2TagFilters, context) : undefined,
+    ec2TagSet: output.ec2TagSet != null ? de_EC2TagSet(output.ec2TagSet, context) : undefined,
+    ecsServices: output.ecsServices != null ? de_ECSServiceList(output.ecsServices, context) : undefined,
     lastAttemptedDeployment:
       output.lastAttemptedDeployment != null
-        ? deserializeAws_json1_1LastDeploymentInfo(output.lastAttemptedDeployment, context)
+        ? de_LastDeploymentInfo(output.lastAttemptedDeployment, context)
         : undefined,
     lastSuccessfulDeployment:
       output.lastSuccessfulDeployment != null
-        ? deserializeAws_json1_1LastDeploymentInfo(output.lastSuccessfulDeployment, context)
+        ? de_LastDeploymentInfo(output.lastSuccessfulDeployment, context)
         : undefined,
     loadBalancerInfo:
-      output.loadBalancerInfo != null
-        ? deserializeAws_json1_1LoadBalancerInfo(output.loadBalancerInfo, context)
-        : undefined,
+      output.loadBalancerInfo != null ? de_LoadBalancerInfo(output.loadBalancerInfo, context) : undefined,
     onPremisesInstanceTagFilters:
       output.onPremisesInstanceTagFilters != null
-        ? deserializeAws_json1_1TagFilterList(output.onPremisesInstanceTagFilters, context)
+        ? de_TagFilterList(output.onPremisesInstanceTagFilters, context)
         : undefined,
     onPremisesTagSet:
-      output.onPremisesTagSet != null
-        ? deserializeAws_json1_1OnPremisesTagSet(output.onPremisesTagSet, context)
-        : undefined,
+      output.onPremisesTagSet != null ? de_OnPremisesTagSet(output.onPremisesTagSet, context) : undefined,
     outdatedInstancesStrategy: __expectString(output.outdatedInstancesStrategy),
     serviceRoleArn: __expectString(output.serviceRoleArn),
-    targetRevision:
-      output.targetRevision != null
-        ? deserializeAws_json1_1RevisionLocation(output.targetRevision, context)
-        : undefined,
+    targetRevision: output.targetRevision != null ? de_RevisionLocation(output.targetRevision, context) : undefined,
     triggerConfigurations:
-      output.triggerConfigurations != null
-        ? deserializeAws_json1_1TriggerConfigList(output.triggerConfigurations, context)
-        : undefined,
+      output.triggerConfigurations != null ? de_TriggerConfigList(output.triggerConfigurations, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentGroupInfoList = (output: any, context: __SerdeContext): DeploymentGroupInfo[] => {
+/**
+ * deserializeAws_json1_1DeploymentGroupInfoList
+ */
+const de_DeploymentGroupInfoList = (output: any, context: __SerdeContext): DeploymentGroupInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DeploymentGroupInfo(entry, context);
+      return de_DeploymentGroupInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DeploymentGroupLimitExceededException = (
+/**
+ * deserializeAws_json1_1DeploymentGroupLimitExceededException
+ */
+const de_DeploymentGroupLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): DeploymentGroupLimitExceededException => {
@@ -6879,7 +7830,10 @@ const deserializeAws_json1_1DeploymentGroupLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentGroupNameRequiredException = (
+/**
+ * deserializeAws_json1_1DeploymentGroupNameRequiredException
+ */
+const de_DeploymentGroupNameRequiredException = (
   output: any,
   context: __SerdeContext
 ): DeploymentGroupNameRequiredException => {
@@ -6888,7 +7842,10 @@ const deserializeAws_json1_1DeploymentGroupNameRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentGroupsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1DeploymentGroupsList
+ */
+const de_DeploymentGroupsList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6900,26 +7857,29 @@ const deserializeAws_json1_1DeploymentGroupsList = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_json1_1DeploymentIdRequiredException = (
-  output: any,
-  context: __SerdeContext
-): DeploymentIdRequiredException => {
+/**
+ * deserializeAws_json1_1DeploymentIdRequiredException
+ */
+const de_DeploymentIdRequiredException = (output: any, context: __SerdeContext): DeploymentIdRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentInfo = (output: any, context: __SerdeContext): DeploymentInfo => {
+/**
+ * deserializeAws_json1_1DeploymentInfo
+ */
+const de_DeploymentInfo = (output: any, context: __SerdeContext): DeploymentInfo => {
   return {
     additionalDeploymentStatusInfo: __expectString(output.additionalDeploymentStatusInfo),
     applicationName: __expectString(output.applicationName),
     autoRollbackConfiguration:
       output.autoRollbackConfiguration != null
-        ? deserializeAws_json1_1AutoRollbackConfiguration(output.autoRollbackConfiguration, context)
+        ? de_AutoRollbackConfiguration(output.autoRollbackConfiguration, context)
         : undefined,
     blueGreenDeploymentConfiguration:
       output.blueGreenDeploymentConfiguration != null
-        ? deserializeAws_json1_1BlueGreenDeploymentConfiguration(output.blueGreenDeploymentConfiguration, context)
+        ? de_BlueGreenDeploymentConfiguration(output.blueGreenDeploymentConfiguration, context)
         : undefined,
     completeTime:
       output.completeTime != null
@@ -6933,57 +7893,43 @@ const deserializeAws_json1_1DeploymentInfo = (output: any, context: __SerdeConte
     deploymentGroupName: __expectString(output.deploymentGroupName),
     deploymentId: __expectString(output.deploymentId),
     deploymentOverview:
-      output.deploymentOverview != null
-        ? deserializeAws_json1_1DeploymentOverview(output.deploymentOverview, context)
-        : undefined,
+      output.deploymentOverview != null ? de_DeploymentOverview(output.deploymentOverview, context) : undefined,
     deploymentStatusMessages:
       output.deploymentStatusMessages != null
-        ? deserializeAws_json1_1DeploymentStatusMessageList(output.deploymentStatusMessages, context)
+        ? de_DeploymentStatusMessageList(output.deploymentStatusMessages, context)
         : undefined,
-    deploymentStyle:
-      output.deploymentStyle != null
-        ? deserializeAws_json1_1DeploymentStyle(output.deploymentStyle, context)
-        : undefined,
+    deploymentStyle: output.deploymentStyle != null ? de_DeploymentStyle(output.deploymentStyle, context) : undefined,
     description: __expectString(output.description),
     errorInformation:
-      output.errorInformation != null
-        ? deserializeAws_json1_1ErrorInformation(output.errorInformation, context)
-        : undefined,
+      output.errorInformation != null ? de_ErrorInformation(output.errorInformation, context) : undefined,
     externalId: __expectString(output.externalId),
     fileExistsBehavior: __expectString(output.fileExistsBehavior),
     ignoreApplicationStopFailures: __expectBoolean(output.ignoreApplicationStopFailures),
     instanceTerminationWaitTimeStarted: __expectBoolean(output.instanceTerminationWaitTimeStarted),
     loadBalancerInfo:
-      output.loadBalancerInfo != null
-        ? deserializeAws_json1_1LoadBalancerInfo(output.loadBalancerInfo, context)
-        : undefined,
+      output.loadBalancerInfo != null ? de_LoadBalancerInfo(output.loadBalancerInfo, context) : undefined,
     overrideAlarmConfiguration:
       output.overrideAlarmConfiguration != null
-        ? deserializeAws_json1_1AlarmConfiguration(output.overrideAlarmConfiguration, context)
+        ? de_AlarmConfiguration(output.overrideAlarmConfiguration, context)
         : undefined,
     previousRevision:
-      output.previousRevision != null
-        ? deserializeAws_json1_1RevisionLocation(output.previousRevision, context)
-        : undefined,
+      output.previousRevision != null ? de_RevisionLocation(output.previousRevision, context) : undefined,
     relatedDeployments:
-      output.relatedDeployments != null
-        ? deserializeAws_json1_1RelatedDeployments(output.relatedDeployments, context)
-        : undefined,
-    revision: output.revision != null ? deserializeAws_json1_1RevisionLocation(output.revision, context) : undefined,
-    rollbackInfo:
-      output.rollbackInfo != null ? deserializeAws_json1_1RollbackInfo(output.rollbackInfo, context) : undefined,
+      output.relatedDeployments != null ? de_RelatedDeployments(output.relatedDeployments, context) : undefined,
+    revision: output.revision != null ? de_RevisionLocation(output.revision, context) : undefined,
+    rollbackInfo: output.rollbackInfo != null ? de_RollbackInfo(output.rollbackInfo, context) : undefined,
     startTime:
       output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
     status: __expectString(output.status),
-    targetInstances:
-      output.targetInstances != null
-        ? deserializeAws_json1_1TargetInstances(output.targetInstances, context)
-        : undefined,
+    targetInstances: output.targetInstances != null ? de_TargetInstances(output.targetInstances, context) : undefined,
     updateOutdatedInstancesOnly: __expectBoolean(output.updateOutdatedInstancesOnly),
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentIsNotInReadyStateException = (
+/**
+ * deserializeAws_json1_1DeploymentIsNotInReadyStateException
+ */
+const de_DeploymentIsNotInReadyStateException = (
   output: any,
   context: __SerdeContext
 ): DeploymentIsNotInReadyStateException => {
@@ -6992,7 +7938,10 @@ const deserializeAws_json1_1DeploymentIsNotInReadyStateException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentLimitExceededException = (
+/**
+ * deserializeAws_json1_1DeploymentLimitExceededException
+ */
+const de_DeploymentLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): DeploymentLimitExceededException => {
@@ -7001,16 +7950,19 @@ const deserializeAws_json1_1DeploymentLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentNotStartedException = (
-  output: any,
-  context: __SerdeContext
-): DeploymentNotStartedException => {
+/**
+ * deserializeAws_json1_1DeploymentNotStartedException
+ */
+const de_DeploymentNotStartedException = (output: any, context: __SerdeContext): DeploymentNotStartedException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentOverview = (output: any, context: __SerdeContext): DeploymentOverview => {
+/**
+ * deserializeAws_json1_1DeploymentOverview
+ */
+const de_DeploymentOverview = (output: any, context: __SerdeContext): DeploymentOverview => {
   return {
     Failed: __expectLong(output.Failed),
     InProgress: __expectLong(output.InProgress),
@@ -7021,26 +7973,35 @@ const deserializeAws_json1_1DeploymentOverview = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentReadyOption = (output: any, context: __SerdeContext): DeploymentReadyOption => {
+/**
+ * deserializeAws_json1_1DeploymentReadyOption
+ */
+const de_DeploymentReadyOption = (output: any, context: __SerdeContext): DeploymentReadyOption => {
   return {
     actionOnTimeout: __expectString(output.actionOnTimeout),
     waitTimeInMinutes: __expectInt32(output.waitTimeInMinutes),
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentsInfoList = (output: any, context: __SerdeContext): DeploymentInfo[] => {
+/**
+ * deserializeAws_json1_1DeploymentsInfoList
+ */
+const de_DeploymentsInfoList = (output: any, context: __SerdeContext): DeploymentInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DeploymentInfo(entry, context);
+      return de_DeploymentInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DeploymentsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1DeploymentsList
+ */
+const de_DeploymentsList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7052,7 +8013,10 @@ const deserializeAws_json1_1DeploymentsList = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_json1_1DeploymentStatusMessageList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1DeploymentStatusMessageList
+ */
+const de_DeploymentStatusMessageList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7064,29 +8028,34 @@ const deserializeAws_json1_1DeploymentStatusMessageList = (output: any, context:
   return retVal;
 };
 
-const deserializeAws_json1_1DeploymentStyle = (output: any, context: __SerdeContext): DeploymentStyle => {
+/**
+ * deserializeAws_json1_1DeploymentStyle
+ */
+const de_DeploymentStyle = (output: any, context: __SerdeContext): DeploymentStyle => {
   return {
     deploymentOption: __expectString(output.deploymentOption),
     deploymentType: __expectString(output.deploymentType),
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentTarget = (output: any, context: __SerdeContext): DeploymentTarget => {
+/**
+ * deserializeAws_json1_1DeploymentTarget
+ */
+const de_DeploymentTarget = (output: any, context: __SerdeContext): DeploymentTarget => {
   return {
     cloudFormationTarget:
-      output.cloudFormationTarget != null
-        ? deserializeAws_json1_1CloudFormationTarget(output.cloudFormationTarget, context)
-        : undefined,
+      output.cloudFormationTarget != null ? de_CloudFormationTarget(output.cloudFormationTarget, context) : undefined,
     deploymentTargetType: __expectString(output.deploymentTargetType),
-    ecsTarget: output.ecsTarget != null ? deserializeAws_json1_1ECSTarget(output.ecsTarget, context) : undefined,
-    instanceTarget:
-      output.instanceTarget != null ? deserializeAws_json1_1InstanceTarget(output.instanceTarget, context) : undefined,
-    lambdaTarget:
-      output.lambdaTarget != null ? deserializeAws_json1_1LambdaTarget(output.lambdaTarget, context) : undefined,
+    ecsTarget: output.ecsTarget != null ? de_ECSTarget(output.ecsTarget, context) : undefined,
+    instanceTarget: output.instanceTarget != null ? de_InstanceTarget(output.instanceTarget, context) : undefined,
+    lambdaTarget: output.lambdaTarget != null ? de_LambdaTarget(output.lambdaTarget, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentTargetDoesNotExistException = (
+/**
+ * deserializeAws_json1_1DeploymentTargetDoesNotExistException
+ */
+const de_DeploymentTargetDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): DeploymentTargetDoesNotExistException => {
@@ -7095,7 +8064,10 @@ const deserializeAws_json1_1DeploymentTargetDoesNotExistException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentTargetIdRequiredException = (
+/**
+ * deserializeAws_json1_1DeploymentTargetIdRequiredException
+ */
+const de_DeploymentTargetIdRequiredException = (
   output: any,
   context: __SerdeContext
 ): DeploymentTargetIdRequiredException => {
@@ -7104,19 +8076,25 @@ const deserializeAws_json1_1DeploymentTargetIdRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1DeploymentTargetList = (output: any, context: __SerdeContext): DeploymentTarget[] => {
+/**
+ * deserializeAws_json1_1DeploymentTargetList
+ */
+const de_DeploymentTargetList = (output: any, context: __SerdeContext): DeploymentTarget[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DeploymentTarget(entry, context);
+      return de_DeploymentTarget(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DeploymentTargetListSizeExceededException = (
+/**
+ * deserializeAws_json1_1DeploymentTargetListSizeExceededException
+ */
+const de_DeploymentTargetListSizeExceededException = (
   output: any,
   context: __SerdeContext
 ): DeploymentTargetListSizeExceededException => {
@@ -7125,16 +8103,19 @@ const deserializeAws_json1_1DeploymentTargetListSizeExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1DescriptionTooLongException = (
-  output: any,
-  context: __SerdeContext
-): DescriptionTooLongException => {
+/**
+ * deserializeAws_json1_1DescriptionTooLongException
+ */
+const de_DescriptionTooLongException = (output: any, context: __SerdeContext): DescriptionTooLongException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1Diagnostics = (output: any, context: __SerdeContext): Diagnostics => {
+/**
+ * deserializeAws_json1_1Diagnostics
+ */
+const de_Diagnostics = (output: any, context: __SerdeContext): Diagnostics => {
   return {
     errorCode: __expectString(output.errorCode),
     logTail: __expectString(output.logTail),
@@ -7143,7 +8124,10 @@ const deserializeAws_json1_1Diagnostics = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1EC2TagFilter = (output: any, context: __SerdeContext): EC2TagFilter => {
+/**
+ * deserializeAws_json1_1EC2TagFilter
+ */
+const de_EC2TagFilter = (output: any, context: __SerdeContext): EC2TagFilter => {
   return {
     Key: __expectString(output.Key),
     Type: __expectString(output.Type),
@@ -7151,57 +8135,74 @@ const deserializeAws_json1_1EC2TagFilter = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1EC2TagFilterList = (output: any, context: __SerdeContext): EC2TagFilter[] => {
+/**
+ * deserializeAws_json1_1EC2TagFilterList
+ */
+const de_EC2TagFilterList = (output: any, context: __SerdeContext): EC2TagFilter[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EC2TagFilter(entry, context);
+      return de_EC2TagFilter(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EC2TagSet = (output: any, context: __SerdeContext): EC2TagSet => {
+/**
+ * deserializeAws_json1_1EC2TagSet
+ */
+const de_EC2TagSet = (output: any, context: __SerdeContext): EC2TagSet => {
   return {
-    ec2TagSetList:
-      output.ec2TagSetList != null ? deserializeAws_json1_1EC2TagSetList(output.ec2TagSetList, context) : undefined,
+    ec2TagSetList: output.ec2TagSetList != null ? de_EC2TagSetList(output.ec2TagSetList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EC2TagSetList = (output: any, context: __SerdeContext): EC2TagFilter[][] => {
+/**
+ * deserializeAws_json1_1EC2TagSetList
+ */
+const de_EC2TagSetList = (output: any, context: __SerdeContext): EC2TagFilter[][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EC2TagFilterList(entry, context);
+      return de_EC2TagFilterList(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ECSService = (output: any, context: __SerdeContext): ECSService => {
+/**
+ * deserializeAws_json1_1ECSService
+ */
+const de_ECSService = (output: any, context: __SerdeContext): ECSService => {
   return {
     clusterName: __expectString(output.clusterName),
     serviceName: __expectString(output.serviceName),
   } as any;
 };
 
-const deserializeAws_json1_1ECSServiceList = (output: any, context: __SerdeContext): ECSService[] => {
+/**
+ * deserializeAws_json1_1ECSServiceList
+ */
+const de_ECSServiceList = (output: any, context: __SerdeContext): ECSService[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ECSService(entry, context);
+      return de_ECSService(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ECSServiceMappingLimitExceededException = (
+/**
+ * deserializeAws_json1_1ECSServiceMappingLimitExceededException
+ */
+const de_ECSServiceMappingLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): ECSServiceMappingLimitExceededException => {
@@ -7210,7 +8211,10 @@ const deserializeAws_json1_1ECSServiceMappingLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1ECSTarget = (output: any, context: __SerdeContext): ECSTarget => {
+/**
+ * deserializeAws_json1_1ECSTarget
+ */
+const de_ECSTarget = (output: any, context: __SerdeContext): ECSTarget => {
   return {
     deploymentId: __expectString(output.deploymentId),
     lastUpdatedAt:
@@ -7218,74 +8222,86 @@ const deserializeAws_json1_1ECSTarget = (output: any, context: __SerdeContext): 
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lifecycleEvents:
-      output.lifecycleEvents != null
-        ? deserializeAws_json1_1LifecycleEventList(output.lifecycleEvents, context)
-        : undefined,
+      output.lifecycleEvents != null ? de_LifecycleEventList(output.lifecycleEvents, context) : undefined,
     status: __expectString(output.status),
     targetArn: __expectString(output.targetArn),
     targetId: __expectString(output.targetId),
-    taskSetsInfo:
-      output.taskSetsInfo != null ? deserializeAws_json1_1ECSTaskSetList(output.taskSetsInfo, context) : undefined,
+    taskSetsInfo: output.taskSetsInfo != null ? de_ECSTaskSetList(output.taskSetsInfo, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ECSTaskSet = (output: any, context: __SerdeContext): ECSTaskSet => {
+/**
+ * deserializeAws_json1_1ECSTaskSet
+ */
+const de_ECSTaskSet = (output: any, context: __SerdeContext): ECSTaskSet => {
   return {
     desiredCount: __expectLong(output.desiredCount),
     identifer: __expectString(output.identifer),
     pendingCount: __expectLong(output.pendingCount),
     runningCount: __expectLong(output.runningCount),
     status: __expectString(output.status),
-    targetGroup:
-      output.targetGroup != null ? deserializeAws_json1_1TargetGroupInfo(output.targetGroup, context) : undefined,
+    targetGroup: output.targetGroup != null ? de_TargetGroupInfo(output.targetGroup, context) : undefined,
     taskSetLabel: __expectString(output.taskSetLabel),
     trafficWeight: __limitedParseDouble(output.trafficWeight),
   } as any;
 };
 
-const deserializeAws_json1_1ECSTaskSetList = (output: any, context: __SerdeContext): ECSTaskSet[] => {
+/**
+ * deserializeAws_json1_1ECSTaskSetList
+ */
+const de_ECSTaskSetList = (output: any, context: __SerdeContext): ECSTaskSet[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ECSTaskSet(entry, context);
+      return de_ECSTaskSet(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ELBInfo = (output: any, context: __SerdeContext): ELBInfo => {
+/**
+ * deserializeAws_json1_1ELBInfo
+ */
+const de_ELBInfo = (output: any, context: __SerdeContext): ELBInfo => {
   return {
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_1ELBInfoList = (output: any, context: __SerdeContext): ELBInfo[] => {
+/**
+ * deserializeAws_json1_1ELBInfoList
+ */
+const de_ELBInfoList = (output: any, context: __SerdeContext): ELBInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ELBInfo(entry, context);
+      return de_ELBInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ErrorInformation = (output: any, context: __SerdeContext): ErrorInformation => {
+/**
+ * deserializeAws_json1_1ErrorInformation
+ */
+const de_ErrorInformation = (output: any, context: __SerdeContext): ErrorInformation => {
   return {
     code: __expectString(output.code),
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1GenericRevisionInfo = (output: any, context: __SerdeContext): GenericRevisionInfo => {
+/**
+ * deserializeAws_json1_1GenericRevisionInfo
+ */
+const de_GenericRevisionInfo = (output: any, context: __SerdeContext): GenericRevisionInfo => {
   return {
     deploymentGroups:
-      output.deploymentGroups != null
-        ? deserializeAws_json1_1DeploymentGroupsList(output.deploymentGroups, context)
-        : undefined,
+      output.deploymentGroups != null ? de_DeploymentGroupsList(output.deploymentGroups, context) : undefined,
     description: __expectString(output.description),
     firstUsedTime:
       output.firstUsedTime != null
@@ -7302,91 +8318,87 @@ const deserializeAws_json1_1GenericRevisionInfo = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1GetApplicationOutput = (output: any, context: __SerdeContext): GetApplicationOutput => {
+/**
+ * deserializeAws_json1_1GetApplicationOutput
+ */
+const de_GetApplicationOutput = (output: any, context: __SerdeContext): GetApplicationOutput => {
   return {
-    application:
-      output.application != null ? deserializeAws_json1_1ApplicationInfo(output.application, context) : undefined,
+    application: output.application != null ? de_ApplicationInfo(output.application, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetApplicationRevisionOutput = (
-  output: any,
-  context: __SerdeContext
-): GetApplicationRevisionOutput => {
+/**
+ * deserializeAws_json1_1GetApplicationRevisionOutput
+ */
+const de_GetApplicationRevisionOutput = (output: any, context: __SerdeContext): GetApplicationRevisionOutput => {
   return {
     applicationName: __expectString(output.applicationName),
-    revision: output.revision != null ? deserializeAws_json1_1RevisionLocation(output.revision, context) : undefined,
-    revisionInfo:
-      output.revisionInfo != null ? deserializeAws_json1_1GenericRevisionInfo(output.revisionInfo, context) : undefined,
+    revision: output.revision != null ? de_RevisionLocation(output.revision, context) : undefined,
+    revisionInfo: output.revisionInfo != null ? de_GenericRevisionInfo(output.revisionInfo, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetDeploymentConfigOutput = (
-  output: any,
-  context: __SerdeContext
-): GetDeploymentConfigOutput => {
+/**
+ * deserializeAws_json1_1GetDeploymentConfigOutput
+ */
+const de_GetDeploymentConfigOutput = (output: any, context: __SerdeContext): GetDeploymentConfigOutput => {
   return {
     deploymentConfigInfo:
-      output.deploymentConfigInfo != null
-        ? deserializeAws_json1_1DeploymentConfigInfo(output.deploymentConfigInfo, context)
-        : undefined,
+      output.deploymentConfigInfo != null ? de_DeploymentConfigInfo(output.deploymentConfigInfo, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetDeploymentGroupOutput = (
-  output: any,
-  context: __SerdeContext
-): GetDeploymentGroupOutput => {
+/**
+ * deserializeAws_json1_1GetDeploymentGroupOutput
+ */
+const de_GetDeploymentGroupOutput = (output: any, context: __SerdeContext): GetDeploymentGroupOutput => {
   return {
     deploymentGroupInfo:
-      output.deploymentGroupInfo != null
-        ? deserializeAws_json1_1DeploymentGroupInfo(output.deploymentGroupInfo, context)
-        : undefined,
+      output.deploymentGroupInfo != null ? de_DeploymentGroupInfo(output.deploymentGroupInfo, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetDeploymentInstanceOutput = (
-  output: any,
-  context: __SerdeContext
-): GetDeploymentInstanceOutput => {
+/**
+ * deserializeAws_json1_1GetDeploymentInstanceOutput
+ */
+const de_GetDeploymentInstanceOutput = (output: any, context: __SerdeContext): GetDeploymentInstanceOutput => {
   return {
-    instanceSummary:
-      output.instanceSummary != null
-        ? deserializeAws_json1_1InstanceSummary(output.instanceSummary, context)
-        : undefined,
+    instanceSummary: output.instanceSummary != null ? de_InstanceSummary(output.instanceSummary, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetDeploymentOutput = (output: any, context: __SerdeContext): GetDeploymentOutput => {
+/**
+ * deserializeAws_json1_1GetDeploymentOutput
+ */
+const de_GetDeploymentOutput = (output: any, context: __SerdeContext): GetDeploymentOutput => {
   return {
-    deploymentInfo:
-      output.deploymentInfo != null ? deserializeAws_json1_1DeploymentInfo(output.deploymentInfo, context) : undefined,
+    deploymentInfo: output.deploymentInfo != null ? de_DeploymentInfo(output.deploymentInfo, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetDeploymentTargetOutput = (
-  output: any,
-  context: __SerdeContext
-): GetDeploymentTargetOutput => {
+/**
+ * deserializeAws_json1_1GetDeploymentTargetOutput
+ */
+const de_GetDeploymentTargetOutput = (output: any, context: __SerdeContext): GetDeploymentTargetOutput => {
   return {
     deploymentTarget:
-      output.deploymentTarget != null
-        ? deserializeAws_json1_1DeploymentTarget(output.deploymentTarget, context)
-        : undefined,
+      output.deploymentTarget != null ? de_DeploymentTarget(output.deploymentTarget, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetOnPremisesInstanceOutput = (
-  output: any,
-  context: __SerdeContext
-): GetOnPremisesInstanceOutput => {
+/**
+ * deserializeAws_json1_1GetOnPremisesInstanceOutput
+ */
+const de_GetOnPremisesInstanceOutput = (output: any, context: __SerdeContext): GetOnPremisesInstanceOutput => {
   return {
-    instanceInfo:
-      output.instanceInfo != null ? deserializeAws_json1_1InstanceInfo(output.instanceInfo, context) : undefined,
+    instanceInfo: output.instanceInfo != null ? de_InstanceInfo(output.instanceInfo, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GitHubAccountTokenDoesNotExistException = (
+/**
+ * deserializeAws_json1_1GitHubAccountTokenDoesNotExistException
+ */
+const de_GitHubAccountTokenDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): GitHubAccountTokenDoesNotExistException => {
@@ -7395,7 +8407,10 @@ const deserializeAws_json1_1GitHubAccountTokenDoesNotExistException = (
   } as any;
 };
 
-const deserializeAws_json1_1GitHubAccountTokenNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1GitHubAccountTokenNameList
+ */
+const de_GitHubAccountTokenNameList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7407,7 +8422,10 @@ const deserializeAws_json1_1GitHubAccountTokenNameList = (output: any, context: 
   return retVal;
 };
 
-const deserializeAws_json1_1GitHubAccountTokenNameRequiredException = (
+/**
+ * deserializeAws_json1_1GitHubAccountTokenNameRequiredException
+ */
+const de_GitHubAccountTokenNameRequiredException = (
   output: any,
   context: __SerdeContext
 ): GitHubAccountTokenNameRequiredException => {
@@ -7416,32 +8434,38 @@ const deserializeAws_json1_1GitHubAccountTokenNameRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1GitHubLocation = (output: any, context: __SerdeContext): GitHubLocation => {
+/**
+ * deserializeAws_json1_1GitHubLocation
+ */
+const de_GitHubLocation = (output: any, context: __SerdeContext): GitHubLocation => {
   return {
     commitId: __expectString(output.commitId),
     repository: __expectString(output.repository),
   } as any;
 };
 
-const deserializeAws_json1_1GreenFleetProvisioningOption = (
-  output: any,
-  context: __SerdeContext
-): GreenFleetProvisioningOption => {
+/**
+ * deserializeAws_json1_1GreenFleetProvisioningOption
+ */
+const de_GreenFleetProvisioningOption = (output: any, context: __SerdeContext): GreenFleetProvisioningOption => {
   return {
     action: __expectString(output.action),
   } as any;
 };
 
-const deserializeAws_json1_1IamArnRequiredException = (
-  output: any,
-  context: __SerdeContext
-): IamArnRequiredException => {
+/**
+ * deserializeAws_json1_1IamArnRequiredException
+ */
+const de_IamArnRequiredException = (output: any, context: __SerdeContext): IamArnRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1IamSessionArnAlreadyRegisteredException = (
+/**
+ * deserializeAws_json1_1IamSessionArnAlreadyRegisteredException
+ */
+const de_IamSessionArnAlreadyRegisteredException = (
   output: any,
   context: __SerdeContext
 ): IamSessionArnAlreadyRegisteredException => {
@@ -7450,7 +8474,10 @@ const deserializeAws_json1_1IamSessionArnAlreadyRegisteredException = (
   } as any;
 };
 
-const deserializeAws_json1_1IamUserArnAlreadyRegisteredException = (
+/**
+ * deserializeAws_json1_1IamUserArnAlreadyRegisteredException
+ */
+const de_IamUserArnAlreadyRegisteredException = (
   output: any,
   context: __SerdeContext
 ): IamUserArnAlreadyRegisteredException => {
@@ -7459,34 +8486,37 @@ const deserializeAws_json1_1IamUserArnAlreadyRegisteredException = (
   } as any;
 };
 
-const deserializeAws_json1_1IamUserArnRequiredException = (
-  output: any,
-  context: __SerdeContext
-): IamUserArnRequiredException => {
+/**
+ * deserializeAws_json1_1IamUserArnRequiredException
+ */
+const de_IamUserArnRequiredException = (output: any, context: __SerdeContext): IamUserArnRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InstanceDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): InstanceDoesNotExistException => {
+/**
+ * deserializeAws_json1_1InstanceDoesNotExistException
+ */
+const de_InstanceDoesNotExistException = (output: any, context: __SerdeContext): InstanceDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InstanceIdRequiredException = (
-  output: any,
-  context: __SerdeContext
-): InstanceIdRequiredException => {
+/**
+ * deserializeAws_json1_1InstanceIdRequiredException
+ */
+const de_InstanceIdRequiredException = (output: any, context: __SerdeContext): InstanceIdRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InstanceInfo = (output: any, context: __SerdeContext): InstanceInfo => {
+/**
+ * deserializeAws_json1_1InstanceInfo
+ */
+const de_InstanceInfo = (output: any, context: __SerdeContext): InstanceInfo => {
   return {
     deregisterTime:
       output.deregisterTime != null
@@ -7500,32 +8530,38 @@ const deserializeAws_json1_1InstanceInfo = (output: any, context: __SerdeContext
       output.registerTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.registerTime)))
         : undefined,
-    tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
+    tags: output.tags != null ? de_TagList(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InstanceInfoList = (output: any, context: __SerdeContext): InstanceInfo[] => {
+/**
+ * deserializeAws_json1_1InstanceInfoList
+ */
+const de_InstanceInfoList = (output: any, context: __SerdeContext): InstanceInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1InstanceInfo(entry, context);
+      return de_InstanceInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InstanceLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): InstanceLimitExceededException => {
+/**
+ * deserializeAws_json1_1InstanceLimitExceededException
+ */
+const de_InstanceLimitExceededException = (output: any, context: __SerdeContext): InstanceLimitExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InstanceNameAlreadyRegisteredException = (
+/**
+ * deserializeAws_json1_1InstanceNameAlreadyRegisteredException
+ */
+const de_InstanceNameAlreadyRegisteredException = (
   output: any,
   context: __SerdeContext
 ): InstanceNameAlreadyRegisteredException => {
@@ -7534,7 +8570,10 @@ const deserializeAws_json1_1InstanceNameAlreadyRegisteredException = (
   } as any;
 };
 
-const deserializeAws_json1_1InstanceNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1InstanceNameList
+ */
+const de_InstanceNameList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7546,25 +8585,28 @@ const deserializeAws_json1_1InstanceNameList = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1InstanceNameRequiredException = (
-  output: any,
-  context: __SerdeContext
-): InstanceNameRequiredException => {
+/**
+ * deserializeAws_json1_1InstanceNameRequiredException
+ */
+const de_InstanceNameRequiredException = (output: any, context: __SerdeContext): InstanceNameRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InstanceNotRegisteredException = (
-  output: any,
-  context: __SerdeContext
-): InstanceNotRegisteredException => {
+/**
+ * deserializeAws_json1_1InstanceNotRegisteredException
+ */
+const de_InstanceNotRegisteredException = (output: any, context: __SerdeContext): InstanceNotRegisteredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InstancesList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1InstancesList
+ */
+const de_InstancesList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7576,7 +8618,10 @@ const deserializeAws_json1_1InstancesList = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_json1_1InstanceSummary = (output: any, context: __SerdeContext): InstanceSummary => {
+/**
+ * deserializeAws_json1_1InstanceSummary
+ */
+const de_InstanceSummary = (output: any, context: __SerdeContext): InstanceSummary => {
   return {
     deploymentId: __expectString(output.deploymentId),
     instanceId: __expectString(output.instanceId),
@@ -7586,26 +8631,30 @@ const deserializeAws_json1_1InstanceSummary = (output: any, context: __SerdeCont
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lifecycleEvents:
-      output.lifecycleEvents != null
-        ? deserializeAws_json1_1LifecycleEventList(output.lifecycleEvents, context)
-        : undefined,
+      output.lifecycleEvents != null ? de_LifecycleEventList(output.lifecycleEvents, context) : undefined,
     status: __expectString(output.status),
   } as any;
 };
 
-const deserializeAws_json1_1InstanceSummaryList = (output: any, context: __SerdeContext): InstanceSummary[] => {
+/**
+ * deserializeAws_json1_1InstanceSummaryList
+ */
+const de_InstanceSummaryList = (output: any, context: __SerdeContext): InstanceSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1InstanceSummary(entry, context);
+      return de_InstanceSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InstanceTarget = (output: any, context: __SerdeContext): InstanceTarget => {
+/**
+ * deserializeAws_json1_1InstanceTarget
+ */
+const de_InstanceTarget = (output: any, context: __SerdeContext): InstanceTarget => {
   return {
     deploymentId: __expectString(output.deploymentId),
     instanceLabel: __expectString(output.instanceLabel),
@@ -7614,40 +8663,44 @@ const deserializeAws_json1_1InstanceTarget = (output: any, context: __SerdeConte
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lifecycleEvents:
-      output.lifecycleEvents != null
-        ? deserializeAws_json1_1LifecycleEventList(output.lifecycleEvents, context)
-        : undefined,
+      output.lifecycleEvents != null ? de_LifecycleEventList(output.lifecycleEvents, context) : undefined,
     status: __expectString(output.status),
     targetArn: __expectString(output.targetArn),
     targetId: __expectString(output.targetId),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidAlarmConfigException = (
-  output: any,
-  context: __SerdeContext
-): InvalidAlarmConfigException => {
+/**
+ * deserializeAws_json1_1InvalidAlarmConfigException
+ */
+const de_InvalidAlarmConfigException = (output: any, context: __SerdeContext): InvalidAlarmConfigException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidApplicationNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidApplicationNameException => {
+/**
+ * deserializeAws_json1_1InvalidApplicationNameException
+ */
+const de_InvalidApplicationNameException = (output: any, context: __SerdeContext): InvalidApplicationNameException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidArnException = (output: any, context: __SerdeContext): InvalidArnException => {
+/**
+ * deserializeAws_json1_1InvalidArnException
+ */
+const de_InvalidArnException = (output: any, context: __SerdeContext): InvalidArnException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidAutoRollbackConfigException = (
+/**
+ * deserializeAws_json1_1InvalidAutoRollbackConfigException
+ */
+const de_InvalidAutoRollbackConfigException = (
   output: any,
   context: __SerdeContext
 ): InvalidAutoRollbackConfigException => {
@@ -7656,7 +8709,10 @@ const deserializeAws_json1_1InvalidAutoRollbackConfigException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidAutoScalingGroupException = (
+/**
+ * deserializeAws_json1_1InvalidAutoScalingGroupException
+ */
+const de_InvalidAutoScalingGroupException = (
   output: any,
   context: __SerdeContext
 ): InvalidAutoScalingGroupException => {
@@ -7665,7 +8721,10 @@ const deserializeAws_json1_1InvalidAutoScalingGroupException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationException = (
+/**
+ * deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationException
+ */
+const de_InvalidBlueGreenDeploymentConfigurationException = (
   output: any,
   context: __SerdeContext
 ): InvalidBlueGreenDeploymentConfigurationException => {
@@ -7674,7 +8733,10 @@ const deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidBucketNameFilterException = (
+/**
+ * deserializeAws_json1_1InvalidBucketNameFilterException
+ */
+const de_InvalidBucketNameFilterException = (
   output: any,
   context: __SerdeContext
 ): InvalidBucketNameFilterException => {
@@ -7683,16 +8745,19 @@ const deserializeAws_json1_1InvalidBucketNameFilterException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidComputePlatformException = (
-  output: any,
-  context: __SerdeContext
-): InvalidComputePlatformException => {
+/**
+ * deserializeAws_json1_1InvalidComputePlatformException
+ */
+const de_InvalidComputePlatformException = (output: any, context: __SerdeContext): InvalidComputePlatformException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDeployedStateFilterException = (
+/**
+ * deserializeAws_json1_1InvalidDeployedStateFilterException
+ */
+const de_InvalidDeployedStateFilterException = (
   output: any,
   context: __SerdeContext
 ): InvalidDeployedStateFilterException => {
@@ -7701,7 +8766,10 @@ const deserializeAws_json1_1InvalidDeployedStateFilterException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDeploymentConfigNameException = (
+/**
+ * deserializeAws_json1_1InvalidDeploymentConfigNameException
+ */
+const de_InvalidDeploymentConfigNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidDeploymentConfigNameException => {
@@ -7710,7 +8778,10 @@ const deserializeAws_json1_1InvalidDeploymentConfigNameException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDeploymentGroupNameException = (
+/**
+ * deserializeAws_json1_1InvalidDeploymentGroupNameException
+ */
+const de_InvalidDeploymentGroupNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidDeploymentGroupNameException => {
@@ -7719,16 +8790,19 @@ const deserializeAws_json1_1InvalidDeploymentGroupNameException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDeploymentIdException = (
-  output: any,
-  context: __SerdeContext
-): InvalidDeploymentIdException => {
+/**
+ * deserializeAws_json1_1InvalidDeploymentIdException
+ */
+const de_InvalidDeploymentIdException = (output: any, context: __SerdeContext): InvalidDeploymentIdException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDeploymentInstanceTypeException = (
+/**
+ * deserializeAws_json1_1InvalidDeploymentInstanceTypeException
+ */
+const de_InvalidDeploymentInstanceTypeException = (
   output: any,
   context: __SerdeContext
 ): InvalidDeploymentInstanceTypeException => {
@@ -7737,7 +8811,10 @@ const deserializeAws_json1_1InvalidDeploymentInstanceTypeException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDeploymentStatusException = (
+/**
+ * deserializeAws_json1_1InvalidDeploymentStatusException
+ */
+const de_InvalidDeploymentStatusException = (
   output: any,
   context: __SerdeContext
 ): InvalidDeploymentStatusException => {
@@ -7746,16 +8823,19 @@ const deserializeAws_json1_1InvalidDeploymentStatusException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDeploymentStyleException = (
-  output: any,
-  context: __SerdeContext
-): InvalidDeploymentStyleException => {
+/**
+ * deserializeAws_json1_1InvalidDeploymentStyleException
+ */
+const de_InvalidDeploymentStyleException = (output: any, context: __SerdeContext): InvalidDeploymentStyleException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDeploymentTargetIdException = (
+/**
+ * deserializeAws_json1_1InvalidDeploymentTargetIdException
+ */
+const de_InvalidDeploymentTargetIdException = (
   output: any,
   context: __SerdeContext
 ): InvalidDeploymentTargetIdException => {
@@ -7764,7 +8844,10 @@ const deserializeAws_json1_1InvalidDeploymentTargetIdException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidDeploymentWaitTypeException = (
+/**
+ * deserializeAws_json1_1InvalidDeploymentWaitTypeException
+ */
+const de_InvalidDeploymentWaitTypeException = (
   output: any,
   context: __SerdeContext
 ): InvalidDeploymentWaitTypeException => {
@@ -7773,7 +8856,10 @@ const deserializeAws_json1_1InvalidDeploymentWaitTypeException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidEC2TagCombinationException = (
+/**
+ * deserializeAws_json1_1InvalidEC2TagCombinationException
+ */
+const de_InvalidEC2TagCombinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidEC2TagCombinationException => {
@@ -7782,31 +8868,37 @@ const deserializeAws_json1_1InvalidEC2TagCombinationException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidEC2TagException = (output: any, context: __SerdeContext): InvalidEC2TagException => {
+/**
+ * deserializeAws_json1_1InvalidEC2TagException
+ */
+const de_InvalidEC2TagException = (output: any, context: __SerdeContext): InvalidEC2TagException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidECSServiceException = (
-  output: any,
-  context: __SerdeContext
-): InvalidECSServiceException => {
+/**
+ * deserializeAws_json1_1InvalidECSServiceException
+ */
+const de_InvalidECSServiceException = (output: any, context: __SerdeContext): InvalidECSServiceException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidExternalIdException = (
-  output: any,
-  context: __SerdeContext
-): InvalidExternalIdException => {
+/**
+ * deserializeAws_json1_1InvalidExternalIdException
+ */
+const de_InvalidExternalIdException = (output: any, context: __SerdeContext): InvalidExternalIdException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidFileExistsBehaviorException = (
+/**
+ * deserializeAws_json1_1InvalidFileExistsBehaviorException
+ */
+const de_InvalidFileExistsBehaviorException = (
   output: any,
   context: __SerdeContext
 ): InvalidFileExistsBehaviorException => {
@@ -7815,7 +8907,10 @@ const deserializeAws_json1_1InvalidFileExistsBehaviorException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidGitHubAccountTokenException = (
+/**
+ * deserializeAws_json1_1InvalidGitHubAccountTokenException
+ */
+const de_InvalidGitHubAccountTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidGitHubAccountTokenException => {
@@ -7824,7 +8919,10 @@ const deserializeAws_json1_1InvalidGitHubAccountTokenException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidGitHubAccountTokenNameException = (
+/**
+ * deserializeAws_json1_1InvalidGitHubAccountTokenNameException
+ */
+const de_InvalidGitHubAccountTokenNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidGitHubAccountTokenNameException => {
@@ -7833,25 +8931,28 @@ const deserializeAws_json1_1InvalidGitHubAccountTokenNameException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidIamSessionArnException = (
-  output: any,
-  context: __SerdeContext
-): InvalidIamSessionArnException => {
+/**
+ * deserializeAws_json1_1InvalidIamSessionArnException
+ */
+const de_InvalidIamSessionArnException = (output: any, context: __SerdeContext): InvalidIamSessionArnException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidIamUserArnException = (
-  output: any,
-  context: __SerdeContext
-): InvalidIamUserArnException => {
+/**
+ * deserializeAws_json1_1InvalidIamUserArnException
+ */
+const de_InvalidIamUserArnException = (output: any, context: __SerdeContext): InvalidIamUserArnException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueException = (
+/**
+ * deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueException
+ */
+const de_InvalidIgnoreApplicationStopFailuresValueException = (
   output: any,
   context: __SerdeContext
 ): InvalidIgnoreApplicationStopFailuresValueException => {
@@ -7860,49 +8961,55 @@ const deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueException =
   } as any;
 };
 
-const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
+/**
+ * deserializeAws_json1_1InvalidInputException
+ */
+const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidInstanceNameException = (
-  output: any,
-  context: __SerdeContext
-): InvalidInstanceNameException => {
+/**
+ * deserializeAws_json1_1InvalidInstanceNameException
+ */
+const de_InvalidInstanceNameException = (output: any, context: __SerdeContext): InvalidInstanceNameException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidInstanceStatusException = (
-  output: any,
-  context: __SerdeContext
-): InvalidInstanceStatusException => {
+/**
+ * deserializeAws_json1_1InvalidInstanceStatusException
+ */
+const de_InvalidInstanceStatusException = (output: any, context: __SerdeContext): InvalidInstanceStatusException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidInstanceTypeException = (
-  output: any,
-  context: __SerdeContext
-): InvalidInstanceTypeException => {
+/**
+ * deserializeAws_json1_1InvalidInstanceTypeException
+ */
+const de_InvalidInstanceTypeException = (output: any, context: __SerdeContext): InvalidInstanceTypeException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidKeyPrefixFilterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidKeyPrefixFilterException => {
+/**
+ * deserializeAws_json1_1InvalidKeyPrefixFilterException
+ */
+const de_InvalidKeyPrefixFilterException = (output: any, context: __SerdeContext): InvalidKeyPrefixFilterException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdException = (
+/**
+ * deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdException
+ */
+const de_InvalidLifecycleEventHookExecutionIdException = (
   output: any,
   context: __SerdeContext
 ): InvalidLifecycleEventHookExecutionIdException => {
@@ -7911,7 +9018,10 @@ const deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusException = (
+/**
+ * deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusException
+ */
+const de_InvalidLifecycleEventHookExecutionStatusException = (
   output: any,
   context: __SerdeContext
 ): InvalidLifecycleEventHookExecutionStatusException => {
@@ -7920,7 +9030,10 @@ const deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusException = 
   } as any;
 };
 
-const deserializeAws_json1_1InvalidLoadBalancerInfoException = (
+/**
+ * deserializeAws_json1_1InvalidLoadBalancerInfoException
+ */
+const de_InvalidLoadBalancerInfoException = (
   output: any,
   context: __SerdeContext
 ): InvalidLoadBalancerInfoException => {
@@ -7929,7 +9042,10 @@ const deserializeAws_json1_1InvalidLoadBalancerInfoException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidMinimumHealthyHostValueException = (
+/**
+ * deserializeAws_json1_1InvalidMinimumHealthyHostValueException
+ */
+const de_InvalidMinimumHealthyHostValueException = (
   output: any,
   context: __SerdeContext
 ): InvalidMinimumHealthyHostValueException => {
@@ -7938,16 +9054,19 @@ const deserializeAws_json1_1InvalidMinimumHealthyHostValueException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNextTokenException => {
+/**
+ * deserializeAws_json1_1InvalidNextTokenException
+ */
+const de_InvalidNextTokenException = (output: any, context: __SerdeContext): InvalidNextTokenException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidOnPremisesTagCombinationException = (
+/**
+ * deserializeAws_json1_1InvalidOnPremisesTagCombinationException
+ */
+const de_InvalidOnPremisesTagCombinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidOnPremisesTagCombinationException => {
@@ -7956,16 +9075,19 @@ const deserializeAws_json1_1InvalidOnPremisesTagCombinationException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidOperationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidOperationException => {
+/**
+ * deserializeAws_json1_1InvalidOperationException
+ */
+const de_InvalidOperationException = (output: any, context: __SerdeContext): InvalidOperationException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRegistrationStatusException = (
+/**
+ * deserializeAws_json1_1InvalidRegistrationStatusException
+ */
+const de_InvalidRegistrationStatusException = (
   output: any,
   context: __SerdeContext
 ): InvalidRegistrationStatusException => {
@@ -7974,61 +9096,73 @@ const deserializeAws_json1_1InvalidRegistrationStatusException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRevisionException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRevisionException => {
+/**
+ * deserializeAws_json1_1InvalidRevisionException
+ */
+const de_InvalidRevisionException = (output: any, context: __SerdeContext): InvalidRevisionException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidRoleException = (output: any, context: __SerdeContext): InvalidRoleException => {
+/**
+ * deserializeAws_json1_1InvalidRoleException
+ */
+const de_InvalidRoleException = (output: any, context: __SerdeContext): InvalidRoleException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidSortByException = (output: any, context: __SerdeContext): InvalidSortByException => {
+/**
+ * deserializeAws_json1_1InvalidSortByException
+ */
+const de_InvalidSortByException = (output: any, context: __SerdeContext): InvalidSortByException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidSortOrderException = (
-  output: any,
-  context: __SerdeContext
-): InvalidSortOrderException => {
+/**
+ * deserializeAws_json1_1InvalidSortOrderException
+ */
+const de_InvalidSortOrderException = (output: any, context: __SerdeContext): InvalidSortOrderException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
+/**
+ * deserializeAws_json1_1InvalidTagException
+ */
+const de_InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTagFilterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTagFilterException => {
+/**
+ * deserializeAws_json1_1InvalidTagFilterException
+ */
+const de_InvalidTagFilterException = (output: any, context: __SerdeContext): InvalidTagFilterException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTagsToAddException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTagsToAddException => {
+/**
+ * deserializeAws_json1_1InvalidTagsToAddException
+ */
+const de_InvalidTagsToAddException = (output: any, context: __SerdeContext): InvalidTagsToAddException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTargetFilterNameException = (
+/**
+ * deserializeAws_json1_1InvalidTargetFilterNameException
+ */
+const de_InvalidTargetFilterNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidTargetFilterNameException => {
@@ -8037,34 +9171,37 @@ const deserializeAws_json1_1InvalidTargetFilterNameException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTargetGroupPairException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTargetGroupPairException => {
+/**
+ * deserializeAws_json1_1InvalidTargetGroupPairException
+ */
+const de_InvalidTargetGroupPairException = (output: any, context: __SerdeContext): InvalidTargetGroupPairException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTargetInstancesException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTargetInstancesException => {
+/**
+ * deserializeAws_json1_1InvalidTargetInstancesException
+ */
+const de_InvalidTargetInstancesException = (output: any, context: __SerdeContext): InvalidTargetInstancesException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTimeRangeException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTimeRangeException => {
+/**
+ * deserializeAws_json1_1InvalidTimeRangeException
+ */
+const de_InvalidTimeRangeException = (output: any, context: __SerdeContext): InvalidTimeRangeException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTrafficRoutingConfigurationException = (
+/**
+ * deserializeAws_json1_1InvalidTrafficRoutingConfigurationException
+ */
+const de_InvalidTrafficRoutingConfigurationException = (
   output: any,
   context: __SerdeContext
 ): InvalidTrafficRoutingConfigurationException => {
@@ -8073,16 +9210,19 @@ const deserializeAws_json1_1InvalidTrafficRoutingConfigurationException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTriggerConfigException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTriggerConfigException => {
+/**
+ * deserializeAws_json1_1InvalidTriggerConfigException
+ */
+const de_InvalidTriggerConfigException = (output: any, context: __SerdeContext): InvalidTriggerConfigException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueException = (
+/**
+ * deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueException
+ */
+const de_InvalidUpdateOutdatedInstancesOnlyValueException = (
   output: any,
   context: __SerdeContext
 ): InvalidUpdateOutdatedInstancesOnlyValueException => {
@@ -8091,7 +9231,10 @@ const deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueException = (
   } as any;
 };
 
-const deserializeAws_json1_1LambdaFunctionInfo = (output: any, context: __SerdeContext): LambdaFunctionInfo => {
+/**
+ * deserializeAws_json1_1LambdaFunctionInfo
+ */
+const de_LambdaFunctionInfo = (output: any, context: __SerdeContext): LambdaFunctionInfo => {
   return {
     currentVersion: __expectString(output.currentVersion),
     functionAlias: __expectString(output.functionAlias),
@@ -8101,28 +9244,30 @@ const deserializeAws_json1_1LambdaFunctionInfo = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1LambdaTarget = (output: any, context: __SerdeContext): LambdaTarget => {
+/**
+ * deserializeAws_json1_1LambdaTarget
+ */
+const de_LambdaTarget = (output: any, context: __SerdeContext): LambdaTarget => {
   return {
     deploymentId: __expectString(output.deploymentId),
     lambdaFunctionInfo:
-      output.lambdaFunctionInfo != null
-        ? deserializeAws_json1_1LambdaFunctionInfo(output.lambdaFunctionInfo, context)
-        : undefined,
+      output.lambdaFunctionInfo != null ? de_LambdaFunctionInfo(output.lambdaFunctionInfo, context) : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lifecycleEvents:
-      output.lifecycleEvents != null
-        ? deserializeAws_json1_1LifecycleEventList(output.lifecycleEvents, context)
-        : undefined,
+      output.lifecycleEvents != null ? de_LifecycleEventList(output.lifecycleEvents, context) : undefined,
     status: __expectString(output.status),
     targetArn: __expectString(output.targetArn),
     targetId: __expectString(output.targetId),
   } as any;
 };
 
-const deserializeAws_json1_1LastDeploymentInfo = (output: any, context: __SerdeContext): LastDeploymentInfo => {
+/**
+ * deserializeAws_json1_1LastDeploymentInfo
+ */
+const de_LastDeploymentInfo = (output: any, context: __SerdeContext): LastDeploymentInfo => {
   return {
     createTime:
       output.createTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createTime))) : undefined,
@@ -8133,10 +9278,12 @@ const deserializeAws_json1_1LastDeploymentInfo = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1LifecycleEvent = (output: any, context: __SerdeContext): LifecycleEvent => {
+/**
+ * deserializeAws_json1_1LifecycleEvent
+ */
+const de_LifecycleEvent = (output: any, context: __SerdeContext): LifecycleEvent => {
   return {
-    diagnostics:
-      output.diagnostics != null ? deserializeAws_json1_1Diagnostics(output.diagnostics, context) : undefined,
+    diagnostics: output.diagnostics != null ? de_Diagnostics(output.diagnostics, context) : undefined,
     endTime:
       output.endTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime))) : undefined,
     lifecycleEventName: __expectString(output.lifecycleEventName),
@@ -8146,7 +9293,10 @@ const deserializeAws_json1_1LifecycleEvent = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1LifecycleEventAlreadyCompletedException = (
+/**
+ * deserializeAws_json1_1LifecycleEventAlreadyCompletedException
+ */
+const de_LifecycleEventAlreadyCompletedException = (
   output: any,
   context: __SerdeContext
 ): LifecycleEventAlreadyCompletedException => {
@@ -8155,19 +9305,25 @@ const deserializeAws_json1_1LifecycleEventAlreadyCompletedException = (
   } as any;
 };
 
-const deserializeAws_json1_1LifecycleEventList = (output: any, context: __SerdeContext): LifecycleEvent[] => {
+/**
+ * deserializeAws_json1_1LifecycleEventList
+ */
+const de_LifecycleEventList = (output: any, context: __SerdeContext): LifecycleEvent[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LifecycleEvent(entry, context);
+      return de_LifecycleEvent(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LifecycleHookLimitExceededException = (
+/**
+ * deserializeAws_json1_1LifecycleHookLimitExceededException
+ */
+const de_LifecycleHookLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LifecycleHookLimitExceededException => {
@@ -8176,82 +9332,85 @@ const deserializeAws_json1_1LifecycleHookLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1ListApplicationRevisionsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListApplicationRevisionsOutput => {
+/**
+ * deserializeAws_json1_1ListApplicationRevisionsOutput
+ */
+const de_ListApplicationRevisionsOutput = (output: any, context: __SerdeContext): ListApplicationRevisionsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    revisions:
-      output.revisions != null ? deserializeAws_json1_1RevisionLocationList(output.revisions, context) : undefined,
+    revisions: output.revisions != null ? de_RevisionLocationList(output.revisions, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListApplicationsOutput = (output: any, context: __SerdeContext): ListApplicationsOutput => {
+/**
+ * deserializeAws_json1_1ListApplicationsOutput
+ */
+const de_ListApplicationsOutput = (output: any, context: __SerdeContext): ListApplicationsOutput => {
   return {
-    applications:
-      output.applications != null ? deserializeAws_json1_1ApplicationsList(output.applications, context) : undefined,
+    applications: output.applications != null ? de_ApplicationsList(output.applications, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListDeploymentConfigsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListDeploymentConfigsOutput => {
+/**
+ * deserializeAws_json1_1ListDeploymentConfigsOutput
+ */
+const de_ListDeploymentConfigsOutput = (output: any, context: __SerdeContext): ListDeploymentConfigsOutput => {
   return {
     deploymentConfigsList:
       output.deploymentConfigsList != null
-        ? deserializeAws_json1_1DeploymentConfigsList(output.deploymentConfigsList, context)
+        ? de_DeploymentConfigsList(output.deploymentConfigsList, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListDeploymentGroupsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListDeploymentGroupsOutput => {
+/**
+ * deserializeAws_json1_1ListDeploymentGroupsOutput
+ */
+const de_ListDeploymentGroupsOutput = (output: any, context: __SerdeContext): ListDeploymentGroupsOutput => {
   return {
     applicationName: __expectString(output.applicationName),
     deploymentGroups:
-      output.deploymentGroups != null
-        ? deserializeAws_json1_1DeploymentGroupsList(output.deploymentGroups, context)
-        : undefined,
+      output.deploymentGroups != null ? de_DeploymentGroupsList(output.deploymentGroups, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListDeploymentInstancesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListDeploymentInstancesOutput => {
+/**
+ * deserializeAws_json1_1ListDeploymentInstancesOutput
+ */
+const de_ListDeploymentInstancesOutput = (output: any, context: __SerdeContext): ListDeploymentInstancesOutput => {
   return {
-    instancesList:
-      output.instancesList != null ? deserializeAws_json1_1InstancesList(output.instancesList, context) : undefined,
+    instancesList: output.instancesList != null ? de_InstancesList(output.instancesList, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListDeploymentsOutput = (output: any, context: __SerdeContext): ListDeploymentsOutput => {
+/**
+ * deserializeAws_json1_1ListDeploymentsOutput
+ */
+const de_ListDeploymentsOutput = (output: any, context: __SerdeContext): ListDeploymentsOutput => {
   return {
-    deployments:
-      output.deployments != null ? deserializeAws_json1_1DeploymentsList(output.deployments, context) : undefined,
+    deployments: output.deployments != null ? de_DeploymentsList(output.deployments, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListDeploymentTargetsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListDeploymentTargetsOutput => {
+/**
+ * deserializeAws_json1_1ListDeploymentTargetsOutput
+ */
+const de_ListDeploymentTargetsOutput = (output: any, context: __SerdeContext): ListDeploymentTargetsOutput => {
   return {
     nextToken: __expectString(output.nextToken),
-    targetIds: output.targetIds != null ? deserializeAws_json1_1TargetIdList(output.targetIds, context) : undefined,
+    targetIds: output.targetIds != null ? de_TargetIdList(output.targetIds, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListenerArnList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ListenerArnList
+ */
+const de_ListenerArnList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8263,63 +9422,69 @@ const deserializeAws_json1_1ListenerArnList = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_json1_1ListGitHubAccountTokenNamesOutput = (
+/**
+ * deserializeAws_json1_1ListGitHubAccountTokenNamesOutput
+ */
+const de_ListGitHubAccountTokenNamesOutput = (
   output: any,
   context: __SerdeContext
 ): ListGitHubAccountTokenNamesOutput => {
   return {
     nextToken: __expectString(output.nextToken),
     tokenNameList:
-      output.tokenNameList != null
-        ? deserializeAws_json1_1GitHubAccountTokenNameList(output.tokenNameList, context)
-        : undefined,
+      output.tokenNameList != null ? de_GitHubAccountTokenNameList(output.tokenNameList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListOnPremisesInstancesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListOnPremisesInstancesOutput => {
+/**
+ * deserializeAws_json1_1ListOnPremisesInstancesOutput
+ */
+const de_ListOnPremisesInstancesOutput = (output: any, context: __SerdeContext): ListOnPremisesInstancesOutput => {
   return {
-    instanceNames:
-      output.instanceNames != null ? deserializeAws_json1_1InstanceNameList(output.instanceNames, context) : undefined,
+    instanceNames: output.instanceNames != null ? de_InstanceNameList(output.instanceNames, context) : undefined,
     nextToken: __expectString(output.nextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceOutput => {
+/**
+ * deserializeAws_json1_1ListTagsForResourceOutput
+ */
+const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1LoadBalancerInfo = (output: any, context: __SerdeContext): LoadBalancerInfo => {
+/**
+ * deserializeAws_json1_1LoadBalancerInfo
+ */
+const de_LoadBalancerInfo = (output: any, context: __SerdeContext): LoadBalancerInfo => {
   return {
-    elbInfoList:
-      output.elbInfoList != null ? deserializeAws_json1_1ELBInfoList(output.elbInfoList, context) : undefined,
+    elbInfoList: output.elbInfoList != null ? de_ELBInfoList(output.elbInfoList, context) : undefined,
     targetGroupInfoList:
-      output.targetGroupInfoList != null
-        ? deserializeAws_json1_1TargetGroupInfoList(output.targetGroupInfoList, context)
-        : undefined,
+      output.targetGroupInfoList != null ? de_TargetGroupInfoList(output.targetGroupInfoList, context) : undefined,
     targetGroupPairInfoList:
       output.targetGroupPairInfoList != null
-        ? deserializeAws_json1_1TargetGroupPairInfoList(output.targetGroupPairInfoList, context)
+        ? de_TargetGroupPairInfoList(output.targetGroupPairInfoList, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MinimumHealthyHosts = (output: any, context: __SerdeContext): MinimumHealthyHosts => {
+/**
+ * deserializeAws_json1_1MinimumHealthyHosts
+ */
+const de_MinimumHealthyHosts = (output: any, context: __SerdeContext): MinimumHealthyHosts => {
   return {
     type: __expectString(output.type),
     value: __expectInt32(output.value),
   } as any;
 };
 
-const deserializeAws_json1_1MultipleIamArnsProvidedException = (
+/**
+ * deserializeAws_json1_1MultipleIamArnsProvidedException
+ */
+const de_MultipleIamArnsProvidedException = (
   output: any,
   context: __SerdeContext
 ): MultipleIamArnsProvidedException => {
@@ -8328,37 +9493,44 @@ const deserializeAws_json1_1MultipleIamArnsProvidedException = (
   } as any;
 };
 
-const deserializeAws_json1_1OnPremisesTagSet = (output: any, context: __SerdeContext): OnPremisesTagSet => {
+/**
+ * deserializeAws_json1_1OnPremisesTagSet
+ */
+const de_OnPremisesTagSet = (output: any, context: __SerdeContext): OnPremisesTagSet => {
   return {
     onPremisesTagSetList:
-      output.onPremisesTagSetList != null
-        ? deserializeAws_json1_1OnPremisesTagSetList(output.onPremisesTagSetList, context)
-        : undefined,
+      output.onPremisesTagSetList != null ? de_OnPremisesTagSetList(output.onPremisesTagSetList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1OnPremisesTagSetList = (output: any, context: __SerdeContext): TagFilter[][] => {
+/**
+ * deserializeAws_json1_1OnPremisesTagSetList
+ */
+const de_OnPremisesTagSetList = (output: any, context: __SerdeContext): TagFilter[][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TagFilterList(entry, context);
+      return de_TagFilterList(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1OperationNotSupportedException = (
-  output: any,
-  context: __SerdeContext
-): OperationNotSupportedException => {
+/**
+ * deserializeAws_json1_1OperationNotSupportedException
+ */
+const de_OperationNotSupportedException = (output: any, context: __SerdeContext): OperationNotSupportedException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1PutLifecycleEventHookExecutionStatusOutput = (
+/**
+ * deserializeAws_json1_1PutLifecycleEventHookExecutionStatusOutput
+ */
+const de_PutLifecycleEventHookExecutionStatusOutput = (
   output: any,
   context: __SerdeContext
 ): PutLifecycleEventHookExecutionStatusOutput => {
@@ -8367,115 +9539,133 @@ const deserializeAws_json1_1PutLifecycleEventHookExecutionStatusOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1RawString = (output: any, context: __SerdeContext): RawString => {
+/**
+ * deserializeAws_json1_1RawString
+ */
+const de_RawString = (output: any, context: __SerdeContext): RawString => {
   return {
     content: __expectString(output.content),
     sha256: __expectString(output.sha256),
   } as any;
 };
 
-const deserializeAws_json1_1RelatedDeployments = (output: any, context: __SerdeContext): RelatedDeployments => {
+/**
+ * deserializeAws_json1_1RelatedDeployments
+ */
+const de_RelatedDeployments = (output: any, context: __SerdeContext): RelatedDeployments => {
   return {
     autoUpdateOutdatedInstancesDeploymentIds:
       output.autoUpdateOutdatedInstancesDeploymentIds != null
-        ? deserializeAws_json1_1DeploymentsList(output.autoUpdateOutdatedInstancesDeploymentIds, context)
+        ? de_DeploymentsList(output.autoUpdateOutdatedInstancesDeploymentIds, context)
         : undefined,
     autoUpdateOutdatedInstancesRootDeploymentId: __expectString(output.autoUpdateOutdatedInstancesRootDeploymentId),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceArnRequiredException = (
-  output: any,
-  context: __SerdeContext
-): ResourceArnRequiredException => {
+/**
+ * deserializeAws_json1_1ResourceArnRequiredException
+ */
+const de_ResourceArnRequiredException = (output: any, context: __SerdeContext): ResourceArnRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceValidationException = (
-  output: any,
-  context: __SerdeContext
-): ResourceValidationException => {
+/**
+ * deserializeAws_json1_1ResourceValidationException
+ */
+const de_ResourceValidationException = (output: any, context: __SerdeContext): ResourceValidationException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1RevisionDoesNotExistException = (
-  output: any,
-  context: __SerdeContext
-): RevisionDoesNotExistException => {
+/**
+ * deserializeAws_json1_1RevisionDoesNotExistException
+ */
+const de_RevisionDoesNotExistException = (output: any, context: __SerdeContext): RevisionDoesNotExistException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1RevisionInfo = (output: any, context: __SerdeContext): RevisionInfo => {
+/**
+ * deserializeAws_json1_1RevisionInfo
+ */
+const de_RevisionInfo = (output: any, context: __SerdeContext): RevisionInfo => {
   return {
     genericRevisionInfo:
-      output.genericRevisionInfo != null
-        ? deserializeAws_json1_1GenericRevisionInfo(output.genericRevisionInfo, context)
-        : undefined,
+      output.genericRevisionInfo != null ? de_GenericRevisionInfo(output.genericRevisionInfo, context) : undefined,
     revisionLocation:
-      output.revisionLocation != null
-        ? deserializeAws_json1_1RevisionLocation(output.revisionLocation, context)
-        : undefined,
+      output.revisionLocation != null ? de_RevisionLocation(output.revisionLocation, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1RevisionInfoList = (output: any, context: __SerdeContext): RevisionInfo[] => {
+/**
+ * deserializeAws_json1_1RevisionInfoList
+ */
+const de_RevisionInfoList = (output: any, context: __SerdeContext): RevisionInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RevisionInfo(entry, context);
+      return de_RevisionInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RevisionLocation = (output: any, context: __SerdeContext): RevisionLocation => {
+/**
+ * deserializeAws_json1_1RevisionLocation
+ */
+const de_RevisionLocation = (output: any, context: __SerdeContext): RevisionLocation => {
   return {
-    appSpecContent:
-      output.appSpecContent != null ? deserializeAws_json1_1AppSpecContent(output.appSpecContent, context) : undefined,
-    gitHubLocation:
-      output.gitHubLocation != null ? deserializeAws_json1_1GitHubLocation(output.gitHubLocation, context) : undefined,
+    appSpecContent: output.appSpecContent != null ? de_AppSpecContent(output.appSpecContent, context) : undefined,
+    gitHubLocation: output.gitHubLocation != null ? de_GitHubLocation(output.gitHubLocation, context) : undefined,
     revisionType: __expectString(output.revisionType),
-    s3Location: output.s3Location != null ? deserializeAws_json1_1S3Location(output.s3Location, context) : undefined,
-    string: output.string != null ? deserializeAws_json1_1RawString(output.string, context) : undefined,
+    s3Location: output.s3Location != null ? de_S3Location(output.s3Location, context) : undefined,
+    string: output.string != null ? de_RawString(output.string, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1RevisionLocationList = (output: any, context: __SerdeContext): RevisionLocation[] => {
+/**
+ * deserializeAws_json1_1RevisionLocationList
+ */
+const de_RevisionLocationList = (output: any, context: __SerdeContext): RevisionLocation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RevisionLocation(entry, context);
+      return de_RevisionLocation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RevisionRequiredException = (
-  output: any,
-  context: __SerdeContext
-): RevisionRequiredException => {
+/**
+ * deserializeAws_json1_1RevisionRequiredException
+ */
+const de_RevisionRequiredException = (output: any, context: __SerdeContext): RevisionRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1RoleRequiredException = (output: any, context: __SerdeContext): RoleRequiredException => {
+/**
+ * deserializeAws_json1_1RoleRequiredException
+ */
+const de_RoleRequiredException = (output: any, context: __SerdeContext): RoleRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1RollbackInfo = (output: any, context: __SerdeContext): RollbackInfo => {
+/**
+ * deserializeAws_json1_1RollbackInfo
+ */
+const de_RollbackInfo = (output: any, context: __SerdeContext): RollbackInfo => {
   return {
     rollbackDeploymentId: __expectString(output.rollbackDeploymentId),
     rollbackMessage: __expectString(output.rollbackMessage),
@@ -8483,7 +9673,10 @@ const deserializeAws_json1_1RollbackInfo = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
+/**
+ * deserializeAws_json1_1S3Location
+ */
+const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
     bucket: __expectString(output.bucket),
     bundleType: __expectString(output.bundleType),
@@ -8493,21 +9686,30 @@ const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_json1_1StopDeploymentOutput = (output: any, context: __SerdeContext): StopDeploymentOutput => {
+/**
+ * deserializeAws_json1_1StopDeploymentOutput
+ */
+const de_StopDeploymentOutput = (output: any, context: __SerdeContext): StopDeploymentOutput => {
   return {
     status: __expectString(output.status),
     statusMessage: __expectString(output.statusMessage),
   } as any;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagFilter = (output: any, context: __SerdeContext): TagFilter => {
+/**
+ * deserializeAws_json1_1TagFilter
+ */
+const de_TagFilter = (output: any, context: __SerdeContext): TagFilter => {
   return {
     Key: __expectString(output.Key),
     Type: __expectString(output.Type),
@@ -8515,50 +9717,65 @@ const deserializeAws_json1_1TagFilter = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_1TagFilterList = (output: any, context: __SerdeContext): TagFilter[] => {
+/**
+ * deserializeAws_json1_1TagFilterList
+ */
+const de_TagFilterList = (output: any, context: __SerdeContext): TagFilter[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TagFilter(entry, context);
+      return de_TagFilter(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): TagLimitExceededException => {
+/**
+ * deserializeAws_json1_1TagLimitExceededException
+ */
+const de_TagLimitExceededException = (output: any, context: __SerdeContext): TagLimitExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagRequiredException = (output: any, context: __SerdeContext): TagRequiredException => {
+/**
+ * deserializeAws_json1_1TagRequiredException
+ */
+const de_TagRequiredException = (output: any, context: __SerdeContext): TagRequiredException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
+/**
+ * deserializeAws_json1_1TagResourceOutput
+ */
+const de_TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1TagSetListLimitExceededException = (
+/**
+ * deserializeAws_json1_1TagSetListLimitExceededException
+ */
+const de_TagSetListLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): TagSetListLimitExceededException => {
@@ -8567,52 +9784,60 @@ const deserializeAws_json1_1TagSetListLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1TargetGroupInfo = (output: any, context: __SerdeContext): TargetGroupInfo => {
+/**
+ * deserializeAws_json1_1TargetGroupInfo
+ */
+const de_TargetGroupInfo = (output: any, context: __SerdeContext): TargetGroupInfo => {
   return {
     name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_json1_1TargetGroupInfoList = (output: any, context: __SerdeContext): TargetGroupInfo[] => {
+/**
+ * deserializeAws_json1_1TargetGroupInfoList
+ */
+const de_TargetGroupInfoList = (output: any, context: __SerdeContext): TargetGroupInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TargetGroupInfo(entry, context);
+      return de_TargetGroupInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TargetGroupPairInfo = (output: any, context: __SerdeContext): TargetGroupPairInfo => {
+/**
+ * deserializeAws_json1_1TargetGroupPairInfo
+ */
+const de_TargetGroupPairInfo = (output: any, context: __SerdeContext): TargetGroupPairInfo => {
   return {
-    prodTrafficRoute:
-      output.prodTrafficRoute != null
-        ? deserializeAws_json1_1TrafficRoute(output.prodTrafficRoute, context)
-        : undefined,
-    targetGroups:
-      output.targetGroups != null ? deserializeAws_json1_1TargetGroupInfoList(output.targetGroups, context) : undefined,
-    testTrafficRoute:
-      output.testTrafficRoute != null
-        ? deserializeAws_json1_1TrafficRoute(output.testTrafficRoute, context)
-        : undefined,
+    prodTrafficRoute: output.prodTrafficRoute != null ? de_TrafficRoute(output.prodTrafficRoute, context) : undefined,
+    targetGroups: output.targetGroups != null ? de_TargetGroupInfoList(output.targetGroups, context) : undefined,
+    testTrafficRoute: output.testTrafficRoute != null ? de_TrafficRoute(output.testTrafficRoute, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1TargetGroupPairInfoList = (output: any, context: __SerdeContext): TargetGroupPairInfo[] => {
+/**
+ * deserializeAws_json1_1TargetGroupPairInfoList
+ */
+const de_TargetGroupPairInfoList = (output: any, context: __SerdeContext): TargetGroupPairInfo[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TargetGroupPairInfo(entry, context);
+      return de_TargetGroupPairInfo(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TargetIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1TargetIdList
+ */
+const de_TargetIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8624,86 +9849,97 @@ const deserializeAws_json1_1TargetIdList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_json1_1TargetInstances = (output: any, context: __SerdeContext): TargetInstances => {
+/**
+ * deserializeAws_json1_1TargetInstances
+ */
+const de_TargetInstances = (output: any, context: __SerdeContext): TargetInstances => {
   return {
     autoScalingGroups:
-      output.autoScalingGroups != null
-        ? deserializeAws_json1_1AutoScalingGroupNameList(output.autoScalingGroups, context)
-        : undefined,
-    ec2TagSet: output.ec2TagSet != null ? deserializeAws_json1_1EC2TagSet(output.ec2TagSet, context) : undefined,
-    tagFilters:
-      output.tagFilters != null ? deserializeAws_json1_1EC2TagFilterList(output.tagFilters, context) : undefined,
+      output.autoScalingGroups != null ? de_AutoScalingGroupNameList(output.autoScalingGroups, context) : undefined,
+    ec2TagSet: output.ec2TagSet != null ? de_EC2TagSet(output.ec2TagSet, context) : undefined,
+    tagFilters: output.tagFilters != null ? de_EC2TagFilterList(output.tagFilters, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+/**
+ * deserializeAws_json1_1ThrottlingException
+ */
+const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1TimeBasedCanary = (output: any, context: __SerdeContext): TimeBasedCanary => {
+/**
+ * deserializeAws_json1_1TimeBasedCanary
+ */
+const de_TimeBasedCanary = (output: any, context: __SerdeContext): TimeBasedCanary => {
   return {
     canaryInterval: __expectInt32(output.canaryInterval),
     canaryPercentage: __expectInt32(output.canaryPercentage),
   } as any;
 };
 
-const deserializeAws_json1_1TimeBasedLinear = (output: any, context: __SerdeContext): TimeBasedLinear => {
+/**
+ * deserializeAws_json1_1TimeBasedLinear
+ */
+const de_TimeBasedLinear = (output: any, context: __SerdeContext): TimeBasedLinear => {
   return {
     linearInterval: __expectInt32(output.linearInterval),
     linearPercentage: __expectInt32(output.linearPercentage),
   } as any;
 };
 
-const deserializeAws_json1_1TrafficRoute = (output: any, context: __SerdeContext): TrafficRoute => {
+/**
+ * deserializeAws_json1_1TrafficRoute
+ */
+const de_TrafficRoute = (output: any, context: __SerdeContext): TrafficRoute => {
   return {
-    listenerArns:
-      output.listenerArns != null ? deserializeAws_json1_1ListenerArnList(output.listenerArns, context) : undefined,
+    listenerArns: output.listenerArns != null ? de_ListenerArnList(output.listenerArns, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1TrafficRoutingConfig = (output: any, context: __SerdeContext): TrafficRoutingConfig => {
+/**
+ * deserializeAws_json1_1TrafficRoutingConfig
+ */
+const de_TrafficRoutingConfig = (output: any, context: __SerdeContext): TrafficRoutingConfig => {
   return {
-    timeBasedCanary:
-      output.timeBasedCanary != null
-        ? deserializeAws_json1_1TimeBasedCanary(output.timeBasedCanary, context)
-        : undefined,
-    timeBasedLinear:
-      output.timeBasedLinear != null
-        ? deserializeAws_json1_1TimeBasedLinear(output.timeBasedLinear, context)
-        : undefined,
+    timeBasedCanary: output.timeBasedCanary != null ? de_TimeBasedCanary(output.timeBasedCanary, context) : undefined,
+    timeBasedLinear: output.timeBasedLinear != null ? de_TimeBasedLinear(output.timeBasedLinear, context) : undefined,
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_json1_1TriggerConfig = (output: any, context: __SerdeContext): TriggerConfig => {
+/**
+ * deserializeAws_json1_1TriggerConfig
+ */
+const de_TriggerConfig = (output: any, context: __SerdeContext): TriggerConfig => {
   return {
-    triggerEvents:
-      output.triggerEvents != null
-        ? deserializeAws_json1_1TriggerEventTypeList(output.triggerEvents, context)
-        : undefined,
+    triggerEvents: output.triggerEvents != null ? de_TriggerEventTypeList(output.triggerEvents, context) : undefined,
     triggerName: __expectString(output.triggerName),
     triggerTargetArn: __expectString(output.triggerTargetArn),
   } as any;
 };
 
-const deserializeAws_json1_1TriggerConfigList = (output: any, context: __SerdeContext): TriggerConfig[] => {
+/**
+ * deserializeAws_json1_1TriggerConfigList
+ */
+const de_TriggerConfigList = (output: any, context: __SerdeContext): TriggerConfig[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TriggerConfig(entry, context);
+      return de_TriggerConfig(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TriggerEventTypeList = (
-  output: any,
-  context: __SerdeContext
-): (TriggerEventType | string)[] => {
+/**
+ * deserializeAws_json1_1TriggerEventTypeList
+ */
+const de_TriggerEventTypeList = (output: any, context: __SerdeContext): (TriggerEventType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8715,7 +9951,10 @@ const deserializeAws_json1_1TriggerEventTypeList = (
   return retVal;
 };
 
-const deserializeAws_json1_1TriggerTargetsLimitExceededException = (
+/**
+ * deserializeAws_json1_1TriggerTargetsLimitExceededException
+ */
+const de_TriggerTargetsLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): TriggerTargetsLimitExceededException => {
@@ -8724,7 +9963,10 @@ const deserializeAws_json1_1TriggerTargetsLimitExceededException = (
   } as any;
 };
 
-const deserializeAws_json1_1UnsupportedActionForDeploymentTypeException = (
+/**
+ * deserializeAws_json1_1UnsupportedActionForDeploymentTypeException
+ */
+const de_UnsupportedActionForDeploymentTypeException = (
   output: any,
   context: __SerdeContext
 ): UnsupportedActionForDeploymentTypeException => {
@@ -8733,19 +9975,20 @@ const deserializeAws_json1_1UnsupportedActionForDeploymentTypeException = (
   } as any;
 };
 
-const deserializeAws_json1_1UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
+/**
+ * deserializeAws_json1_1UntagResourceOutput
+ */
+const de_UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateDeploymentGroupOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateDeploymentGroupOutput => {
+/**
+ * deserializeAws_json1_1UpdateDeploymentGroupOutput
+ */
+const de_UpdateDeploymentGroupOutput = (output: any, context: __SerdeContext): UpdateDeploymentGroupOutput => {
   return {
     hooksNotCleanedUp:
-      output.hooksNotCleanedUp != null
-        ? deserializeAws_json1_1AutoScalingGroupList(output.hooksNotCleanedUp, context)
-        : undefined,
+      output.hooksNotCleanedUp != null ? de_AutoScalingGroupList(output.hooksNotCleanedUp, context) : undefined,
   } as any;
 };
 

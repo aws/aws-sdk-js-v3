@@ -15,10 +15,7 @@ import {
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
 import { CreateDestinationRequest, CreateDestinationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDestinationCommand,
-  serializeAws_restJson1CreateDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDestinationCommand, se_CreateDestinationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class CreateDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDestinationCommand(input, context);
+    return se_CreateDestinationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDestinationCommandOutput> {
-    return deserializeAws_restJson1CreateDestinationCommand(output, context);
+    return de_CreateDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

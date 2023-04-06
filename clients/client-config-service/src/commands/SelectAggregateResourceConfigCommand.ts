@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { SelectAggregateResourceConfigRequest, SelectAggregateResourceConfigResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1SelectAggregateResourceConfigCommand,
-  serializeAws_json1_1SelectAggregateResourceConfigCommand,
+  de_SelectAggregateResourceConfigCommand,
+  se_SelectAggregateResourceConfigCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -151,7 +151,7 @@ export class SelectAggregateResourceConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: SelectAggregateResourceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SelectAggregateResourceConfigCommand(input, context);
+    return se_SelectAggregateResourceConfigCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class SelectAggregateResourceConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SelectAggregateResourceConfigCommandOutput> {
-    return deserializeAws_json1_1SelectAggregateResourceConfigCommand(output, context);
+    return de_SelectAggregateResourceConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

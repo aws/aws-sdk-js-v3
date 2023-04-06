@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { ListGeofenceCollectionsRequest, ListGeofenceCollectionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListGeofenceCollectionsCommand,
-  serializeAws_restJson1ListGeofenceCollectionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListGeofenceCollectionsCommand, se_ListGeofenceCollectionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListGeofenceCollectionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGeofenceCollectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGeofenceCollectionsCommand(input, context);
+    return se_ListGeofenceCollectionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGeofenceCollectionsCommandOutput> {
-    return deserializeAws_restJson1ListGeofenceCollectionsCommand(output, context);
+    return de_ListGeofenceCollectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

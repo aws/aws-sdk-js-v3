@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteHostedZoneRequest, DeleteHostedZoneResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteHostedZoneCommand,
-  serializeAws_restXmlDeleteHostedZoneCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteHostedZoneCommand, se_DeleteHostedZoneCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -182,14 +179,14 @@ export class DeleteHostedZoneCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHostedZoneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteHostedZoneCommand(input, context);
+    return se_DeleteHostedZoneCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHostedZoneCommandOutput> {
-    return deserializeAws_restXmlDeleteHostedZoneCommand(output, context);
+    return de_DeleteHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListFleetsRequest, ListFleetsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFleetsCommand,
-  serializeAws_restJson1ListFleetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFleetsCommand, se_ListFleetsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
@@ -133,14 +130,14 @@ export class ListFleetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFleetsCommand(input, context);
+    return se_ListFleetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFleetsCommandOutput> {
-    return deserializeAws_restJson1ListFleetsCommand(output, context);
+    return de_ListFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

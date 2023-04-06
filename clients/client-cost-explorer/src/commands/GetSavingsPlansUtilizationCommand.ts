@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { GetSavingsPlansUtilizationRequest, GetSavingsPlansUtilizationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSavingsPlansUtilizationCommand,
-  serializeAws_json1_1GetSavingsPlansUtilizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSavingsPlansUtilizationCommand, se_GetSavingsPlansUtilizationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -208,7 +205,7 @@ export class GetSavingsPlansUtilizationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSavingsPlansUtilizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSavingsPlansUtilizationCommand(input, context);
+    return se_GetSavingsPlansUtilizationCommand(input, context);
   }
 
   /**
@@ -218,7 +215,7 @@ export class GetSavingsPlansUtilizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSavingsPlansUtilizationCommandOutput> {
-    return deserializeAws_json1_1GetSavingsPlansUtilizationCommand(output, context);
+    return de_GetSavingsPlansUtilizationCommand(output, context);
   }
 
   // Start section: command_body_extra

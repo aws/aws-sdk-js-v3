@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { UpdatePositionRequest, UpdatePositionResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdatePositionCommand,
-  serializeAws_restJson1UpdatePositionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePositionCommand, se_UpdatePositionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class UpdatePositionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePositionCommand(input, context);
+    return se_UpdatePositionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePositionCommandOutput> {
-    return deserializeAws_restJson1UpdatePositionCommand(output, context);
+    return de_UpdatePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

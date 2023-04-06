@@ -15,10 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPermissionsCommand,
-  serializeAws_json1_1ListPermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPermissionsCommand, se_ListPermissionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class ListPermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPermissionsCommand(input, context);
+    return se_ListPermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPermissionsCommandOutput> {
-    return deserializeAws_json1_1ListPermissionsCommand(output, context);
+    return de_ListPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

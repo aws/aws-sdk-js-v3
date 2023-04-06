@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0UpdateAccessPolicyCommand,
-  serializeAws_json1_0UpdateAccessPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateAccessPolicyCommand, se_UpdateAccessPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class UpdateAccessPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateAccessPolicyCommand(input, context);
+    return se_UpdateAccessPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccessPolicyCommandOutput> {
-    return deserializeAws_json1_0UpdateAccessPolicyCommand(output, context);
+    return de_UpdateAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

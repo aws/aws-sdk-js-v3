@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { CreateUploadUrlRequest, CreateUploadUrlResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateUploadUrlCommand,
-  serializeAws_restJson1CreateUploadUrlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateUploadUrlCommand, se_CreateUploadUrlCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class CreateUploadUrlCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateUploadUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUploadUrlCommand(input, context);
+    return se_CreateUploadUrlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUploadUrlCommandOutput> {
-    return deserializeAws_restJson1CreateUploadUrlCommand(output, context);
+    return de_CreateUploadUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

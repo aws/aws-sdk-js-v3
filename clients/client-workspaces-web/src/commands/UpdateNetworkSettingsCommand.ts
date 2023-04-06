@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateNetworkSettingsRequest, UpdateNetworkSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateNetworkSettingsCommand,
-  serializeAws_restJson1UpdateNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateNetworkSettingsCommand, se_UpdateNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -143,14 +140,14 @@ export class UpdateNetworkSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNetworkSettingsCommand(input, context);
+    return se_UpdateNetworkSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateNetworkSettingsCommand(output, context);
+    return de_UpdateNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

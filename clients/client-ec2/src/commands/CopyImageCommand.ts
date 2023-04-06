@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CopyImageRequest, CopyImageResult } from "../models/models_0";
-import { deserializeAws_ec2CopyImageCommand, serializeAws_ec2CopyImageCommand } from "../protocols/Aws_ec2";
+import { de_CopyImageCommand, se_CopyImageCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -157,14 +157,14 @@ export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageC
    * @internal
    */
   private serialize(input: CopyImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CopyImageCommand(input, context);
+    return se_CopyImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyImageCommandOutput> {
-    return deserializeAws_ec2CopyImageCommand(output, context);
+    return de_CopyImageCommand(output, context);
   }
 
   // Start section: command_body_extra

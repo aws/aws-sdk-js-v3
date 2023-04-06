@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { ProcessesType } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeScalingProcessTypesCommand,
-  serializeAws_queryDescribeScalingProcessTypesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeScalingProcessTypesCommand, se_DescribeScalingProcessTypesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -162,7 +159,7 @@ export class DescribeScalingProcessTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeScalingProcessTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeScalingProcessTypesCommand(input, context);
+    return se_DescribeScalingProcessTypesCommand(input, context);
   }
 
   /**
@@ -172,7 +169,7 @@ export class DescribeScalingProcessTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScalingProcessTypesCommandOutput> {
-    return deserializeAws_queryDescribeScalingProcessTypesCommand(output, context);
+    return de_DescribeScalingProcessTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

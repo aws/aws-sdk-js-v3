@@ -16,8 +16,8 @@ import {
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { PutScheduledUpdateGroupActionType } from "../models/models_0";
 import {
-  deserializeAws_queryPutScheduledUpdateGroupActionCommand,
-  serializeAws_queryPutScheduledUpdateGroupActionCommand,
+  de_PutScheduledUpdateGroupActionCommand,
+  se_PutScheduledUpdateGroupActionCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -165,7 +165,7 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutScheduledUpdateGroupActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutScheduledUpdateGroupActionCommand(input, context);
+    return se_PutScheduledUpdateGroupActionCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutScheduledUpdateGroupActionCommandOutput> {
-    return deserializeAws_queryPutScheduledUpdateGroupActionCommand(output, context);
+    return de_PutScheduledUpdateGroupActionCommand(output, context);
   }
 
   // Start section: command_body_extra

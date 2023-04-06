@@ -15,7 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { CreateStackInput, CreateStackOutput } from "../models/models_0";
-import { deserializeAws_queryCreateStackCommand, serializeAws_queryCreateStackCommand } from "../protocols/Aws_query";
+import { de_CreateStackCommand, se_CreateStackCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -173,14 +173,14 @@ export class CreateStackCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateStackCommand(input, context);
+    return se_CreateStackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackCommandOutput> {
-    return deserializeAws_queryCreateStackCommand(output, context);
+    return de_CreateStackCommand(output, context);
   }
 
   // Start section: command_body_extra

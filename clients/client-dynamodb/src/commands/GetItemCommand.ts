@@ -15,7 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { GetItemInput, GetItemOutput } from "../models/models_0";
-import { deserializeAws_json1_0GetItemCommand, serializeAws_json1_0GetItemCommand } from "../protocols/Aws_json1_0";
+import { de_GetItemCommand, se_GetItemCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -226,14 +226,14 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
    * @internal
    */
   private serialize(input: GetItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetItemCommand(input, context);
+    return se_GetItemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetItemCommandOutput> {
-    return deserializeAws_json1_0GetItemCommand(output, context);
+    return de_GetItemCommand(output, context);
   }
 
   // Start section: command_body_extra

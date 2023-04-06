@@ -15,10 +15,7 @@ import {
 
 import { RemoveAttributesRequest, RemoveAttributesResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1RemoveAttributesCommand,
-  serializeAws_restJson1RemoveAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveAttributesCommand, se_RemoveAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class RemoveAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveAttributesCommand(input, context);
+    return se_RemoveAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveAttributesCommandOutput> {
-    return deserializeAws_restJson1RemoveAttributesCommand(output, context);
+    return de_RemoveAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { DeleteDeliveryStreamInput, DeleteDeliveryStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDeliveryStreamCommand,
-  serializeAws_json1_1DeleteDeliveryStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDeliveryStreamCommand, se_DeleteDeliveryStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteDeliveryStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeliveryStreamCommand(input, context);
+    return se_DeleteDeliveryStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1DeleteDeliveryStreamCommand(output, context);
+    return de_DeleteDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

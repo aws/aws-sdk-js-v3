@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
 import { InvokeDeviceMethodRequest, InvokeDeviceMethodResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1InvokeDeviceMethodCommand,
-  serializeAws_restJson1InvokeDeviceMethodCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InvokeDeviceMethodCommand, se_InvokeDeviceMethodCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class InvokeDeviceMethodCommand extends $Command<
    * @internal
    */
   private serialize(input: InvokeDeviceMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InvokeDeviceMethodCommand(input, context);
+    return se_InvokeDeviceMethodCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeDeviceMethodCommandOutput> {
-    return deserializeAws_restJson1InvokeDeviceMethodCommand(output, context);
+    return de_InvokeDeviceMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetHostnameSuggestionRequest, GetHostnameSuggestionResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1GetHostnameSuggestionCommand,
-  serializeAws_json1_1GetHostnameSuggestionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetHostnameSuggestionCommand, se_GetHostnameSuggestionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetHostnameSuggestionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetHostnameSuggestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetHostnameSuggestionCommand(input, context);
+    return se_GetHostnameSuggestionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostnameSuggestionCommandOutput> {
-    return deserializeAws_json1_1GetHostnameSuggestionCommand(output, context);
+    return de_GetHostnameSuggestionCommand(output, context);
   }
 
   // Start section: command_body_extra

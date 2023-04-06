@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteRecoveryGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRecoveryGroupCommand,
-  serializeAws_restJson1DeleteRecoveryGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRecoveryGroupCommand, se_DeleteRecoveryGroupCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -139,14 +136,14 @@ export class DeleteRecoveryGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRecoveryGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRecoveryGroupCommand(input, context);
+    return se_DeleteRecoveryGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecoveryGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteRecoveryGroupCommand(output, context);
+    return de_DeleteRecoveryGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

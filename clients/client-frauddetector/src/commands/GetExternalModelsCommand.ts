@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { GetExternalModelsRequest, GetExternalModelsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetExternalModelsCommand,
-  serializeAws_json1_1GetExternalModelsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetExternalModelsCommand, se_GetExternalModelsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetExternalModelsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetExternalModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetExternalModelsCommand(input, context);
+    return se_GetExternalModelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExternalModelsCommandOutput> {
-    return deserializeAws_json1_1GetExternalModelsCommand(output, context);
+    return de_GetExternalModelsCommand(output, context);
   }
 
   // Start section: command_body_extra

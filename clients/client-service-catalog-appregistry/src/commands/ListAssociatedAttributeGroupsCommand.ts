@@ -15,8 +15,8 @@ import {
 
 import { ListAssociatedAttributeGroupsRequest, ListAssociatedAttributeGroupsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAssociatedAttributeGroupsCommand,
-  serializeAws_restJson1ListAssociatedAttributeGroupsCommand,
+  de_ListAssociatedAttributeGroupsCommand,
+  se_ListAssociatedAttributeGroupsCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
@@ -137,7 +137,7 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAssociatedAttributeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssociatedAttributeGroupsCommand(input, context);
+    return se_ListAssociatedAttributeGroupsCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class ListAssociatedAttributeGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssociatedAttributeGroupsCommandOutput> {
-    return deserializeAws_restJson1ListAssociatedAttributeGroupsCommand(output, context);
+    return de_ListAssociatedAttributeGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { QuerySchemaVersionMetadataInput, QuerySchemaVersionMetadataResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1QuerySchemaVersionMetadataCommand,
-  serializeAws_json1_1QuerySchemaVersionMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_QuerySchemaVersionMetadataCommand, se_QuerySchemaVersionMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,7 +143,7 @@ export class QuerySchemaVersionMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: QuerySchemaVersionMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1QuerySchemaVersionMetadataCommand(input, context);
+    return se_QuerySchemaVersionMetadataCommand(input, context);
   }
 
   /**
@@ -156,7 +153,7 @@ export class QuerySchemaVersionMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<QuerySchemaVersionMetadataCommandOutput> {
-    return deserializeAws_json1_1QuerySchemaVersionMetadataCommand(output, context);
+    return de_QuerySchemaVersionMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

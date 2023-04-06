@@ -15,10 +15,7 @@ import {
 
 import { GetConnectAttachmentRequest, GetConnectAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetConnectAttachmentCommand,
-  serializeAws_restJson1GetConnectAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConnectAttachmentCommand, se_GetConnectAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetConnectAttachmentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConnectAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectAttachmentCommand(input, context);
+    return se_GetConnectAttachmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectAttachmentCommandOutput> {
-    return deserializeAws_restJson1GetConnectAttachmentCommand(output, context);
+    return de_GetConnectAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

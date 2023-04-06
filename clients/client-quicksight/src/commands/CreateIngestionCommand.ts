@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateIngestionRequest, CreateIngestionResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateIngestionCommand,
-  serializeAws_restJson1CreateIngestionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateIngestionCommand, se_CreateIngestionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -153,14 +150,14 @@ export class CreateIngestionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIngestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIngestionCommand(input, context);
+    return se_CreateIngestionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIngestionCommandOutput> {
-    return deserializeAws_restJson1CreateIngestionCommand(output, context);
+    return de_CreateIngestionCommand(output, context);
   }
 
   // Start section: command_body_extra

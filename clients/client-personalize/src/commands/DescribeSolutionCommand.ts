@@ -15,10 +15,7 @@ import {
 
 import { DescribeSolutionRequest, DescribeSolutionResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeSolutionCommand,
-  serializeAws_json1_1DescribeSolutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSolutionCommand, se_DescribeSolutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DescribeSolutionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSolutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSolutionCommand(input, context);
+    return se_DescribeSolutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSolutionCommandOutput> {
-    return deserializeAws_json1_1DescribeSolutionCommand(output, context);
+    return de_DescribeSolutionCommand(output, context);
   }
 
   // Start section: command_body_extra

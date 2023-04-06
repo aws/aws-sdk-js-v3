@@ -19,10 +19,7 @@ import {
   CancelHandshakeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1CancelHandshakeCommand,
-  serializeAws_json1_1CancelHandshakeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelHandshakeCommand, se_CancelHandshakeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -329,14 +326,14 @@ export class CancelHandshakeCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelHandshakeCommand(input, context);
+    return se_CancelHandshakeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelHandshakeCommandOutput> {
-    return deserializeAws_json1_1CancelHandshakeCommand(output, context);
+    return de_CancelHandshakeCommand(output, context);
   }
 
   // Start section: command_body_extra

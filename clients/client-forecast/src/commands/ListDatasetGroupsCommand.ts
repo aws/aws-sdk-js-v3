@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { ListDatasetGroupsRequest, ListDatasetGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDatasetGroupsCommand,
-  serializeAws_json1_1ListDatasetGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDatasetGroupsCommand, se_ListDatasetGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ListDatasetGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDatasetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDatasetGroupsCommand(input, context);
+    return se_ListDatasetGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetGroupsCommandOutput> {
-    return deserializeAws_json1_1ListDatasetGroupsCommand(output, context);
+    return de_ListDatasetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

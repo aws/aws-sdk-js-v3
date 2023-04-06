@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeBundleTasksRequest, DescribeBundleTasksResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeBundleTasksCommand,
-  serializeAws_ec2DescribeBundleTasksCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeBundleTasksCommand, se_DescribeBundleTasksCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeBundleTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBundleTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeBundleTasksCommand(input, context);
+    return se_DescribeBundleTasksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBundleTasksCommandOutput> {
-    return deserializeAws_ec2DescribeBundleTasksCommand(output, context);
+    return de_DescribeBundleTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

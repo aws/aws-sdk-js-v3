@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { DeleteBatchPredictionJobRequest, DeleteBatchPredictionJobResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBatchPredictionJobCommand,
-  serializeAws_json1_1DeleteBatchPredictionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteBatchPredictionJobCommand, se_DeleteBatchPredictionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteBatchPredictionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBatchPredictionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBatchPredictionJobCommand(input, context);
+    return se_DeleteBatchPredictionJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBatchPredictionJobCommandOutput> {
-    return deserializeAws_json1_1DeleteBatchPredictionJobCommand(output, context);
+    return de_DeleteBatchPredictionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

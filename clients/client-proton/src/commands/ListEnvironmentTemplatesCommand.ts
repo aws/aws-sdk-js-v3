@@ -18,10 +18,7 @@ import {
   ListEnvironmentTemplatesOutput,
   ListEnvironmentTemplatesOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListEnvironmentTemplatesCommand,
-  serializeAws_json1_0ListEnvironmentTemplatesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListEnvironmentTemplatesCommand, se_ListEnvironmentTemplatesCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -137,14 +134,14 @@ export class ListEnvironmentTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEnvironmentTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListEnvironmentTemplatesCommand(input, context);
+    return se_ListEnvironmentTemplatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentTemplatesCommandOutput> {
-    return deserializeAws_json1_0ListEnvironmentTemplatesCommand(output, context);
+    return de_ListEnvironmentTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

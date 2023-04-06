@@ -19,8 +19,8 @@ import {
   GetWirelessGatewayFirmwareInformationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand,
-  serializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand,
+  de_GetWirelessGatewayFirmwareInformationCommand,
+  se_GetWirelessGatewayFirmwareInformationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command<
     input: GetWirelessGatewayFirmwareInformationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand(input, context);
+    return se_GetWirelessGatewayFirmwareInformationCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class GetWirelessGatewayFirmwareInformationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetWirelessGatewayFirmwareInformationCommandOutput> {
-    return deserializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand(output, context);
+    return de_GetWirelessGatewayFirmwareInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { EnableUserRequest, EnableUserRequestFilterSensitiveLog, EnableUserResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableUserCommand,
-  serializeAws_json1_1EnableUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnableUserCommand, se_EnableUserCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class EnableUserCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableUserCommand(input, context);
+    return se_EnableUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableUserCommandOutput> {
-    return deserializeAws_json1_1EnableUserCommand(output, context);
+    return de_EnableUserCommand(output, context);
   }
 
   // Start section: command_body_extra

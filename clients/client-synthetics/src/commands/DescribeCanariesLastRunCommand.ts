@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeCanariesLastRunRequest, DescribeCanariesLastRunResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCanariesLastRunCommand,
-  serializeAws_restJson1DescribeCanariesLastRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeCanariesLastRunCommand, se_DescribeCanariesLastRunCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -139,14 +136,14 @@ export class DescribeCanariesLastRunCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCanariesLastRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCanariesLastRunCommand(input, context);
+    return se_DescribeCanariesLastRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCanariesLastRunCommandOutput> {
-    return deserializeAws_restJson1DescribeCanariesLastRunCommand(output, context);
+    return de_DescribeCanariesLastRunCommand(output, context);
   }
 
   // Start section: command_body_extra

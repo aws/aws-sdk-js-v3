@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeAvailabilityZonesRequest, DescribeAvailabilityZonesResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeAvailabilityZonesCommand,
-  serializeAws_ec2DescribeAvailabilityZonesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeAvailabilityZonesCommand, se_DescribeAvailabilityZonesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -179,7 +176,7 @@ export class DescribeAvailabilityZonesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAvailabilityZonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeAvailabilityZonesCommand(input, context);
+    return se_DescribeAvailabilityZonesCommand(input, context);
   }
 
   /**
@@ -189,7 +186,7 @@ export class DescribeAvailabilityZonesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAvailabilityZonesCommandOutput> {
-    return deserializeAws_ec2DescribeAvailabilityZonesCommand(output, context);
+    return de_DescribeAvailabilityZonesCommand(output, context);
   }
 
   // Start section: command_body_extra

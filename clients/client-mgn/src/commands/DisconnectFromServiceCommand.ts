@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { DisconnectFromServiceRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisconnectFromServiceCommand,
-  serializeAws_restJson1DisconnectFromServiceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisconnectFromServiceCommand, se_DisconnectFromServiceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DisconnectFromServiceCommand extends $Command<
    * @internal
    */
   private serialize(input: DisconnectFromServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisconnectFromServiceCommand(input, context);
+    return se_DisconnectFromServiceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisconnectFromServiceCommandOutput> {
-    return deserializeAws_restJson1DisconnectFromServiceCommand(output, context);
+    return de_DisconnectFromServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

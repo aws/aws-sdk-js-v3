@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartMonitoringScheduleRequest } from "../models/models_3";
-import {
-  deserializeAws_json1_1StartMonitoringScheduleCommand,
-  serializeAws_json1_1StartMonitoringScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartMonitoringScheduleCommand, se_StartMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -127,14 +124,14 @@ export class StartMonitoringScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: StartMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMonitoringScheduleCommand(input, context);
+    return se_StartMonitoringScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMonitoringScheduleCommandOutput> {
-    return deserializeAws_json1_1StartMonitoringScheduleCommand(output, context);
+    return de_StartMonitoringScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

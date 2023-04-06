@@ -15,10 +15,7 @@ import {
 
 import { ListConfigurationsRequest, ListConfigurationsResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1ListConfigurationsCommand,
-  serializeAws_restJson1ListConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListConfigurationsCommand, se_ListConfigurationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class ListConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfigurationsCommand(input, context);
+    return se_ListConfigurationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListConfigurationsCommand(output, context);
+    return de_ListConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlBlobsInputOutput } from "../models/models_0";
-import { deserializeAws_restXmlXmlBlobsCommand, serializeAws_restXmlXmlBlobsCommand } from "../protocols/Aws_restXml";
+import { de_XmlBlobsCommand, se_XmlBlobsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -104,14 +104,14 @@ export class XmlBlobsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlBlobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlBlobsCommand(input, context);
+    return se_XmlBlobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlBlobsCommandOutput> {
-    return deserializeAws_restXmlXmlBlobsCommand(output, context);
+    return de_XmlBlobsCommand(output, context);
   }
 
   // Start section: command_body_extra

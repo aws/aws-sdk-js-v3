@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { UpdateFleetRequest, UpdateFleetResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFleetCommand,
-  serializeAws_json1_1UpdateFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateFleetCommand, se_UpdateFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -211,14 +208,14 @@ export class UpdateFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFleetCommand(input, context);
+    return se_UpdateFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetCommandOutput> {
-    return deserializeAws_json1_1UpdateFleetCommand(output, context);
+    return de_UpdateFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ListNetworkResourcesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ListNetworkResourcesCommand,
-  serializeAws_restJson1ListNetworkResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNetworkResourcesCommand, se_ListNetworkResourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListNetworkResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListNetworkResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNetworkResourcesCommand(input, context);
+    return se_ListNetworkResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNetworkResourcesCommandOutput> {
-    return deserializeAws_restJson1ListNetworkResourcesCommand(output, context);
+    return de_ListNetworkResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

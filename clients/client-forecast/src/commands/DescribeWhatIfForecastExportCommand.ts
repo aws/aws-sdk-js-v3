@@ -16,8 +16,8 @@ import {
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DescribeWhatIfForecastExportRequest, DescribeWhatIfForecastExportResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeWhatIfForecastExportCommand,
-  serializeAws_json1_1DescribeWhatIfForecastExportCommand,
+  de_DescribeWhatIfForecastExportCommand,
+  se_DescribeWhatIfForecastExportCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -152,7 +152,7 @@ export class DescribeWhatIfForecastExportCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWhatIfForecastExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWhatIfForecastExportCommand(input, context);
+    return se_DescribeWhatIfForecastExportCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class DescribeWhatIfForecastExportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWhatIfForecastExportCommandOutput> {
-    return deserializeAws_json1_1DescribeWhatIfForecastExportCommand(output, context);
+    return de_DescribeWhatIfForecastExportCommand(output, context);
   }
 
   // Start section: command_body_extra

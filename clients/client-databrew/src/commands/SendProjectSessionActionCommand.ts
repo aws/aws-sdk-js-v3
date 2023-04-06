@@ -19,10 +19,7 @@ import {
   SendProjectSessionActionRequestFilterSensitiveLog,
   SendProjectSessionActionResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1SendProjectSessionActionCommand,
-  serializeAws_restJson1SendProjectSessionActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendProjectSessionActionCommand, se_SendProjectSessionActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class SendProjectSessionActionCommand extends $Command<
    * @internal
    */
   private serialize(input: SendProjectSessionActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendProjectSessionActionCommand(input, context);
+    return se_SendProjectSessionActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendProjectSessionActionCommandOutput> {
-    return deserializeAws_restJson1SendProjectSessionActionCommand(output, context);
+    return de_SendProjectSessionActionCommand(output, context);
   }
 
   // Start section: command_body_extra

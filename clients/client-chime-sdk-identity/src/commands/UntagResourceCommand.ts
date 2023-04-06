@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
 import { UntagResourceRequest, UntagResourceRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UntagResourceCommand,
-  serializeAws_restJson1UntagResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UntagResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagResourceCommand(input, context);
+    return se_UntagResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
-    return deserializeAws_restJson1UntagResourceCommand(output, context);
+    return de_UntagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { DeleteConnectorDefinitionRequest, DeleteConnectorDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteConnectorDefinitionCommand,
-  serializeAws_restJson1DeleteConnectorDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteConnectorDefinitionCommand, se_DeleteConnectorDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -123,7 +120,7 @@ export class DeleteConnectorDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConnectorDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConnectorDefinitionCommand(input, context);
+    return se_DeleteConnectorDefinitionCommand(input, context);
   }
 
   /**
@@ -133,7 +130,7 @@ export class DeleteConnectorDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteConnectorDefinitionCommand(output, context);
+    return de_DeleteConnectorDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

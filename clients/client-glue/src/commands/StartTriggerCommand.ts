@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { StartTriggerRequest, StartTriggerResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1StartTriggerCommand,
-  serializeAws_json1_1StartTriggerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartTriggerCommand, se_StartTriggerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class StartTriggerCommand extends $Command<
    * @internal
    */
   private serialize(input: StartTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartTriggerCommand(input, context);
+    return se_StartTriggerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTriggerCommandOutput> {
-    return deserializeAws_json1_1StartTriggerCommand(output, context);
+    return de_StartTriggerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import { RetryWorkflowStepRequest, RetryWorkflowStepResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RetryWorkflowStepCommand,
-  serializeAws_restJson1RetryWorkflowStepCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RetryWorkflowStepCommand, se_RetryWorkflowStepCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class RetryWorkflowStepCommand extends $Command<
    * @internal
    */
   private serialize(input: RetryWorkflowStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RetryWorkflowStepCommand(input, context);
+    return se_RetryWorkflowStepCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetryWorkflowStepCommandOutput> {
-    return deserializeAws_restJson1RetryWorkflowStepCommand(output, context);
+    return de_RetryWorkflowStepCommand(output, context);
   }
 
   // Start section: command_body_extra

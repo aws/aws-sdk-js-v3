@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DeleteResourceTreeRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteResourceTreeCommand,
-  serializeAws_json1_1DeleteResourceTreeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteResourceTreeCommand, se_DeleteResourceTreeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class DeleteResourceTreeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResourceTreeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResourceTreeCommand(input, context);
+    return se_DeleteResourceTreeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceTreeCommandOutput> {
-    return deserializeAws_json1_1DeleteResourceTreeCommand(output, context);
+    return de_DeleteResourceTreeCommand(output, context);
   }
 
   // Start section: command_body_extra

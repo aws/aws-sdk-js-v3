@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeMitigationActionRequest, DescribeMitigationActionResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeMitigationActionCommand,
-  serializeAws_restJson1DescribeMitigationActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeMitigationActionCommand, se_DescribeMitigationActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeMitigationActionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeMitigationActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMitigationActionCommand(input, context);
+    return se_DescribeMitigationActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMitigationActionCommandOutput> {
-    return deserializeAws_restJson1DescribeMitigationActionCommand(output, context);
+    return de_DescribeMitigationActionCommand(output, context);
   }
 
   // Start section: command_body_extra

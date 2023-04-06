@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutBucketLoggingRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketLoggingCommand,
-  serializeAws_restXmlPutBucketLoggingCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutBucketLoggingCommand, se_PutBucketLoggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -260,14 +257,14 @@ export class PutBucketLoggingCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBucketLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketLoggingCommand(input, context);
+    return se_PutBucketLoggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketLoggingCommandOutput> {
-    return deserializeAws_restXmlPutBucketLoggingCommand(output, context);
+    return de_PutBucketLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

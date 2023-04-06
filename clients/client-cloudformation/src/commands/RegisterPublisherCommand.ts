@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { RegisterPublisherInput, RegisterPublisherOutput } from "../models/models_0";
-import {
-  deserializeAws_queryRegisterPublisherCommand,
-  serializeAws_queryRegisterPublisherCommand,
-} from "../protocols/Aws_query";
+import { de_RegisterPublisherCommand, se_RegisterPublisherCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class RegisterPublisherCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterPublisherCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRegisterPublisherCommand(input, context);
+    return se_RegisterPublisherCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterPublisherCommandOutput> {
-    return deserializeAws_queryRegisterPublisherCommand(output, context);
+    return de_RegisterPublisherCommand(output, context);
   }
 
   // Start section: command_body_extra

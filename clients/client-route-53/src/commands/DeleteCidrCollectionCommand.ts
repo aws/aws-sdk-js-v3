@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteCidrCollectionRequest, DeleteCidrCollectionResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteCidrCollectionCommand,
-  serializeAws_restXmlDeleteCidrCollectionCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteCidrCollectionCommand, se_DeleteCidrCollectionCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -136,14 +133,14 @@ export class DeleteCidrCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCidrCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteCidrCollectionCommand(input, context);
+    return se_DeleteCidrCollectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCidrCollectionCommandOutput> {
-    return deserializeAws_restXmlDeleteCidrCollectionCommand(output, context);
+    return de_DeleteCidrCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

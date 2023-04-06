@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { SetVaultAccessPolicyInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1SetVaultAccessPolicyCommand,
-  serializeAws_restJson1SetVaultAccessPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SetVaultAccessPolicyCommand, se_SetVaultAccessPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class SetVaultAccessPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: SetVaultAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SetVaultAccessPolicyCommand(input, context);
+    return se_SetVaultAccessPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1SetVaultAccessPolicyCommand(output, context);
+    return de_SetVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

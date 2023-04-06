@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DeleteDomainRequest, DeleteDomainResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDomainCommand,
-  serializeAws_json1_1DeleteDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDomainCommand, se_DeleteDomainCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class DeleteDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDomainCommand(input, context);
+    return se_DeleteDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDomainCommandOutput> {
-    return deserializeAws_json1_1DeleteDomainCommand(output, context);
+    return de_DeleteDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

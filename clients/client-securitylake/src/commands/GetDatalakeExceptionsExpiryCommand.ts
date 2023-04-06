@@ -15,8 +15,8 @@ import {
 
 import { GetDatalakeExceptionsExpiryRequest, GetDatalakeExceptionsExpiryResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetDatalakeExceptionsExpiryCommand,
-  serializeAws_restJson1GetDatalakeExceptionsExpiryCommand,
+  de_GetDatalakeExceptionsExpiryCommand,
+  se_GetDatalakeExceptionsExpiryCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -140,7 +140,7 @@ export class GetDatalakeExceptionsExpiryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDatalakeExceptionsExpiryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDatalakeExceptionsExpiryCommand(input, context);
+    return se_GetDatalakeExceptionsExpiryCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class GetDatalakeExceptionsExpiryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDatalakeExceptionsExpiryCommandOutput> {
-    return deserializeAws_restJson1GetDatalakeExceptionsExpiryCommand(output, context);
+    return de_GetDatalakeExceptionsExpiryCommand(output, context);
   }
 
   // Start section: command_body_extra

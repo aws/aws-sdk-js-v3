@@ -22,10 +22,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisVideoMediaClient";
 import { GetMediaInput, GetMediaOutput, GetMediaOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMediaCommand,
-  serializeAws_restJson1GetMediaCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMediaCommand, se_GetMediaCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -201,7 +198,7 @@ export class GetMediaCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMediaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMediaCommand(input, context);
+    return se_GetMediaCommand(input, context);
   }
 
   /**
@@ -211,7 +208,7 @@ export class GetMediaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetMediaCommandOutput> {
-    return deserializeAws_restJson1GetMediaCommand(output, context);
+    return de_GetMediaCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { SwapEnvironmentCNAMEsMessage } from "../models/models_0";
-import {
-  deserializeAws_querySwapEnvironmentCNAMEsCommand,
-  serializeAws_querySwapEnvironmentCNAMEsCommand,
-} from "../protocols/Aws_query";
+import { de_SwapEnvironmentCNAMEsCommand, se_SwapEnvironmentCNAMEsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class SwapEnvironmentCNAMEsCommand extends $Command<
    * @internal
    */
   private serialize(input: SwapEnvironmentCNAMEsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySwapEnvironmentCNAMEsCommand(input, context);
+    return se_SwapEnvironmentCNAMEsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SwapEnvironmentCNAMEsCommandOutput> {
-    return deserializeAws_querySwapEnvironmentCNAMEsCommand(output, context);
+    return de_SwapEnvironmentCNAMEsCommand(output, context);
   }
 
   // Start section: command_body_extra

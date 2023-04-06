@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { ListDataCellsFilterRequest, ListDataCellsFilterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDataCellsFilterCommand,
-  serializeAws_restJson1ListDataCellsFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDataCellsFilterCommand, se_ListDataCellsFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListDataCellsFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataCellsFilterCommand(input, context);
+    return se_ListDataCellsFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataCellsFilterCommandOutput> {
-    return deserializeAws_restJson1ListDataCellsFilterCommand(output, context);
+    return de_ListDataCellsFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

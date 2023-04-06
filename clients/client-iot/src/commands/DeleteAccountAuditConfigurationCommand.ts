@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteAccountAuditConfigurationRequest, DeleteAccountAuditConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteAccountAuditConfigurationCommand,
-  serializeAws_restJson1DeleteAccountAuditConfigurationCommand,
+  de_DeleteAccountAuditConfigurationCommand,
+  se_DeleteAccountAuditConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     input: DeleteAccountAuditConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAccountAuditConfigurationCommand(input, context);
+    return se_DeleteAccountAuditConfigurationCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccountAuditConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteAccountAuditConfigurationCommand(output, context);
+    return de_DeleteAccountAuditConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

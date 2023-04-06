@@ -16,8 +16,8 @@ import {
 import { DescribeElasticLoadBalancersRequest, DescribeElasticLoadBalancersResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
-  deserializeAws_json1_1DescribeElasticLoadBalancersCommand,
-  serializeAws_json1_1DescribeElasticLoadBalancersCommand,
+  de_DescribeElasticLoadBalancersCommand,
+  se_DescribeElasticLoadBalancersCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -139,7 +139,7 @@ export class DescribeElasticLoadBalancersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeElasticLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeElasticLoadBalancersCommand(input, context);
+    return se_DescribeElasticLoadBalancersCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DescribeElasticLoadBalancersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeElasticLoadBalancersCommandOutput> {
-    return deserializeAws_json1_1DescribeElasticLoadBalancersCommand(output, context);
+    return de_DescribeElasticLoadBalancersCommand(output, context);
   }
 
   // Start section: command_body_extra

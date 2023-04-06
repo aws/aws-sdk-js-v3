@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { AcknowledgeJobInput, AcknowledgeJobOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1AcknowledgeJobCommand,
-  serializeAws_json1_1AcknowledgeJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AcknowledgeJobCommand, se_AcknowledgeJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class AcknowledgeJobCommand extends $Command<
    * @internal
    */
   private serialize(input: AcknowledgeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcknowledgeJobCommand(input, context);
+    return se_AcknowledgeJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcknowledgeJobCommandOutput> {
-    return deserializeAws_json1_1AcknowledgeJobCommand(output, context);
+    return de_AcknowledgeJobCommand(output, context);
   }
 
   // Start section: command_body_extra

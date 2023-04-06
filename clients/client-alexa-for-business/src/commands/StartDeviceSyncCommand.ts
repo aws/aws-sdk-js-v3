@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { StartDeviceSyncRequest, StartDeviceSyncResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartDeviceSyncCommand,
-  serializeAws_json1_1StartDeviceSyncCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartDeviceSyncCommand, se_StartDeviceSyncCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class StartDeviceSyncCommand extends $Command<
    * @internal
    */
   private serialize(input: StartDeviceSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDeviceSyncCommand(input, context);
+    return se_StartDeviceSyncCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeviceSyncCommandOutput> {
-    return deserializeAws_json1_1StartDeviceSyncCommand(output, context);
+    return de_StartDeviceSyncCommand(output, context);
   }
 
   // Start section: command_body_extra

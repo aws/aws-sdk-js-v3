@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetMLTaskRunRequest, GetMLTaskRunResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetMLTaskRunCommand,
-  serializeAws_json1_1GetMLTaskRunCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetMLTaskRunCommand, se_GetMLTaskRunCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetMLTaskRunCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMLTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMLTaskRunCommand(input, context);
+    return se_GetMLTaskRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMLTaskRunCommandOutput> {
-    return deserializeAws_json1_1GetMLTaskRunCommand(output, context);
+    return de_GetMLTaskRunCommand(output, context);
   }
 
   // Start section: command_body_extra

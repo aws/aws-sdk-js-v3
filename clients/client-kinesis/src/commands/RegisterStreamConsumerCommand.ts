@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { RegisterStreamConsumerInput, RegisterStreamConsumerOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterStreamConsumerCommand,
-  serializeAws_json1_1RegisterStreamConsumerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterStreamConsumerCommand, se_RegisterStreamConsumerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class RegisterStreamConsumerCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterStreamConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterStreamConsumerCommand(input, context);
+    return se_RegisterStreamConsumerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterStreamConsumerCommandOutput> {
-    return deserializeAws_json1_1RegisterStreamConsumerCommand(output, context);
+    return de_RegisterStreamConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetGroupConfigurationInput, GetGroupConfigurationOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetGroupConfigurationCommand,
-  serializeAws_restJson1GetGroupConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetGroupConfigurationCommand, se_GetGroupConfigurationCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
@@ -151,14 +148,14 @@ export class GetGroupConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetGroupConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetGroupConfigurationCommand(input, context);
+    return se_GetGroupConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetGroupConfigurationCommand(output, context);
+    return de_GetGroupConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

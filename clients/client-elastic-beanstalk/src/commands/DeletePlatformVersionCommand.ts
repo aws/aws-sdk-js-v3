@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DeletePlatformVersionRequest, DeletePlatformVersionResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeletePlatformVersionCommand,
-  serializeAws_queryDeletePlatformVersionCommand,
-} from "../protocols/Aws_query";
+import { de_DeletePlatformVersionCommand, se_DeletePlatformVersionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeletePlatformVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePlatformVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeletePlatformVersionCommand(input, context);
+    return se_DeletePlatformVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePlatformVersionCommandOutput> {
-    return deserializeAws_queryDeletePlatformVersionCommand(output, context);
+    return de_DeletePlatformVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

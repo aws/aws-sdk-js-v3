@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeleteRealtimeLogConfigRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteRealtimeLogConfigCommand,
-  serializeAws_restXmlDeleteRealtimeLogConfigCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteRealtimeLogConfigCommand, se_DeleteRealtimeLogConfigCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteRealtimeLogConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRealtimeLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteRealtimeLogConfigCommand(input, context);
+    return se_DeleteRealtimeLogConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRealtimeLogConfigCommandOutput> {
-    return deserializeAws_restXmlDeleteRealtimeLogConfigCommand(output, context);
+    return de_DeleteRealtimeLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

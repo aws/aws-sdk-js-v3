@@ -15,8 +15,8 @@ import {
 
 import { DeleteResolverQueryLogConfigRequest, DeleteResolverQueryLogConfigResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteResolverQueryLogConfigCommand,
-  serializeAws_json1_1DeleteResolverQueryLogConfigCommand,
+  de_DeleteResolverQueryLogConfigCommand,
+  se_DeleteResolverQueryLogConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -148,7 +148,7 @@ export class DeleteResolverQueryLogConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResolverQueryLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteResolverQueryLogConfigCommand(input, context);
+    return se_DeleteResolverQueryLogConfigCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DeleteResolverQueryLogConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteResolverQueryLogConfigCommandOutput> {
-    return deserializeAws_json1_1DeleteResolverQueryLogConfigCommand(output, context);
+    return de_DeleteResolverQueryLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

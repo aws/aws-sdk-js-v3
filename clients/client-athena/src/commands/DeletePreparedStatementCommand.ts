@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { DeletePreparedStatementInput, DeletePreparedStatementOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePreparedStatementCommand,
-  serializeAws_json1_1DeletePreparedStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePreparedStatementCommand, se_DeletePreparedStatementCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeletePreparedStatementCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePreparedStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePreparedStatementCommand(input, context);
+    return se_DeletePreparedStatementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePreparedStatementCommandOutput> {
-    return deserializeAws_json1_1DeletePreparedStatementCommand(output, context);
+    return de_DeletePreparedStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

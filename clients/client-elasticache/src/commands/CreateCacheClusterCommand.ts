@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CreateCacheClusterMessage, CreateCacheClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateCacheClusterCommand,
-  serializeAws_queryCreateCacheClusterCommand,
-} from "../protocols/Aws_query";
+import { de_CreateCacheClusterCommand, se_CreateCacheClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -267,14 +264,14 @@ export class CreateCacheClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateCacheClusterCommand(input, context);
+    return se_CreateCacheClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCacheClusterCommandOutput> {
-    return deserializeAws_queryCreateCacheClusterCommand(output, context);
+    return de_CreateCacheClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

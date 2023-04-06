@@ -19,10 +19,7 @@ import {
   CreateNotificationRequestFilterSensitiveLog,
   CreateNotificationResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateNotificationCommand,
-  serializeAws_json1_1CreateNotificationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateNotificationCommand, se_CreateNotificationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class CreateNotificationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateNotificationCommand(input, context);
+    return se_CreateNotificationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNotificationCommandOutput> {
-    return deserializeAws_json1_1CreateNotificationCommand(output, context);
+    return de_CreateNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

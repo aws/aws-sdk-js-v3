@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSafetyRuleRequest, DescribeSafetyRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSafetyRuleCommand,
-  serializeAws_restJson1DescribeSafetyRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeSafetyRuleCommand, se_DescribeSafetyRuleCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -130,14 +127,14 @@ export class DescribeSafetyRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSafetyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSafetyRuleCommand(input, context);
+    return se_DescribeSafetyRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSafetyRuleCommandOutput> {
-    return deserializeAws_restJson1DescribeSafetyRuleCommand(output, context);
+    return de_DescribeSafetyRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

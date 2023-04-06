@@ -15,10 +15,7 @@ import {
 
 import { CreateSegmentRequest, CreateSegmentResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateSegmentCommand,
-  serializeAws_restJson1CreateSegmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSegmentCommand, se_CreateSegmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -275,14 +272,14 @@ export class CreateSegmentCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSegmentCommand(input, context);
+    return se_CreateSegmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSegmentCommandOutput> {
-    return deserializeAws_restJson1CreateSegmentCommand(output, context);
+    return de_CreateSegmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,10 +18,7 @@ import {
   DeleteEnvironmentOutput,
   DeleteEnvironmentOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteEnvironmentCommand,
-  serializeAws_json1_0DeleteEnvironmentCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteEnvironmentCommand, se_DeleteEnvironmentCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -142,14 +139,14 @@ export class DeleteEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteEnvironmentCommand(input, context);
+    return se_DeleteEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEnvironmentCommandOutput> {
-    return deserializeAws_json1_0DeleteEnvironmentCommand(output, context);
+    return de_DeleteEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

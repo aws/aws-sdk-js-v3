@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeInventoryDeletionsRequest, DescribeInventoryDeletionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeInventoryDeletionsCommand,
-  serializeAws_json1_1DescribeInventoryDeletionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeInventoryDeletionsCommand, se_DescribeInventoryDeletionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -132,7 +129,7 @@ export class DescribeInventoryDeletionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInventoryDeletionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeInventoryDeletionsCommand(input, context);
+    return se_DescribeInventoryDeletionsCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class DescribeInventoryDeletionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInventoryDeletionsCommandOutput> {
-    return deserializeAws_json1_1DescribeInventoryDeletionsCommand(output, context);
+    return de_DescribeInventoryDeletionsCommand(output, context);
   }
 
   // Start section: command_body_extra

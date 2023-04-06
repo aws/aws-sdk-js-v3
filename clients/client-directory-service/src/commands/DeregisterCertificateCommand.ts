@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DeregisterCertificateRequest, DeregisterCertificateResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterCertificateCommand,
-  serializeAws_json1_1DeregisterCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterCertificateCommand, se_DeregisterCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeregisterCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterCertificateCommand(input, context);
+    return se_DeregisterCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterCertificateCommandOutput> {
-    return deserializeAws_json1_1DeregisterCertificateCommand(output, context);
+    return de_DeregisterCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

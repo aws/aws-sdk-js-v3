@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { DeleteProjectRequest, DeleteProjectResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteProjectCommand,
-  serializeAws_restJson1DeleteProjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteProjectCommand, se_DeleteProjectCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteProjectCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProjectCommand(input, context);
+    return se_DeleteProjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectCommandOutput> {
-    return deserializeAws_restJson1DeleteProjectCommand(output, context);
+    return de_DeleteProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

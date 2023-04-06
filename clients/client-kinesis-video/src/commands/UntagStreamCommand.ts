@@ -15,10 +15,7 @@ import {
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { UntagStreamInput, UntagStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UntagStreamCommand,
-  serializeAws_restJson1UntagStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UntagStreamCommand, se_UntagStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UntagStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagStreamCommand(input, context);
+    return se_UntagStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagStreamCommandOutput> {
-    return deserializeAws_restJson1UntagStreamCommand(output, context);
+    return de_UntagStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DBParameterGroupDetails, DescribeDBParametersMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeDBParametersCommand,
-  serializeAws_queryDescribeDBParametersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBParametersCommand, se_DescribeDBParametersCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -72,17 +69,41 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  *         existing DB parameter group.</p>
  *
  *
- * @example To list information about DB parameters
+ * @example To describe the parameters in a DB parameter group
  * ```javascript
- * // This example lists information for up to the first 20 system parameters for the specified DB parameter group.
+ * // The following example retrieves the details of the specified DB parameter group.
  * const input = {
- *   "DBParameterGroupName": "mymysqlparametergroup",
- *   "MaxRecords": 20,
- *   "Source": "system"
+ *   "DBParameterGroupName": "mydbpg"
  * };
  * const command = new DescribeDBParametersCommand(input);
- * await client.send(command);
- * // example id: describe-db-parameters-09db4201-ef4f-4d97-a4b5-d71c0715b901
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Parameters": [
+ *     {
+ *       "AllowedValues": "0,1",
+ *       "ApplyMethod": "pending-reboot",
+ *       "ApplyType": "static",
+ *       "DataType": "boolean",
+ *       "Description": "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
+ *       "IsModifiable": false,
+ *       "ParameterName": "allow-suspicious-udfs",
+ *       "Source": "engine-default"
+ *     },
+ *     {
+ *       "AllowedValues": "0,1",
+ *       "ApplyMethod": "pending-reboot",
+ *       "ApplyType": "static",
+ *       "DataType": "boolean",
+ *       "Description": "Controls whether the server autogenerates SSL key and certificate files in the data directory, if they do not already exist.",
+ *       "IsModifiable": false,
+ *       "ParameterName": "auto_generate_certs",
+ *       "Source": "engine-default"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-parameters-in-a-db-parameter-group-1680279500600
  * ```
  *
  */
@@ -149,14 +170,14 @@ export class DescribeDBParametersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBParametersCommand(input, context);
+    return se_DescribeDBParametersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBParametersCommandOutput> {
-    return deserializeAws_queryDescribeDBParametersCommand(output, context);
+    return de_DescribeDBParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

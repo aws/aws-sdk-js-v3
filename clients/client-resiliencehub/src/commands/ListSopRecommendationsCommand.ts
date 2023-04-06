@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSopRecommendationsRequest, ListSopRecommendationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSopRecommendationsCommand,
-  serializeAws_restJson1ListSopRecommendationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSopRecommendationsCommand, se_ListSopRecommendationsCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -147,14 +144,14 @@ export class ListSopRecommendationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSopRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSopRecommendationsCommand(input, context);
+    return se_ListSopRecommendationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSopRecommendationsCommandOutput> {
-    return deserializeAws_restJson1ListSopRecommendationsCommand(output, context);
+    return de_ListSopRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

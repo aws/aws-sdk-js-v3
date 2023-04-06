@@ -20,8 +20,8 @@ import {
   StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand,
-  serializeAws_restJson1StreamingTraitsWithMediaTypeCommand,
+  de_StreamingTraitsWithMediaTypeCommand,
+  se_StreamingTraitsWithMediaTypeCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -128,7 +128,7 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: StreamingTraitsWithMediaTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StreamingTraitsWithMediaTypeCommand(input, context);
+    return se_StreamingTraitsWithMediaTypeCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<StreamingTraitsWithMediaTypeCommandOutput> {
-    return deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand(output, context);
+    return de_StreamingTraitsWithMediaTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

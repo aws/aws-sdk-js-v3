@@ -15,8 +15,8 @@ import {
 
 import { DescribeAssociationExecutionsRequest, DescribeAssociationExecutionsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAssociationExecutionsCommand,
-  serializeAws_json1_1DescribeAssociationExecutionsCommand,
+  de_DescribeAssociationExecutionsCommand,
+  se_DescribeAssociationExecutionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -140,7 +140,7 @@ export class DescribeAssociationExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAssociationExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAssociationExecutionsCommand(input, context);
+    return se_DescribeAssociationExecutionsCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DescribeAssociationExecutionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAssociationExecutionsCommandOutput> {
-    return deserializeAws_json1_1DescribeAssociationExecutionsCommand(output, context);
+    return de_DescribeAssociationExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

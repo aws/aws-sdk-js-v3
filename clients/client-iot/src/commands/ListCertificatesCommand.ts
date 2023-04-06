@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListCertificatesRequest, ListCertificatesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListCertificatesCommand,
-  serializeAws_restJson1ListCertificatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCertificatesCommand, se_ListCertificatesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListCertificatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCertificatesCommand(input, context);
+    return se_ListCertificatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCertificatesCommandOutput> {
-    return deserializeAws_restJson1ListCertificatesCommand(output, context);
+    return de_ListCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

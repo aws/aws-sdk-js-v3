@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { GetLicenseUsageRequest, GetLicenseUsageResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLicenseUsageCommand,
-  serializeAws_json1_1GetLicenseUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetLicenseUsageCommand, se_GetLicenseUsageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetLicenseUsageCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLicenseUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLicenseUsageCommand(input, context);
+    return se_GetLicenseUsageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLicenseUsageCommandOutput> {
-    return deserializeAws_json1_1GetLicenseUsageCommand(output, context);
+    return de_GetLicenseUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

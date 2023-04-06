@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { PutScalingPolicyInput, PutScalingPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutScalingPolicyCommand,
-  serializeAws_json1_1PutScalingPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutScalingPolicyCommand, se_PutScalingPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -202,14 +199,14 @@ export class PutScalingPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutScalingPolicyCommand(input, context);
+    return se_PutScalingPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1PutScalingPolicyCommand(output, context);
+    return de_PutScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

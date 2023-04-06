@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRegistriesRequest, ListRegistriesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRegistriesCommand,
-  serializeAws_restJson1ListRegistriesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRegistriesCommand, se_ListRegistriesCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -133,14 +130,14 @@ export class ListRegistriesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRegistriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRegistriesCommand(input, context);
+    return se_ListRegistriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegistriesCommandOutput> {
-    return deserializeAws_restJson1ListRegistriesCommand(output, context);
+    return de_ListRegistriesCommand(output, context);
   }
 
   // Start section: command_body_extra

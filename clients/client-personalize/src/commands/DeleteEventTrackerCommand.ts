@@ -15,10 +15,7 @@ import {
 
 import { DeleteEventTrackerRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteEventTrackerCommand,
-  serializeAws_json1_1DeleteEventTrackerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEventTrackerCommand, se_DeleteEventTrackerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteEventTrackerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEventTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEventTrackerCommand(input, context);
+    return se_DeleteEventTrackerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventTrackerCommandOutput> {
-    return deserializeAws_json1_1DeleteEventTrackerCommand(output, context);
+    return de_DeleteEventTrackerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { DeleteInputSecurityGroupRequest, DeleteInputSecurityGroupResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteInputSecurityGroupCommand,
-  serializeAws_restJson1DeleteInputSecurityGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteInputSecurityGroupCommand, se_DeleteInputSecurityGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteInputSecurityGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInputSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInputSecurityGroupCommand(input, context);
+    return se_DeleteInputSecurityGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInputSecurityGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteInputSecurityGroupCommand(output, context);
+    return de_DeleteInputSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

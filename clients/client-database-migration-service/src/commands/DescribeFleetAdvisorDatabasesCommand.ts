@@ -20,8 +20,8 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { DescribeFleetAdvisorDatabasesRequest, DescribeFleetAdvisorDatabasesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeFleetAdvisorDatabasesCommand,
-  serializeAws_json1_1DescribeFleetAdvisorDatabasesCommand,
+  de_DescribeFleetAdvisorDatabasesCommand,
+  se_DescribeFleetAdvisorDatabasesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -138,7 +138,7 @@ export class DescribeFleetAdvisorDatabasesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFleetAdvisorDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetAdvisorDatabasesCommand(input, context);
+    return se_DescribeFleetAdvisorDatabasesCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DescribeFleetAdvisorDatabasesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetAdvisorDatabasesCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetAdvisorDatabasesCommand(output, context);
+    return de_DescribeFleetAdvisorDatabasesCommand(output, context);
   }
 
   // Start section: command_body_extra

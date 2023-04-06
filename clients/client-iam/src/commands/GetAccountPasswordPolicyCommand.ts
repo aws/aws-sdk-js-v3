@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetAccountPasswordPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetAccountPasswordPolicyCommand,
-  serializeAws_queryGetAccountPasswordPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_GetAccountPasswordPolicyCommand, se_GetAccountPasswordPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class GetAccountPasswordPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccountPasswordPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccountPasswordPolicyCommand(input, context);
+    return se_GetAccountPasswordPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountPasswordPolicyCommandOutput> {
-    return deserializeAws_queryGetAccountPasswordPolicyCommand(output, context);
+    return de_GetAccountPasswordPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

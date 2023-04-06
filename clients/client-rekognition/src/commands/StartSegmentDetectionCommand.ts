@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartSegmentDetectionRequest, StartSegmentDetectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartSegmentDetectionCommand,
-  serializeAws_json1_1StartSegmentDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartSegmentDetectionCommand, se_StartSegmentDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -193,14 +190,14 @@ export class StartSegmentDetectionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartSegmentDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartSegmentDetectionCommand(input, context);
+    return se_StartSegmentDetectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSegmentDetectionCommandOutput> {
-    return deserializeAws_json1_1StartSegmentDetectionCommand(output, context);
+    return de_StartSegmentDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

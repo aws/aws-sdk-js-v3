@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAccessPointRequest, GetAccessPointResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetAccessPointCommand,
-  serializeAws_restXmlGetAccessPointCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetAccessPointCommand, se_GetAccessPointCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -147,14 +144,14 @@ export class GetAccessPointCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetAccessPointCommand(input, context);
+    return se_GetAccessPointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessPointCommandOutput> {
-    return deserializeAws_restXmlGetAccessPointCommand(output, context);
+    return de_GetAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

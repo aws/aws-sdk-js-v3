@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyEventSubscriptionCommand,
-  serializeAws_queryModifyEventSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyEventSubscriptionCommand, se_ModifyEventSubscriptionCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -165,14 +162,14 @@ export class ModifyEventSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyEventSubscriptionCommand(input, context);
+    return se_ModifyEventSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEventSubscriptionCommandOutput> {
-    return deserializeAws_queryModifyEventSubscriptionCommand(output, context);
+    return de_ModifyEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

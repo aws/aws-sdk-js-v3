@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutRecordRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRecordCommand,
-  serializeAws_restJson1PutRecordCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutRecordCommand, se_PutRecordCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerFeatureStoreRuntimeClientResolvedConfig,
   ServiceInputTypes,
@@ -148,14 +145,14 @@ export class PutRecordCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRecordCommand(input, context);
+    return se_PutRecordCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordCommandOutput> {
-    return deserializeAws_restJson1PutRecordCommand(output, context);
+    return de_PutRecordCommand(output, context);
   }
 
   // Start section: command_body_extra

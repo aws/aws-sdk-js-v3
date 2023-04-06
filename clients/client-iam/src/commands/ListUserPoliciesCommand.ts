@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListUserPoliciesRequest, ListUserPoliciesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListUserPoliciesCommand,
-  serializeAws_queryListUserPoliciesCommand,
-} from "../protocols/Aws_query";
+import { de_ListUserPoliciesCommand, se_ListUserPoliciesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListUserPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUserPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListUserPoliciesCommand(input, context);
+    return se_ListUserPoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserPoliciesCommandOutput> {
-    return deserializeAws_queryListUserPoliciesCommand(output, context);
+    return de_ListUserPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

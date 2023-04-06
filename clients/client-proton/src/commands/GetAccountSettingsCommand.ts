@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAccountSettingsInput, GetAccountSettingsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetAccountSettingsCommand,
-  serializeAws_json1_0GetAccountSettingsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetAccountSettingsCommand, se_GetAccountSettingsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -133,14 +130,14 @@ export class GetAccountSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetAccountSettingsCommand(input, context);
+    return se_GetAccountSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSettingsCommandOutput> {
-    return deserializeAws_json1_0GetAccountSettingsCommand(output, context);
+    return de_GetAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

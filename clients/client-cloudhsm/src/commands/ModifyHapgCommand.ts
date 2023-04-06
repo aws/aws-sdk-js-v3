@@ -15,10 +15,7 @@ import {
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { ModifyHapgRequest, ModifyHapgResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyHapgCommand,
-  serializeAws_json1_1ModifyHapgCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyHapgCommand, se_ModifyHapgCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ModifyHapgCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyHapgCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyHapgCommand(input, context);
+    return se_ModifyHapgCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyHapgCommandOutput> {
-    return deserializeAws_json1_1ModifyHapgCommand(output, context);
+    return de_ModifyHapgCommand(output, context);
   }
 
   // Start section: command_body_extra

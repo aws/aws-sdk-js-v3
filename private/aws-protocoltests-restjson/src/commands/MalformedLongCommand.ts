@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MalformedLongInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedLongCommand,
-  serializeAws_restJson1MalformedLongCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedLongCommand, se_MalformedLongCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class MalformedLongCommand extends $Command<
    * @internal
    */
   private serialize(input: MalformedLongCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedLongCommand(input, context);
+    return se_MalformedLongCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedLongCommandOutput> {
-    return deserializeAws_restJson1MalformedLongCommand(output, context);
+    return de_MalformedLongCommand(output, context);
   }
 
   // Start section: command_body_extra

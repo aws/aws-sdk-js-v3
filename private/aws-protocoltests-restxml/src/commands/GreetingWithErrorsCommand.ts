@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreetingWithErrorsOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlGreetingWithErrorsCommand,
-  serializeAws_restXmlGreetingWithErrorsCommand,
-} from "../protocols/Aws_restXml";
+import { de_GreetingWithErrorsCommand, se_GreetingWithErrorsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -119,14 +116,14 @@ export class GreetingWithErrorsCommand extends $Command<
    * @internal
    */
   private serialize(input: GreetingWithErrorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGreetingWithErrorsCommand(input, context);
+    return se_GreetingWithErrorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GreetingWithErrorsCommandOutput> {
-    return deserializeAws_restXmlGreetingWithErrorsCommand(output, context);
+    return de_GreetingWithErrorsCommand(output, context);
   }
 
   // Start section: command_body_extra

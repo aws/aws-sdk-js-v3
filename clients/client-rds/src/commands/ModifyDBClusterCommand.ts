@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyDBClusterMessage, ModifyDBClusterResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBClusterCommand,
-  serializeAws_queryModifyDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBClusterCommand, se_ModifyDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -164,25 +161,76 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *             available across all DB instances.</p>
  *
  *
- * @example To change DB cluster settings
+ * @example To modify a DB cluster
  * ```javascript
- * // This example changes the specified settings for the specified DB cluster.
+ * // The following example changes the master user password for the DB cluster named cluster-2 and sets the backup retention period to 14 days. The ApplyImmediately parameter causes the changes to be made immediately, instead of waiting until the next maintenance window.
  * const input = {
  *   "ApplyImmediately": true,
- *   "DBClusterIdentifier": "mydbcluster",
- *   "MasterUserPassword": "mynewpassword",
- *   "NewDBClusterIdentifier": "mynewdbcluster",
- *   "PreferredBackupWindow": "04:00-04:30",
- *   "PreferredMaintenanceWindow": "Tue:05:00-Tue:05:30"
+ *   "BackupRetentionPeriod": 14,
+ *   "DBClusterIdentifier": "cluster-2",
+ *   "MasterUserPassword": "newpassword99"
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBCluster": {}
+ *   "DBCluster": {
+ *     "AllocatedStorage": 1,
+ *     "AssociatedRoles": [],
+ *     "AvailabilityZones": [
+ *       "eu-central-1b",
+ *       "eu-central-1c",
+ *       "eu-central-1a"
+ *     ],
+ *     "BackupRetentionPeriod": 14,
+ *     "ClusterCreateTime": "2020-04-03T14:44:02.764Z",
+ *     "CopyTagsToSnapshot": true,
+ *     "CrossAccountClone": false,
+ *     "DBClusterArn": "arn:aws:rds:eu-central-1:123456789012:cluster:cluster-2",
+ *     "DBClusterIdentifier": "cluster-2",
+ *     "DBClusterMembers": [
+ *       {
+ *         "DBClusterParameterGroupStatus": "in-sync",
+ *         "DBInstanceIdentifier": "cluster-2-instance-1",
+ *         "IsClusterWriter": true,
+ *         "PromotionTier": 1
+ *       }
+ *     ],
+ *     "DBClusterParameterGroup": "default.aurora5.6",
+ *     "DBSubnetGroup": "default-vpc-2305ca49",
+ *     "DatabaseName": "",
+ *     "DbClusterResourceId": "cluster-AGJ7XI77XVIS6FUXHU1EXAMPLE",
+ *     "DeletionProtection": false,
+ *     "DomainMemberships": [],
+ *     "EarliestRestorableTime": "2020-06-03T02:07:29.637Z",
+ *     "Endpoint": "cluster-2.cluster-############.eu-central-1.rds.amazonaws.com",
+ *     "Engine": "aurora",
+ *     "EngineMode": "provisioned",
+ *     "EngineVersion": "5.6.10a",
+ *     "HostedZoneId": "Z1RLNU0EXAMPLE",
+ *     "HttpEndpointEnabled": false,
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "KmsKeyId": "arn:aws:kms:eu-central-1:123456789012:key/d1bd7c8f-5cdb-49ca-8a62-a1b2c3d4e5f6",
+ *     "LatestRestorableTime": "2020-06-04T15:11:25.748Z",
+ *     "MasterUsername": "admin",
+ *     "MultiAZ": false,
+ *     "Port": 3306,
+ *     "PreferredBackupWindow": "01:55-02:25",
+ *     "PreferredMaintenanceWindow": "thu:21:14-thu:21:44",
+ *     "ReadReplicaIdentifiers": [],
+ *     "ReaderEndpoint": "cluster-2.cluster-ro-############.eu-central-1.rds.amazonaws.com",
+ *     "Status": "available",
+ *     "StorageEncrypted": true,
+ *     "VpcSecurityGroups": [
+ *       {
+ *         "Status": "active",
+ *         "VpcSecurityGroupId": "sg-20a5c047"
+ *       }
+ *     ]
+ *   }
  * }
  * *\/
- * // example id: modify-db-cluster-a370ee1b-768d-450a-853b-707cb1ab663d
+ * // example id: to-modify-a-db-cluster-1680310823999
  * ```
  *
  */
@@ -249,14 +297,14 @@ export class ModifyDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterCommand(input, context);
+    return se_ModifyDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBClusterCommandOutput> {
-    return deserializeAws_queryModifyDBClusterCommand(output, context);
+    return de_ModifyDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

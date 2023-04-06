@@ -15,10 +15,7 @@ import {
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { BatchGetAccountStatusRequest, BatchGetAccountStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetAccountStatusCommand,
-  serializeAws_restJson1BatchGetAccountStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetAccountStatusCommand, se_BatchGetAccountStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class BatchGetAccountStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetAccountStatusCommand(input, context);
+    return se_BatchGetAccountStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetAccountStatusCommandOutput> {
-    return deserializeAws_restJson1BatchGetAccountStatusCommand(output, context);
+    return de_BatchGetAccountStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

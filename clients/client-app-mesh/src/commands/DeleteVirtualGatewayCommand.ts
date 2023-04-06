@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { DeleteVirtualGatewayInput, DeleteVirtualGatewayOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVirtualGatewayCommand,
-  serializeAws_restJson1DeleteVirtualGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVirtualGatewayCommand, se_DeleteVirtualGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteVirtualGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVirtualGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVirtualGatewayCommand(input, context);
+    return se_DeleteVirtualGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualGatewayCommandOutput> {
-    return deserializeAws_restJson1DeleteVirtualGatewayCommand(output, context);
+    return de_DeleteVirtualGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

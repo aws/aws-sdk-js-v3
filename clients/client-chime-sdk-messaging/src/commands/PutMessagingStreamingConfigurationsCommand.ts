@@ -23,8 +23,8 @@ import {
   PutMessagingStreamingConfigurationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutMessagingStreamingConfigurationsCommand,
-  serializeAws_restJson1PutMessagingStreamingConfigurationsCommand,
+  de_PutMessagingStreamingConfigurationsCommand,
+  se_PutMessagingStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -164,7 +164,7 @@ export class PutMessagingStreamingConfigurationsCommand extends $Command<
     input: PutMessagingStreamingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutMessagingStreamingConfigurationsCommand(input, context);
+    return se_PutMessagingStreamingConfigurationsCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class PutMessagingStreamingConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutMessagingStreamingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1PutMessagingStreamingConfigurationsCommand(output, context);
+    return de_PutMessagingStreamingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

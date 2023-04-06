@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateFileSystemInput, DisassociateFileSystemOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateFileSystemCommand,
-  serializeAws_json1_1DisassociateFileSystemCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateFileSystemCommand, se_DisassociateFileSystemCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -131,14 +128,14 @@ export class DisassociateFileSystemCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateFileSystemCommand(input, context);
+    return se_DisassociateFileSystemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateFileSystemCommandOutput> {
-    return deserializeAws_json1_1DisassociateFileSystemCommand(output, context);
+    return de_DisassociateFileSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

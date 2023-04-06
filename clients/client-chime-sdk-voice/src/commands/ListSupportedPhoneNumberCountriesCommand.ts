@@ -19,8 +19,8 @@ import {
   ListSupportedPhoneNumberCountriesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommand,
-  serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand,
+  de_ListSupportedPhoneNumberCountriesCommand,
+  se_ListSupportedPhoneNumberCountriesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -149,7 +149,7 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     input: ListSupportedPhoneNumberCountriesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand(input, context);
+    return se_ListSupportedPhoneNumberCountriesCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSupportedPhoneNumberCountriesCommandOutput> {
-    return deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommand(output, context);
+    return de_ListSupportedPhoneNumberCountriesCommand(output, context);
   }
 
   // Start section: command_body_extra

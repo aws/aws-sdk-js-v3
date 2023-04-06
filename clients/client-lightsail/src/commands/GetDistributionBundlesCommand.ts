@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetDistributionBundlesRequest, GetDistributionBundlesResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDistributionBundlesCommand,
-  serializeAws_json1_1GetDistributionBundlesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDistributionBundlesCommand, se_GetDistributionBundlesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class GetDistributionBundlesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDistributionBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDistributionBundlesCommand(input, context);
+    return se_GetDistributionBundlesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDistributionBundlesCommandOutput> {
-    return deserializeAws_json1_1GetDistributionBundlesCommand(output, context);
+    return de_GetDistributionBundlesCommand(output, context);
   }
 
   // Start section: command_body_extra

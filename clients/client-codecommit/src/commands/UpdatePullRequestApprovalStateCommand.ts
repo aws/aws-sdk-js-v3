@@ -16,8 +16,8 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { UpdatePullRequestApprovalStateInput } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdatePullRequestApprovalStateCommand,
-  serializeAws_json1_1UpdatePullRequestApprovalStateCommand,
+  de_UpdatePullRequestApprovalStateCommand,
+  se_UpdatePullRequestApprovalStateCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -174,7 +174,7 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
     input: UpdatePullRequestApprovalStateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePullRequestApprovalStateCommand(input, context);
+    return se_UpdatePullRequestApprovalStateCommand(input, context);
   }
 
   /**
@@ -184,7 +184,7 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePullRequestApprovalStateCommandOutput> {
-    return deserializeAws_json1_1UpdatePullRequestApprovalStateCommand(output, context);
+    return de_UpdatePullRequestApprovalStateCommand(output, context);
   }
 
   // Start section: command_body_extra

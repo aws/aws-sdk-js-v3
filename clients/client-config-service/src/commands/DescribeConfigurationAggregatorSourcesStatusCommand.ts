@@ -19,8 +19,8 @@ import {
   DescribeConfigurationAggregatorSourcesStatusResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand,
-  serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand,
+  de_DescribeConfigurationAggregatorSourcesStatusCommand,
+  se_DescribeConfigurationAggregatorSourcesStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -156,7 +156,7 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
     input: DescribeConfigurationAggregatorSourcesStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand(input, context);
+    return se_DescribeConfigurationAggregatorSourcesStatusCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand(output, context);
+    return de_DescribeConfigurationAggregatorSourcesStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

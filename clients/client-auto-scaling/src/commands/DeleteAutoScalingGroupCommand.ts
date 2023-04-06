@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DeleteAutoScalingGroupType } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteAutoScalingGroupCommand,
-  serializeAws_queryDeleteAutoScalingGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteAutoScalingGroupCommand, se_DeleteAutoScalingGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class DeleteAutoScalingGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAutoScalingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAutoScalingGroupCommand(input, context);
+    return se_DeleteAutoScalingGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAutoScalingGroupCommandOutput> {
-    return deserializeAws_queryDeleteAutoScalingGroupCommand(output, context);
+    return de_DeleteAutoScalingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

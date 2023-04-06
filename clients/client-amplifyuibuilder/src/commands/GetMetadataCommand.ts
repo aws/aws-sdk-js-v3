@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { GetMetadataRequest, GetMetadataResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMetadataCommand,
-  serializeAws_restJson1GetMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMetadataCommand, se_GetMetadataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class GetMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMetadataCommand(input, context);
+    return se_GetMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMetadataCommandOutput> {
-    return deserializeAws_restJson1GetMetadataCommand(output, context);
+    return de_GetMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

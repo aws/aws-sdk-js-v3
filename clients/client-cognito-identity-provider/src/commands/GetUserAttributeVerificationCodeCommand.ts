@@ -24,8 +24,8 @@ import {
   GetUserAttributeVerificationCodeResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetUserAttributeVerificationCodeCommand,
-  serializeAws_json1_1GetUserAttributeVerificationCodeCommand,
+  de_GetUserAttributeVerificationCodeCommand,
+  se_GetUserAttributeVerificationCodeCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -220,7 +220,7 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
     input: GetUserAttributeVerificationCodeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUserAttributeVerificationCodeCommand(input, context);
+    return se_GetUserAttributeVerificationCodeCommand(input, context);
   }
 
   /**
@@ -230,7 +230,7 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetUserAttributeVerificationCodeCommandOutput> {
-    return deserializeAws_json1_1GetUserAttributeVerificationCodeCommand(output, context);
+    return de_GetUserAttributeVerificationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

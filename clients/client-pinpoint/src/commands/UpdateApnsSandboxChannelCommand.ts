@@ -15,10 +15,7 @@ import {
 
 import { UpdateApnsSandboxChannelRequest, UpdateApnsSandboxChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateApnsSandboxChannelCommand,
-  serializeAws_restJson1UpdateApnsSandboxChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateApnsSandboxChannelCommand, se_UpdateApnsSandboxChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class UpdateApnsSandboxChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateApnsSandboxChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApnsSandboxChannelCommand(input, context);
+    return se_UpdateApnsSandboxChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApnsSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateApnsSandboxChannelCommand(output, context);
+    return de_UpdateApnsSandboxChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

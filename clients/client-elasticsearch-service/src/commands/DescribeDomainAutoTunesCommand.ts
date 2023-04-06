@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { DescribeDomainAutoTunesRequest, DescribeDomainAutoTunesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeDomainAutoTunesCommand,
-  serializeAws_restJson1DescribeDomainAutoTunesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDomainAutoTunesCommand, se_DescribeDomainAutoTunesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DescribeDomainAutoTunesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDomainAutoTunesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDomainAutoTunesCommand(input, context);
+    return se_DescribeDomainAutoTunesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainAutoTunesCommandOutput> {
-    return deserializeAws_restJson1DescribeDomainAutoTunesCommand(output, context);
+    return de_DescribeDomainAutoTunesCommand(output, context);
   }
 
   // Start section: command_body_extra

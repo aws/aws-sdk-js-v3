@@ -15,10 +15,7 @@ import {
 
 import { DescribePackageVersionRequest, DescribePackageVersionResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1DescribePackageVersionCommand,
-  serializeAws_restJson1DescribePackageVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribePackageVersionCommand, se_DescribePackageVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DescribePackageVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePackageVersionCommand(input, context);
+    return se_DescribePackageVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackageVersionCommandOutput> {
-    return deserializeAws_restJson1DescribePackageVersionCommand(output, context);
+    return de_DescribePackageVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

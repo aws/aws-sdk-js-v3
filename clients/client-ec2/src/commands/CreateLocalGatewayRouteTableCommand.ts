@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateLocalGatewayRouteTableRequest, CreateLocalGatewayRouteTableResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateLocalGatewayRouteTableCommand,
-  serializeAws_ec2CreateLocalGatewayRouteTableCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateLocalGatewayRouteTableCommand, se_CreateLocalGatewayRouteTableCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class CreateLocalGatewayRouteTableCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLocalGatewayRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateLocalGatewayRouteTableCommand(input, context);
+    return se_CreateLocalGatewayRouteTableCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class CreateLocalGatewayRouteTableCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLocalGatewayRouteTableCommandOutput> {
-    return deserializeAws_ec2CreateLocalGatewayRouteTableCommand(output, context);
+    return de_CreateLocalGatewayRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

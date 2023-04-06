@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeSpotPriceHistoryRequest, DescribeSpotPriceHistoryResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSpotPriceHistoryCommand,
-  serializeAws_ec2DescribeSpotPriceHistoryCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeSpotPriceHistoryCommand, se_DescribeSpotPriceHistoryCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class DescribeSpotPriceHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSpotPriceHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSpotPriceHistoryCommand(input, context);
+    return se_DescribeSpotPriceHistoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSpotPriceHistoryCommandOutput> {
-    return deserializeAws_ec2DescribeSpotPriceHistoryCommand(output, context);
+    return de_DescribeSpotPriceHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

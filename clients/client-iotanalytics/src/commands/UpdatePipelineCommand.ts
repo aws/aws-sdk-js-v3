@@ -15,10 +15,7 @@ import {
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import { UpdatePipelineRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePipelineCommand,
-  serializeAws_restJson1UpdatePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePipelineCommand, se_UpdatePipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -205,14 +202,14 @@ export class UpdatePipelineCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePipelineCommand(input, context);
+    return se_UpdatePipelineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineCommandOutput> {
-    return deserializeAws_restJson1UpdatePipelineCommand(output, context);
+    return de_UpdatePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

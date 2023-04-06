@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchGetWorkflowsRequest, BatchGetWorkflowsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetWorkflowsCommand,
-  serializeAws_json1_1BatchGetWorkflowsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetWorkflowsCommand, se_BatchGetWorkflowsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class BatchGetWorkflowsCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetWorkflowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetWorkflowsCommand(input, context);
+    return se_BatchGetWorkflowsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetWorkflowsCommandOutput> {
-    return deserializeAws_json1_1BatchGetWorkflowsCommand(output, context);
+    return de_BatchGetWorkflowsCommand(output, context);
   }
 
   // Start section: command_body_extra

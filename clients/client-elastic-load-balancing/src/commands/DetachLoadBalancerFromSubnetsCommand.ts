@@ -20,8 +20,8 @@ import {
 } from "../ElasticLoadBalancingClient";
 import { DetachLoadBalancerFromSubnetsInput, DetachLoadBalancerFromSubnetsOutput } from "../models/models_0";
 import {
-  deserializeAws_queryDetachLoadBalancerFromSubnetsCommand,
-  serializeAws_queryDetachLoadBalancerFromSubnetsCommand,
+  de_DetachLoadBalancerFromSubnetsCommand,
+  se_DetachLoadBalancerFromSubnetsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -159,7 +159,7 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachLoadBalancerFromSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetachLoadBalancerFromSubnetsCommand(input, context);
+    return se_DetachLoadBalancerFromSubnetsCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachLoadBalancerFromSubnetsCommandOutput> {
-    return deserializeAws_queryDetachLoadBalancerFromSubnetsCommand(output, context);
+    return de_DetachLoadBalancerFromSubnetsCommand(output, context);
   }
 
   // Start section: command_body_extra

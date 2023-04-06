@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRequest, ListTrustAnchorsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTrustAnchorsCommand,
-  serializeAws_restJson1ListTrustAnchorsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTrustAnchorsCommand, se_ListTrustAnchorsCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -131,14 +128,14 @@ export class ListTrustAnchorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTrustAnchorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTrustAnchorsCommand(input, context);
+    return se_ListTrustAnchorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrustAnchorsCommandOutput> {
-    return deserializeAws_restJson1ListTrustAnchorsCommand(output, context);
+    return de_ListTrustAnchorsCommand(output, context);
   }
 
   // Start section: command_body_extra

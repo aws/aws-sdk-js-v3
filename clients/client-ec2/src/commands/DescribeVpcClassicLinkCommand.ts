@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeVpcClassicLinkRequest, DescribeVpcClassicLinkResult } from "../models/models_5";
-import {
-  deserializeAws_ec2DescribeVpcClassicLinkCommand,
-  serializeAws_ec2DescribeVpcClassicLinkCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeVpcClassicLinkCommand, se_DescribeVpcClassicLinkCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeVpcClassicLinkCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVpcClassicLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcClassicLinkCommand(input, context);
+    return se_DescribeVpcClassicLinkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcClassicLinkCommandOutput> {
-    return deserializeAws_ec2DescribeVpcClassicLinkCommand(output, context);
+    return de_DescribeVpcClassicLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

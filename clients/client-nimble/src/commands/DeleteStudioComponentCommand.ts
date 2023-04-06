@@ -19,10 +19,7 @@ import {
   DeleteStudioComponentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1DeleteStudioComponentCommand,
-  serializeAws_restJson1DeleteStudioComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteStudioComponentCommand, se_DeleteStudioComponentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class DeleteStudioComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStudioComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStudioComponentCommand(input, context);
+    return se_DeleteStudioComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStudioComponentCommandOutput> {
-    return deserializeAws_restJson1DeleteStudioComponentCommand(output, context);
+    return de_DeleteStudioComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

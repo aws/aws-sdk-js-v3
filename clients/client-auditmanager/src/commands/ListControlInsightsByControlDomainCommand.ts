@@ -19,8 +19,8 @@ import {
   ListControlInsightsByControlDomainResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListControlInsightsByControlDomainCommand,
-  serializeAws_restJson1ListControlInsightsByControlDomainCommand,
+  de_ListControlInsightsByControlDomainCommand,
+  se_ListControlInsightsByControlDomainCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -151,7 +151,7 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
     input: ListControlInsightsByControlDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListControlInsightsByControlDomainCommand(input, context);
+    return se_ListControlInsightsByControlDomainCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListControlInsightsByControlDomainCommandOutput> {
-    return deserializeAws_restJson1ListControlInsightsByControlDomainCommand(output, context);
+    return de_ListControlInsightsByControlDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

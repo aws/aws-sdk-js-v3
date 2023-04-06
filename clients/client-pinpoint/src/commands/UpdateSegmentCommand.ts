@@ -15,10 +15,7 @@ import {
 
 import { UpdateSegmentRequest, UpdateSegmentResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateSegmentCommand,
-  serializeAws_restJson1UpdateSegmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSegmentCommand, se_UpdateSegmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -276,14 +273,14 @@ export class UpdateSegmentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSegmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSegmentCommand(input, context);
+    return se_UpdateSegmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSegmentCommandOutput> {
-    return deserializeAws_restJson1UpdateSegmentCommand(output, context);
+    return de_UpdateSegmentCommand(output, context);
   }
 
   // Start section: command_body_extra

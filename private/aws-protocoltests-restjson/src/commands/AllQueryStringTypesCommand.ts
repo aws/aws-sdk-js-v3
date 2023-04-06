@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AllQueryStringTypesInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1AllQueryStringTypesCommand,
-  serializeAws_restJson1AllQueryStringTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AllQueryStringTypesCommand, se_AllQueryStringTypesCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -149,14 +146,14 @@ export class AllQueryStringTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: AllQueryStringTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AllQueryStringTypesCommand(input, context);
+    return se_AllQueryStringTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllQueryStringTypesCommandOutput> {
-    return deserializeAws_restJson1AllQueryStringTypesCommand(output, context);
+    return de_AllQueryStringTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

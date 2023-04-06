@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListCidrLocationsRequest, ListCidrLocationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlListCidrLocationsCommand,
-  serializeAws_restXmlListCidrLocationsCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListCidrLocationsCommand, se_ListCidrLocationsCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -129,14 +126,14 @@ export class ListCidrLocationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCidrLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListCidrLocationsCommand(input, context);
+    return se_ListCidrLocationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCidrLocationsCommandOutput> {
-    return deserializeAws_restXmlListCidrLocationsCommand(output, context);
+    return de_ListCidrLocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

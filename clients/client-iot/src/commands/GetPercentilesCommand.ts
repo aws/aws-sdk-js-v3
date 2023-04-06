@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetPercentilesRequest, GetPercentilesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetPercentilesCommand,
-  serializeAws_restJson1GetPercentilesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPercentilesCommand, se_GetPercentilesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class GetPercentilesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPercentilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPercentilesCommand(input, context);
+    return se_GetPercentilesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPercentilesCommandOutput> {
-    return deserializeAws_restJson1GetPercentilesCommand(output, context);
+    return de_GetPercentilesCommand(output, context);
   }
 
   // Start section: command_body_extra

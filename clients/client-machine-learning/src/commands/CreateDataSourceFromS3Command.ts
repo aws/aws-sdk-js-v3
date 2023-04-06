@@ -15,10 +15,7 @@ import {
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { CreateDataSourceFromS3Input, CreateDataSourceFromS3Output } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDataSourceFromS3Command,
-  serializeAws_json1_1CreateDataSourceFromS3Command,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDataSourceFromS3Command, se_CreateDataSourceFromS3Command } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class CreateDataSourceFromS3Command extends $Command<
    * @internal
    */
   private serialize(input: CreateDataSourceFromS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDataSourceFromS3Command(input, context);
+    return se_CreateDataSourceFromS3Command(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataSourceFromS3CommandOutput> {
-    return deserializeAws_json1_1CreateDataSourceFromS3Command(output, context);
+    return de_CreateDataSourceFromS3Command(output, context);
   }
 
   // Start section: command_body_extra

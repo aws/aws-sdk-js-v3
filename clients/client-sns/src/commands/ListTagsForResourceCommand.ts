@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListTagsForResourceCommand,
-  serializeAws_queryListTagsForResourceCommand,
-} from "../protocols/Aws_query";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -140,14 +137,14 @@ export class ListTagsForResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListTagsForResourceCommand(input, context);
+    return se_ListTagsForResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
-    return deserializeAws_queryListTagsForResourceCommand(output, context);
+    return de_ListTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

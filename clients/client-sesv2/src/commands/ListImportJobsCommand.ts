@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListImportJobsRequest, ListImportJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListImportJobsCommand,
-  serializeAws_restJson1ListImportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListImportJobsCommand, se_ListImportJobsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -128,14 +125,14 @@ export class ListImportJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListImportJobsCommand(input, context);
+    return se_ListImportJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportJobsCommandOutput> {
-    return deserializeAws_restJson1ListImportJobsCommand(output, context);
+    return de_ListImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

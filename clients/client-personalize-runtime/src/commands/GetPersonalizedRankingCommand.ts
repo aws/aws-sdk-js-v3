@@ -23,10 +23,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient";
-import {
-  deserializeAws_restJson1GetPersonalizedRankingCommand,
-  serializeAws_restJson1GetPersonalizedRankingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPersonalizedRankingCommand, se_GetPersonalizedRankingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class GetPersonalizedRankingCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPersonalizedRankingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPersonalizedRankingCommand(input, context);
+    return se_GetPersonalizedRankingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPersonalizedRankingCommandOutput> {
-    return deserializeAws_restJson1GetPersonalizedRankingCommand(output, context);
+    return de_GetPersonalizedRankingCommand(output, context);
   }
 
   // Start section: command_body_extra

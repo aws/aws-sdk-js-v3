@@ -14,10 +14,7 @@ import {
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { RecursiveXmlShapesOutput } from "../models/models_0";
-import {
-  deserializeAws_ec2RecursiveXmlShapesCommand,
-  serializeAws_ec2RecursiveXmlShapesCommand,
-} from "../protocols/Aws_ec2";
+import { de_RecursiveXmlShapesCommand, se_RecursiveXmlShapesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -105,14 +102,14 @@ export class RecursiveXmlShapesCommand extends $Command<
    * @internal
    */
   private serialize(input: RecursiveXmlShapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2RecursiveXmlShapesCommand(input, context);
+    return se_RecursiveXmlShapesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecursiveXmlShapesCommandOutput> {
-    return deserializeAws_ec2RecursiveXmlShapesCommand(output, context);
+    return de_RecursiveXmlShapesCommand(output, context);
   }
 
   // Start section: command_body_extra

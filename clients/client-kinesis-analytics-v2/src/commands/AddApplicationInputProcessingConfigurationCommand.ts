@@ -23,8 +23,8 @@ import {
   AddApplicationInputProcessingConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,
-  serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,
+  de_AddApplicationInputProcessingConfigurationCommand,
+  se_AddApplicationInputProcessingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -165,7 +165,7 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     input: AddApplicationInputProcessingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(input, context);
+    return se_AddApplicationInputProcessingConfigurationCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddApplicationInputProcessingConfigurationCommandOutput> {
-    return deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(output, context);
+    return de_AddApplicationInputProcessingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,10 +20,7 @@ import {
   CreateMultipartUploadRequest,
   CreateMultipartUploadRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateMultipartUploadCommand,
-  serializeAws_restXmlCreateMultipartUploadCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateMultipartUploadCommand, se_CreateMultipartUploadCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -476,14 +473,14 @@ export class CreateMultipartUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateMultipartUploadCommand(input, context);
+    return se_CreateMultipartUploadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMultipartUploadCommandOutput> {
-    return deserializeAws_restXmlCreateMultipartUploadCommand(output, context);
+    return de_CreateMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

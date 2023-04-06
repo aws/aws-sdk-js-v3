@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ValidateSecurityProfileBehaviorsRequest, ValidateSecurityProfileBehaviorsResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1ValidateSecurityProfileBehaviorsCommand,
-  serializeAws_restJson1ValidateSecurityProfileBehaviorsCommand,
+  de_ValidateSecurityProfileBehaviorsCommand,
+  se_ValidateSecurityProfileBehaviorsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -173,7 +173,7 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     input: ValidateSecurityProfileBehaviorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ValidateSecurityProfileBehaviorsCommand(input, context);
+    return se_ValidateSecurityProfileBehaviorsCommand(input, context);
   }
 
   /**
@@ -183,7 +183,7 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateSecurityProfileBehaviorsCommandOutput> {
-    return deserializeAws_restJson1ValidateSecurityProfileBehaviorsCommand(output, context);
+    return de_ValidateSecurityProfileBehaviorsCommand(output, context);
   }
 
   // Start section: command_body_extra

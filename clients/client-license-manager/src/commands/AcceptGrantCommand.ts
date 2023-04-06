@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { AcceptGrantRequest, AcceptGrantResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AcceptGrantCommand,
-  serializeAws_json1_1AcceptGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AcceptGrantCommand, se_AcceptGrantCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class AcceptGrantCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptGrantCommand(input, context);
+    return se_AcceptGrantCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptGrantCommandOutput> {
-    return deserializeAws_json1_1AcceptGrantCommand(output, context);
+    return de_AcceptGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

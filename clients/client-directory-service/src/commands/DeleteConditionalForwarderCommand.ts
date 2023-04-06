@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DeleteConditionalForwarderRequest, DeleteConditionalForwarderResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConditionalForwarderCommand,
-  serializeAws_json1_1DeleteConditionalForwarderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteConditionalForwarderCommand, se_DeleteConditionalForwarderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,7 +137,7 @@ export class DeleteConditionalForwarderCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConditionalForwarderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConditionalForwarderCommand(input, context);
+    return se_DeleteConditionalForwarderCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class DeleteConditionalForwarderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConditionalForwarderCommandOutput> {
-    return deserializeAws_json1_1DeleteConditionalForwarderCommand(output, context);
+    return de_DeleteConditionalForwarderCommand(output, context);
   }
 
   // Start section: command_body_extra

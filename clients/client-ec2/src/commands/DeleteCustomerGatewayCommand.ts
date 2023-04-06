@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteCustomerGatewayRequest } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteCustomerGatewayCommand,
-  serializeAws_ec2DeleteCustomerGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteCustomerGatewayCommand, se_DeleteCustomerGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteCustomerGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteCustomerGatewayCommand(input, context);
+    return se_DeleteCustomerGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomerGatewayCommandOutput> {
-    return deserializeAws_ec2DeleteCustomerGatewayCommand(output, context);
+    return de_DeleteCustomerGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

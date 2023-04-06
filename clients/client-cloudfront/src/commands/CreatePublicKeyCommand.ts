@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { CreatePublicKeyRequest, CreatePublicKeyResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreatePublicKeyCommand,
-  serializeAws_restXmlCreatePublicKeyCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreatePublicKeyCommand, se_CreatePublicKeyCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class CreatePublicKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreatePublicKeyCommand(input, context);
+    return se_CreatePublicKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePublicKeyCommandOutput> {
-    return deserializeAws_restXmlCreatePublicKeyCommand(output, context);
+    return de_CreatePublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

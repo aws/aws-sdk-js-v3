@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListLongTermPricingRequest, ListLongTermPricingResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLongTermPricingCommand,
-  serializeAws_json1_1ListLongTermPricingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLongTermPricingCommand, se_ListLongTermPricingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -130,14 +127,14 @@ export class ListLongTermPricingCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLongTermPricingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLongTermPricingCommand(input, context);
+    return se_ListLongTermPricingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLongTermPricingCommandOutput> {
-    return deserializeAws_json1_1ListLongTermPricingCommand(output, context);
+    return de_ListLongTermPricingCommand(output, context);
   }
 
   // Start section: command_body_extra

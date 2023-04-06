@@ -14,7 +14,7 @@ import {
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { QueryTimestampsInput } from "../models/models_0";
-import { deserializeAws_ec2QueryTimestampsCommand, serializeAws_ec2QueryTimestampsCommand } from "../protocols/Aws_ec2";
+import { de_QueryTimestampsCommand, se_QueryTimestampsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -110,14 +110,14 @@ export class QueryTimestampsCommand extends $Command<
    * @internal
    */
   private serialize(input: QueryTimestampsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2QueryTimestampsCommand(input, context);
+    return se_QueryTimestampsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryTimestampsCommandOutput> {
-    return deserializeAws_ec2QueryTimestampsCommand(output, context);
+    return de_QueryTimestampsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DeleteAdmChannelRequest, DeleteAdmChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteAdmChannelCommand,
-  serializeAws_restJson1DeleteAdmChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAdmChannelCommand, se_DeleteAdmChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteAdmChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAdmChannelCommand(input, context);
+    return se_DeleteAdmChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAdmChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteAdmChannelCommand(output, context);
+    return de_DeleteAdmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

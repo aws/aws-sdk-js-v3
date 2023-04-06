@@ -19,8 +19,8 @@ import {
   CreateInfrastructureConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateInfrastructureConfigurationCommand,
-  serializeAws_restJson1CreateInfrastructureConfigurationCommand,
+  de_CreateInfrastructureConfigurationCommand,
+  se_CreateInfrastructureConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -195,7 +195,7 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
     input: CreateInfrastructureConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateInfrastructureConfigurationCommand(input, context);
+    return se_CreateInfrastructureConfigurationCommand(input, context);
   }
 
   /**
@@ -205,7 +205,7 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateInfrastructureConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateInfrastructureConfigurationCommand(output, context);
+    return de_CreateInfrastructureConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

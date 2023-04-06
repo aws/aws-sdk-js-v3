@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminLinkProviderForUserCommand,
-  serializeAws_json1_1AdminLinkProviderForUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminLinkProviderForUserCommand, se_AdminLinkProviderForUserCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -186,14 +183,14 @@ export class AdminLinkProviderForUserCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminLinkProviderForUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminLinkProviderForUserCommand(input, context);
+    return se_AdminLinkProviderForUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminLinkProviderForUserCommandOutput> {
-    return deserializeAws_json1_1AdminLinkProviderForUserCommand(output, context);
+    return de_AdminLinkProviderForUserCommand(output, context);
   }
 
   // Start section: command_body_extra

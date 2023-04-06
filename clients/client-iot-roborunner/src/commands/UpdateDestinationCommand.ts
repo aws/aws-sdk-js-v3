@@ -15,10 +15,7 @@ import {
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
 import { UpdateDestinationRequest, UpdateDestinationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDestinationCommand,
-  serializeAws_restJson1UpdateDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDestinationCommand, se_UpdateDestinationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class UpdateDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDestinationCommand(input, context);
+    return se_UpdateDestinationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDestinationCommandOutput> {
-    return deserializeAws_restJson1UpdateDestinationCommand(output, context);
+    return de_UpdateDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

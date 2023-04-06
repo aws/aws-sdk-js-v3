@@ -15,10 +15,7 @@ import {
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { UpdateWorkspaceAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkspaceAliasCommand,
-  serializeAws_restJson1UpdateWorkspaceAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateWorkspaceAliasCommand, se_UpdateWorkspaceAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UpdateWorkspaceAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWorkspaceAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkspaceAliasCommand(input, context);
+    return se_UpdateWorkspaceAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkspaceAliasCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkspaceAliasCommand(output, context);
+    return de_UpdateWorkspaceAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

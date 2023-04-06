@@ -15,10 +15,7 @@ import {
 
 import { CreateInstanceRequest, CreateInstanceResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1CreateInstanceCommand,
-  serializeAws_json1_1CreateInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateInstanceCommand, se_CreateInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class CreateInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateInstanceCommand(input, context);
+    return se_CreateInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceCommandOutput> {
-    return deserializeAws_json1_1CreateInstanceCommand(output, context);
+    return de_CreateInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

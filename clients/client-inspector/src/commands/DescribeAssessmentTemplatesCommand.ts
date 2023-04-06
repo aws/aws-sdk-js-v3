@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { DescribeAssessmentTemplatesRequest, DescribeAssessmentTemplatesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAssessmentTemplatesCommand,
-  serializeAws_json1_1DescribeAssessmentTemplatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAssessmentTemplatesCommand, se_DescribeAssessmentTemplatesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,7 +161,7 @@ export class DescribeAssessmentTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAssessmentTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAssessmentTemplatesCommand(input, context);
+    return se_DescribeAssessmentTemplatesCommand(input, context);
   }
 
   /**
@@ -174,7 +171,7 @@ export class DescribeAssessmentTemplatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAssessmentTemplatesCommandOutput> {
-    return deserializeAws_json1_1DescribeAssessmentTemplatesCommand(output, context);
+    return de_DescribeAssessmentTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

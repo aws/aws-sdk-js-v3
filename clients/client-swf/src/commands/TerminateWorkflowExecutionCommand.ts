@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TerminateWorkflowExecutionInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0TerminateWorkflowExecutionCommand,
-  serializeAws_json1_0TerminateWorkflowExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_TerminateWorkflowExecutionCommand, se_TerminateWorkflowExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -174,7 +171,7 @@ export class TerminateWorkflowExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0TerminateWorkflowExecutionCommand(input, context);
+    return se_TerminateWorkflowExecutionCommand(input, context);
   }
 
   /**
@@ -184,7 +181,7 @@ export class TerminateWorkflowExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0TerminateWorkflowExecutionCommand(output, context);
+    return de_TerminateWorkflowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

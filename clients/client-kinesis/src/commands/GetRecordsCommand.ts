@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { GetRecordsInput, GetRecordsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRecordsCommand,
-  serializeAws_json1_1GetRecordsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRecordsCommand, se_GetRecordsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -222,14 +219,14 @@ export class GetRecordsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRecordsCommand(input, context);
+    return se_GetRecordsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecordsCommandOutput> {
-    return deserializeAws_json1_1GetRecordsCommand(output, context);
+    return de_GetRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

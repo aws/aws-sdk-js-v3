@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HeadBucketRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlHeadBucketCommand,
-  serializeAws_restXmlHeadBucketCommand,
-} from "../protocols/Aws_restXml";
+import { de_HeadBucketCommand, se_HeadBucketCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -155,14 +152,14 @@ export class HeadBucketCommand extends $Command<
    * @internal
    */
   private serialize(input: HeadBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHeadBucketCommand(input, context);
+    return se_HeadBucketCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HeadBucketCommandOutput> {
-    return deserializeAws_restXmlHeadBucketCommand(output, context);
+    return de_HeadBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { DescribeGlobalTableInput, DescribeGlobalTableOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeGlobalTableCommand,
-  serializeAws_json1_0DescribeGlobalTableCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeGlobalTableCommand, se_DescribeGlobalTableCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeGlobalTableCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeGlobalTableCommand(input, context);
+    return se_DescribeGlobalTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalTableCommandOutput> {
-    return deserializeAws_json1_0DescribeGlobalTableCommand(output, context);
+    return de_DescribeGlobalTableCommand(output, context);
   }
 
   // Start section: command_body_extra

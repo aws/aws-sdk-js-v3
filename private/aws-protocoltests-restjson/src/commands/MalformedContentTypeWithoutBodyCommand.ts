@@ -13,8 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  deserializeAws_restJson1MalformedContentTypeWithoutBodyCommand,
-  serializeAws_restJson1MalformedContentTypeWithoutBodyCommand,
+  de_MalformedContentTypeWithoutBodyCommand,
+  se_MalformedContentTypeWithoutBodyCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -85,7 +85,7 @@ export class MalformedContentTypeWithoutBodyCommand extends $Command<
     input: MalformedContentTypeWithoutBodyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedContentTypeWithoutBodyCommand(input, context);
+    return se_MalformedContentTypeWithoutBodyCommand(input, context);
   }
 
   /**
@@ -95,7 +95,7 @@ export class MalformedContentTypeWithoutBodyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MalformedContentTypeWithoutBodyCommandOutput> {
-    return deserializeAws_restJson1MalformedContentTypeWithoutBodyCommand(output, context);
+    return de_MalformedContentTypeWithoutBodyCommand(output, context);
   }
 
   // Start section: command_body_extra

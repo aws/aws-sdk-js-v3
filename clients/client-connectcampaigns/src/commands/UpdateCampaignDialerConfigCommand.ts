@@ -15,10 +15,7 @@ import {
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { UpdateCampaignDialerConfigRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateCampaignDialerConfigCommand,
-  serializeAws_restJson1UpdateCampaignDialerConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateCampaignDialerConfigCommand, se_UpdateCampaignDialerConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class UpdateCampaignDialerConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateCampaignDialerConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateCampaignDialerConfigCommand(input, context);
+    return se_UpdateCampaignDialerConfigCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class UpdateCampaignDialerConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCampaignDialerConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateCampaignDialerConfigCommand(output, context);
+    return de_UpdateCampaignDialerConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

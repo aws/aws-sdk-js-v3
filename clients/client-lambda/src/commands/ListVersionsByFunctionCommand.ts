@@ -19,10 +19,7 @@ import {
   ListVersionsByFunctionResponse,
   ListVersionsByFunctionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVersionsByFunctionCommand,
-  serializeAws_restJson1ListVersionsByFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVersionsByFunctionCommand, se_ListVersionsByFunctionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListVersionsByFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVersionsByFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVersionsByFunctionCommand(input, context);
+    return se_ListVersionsByFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVersionsByFunctionCommandOutput> {
-    return deserializeAws_restJson1ListVersionsByFunctionCommand(output, context);
+    return de_ListVersionsByFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

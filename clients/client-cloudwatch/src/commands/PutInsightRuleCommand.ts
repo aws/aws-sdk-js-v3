@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { PutInsightRuleInput, PutInsightRuleOutput } from "../models/models_0";
-import {
-  deserializeAws_queryPutInsightRuleCommand,
-  serializeAws_queryPutInsightRuleCommand,
-} from "../protocols/Aws_query";
+import { de_PutInsightRuleCommand, se_PutInsightRuleCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class PutInsightRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: PutInsightRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutInsightRuleCommand(input, context);
+    return se_PutInsightRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutInsightRuleCommandOutput> {
-    return deserializeAws_queryPutInsightRuleCommand(output, context);
+    return de_PutInsightRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

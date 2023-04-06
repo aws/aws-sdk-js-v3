@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { DescribeListenersInput, DescribeListenersOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeListenersCommand,
-  serializeAws_queryDescribeListenersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeListenersCommand, se_DescribeListenersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class DescribeListenersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeListenersCommand(input, context);
+    return se_DescribeListenersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeListenersCommandOutput> {
-    return deserializeAws_queryDescribeListenersCommand(output, context);
+    return de_DescribeListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

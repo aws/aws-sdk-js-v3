@@ -16,8 +16,8 @@ import {
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { PutBackupVaultLockConfigurationInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutBackupVaultLockConfigurationCommand,
-  serializeAws_restJson1PutBackupVaultLockConfigurationCommand,
+  de_PutBackupVaultLockConfigurationCommand,
+  se_PutBackupVaultLockConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -155,7 +155,7 @@ export class PutBackupVaultLockConfigurationCommand extends $Command<
     input: PutBackupVaultLockConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutBackupVaultLockConfigurationCommand(input, context);
+    return se_PutBackupVaultLockConfigurationCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class PutBackupVaultLockConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBackupVaultLockConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutBackupVaultLockConfigurationCommand(output, context);
+    return de_PutBackupVaultLockConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

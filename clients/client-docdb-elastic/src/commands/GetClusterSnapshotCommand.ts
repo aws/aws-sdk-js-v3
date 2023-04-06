@@ -15,10 +15,7 @@ import {
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { GetClusterSnapshotInput, GetClusterSnapshotOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetClusterSnapshotCommand,
-  serializeAws_restJson1GetClusterSnapshotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetClusterSnapshotCommand, se_GetClusterSnapshotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetClusterSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: GetClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetClusterSnapshotCommand(input, context);
+    return se_GetClusterSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClusterSnapshotCommandOutput> {
-    return deserializeAws_restJson1GetClusterSnapshotCommand(output, context);
+    return de_GetClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

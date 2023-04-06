@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { UpdateDirectConnectGatewayRequest, UpdateDirectConnectGatewayResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDirectConnectGatewayCommand,
-  serializeAws_json1_1UpdateDirectConnectGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDirectConnectGatewayCommand, se_UpdateDirectConnectGatewayCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,7 +124,7 @@ export class UpdateDirectConnectGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDirectConnectGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDirectConnectGatewayCommand(input, context);
+    return se_UpdateDirectConnectGatewayCommand(input, context);
   }
 
   /**
@@ -137,7 +134,7 @@ export class UpdateDirectConnectGatewayCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDirectConnectGatewayCommandOutput> {
-    return deserializeAws_json1_1UpdateDirectConnectGatewayCommand(output, context);
+    return de_UpdateDirectConnectGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

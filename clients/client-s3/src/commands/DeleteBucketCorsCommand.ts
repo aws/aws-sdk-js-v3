@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteBucketCorsRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketCorsCommand,
-  serializeAws_restXmlDeleteBucketCorsCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteBucketCorsCommand, se_DeleteBucketCorsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -158,14 +155,14 @@ export class DeleteBucketCorsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBucketCorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketCorsCommand(input, context);
+    return se_DeleteBucketCorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketCorsCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketCorsCommand(output, context);
+    return de_DeleteBucketCorsCommand(output, context);
   }
 
   // Start section: command_body_extra

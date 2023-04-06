@@ -21,8 +21,8 @@ import {
   UpdateReplicationConfigurationTemplateRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateReplicationConfigurationTemplateCommand,
-  serializeAws_restJson1UpdateReplicationConfigurationTemplateCommand,
+  de_UpdateReplicationConfigurationTemplateCommand,
+  se_UpdateReplicationConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -176,7 +176,7 @@ export class UpdateReplicationConfigurationTemplateCommand extends $Command<
     input: UpdateReplicationConfigurationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateReplicationConfigurationTemplateCommand(input, context);
+    return se_UpdateReplicationConfigurationTemplateCommand(input, context);
   }
 
   /**
@@ -186,7 +186,7 @@ export class UpdateReplicationConfigurationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateReplicationConfigurationTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateReplicationConfigurationTemplateCommand(output, context);
+    return de_UpdateReplicationConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

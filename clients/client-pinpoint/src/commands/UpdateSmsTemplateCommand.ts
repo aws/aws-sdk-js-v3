@@ -15,10 +15,7 @@ import {
 
 import { UpdateSmsTemplateRequest, UpdateSmsTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateSmsTemplateCommand,
-  serializeAws_restJson1UpdateSmsTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSmsTemplateCommand, se_UpdateSmsTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class UpdateSmsTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSmsTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSmsTemplateCommand(input, context);
+    return se_UpdateSmsTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSmsTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateSmsTemplateCommand(output, context);
+    return de_UpdateSmsTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

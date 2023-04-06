@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DescribeEnvironmentHealthRequest, DescribeEnvironmentHealthResult } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEnvironmentHealthCommand,
-  serializeAws_queryDescribeEnvironmentHealthCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeEnvironmentHealthCommand, se_DescribeEnvironmentHealthCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -186,7 +183,7 @@ export class DescribeEnvironmentHealthCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEnvironmentHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentHealthCommand(input, context);
+    return se_DescribeEnvironmentHealthCommand(input, context);
   }
 
   /**
@@ -196,7 +193,7 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentHealthCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentHealthCommand(output, context);
+    return de_DescribeEnvironmentHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

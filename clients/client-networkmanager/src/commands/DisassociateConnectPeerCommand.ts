@@ -15,10 +15,7 @@ import {
 
 import { DisassociateConnectPeerRequest, DisassociateConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DisassociateConnectPeerCommand,
-  serializeAws_restJson1DisassociateConnectPeerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateConnectPeerCommand, se_DisassociateConnectPeerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DisassociateConnectPeerCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateConnectPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateConnectPeerCommand(input, context);
+    return se_DisassociateConnectPeerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateConnectPeerCommandOutput> {
-    return deserializeAws_restJson1DisassociateConnectPeerCommand(output, context);
+    return de_DisassociateConnectPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

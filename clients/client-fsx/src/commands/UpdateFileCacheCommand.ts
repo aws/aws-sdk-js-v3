@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { UpdateFileCacheRequest, UpdateFileCacheResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFileCacheCommand,
-  serializeAws_json1_1UpdateFileCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateFileCacheCommand, se_UpdateFileCacheCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class UpdateFileCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFileCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFileCacheCommand(input, context);
+    return se_UpdateFileCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFileCacheCommandOutput> {
-    return deserializeAws_json1_1UpdateFileCacheCommand(output, context);
+    return de_UpdateFileCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

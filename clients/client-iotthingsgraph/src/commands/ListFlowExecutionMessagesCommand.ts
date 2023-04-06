@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { ListFlowExecutionMessagesRequest, ListFlowExecutionMessagesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFlowExecutionMessagesCommand,
-  serializeAws_json1_1ListFlowExecutionMessagesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListFlowExecutionMessagesCommand, se_ListFlowExecutionMessagesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class ListFlowExecutionMessagesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFlowExecutionMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFlowExecutionMessagesCommand(input, context);
+    return se_ListFlowExecutionMessagesCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class ListFlowExecutionMessagesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFlowExecutionMessagesCommandOutput> {
-    return deserializeAws_json1_1ListFlowExecutionMessagesCommand(output, context);
+    return de_ListFlowExecutionMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

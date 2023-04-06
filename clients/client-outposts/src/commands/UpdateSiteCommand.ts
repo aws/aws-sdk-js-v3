@@ -15,10 +15,7 @@ import {
 
 import { UpdateSiteInput, UpdateSiteOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1UpdateSiteCommand,
-  serializeAws_restJson1UpdateSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSiteCommand, se_UpdateSiteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class UpdateSiteCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSiteCommand(input, context);
+    return se_UpdateSiteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSiteCommandOutput> {
-    return deserializeAws_restJson1UpdateSiteCommand(output, context);
+    return de_UpdateSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

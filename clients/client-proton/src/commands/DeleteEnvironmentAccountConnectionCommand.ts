@@ -15,8 +15,8 @@ import {
 
 import { DeleteEnvironmentAccountConnectionInput, DeleteEnvironmentAccountConnectionOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0DeleteEnvironmentAccountConnectionCommand,
-  serializeAws_json1_0DeleteEnvironmentAccountConnectionCommand,
+  de_DeleteEnvironmentAccountConnectionCommand,
+  se_DeleteEnvironmentAccountConnectionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -148,7 +148,7 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command<
     input: DeleteEnvironmentAccountConnectionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteEnvironmentAccountConnectionCommand(input, context);
+    return se_DeleteEnvironmentAccountConnectionCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentAccountConnectionCommandOutput> {
-    return deserializeAws_json1_0DeleteEnvironmentAccountConnectionCommand(output, context);
+    return de_DeleteEnvironmentAccountConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

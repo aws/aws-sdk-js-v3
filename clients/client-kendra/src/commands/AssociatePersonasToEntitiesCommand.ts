@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { AssociatePersonasToEntitiesRequest, AssociatePersonasToEntitiesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociatePersonasToEntitiesCommand,
-  serializeAws_json1_1AssociatePersonasToEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociatePersonasToEntitiesCommand, se_AssociatePersonasToEntitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,7 +154,7 @@ export class AssociatePersonasToEntitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociatePersonasToEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociatePersonasToEntitiesCommand(input, context);
+    return se_AssociatePersonasToEntitiesCommand(input, context);
   }
 
   /**
@@ -167,7 +164,7 @@ export class AssociatePersonasToEntitiesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociatePersonasToEntitiesCommandOutput> {
-    return deserializeAws_json1_1AssociatePersonasToEntitiesCommand(output, context);
+    return de_AssociatePersonasToEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

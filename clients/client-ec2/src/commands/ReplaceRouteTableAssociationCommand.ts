@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ReplaceRouteTableAssociationRequest, ReplaceRouteTableAssociationResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ReplaceRouteTableAssociationCommand,
-  serializeAws_ec2ReplaceRouteTableAssociationCommand,
-} from "../protocols/Aws_ec2";
+import { de_ReplaceRouteTableAssociationCommand, se_ReplaceRouteTableAssociationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: ReplaceRouteTableAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceRouteTableAssociationCommand(input, context);
+    return se_ReplaceRouteTableAssociationCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ReplaceRouteTableAssociationCommandOutput> {
-    return deserializeAws_ec2ReplaceRouteTableAssociationCommand(output, context);
+    return de_ReplaceRouteTableAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

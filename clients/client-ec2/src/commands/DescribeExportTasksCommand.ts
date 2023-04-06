@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeExportTasksRequest, DescribeExportTasksResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeExportTasksCommand,
-  serializeAws_ec2DescribeExportTasksCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeExportTasksCommand, se_DescribeExportTasksCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DescribeExportTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeExportTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeExportTasksCommand(input, context);
+    return se_DescribeExportTasksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExportTasksCommandOutput> {
-    return deserializeAws_ec2DescribeExportTasksCommand(output, context);
+    return de_DescribeExportTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

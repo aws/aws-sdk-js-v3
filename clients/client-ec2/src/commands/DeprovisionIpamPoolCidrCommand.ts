@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeprovisionIpamPoolCidrRequest, DeprovisionIpamPoolCidrResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DeprovisionIpamPoolCidrCommand,
-  serializeAws_ec2DeprovisionIpamPoolCidrCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeprovisionIpamPoolCidrCommand, se_DeprovisionIpamPoolCidrCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class DeprovisionIpamPoolCidrCommand extends $Command<
    * @internal
    */
   private serialize(input: DeprovisionIpamPoolCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeprovisionIpamPoolCidrCommand(input, context);
+    return se_DeprovisionIpamPoolCidrCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprovisionIpamPoolCidrCommandOutput> {
-    return deserializeAws_ec2DeprovisionIpamPoolCidrCommand(output, context);
+    return de_DeprovisionIpamPoolCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { StartConfigurationRecorderRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1StartConfigurationRecorderCommand,
-  serializeAws_json1_1StartConfigurationRecorderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartConfigurationRecorderCommand, se_StartConfigurationRecorderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,7 +128,7 @@ export class StartConfigurationRecorderCommand extends $Command<
    * @internal
    */
   private serialize(input: StartConfigurationRecorderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartConfigurationRecorderCommand(input, context);
+    return se_StartConfigurationRecorderCommand(input, context);
   }
 
   /**
@@ -141,7 +138,7 @@ export class StartConfigurationRecorderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartConfigurationRecorderCommandOutput> {
-    return deserializeAws_json1_1StartConfigurationRecorderCommand(output, context);
+    return de_StartConfigurationRecorderCommand(output, context);
   }
 
   // Start section: command_body_extra

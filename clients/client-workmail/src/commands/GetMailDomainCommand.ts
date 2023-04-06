@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetMailDomainRequest, GetMailDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMailDomainCommand,
-  serializeAws_json1_1GetMailDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetMailDomainCommand, se_GetMailDomainCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -133,14 +130,14 @@ export class GetMailDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMailDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMailDomainCommand(input, context);
+    return se_GetMailDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMailDomainCommandOutput> {
-    return deserializeAws_json1_1GetMailDomainCommand(output, context);
+    return de_GetMailDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

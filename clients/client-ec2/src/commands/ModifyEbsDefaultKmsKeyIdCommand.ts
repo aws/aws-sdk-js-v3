@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyEbsDefaultKmsKeyIdRequest, ModifyEbsDefaultKmsKeyIdResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,
-  serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyEbsDefaultKmsKeyIdCommand, se_ModifyEbsDefaultKmsKeyIdCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyEbsDefaultKmsKeyIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand(input, context);
+    return se_ModifyEbsDefaultKmsKeyIdCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEbsDefaultKmsKeyIdCommandOutput> {
-    return deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand(output, context);
+    return de_ModifyEbsDefaultKmsKeyIdCommand(output, context);
   }
 
   // Start section: command_body_extra

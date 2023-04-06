@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DeleteVocabularyRequest, DeleteVocabularyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVocabularyCommand,
-  serializeAws_restJson1DeleteVocabularyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVocabularyCommand, se_DeleteVocabularyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteVocabularyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVocabularyCommand(input, context);
+    return se_DeleteVocabularyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVocabularyCommandOutput> {
-    return deserializeAws_restJson1DeleteVocabularyCommand(output, context);
+    return de_DeleteVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

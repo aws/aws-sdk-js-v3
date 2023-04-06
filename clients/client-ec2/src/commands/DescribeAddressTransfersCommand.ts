@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeAddressTransfersRequest, DescribeAddressTransfersResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeAddressTransfersCommand,
-  serializeAws_ec2DescribeAddressTransfersCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeAddressTransfersCommand, se_DescribeAddressTransfersCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class DescribeAddressTransfersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAddressTransfersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeAddressTransfersCommand(input, context);
+    return se_DescribeAddressTransfersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAddressTransfersCommandOutput> {
-    return deserializeAws_ec2DescribeAddressTransfersCommand(output, context);
+    return de_DescribeAddressTransfersCommand(output, context);
   }
 
   // Start section: command_body_extra

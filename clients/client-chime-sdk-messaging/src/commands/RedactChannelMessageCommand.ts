@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { RedactChannelMessageRequest, RedactChannelMessageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RedactChannelMessageCommand,
-  serializeAws_restJson1RedactChannelMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RedactChannelMessageCommand, se_RedactChannelMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class RedactChannelMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: RedactChannelMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RedactChannelMessageCommand(input, context);
+    return se_RedactChannelMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RedactChannelMessageCommandOutput> {
-    return deserializeAws_restJson1RedactChannelMessageCommand(output, context);
+    return de_RedactChannelMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

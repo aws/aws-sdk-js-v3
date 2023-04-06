@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetRelationalDatabaseParametersRequest, GetRelationalDatabaseParametersResult } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetRelationalDatabaseParametersCommand,
-  serializeAws_json1_1GetRelationalDatabaseParametersCommand,
+  de_GetRelationalDatabaseParametersCommand,
+  se_GetRelationalDatabaseParametersCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -160,7 +160,7 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
     input: GetRelationalDatabaseParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseParametersCommand(input, context);
+    return se_GetRelationalDatabaseParametersCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class GetRelationalDatabaseParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseParametersCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseParametersCommand(output, context);
+    return de_GetRelationalDatabaseParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0EmptyInputAndEmptyOutputCommand,
-  serializeAws_json1_0EmptyInputAndEmptyOutputCommand,
-} from "../protocols/Aws_json1_0";
+import { de_EmptyInputAndEmptyOutputCommand, se_EmptyInputAndEmptyOutputCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -108,14 +105,14 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: EmptyInputAndEmptyOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0EmptyInputAndEmptyOutputCommand(input, context);
+    return se_EmptyInputAndEmptyOutputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EmptyInputAndEmptyOutputCommandOutput> {
-    return deserializeAws_json1_0EmptyInputAndEmptyOutputCommand(output, context);
+    return de_EmptyInputAndEmptyOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

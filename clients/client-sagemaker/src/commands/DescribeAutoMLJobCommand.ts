@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeAutoMLJobRequest, DescribeAutoMLJobResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeAutoMLJobCommand,
-  serializeAws_json1_1DescribeAutoMLJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAutoMLJobCommand, se_DescribeAutoMLJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,14 +120,14 @@ export class DescribeAutoMLJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAutoMLJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAutoMLJobCommand(input, context);
+    return se_DescribeAutoMLJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAutoMLJobCommandOutput> {
-    return deserializeAws_json1_1DescribeAutoMLJobCommand(output, context);
+    return de_DescribeAutoMLJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -25,10 +25,7 @@ import {
   AdminCreateUserResponse,
   AdminCreateUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminCreateUserCommand,
-  serializeAws_json1_1AdminCreateUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminCreateUserCommand, se_AdminCreateUserCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -242,14 +239,14 @@ export class AdminCreateUserCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminCreateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminCreateUserCommand(input, context);
+    return se_AdminCreateUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminCreateUserCommandOutput> {
-    return deserializeAws_json1_1AdminCreateUserCommand(output, context);
+    return de_AdminCreateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

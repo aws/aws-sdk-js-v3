@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateParallelDataRequest, CreateParallelDataResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateParallelDataCommand,
-  serializeAws_json1_1CreateParallelDataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateParallelDataCommand, se_CreateParallelDataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -168,14 +165,14 @@ export class CreateParallelDataCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateParallelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateParallelDataCommand(input, context);
+    return se_CreateParallelDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateParallelDataCommandOutput> {
-    return deserializeAws_json1_1CreateParallelDataCommand(output, context);
+    return de_CreateParallelDataCommand(output, context);
   }
 
   // Start section: command_body_extra

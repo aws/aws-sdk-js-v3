@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DeleteExperienceRequest, DeleteExperienceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteExperienceCommand,
-  serializeAws_json1_1DeleteExperienceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteExperienceCommand, se_DeleteExperienceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeleteExperienceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteExperienceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteExperienceCommand(input, context);
+    return se_DeleteExperienceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperienceCommandOutput> {
-    return deserializeAws_json1_1DeleteExperienceCommand(output, context);
+    return de_DeleteExperienceCommand(output, context);
   }
 
   // Start section: command_body_extra

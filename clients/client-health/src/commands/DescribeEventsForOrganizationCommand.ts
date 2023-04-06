@@ -16,8 +16,8 @@ import {
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import { DescribeEventsForOrganizationRequest, DescribeEventsForOrganizationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeEventsForOrganizationCommand,
-  serializeAws_json1_1DescribeEventsForOrganizationCommand,
+  de_DescribeEventsForOrganizationCommand,
+  se_DescribeEventsForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -199,7 +199,7 @@ export class DescribeEventsForOrganizationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventsForOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventsForOrganizationCommand(input, context);
+    return se_DescribeEventsForOrganizationCommand(input, context);
   }
 
   /**
@@ -209,7 +209,7 @@ export class DescribeEventsForOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventsForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeEventsForOrganizationCommand(output, context);
+    return de_DescribeEventsForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -22,10 +22,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
 import { GetClipInput, GetClipOutput, GetClipOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetClipCommand,
-  serializeAws_restJson1GetClipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetClipCommand, se_GetClipCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -217,7 +214,7 @@ export class GetClipCommand extends $Command<
    * @internal
    */
   private serialize(input: GetClipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetClipCommand(input, context);
+    return se_GetClipCommand(input, context);
   }
 
   /**
@@ -227,7 +224,7 @@ export class GetClipCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetClipCommandOutput> {
-    return deserializeAws_restJson1GetClipCommand(output, context);
+    return de_GetClipCommand(output, context);
   }
 
   // Start section: command_body_extra

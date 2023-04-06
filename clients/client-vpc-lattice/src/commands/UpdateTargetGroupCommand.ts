@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateTargetGroupRequest, UpdateTargetGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateTargetGroupCommand,
-  serializeAws_restJson1UpdateTargetGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateTargetGroupCommand, se_UpdateTargetGroupCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -151,14 +148,14 @@ export class UpdateTargetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTargetGroupCommand(input, context);
+    return se_UpdateTargetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTargetGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateTargetGroupCommand(output, context);
+    return de_UpdateTargetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

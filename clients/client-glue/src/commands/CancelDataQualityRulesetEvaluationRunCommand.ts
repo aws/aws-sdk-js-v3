@@ -19,8 +19,8 @@ import {
   CancelDataQualityRulesetEvaluationRunResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CancelDataQualityRulesetEvaluationRunCommand,
-  serializeAws_json1_1CancelDataQualityRulesetEvaluationRunCommand,
+  de_CancelDataQualityRulesetEvaluationRunCommand,
+  se_CancelDataQualityRulesetEvaluationRunCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -141,7 +141,7 @@ export class CancelDataQualityRulesetEvaluationRunCommand extends $Command<
     input: CancelDataQualityRulesetEvaluationRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelDataQualityRulesetEvaluationRunCommand(input, context);
+    return se_CancelDataQualityRulesetEvaluationRunCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class CancelDataQualityRulesetEvaluationRunCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelDataQualityRulesetEvaluationRunCommandOutput> {
-    return deserializeAws_json1_1CancelDataQualityRulesetEvaluationRunCommand(output, context);
+    return de_CancelDataQualityRulesetEvaluationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

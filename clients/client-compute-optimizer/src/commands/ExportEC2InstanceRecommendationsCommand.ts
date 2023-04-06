@@ -16,8 +16,8 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import { ExportEC2InstanceRecommendationsRequest, ExportEC2InstanceRecommendationsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0ExportEC2InstanceRecommendationsCommand,
-  serializeAws_json1_0ExportEC2InstanceRecommendationsCommand,
+  de_ExportEC2InstanceRecommendationsCommand,
+  se_ExportEC2InstanceRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -179,7 +179,7 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
     input: ExportEC2InstanceRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExportEC2InstanceRecommendationsCommand(input, context);
+    return se_ExportEC2InstanceRecommendationsCommand(input, context);
   }
 
   /**
@@ -189,7 +189,7 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportEC2InstanceRecommendationsCommandOutput> {
-    return deserializeAws_json1_0ExportEC2InstanceRecommendationsCommand(output, context);
+    return de_ExportEC2InstanceRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

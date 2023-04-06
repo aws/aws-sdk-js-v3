@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { GetSessionStatusRequest, GetSessionStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSessionStatusCommand,
-  serializeAws_json1_1GetSessionStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSessionStatusCommand, se_GetSessionStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetSessionStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSessionStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSessionStatusCommand(input, context);
+    return se_GetSessionStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionStatusCommandOutput> {
-    return deserializeAws_json1_1GetSessionStatusCommand(output, context);
+    return de_GetSessionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

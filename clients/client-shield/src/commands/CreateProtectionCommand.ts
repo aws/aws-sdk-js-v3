@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateProtectionRequest, CreateProtectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateProtectionCommand,
-  serializeAws_json1_1CreateProtectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateProtectionCommand, se_CreateProtectionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -157,14 +154,14 @@ export class CreateProtectionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateProtectionCommand(input, context);
+    return se_CreateProtectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProtectionCommandOutput> {
-    return deserializeAws_json1_1CreateProtectionCommand(output, context);
+    return de_CreateProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

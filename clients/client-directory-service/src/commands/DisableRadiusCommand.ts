@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DisableRadiusRequest, DisableRadiusResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableRadiusCommand,
-  serializeAws_json1_1DisableRadiusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableRadiusCommand, se_DisableRadiusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DisableRadiusCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableRadiusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableRadiusCommand(input, context);
+    return se_DisableRadiusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableRadiusCommandOutput> {
-    return deserializeAws_json1_1DisableRadiusCommand(output, context);
+    return de_DisableRadiusCommand(output, context);
   }
 
   // Start section: command_body_extra

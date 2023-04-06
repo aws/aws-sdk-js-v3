@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetResourcePermissionInput, GetResourcePermissionOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourcePermissionCommand,
-  serializeAws_restJson1GetResourcePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetResourcePermissionCommand, se_GetResourcePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -130,14 +127,14 @@ export class GetResourcePermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourcePermissionCommand(input, context);
+    return se_GetResourcePermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePermissionCommandOutput> {
-    return deserializeAws_restJson1GetResourcePermissionCommand(output, context);
+    return de_GetResourcePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

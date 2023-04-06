@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { UpdateRoomRequest, UpdateRoomResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRoomCommand,
-  serializeAws_json1_1UpdateRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRoomCommand, se_UpdateRoomCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class UpdateRoomCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRoomCommand(input, context);
+    return se_UpdateRoomCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoomCommandOutput> {
-    return deserializeAws_json1_1UpdateRoomCommand(output, context);
+    return de_UpdateRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

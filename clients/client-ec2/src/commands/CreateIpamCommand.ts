@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateIpamRequest, CreateIpamResult } from "../models/models_1";
-import { deserializeAws_ec2CreateIpamCommand, serializeAws_ec2CreateIpamCommand } from "../protocols/Aws_ec2";
+import { de_CreateIpamCommand, se_CreateIpamCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -138,14 +138,14 @@ export class CreateIpamCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIpamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateIpamCommand(input, context);
+    return se_CreateIpamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIpamCommandOutput> {
-    return deserializeAws_ec2CreateIpamCommand(output, context);
+    return de_CreateIpamCommand(output, context);
   }
 
   // Start section: command_body_extra

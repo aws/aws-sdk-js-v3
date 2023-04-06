@@ -15,10 +15,7 @@ import {
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { BatchGetFreeTrialInfoRequest, BatchGetFreeTrialInfoResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetFreeTrialInfoCommand,
-  serializeAws_restJson1BatchGetFreeTrialInfoCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetFreeTrialInfoCommand, se_BatchGetFreeTrialInfoCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class BatchGetFreeTrialInfoCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetFreeTrialInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetFreeTrialInfoCommand(input, context);
+    return se_BatchGetFreeTrialInfoCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetFreeTrialInfoCommandOutput> {
-    return deserializeAws_restJson1BatchGetFreeTrialInfoCommand(output, context);
+    return de_BatchGetFreeTrialInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

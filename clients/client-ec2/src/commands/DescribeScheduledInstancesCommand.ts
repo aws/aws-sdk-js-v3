@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeScheduledInstancesRequest, DescribeScheduledInstancesResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeScheduledInstancesCommand,
-  serializeAws_ec2DescribeScheduledInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeScheduledInstancesCommand, se_DescribeScheduledInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -180,7 +177,7 @@ export class DescribeScheduledInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeScheduledInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeScheduledInstancesCommand(input, context);
+    return se_DescribeScheduledInstancesCommand(input, context);
   }
 
   /**
@@ -190,7 +187,7 @@ export class DescribeScheduledInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeScheduledInstancesCommandOutput> {
-    return deserializeAws_ec2DescribeScheduledInstancesCommand(output, context);
+    return de_DescribeScheduledInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

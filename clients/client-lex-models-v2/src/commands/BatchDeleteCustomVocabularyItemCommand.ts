@@ -16,8 +16,8 @@ import {
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { BatchDeleteCustomVocabularyItemRequest, BatchDeleteCustomVocabularyItemResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommand,
-  serializeAws_restJson1BatchDeleteCustomVocabularyItemCommand,
+  de_BatchDeleteCustomVocabularyItemCommand,
+  se_BatchDeleteCustomVocabularyItemCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -152,7 +152,7 @@ export class BatchDeleteCustomVocabularyItemCommand extends $Command<
     input: BatchDeleteCustomVocabularyItemCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteCustomVocabularyItemCommand(input, context);
+    return se_BatchDeleteCustomVocabularyItemCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class BatchDeleteCustomVocabularyItemCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteCustomVocabularyItemCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommand(output, context);
+    return de_BatchDeleteCustomVocabularyItemCommand(output, context);
   }
 
   // Start section: command_body_extra

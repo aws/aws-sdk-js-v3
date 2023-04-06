@@ -19,8 +19,8 @@ import {
   GetEnvironmentTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetEnvironmentTemplateVersionCommand,
-  serializeAws_json1_0GetEnvironmentTemplateVersionCommand,
+  de_GetEnvironmentTemplateVersionCommand,
+  se_GetEnvironmentTemplateVersionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -143,7 +143,7 @@ export class GetEnvironmentTemplateVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEnvironmentTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEnvironmentTemplateVersionCommand(input, context);
+    return se_GetEnvironmentTemplateVersionCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class GetEnvironmentTemplateVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEnvironmentTemplateVersionCommandOutput> {
-    return deserializeAws_json1_0GetEnvironmentTemplateVersionCommand(output, context);
+    return de_GetEnvironmentTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

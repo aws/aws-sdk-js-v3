@@ -15,8 +15,8 @@ import {
 
 import { DescribeDashboardPermissionsRequest, DescribeDashboardPermissionsResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1DescribeDashboardPermissionsCommand,
-  serializeAws_restJson1DescribeDashboardPermissionsCommand,
+  de_DescribeDashboardPermissionsCommand,
+  se_DescribeDashboardPermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -141,7 +141,7 @@ export class DescribeDashboardPermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDashboardPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDashboardPermissionsCommand(input, context);
+    return se_DescribeDashboardPermissionsCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeDashboardPermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDashboardPermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeDashboardPermissionsCommand(output, context);
+    return de_DescribeDashboardPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

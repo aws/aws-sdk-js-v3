@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListBudgetsForResourceInput, ListBudgetsForResourceOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListBudgetsForResourceCommand,
-  serializeAws_json1_1ListBudgetsForResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListBudgetsForResourceCommand, se_ListBudgetsForResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -129,14 +126,14 @@ export class ListBudgetsForResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBudgetsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBudgetsForResourceCommand(input, context);
+    return se_ListBudgetsForResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBudgetsForResourceCommandOutput> {
-    return deserializeAws_json1_1ListBudgetsForResourceCommand(output, context);
+    return de_ListBudgetsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

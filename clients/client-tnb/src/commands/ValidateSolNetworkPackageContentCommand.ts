@@ -15,8 +15,8 @@ import {
 
 import { ValidateSolNetworkPackageContentInput, ValidateSolNetworkPackageContentOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1ValidateSolNetworkPackageContentCommand,
-  serializeAws_restJson1ValidateSolNetworkPackageContentCommand,
+  de_ValidateSolNetworkPackageContentCommand,
+  se_ValidateSolNetworkPackageContentCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
@@ -143,7 +143,7 @@ export class ValidateSolNetworkPackageContentCommand extends $Command<
     input: ValidateSolNetworkPackageContentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ValidateSolNetworkPackageContentCommand(input, context);
+    return se_ValidateSolNetworkPackageContentCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class ValidateSolNetworkPackageContentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateSolNetworkPackageContentCommandOutput> {
-    return deserializeAws_restJson1ValidateSolNetworkPackageContentCommand(output, context);
+    return de_ValidateSolNetworkPackageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

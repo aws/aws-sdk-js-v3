@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { AttachLoadBalancerTlsCertificateRequest, AttachLoadBalancerTlsCertificateResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1AttachLoadBalancerTlsCertificateCommand,
-  serializeAws_json1_1AttachLoadBalancerTlsCertificateCommand,
+  de_AttachLoadBalancerTlsCertificateCommand,
+  se_AttachLoadBalancerTlsCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -164,7 +164,7 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
     input: AttachLoadBalancerTlsCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachLoadBalancerTlsCertificateCommand(input, context);
+    return se_AttachLoadBalancerTlsCertificateCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachLoadBalancerTlsCertificateCommandOutput> {
-    return deserializeAws_json1_1AttachLoadBalancerTlsCertificateCommand(output, context);
+    return de_AttachLoadBalancerTlsCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

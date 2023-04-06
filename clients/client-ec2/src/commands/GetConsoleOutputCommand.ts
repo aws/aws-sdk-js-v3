@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetConsoleOutputRequest, GetConsoleOutputResult } from "../models/models_5";
-import {
-  deserializeAws_ec2GetConsoleOutputCommand,
-  serializeAws_ec2GetConsoleOutputCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetConsoleOutputCommand, se_GetConsoleOutputCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class GetConsoleOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConsoleOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetConsoleOutputCommand(input, context);
+    return se_GetConsoleOutputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConsoleOutputCommandOutput> {
-    return deserializeAws_ec2GetConsoleOutputCommand(output, context);
+    return de_GetConsoleOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

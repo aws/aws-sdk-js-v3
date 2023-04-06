@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSecretVersionStageCommand,
-  serializeAws_json1_1UpdateSecretVersionStageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSecretVersionStageCommand, se_UpdateSecretVersionStageCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
 /**
@@ -232,14 +229,14 @@ export class UpdateSecretVersionStageCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSecretVersionStageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSecretVersionStageCommand(input, context);
+    return se_UpdateSecretVersionStageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecretVersionStageCommandOutput> {
-    return deserializeAws_json1_1UpdateSecretVersionStageCommand(output, context);
+    return de_UpdateSecretVersionStageCommand(output, context);
   }
 
   // Start section: command_body_extra

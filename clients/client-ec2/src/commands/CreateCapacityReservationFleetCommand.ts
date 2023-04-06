@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateCapacityReservationFleetRequest, CreateCapacityReservationFleetResult } from "../models/models_0";
 import {
-  deserializeAws_ec2CreateCapacityReservationFleetCommand,
-  serializeAws_ec2CreateCapacityReservationFleetCommand,
+  de_CreateCapacityReservationFleetCommand,
+  se_CreateCapacityReservationFleetCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -154,7 +154,7 @@ export class CreateCapacityReservationFleetCommand extends $Command<
     input: CreateCapacityReservationFleetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateCapacityReservationFleetCommand(input, context);
+    return se_CreateCapacityReservationFleetCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class CreateCapacityReservationFleetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCapacityReservationFleetCommandOutput> {
-    return deserializeAws_ec2CreateCapacityReservationFleetCommand(output, context);
+    return de_CreateCapacityReservationFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

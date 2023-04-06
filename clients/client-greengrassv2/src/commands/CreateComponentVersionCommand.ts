@@ -15,10 +15,7 @@ import {
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { CreateComponentVersionRequest, CreateComponentVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateComponentVersionCommand,
-  serializeAws_restJson1CreateComponentVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateComponentVersionCommand, se_CreateComponentVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -281,14 +278,14 @@ export class CreateComponentVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateComponentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateComponentVersionCommand(input, context);
+    return se_CreateComponentVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateComponentVersionCommandOutput> {
-    return deserializeAws_restJson1CreateComponentVersionCommand(output, context);
+    return de_CreateComponentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

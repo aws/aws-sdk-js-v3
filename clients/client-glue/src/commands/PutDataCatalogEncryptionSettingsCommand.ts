@@ -16,8 +16,8 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { PutDataCatalogEncryptionSettingsRequest, PutDataCatalogEncryptionSettingsResponse } from "../models/models_2";
 import {
-  deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand,
-  serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand,
+  de_PutDataCatalogEncryptionSettingsCommand,
+  se_PutDataCatalogEncryptionSettingsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     input: PutDataCatalogEncryptionSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(input, context);
+    return se_PutDataCatalogEncryptionSettingsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDataCatalogEncryptionSettingsCommandOutput> {
-    return deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand(output, context);
+    return de_PutDataCatalogEncryptionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,10 +23,7 @@ import {
   DescribeChannelFlowResponse,
   DescribeChannelFlowResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeChannelFlowCommand,
-  serializeAws_restJson1DescribeChannelFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeChannelFlowCommand, se_DescribeChannelFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DescribeChannelFlowCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelFlowCommand(input, context);
+    return se_DescribeChannelFlowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelFlowCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelFlowCommand(output, context);
+    return de_DescribeChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

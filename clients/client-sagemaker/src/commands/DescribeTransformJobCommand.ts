@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeTransformJobRequest, DescribeTransformJobResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeTransformJobCommand,
-  serializeAws_json1_1DescribeTransformJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeTransformJobCommand, se_DescribeTransformJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,14 +120,14 @@ export class DescribeTransformJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTransformJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTransformJobCommand(input, context);
+    return se_DescribeTransformJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTransformJobCommandOutput> {
-    return deserializeAws_json1_1DescribeTransformJobCommand(output, context);
+    return de_DescribeTransformJobCommand(output, context);
   }
 
   // Start section: command_body_extra

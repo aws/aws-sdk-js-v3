@@ -15,10 +15,7 @@ import {
 
 import { GetSegmentVersionsRequest, GetSegmentVersionsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetSegmentVersionsCommand,
-  serializeAws_restJson1GetSegmentVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSegmentVersionsCommand, se_GetSegmentVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class GetSegmentVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSegmentVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSegmentVersionsCommand(input, context);
+    return se_GetSegmentVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentVersionsCommandOutput> {
-    return deserializeAws_restJson1GetSegmentVersionsCommand(output, context);
+    return de_GetSegmentVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

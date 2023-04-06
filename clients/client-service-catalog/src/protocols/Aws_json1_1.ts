@@ -562,7 +562,10 @@ import {
 } from "../models/models_0";
 import { ServiceCatalogServiceException as __BaseException } from "../models/ServiceCatalogServiceException";
 
-export const serializeAws_json1_1AcceptPortfolioShareCommand = async (
+/**
+ * serializeAws_json1_1AcceptPortfolioShareCommand
+ */
+export const se_AcceptPortfolioShareCommand = async (
   input: AcceptPortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -571,11 +574,14 @@ export const serializeAws_json1_1AcceptPortfolioShareCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.AcceptPortfolioShare",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AcceptPortfolioShareInput(input, context));
+  body = JSON.stringify(se_AcceptPortfolioShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateBudgetWithResourceCommand = async (
+/**
+ * serializeAws_json1_1AssociateBudgetWithResourceCommand
+ */
+export const se_AssociateBudgetWithResourceCommand = async (
   input: AssociateBudgetWithResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -584,11 +590,14 @@ export const serializeAws_json1_1AssociateBudgetWithResourceCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.AssociateBudgetWithResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateBudgetWithResourceInput(input, context));
+  body = JSON.stringify(se_AssociateBudgetWithResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociatePrincipalWithPortfolioCommand = async (
+/**
+ * serializeAws_json1_1AssociatePrincipalWithPortfolioCommand
+ */
+export const se_AssociatePrincipalWithPortfolioCommand = async (
   input: AssociatePrincipalWithPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -597,11 +606,14 @@ export const serializeAws_json1_1AssociatePrincipalWithPortfolioCommand = async 
     "x-amz-target": "AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociatePrincipalWithPortfolioInput(input, context));
+  body = JSON.stringify(se_AssociatePrincipalWithPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateProductWithPortfolioCommand = async (
+/**
+ * serializeAws_json1_1AssociateProductWithPortfolioCommand
+ */
+export const se_AssociateProductWithPortfolioCommand = async (
   input: AssociateProductWithPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -610,11 +622,14 @@ export const serializeAws_json1_1AssociateProductWithPortfolioCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.AssociateProductWithPortfolio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateProductWithPortfolioInput(input, context));
+  body = JSON.stringify(se_AssociateProductWithPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand = async (
+/**
+ * serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand
+ */
+export const se_AssociateServiceActionWithProvisioningArtifactCommand = async (
   input: AssociateServiceActionWithProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -623,11 +638,14 @@ export const serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactC
     "x-amz-target": "AWS242ServiceCatalogService.AssociateServiceActionWithProvisioningArtifact",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput(input, context));
+  body = JSON.stringify(se_AssociateServiceActionWithProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateTagOptionWithResourceCommand = async (
+/**
+ * serializeAws_json1_1AssociateTagOptionWithResourceCommand
+ */
+export const se_AssociateTagOptionWithResourceCommand = async (
   input: AssociateTagOptionWithResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -636,11 +654,14 @@ export const serializeAws_json1_1AssociateTagOptionWithResourceCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.AssociateTagOptionWithResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateTagOptionWithResourceInput(input, context));
+  body = JSON.stringify(se_AssociateTagOptionWithResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand = async (
+/**
+ * serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand
+ */
+export const se_BatchAssociateServiceActionWithProvisioningArtifactCommand = async (
   input: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -649,11 +670,14 @@ export const serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArti
     "x-amz-target": "AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactInput(input, context));
+  body = JSON.stringify(se_BatchAssociateServiceActionWithProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand = async (
+/**
+ * serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand
+ */
+export const se_BatchDisassociateServiceActionFromProvisioningArtifactCommand = async (
   input: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -662,13 +686,14 @@ export const serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningA
     "x-amz-target": "AWS242ServiceCatalogService.BatchDisassociateServiceActionFromProvisioningArtifact",
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactInput(input, context)
-  );
+  body = JSON.stringify(se_BatchDisassociateServiceActionFromProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CopyProductCommand = async (
+/**
+ * serializeAws_json1_1CopyProductCommand
+ */
+export const se_CopyProductCommand = async (
   input: CopyProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -677,11 +702,14 @@ export const serializeAws_json1_1CopyProductCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.CopyProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CopyProductInput(input, context));
+  body = JSON.stringify(se_CopyProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateConstraintCommand = async (
+/**
+ * serializeAws_json1_1CreateConstraintCommand
+ */
+export const se_CreateConstraintCommand = async (
   input: CreateConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -690,11 +718,14 @@ export const serializeAws_json1_1CreateConstraintCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.CreateConstraint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateConstraintInput(input, context));
+  body = JSON.stringify(se_CreateConstraintInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreatePortfolioCommand = async (
+/**
+ * serializeAws_json1_1CreatePortfolioCommand
+ */
+export const se_CreatePortfolioCommand = async (
   input: CreatePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -703,11 +734,14 @@ export const serializeAws_json1_1CreatePortfolioCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.CreatePortfolio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreatePortfolioInput(input, context));
+  body = JSON.stringify(se_CreatePortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreatePortfolioShareCommand = async (
+/**
+ * serializeAws_json1_1CreatePortfolioShareCommand
+ */
+export const se_CreatePortfolioShareCommand = async (
   input: CreatePortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -716,11 +750,14 @@ export const serializeAws_json1_1CreatePortfolioShareCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.CreatePortfolioShare",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreatePortfolioShareInput(input, context));
+  body = JSON.stringify(se_CreatePortfolioShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateProductCommand = async (
+/**
+ * serializeAws_json1_1CreateProductCommand
+ */
+export const se_CreateProductCommand = async (
   input: CreateProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -729,11 +766,14 @@ export const serializeAws_json1_1CreateProductCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.CreateProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateProductInput(input, context));
+  body = JSON.stringify(se_CreateProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateProvisionedProductPlanCommand = async (
+/**
+ * serializeAws_json1_1CreateProvisionedProductPlanCommand
+ */
+export const se_CreateProvisionedProductPlanCommand = async (
   input: CreateProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -742,11 +782,14 @@ export const serializeAws_json1_1CreateProvisionedProductPlanCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.CreateProvisionedProductPlan",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateProvisionedProductPlanInput(input, context));
+  body = JSON.stringify(se_CreateProvisionedProductPlanInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateProvisioningArtifactCommand = async (
+/**
+ * serializeAws_json1_1CreateProvisioningArtifactCommand
+ */
+export const se_CreateProvisioningArtifactCommand = async (
   input: CreateProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -755,11 +798,14 @@ export const serializeAws_json1_1CreateProvisioningArtifactCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.CreateProvisioningArtifact",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateProvisioningArtifactInput(input, context));
+  body = JSON.stringify(se_CreateProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateServiceActionCommand = async (
+/**
+ * serializeAws_json1_1CreateServiceActionCommand
+ */
+export const se_CreateServiceActionCommand = async (
   input: CreateServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -768,11 +814,14 @@ export const serializeAws_json1_1CreateServiceActionCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.CreateServiceAction",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateServiceActionInput(input, context));
+  body = JSON.stringify(se_CreateServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateTagOptionCommand = async (
+/**
+ * serializeAws_json1_1CreateTagOptionCommand
+ */
+export const se_CreateTagOptionCommand = async (
   input: CreateTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -781,11 +830,14 @@ export const serializeAws_json1_1CreateTagOptionCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.CreateTagOption",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateTagOptionInput(input, context));
+  body = JSON.stringify(se_CreateTagOptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteConstraintCommand = async (
+/**
+ * serializeAws_json1_1DeleteConstraintCommand
+ */
+export const se_DeleteConstraintCommand = async (
   input: DeleteConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -794,11 +846,14 @@ export const serializeAws_json1_1DeleteConstraintCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DeleteConstraint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteConstraintInput(input, context));
+  body = JSON.stringify(se_DeleteConstraintInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeletePortfolioCommand = async (
+/**
+ * serializeAws_json1_1DeletePortfolioCommand
+ */
+export const se_DeletePortfolioCommand = async (
   input: DeletePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -807,11 +862,14 @@ export const serializeAws_json1_1DeletePortfolioCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DeletePortfolio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeletePortfolioInput(input, context));
+  body = JSON.stringify(se_DeletePortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeletePortfolioShareCommand = async (
+/**
+ * serializeAws_json1_1DeletePortfolioShareCommand
+ */
+export const se_DeletePortfolioShareCommand = async (
   input: DeletePortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -820,11 +878,14 @@ export const serializeAws_json1_1DeletePortfolioShareCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DeletePortfolioShare",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeletePortfolioShareInput(input, context));
+  body = JSON.stringify(se_DeletePortfolioShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteProductCommand = async (
+/**
+ * serializeAws_json1_1DeleteProductCommand
+ */
+export const se_DeleteProductCommand = async (
   input: DeleteProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -833,11 +894,14 @@ export const serializeAws_json1_1DeleteProductCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DeleteProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteProductInput(input, context));
+  body = JSON.stringify(se_DeleteProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteProvisionedProductPlanCommand = async (
+/**
+ * serializeAws_json1_1DeleteProvisionedProductPlanCommand
+ */
+export const se_DeleteProvisionedProductPlanCommand = async (
   input: DeleteProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -846,11 +910,14 @@ export const serializeAws_json1_1DeleteProvisionedProductPlanCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DeleteProvisionedProductPlan",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteProvisionedProductPlanInput(input, context));
+  body = JSON.stringify(se_DeleteProvisionedProductPlanInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteProvisioningArtifactCommand = async (
+/**
+ * serializeAws_json1_1DeleteProvisioningArtifactCommand
+ */
+export const se_DeleteProvisioningArtifactCommand = async (
   input: DeleteProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -859,11 +926,14 @@ export const serializeAws_json1_1DeleteProvisioningArtifactCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DeleteProvisioningArtifact",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteProvisioningArtifactInput(input, context));
+  body = JSON.stringify(se_DeleteProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteServiceActionCommand = async (
+/**
+ * serializeAws_json1_1DeleteServiceActionCommand
+ */
+export const se_DeleteServiceActionCommand = async (
   input: DeleteServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -872,11 +942,14 @@ export const serializeAws_json1_1DeleteServiceActionCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DeleteServiceAction",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteServiceActionInput(input, context));
+  body = JSON.stringify(se_DeleteServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteTagOptionCommand = async (
+/**
+ * serializeAws_json1_1DeleteTagOptionCommand
+ */
+export const se_DeleteTagOptionCommand = async (
   input: DeleteTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -885,11 +958,14 @@ export const serializeAws_json1_1DeleteTagOptionCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DeleteTagOption",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteTagOptionInput(input, context));
+  body = JSON.stringify(se_DeleteTagOptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeConstraintCommand = async (
+/**
+ * serializeAws_json1_1DescribeConstraintCommand
+ */
+export const se_DescribeConstraintCommand = async (
   input: DescribeConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -898,11 +974,14 @@ export const serializeAws_json1_1DescribeConstraintCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeConstraint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeConstraintInput(input, context));
+  body = JSON.stringify(se_DescribeConstraintInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCopyProductStatusCommand = async (
+/**
+ * serializeAws_json1_1DescribeCopyProductStatusCommand
+ */
+export const se_DescribeCopyProductStatusCommand = async (
   input: DescribeCopyProductStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -911,11 +990,14 @@ export const serializeAws_json1_1DescribeCopyProductStatusCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeCopyProductStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCopyProductStatusInput(input, context));
+  body = JSON.stringify(se_DescribeCopyProductStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribePortfolioCommand = async (
+/**
+ * serializeAws_json1_1DescribePortfolioCommand
+ */
+export const se_DescribePortfolioCommand = async (
   input: DescribePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -924,11 +1006,14 @@ export const serializeAws_json1_1DescribePortfolioCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribePortfolio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribePortfolioInput(input, context));
+  body = JSON.stringify(se_DescribePortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribePortfolioSharesCommand = async (
+/**
+ * serializeAws_json1_1DescribePortfolioSharesCommand
+ */
+export const se_DescribePortfolioSharesCommand = async (
   input: DescribePortfolioSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -937,11 +1022,14 @@ export const serializeAws_json1_1DescribePortfolioSharesCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribePortfolioShares",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribePortfolioSharesInput(input, context));
+  body = JSON.stringify(se_DescribePortfolioSharesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribePortfolioShareStatusCommand = async (
+/**
+ * serializeAws_json1_1DescribePortfolioShareStatusCommand
+ */
+export const se_DescribePortfolioShareStatusCommand = async (
   input: DescribePortfolioShareStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -950,11 +1038,14 @@ export const serializeAws_json1_1DescribePortfolioShareStatusCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribePortfolioShareStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribePortfolioShareStatusInput(input, context));
+  body = JSON.stringify(se_DescribePortfolioShareStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProductCommand = async (
+/**
+ * serializeAws_json1_1DescribeProductCommand
+ */
+export const se_DescribeProductCommand = async (
   input: DescribeProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -963,11 +1054,14 @@ export const serializeAws_json1_1DescribeProductCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeProductInput(input, context));
+  body = JSON.stringify(se_DescribeProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProductAsAdminCommand = async (
+/**
+ * serializeAws_json1_1DescribeProductAsAdminCommand
+ */
+export const se_DescribeProductAsAdminCommand = async (
   input: DescribeProductAsAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -976,11 +1070,14 @@ export const serializeAws_json1_1DescribeProductAsAdminCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeProductAsAdmin",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeProductAsAdminInput(input, context));
+  body = JSON.stringify(se_DescribeProductAsAdminInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProductViewCommand = async (
+/**
+ * serializeAws_json1_1DescribeProductViewCommand
+ */
+export const se_DescribeProductViewCommand = async (
   input: DescribeProductViewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -989,11 +1086,14 @@ export const serializeAws_json1_1DescribeProductViewCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeProductView",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeProductViewInput(input, context));
+  body = JSON.stringify(se_DescribeProductViewInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProvisionedProductCommand = async (
+/**
+ * serializeAws_json1_1DescribeProvisionedProductCommand
+ */
+export const se_DescribeProvisionedProductCommand = async (
   input: DescribeProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1002,11 +1102,14 @@ export const serializeAws_json1_1DescribeProvisionedProductCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisionedProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeProvisionedProductInput(input, context));
+  body = JSON.stringify(se_DescribeProvisionedProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProvisionedProductPlanCommand = async (
+/**
+ * serializeAws_json1_1DescribeProvisionedProductPlanCommand
+ */
+export const se_DescribeProvisionedProductPlanCommand = async (
   input: DescribeProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1015,11 +1118,14 @@ export const serializeAws_json1_1DescribeProvisionedProductPlanCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisionedProductPlan",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeProvisionedProductPlanInput(input, context));
+  body = JSON.stringify(se_DescribeProvisionedProductPlanInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProvisioningArtifactCommand = async (
+/**
+ * serializeAws_json1_1DescribeProvisioningArtifactCommand
+ */
+export const se_DescribeProvisioningArtifactCommand = async (
   input: DescribeProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1028,11 +1134,14 @@ export const serializeAws_json1_1DescribeProvisioningArtifactCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisioningArtifact",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeProvisioningArtifactInput(input, context));
+  body = JSON.stringify(se_DescribeProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeProvisioningParametersCommand = async (
+/**
+ * serializeAws_json1_1DescribeProvisioningParametersCommand
+ */
+export const se_DescribeProvisioningParametersCommand = async (
   input: DescribeProvisioningParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1041,11 +1150,14 @@ export const serializeAws_json1_1DescribeProvisioningParametersCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisioningParameters",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeProvisioningParametersInput(input, context));
+  body = JSON.stringify(se_DescribeProvisioningParametersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeRecordCommand = async (
+/**
+ * serializeAws_json1_1DescribeRecordCommand
+ */
+export const se_DescribeRecordCommand = async (
   input: DescribeRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1054,11 +1166,14 @@ export const serializeAws_json1_1DescribeRecordCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeRecord",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeRecordInput(input, context));
+  body = JSON.stringify(se_DescribeRecordInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeServiceActionCommand = async (
+/**
+ * serializeAws_json1_1DescribeServiceActionCommand
+ */
+export const se_DescribeServiceActionCommand = async (
   input: DescribeServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1067,11 +1182,14 @@ export const serializeAws_json1_1DescribeServiceActionCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeServiceAction",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeServiceActionInput(input, context));
+  body = JSON.stringify(se_DescribeServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeServiceActionExecutionParametersCommand = async (
+/**
+ * serializeAws_json1_1DescribeServiceActionExecutionParametersCommand
+ */
+export const se_DescribeServiceActionExecutionParametersCommand = async (
   input: DescribeServiceActionExecutionParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1080,11 +1198,14 @@ export const serializeAws_json1_1DescribeServiceActionExecutionParametersCommand
     "x-amz-target": "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeServiceActionExecutionParametersInput(input, context));
+  body = JSON.stringify(se_DescribeServiceActionExecutionParametersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeTagOptionCommand = async (
+/**
+ * serializeAws_json1_1DescribeTagOptionCommand
+ */
+export const se_DescribeTagOptionCommand = async (
   input: DescribeTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1093,11 +1214,14 @@ export const serializeAws_json1_1DescribeTagOptionCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DescribeTagOption",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeTagOptionInput(input, context));
+  body = JSON.stringify(se_DescribeTagOptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisableAWSOrganizationsAccessCommand = async (
+/**
+ * serializeAws_json1_1DisableAWSOrganizationsAccessCommand
+ */
+export const se_DisableAWSOrganizationsAccessCommand = async (
   input: DisableAWSOrganizationsAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1106,11 +1230,14 @@ export const serializeAws_json1_1DisableAWSOrganizationsAccessCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisableAWSOrganizationsAccessInput(input, context));
+  body = JSON.stringify(se_DisableAWSOrganizationsAccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateBudgetFromResourceCommand = async (
+/**
+ * serializeAws_json1_1DisassociateBudgetFromResourceCommand
+ */
+export const se_DisassociateBudgetFromResourceCommand = async (
   input: DisassociateBudgetFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1119,11 +1246,14 @@ export const serializeAws_json1_1DisassociateBudgetFromResourceCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.DisassociateBudgetFromResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateBudgetFromResourceInput(input, context));
+  body = JSON.stringify(se_DisassociateBudgetFromResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand = async (
+/**
+ * serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand
+ */
+export const se_DisassociatePrincipalFromPortfolioCommand = async (
   input: DisassociatePrincipalFromPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1132,11 +1262,14 @@ export const serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand = asy
     "x-amz-target": "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociatePrincipalFromPortfolioInput(input, context));
+  body = JSON.stringify(se_DisassociatePrincipalFromPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateProductFromPortfolioCommand = async (
+/**
+ * serializeAws_json1_1DisassociateProductFromPortfolioCommand
+ */
+export const se_DisassociateProductFromPortfolioCommand = async (
   input: DisassociateProductFromPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1145,11 +1278,14 @@ export const serializeAws_json1_1DisassociateProductFromPortfolioCommand = async
     "x-amz-target": "AWS242ServiceCatalogService.DisassociateProductFromPortfolio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateProductFromPortfolioInput(input, context));
+  body = JSON.stringify(se_DisassociateProductFromPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand = async (
+/**
+ * serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand
+ */
+export const se_DisassociateServiceActionFromProvisioningArtifactCommand = async (
   input: DisassociateServiceActionFromProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1158,11 +1294,14 @@ export const serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifa
     "x-amz-target": "AWS242ServiceCatalogService.DisassociateServiceActionFromProvisioningArtifact",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput(input, context));
+  body = JSON.stringify(se_DisassociateServiceActionFromProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateTagOptionFromResourceCommand = async (
+/**
+ * serializeAws_json1_1DisassociateTagOptionFromResourceCommand
+ */
+export const se_DisassociateTagOptionFromResourceCommand = async (
   input: DisassociateTagOptionFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1171,11 +1310,14 @@ export const serializeAws_json1_1DisassociateTagOptionFromResourceCommand = asyn
     "x-amz-target": "AWS242ServiceCatalogService.DisassociateTagOptionFromResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateTagOptionFromResourceInput(input, context));
+  body = JSON.stringify(se_DisassociateTagOptionFromResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1EnableAWSOrganizationsAccessCommand = async (
+/**
+ * serializeAws_json1_1EnableAWSOrganizationsAccessCommand
+ */
+export const se_EnableAWSOrganizationsAccessCommand = async (
   input: EnableAWSOrganizationsAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1184,11 +1326,14 @@ export const serializeAws_json1_1EnableAWSOrganizationsAccessCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1EnableAWSOrganizationsAccessInput(input, context));
+  body = JSON.stringify(se_EnableAWSOrganizationsAccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ExecuteProvisionedProductPlanCommand = async (
+/**
+ * serializeAws_json1_1ExecuteProvisionedProductPlanCommand
+ */
+export const se_ExecuteProvisionedProductPlanCommand = async (
   input: ExecuteProvisionedProductPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1197,11 +1342,14 @@ export const serializeAws_json1_1ExecuteProvisionedProductPlanCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ExecuteProvisionedProductPlanInput(input, context));
+  body = JSON.stringify(se_ExecuteProvisionedProductPlanInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand = async (
+/**
+ * serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand
+ */
+export const se_ExecuteProvisionedProductServiceActionCommand = async (
   input: ExecuteProvisionedProductServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1210,11 +1358,14 @@ export const serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand =
     "x-amz-target": "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ExecuteProvisionedProductServiceActionInput(input, context));
+  body = JSON.stringify(se_ExecuteProvisionedProductServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand = async (
+/**
+ * serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand
+ */
+export const se_GetAWSOrganizationsAccessStatusCommand = async (
   input: GetAWSOrganizationsAccessStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1223,11 +1374,14 @@ export const serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand = async 
     "x-amz-target": "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAWSOrganizationsAccessStatusInput(input, context));
+  body = JSON.stringify(se_GetAWSOrganizationsAccessStatusInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetProvisionedProductOutputsCommand = async (
+/**
+ * serializeAws_json1_1GetProvisionedProductOutputsCommand
+ */
+export const se_GetProvisionedProductOutputsCommand = async (
   input: GetProvisionedProductOutputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1236,11 +1390,14 @@ export const serializeAws_json1_1GetProvisionedProductOutputsCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.GetProvisionedProductOutputs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetProvisionedProductOutputsInput(input, context));
+  body = JSON.stringify(se_GetProvisionedProductOutputsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ImportAsProvisionedProductCommand = async (
+/**
+ * serializeAws_json1_1ImportAsProvisionedProductCommand
+ */
+export const se_ImportAsProvisionedProductCommand = async (
   input: ImportAsProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1249,11 +1406,14 @@ export const serializeAws_json1_1ImportAsProvisionedProductCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ImportAsProvisionedProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ImportAsProvisionedProductInput(input, context));
+  body = JSON.stringify(se_ImportAsProvisionedProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAcceptedPortfolioSharesCommand = async (
+/**
+ * serializeAws_json1_1ListAcceptedPortfolioSharesCommand
+ */
+export const se_ListAcceptedPortfolioSharesCommand = async (
   input: ListAcceptedPortfolioSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1262,11 +1422,14 @@ export const serializeAws_json1_1ListAcceptedPortfolioSharesCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListAcceptedPortfolioShares",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAcceptedPortfolioSharesInput(input, context));
+  body = JSON.stringify(se_ListAcceptedPortfolioSharesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListBudgetsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListBudgetsForResourceCommand
+ */
+export const se_ListBudgetsForResourceCommand = async (
   input: ListBudgetsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1275,11 +1438,14 @@ export const serializeAws_json1_1ListBudgetsForResourceCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListBudgetsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListBudgetsForResourceInput(input, context));
+  body = JSON.stringify(se_ListBudgetsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListConstraintsForPortfolioCommand = async (
+/**
+ * serializeAws_json1_1ListConstraintsForPortfolioCommand
+ */
+export const se_ListConstraintsForPortfolioCommand = async (
   input: ListConstraintsForPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1288,11 +1454,14 @@ export const serializeAws_json1_1ListConstraintsForPortfolioCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListConstraintsForPortfolio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListConstraintsForPortfolioInput(input, context));
+  body = JSON.stringify(se_ListConstraintsForPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLaunchPathsCommand = async (
+/**
+ * serializeAws_json1_1ListLaunchPathsCommand
+ */
+export const se_ListLaunchPathsCommand = async (
   input: ListLaunchPathsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1301,11 +1470,14 @@ export const serializeAws_json1_1ListLaunchPathsCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListLaunchPaths",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListLaunchPathsInput(input, context));
+  body = JSON.stringify(se_ListLaunchPathsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListOrganizationPortfolioAccessCommand = async (
+/**
+ * serializeAws_json1_1ListOrganizationPortfolioAccessCommand
+ */
+export const se_ListOrganizationPortfolioAccessCommand = async (
   input: ListOrganizationPortfolioAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1314,11 +1486,14 @@ export const serializeAws_json1_1ListOrganizationPortfolioAccessCommand = async 
     "x-amz-target": "AWS242ServiceCatalogService.ListOrganizationPortfolioAccess",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListOrganizationPortfolioAccessInput(input, context));
+  body = JSON.stringify(se_ListOrganizationPortfolioAccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPortfolioAccessCommand = async (
+/**
+ * serializeAws_json1_1ListPortfolioAccessCommand
+ */
+export const se_ListPortfolioAccessCommand = async (
   input: ListPortfolioAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1327,11 +1502,14 @@ export const serializeAws_json1_1ListPortfolioAccessCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListPortfolioAccess",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPortfolioAccessInput(input, context));
+  body = JSON.stringify(se_ListPortfolioAccessInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPortfoliosCommand = async (
+/**
+ * serializeAws_json1_1ListPortfoliosCommand
+ */
+export const se_ListPortfoliosCommand = async (
   input: ListPortfoliosCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1340,11 +1518,14 @@ export const serializeAws_json1_1ListPortfoliosCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListPortfolios",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPortfoliosInput(input, context));
+  body = JSON.stringify(se_ListPortfoliosInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPortfoliosForProductCommand = async (
+/**
+ * serializeAws_json1_1ListPortfoliosForProductCommand
+ */
+export const se_ListPortfoliosForProductCommand = async (
   input: ListPortfoliosForProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1353,11 +1534,14 @@ export const serializeAws_json1_1ListPortfoliosForProductCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListPortfoliosForProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPortfoliosForProductInput(input, context));
+  body = JSON.stringify(se_ListPortfoliosForProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPrincipalsForPortfolioCommand = async (
+/**
+ * serializeAws_json1_1ListPrincipalsForPortfolioCommand
+ */
+export const se_ListPrincipalsForPortfolioCommand = async (
   input: ListPrincipalsForPortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1366,11 +1550,14 @@ export const serializeAws_json1_1ListPrincipalsForPortfolioCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListPrincipalsForPortfolio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPrincipalsForPortfolioInput(input, context));
+  body = JSON.stringify(se_ListPrincipalsForPortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListProvisionedProductPlansCommand = async (
+/**
+ * serializeAws_json1_1ListProvisionedProductPlansCommand
+ */
+export const se_ListProvisionedProductPlansCommand = async (
   input: ListProvisionedProductPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1379,11 +1566,14 @@ export const serializeAws_json1_1ListProvisionedProductPlansCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListProvisionedProductPlans",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListProvisionedProductPlansInput(input, context));
+  body = JSON.stringify(se_ListProvisionedProductPlansInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListProvisioningArtifactsCommand = async (
+/**
+ * serializeAws_json1_1ListProvisioningArtifactsCommand
+ */
+export const se_ListProvisioningArtifactsCommand = async (
   input: ListProvisioningArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1392,11 +1582,14 @@ export const serializeAws_json1_1ListProvisioningArtifactsCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListProvisioningArtifacts",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListProvisioningArtifactsInput(input, context));
+  body = JSON.stringify(se_ListProvisioningArtifactsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand = async (
+/**
+ * serializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand
+ */
+export const se_ListProvisioningArtifactsForServiceActionCommand = async (
   input: ListProvisioningArtifactsForServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1405,11 +1598,14 @@ export const serializeAws_json1_1ListProvisioningArtifactsForServiceActionComman
     "x-amz-target": "AWS242ServiceCatalogService.ListProvisioningArtifactsForServiceAction",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput(input, context));
+  body = JSON.stringify(se_ListProvisioningArtifactsForServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListRecordHistoryCommand = async (
+/**
+ * serializeAws_json1_1ListRecordHistoryCommand
+ */
+export const se_ListRecordHistoryCommand = async (
   input: ListRecordHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1418,11 +1614,14 @@ export const serializeAws_json1_1ListRecordHistoryCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListRecordHistory",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListRecordHistoryInput(input, context));
+  body = JSON.stringify(se_ListRecordHistoryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResourcesForTagOptionCommand = async (
+/**
+ * serializeAws_json1_1ListResourcesForTagOptionCommand
+ */
+export const se_ListResourcesForTagOptionCommand = async (
   input: ListResourcesForTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1431,11 +1630,14 @@ export const serializeAws_json1_1ListResourcesForTagOptionCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListResourcesForTagOption",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResourcesForTagOptionInput(input, context));
+  body = JSON.stringify(se_ListResourcesForTagOptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListServiceActionsCommand = async (
+/**
+ * serializeAws_json1_1ListServiceActionsCommand
+ */
+export const se_ListServiceActionsCommand = async (
   input: ListServiceActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1444,11 +1646,14 @@ export const serializeAws_json1_1ListServiceActionsCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListServiceActions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListServiceActionsInput(input, context));
+  body = JSON.stringify(se_ListServiceActionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand = async (
+/**
+ * serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand
+ */
+export const se_ListServiceActionsForProvisioningArtifactCommand = async (
   input: ListServiceActionsForProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1457,11 +1662,14 @@ export const serializeAws_json1_1ListServiceActionsForProvisioningArtifactComman
     "x-amz-target": "AWS242ServiceCatalogService.ListServiceActionsForProvisioningArtifact",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput(input, context));
+  body = JSON.stringify(se_ListServiceActionsForProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListStackInstancesForProvisionedProductCommand = async (
+/**
+ * serializeAws_json1_1ListStackInstancesForProvisionedProductCommand
+ */
+export const se_ListStackInstancesForProvisionedProductCommand = async (
   input: ListStackInstancesForProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1470,11 +1678,14 @@ export const serializeAws_json1_1ListStackInstancesForProvisionedProductCommand 
     "x-amz-target": "AWS242ServiceCatalogService.ListStackInstancesForProvisionedProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListStackInstancesForProvisionedProductInput(input, context));
+  body = JSON.stringify(se_ListStackInstancesForProvisionedProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagOptionsCommand = async (
+/**
+ * serializeAws_json1_1ListTagOptionsCommand
+ */
+export const se_ListTagOptionsCommand = async (
   input: ListTagOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1483,11 +1694,14 @@ export const serializeAws_json1_1ListTagOptionsCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ListTagOptions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagOptionsInput(input, context));
+  body = JSON.stringify(se_ListTagOptionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommand = async (
+/**
+ * serializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommand
+ */
+export const se_NotifyProvisionProductEngineWorkflowResultCommand = async (
   input: NotifyProvisionProductEngineWorkflowResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1496,11 +1710,14 @@ export const serializeAws_json1_1NotifyProvisionProductEngineWorkflowResultComma
     "x-amz-target": "AWS242ServiceCatalogService.NotifyProvisionProductEngineWorkflowResult",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1NotifyProvisionProductEngineWorkflowResultInput(input, context));
+  body = JSON.stringify(se_NotifyProvisionProductEngineWorkflowResultInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand = async (
+/**
+ * serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand
+ */
+export const se_NotifyTerminateProvisionedProductEngineWorkflowResultCommand = async (
   input: NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1509,11 +1726,14 @@ export const serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflow
     "x-amz-target": "AWS242ServiceCatalogService.NotifyTerminateProvisionedProductEngineWorkflowResult",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultInput(input, context));
+  body = JSON.stringify(se_NotifyTerminateProvisionedProductEngineWorkflowResultInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommand = async (
+/**
+ * serializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommand
+ */
+export const se_NotifyUpdateProvisionedProductEngineWorkflowResultCommand = async (
   input: NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1522,11 +1742,14 @@ export const serializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowRes
     "x-amz-target": "AWS242ServiceCatalogService.NotifyUpdateProvisionedProductEngineWorkflowResult",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultInput(input, context));
+  body = JSON.stringify(se_NotifyUpdateProvisionedProductEngineWorkflowResultInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ProvisionProductCommand = async (
+/**
+ * serializeAws_json1_1ProvisionProductCommand
+ */
+export const se_ProvisionProductCommand = async (
   input: ProvisionProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1535,11 +1758,14 @@ export const serializeAws_json1_1ProvisionProductCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ProvisionProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ProvisionProductInput(input, context));
+  body = JSON.stringify(se_ProvisionProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RejectPortfolioShareCommand = async (
+/**
+ * serializeAws_json1_1RejectPortfolioShareCommand
+ */
+export const se_RejectPortfolioShareCommand = async (
   input: RejectPortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1548,11 +1774,14 @@ export const serializeAws_json1_1RejectPortfolioShareCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.RejectPortfolioShare",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RejectPortfolioShareInput(input, context));
+  body = JSON.stringify(se_RejectPortfolioShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ScanProvisionedProductsCommand = async (
+/**
+ * serializeAws_json1_1ScanProvisionedProductsCommand
+ */
+export const se_ScanProvisionedProductsCommand = async (
   input: ScanProvisionedProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1561,11 +1790,14 @@ export const serializeAws_json1_1ScanProvisionedProductsCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.ScanProvisionedProducts",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ScanProvisionedProductsInput(input, context));
+  body = JSON.stringify(se_ScanProvisionedProductsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SearchProductsCommand = async (
+/**
+ * serializeAws_json1_1SearchProductsCommand
+ */
+export const se_SearchProductsCommand = async (
   input: SearchProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1574,11 +1806,14 @@ export const serializeAws_json1_1SearchProductsCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.SearchProducts",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SearchProductsInput(input, context));
+  body = JSON.stringify(se_SearchProductsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SearchProductsAsAdminCommand = async (
+/**
+ * serializeAws_json1_1SearchProductsAsAdminCommand
+ */
+export const se_SearchProductsAsAdminCommand = async (
   input: SearchProductsAsAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1587,11 +1822,14 @@ export const serializeAws_json1_1SearchProductsAsAdminCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.SearchProductsAsAdmin",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SearchProductsAsAdminInput(input, context));
+  body = JSON.stringify(se_SearchProductsAsAdminInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1SearchProvisionedProductsCommand = async (
+/**
+ * serializeAws_json1_1SearchProvisionedProductsCommand
+ */
+export const se_SearchProvisionedProductsCommand = async (
   input: SearchProvisionedProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1600,11 +1838,14 @@ export const serializeAws_json1_1SearchProvisionedProductsCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.SearchProvisionedProducts",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SearchProvisionedProductsInput(input, context));
+  body = JSON.stringify(se_SearchProvisionedProductsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TerminateProvisionedProductCommand = async (
+/**
+ * serializeAws_json1_1TerminateProvisionedProductCommand
+ */
+export const se_TerminateProvisionedProductCommand = async (
   input: TerminateProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1613,11 +1854,14 @@ export const serializeAws_json1_1TerminateProvisionedProductCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.TerminateProvisionedProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TerminateProvisionedProductInput(input, context));
+  body = JSON.stringify(se_TerminateProvisionedProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateConstraintCommand = async (
+/**
+ * serializeAws_json1_1UpdateConstraintCommand
+ */
+export const se_UpdateConstraintCommand = async (
   input: UpdateConstraintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1626,11 +1870,14 @@ export const serializeAws_json1_1UpdateConstraintCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.UpdateConstraint",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateConstraintInput(input, context));
+  body = JSON.stringify(se_UpdateConstraintInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePortfolioCommand = async (
+/**
+ * serializeAws_json1_1UpdatePortfolioCommand
+ */
+export const se_UpdatePortfolioCommand = async (
   input: UpdatePortfolioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1639,11 +1886,14 @@ export const serializeAws_json1_1UpdatePortfolioCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.UpdatePortfolio",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePortfolioInput(input, context));
+  body = JSON.stringify(se_UpdatePortfolioInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePortfolioShareCommand = async (
+/**
+ * serializeAws_json1_1UpdatePortfolioShareCommand
+ */
+export const se_UpdatePortfolioShareCommand = async (
   input: UpdatePortfolioShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1652,11 +1902,14 @@ export const serializeAws_json1_1UpdatePortfolioShareCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.UpdatePortfolioShare",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePortfolioShareInput(input, context));
+  body = JSON.stringify(se_UpdatePortfolioShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateProductCommand = async (
+/**
+ * serializeAws_json1_1UpdateProductCommand
+ */
+export const se_UpdateProductCommand = async (
   input: UpdateProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1665,11 +1918,14 @@ export const serializeAws_json1_1UpdateProductCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.UpdateProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateProductInput(input, context));
+  body = JSON.stringify(se_UpdateProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateProvisionedProductCommand = async (
+/**
+ * serializeAws_json1_1UpdateProvisionedProductCommand
+ */
+export const se_UpdateProvisionedProductCommand = async (
   input: UpdateProvisionedProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1678,11 +1934,14 @@ export const serializeAws_json1_1UpdateProvisionedProductCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.UpdateProvisionedProduct",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateProvisionedProductInput(input, context));
+  body = JSON.stringify(se_UpdateProvisionedProductInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateProvisionedProductPropertiesCommand = async (
+/**
+ * serializeAws_json1_1UpdateProvisionedProductPropertiesCommand
+ */
+export const se_UpdateProvisionedProductPropertiesCommand = async (
   input: UpdateProvisionedProductPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1691,11 +1950,14 @@ export const serializeAws_json1_1UpdateProvisionedProductPropertiesCommand = asy
     "x-amz-target": "AWS242ServiceCatalogService.UpdateProvisionedProductProperties",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateProvisionedProductPropertiesInput(input, context));
+  body = JSON.stringify(se_UpdateProvisionedProductPropertiesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateProvisioningArtifactCommand = async (
+/**
+ * serializeAws_json1_1UpdateProvisioningArtifactCommand
+ */
+export const se_UpdateProvisioningArtifactCommand = async (
   input: UpdateProvisioningArtifactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1704,11 +1966,14 @@ export const serializeAws_json1_1UpdateProvisioningArtifactCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.UpdateProvisioningArtifact",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateProvisioningArtifactInput(input, context));
+  body = JSON.stringify(se_UpdateProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateServiceActionCommand = async (
+/**
+ * serializeAws_json1_1UpdateServiceActionCommand
+ */
+export const se_UpdateServiceActionCommand = async (
   input: UpdateServiceActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1717,11 +1982,14 @@ export const serializeAws_json1_1UpdateServiceActionCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.UpdateServiceAction",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateServiceActionInput(input, context));
+  body = JSON.stringify(se_UpdateServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateTagOptionCommand = async (
+/**
+ * serializeAws_json1_1UpdateTagOptionCommand
+ */
+export const se_UpdateTagOptionCommand = async (
   input: UpdateTagOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1730,20 +1998,23 @@ export const serializeAws_json1_1UpdateTagOptionCommand = async (
     "x-amz-target": "AWS242ServiceCatalogService.UpdateTagOption",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateTagOptionInput(input, context));
+  body = JSON.stringify(se_UpdateTagOptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AcceptPortfolioShareCommand = async (
+/**
+ * deserializeAws_json1_1AcceptPortfolioShareCommand
+ */
+export const de_AcceptPortfolioShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptPortfolioShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AcceptPortfolioShareCommandError(output, context);
+    return de_AcceptPortfolioShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AcceptPortfolioShareOutput(data, context);
+  contents = de_AcceptPortfolioShareOutput(data, context);
   const response: AcceptPortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1751,7 +2022,10 @@ export const deserializeAws_json1_1AcceptPortfolioShareCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AcceptPortfolioShareCommandError = async (
+/**
+ * deserializeAws_json1_1AcceptPortfolioShareCommandError
+ */
+const de_AcceptPortfolioShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptPortfolioShareCommandOutput> => {
@@ -1763,13 +2037,13 @@ const deserializeAws_json1_1AcceptPortfolioShareCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1781,16 +2055,19 @@ const deserializeAws_json1_1AcceptPortfolioShareCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AssociateBudgetWithResourceCommand = async (
+/**
+ * deserializeAws_json1_1AssociateBudgetWithResourceCommand
+ */
+export const de_AssociateBudgetWithResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateBudgetWithResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateBudgetWithResourceCommandError(output, context);
+    return de_AssociateBudgetWithResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateBudgetWithResourceOutput(data, context);
+  contents = de_AssociateBudgetWithResourceOutput(data, context);
   const response: AssociateBudgetWithResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1798,7 +2075,10 @@ export const deserializeAws_json1_1AssociateBudgetWithResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateBudgetWithResourceCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateBudgetWithResourceCommandError
+ */
+const de_AssociateBudgetWithResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateBudgetWithResourceCommandOutput> => {
@@ -1810,16 +2090,16 @@ const deserializeAws_json1_1AssociateBudgetWithResourceCommandError = async (
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await deserializeAws_json1_1DuplicateResourceExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1831,16 +2111,19 @@ const deserializeAws_json1_1AssociateBudgetWithResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AssociatePrincipalWithPortfolioCommand = async (
+/**
+ * deserializeAws_json1_1AssociatePrincipalWithPortfolioCommand
+ */
+export const de_AssociatePrincipalWithPortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociatePrincipalWithPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError(output, context);
+    return de_AssociatePrincipalWithPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociatePrincipalWithPortfolioOutput(data, context);
+  contents = de_AssociatePrincipalWithPortfolioOutput(data, context);
   const response: AssociatePrincipalWithPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1848,7 +2131,10 @@ export const deserializeAws_json1_1AssociatePrincipalWithPortfolioCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError = async (
+/**
+ * deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError
+ */
+const de_AssociatePrincipalWithPortfolioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociatePrincipalWithPortfolioCommandOutput> => {
@@ -1860,13 +2146,13 @@ const deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError = async 
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1878,16 +2164,19 @@ const deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1AssociateProductWithPortfolioCommand = async (
+/**
+ * deserializeAws_json1_1AssociateProductWithPortfolioCommand
+ */
+export const de_AssociateProductWithPortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateProductWithPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateProductWithPortfolioCommandError(output, context);
+    return de_AssociateProductWithPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateProductWithPortfolioOutput(data, context);
+  contents = de_AssociateProductWithPortfolioOutput(data, context);
   const response: AssociateProductWithPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1895,7 +2184,10 @@ export const deserializeAws_json1_1AssociateProductWithPortfolioCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateProductWithPortfolioCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateProductWithPortfolioCommandError
+ */
+const de_AssociateProductWithPortfolioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateProductWithPortfolioCommandOutput> => {
@@ -1907,13 +2199,13 @@ const deserializeAws_json1_1AssociateProductWithPortfolioCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1925,16 +2217,19 @@ const deserializeAws_json1_1AssociateProductWithPortfolioCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand = async (
+/**
+ * deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand
+ */
+export const de_AssociateServiceActionWithProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommandError(output, context);
+    return de_AssociateServiceActionWithProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactOutput(data, context);
+  contents = de_AssociateServiceActionWithProvisioningArtifactOutput(data, context);
   const response: AssociateServiceActionWithProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1942,7 +2237,10 @@ export const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifac
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommandError
+ */
+const de_AssociateServiceActionWithProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> => {
@@ -1954,16 +2252,16 @@ const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactComman
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await deserializeAws_json1_1DuplicateResourceExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1975,16 +2273,19 @@ const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactComman
   }
 };
 
-export const deserializeAws_json1_1AssociateTagOptionWithResourceCommand = async (
+/**
+ * deserializeAws_json1_1AssociateTagOptionWithResourceCommand
+ */
+export const de_AssociateTagOptionWithResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateTagOptionWithResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateTagOptionWithResourceCommandError(output, context);
+    return de_AssociateTagOptionWithResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateTagOptionWithResourceOutput(data, context);
+  contents = de_AssociateTagOptionWithResourceOutput(data, context);
   const response: AssociateTagOptionWithResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1992,7 +2293,10 @@ export const deserializeAws_json1_1AssociateTagOptionWithResourceCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateTagOptionWithResourceCommandError
+ */
+const de_AssociateTagOptionWithResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateTagOptionWithResourceCommandOutput> => {
@@ -2004,22 +2308,22 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await deserializeAws_json1_1DuplicateResourceExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2031,16 +2335,19 @@ const deserializeAws_json1_1AssociateTagOptionWithResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand = async (
+/**
+ * deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand
+ */
+export const de_BatchAssociateServiceActionWithProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommandError(output, context);
+    return de_BatchAssociateServiceActionWithProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactOutput(data, context);
+  contents = de_BatchAssociateServiceActionWithProvisioningArtifactOutput(data, context);
   const response: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2048,7 +2355,10 @@ export const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningAr
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommandError = async (
+/**
+ * deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommandError
+ */
+const de_BatchAssociateServiceActionWithProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
@@ -2060,7 +2370,7 @@ const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactC
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2072,16 +2382,19 @@ const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactC
   }
 };
 
-export const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand = async (
+/**
+ * deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand
+ */
+export const de_BatchDisassociateServiceActionFromProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommandError(output, context);
+    return de_BatchDisassociateServiceActionFromProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactOutput(data, context);
+  contents = de_BatchDisassociateServiceActionFromProvisioningArtifactOutput(data, context);
   const response: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2089,7 +2402,10 @@ export const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisionin
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommandError = async (
+/**
+ * deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommandError
+ */
+const de_BatchDisassociateServiceActionFromProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
@@ -2101,7 +2417,7 @@ const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifa
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2113,16 +2429,19 @@ const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifa
   }
 };
 
-export const deserializeAws_json1_1CopyProductCommand = async (
+/**
+ * deserializeAws_json1_1CopyProductCommand
+ */
+export const de_CopyProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CopyProductCommandError(output, context);
+    return de_CopyProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CopyProductOutput(data, context);
+  contents = de_CopyProductOutput(data, context);
   const response: CopyProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2130,7 +2449,10 @@ export const deserializeAws_json1_1CopyProductCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CopyProductCommandError = async (
+/**
+ * deserializeAws_json1_1CopyProductCommandError
+ */
+const de_CopyProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyProductCommandOutput> => {
@@ -2142,10 +2464,10 @@ const deserializeAws_json1_1CopyProductCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2157,16 +2479,19 @@ const deserializeAws_json1_1CopyProductCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateConstraintCommand = async (
+/**
+ * deserializeAws_json1_1CreateConstraintCommand
+ */
+export const de_CreateConstraintCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConstraintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateConstraintCommandError(output, context);
+    return de_CreateConstraintCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateConstraintOutput(data, context);
+  contents = de_CreateConstraintOutput(data, context);
   const response: CreateConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2174,7 +2499,10 @@ export const deserializeAws_json1_1CreateConstraintCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateConstraintCommandError = async (
+/**
+ * deserializeAws_json1_1CreateConstraintCommandError
+ */
+const de_CreateConstraintCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConstraintCommandOutput> => {
@@ -2186,16 +2514,16 @@ const deserializeAws_json1_1CreateConstraintCommandError = async (
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await deserializeAws_json1_1DuplicateResourceExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2207,16 +2535,19 @@ const deserializeAws_json1_1CreateConstraintCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreatePortfolioCommand = async (
+/**
+ * deserializeAws_json1_1CreatePortfolioCommand
+ */
+export const de_CreatePortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreatePortfolioCommandError(output, context);
+    return de_CreatePortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePortfolioOutput(data, context);
+  contents = de_CreatePortfolioOutput(data, context);
   const response: CreatePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2224,7 +2555,10 @@ export const deserializeAws_json1_1CreatePortfolioCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreatePortfolioCommandError = async (
+/**
+ * deserializeAws_json1_1CreatePortfolioCommandError
+ */
+const de_CreatePortfolioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePortfolioCommandOutput> => {
@@ -2236,13 +2570,13 @@ const deserializeAws_json1_1CreatePortfolioCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2254,16 +2588,19 @@ const deserializeAws_json1_1CreatePortfolioCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreatePortfolioShareCommand = async (
+/**
+ * deserializeAws_json1_1CreatePortfolioShareCommand
+ */
+export const de_CreatePortfolioShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePortfolioShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreatePortfolioShareCommandError(output, context);
+    return de_CreatePortfolioShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePortfolioShareOutput(data, context);
+  contents = de_CreatePortfolioShareOutput(data, context);
   const response: CreatePortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2271,7 +2608,10 @@ export const deserializeAws_json1_1CreatePortfolioShareCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreatePortfolioShareCommandError = async (
+/**
+ * deserializeAws_json1_1CreatePortfolioShareCommandError
+ */
+const de_CreatePortfolioShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePortfolioShareCommandOutput> => {
@@ -2283,19 +2623,19 @@ const deserializeAws_json1_1CreatePortfolioShareCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotSupportedException":
     case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2307,16 +2647,19 @@ const deserializeAws_json1_1CreatePortfolioShareCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateProductCommand = async (
+/**
+ * deserializeAws_json1_1CreateProductCommand
+ */
+export const de_CreateProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateProductCommandError(output, context);
+    return de_CreateProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProductOutput(data, context);
+  contents = de_CreateProductOutput(data, context);
   const response: CreateProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2324,7 +2667,10 @@ export const deserializeAws_json1_1CreateProductCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateProductCommandError = async (
+/**
+ * deserializeAws_json1_1CreateProductCommandError
+ */
+const de_CreateProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProductCommandOutput> => {
@@ -2336,13 +2682,13 @@ const deserializeAws_json1_1CreateProductCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2354,16 +2700,19 @@ const deserializeAws_json1_1CreateProductCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateProvisionedProductPlanCommand = async (
+/**
+ * deserializeAws_json1_1CreateProvisionedProductPlanCommand
+ */
+export const de_CreateProvisionedProductPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProvisionedProductPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateProvisionedProductPlanCommandError(output, context);
+    return de_CreateProvisionedProductPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProvisionedProductPlanOutput(data, context);
+  contents = de_CreateProvisionedProductPlanOutput(data, context);
   const response: CreateProvisionedProductPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2371,7 +2720,10 @@ export const deserializeAws_json1_1CreateProvisionedProductPlanCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateProvisionedProductPlanCommandError = async (
+/**
+ * deserializeAws_json1_1CreateProvisionedProductPlanCommandError
+ */
+const de_CreateProvisionedProductPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProvisionedProductPlanCommandOutput> => {
@@ -2383,13 +2735,13 @@ const deserializeAws_json1_1CreateProvisionedProductPlanCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2401,16 +2753,19 @@ const deserializeAws_json1_1CreateProvisionedProductPlanCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateProvisioningArtifactCommand = async (
+/**
+ * deserializeAws_json1_1CreateProvisioningArtifactCommand
+ */
+export const de_CreateProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateProvisioningArtifactCommandError(output, context);
+    return de_CreateProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProvisioningArtifactOutput(data, context);
+  contents = de_CreateProvisioningArtifactOutput(data, context);
   const response: CreateProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2418,7 +2773,10 @@ export const deserializeAws_json1_1CreateProvisioningArtifactCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateProvisioningArtifactCommandError = async (
+/**
+ * deserializeAws_json1_1CreateProvisioningArtifactCommandError
+ */
+const de_CreateProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProvisioningArtifactCommandOutput> => {
@@ -2430,13 +2788,13 @@ const deserializeAws_json1_1CreateProvisioningArtifactCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2448,16 +2806,19 @@ const deserializeAws_json1_1CreateProvisioningArtifactCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateServiceActionCommand = async (
+/**
+ * deserializeAws_json1_1CreateServiceActionCommand
+ */
+export const de_CreateServiceActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateServiceActionCommandError(output, context);
+    return de_CreateServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateServiceActionOutput(data, context);
+  contents = de_CreateServiceActionOutput(data, context);
   const response: CreateServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2465,7 +2826,10 @@ export const deserializeAws_json1_1CreateServiceActionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateServiceActionCommandError = async (
+/**
+ * deserializeAws_json1_1CreateServiceActionCommandError
+ */
+const de_CreateServiceActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceActionCommandOutput> => {
@@ -2477,10 +2841,10 @@ const deserializeAws_json1_1CreateServiceActionCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2492,16 +2856,19 @@ const deserializeAws_json1_1CreateServiceActionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateTagOptionCommand = async (
+/**
+ * deserializeAws_json1_1CreateTagOptionCommand
+ */
+export const de_CreateTagOptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTagOptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateTagOptionCommandError(output, context);
+    return de_CreateTagOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTagOptionOutput(data, context);
+  contents = de_CreateTagOptionOutput(data, context);
   const response: CreateTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2509,7 +2876,10 @@ export const deserializeAws_json1_1CreateTagOptionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateTagOptionCommandError = async (
+/**
+ * deserializeAws_json1_1CreateTagOptionCommandError
+ */
+const de_CreateTagOptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTagOptionCommandOutput> => {
@@ -2521,13 +2891,13 @@ const deserializeAws_json1_1CreateTagOptionCommandError = async (
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await deserializeAws_json1_1DuplicateResourceExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2539,16 +2909,19 @@ const deserializeAws_json1_1CreateTagOptionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteConstraintCommand = async (
+/**
+ * deserializeAws_json1_1DeleteConstraintCommand
+ */
+export const de_DeleteConstraintCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConstraintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteConstraintCommandError(output, context);
+    return de_DeleteConstraintCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteConstraintOutput(data, context);
+  contents = de_DeleteConstraintOutput(data, context);
   const response: DeleteConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2556,7 +2929,10 @@ export const deserializeAws_json1_1DeleteConstraintCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteConstraintCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteConstraintCommandError
+ */
+const de_DeleteConstraintCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConstraintCommandOutput> => {
@@ -2568,10 +2944,10 @@ const deserializeAws_json1_1DeleteConstraintCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2583,16 +2959,19 @@ const deserializeAws_json1_1DeleteConstraintCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeletePortfolioCommand = async (
+/**
+ * deserializeAws_json1_1DeletePortfolioCommand
+ */
+export const de_DeletePortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeletePortfolioCommandError(output, context);
+    return de_DeletePortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeletePortfolioOutput(data, context);
+  contents = de_DeletePortfolioOutput(data, context);
   const response: DeletePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2600,7 +2979,10 @@ export const deserializeAws_json1_1DeletePortfolioCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeletePortfolioCommandError = async (
+/**
+ * deserializeAws_json1_1DeletePortfolioCommandError
+ */
+const de_DeletePortfolioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePortfolioCommandOutput> => {
@@ -2612,16 +2994,16 @@ const deserializeAws_json1_1DeletePortfolioCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2633,16 +3015,19 @@ const deserializeAws_json1_1DeletePortfolioCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeletePortfolioShareCommand = async (
+/**
+ * deserializeAws_json1_1DeletePortfolioShareCommand
+ */
+export const de_DeletePortfolioShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePortfolioShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeletePortfolioShareCommandError(output, context);
+    return de_DeletePortfolioShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeletePortfolioShareOutput(data, context);
+  contents = de_DeletePortfolioShareOutput(data, context);
   const response: DeletePortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2650,7 +3035,10 @@ export const deserializeAws_json1_1DeletePortfolioShareCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeletePortfolioShareCommandError = async (
+/**
+ * deserializeAws_json1_1DeletePortfolioShareCommandError
+ */
+const de_DeletePortfolioShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePortfolioShareCommandOutput> => {
@@ -2662,16 +3050,16 @@ const deserializeAws_json1_1DeletePortfolioShareCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "OperationNotSupportedException":
     case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2683,16 +3071,19 @@ const deserializeAws_json1_1DeletePortfolioShareCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteProductCommand = async (
+/**
+ * deserializeAws_json1_1DeleteProductCommand
+ */
+export const de_DeleteProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteProductCommandError(output, context);
+    return de_DeleteProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProductOutput(data, context);
+  contents = de_DeleteProductOutput(data, context);
   const response: DeleteProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2700,7 +3091,10 @@ export const deserializeAws_json1_1DeleteProductCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteProductCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteProductCommandError
+ */
+const de_DeleteProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProductCommandOutput> => {
@@ -2712,16 +3106,16 @@ const deserializeAws_json1_1DeleteProductCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2733,16 +3127,19 @@ const deserializeAws_json1_1DeleteProductCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteProvisionedProductPlanCommand = async (
+/**
+ * deserializeAws_json1_1DeleteProvisionedProductPlanCommand
+ */
+export const de_DeleteProvisionedProductPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisionedProductPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteProvisionedProductPlanCommandError(output, context);
+    return de_DeleteProvisionedProductPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProvisionedProductPlanOutput(data, context);
+  contents = de_DeleteProvisionedProductPlanOutput(data, context);
   const response: DeleteProvisionedProductPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2750,7 +3147,10 @@ export const deserializeAws_json1_1DeleteProvisionedProductPlanCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteProvisionedProductPlanCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteProvisionedProductPlanCommandError
+ */
+const de_DeleteProvisionedProductPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisionedProductPlanCommandOutput> => {
@@ -2762,10 +3162,10 @@ const deserializeAws_json1_1DeleteProvisionedProductPlanCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2777,16 +3177,19 @@ const deserializeAws_json1_1DeleteProvisionedProductPlanCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteProvisioningArtifactCommand = async (
+/**
+ * deserializeAws_json1_1DeleteProvisioningArtifactCommand
+ */
+export const de_DeleteProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteProvisioningArtifactCommandError(output, context);
+    return de_DeleteProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProvisioningArtifactOutput(data, context);
+  contents = de_DeleteProvisioningArtifactOutput(data, context);
   const response: DeleteProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2794,7 +3197,10 @@ export const deserializeAws_json1_1DeleteProvisioningArtifactCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteProvisioningArtifactCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteProvisioningArtifactCommandError
+ */
+const de_DeleteProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisioningArtifactCommandOutput> => {
@@ -2806,13 +3212,13 @@ const deserializeAws_json1_1DeleteProvisioningArtifactCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2824,16 +3230,19 @@ const deserializeAws_json1_1DeleteProvisioningArtifactCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteServiceActionCommand = async (
+/**
+ * deserializeAws_json1_1DeleteServiceActionCommand
+ */
+export const de_DeleteServiceActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteServiceActionCommandError(output, context);
+    return de_DeleteServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteServiceActionOutput(data, context);
+  contents = de_DeleteServiceActionOutput(data, context);
   const response: DeleteServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2841,7 +3250,10 @@ export const deserializeAws_json1_1DeleteServiceActionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteServiceActionCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteServiceActionCommandError
+ */
+const de_DeleteServiceActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceActionCommandOutput> => {
@@ -2853,10 +3265,10 @@ const deserializeAws_json1_1DeleteServiceActionCommandError = async (
   switch (errorCode) {
     case "ResourceInUseException":
     case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2868,16 +3280,19 @@ const deserializeAws_json1_1DeleteServiceActionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteTagOptionCommand = async (
+/**
+ * deserializeAws_json1_1DeleteTagOptionCommand
+ */
+export const de_DeleteTagOptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagOptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteTagOptionCommandError(output, context);
+    return de_DeleteTagOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTagOptionOutput(data, context);
+  contents = de_DeleteTagOptionOutput(data, context);
   const response: DeleteTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2885,7 +3300,10 @@ export const deserializeAws_json1_1DeleteTagOptionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteTagOptionCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteTagOptionCommandError
+ */
+const de_DeleteTagOptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagOptionCommandOutput> => {
@@ -2897,13 +3315,13 @@ const deserializeAws_json1_1DeleteTagOptionCommandError = async (
   switch (errorCode) {
     case "ResourceInUseException":
     case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2915,16 +3333,19 @@ const deserializeAws_json1_1DeleteTagOptionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeConstraintCommand = async (
+/**
+ * deserializeAws_json1_1DescribeConstraintCommand
+ */
+export const de_DescribeConstraintCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConstraintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeConstraintCommandError(output, context);
+    return de_DescribeConstraintCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeConstraintOutput(data, context);
+  contents = de_DescribeConstraintOutput(data, context);
   const response: DescribeConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2932,7 +3353,10 @@ export const deserializeAws_json1_1DescribeConstraintCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeConstraintCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeConstraintCommandError
+ */
+const de_DescribeConstraintCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConstraintCommandOutput> => {
@@ -2944,7 +3368,7 @@ const deserializeAws_json1_1DescribeConstraintCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2956,16 +3380,19 @@ const deserializeAws_json1_1DescribeConstraintCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeCopyProductStatusCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCopyProductStatusCommand
+ */
+export const de_DescribeCopyProductStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCopyProductStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCopyProductStatusCommandError(output, context);
+    return de_DescribeCopyProductStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCopyProductStatusOutput(data, context);
+  contents = de_DescribeCopyProductStatusOutput(data, context);
   const response: DescribeCopyProductStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2973,7 +3400,10 @@ export const deserializeAws_json1_1DescribeCopyProductStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeCopyProductStatusCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCopyProductStatusCommandError
+ */
+const de_DescribeCopyProductStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCopyProductStatusCommandOutput> => {
@@ -2985,7 +3415,7 @@ const deserializeAws_json1_1DescribeCopyProductStatusCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2997,16 +3427,19 @@ const deserializeAws_json1_1DescribeCopyProductStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribePortfolioCommand = async (
+/**
+ * deserializeAws_json1_1DescribePortfolioCommand
+ */
+export const de_DescribePortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribePortfolioCommandError(output, context);
+    return de_DescribePortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePortfolioOutput(data, context);
+  contents = de_DescribePortfolioOutput(data, context);
   const response: DescribePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3014,7 +3447,10 @@ export const deserializeAws_json1_1DescribePortfolioCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribePortfolioCommandError = async (
+/**
+ * deserializeAws_json1_1DescribePortfolioCommandError
+ */
+const de_DescribePortfolioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePortfolioCommandOutput> => {
@@ -3026,7 +3462,7 @@ const deserializeAws_json1_1DescribePortfolioCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3038,16 +3474,19 @@ const deserializeAws_json1_1DescribePortfolioCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribePortfolioSharesCommand = async (
+/**
+ * deserializeAws_json1_1DescribePortfolioSharesCommand
+ */
+export const de_DescribePortfolioSharesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePortfolioSharesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribePortfolioSharesCommandError(output, context);
+    return de_DescribePortfolioSharesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePortfolioSharesOutput(data, context);
+  contents = de_DescribePortfolioSharesOutput(data, context);
   const response: DescribePortfolioSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3055,7 +3494,10 @@ export const deserializeAws_json1_1DescribePortfolioSharesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribePortfolioSharesCommandError = async (
+/**
+ * deserializeAws_json1_1DescribePortfolioSharesCommandError
+ */
+const de_DescribePortfolioSharesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePortfolioSharesCommandOutput> => {
@@ -3067,10 +3509,10 @@ const deserializeAws_json1_1DescribePortfolioSharesCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3082,16 +3524,19 @@ const deserializeAws_json1_1DescribePortfolioSharesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribePortfolioShareStatusCommand = async (
+/**
+ * deserializeAws_json1_1DescribePortfolioShareStatusCommand
+ */
+export const de_DescribePortfolioShareStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePortfolioShareStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribePortfolioShareStatusCommandError(output, context);
+    return de_DescribePortfolioShareStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePortfolioShareStatusOutput(data, context);
+  contents = de_DescribePortfolioShareStatusOutput(data, context);
   const response: DescribePortfolioShareStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3099,7 +3544,10 @@ export const deserializeAws_json1_1DescribePortfolioShareStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribePortfolioShareStatusCommandError = async (
+/**
+ * deserializeAws_json1_1DescribePortfolioShareStatusCommandError
+ */
+const de_DescribePortfolioShareStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePortfolioShareStatusCommandOutput> => {
@@ -3111,13 +3559,13 @@ const deserializeAws_json1_1DescribePortfolioShareStatusCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "OperationNotSupportedException":
     case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3129,16 +3577,19 @@ const deserializeAws_json1_1DescribePortfolioShareStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeProductCommand = async (
+/**
+ * deserializeAws_json1_1DescribeProductCommand
+ */
+export const de_DescribeProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeProductCommandError(output, context);
+    return de_DescribeProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProductOutput(data, context);
+  contents = de_DescribeProductOutput(data, context);
   const response: DescribeProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3146,7 +3597,10 @@ export const deserializeAws_json1_1DescribeProductCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeProductCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeProductCommandError
+ */
+const de_DescribeProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProductCommandOutput> => {
@@ -3158,10 +3612,10 @@ const deserializeAws_json1_1DescribeProductCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3173,16 +3627,19 @@ const deserializeAws_json1_1DescribeProductCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeProductAsAdminCommand = async (
+/**
+ * deserializeAws_json1_1DescribeProductAsAdminCommand
+ */
+export const de_DescribeProductAsAdminCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProductAsAdminCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeProductAsAdminCommandError(output, context);
+    return de_DescribeProductAsAdminCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProductAsAdminOutput(data, context);
+  contents = de_DescribeProductAsAdminOutput(data, context);
   const response: DescribeProductAsAdminCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3190,7 +3647,10 @@ export const deserializeAws_json1_1DescribeProductAsAdminCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeProductAsAdminCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeProductAsAdminCommandError
+ */
+const de_DescribeProductAsAdminCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProductAsAdminCommandOutput> => {
@@ -3202,10 +3662,10 @@ const deserializeAws_json1_1DescribeProductAsAdminCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3217,16 +3677,19 @@ const deserializeAws_json1_1DescribeProductAsAdminCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeProductViewCommand = async (
+/**
+ * deserializeAws_json1_1DescribeProductViewCommand
+ */
+export const de_DescribeProductViewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProductViewCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeProductViewCommandError(output, context);
+    return de_DescribeProductViewCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProductViewOutput(data, context);
+  contents = de_DescribeProductViewOutput(data, context);
   const response: DescribeProductViewCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3234,7 +3697,10 @@ export const deserializeAws_json1_1DescribeProductViewCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeProductViewCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeProductViewCommandError
+ */
+const de_DescribeProductViewCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProductViewCommandOutput> => {
@@ -3246,10 +3712,10 @@ const deserializeAws_json1_1DescribeProductViewCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3261,16 +3727,19 @@ const deserializeAws_json1_1DescribeProductViewCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeProvisionedProductCommand = async (
+/**
+ * deserializeAws_json1_1DescribeProvisionedProductCommand
+ */
+export const de_DescribeProvisionedProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisionedProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeProvisionedProductCommandError(output, context);
+    return de_DescribeProvisionedProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProvisionedProductOutput(data, context);
+  contents = de_DescribeProvisionedProductOutput(data, context);
   const response: DescribeProvisionedProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3278,7 +3747,10 @@ export const deserializeAws_json1_1DescribeProvisionedProductCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeProvisionedProductCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeProvisionedProductCommandError
+ */
+const de_DescribeProvisionedProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisionedProductCommandOutput> => {
@@ -3290,10 +3762,10 @@ const deserializeAws_json1_1DescribeProvisionedProductCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3305,16 +3777,19 @@ const deserializeAws_json1_1DescribeProvisionedProductCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeProvisionedProductPlanCommand = async (
+/**
+ * deserializeAws_json1_1DescribeProvisionedProductPlanCommand
+ */
+export const de_DescribeProvisionedProductPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisionedProductPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeProvisionedProductPlanCommandError(output, context);
+    return de_DescribeProvisionedProductPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProvisionedProductPlanOutput(data, context);
+  contents = de_DescribeProvisionedProductPlanOutput(data, context);
   const response: DescribeProvisionedProductPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3322,7 +3797,10 @@ export const deserializeAws_json1_1DescribeProvisionedProductPlanCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeProvisionedProductPlanCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeProvisionedProductPlanCommandError
+ */
+const de_DescribeProvisionedProductPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisionedProductPlanCommandOutput> => {
@@ -3334,10 +3812,10 @@ const deserializeAws_json1_1DescribeProvisionedProductPlanCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3349,16 +3827,19 @@ const deserializeAws_json1_1DescribeProvisionedProductPlanCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeProvisioningArtifactCommand = async (
+/**
+ * deserializeAws_json1_1DescribeProvisioningArtifactCommand
+ */
+export const de_DescribeProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeProvisioningArtifactCommandError(output, context);
+    return de_DescribeProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProvisioningArtifactOutput(data, context);
+  contents = de_DescribeProvisioningArtifactOutput(data, context);
   const response: DescribeProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3366,7 +3847,10 @@ export const deserializeAws_json1_1DescribeProvisioningArtifactCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeProvisioningArtifactCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeProvisioningArtifactCommandError
+ */
+const de_DescribeProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisioningArtifactCommandOutput> => {
@@ -3378,10 +3862,10 @@ const deserializeAws_json1_1DescribeProvisioningArtifactCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3393,16 +3877,19 @@ const deserializeAws_json1_1DescribeProvisioningArtifactCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeProvisioningParametersCommand = async (
+/**
+ * deserializeAws_json1_1DescribeProvisioningParametersCommand
+ */
+export const de_DescribeProvisioningParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisioningParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeProvisioningParametersCommandError(output, context);
+    return de_DescribeProvisioningParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProvisioningParametersOutput(data, context);
+  contents = de_DescribeProvisioningParametersOutput(data, context);
   const response: DescribeProvisioningParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3410,7 +3897,10 @@ export const deserializeAws_json1_1DescribeProvisioningParametersCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeProvisioningParametersCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeProvisioningParametersCommandError
+ */
+const de_DescribeProvisioningParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisioningParametersCommandOutput> => {
@@ -3422,10 +3912,10 @@ const deserializeAws_json1_1DescribeProvisioningParametersCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3437,16 +3927,19 @@ const deserializeAws_json1_1DescribeProvisioningParametersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeRecordCommand = async (
+/**
+ * deserializeAws_json1_1DescribeRecordCommand
+ */
+export const de_DescribeRecordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeRecordCommandError(output, context);
+    return de_DescribeRecordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeRecordOutput(data, context);
+  contents = de_DescribeRecordOutput(data, context);
   const response: DescribeRecordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3454,7 +3947,10 @@ export const deserializeAws_json1_1DescribeRecordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeRecordCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeRecordCommandError
+ */
+const de_DescribeRecordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecordCommandOutput> => {
@@ -3466,7 +3962,7 @@ const deserializeAws_json1_1DescribeRecordCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3478,16 +3974,19 @@ const deserializeAws_json1_1DescribeRecordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeServiceActionCommand = async (
+/**
+ * deserializeAws_json1_1DescribeServiceActionCommand
+ */
+export const de_DescribeServiceActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeServiceActionCommandError(output, context);
+    return de_DescribeServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeServiceActionOutput(data, context);
+  contents = de_DescribeServiceActionOutput(data, context);
   const response: DescribeServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3495,7 +3994,10 @@ export const deserializeAws_json1_1DescribeServiceActionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeServiceActionCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeServiceActionCommandError
+ */
+const de_DescribeServiceActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceActionCommandOutput> => {
@@ -3507,7 +4009,7 @@ const deserializeAws_json1_1DescribeServiceActionCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3519,16 +4021,19 @@ const deserializeAws_json1_1DescribeServiceActionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeServiceActionExecutionParametersCommand = async (
+/**
+ * deserializeAws_json1_1DescribeServiceActionExecutionParametersCommand
+ */
+export const de_DescribeServiceActionExecutionParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceActionExecutionParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeServiceActionExecutionParametersCommandError(output, context);
+    return de_DescribeServiceActionExecutionParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeServiceActionExecutionParametersOutput(data, context);
+  contents = de_DescribeServiceActionExecutionParametersOutput(data, context);
   const response: DescribeServiceActionExecutionParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3536,7 +4041,10 @@ export const deserializeAws_json1_1DescribeServiceActionExecutionParametersComma
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeServiceActionExecutionParametersCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeServiceActionExecutionParametersCommandError
+ */
+const de_DescribeServiceActionExecutionParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceActionExecutionParametersCommandOutput> => {
@@ -3548,10 +4056,10 @@ const deserializeAws_json1_1DescribeServiceActionExecutionParametersCommandError
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3563,16 +4071,19 @@ const deserializeAws_json1_1DescribeServiceActionExecutionParametersCommandError
   }
 };
 
-export const deserializeAws_json1_1DescribeTagOptionCommand = async (
+/**
+ * deserializeAws_json1_1DescribeTagOptionCommand
+ */
+export const de_DescribeTagOptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagOptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeTagOptionCommandError(output, context);
+    return de_DescribeTagOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTagOptionOutput(data, context);
+  contents = de_DescribeTagOptionOutput(data, context);
   const response: DescribeTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3580,7 +4091,10 @@ export const deserializeAws_json1_1DescribeTagOptionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeTagOptionCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeTagOptionCommandError
+ */
+const de_DescribeTagOptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagOptionCommandOutput> => {
@@ -3592,10 +4106,10 @@ const deserializeAws_json1_1DescribeTagOptionCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3607,16 +4121,19 @@ const deserializeAws_json1_1DescribeTagOptionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisableAWSOrganizationsAccessCommand = async (
+/**
+ * deserializeAws_json1_1DisableAWSOrganizationsAccessCommand
+ */
+export const de_DisableAWSOrganizationsAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableAWSOrganizationsAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError(output, context);
+    return de_DisableAWSOrganizationsAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisableAWSOrganizationsAccessOutput(data, context);
+  contents = de_DisableAWSOrganizationsAccessOutput(data, context);
   const response: DisableAWSOrganizationsAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3624,7 +4141,10 @@ export const deserializeAws_json1_1DisableAWSOrganizationsAccessCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError = async (
+/**
+ * deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError
+ */
+const de_DisableAWSOrganizationsAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableAWSOrganizationsAccessCommandOutput> => {
@@ -3636,13 +4156,13 @@ const deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError = async (
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "OperationNotSupportedException":
     case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3654,16 +4174,19 @@ const deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisassociateBudgetFromResourceCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateBudgetFromResourceCommand
+ */
+export const de_DisassociateBudgetFromResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateBudgetFromResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateBudgetFromResourceCommandError(output, context);
+    return de_DisassociateBudgetFromResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateBudgetFromResourceOutput(data, context);
+  contents = de_DisassociateBudgetFromResourceOutput(data, context);
   const response: DisassociateBudgetFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3671,7 +4194,10 @@ export const deserializeAws_json1_1DisassociateBudgetFromResourceCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateBudgetFromResourceCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateBudgetFromResourceCommandError
+ */
+const de_DisassociateBudgetFromResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateBudgetFromResourceCommandOutput> => {
@@ -3683,7 +4209,7 @@ const deserializeAws_json1_1DisassociateBudgetFromResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3695,16 +4221,19 @@ const deserializeAws_json1_1DisassociateBudgetFromResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand = async (
+/**
+ * deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand
+ */
+export const de_DisassociatePrincipalFromPortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociatePrincipalFromPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandError(output, context);
+    return de_DisassociatePrincipalFromPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociatePrincipalFromPortfolioOutput(data, context);
+  contents = de_DisassociatePrincipalFromPortfolioOutput(data, context);
   const response: DisassociatePrincipalFromPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3712,7 +4241,10 @@ export const deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand = a
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandError
+ */
+const de_DisassociatePrincipalFromPortfolioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociatePrincipalFromPortfolioCommandOutput> => {
@@ -3724,10 +4256,10 @@ const deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandError = asy
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3739,16 +4271,19 @@ const deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandError = asy
   }
 };
 
-export const deserializeAws_json1_1DisassociateProductFromPortfolioCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateProductFromPortfolioCommand
+ */
+export const de_DisassociateProductFromPortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateProductFromPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateProductFromPortfolioCommandError(output, context);
+    return de_DisassociateProductFromPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateProductFromPortfolioOutput(data, context);
+  contents = de_DisassociateProductFromPortfolioOutput(data, context);
   const response: DisassociateProductFromPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3756,7 +4291,10 @@ export const deserializeAws_json1_1DisassociateProductFromPortfolioCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateProductFromPortfolioCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateProductFromPortfolioCommandError
+ */
+const de_DisassociateProductFromPortfolioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateProductFromPortfolioCommandOutput> => {
@@ -3768,13 +4306,13 @@ const deserializeAws_json1_1DisassociateProductFromPortfolioCommandError = async
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3786,16 +4324,19 @@ const deserializeAws_json1_1DisassociateProductFromPortfolioCommandError = async
   }
 };
 
-export const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand
+ */
+export const de_DisassociateServiceActionFromProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommandError(output, context);
+    return de_DisassociateServiceActionFromProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactOutput(data, context);
+  contents = de_DisassociateServiceActionFromProvisioningArtifactOutput(data, context);
   const response: DisassociateServiceActionFromProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3803,7 +4344,10 @@ export const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArti
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommandError
+ */
+const de_DisassociateServiceActionFromProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
@@ -3815,7 +4359,7 @@ const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCom
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3827,16 +4371,19 @@ const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCom
   }
 };
 
-export const deserializeAws_json1_1DisassociateTagOptionFromResourceCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateTagOptionFromResourceCommand
+ */
+export const de_DisassociateTagOptionFromResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateTagOptionFromResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateTagOptionFromResourceCommandError(output, context);
+    return de_DisassociateTagOptionFromResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateTagOptionFromResourceOutput(data, context);
+  contents = de_DisassociateTagOptionFromResourceOutput(data, context);
   const response: DisassociateTagOptionFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3844,7 +4391,10 @@ export const deserializeAws_json1_1DisassociateTagOptionFromResourceCommand = as
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateTagOptionFromResourceCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateTagOptionFromResourceCommandError
+ */
+const de_DisassociateTagOptionFromResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateTagOptionFromResourceCommandOutput> => {
@@ -3856,10 +4406,10 @@ const deserializeAws_json1_1DisassociateTagOptionFromResourceCommandError = asyn
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3871,16 +4421,19 @@ const deserializeAws_json1_1DisassociateTagOptionFromResourceCommandError = asyn
   }
 };
 
-export const deserializeAws_json1_1EnableAWSOrganizationsAccessCommand = async (
+/**
+ * deserializeAws_json1_1EnableAWSOrganizationsAccessCommand
+ */
+export const de_EnableAWSOrganizationsAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAWSOrganizationsAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError(output, context);
+    return de_EnableAWSOrganizationsAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnableAWSOrganizationsAccessOutput(data, context);
+  contents = de_EnableAWSOrganizationsAccessOutput(data, context);
   const response: EnableAWSOrganizationsAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3888,7 +4441,10 @@ export const deserializeAws_json1_1EnableAWSOrganizationsAccessCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError = async (
+/**
+ * deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError
+ */
+const de_EnableAWSOrganizationsAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAWSOrganizationsAccessCommandOutput> => {
@@ -3900,13 +4456,13 @@ const deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError = async (
   switch (errorCode) {
     case "InvalidStateException":
     case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "OperationNotSupportedException":
     case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3918,16 +4474,19 @@ const deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ExecuteProvisionedProductPlanCommand = async (
+/**
+ * deserializeAws_json1_1ExecuteProvisionedProductPlanCommand
+ */
+export const de_ExecuteProvisionedProductPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteProvisionedProductPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError(output, context);
+    return de_ExecuteProvisionedProductPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExecuteProvisionedProductPlanOutput(data, context);
+  contents = de_ExecuteProvisionedProductPlanOutput(data, context);
   const response: ExecuteProvisionedProductPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3935,7 +4494,10 @@ export const deserializeAws_json1_1ExecuteProvisionedProductPlanCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError = async (
+/**
+ * deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError
+ */
+const de_ExecuteProvisionedProductPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteProvisionedProductPlanCommandOutput> => {
@@ -3947,13 +4509,13 @@ const deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3965,16 +4527,19 @@ const deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand = async (
+/**
+ * deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand
+ */
+export const de_ExecuteProvisionedProductServiceActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteProvisionedProductServiceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommandError(output, context);
+    return de_ExecuteProvisionedProductServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExecuteProvisionedProductServiceActionOutput(data, context);
+  contents = de_ExecuteProvisionedProductServiceActionOutput(data, context);
   const response: ExecuteProvisionedProductServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3982,7 +4547,10 @@ export const deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommandError = async (
+/**
+ * deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommandError
+ */
+const de_ExecuteProvisionedProductServiceActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteProvisionedProductServiceActionCommandOutput> => {
@@ -3994,13 +4562,13 @@ const deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommandError =
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4012,16 +4580,19 @@ const deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommandError =
   }
 };
 
-export const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommand = async (
+/**
+ * deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommand
+ */
+export const de_GetAWSOrganizationsAccessStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError(output, context);
+    return de_GetAWSOrganizationsAccessStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAWSOrganizationsAccessStatusOutput(data, context);
+  contents = de_GetAWSOrganizationsAccessStatusOutput(data, context);
   const response: GetAWSOrganizationsAccessStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4029,7 +4600,10 @@ export const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError = async (
+/**
+ * deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError
+ */
+const de_GetAWSOrganizationsAccessStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> => {
@@ -4041,10 +4615,10 @@ const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError = async 
   switch (errorCode) {
     case "OperationNotSupportedException":
     case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4056,16 +4630,19 @@ const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1GetProvisionedProductOutputsCommand = async (
+/**
+ * deserializeAws_json1_1GetProvisionedProductOutputsCommand
+ */
+export const de_GetProvisionedProductOutputsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProvisionedProductOutputsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetProvisionedProductOutputsCommandError(output, context);
+    return de_GetProvisionedProductOutputsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetProvisionedProductOutputsOutput(data, context);
+  contents = de_GetProvisionedProductOutputsOutput(data, context);
   const response: GetProvisionedProductOutputsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4073,7 +4650,10 @@ export const deserializeAws_json1_1GetProvisionedProductOutputsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetProvisionedProductOutputsCommandError = async (
+/**
+ * deserializeAws_json1_1GetProvisionedProductOutputsCommandError
+ */
+const de_GetProvisionedProductOutputsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProvisionedProductOutputsCommandOutput> => {
@@ -4085,10 +4665,10 @@ const deserializeAws_json1_1GetProvisionedProductOutputsCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4100,16 +4680,19 @@ const deserializeAws_json1_1GetProvisionedProductOutputsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ImportAsProvisionedProductCommand = async (
+/**
+ * deserializeAws_json1_1ImportAsProvisionedProductCommand
+ */
+export const de_ImportAsProvisionedProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportAsProvisionedProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ImportAsProvisionedProductCommandError(output, context);
+    return de_ImportAsProvisionedProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportAsProvisionedProductOutput(data, context);
+  contents = de_ImportAsProvisionedProductOutput(data, context);
   const response: ImportAsProvisionedProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4117,7 +4700,10 @@ export const deserializeAws_json1_1ImportAsProvisionedProductCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ImportAsProvisionedProductCommandError = async (
+/**
+ * deserializeAws_json1_1ImportAsProvisionedProductCommandError
+ */
+const de_ImportAsProvisionedProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportAsProvisionedProductCommandOutput> => {
@@ -4129,16 +4715,16 @@ const deserializeAws_json1_1ImportAsProvisionedProductCommandError = async (
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await deserializeAws_json1_1DuplicateResourceExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4150,16 +4736,19 @@ const deserializeAws_json1_1ImportAsProvisionedProductCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAcceptedPortfolioSharesCommand = async (
+/**
+ * deserializeAws_json1_1ListAcceptedPortfolioSharesCommand
+ */
+export const de_ListAcceptedPortfolioSharesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAcceptedPortfolioSharesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError(output, context);
+    return de_ListAcceptedPortfolioSharesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAcceptedPortfolioSharesOutput(data, context);
+  contents = de_ListAcceptedPortfolioSharesOutput(data, context);
   const response: ListAcceptedPortfolioSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4167,7 +4756,10 @@ export const deserializeAws_json1_1ListAcceptedPortfolioSharesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError = async (
+/**
+ * deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError
+ */
+const de_ListAcceptedPortfolioSharesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAcceptedPortfolioSharesCommandOutput> => {
@@ -4179,10 +4771,10 @@ const deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "OperationNotSupportedException":
     case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4194,16 +4786,19 @@ const deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListBudgetsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListBudgetsForResourceCommand
+ */
+export const de_ListBudgetsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBudgetsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListBudgetsForResourceCommandError(output, context);
+    return de_ListBudgetsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBudgetsForResourceOutput(data, context);
+  contents = de_ListBudgetsForResourceOutput(data, context);
   const response: ListBudgetsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4211,7 +4806,10 @@ export const deserializeAws_json1_1ListBudgetsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListBudgetsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListBudgetsForResourceCommandError
+ */
+const de_ListBudgetsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBudgetsForResourceCommandOutput> => {
@@ -4223,10 +4821,10 @@ const deserializeAws_json1_1ListBudgetsForResourceCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4238,16 +4836,19 @@ const deserializeAws_json1_1ListBudgetsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListConstraintsForPortfolioCommand = async (
+/**
+ * deserializeAws_json1_1ListConstraintsForPortfolioCommand
+ */
+export const de_ListConstraintsForPortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConstraintsForPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListConstraintsForPortfolioCommandError(output, context);
+    return de_ListConstraintsForPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListConstraintsForPortfolioOutput(data, context);
+  contents = de_ListConstraintsForPortfolioOutput(data, context);
   const response: ListConstraintsForPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4255,7 +4856,10 @@ export const deserializeAws_json1_1ListConstraintsForPortfolioCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListConstraintsForPortfolioCommandError = async (
+/**
+ * deserializeAws_json1_1ListConstraintsForPortfolioCommandError
+ */
+const de_ListConstraintsForPortfolioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConstraintsForPortfolioCommandOutput> => {
@@ -4267,10 +4871,10 @@ const deserializeAws_json1_1ListConstraintsForPortfolioCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4282,16 +4886,19 @@ const deserializeAws_json1_1ListConstraintsForPortfolioCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListLaunchPathsCommand = async (
+/**
+ * deserializeAws_json1_1ListLaunchPathsCommand
+ */
+export const de_ListLaunchPathsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLaunchPathsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListLaunchPathsCommandError(output, context);
+    return de_ListLaunchPathsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLaunchPathsOutput(data, context);
+  contents = de_ListLaunchPathsOutput(data, context);
   const response: ListLaunchPathsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4299,7 +4906,10 @@ export const deserializeAws_json1_1ListLaunchPathsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListLaunchPathsCommandError = async (
+/**
+ * deserializeAws_json1_1ListLaunchPathsCommandError
+ */
+const de_ListLaunchPathsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLaunchPathsCommandOutput> => {
@@ -4311,10 +4921,10 @@ const deserializeAws_json1_1ListLaunchPathsCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4326,16 +4936,19 @@ const deserializeAws_json1_1ListLaunchPathsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListOrganizationPortfolioAccessCommand = async (
+/**
+ * deserializeAws_json1_1ListOrganizationPortfolioAccessCommand
+ */
+export const de_ListOrganizationPortfolioAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOrganizationPortfolioAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError(output, context);
+    return de_ListOrganizationPortfolioAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListOrganizationPortfolioAccessOutput(data, context);
+  contents = de_ListOrganizationPortfolioAccessOutput(data, context);
   const response: ListOrganizationPortfolioAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4343,7 +4956,10 @@ export const deserializeAws_json1_1ListOrganizationPortfolioAccessCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError = async (
+/**
+ * deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError
+ */
+const de_ListOrganizationPortfolioAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOrganizationPortfolioAccessCommandOutput> => {
@@ -4355,13 +4971,13 @@ const deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError = async 
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "OperationNotSupportedException":
     case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4373,16 +4989,19 @@ const deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1ListPortfolioAccessCommand = async (
+/**
+ * deserializeAws_json1_1ListPortfolioAccessCommand
+ */
+export const de_ListPortfolioAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPortfolioAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPortfolioAccessCommandError(output, context);
+    return de_ListPortfolioAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPortfolioAccessOutput(data, context);
+  contents = de_ListPortfolioAccessOutput(data, context);
   const response: ListPortfolioAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4390,7 +5009,10 @@ export const deserializeAws_json1_1ListPortfolioAccessCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListPortfolioAccessCommandError = async (
+/**
+ * deserializeAws_json1_1ListPortfolioAccessCommandError
+ */
+const de_ListPortfolioAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPortfolioAccessCommandOutput> => {
@@ -4402,10 +5024,10 @@ const deserializeAws_json1_1ListPortfolioAccessCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4417,16 +5039,19 @@ const deserializeAws_json1_1ListPortfolioAccessCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListPortfoliosCommand = async (
+/**
+ * deserializeAws_json1_1ListPortfoliosCommand
+ */
+export const de_ListPortfoliosCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPortfoliosCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPortfoliosCommandError(output, context);
+    return de_ListPortfoliosCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPortfoliosOutput(data, context);
+  contents = de_ListPortfoliosOutput(data, context);
   const response: ListPortfoliosCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4434,7 +5059,10 @@ export const deserializeAws_json1_1ListPortfoliosCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListPortfoliosCommandError = async (
+/**
+ * deserializeAws_json1_1ListPortfoliosCommandError
+ */
+const de_ListPortfoliosCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPortfoliosCommandOutput> => {
@@ -4446,7 +5074,7 @@ const deserializeAws_json1_1ListPortfoliosCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4458,16 +5086,19 @@ const deserializeAws_json1_1ListPortfoliosCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListPortfoliosForProductCommand = async (
+/**
+ * deserializeAws_json1_1ListPortfoliosForProductCommand
+ */
+export const de_ListPortfoliosForProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPortfoliosForProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPortfoliosForProductCommandError(output, context);
+    return de_ListPortfoliosForProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPortfoliosForProductOutput(data, context);
+  contents = de_ListPortfoliosForProductOutput(data, context);
   const response: ListPortfoliosForProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4475,7 +5106,10 @@ export const deserializeAws_json1_1ListPortfoliosForProductCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListPortfoliosForProductCommandError = async (
+/**
+ * deserializeAws_json1_1ListPortfoliosForProductCommandError
+ */
+const de_ListPortfoliosForProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPortfoliosForProductCommandOutput> => {
@@ -4487,10 +5121,10 @@ const deserializeAws_json1_1ListPortfoliosForProductCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4502,16 +5136,19 @@ const deserializeAws_json1_1ListPortfoliosForProductCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListPrincipalsForPortfolioCommand = async (
+/**
+ * deserializeAws_json1_1ListPrincipalsForPortfolioCommand
+ */
+export const de_ListPrincipalsForPortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPrincipalsForPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPrincipalsForPortfolioCommandError(output, context);
+    return de_ListPrincipalsForPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPrincipalsForPortfolioOutput(data, context);
+  contents = de_ListPrincipalsForPortfolioOutput(data, context);
   const response: ListPrincipalsForPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4519,7 +5156,10 @@ export const deserializeAws_json1_1ListPrincipalsForPortfolioCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListPrincipalsForPortfolioCommandError = async (
+/**
+ * deserializeAws_json1_1ListPrincipalsForPortfolioCommandError
+ */
+const de_ListPrincipalsForPortfolioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPrincipalsForPortfolioCommandOutput> => {
@@ -4531,10 +5171,10 @@ const deserializeAws_json1_1ListPrincipalsForPortfolioCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4546,16 +5186,19 @@ const deserializeAws_json1_1ListPrincipalsForPortfolioCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListProvisionedProductPlansCommand = async (
+/**
+ * deserializeAws_json1_1ListProvisionedProductPlansCommand
+ */
+export const de_ListProvisionedProductPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisionedProductPlansCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListProvisionedProductPlansCommandError(output, context);
+    return de_ListProvisionedProductPlansCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProvisionedProductPlansOutput(data, context);
+  contents = de_ListProvisionedProductPlansOutput(data, context);
   const response: ListProvisionedProductPlansCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4563,7 +5206,10 @@ export const deserializeAws_json1_1ListProvisionedProductPlansCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListProvisionedProductPlansCommandError = async (
+/**
+ * deserializeAws_json1_1ListProvisionedProductPlansCommandError
+ */
+const de_ListProvisionedProductPlansCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisionedProductPlansCommandOutput> => {
@@ -4575,10 +5221,10 @@ const deserializeAws_json1_1ListProvisionedProductPlansCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4590,16 +5236,19 @@ const deserializeAws_json1_1ListProvisionedProductPlansCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListProvisioningArtifactsCommand = async (
+/**
+ * deserializeAws_json1_1ListProvisioningArtifactsCommand
+ */
+export const de_ListProvisioningArtifactsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisioningArtifactsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListProvisioningArtifactsCommandError(output, context);
+    return de_ListProvisioningArtifactsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProvisioningArtifactsOutput(data, context);
+  contents = de_ListProvisioningArtifactsOutput(data, context);
   const response: ListProvisioningArtifactsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4607,7 +5256,10 @@ export const deserializeAws_json1_1ListProvisioningArtifactsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListProvisioningArtifactsCommandError = async (
+/**
+ * deserializeAws_json1_1ListProvisioningArtifactsCommandError
+ */
+const de_ListProvisioningArtifactsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisioningArtifactsCommandOutput> => {
@@ -4619,10 +5271,10 @@ const deserializeAws_json1_1ListProvisioningArtifactsCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4634,16 +5286,19 @@ const deserializeAws_json1_1ListProvisioningArtifactsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand = async (
+/**
+ * deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand
+ */
+export const de_ListProvisioningArtifactsForServiceActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisioningArtifactsForServiceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommandError(output, context);
+    return de_ListProvisioningArtifactsForServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProvisioningArtifactsForServiceActionOutput(data, context);
+  contents = de_ListProvisioningArtifactsForServiceActionOutput(data, context);
   const response: ListProvisioningArtifactsForServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4651,7 +5306,10 @@ export const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionComm
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommandError = async (
+/**
+ * deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommandError
+ */
+const de_ListProvisioningArtifactsForServiceActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisioningArtifactsForServiceActionCommandOutput> => {
@@ -4663,10 +5321,10 @@ const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommandErro
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4678,16 +5336,19 @@ const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommandErro
   }
 };
 
-export const deserializeAws_json1_1ListRecordHistoryCommand = async (
+/**
+ * deserializeAws_json1_1ListRecordHistoryCommand
+ */
+export const de_ListRecordHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecordHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListRecordHistoryCommandError(output, context);
+    return de_ListRecordHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRecordHistoryOutput(data, context);
+  contents = de_ListRecordHistoryOutput(data, context);
   const response: ListRecordHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4695,7 +5356,10 @@ export const deserializeAws_json1_1ListRecordHistoryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListRecordHistoryCommandError = async (
+/**
+ * deserializeAws_json1_1ListRecordHistoryCommandError
+ */
+const de_ListRecordHistoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecordHistoryCommandOutput> => {
@@ -4707,7 +5371,7 @@ const deserializeAws_json1_1ListRecordHistoryCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4719,16 +5383,19 @@ const deserializeAws_json1_1ListRecordHistoryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResourcesForTagOptionCommand = async (
+/**
+ * deserializeAws_json1_1ListResourcesForTagOptionCommand
+ */
+export const de_ListResourcesForTagOptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourcesForTagOptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResourcesForTagOptionCommandError(output, context);
+    return de_ListResourcesForTagOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourcesForTagOptionOutput(data, context);
+  contents = de_ListResourcesForTagOptionOutput(data, context);
   const response: ListResourcesForTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4736,7 +5403,10 @@ export const deserializeAws_json1_1ListResourcesForTagOptionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResourcesForTagOptionCommandError = async (
+/**
+ * deserializeAws_json1_1ListResourcesForTagOptionCommandError
+ */
+const de_ListResourcesForTagOptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourcesForTagOptionCommandOutput> => {
@@ -4748,13 +5418,13 @@ const deserializeAws_json1_1ListResourcesForTagOptionCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4766,16 +5436,19 @@ const deserializeAws_json1_1ListResourcesForTagOptionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListServiceActionsCommand = async (
+/**
+ * deserializeAws_json1_1ListServiceActionsCommand
+ */
+export const de_ListServiceActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListServiceActionsCommandError(output, context);
+    return de_ListServiceActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListServiceActionsOutput(data, context);
+  contents = de_ListServiceActionsOutput(data, context);
   const response: ListServiceActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4783,7 +5456,10 @@ export const deserializeAws_json1_1ListServiceActionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListServiceActionsCommandError = async (
+/**
+ * deserializeAws_json1_1ListServiceActionsCommandError
+ */
+const de_ListServiceActionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceActionsCommandOutput> => {
@@ -4795,7 +5471,7 @@ const deserializeAws_json1_1ListServiceActionsCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4807,16 +5483,19 @@ const deserializeAws_json1_1ListServiceActionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand = async (
+/**
+ * deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand
+ */
+export const de_ListServiceActionsForProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommandError(output, context);
+    return de_ListServiceActionsForProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListServiceActionsForProvisioningArtifactOutput(data, context);
+  contents = de_ListServiceActionsForProvisioningArtifactOutput(data, context);
   const response: ListServiceActionsForProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4824,7 +5503,10 @@ export const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactComm
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommandError = async (
+/**
+ * deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommandError
+ */
+const de_ListServiceActionsForProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> => {
@@ -4836,10 +5518,10 @@ const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommandErro
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4851,16 +5533,19 @@ const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommandErro
   }
 };
 
-export const deserializeAws_json1_1ListStackInstancesForProvisionedProductCommand = async (
+/**
+ * deserializeAws_json1_1ListStackInstancesForProvisionedProductCommand
+ */
+export const de_ListStackInstancesForProvisionedProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStackInstancesForProvisionedProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListStackInstancesForProvisionedProductCommandError(output, context);
+    return de_ListStackInstancesForProvisionedProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListStackInstancesForProvisionedProductOutput(data, context);
+  contents = de_ListStackInstancesForProvisionedProductOutput(data, context);
   const response: ListStackInstancesForProvisionedProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4868,7 +5553,10 @@ export const deserializeAws_json1_1ListStackInstancesForProvisionedProductComman
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListStackInstancesForProvisionedProductCommandError = async (
+/**
+ * deserializeAws_json1_1ListStackInstancesForProvisionedProductCommandError
+ */
+const de_ListStackInstancesForProvisionedProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStackInstancesForProvisionedProductCommandOutput> => {
@@ -4880,10 +5568,10 @@ const deserializeAws_json1_1ListStackInstancesForProvisionedProductCommandError 
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4895,16 +5583,19 @@ const deserializeAws_json1_1ListStackInstancesForProvisionedProductCommandError 
   }
 };
 
-export const deserializeAws_json1_1ListTagOptionsCommand = async (
+/**
+ * deserializeAws_json1_1ListTagOptionsCommand
+ */
+export const de_ListTagOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagOptionsCommandError(output, context);
+    return de_ListTagOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagOptionsOutput(data, context);
+  contents = de_ListTagOptionsOutput(data, context);
   const response: ListTagOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4912,7 +5603,10 @@ export const deserializeAws_json1_1ListTagOptionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagOptionsCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagOptionsCommandError
+ */
+const de_ListTagOptionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagOptionsCommandOutput> => {
@@ -4924,10 +5618,10 @@ const deserializeAws_json1_1ListTagOptionsCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4939,16 +5633,19 @@ const deserializeAws_json1_1ListTagOptionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommand = async (
+/**
+ * deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommand
+ */
+export const de_NotifyProvisionProductEngineWorkflowResultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyProvisionProductEngineWorkflowResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommandError(output, context);
+    return de_NotifyProvisionProductEngineWorkflowResultCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultOutput(data, context);
+  contents = de_NotifyProvisionProductEngineWorkflowResultOutput(data, context);
   const response: NotifyProvisionProductEngineWorkflowResultCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4956,7 +5653,10 @@ export const deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCom
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommandError = async (
+/**
+ * deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommandError
+ */
+const de_NotifyProvisionProductEngineWorkflowResultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyProvisionProductEngineWorkflowResultCommandOutput> => {
@@ -4968,10 +5668,10 @@ const deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommandErr
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4983,16 +5683,19 @@ const deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommandErr
   }
 };
 
-export const deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand = async (
+/**
+ * deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand
+ */
+export const de_NotifyTerminateProvisionedProductEngineWorkflowResultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommandError(output, context);
+    return de_NotifyTerminateProvisionedProductEngineWorkflowResultCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultOutput(data, context);
+  contents = de_NotifyTerminateProvisionedProductEngineWorkflowResultOutput(data, context);
   const response: NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5000,7 +5703,10 @@ export const deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkfl
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommandError = async (
+/**
+ * deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommandError
+ */
+const de_NotifyTerminateProvisionedProductEngineWorkflowResultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput> => {
@@ -5012,10 +5718,10 @@ const deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResul
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5027,16 +5733,19 @@ const deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResul
   }
 };
 
-export const deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommand = async (
+/**
+ * deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommand
+ */
+export const de_NotifyUpdateProvisionedProductEngineWorkflowResultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommandError(output, context);
+    return de_NotifyUpdateProvisionedProductEngineWorkflowResultCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultOutput(data, context);
+  contents = de_NotifyUpdateProvisionedProductEngineWorkflowResultOutput(data, context);
   const response: NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5044,7 +5753,10 @@ export const deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowR
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommandError = async (
+/**
+ * deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommandError
+ */
+const de_NotifyUpdateProvisionedProductEngineWorkflowResultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput> => {
@@ -5056,10 +5768,10 @@ const deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCo
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5071,16 +5783,19 @@ const deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCo
   }
 };
 
-export const deserializeAws_json1_1ProvisionProductCommand = async (
+/**
+ * deserializeAws_json1_1ProvisionProductCommand
+ */
+export const de_ProvisionProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ProvisionProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ProvisionProductCommandError(output, context);
+    return de_ProvisionProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ProvisionProductOutput(data, context);
+  contents = de_ProvisionProductOutput(data, context);
   const response: ProvisionProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5088,7 +5803,10 @@ export const deserializeAws_json1_1ProvisionProductCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ProvisionProductCommandError = async (
+/**
+ * deserializeAws_json1_1ProvisionProductCommandError
+ */
+const de_ProvisionProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ProvisionProductCommandOutput> => {
@@ -5100,13 +5818,13 @@ const deserializeAws_json1_1ProvisionProductCommandError = async (
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await deserializeAws_json1_1DuplicateResourceExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5118,16 +5836,19 @@ const deserializeAws_json1_1ProvisionProductCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RejectPortfolioShareCommand = async (
+/**
+ * deserializeAws_json1_1RejectPortfolioShareCommand
+ */
+export const de_RejectPortfolioShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectPortfolioShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RejectPortfolioShareCommandError(output, context);
+    return de_RejectPortfolioShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RejectPortfolioShareOutput(data, context);
+  contents = de_RejectPortfolioShareOutput(data, context);
   const response: RejectPortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5135,7 +5856,10 @@ export const deserializeAws_json1_1RejectPortfolioShareCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RejectPortfolioShareCommandError = async (
+/**
+ * deserializeAws_json1_1RejectPortfolioShareCommandError
+ */
+const de_RejectPortfolioShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectPortfolioShareCommandOutput> => {
@@ -5147,7 +5871,7 @@ const deserializeAws_json1_1RejectPortfolioShareCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5159,16 +5883,19 @@ const deserializeAws_json1_1RejectPortfolioShareCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ScanProvisionedProductsCommand = async (
+/**
+ * deserializeAws_json1_1ScanProvisionedProductsCommand
+ */
+export const de_ScanProvisionedProductsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ScanProvisionedProductsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ScanProvisionedProductsCommandError(output, context);
+    return de_ScanProvisionedProductsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ScanProvisionedProductsOutput(data, context);
+  contents = de_ScanProvisionedProductsOutput(data, context);
   const response: ScanProvisionedProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5176,7 +5903,10 @@ export const deserializeAws_json1_1ScanProvisionedProductsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ScanProvisionedProductsCommandError = async (
+/**
+ * deserializeAws_json1_1ScanProvisionedProductsCommandError
+ */
+const de_ScanProvisionedProductsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ScanProvisionedProductsCommandOutput> => {
@@ -5188,7 +5918,7 @@ const deserializeAws_json1_1ScanProvisionedProductsCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5200,16 +5930,19 @@ const deserializeAws_json1_1ScanProvisionedProductsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SearchProductsCommand = async (
+/**
+ * deserializeAws_json1_1SearchProductsCommand
+ */
+export const de_SearchProductsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchProductsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SearchProductsCommandError(output, context);
+    return de_SearchProductsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchProductsOutput(data, context);
+  contents = de_SearchProductsOutput(data, context);
   const response: SearchProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5217,7 +5950,10 @@ export const deserializeAws_json1_1SearchProductsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SearchProductsCommandError = async (
+/**
+ * deserializeAws_json1_1SearchProductsCommandError
+ */
+const de_SearchProductsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchProductsCommandOutput> => {
@@ -5229,7 +5965,7 @@ const deserializeAws_json1_1SearchProductsCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5241,16 +5977,19 @@ const deserializeAws_json1_1SearchProductsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SearchProductsAsAdminCommand = async (
+/**
+ * deserializeAws_json1_1SearchProductsAsAdminCommand
+ */
+export const de_SearchProductsAsAdminCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchProductsAsAdminCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SearchProductsAsAdminCommandError(output, context);
+    return de_SearchProductsAsAdminCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchProductsAsAdminOutput(data, context);
+  contents = de_SearchProductsAsAdminOutput(data, context);
   const response: SearchProductsAsAdminCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5258,7 +5997,10 @@ export const deserializeAws_json1_1SearchProductsAsAdminCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SearchProductsAsAdminCommandError = async (
+/**
+ * deserializeAws_json1_1SearchProductsAsAdminCommandError
+ */
+const de_SearchProductsAsAdminCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchProductsAsAdminCommandOutput> => {
@@ -5270,10 +6012,10 @@ const deserializeAws_json1_1SearchProductsAsAdminCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5285,16 +6027,19 @@ const deserializeAws_json1_1SearchProductsAsAdminCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1SearchProvisionedProductsCommand = async (
+/**
+ * deserializeAws_json1_1SearchProvisionedProductsCommand
+ */
+export const de_SearchProvisionedProductsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchProvisionedProductsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1SearchProvisionedProductsCommandError(output, context);
+    return de_SearchProvisionedProductsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchProvisionedProductsOutput(data, context);
+  contents = de_SearchProvisionedProductsOutput(data, context);
   const response: SearchProvisionedProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5302,7 +6047,10 @@ export const deserializeAws_json1_1SearchProvisionedProductsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1SearchProvisionedProductsCommandError = async (
+/**
+ * deserializeAws_json1_1SearchProvisionedProductsCommandError
+ */
+const de_SearchProvisionedProductsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchProvisionedProductsCommandOutput> => {
@@ -5314,7 +6062,7 @@ const deserializeAws_json1_1SearchProvisionedProductsCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5326,16 +6074,19 @@ const deserializeAws_json1_1SearchProvisionedProductsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TerminateProvisionedProductCommand = async (
+/**
+ * deserializeAws_json1_1TerminateProvisionedProductCommand
+ */
+export const de_TerminateProvisionedProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TerminateProvisionedProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TerminateProvisionedProductCommandError(output, context);
+    return de_TerminateProvisionedProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TerminateProvisionedProductOutput(data, context);
+  contents = de_TerminateProvisionedProductOutput(data, context);
   const response: TerminateProvisionedProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5343,7 +6094,10 @@ export const deserializeAws_json1_1TerminateProvisionedProductCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TerminateProvisionedProductCommandError = async (
+/**
+ * deserializeAws_json1_1TerminateProvisionedProductCommandError
+ */
+const de_TerminateProvisionedProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TerminateProvisionedProductCommandOutput> => {
@@ -5355,7 +6109,7 @@ const deserializeAws_json1_1TerminateProvisionedProductCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5367,16 +6121,19 @@ const deserializeAws_json1_1TerminateProvisionedProductCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateConstraintCommand = async (
+/**
+ * deserializeAws_json1_1UpdateConstraintCommand
+ */
+export const de_UpdateConstraintCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConstraintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateConstraintCommandError(output, context);
+    return de_UpdateConstraintCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateConstraintOutput(data, context);
+  contents = de_UpdateConstraintOutput(data, context);
   const response: UpdateConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5384,7 +6141,10 @@ export const deserializeAws_json1_1UpdateConstraintCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateConstraintCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateConstraintCommandError
+ */
+const de_UpdateConstraintCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConstraintCommandOutput> => {
@@ -5396,10 +6156,10 @@ const deserializeAws_json1_1UpdateConstraintCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5411,16 +6171,19 @@ const deserializeAws_json1_1UpdateConstraintCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdatePortfolioCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePortfolioCommand
+ */
+export const de_UpdatePortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePortfolioCommandError(output, context);
+    return de_UpdatePortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePortfolioOutput(data, context);
+  contents = de_UpdatePortfolioOutput(data, context);
   const response: UpdatePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5428,7 +6191,10 @@ export const deserializeAws_json1_1UpdatePortfolioCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdatePortfolioCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePortfolioCommandError
+ */
+const de_UpdatePortfolioCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePortfolioCommandOutput> => {
@@ -5440,16 +6206,16 @@ const deserializeAws_json1_1UpdatePortfolioCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5461,16 +6227,19 @@ const deserializeAws_json1_1UpdatePortfolioCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdatePortfolioShareCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePortfolioShareCommand
+ */
+export const de_UpdatePortfolioShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePortfolioShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePortfolioShareCommandError(output, context);
+    return de_UpdatePortfolioShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePortfolioShareOutput(data, context);
+  contents = de_UpdatePortfolioShareOutput(data, context);
   const response: UpdatePortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5478,7 +6247,10 @@ export const deserializeAws_json1_1UpdatePortfolioShareCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdatePortfolioShareCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePortfolioShareCommandError
+ */
+const de_UpdatePortfolioShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePortfolioShareCommandOutput> => {
@@ -5490,16 +6262,16 @@ const deserializeAws_json1_1UpdatePortfolioShareCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "OperationNotSupportedException":
     case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5511,16 +6283,19 @@ const deserializeAws_json1_1UpdatePortfolioShareCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateProductCommand = async (
+/**
+ * deserializeAws_json1_1UpdateProductCommand
+ */
+export const de_UpdateProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateProductCommandError(output, context);
+    return de_UpdateProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProductOutput(data, context);
+  contents = de_UpdateProductOutput(data, context);
   const response: UpdateProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5528,7 +6303,10 @@ export const deserializeAws_json1_1UpdateProductCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateProductCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateProductCommandError
+ */
+const de_UpdateProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProductCommandOutput> => {
@@ -5540,13 +6318,13 @@ const deserializeAws_json1_1UpdateProductCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5558,16 +6336,19 @@ const deserializeAws_json1_1UpdateProductCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateProvisionedProductCommand = async (
+/**
+ * deserializeAws_json1_1UpdateProvisionedProductCommand
+ */
+export const de_UpdateProvisionedProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProvisionedProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateProvisionedProductCommandError(output, context);
+    return de_UpdateProvisionedProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProvisionedProductOutput(data, context);
+  contents = de_UpdateProvisionedProductOutput(data, context);
   const response: UpdateProvisionedProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5575,7 +6356,10 @@ export const deserializeAws_json1_1UpdateProvisionedProductCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateProvisionedProductCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateProvisionedProductCommandError
+ */
+const de_UpdateProvisionedProductCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProvisionedProductCommandOutput> => {
@@ -5587,10 +6371,10 @@ const deserializeAws_json1_1UpdateProvisionedProductCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5602,16 +6386,19 @@ const deserializeAws_json1_1UpdateProvisionedProductCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand = async (
+/**
+ * deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand
+ */
+export const de_UpdateProvisionedProductPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProvisionedProductPropertiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandError(output, context);
+    return de_UpdateProvisionedProductPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProvisionedProductPropertiesOutput(data, context);
+  contents = de_UpdateProvisionedProductPropertiesOutput(data, context);
   const response: UpdateProvisionedProductPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5619,7 +6406,10 @@ export const deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand = a
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandError
+ */
+const de_UpdateProvisionedProductPropertiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProvisionedProductPropertiesCommandOutput> => {
@@ -5631,13 +6421,13 @@ const deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandError = asy
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5649,16 +6439,19 @@ const deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandError = asy
   }
 };
 
-export const deserializeAws_json1_1UpdateProvisioningArtifactCommand = async (
+/**
+ * deserializeAws_json1_1UpdateProvisioningArtifactCommand
+ */
+export const de_UpdateProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateProvisioningArtifactCommandError(output, context);
+    return de_UpdateProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProvisioningArtifactOutput(data, context);
+  contents = de_UpdateProvisioningArtifactOutput(data, context);
   const response: UpdateProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5666,7 +6459,10 @@ export const deserializeAws_json1_1UpdateProvisioningArtifactCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateProvisioningArtifactCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateProvisioningArtifactCommandError
+ */
+const de_UpdateProvisioningArtifactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProvisioningArtifactCommandOutput> => {
@@ -5678,10 +6474,10 @@ const deserializeAws_json1_1UpdateProvisioningArtifactCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5693,16 +6489,19 @@ const deserializeAws_json1_1UpdateProvisioningArtifactCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateServiceActionCommand = async (
+/**
+ * deserializeAws_json1_1UpdateServiceActionCommand
+ */
+export const de_UpdateServiceActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateServiceActionCommandError(output, context);
+    return de_UpdateServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateServiceActionOutput(data, context);
+  contents = de_UpdateServiceActionOutput(data, context);
   const response: UpdateServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5710,7 +6509,10 @@ export const deserializeAws_json1_1UpdateServiceActionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateServiceActionCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateServiceActionCommandError
+ */
+const de_UpdateServiceActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceActionCommandOutput> => {
@@ -5722,10 +6524,10 @@ const deserializeAws_json1_1UpdateServiceActionCommandError = async (
   switch (errorCode) {
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5737,16 +6539,19 @@ const deserializeAws_json1_1UpdateServiceActionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateTagOptionCommand = async (
+/**
+ * deserializeAws_json1_1UpdateTagOptionCommand
+ */
+export const de_UpdateTagOptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTagOptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateTagOptionCommandError(output, context);
+    return de_UpdateTagOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTagOptionOutput(data, context);
+  contents = de_UpdateTagOptionOutput(data, context);
   const response: UpdateTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5754,7 +6559,10 @@ export const deserializeAws_json1_1UpdateTagOptionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateTagOptionCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateTagOptionCommandError
+ */
+const de_UpdateTagOptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTagOptionCommandOutput> => {
@@ -5766,16 +6574,16 @@ const deserializeAws_json1_1UpdateTagOptionCommandError = async (
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await deserializeAws_json1_1DuplicateResourceExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
     case "InvalidParametersException":
     case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await deserializeAws_json1_1TagOptionNotMigratedExceptionResponse(parsedOutput, context);
+      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5787,12 +6595,15 @@ const deserializeAws_json1_1UpdateTagOptionCommandError = async (
   }
 };
 
-const deserializeAws_json1_1DuplicateResourceExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DuplicateResourceExceptionRes
+ */
+const de_DuplicateResourceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateResourceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DuplicateResourceException(body, context);
+  const deserialized: any = de_DuplicateResourceException(body, context);
   const exception = new DuplicateResourceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5800,12 +6611,15 @@ const deserializeAws_json1_1DuplicateResourceExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParametersExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParametersExceptionRes
+ */
+const de_InvalidParametersExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParametersException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParametersException(body, context);
+  const deserialized: any = de_InvalidParametersException(body, context);
   const exception = new InvalidParametersException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5813,12 +6627,15 @@ const deserializeAws_json1_1InvalidParametersExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidStateExceptionRes
+ */
+const de_InvalidStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidStateException(body, context);
+  const deserialized: any = de_InvalidStateException(body, context);
   const exception = new InvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5826,12 +6643,15 @@ const deserializeAws_json1_1InvalidStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5839,12 +6659,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OperationNotSupportedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1OperationNotSupportedExceptionRes
+ */
+const de_OperationNotSupportedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OperationNotSupportedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationNotSupportedException(body, context);
+  const deserialized: any = de_OperationNotSupportedException(body, context);
   const exception = new OperationNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5852,12 +6675,15 @@ const deserializeAws_json1_1OperationNotSupportedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
+  const deserialized: any = de_ResourceInUseException(body, context);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5865,12 +6691,15 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5878,12 +6707,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TagOptionNotMigratedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TagOptionNotMigratedExceptionRes
+ */
+const de_TagOptionNotMigratedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagOptionNotMigratedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagOptionNotMigratedException(body, context);
+  const deserialized: any = de_TagOptionNotMigratedException(body, context);
   const exception = new TagOptionNotMigratedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5891,10 +6723,10 @@ const deserializeAws_json1_1TagOptionNotMigratedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AcceptPortfolioShareInput = (
-  input: AcceptPortfolioShareInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AcceptPortfolioShareInput
+ */
+const se_AcceptPortfolioShareInput = (input: AcceptPortfolioShareInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
@@ -5902,32 +6734,41 @@ const serializeAws_json1_1AcceptPortfolioShareInput = (
   };
 };
 
-const serializeAws_json1_1AccessLevelFilter = (input: AccessLevelFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AccessLevelFilter
+ */
+const se_AccessLevelFilter = (input: AccessLevelFilter, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1AddTags = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AddTags
+ */
+const se_AddTags = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1AssociateBudgetWithResourceInput = (
-  input: AssociateBudgetWithResourceInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AssociateBudgetWithResourceInput
+ */
+const se_AssociateBudgetWithResourceInput = (input: AssociateBudgetWithResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.BudgetName != null && { BudgetName: input.BudgetName }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_json1_1AssociatePrincipalWithPortfolioInput = (
+/**
+ * serializeAws_json1_1AssociatePrincipalWithPortfolioInput
+ */
+const se_AssociatePrincipalWithPortfolioInput = (
   input: AssociatePrincipalWithPortfolioInput,
   context: __SerdeContext
 ): any => {
@@ -5939,7 +6780,10 @@ const serializeAws_json1_1AssociatePrincipalWithPortfolioInput = (
   };
 };
 
-const serializeAws_json1_1AssociateProductWithPortfolioInput = (
+/**
+ * serializeAws_json1_1AssociateProductWithPortfolioInput
+ */
+const se_AssociateProductWithPortfolioInput = (
   input: AssociateProductWithPortfolioInput,
   context: __SerdeContext
 ): any => {
@@ -5951,7 +6795,10 @@ const serializeAws_json1_1AssociateProductWithPortfolioInput = (
   };
 };
 
-const serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput = (
+/**
+ * serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput
+ */
+const se_AssociateServiceActionWithProvisioningArtifactInput = (
   input: AssociateServiceActionWithProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
@@ -5963,7 +6810,10 @@ const serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput = 
   };
 };
 
-const serializeAws_json1_1AssociateTagOptionWithResourceInput = (
+/**
+ * serializeAws_json1_1AssociateTagOptionWithResourceInput
+ */
+const se_AssociateTagOptionWithResourceInput = (
   input: AssociateTagOptionWithResourceInput,
   context: __SerdeContext
 ): any => {
@@ -5973,37 +6823,40 @@ const serializeAws_json1_1AssociateTagOptionWithResourceInput = (
   };
 };
 
-const serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactInput = (
+/**
+ * serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactInput
+ */
+const se_BatchAssociateServiceActionWithProvisioningArtifactInput = (
   input: BatchAssociateServiceActionWithProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.ServiceActionAssociations != null && {
-      ServiceActionAssociations: serializeAws_json1_1ServiceActionAssociations(
-        input.ServiceActionAssociations,
-        context
-      ),
+      ServiceActionAssociations: se_ServiceActionAssociations(input.ServiceActionAssociations, context),
     }),
   };
 };
 
-const serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactInput = (
+/**
+ * serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactInput
+ */
+const se_BatchDisassociateServiceActionFromProvisioningArtifactInput = (
   input: BatchDisassociateServiceActionFromProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.ServiceActionAssociations != null && {
-      ServiceActionAssociations: serializeAws_json1_1ServiceActionAssociations(
-        input.ServiceActionAssociations,
-        context
-      ),
+      ServiceActionAssociations: se_ServiceActionAssociations(input.ServiceActionAssociations, context),
     }),
   };
 };
 
-const serializeAws_json1_1CodeStarParameters = (input: CodeStarParameters, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CodeStarParameters
+ */
+const se_CodeStarParameters = (input: CodeStarParameters, context: __SerdeContext): any => {
   return {
     ...(input.ArtifactPath != null && { ArtifactPath: input.ArtifactPath }),
     ...(input.Branch != null && { Branch: input.Branch }),
@@ -6012,7 +6865,10 @@ const serializeAws_json1_1CodeStarParameters = (input: CodeStarParameters, conte
   };
 };
 
-const serializeAws_json1_1CopyOptions = (input: (CopyOption | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CopyOptions
+ */
+const se_CopyOptions = (input: (CopyOption | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6020,14 +6876,17 @@ const serializeAws_json1_1CopyOptions = (input: (CopyOption | string)[], context
     });
 };
 
-const serializeAws_json1_1CopyProductInput = (input: CopyProductInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CopyProductInput
+ */
+const se_CopyProductInput = (input: CopyProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.CopyOptions != null && { CopyOptions: serializeAws_json1_1CopyOptions(input.CopyOptions, context) }),
+    ...(input.CopyOptions != null && { CopyOptions: se_CopyOptions(input.CopyOptions, context) }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
     ...(input.SourceProductArn != null && { SourceProductArn: input.SourceProductArn }),
     ...(input.SourceProvisioningArtifactIdentifiers != null && {
-      SourceProvisioningArtifactIdentifiers: serializeAws_json1_1SourceProvisioningArtifactProperties(
+      SourceProvisioningArtifactIdentifiers: se_SourceProvisioningArtifactProperties(
         input.SourceProvisioningArtifactIdentifiers,
         context
       ),
@@ -6037,7 +6896,10 @@ const serializeAws_json1_1CopyProductInput = (input: CopyProductInput, context: 
   };
 };
 
-const serializeAws_json1_1CreateConstraintInput = (input: CreateConstraintInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateConstraintInput
+ */
+const se_CreateConstraintInput = (input: CreateConstraintInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Description != null && { Description: input.Description }),
@@ -6049,34 +6911,38 @@ const serializeAws_json1_1CreateConstraintInput = (input: CreateConstraintInput,
   };
 };
 
-const serializeAws_json1_1CreatePortfolioInput = (input: CreatePortfolioInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreatePortfolioInput
+ */
+const se_CreatePortfolioInput = (input: CreatePortfolioInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
     ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1AddTags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_AddTags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreatePortfolioShareInput = (
-  input: CreatePortfolioShareInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreatePortfolioShareInput
+ */
+const se_CreatePortfolioShareInput = (input: CreatePortfolioShareInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.OrganizationNode != null && {
-      OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
-    }),
+    ...(input.OrganizationNode != null && { OrganizationNode: se_OrganizationNode(input.OrganizationNode, context) }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
     ...(input.SharePrincipals != null && { SharePrincipals: input.SharePrincipals }),
     ...(input.ShareTagOptions != null && { ShareTagOptions: input.ShareTagOptions }),
   };
 };
 
-const serializeAws_json1_1CreateProductInput = (input: CreateProductInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateProductInput
+ */
+const se_CreateProductInput = (input: CreateProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Description != null && { Description: input.Description }),
@@ -6086,31 +6952,27 @@ const serializeAws_json1_1CreateProductInput = (input: CreateProductInput, conte
     ...(input.Owner != null && { Owner: input.Owner }),
     ...(input.ProductType != null && { ProductType: input.ProductType }),
     ...(input.ProvisioningArtifactParameters != null && {
-      ProvisioningArtifactParameters: serializeAws_json1_1ProvisioningArtifactProperties(
-        input.ProvisioningArtifactParameters,
-        context
-      ),
+      ProvisioningArtifactParameters: se_ProvisioningArtifactProperties(input.ProvisioningArtifactParameters, context),
     }),
-    ...(input.SourceConnection != null && {
-      SourceConnection: serializeAws_json1_1SourceConnection(input.SourceConnection, context),
-    }),
+    ...(input.SourceConnection != null && { SourceConnection: se_SourceConnection(input.SourceConnection, context) }),
     ...(input.SupportDescription != null && { SupportDescription: input.SupportDescription }),
     ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
     ...(input.SupportUrl != null && { SupportUrl: input.SupportUrl }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1AddTags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_AddTags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateProvisionedProductPlanInput = (
+/**
+ * serializeAws_json1_1CreateProvisionedProductPlanInput
+ */
+const se_CreateProvisionedProductPlanInput = (
   input: CreateProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.NotificationArns != null && {
-      NotificationArns: serializeAws_json1_1NotificationArns(input.NotificationArns, context),
-    }),
+    ...(input.NotificationArns != null && { NotificationArns: se_NotificationArns(input.NotificationArns, context) }),
     ...(input.PathId != null && { PathId: input.PathId }),
     ...(input.PlanName != null && { PlanName: input.PlanName }),
     ...(input.PlanType != null && { PlanType: input.PlanType }),
@@ -6118,35 +6980,31 @@ const serializeAws_json1_1CreateProvisionedProductPlanInput = (
     ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
     ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
     ...(input.ProvisioningParameters != null && {
-      ProvisioningParameters: serializeAws_json1_1UpdateProvisioningParameters(input.ProvisioningParameters, context),
+      ProvisioningParameters: se_UpdateProvisioningParameters(input.ProvisioningParameters, context),
     }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateProvisioningArtifactInput = (
-  input: CreateProvisioningArtifactInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateProvisioningArtifactInput
+ */
+const se_CreateProvisioningArtifactInput = (input: CreateProvisioningArtifactInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Parameters != null && {
-      Parameters: serializeAws_json1_1ProvisioningArtifactProperties(input.Parameters, context),
-    }),
+    ...(input.Parameters != null && { Parameters: se_ProvisioningArtifactProperties(input.Parameters, context) }),
     ...(input.ProductId != null && { ProductId: input.ProductId }),
   };
 };
 
-const serializeAws_json1_1CreateServiceActionInput = (
-  input: CreateServiceActionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateServiceActionInput
+ */
+const se_CreateServiceActionInput = (input: CreateServiceActionInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Definition != null && {
-      Definition: serializeAws_json1_1ServiceActionDefinitionMap(input.Definition, context),
-    }),
+    ...(input.Definition != null && { Definition: se_ServiceActionDefinitionMap(input.Definition, context) }),
     ...(input.DefinitionType != null && { DefinitionType: input.DefinitionType }),
     ...(input.Description != null && { Description: input.Description }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
@@ -6154,49 +7012,62 @@ const serializeAws_json1_1CreateServiceActionInput = (
   };
 };
 
-const serializeAws_json1_1CreateTagOptionInput = (input: CreateTagOptionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateTagOptionInput
+ */
+const se_CreateTagOptionInput = (input: CreateTagOptionInput, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1DeleteConstraintInput = (input: DeleteConstraintInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteConstraintInput
+ */
+const se_DeleteConstraintInput = (input: DeleteConstraintInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
   };
 };
 
-const serializeAws_json1_1DeletePortfolioInput = (input: DeletePortfolioInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeletePortfolioInput
+ */
+const se_DeletePortfolioInput = (input: DeletePortfolioInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
   };
 };
 
-const serializeAws_json1_1DeletePortfolioShareInput = (
-  input: DeletePortfolioShareInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeletePortfolioShareInput
+ */
+const se_DeletePortfolioShareInput = (input: DeletePortfolioShareInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.OrganizationNode != null && {
-      OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
-    }),
+    ...(input.OrganizationNode != null && { OrganizationNode: se_OrganizationNode(input.OrganizationNode, context) }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
   };
 };
 
-const serializeAws_json1_1DeleteProductInput = (input: DeleteProductInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteProductInput
+ */
+const se_DeleteProductInput = (input: DeleteProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
   };
 };
 
-const serializeAws_json1_1DeleteProvisionedProductPlanInput = (
+/**
+ * serializeAws_json1_1DeleteProvisionedProductPlanInput
+ */
+const se_DeleteProvisionedProductPlanInput = (
   input: DeleteProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
@@ -6207,10 +7078,10 @@ const serializeAws_json1_1DeleteProvisionedProductPlanInput = (
   };
 };
 
-const serializeAws_json1_1DeleteProvisioningArtifactInput = (
-  input: DeleteProvisioningArtifactInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteProvisioningArtifactInput
+ */
+const se_DeleteProvisioningArtifactInput = (input: DeleteProvisioningArtifactInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.ProductId != null && { ProductId: input.ProductId }),
@@ -6218,50 +7089,59 @@ const serializeAws_json1_1DeleteProvisioningArtifactInput = (
   };
 };
 
-const serializeAws_json1_1DeleteServiceActionInput = (
-  input: DeleteServiceActionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteServiceActionInput
+ */
+const se_DeleteServiceActionInput = (input: DeleteServiceActionInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
   };
 };
 
-const serializeAws_json1_1DeleteTagOptionInput = (input: DeleteTagOptionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteTagOptionInput
+ */
+const se_DeleteTagOptionInput = (input: DeleteTagOptionInput, context: __SerdeContext): any => {
   return {
     ...(input.Id != null && { Id: input.Id }),
   };
 };
 
-const serializeAws_json1_1DescribeConstraintInput = (input: DescribeConstraintInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeConstraintInput
+ */
+const se_DescribeConstraintInput = (input: DescribeConstraintInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
   };
 };
 
-const serializeAws_json1_1DescribeCopyProductStatusInput = (
-  input: DescribeCopyProductStatusInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeCopyProductStatusInput
+ */
+const se_DescribeCopyProductStatusInput = (input: DescribeCopyProductStatusInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.CopyProductToken != null && { CopyProductToken: input.CopyProductToken }),
   };
 };
 
-const serializeAws_json1_1DescribePortfolioInput = (input: DescribePortfolioInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribePortfolioInput
+ */
+const se_DescribePortfolioInput = (input: DescribePortfolioInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
   };
 };
 
-const serializeAws_json1_1DescribePortfolioSharesInput = (
-  input: DescribePortfolioSharesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribePortfolioSharesInput
+ */
+const se_DescribePortfolioSharesInput = (input: DescribePortfolioSharesInput, context: __SerdeContext): any => {
   return {
     ...(input.PageSize != null && { PageSize: input.PageSize }),
     ...(input.PageToken != null && { PageToken: input.PageToken }),
@@ -6270,7 +7150,10 @@ const serializeAws_json1_1DescribePortfolioSharesInput = (
   };
 };
 
-const serializeAws_json1_1DescribePortfolioShareStatusInput = (
+/**
+ * serializeAws_json1_1DescribePortfolioShareStatusInput
+ */
+const se_DescribePortfolioShareStatusInput = (
   input: DescribePortfolioShareStatusInput,
   context: __SerdeContext
 ): any => {
@@ -6279,10 +7162,10 @@ const serializeAws_json1_1DescribePortfolioShareStatusInput = (
   };
 };
 
-const serializeAws_json1_1DescribeProductAsAdminInput = (
-  input: DescribeProductAsAdminInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeProductAsAdminInput
+ */
+const se_DescribeProductAsAdminInput = (input: DescribeProductAsAdminInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
@@ -6291,7 +7174,10 @@ const serializeAws_json1_1DescribeProductAsAdminInput = (
   };
 };
 
-const serializeAws_json1_1DescribeProductInput = (input: DescribeProductInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeProductInput
+ */
+const se_DescribeProductInput = (input: DescribeProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
@@ -6299,20 +7185,20 @@ const serializeAws_json1_1DescribeProductInput = (input: DescribeProductInput, c
   };
 };
 
-const serializeAws_json1_1DescribeProductViewInput = (
-  input: DescribeProductViewInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeProductViewInput
+ */
+const se_DescribeProductViewInput = (input: DescribeProductViewInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
   };
 };
 
-const serializeAws_json1_1DescribeProvisionedProductInput = (
-  input: DescribeProvisionedProductInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeProvisionedProductInput
+ */
+const se_DescribeProvisionedProductInput = (input: DescribeProvisionedProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
@@ -6320,7 +7206,10 @@ const serializeAws_json1_1DescribeProvisionedProductInput = (
   };
 };
 
-const serializeAws_json1_1DescribeProvisionedProductPlanInput = (
+/**
+ * serializeAws_json1_1DescribeProvisionedProductPlanInput
+ */
+const se_DescribeProvisionedProductPlanInput = (
   input: DescribeProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
@@ -6332,7 +7221,10 @@ const serializeAws_json1_1DescribeProvisionedProductPlanInput = (
   };
 };
 
-const serializeAws_json1_1DescribeProvisioningArtifactInput = (
+/**
+ * serializeAws_json1_1DescribeProvisioningArtifactInput
+ */
+const se_DescribeProvisioningArtifactInput = (
   input: DescribeProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
@@ -6346,7 +7238,10 @@ const serializeAws_json1_1DescribeProvisioningArtifactInput = (
   };
 };
 
-const serializeAws_json1_1DescribeProvisioningParametersInput = (
+/**
+ * serializeAws_json1_1DescribeProvisioningParametersInput
+ */
+const se_DescribeProvisioningParametersInput = (
   input: DescribeProvisioningParametersInput,
   context: __SerdeContext
 ): any => {
@@ -6361,7 +7256,10 @@ const serializeAws_json1_1DescribeProvisioningParametersInput = (
   };
 };
 
-const serializeAws_json1_1DescribeRecordInput = (input: DescribeRecordInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeRecordInput
+ */
+const se_DescribeRecordInput = (input: DescribeRecordInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
@@ -6370,7 +7268,10 @@ const serializeAws_json1_1DescribeRecordInput = (input: DescribeRecordInput, con
   };
 };
 
-const serializeAws_json1_1DescribeServiceActionExecutionParametersInput = (
+/**
+ * serializeAws_json1_1DescribeServiceActionExecutionParametersInput
+ */
+const se_DescribeServiceActionExecutionParametersInput = (
   input: DescribeServiceActionExecutionParametersInput,
   context: __SerdeContext
 ): any => {
@@ -6381,30 +7282,39 @@ const serializeAws_json1_1DescribeServiceActionExecutionParametersInput = (
   };
 };
 
-const serializeAws_json1_1DescribeServiceActionInput = (
-  input: DescribeServiceActionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeServiceActionInput
+ */
+const se_DescribeServiceActionInput = (input: DescribeServiceActionInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id != null && { Id: input.Id }),
   };
 };
 
-const serializeAws_json1_1DescribeTagOptionInput = (input: DescribeTagOptionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeTagOptionInput
+ */
+const se_DescribeTagOptionInput = (input: DescribeTagOptionInput, context: __SerdeContext): any => {
   return {
     ...(input.Id != null && { Id: input.Id }),
   };
 };
 
-const serializeAws_json1_1DisableAWSOrganizationsAccessInput = (
+/**
+ * serializeAws_json1_1DisableAWSOrganizationsAccessInput
+ */
+const se_DisableAWSOrganizationsAccessInput = (
   input: DisableAWSOrganizationsAccessInput,
   context: __SerdeContext
 ): any => {
   return {};
 };
 
-const serializeAws_json1_1DisassociateBudgetFromResourceInput = (
+/**
+ * serializeAws_json1_1DisassociateBudgetFromResourceInput
+ */
+const se_DisassociateBudgetFromResourceInput = (
   input: DisassociateBudgetFromResourceInput,
   context: __SerdeContext
 ): any => {
@@ -6414,7 +7324,10 @@ const serializeAws_json1_1DisassociateBudgetFromResourceInput = (
   };
 };
 
-const serializeAws_json1_1DisassociatePrincipalFromPortfolioInput = (
+/**
+ * serializeAws_json1_1DisassociatePrincipalFromPortfolioInput
+ */
+const se_DisassociatePrincipalFromPortfolioInput = (
   input: DisassociatePrincipalFromPortfolioInput,
   context: __SerdeContext
 ): any => {
@@ -6426,7 +7339,10 @@ const serializeAws_json1_1DisassociatePrincipalFromPortfolioInput = (
   };
 };
 
-const serializeAws_json1_1DisassociateProductFromPortfolioInput = (
+/**
+ * serializeAws_json1_1DisassociateProductFromPortfolioInput
+ */
+const se_DisassociateProductFromPortfolioInput = (
   input: DisassociateProductFromPortfolioInput,
   context: __SerdeContext
 ): any => {
@@ -6437,7 +7353,10 @@ const serializeAws_json1_1DisassociateProductFromPortfolioInput = (
   };
 };
 
-const serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput = (
+/**
+ * serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput
+ */
+const se_DisassociateServiceActionFromProvisioningArtifactInput = (
   input: DisassociateServiceActionFromProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
@@ -6449,7 +7368,10 @@ const serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput
   };
 };
 
-const serializeAws_json1_1DisassociateTagOptionFromResourceInput = (
+/**
+ * serializeAws_json1_1DisassociateTagOptionFromResourceInput
+ */
+const se_DisassociateTagOptionFromResourceInput = (
   input: DisassociateTagOptionFromResourceInput,
   context: __SerdeContext
 ): any => {
@@ -6459,25 +7381,29 @@ const serializeAws_json1_1DisassociateTagOptionFromResourceInput = (
   };
 };
 
-const serializeAws_json1_1EnableAWSOrganizationsAccessInput = (
+/**
+ * serializeAws_json1_1EnableAWSOrganizationsAccessInput
+ */
+const se_EnableAWSOrganizationsAccessInput = (
   input: EnableAWSOrganizationsAccessInput,
   context: __SerdeContext
 ): any => {
   return {};
 };
 
-const serializeAws_json1_1EngineWorkflowResourceIdentifier = (
-  input: EngineWorkflowResourceIdentifier,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1EngineWorkflowResourceIdentifier
+ */
+const se_EngineWorkflowResourceIdentifier = (input: EngineWorkflowResourceIdentifier, context: __SerdeContext): any => {
   return {
-    ...(input.UniqueTag != null && {
-      UniqueTag: serializeAws_json1_1UniqueTagResourceIdentifier(input.UniqueTag, context),
-    }),
+    ...(input.UniqueTag != null && { UniqueTag: se_UniqueTagResourceIdentifier(input.UniqueTag, context) }),
   };
 };
 
-const serializeAws_json1_1ExecuteProvisionedProductPlanInput = (
+/**
+ * serializeAws_json1_1ExecuteProvisionedProductPlanInput
+ */
+const se_ExecuteProvisionedProductPlanInput = (
   input: ExecuteProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
@@ -6488,32 +7414,39 @@ const serializeAws_json1_1ExecuteProvisionedProductPlanInput = (
   };
 };
 
-const serializeAws_json1_1ExecuteProvisionedProductServiceActionInput = (
+/**
+ * serializeAws_json1_1ExecuteProvisionedProductServiceActionInput
+ */
+const se_ExecuteProvisionedProductServiceActionInput = (
   input: ExecuteProvisionedProductServiceActionInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ExecuteToken: input.ExecuteToken ?? generateIdempotencyToken(),
-    ...(input.Parameters != null && {
-      Parameters: serializeAws_json1_1ExecutionParameterMap(input.Parameters, context),
-    }),
+    ...(input.Parameters != null && { Parameters: se_ExecutionParameterMap(input.Parameters, context) }),
     ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
     ...(input.ServiceActionId != null && { ServiceActionId: input.ServiceActionId }),
   };
 };
 
-const serializeAws_json1_1ExecutionParameterMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ExecutionParameterMap
+ */
+const se_ExecutionParameterMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_json1_1ExecutionParameterValueList(value, context);
+    acc[key] = se_ExecutionParameterValueList(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_json1_1ExecutionParameterValueList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ExecutionParameterValueList
+ */
+const se_ExecutionParameterValueList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6521,20 +7454,26 @@ const serializeAws_json1_1ExecutionParameterValueList = (input: string[], contex
     });
 };
 
-const serializeAws_json1_1GetAWSOrganizationsAccessStatusInput = (
+/**
+ * serializeAws_json1_1GetAWSOrganizationsAccessStatusInput
+ */
+const se_GetAWSOrganizationsAccessStatusInput = (
   input: GetAWSOrganizationsAccessStatusInput,
   context: __SerdeContext
 ): any => {
   return {};
 };
 
-const serializeAws_json1_1GetProvisionedProductOutputsInput = (
+/**
+ * serializeAws_json1_1GetProvisionedProductOutputsInput
+ */
+const se_GetProvisionedProductOutputsInput = (
   input: GetProvisionedProductOutputsInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.OutputKeys != null && { OutputKeys: serializeAws_json1_1OutputKeys(input.OutputKeys, context) }),
+    ...(input.OutputKeys != null && { OutputKeys: se_OutputKeys(input.OutputKeys, context) }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
     ...(input.PageToken != null && { PageToken: input.PageToken }),
     ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
@@ -6542,10 +7481,10 @@ const serializeAws_json1_1GetProvisionedProductOutputsInput = (
   };
 };
 
-const serializeAws_json1_1ImportAsProvisionedProductInput = (
-  input: ImportAsProvisionedProductInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ImportAsProvisionedProductInput
+ */
+const se_ImportAsProvisionedProductInput = (input: ImportAsProvisionedProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
@@ -6556,10 +7495,10 @@ const serializeAws_json1_1ImportAsProvisionedProductInput = (
   };
 };
 
-const serializeAws_json1_1ListAcceptedPortfolioSharesInput = (
-  input: ListAcceptedPortfolioSharesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListAcceptedPortfolioSharesInput
+ */
+const se_ListAcceptedPortfolioSharesInput = (input: ListAcceptedPortfolioSharesInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
@@ -6568,10 +7507,10 @@ const serializeAws_json1_1ListAcceptedPortfolioSharesInput = (
   };
 };
 
-const serializeAws_json1_1ListBudgetsForResourceInput = (
-  input: ListBudgetsForResourceInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListBudgetsForResourceInput
+ */
+const se_ListBudgetsForResourceInput = (input: ListBudgetsForResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
@@ -6580,10 +7519,10 @@ const serializeAws_json1_1ListBudgetsForResourceInput = (
   };
 };
 
-const serializeAws_json1_1ListConstraintsForPortfolioInput = (
-  input: ListConstraintsForPortfolioInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListConstraintsForPortfolioInput
+ */
+const se_ListConstraintsForPortfolioInput = (input: ListConstraintsForPortfolioInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
@@ -6593,7 +7532,10 @@ const serializeAws_json1_1ListConstraintsForPortfolioInput = (
   };
 };
 
-const serializeAws_json1_1ListLaunchPathsInput = (input: ListLaunchPathsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListLaunchPathsInput
+ */
+const se_ListLaunchPathsInput = (input: ListLaunchPathsInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
@@ -6602,7 +7544,10 @@ const serializeAws_json1_1ListLaunchPathsInput = (input: ListLaunchPathsInput, c
   };
 };
 
-const serializeAws_json1_1ListOrganizationPortfolioAccessInput = (
+/**
+ * serializeAws_json1_1ListOrganizationPortfolioAccessInput
+ */
+const se_ListOrganizationPortfolioAccessInput = (
   input: ListOrganizationPortfolioAccessInput,
   context: __SerdeContext
 ): any => {
@@ -6615,10 +7560,10 @@ const serializeAws_json1_1ListOrganizationPortfolioAccessInput = (
   };
 };
 
-const serializeAws_json1_1ListPortfolioAccessInput = (
-  input: ListPortfolioAccessInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListPortfolioAccessInput
+ */
+const se_ListPortfolioAccessInput = (input: ListPortfolioAccessInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.OrganizationParentId != null && { OrganizationParentId: input.OrganizationParentId }),
@@ -6628,10 +7573,10 @@ const serializeAws_json1_1ListPortfolioAccessInput = (
   };
 };
 
-const serializeAws_json1_1ListPortfoliosForProductInput = (
-  input: ListPortfoliosForProductInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListPortfoliosForProductInput
+ */
+const se_ListPortfoliosForProductInput = (input: ListPortfoliosForProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
@@ -6640,7 +7585,10 @@ const serializeAws_json1_1ListPortfoliosForProductInput = (
   };
 };
 
-const serializeAws_json1_1ListPortfoliosInput = (input: ListPortfoliosInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListPortfoliosInput
+ */
+const se_ListPortfoliosInput = (input: ListPortfoliosInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
@@ -6648,10 +7596,10 @@ const serializeAws_json1_1ListPortfoliosInput = (input: ListPortfoliosInput, con
   };
 };
 
-const serializeAws_json1_1ListPrincipalsForPortfolioInput = (
-  input: ListPrincipalsForPortfolioInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListPrincipalsForPortfolioInput
+ */
+const se_ListPrincipalsForPortfolioInput = (input: ListPrincipalsForPortfolioInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
@@ -6660,14 +7608,14 @@ const serializeAws_json1_1ListPrincipalsForPortfolioInput = (
   };
 };
 
-const serializeAws_json1_1ListProvisionedProductPlansInput = (
-  input: ListProvisionedProductPlansInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListProvisionedProductPlansInput
+ */
+const se_ListProvisionedProductPlansInput = (input: ListProvisionedProductPlansInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.AccessLevelFilter != null && {
-      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
+      AccessLevelFilter: se_AccessLevelFilter(input.AccessLevelFilter, context),
     }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
     ...(input.PageToken != null && { PageToken: input.PageToken }),
@@ -6675,7 +7623,10 @@ const serializeAws_json1_1ListProvisionedProductPlansInput = (
   };
 };
 
-const serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput = (
+/**
+ * serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput
+ */
+const se_ListProvisioningArtifactsForServiceActionInput = (
   input: ListProvisioningArtifactsForServiceActionInput,
   context: __SerdeContext
 ): any => {
@@ -6687,44 +7638,45 @@ const serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput = (
   };
 };
 
-const serializeAws_json1_1ListProvisioningArtifactsInput = (
-  input: ListProvisioningArtifactsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListProvisioningArtifactsInput
+ */
+const se_ListProvisioningArtifactsInput = (input: ListProvisioningArtifactsInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.ProductId != null && { ProductId: input.ProductId }),
   };
 };
 
-const serializeAws_json1_1ListRecordHistoryInput = (input: ListRecordHistoryInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListRecordHistoryInput
+ */
+const se_ListRecordHistoryInput = (input: ListRecordHistoryInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.AccessLevelFilter != null && {
-      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
+      AccessLevelFilter: se_AccessLevelFilter(input.AccessLevelFilter, context),
     }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
     ...(input.PageToken != null && { PageToken: input.PageToken }),
-    ...(input.SearchFilter != null && {
-      SearchFilter: serializeAws_json1_1ListRecordHistorySearchFilter(input.SearchFilter, context),
-    }),
+    ...(input.SearchFilter != null && { SearchFilter: se_ListRecordHistorySearchFilter(input.SearchFilter, context) }),
   };
 };
 
-const serializeAws_json1_1ListRecordHistorySearchFilter = (
-  input: ListRecordHistorySearchFilter,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListRecordHistorySearchFilter
+ */
+const se_ListRecordHistorySearchFilter = (input: ListRecordHistorySearchFilter, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1ListResourcesForTagOptionInput = (
-  input: ListResourcesForTagOptionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListResourcesForTagOptionInput
+ */
+const se_ListResourcesForTagOptionInput = (input: ListResourcesForTagOptionInput, context: __SerdeContext): any => {
   return {
     ...(input.PageSize != null && { PageSize: input.PageSize }),
     ...(input.PageToken != null && { PageToken: input.PageToken }),
@@ -6733,7 +7685,10 @@ const serializeAws_json1_1ListResourcesForTagOptionInput = (
   };
 };
 
-const serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput = (
+/**
+ * serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput
+ */
+const se_ListServiceActionsForProvisioningArtifactInput = (
   input: ListServiceActionsForProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
@@ -6746,7 +7701,10 @@ const serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput = (
   };
 };
 
-const serializeAws_json1_1ListServiceActionsInput = (input: ListServiceActionsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListServiceActionsInput
+ */
+const se_ListServiceActionsInput = (input: ListServiceActionsInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
@@ -6754,7 +7712,10 @@ const serializeAws_json1_1ListServiceActionsInput = (input: ListServiceActionsIn
   };
 };
 
-const serializeAws_json1_1ListStackInstancesForProvisionedProductInput = (
+/**
+ * serializeAws_json1_1ListStackInstancesForProvisionedProductInput
+ */
+const se_ListStackInstancesForProvisionedProductInput = (
   input: ListStackInstancesForProvisionedProductInput,
   context: __SerdeContext
 ): any => {
@@ -6766,7 +7727,10 @@ const serializeAws_json1_1ListStackInstancesForProvisionedProductInput = (
   };
 };
 
-const serializeAws_json1_1ListTagOptionsFilters = (input: ListTagOptionsFilters, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListTagOptionsFilters
+ */
+const se_ListTagOptionsFilters = (input: ListTagOptionsFilters, context: __SerdeContext): any => {
   return {
     ...(input.Active != null && { Active: input.Active }),
     ...(input.Key != null && { Key: input.Key }),
@@ -6774,15 +7738,21 @@ const serializeAws_json1_1ListTagOptionsFilters = (input: ListTagOptionsFilters,
   };
 };
 
-const serializeAws_json1_1ListTagOptionsInput = (input: ListTagOptionsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListTagOptionsInput
+ */
+const se_ListTagOptionsInput = (input: ListTagOptionsInput, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1ListTagOptionsFilters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_ListTagOptionsFilters(input.Filters, context) }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
     ...(input.PageToken != null && { PageToken: input.PageToken }),
   };
 };
 
-const serializeAws_json1_1NotificationArns = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1NotificationArns
+ */
+const se_NotificationArns = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6790,24 +7760,30 @@ const serializeAws_json1_1NotificationArns = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1NotifyProvisionProductEngineWorkflowResultInput = (
+/**
+ * serializeAws_json1_1NotifyProvisionProductEngineWorkflowResultInput
+ */
+const se_NotifyProvisionProductEngineWorkflowResultInput = (
   input: NotifyProvisionProductEngineWorkflowResultInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.FailureReason != null && { FailureReason: input.FailureReason }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Outputs != null && { Outputs: serializeAws_json1_1RecordOutputs(input.Outputs, context) }),
+    ...(input.Outputs != null && { Outputs: se_RecordOutputs(input.Outputs, context) }),
     ...(input.RecordId != null && { RecordId: input.RecordId }),
     ...(input.ResourceIdentifier != null && {
-      ResourceIdentifier: serializeAws_json1_1EngineWorkflowResourceIdentifier(input.ResourceIdentifier, context),
+      ResourceIdentifier: se_EngineWorkflowResourceIdentifier(input.ResourceIdentifier, context),
     }),
     ...(input.Status != null && { Status: input.Status }),
     ...(input.WorkflowToken != null && { WorkflowToken: input.WorkflowToken }),
   };
 };
 
-const serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultInput = (
+/**
+ * serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultInput
+ */
+const se_NotifyTerminateProvisionedProductEngineWorkflowResultInput = (
   input: NotifyTerminateProvisionedProductEngineWorkflowResultInput,
   context: __SerdeContext
 ): any => {
@@ -6820,28 +7796,37 @@ const serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultI
   };
 };
 
-const serializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultInput = (
+/**
+ * serializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultInput
+ */
+const se_NotifyUpdateProvisionedProductEngineWorkflowResultInput = (
   input: NotifyUpdateProvisionedProductEngineWorkflowResultInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.FailureReason != null && { FailureReason: input.FailureReason }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.Outputs != null && { Outputs: serializeAws_json1_1RecordOutputs(input.Outputs, context) }),
+    ...(input.Outputs != null && { Outputs: se_RecordOutputs(input.Outputs, context) }),
     ...(input.RecordId != null && { RecordId: input.RecordId }),
     ...(input.Status != null && { Status: input.Status }),
     ...(input.WorkflowToken != null && { WorkflowToken: input.WorkflowToken }),
   };
 };
 
-const serializeAws_json1_1OrganizationNode = (input: OrganizationNode, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OrganizationNode
+ */
+const se_OrganizationNode = (input: OrganizationNode, context: __SerdeContext): any => {
   return {
     ...(input.Type != null && { Type: input.Type }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1OutputKeys = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OutputKeys
+ */
+const se_OutputKeys = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6849,17 +7834,23 @@ const serializeAws_json1_1OutputKeys = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1ProductViewFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProductViewFilters
+ */
+const se_ProductViewFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [ProductViewFilterBy | string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = serializeAws_json1_1ProductViewFilterValues(value, context);
+    acc[key] = se_ProductViewFilterValues(value, context);
     return acc;
   }, {});
 };
 
-const serializeAws_json1_1ProductViewFilterValues = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProductViewFilterValues
+ */
+const se_ProductViewFilterValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6867,26 +7858,26 @@ const serializeAws_json1_1ProductViewFilterValues = (input: string[], context: _
     });
 };
 
-const serializeAws_json1_1ProvisionedProductFilters = (
-  input: Record<string, string[]>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ProvisionedProductFilters
+ */
+const se_ProvisionedProductFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: Record<string, any>, [key, value]: [ProvisionedProductViewFilterBy | string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = serializeAws_json1_1ProvisionedProductViewFilterValues(value, context);
+      acc[key] = se_ProvisionedProductViewFilterValues(value, context);
       return acc;
     },
     {}
   );
 };
 
-const serializeAws_json1_1ProvisionedProductProperties = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ProvisionedProductProperties
+ */
+const se_ProvisionedProductProperties = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [PropertyKey | string, any]) => {
     if (value === null) {
       return acc;
@@ -6896,7 +7887,10 @@ const serializeAws_json1_1ProvisionedProductProperties = (
   }, {});
 };
 
-const serializeAws_json1_1ProvisionedProductViewFilterValues = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProvisionedProductViewFilterValues
+ */
+const se_ProvisionedProductViewFilterValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6904,7 +7898,10 @@ const serializeAws_json1_1ProvisionedProductViewFilterValues = (input: string[],
     });
 };
 
-const serializeAws_json1_1ProvisioningArtifactInfo = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProvisioningArtifactInfo
+ */
+const se_ProvisioningArtifactInfo = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6914,39 +7911,46 @@ const serializeAws_json1_1ProvisioningArtifactInfo = (input: Record<string, stri
   }, {});
 };
 
-const serializeAws_json1_1ProvisioningArtifactProperties = (
-  input: ProvisioningArtifactProperties,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ProvisioningArtifactProperties
+ */
+const se_ProvisioningArtifactProperties = (input: ProvisioningArtifactProperties, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.DisableTemplateValidation != null && { DisableTemplateValidation: input.DisableTemplateValidation }),
-    ...(input.Info != null && { Info: serializeAws_json1_1ProvisioningArtifactInfo(input.Info, context) }),
+    ...(input.Info != null && { Info: se_ProvisioningArtifactInfo(input.Info, context) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };
 
-const serializeAws_json1_1ProvisioningParameter = (input: ProvisioningParameter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProvisioningParameter
+ */
+const se_ProvisioningParameter = (input: ProvisioningParameter, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1ProvisioningParameters = (input: ProvisioningParameter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProvisioningParameters
+ */
+const se_ProvisioningParameters = (input: ProvisioningParameter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ProvisioningParameter(entry, context);
+      return se_ProvisioningParameter(entry, context);
     });
 };
 
-const serializeAws_json1_1ProvisioningPreferences = (input: ProvisioningPreferences, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProvisioningPreferences
+ */
+const se_ProvisioningPreferences = (input: ProvisioningPreferences, context: __SerdeContext): any => {
   return {
-    ...(input.StackSetAccounts != null && {
-      StackSetAccounts: serializeAws_json1_1StackSetAccounts(input.StackSetAccounts, context),
-    }),
+    ...(input.StackSetAccounts != null && { StackSetAccounts: se_StackSetAccounts(input.StackSetAccounts, context) }),
     ...(input.StackSetFailureToleranceCount != null && {
       StackSetFailureToleranceCount: input.StackSetFailureToleranceCount,
     }),
@@ -6959,18 +7963,17 @@ const serializeAws_json1_1ProvisioningPreferences = (input: ProvisioningPreferen
     ...(input.StackSetMaxConcurrencyPercentage != null && {
       StackSetMaxConcurrencyPercentage: input.StackSetMaxConcurrencyPercentage,
     }),
-    ...(input.StackSetRegions != null && {
-      StackSetRegions: serializeAws_json1_1StackSetRegions(input.StackSetRegions, context),
-    }),
+    ...(input.StackSetRegions != null && { StackSetRegions: se_StackSetRegions(input.StackSetRegions, context) }),
   };
 };
 
-const serializeAws_json1_1ProvisionProductInput = (input: ProvisionProductInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProvisionProductInput
+ */
+const se_ProvisionProductInput = (input: ProvisionProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.NotificationArns != null && {
-      NotificationArns: serializeAws_json1_1NotificationArns(input.NotificationArns, context),
-    }),
+    ...(input.NotificationArns != null && { NotificationArns: se_NotificationArns(input.NotificationArns, context) }),
     ...(input.PathId != null && { PathId: input.PathId }),
     ...(input.PathName != null && { PathName: input.PathName }),
     ...(input.ProductId != null && { ProductId: input.ProductId }),
@@ -6980,16 +7983,19 @@ const serializeAws_json1_1ProvisionProductInput = (input: ProvisionProductInput,
     ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
     ...(input.ProvisioningArtifactName != null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
     ...(input.ProvisioningParameters != null && {
-      ProvisioningParameters: serializeAws_json1_1ProvisioningParameters(input.ProvisioningParameters, context),
+      ProvisioningParameters: se_ProvisioningParameters(input.ProvisioningParameters, context),
     }),
     ...(input.ProvisioningPreferences != null && {
-      ProvisioningPreferences: serializeAws_json1_1ProvisioningPreferences(input.ProvisioningPreferences, context),
+      ProvisioningPreferences: se_ProvisioningPreferences(input.ProvisioningPreferences, context),
     }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1RecordOutput = (input: RecordOutput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RecordOutput
+ */
+const se_RecordOutput = (input: RecordOutput, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.OutputKey != null && { OutputKey: input.OutputKey }),
@@ -6997,18 +8003,21 @@ const serializeAws_json1_1RecordOutput = (input: RecordOutput, context: __SerdeC
   };
 };
 
-const serializeAws_json1_1RecordOutputs = (input: RecordOutput[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RecordOutputs
+ */
+const se_RecordOutputs = (input: RecordOutput[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1RecordOutput(entry, context);
+      return se_RecordOutput(entry, context);
     });
 };
 
-const serializeAws_json1_1RejectPortfolioShareInput = (
-  input: RejectPortfolioShareInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RejectPortfolioShareInput
+ */
+const se_RejectPortfolioShareInput = (input: RejectPortfolioShareInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
@@ -7016,27 +8025,27 @@ const serializeAws_json1_1RejectPortfolioShareInput = (
   };
 };
 
-const serializeAws_json1_1ScanProvisionedProductsInput = (
-  input: ScanProvisionedProductsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ScanProvisionedProductsInput
+ */
+const se_ScanProvisionedProductsInput = (input: ScanProvisionedProductsInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.AccessLevelFilter != null && {
-      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
+      AccessLevelFilter: se_AccessLevelFilter(input.AccessLevelFilter, context),
     }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
     ...(input.PageToken != null && { PageToken: input.PageToken }),
   };
 };
 
-const serializeAws_json1_1SearchProductsAsAdminInput = (
-  input: SearchProductsAsAdminInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SearchProductsAsAdminInput
+ */
+const se_SearchProductsAsAdminInput = (input: SearchProductsAsAdminInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Filters != null && { Filters: serializeAws_json1_1ProductViewFilters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_ProductViewFilters(input.Filters, context) }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
     ...(input.PageToken != null && { PageToken: input.PageToken }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
@@ -7046,10 +8055,13 @@ const serializeAws_json1_1SearchProductsAsAdminInput = (
   };
 };
 
-const serializeAws_json1_1SearchProductsInput = (input: SearchProductsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SearchProductsInput
+ */
+const se_SearchProductsInput = (input: SearchProductsInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Filters != null && { Filters: serializeAws_json1_1ProductViewFilters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_ProductViewFilters(input.Filters, context) }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
     ...(input.PageToken != null && { PageToken: input.PageToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
@@ -7057,16 +8069,16 @@ const serializeAws_json1_1SearchProductsInput = (input: SearchProductsInput, con
   };
 };
 
-const serializeAws_json1_1SearchProvisionedProductsInput = (
-  input: SearchProvisionedProductsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SearchProvisionedProductsInput
+ */
+const se_SearchProvisionedProductsInput = (input: SearchProvisionedProductsInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.AccessLevelFilter != null && {
-      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(input.AccessLevelFilter, context),
+      AccessLevelFilter: se_AccessLevelFilter(input.AccessLevelFilter, context),
     }),
-    ...(input.Filters != null && { Filters: serializeAws_json1_1ProvisionedProductFilters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_ProvisionedProductFilters(input.Filters, context) }),
     ...(input.PageSize != null && { PageSize: input.PageSize }),
     ...(input.PageToken != null && { PageToken: input.PageToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
@@ -7074,10 +8086,10 @@ const serializeAws_json1_1SearchProvisionedProductsInput = (
   };
 };
 
-const serializeAws_json1_1ServiceActionAssociation = (
-  input: ServiceActionAssociation,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ServiceActionAssociation
+ */
+const se_ServiceActionAssociation = (input: ServiceActionAssociation, context: __SerdeContext): any => {
   return {
     ...(input.ProductId != null && { ProductId: input.ProductId }),
     ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
@@ -7085,21 +8097,21 @@ const serializeAws_json1_1ServiceActionAssociation = (
   };
 };
 
-const serializeAws_json1_1ServiceActionAssociations = (
-  input: ServiceActionAssociation[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ServiceActionAssociations
+ */
+const se_ServiceActionAssociations = (input: ServiceActionAssociation[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ServiceActionAssociation(entry, context);
+      return se_ServiceActionAssociation(entry, context);
     });
 };
 
-const serializeAws_json1_1ServiceActionDefinitionMap = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ServiceActionDefinitionMap
+ */
+const se_ServiceActionDefinitionMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: Record<string, any>, [key, value]: [ServiceActionDefinitionKey | string, any]) => {
       if (value === null) {
@@ -7112,39 +8124,42 @@ const serializeAws_json1_1ServiceActionDefinitionMap = (
   );
 };
 
-const serializeAws_json1_1SourceConnection = (input: SourceConnection, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SourceConnection
+ */
+const se_SourceConnection = (input: SourceConnection, context: __SerdeContext): any => {
   return {
     ...(input.ConnectionParameters != null && {
-      ConnectionParameters: serializeAws_json1_1SourceConnectionParameters(input.ConnectionParameters, context),
+      ConnectionParameters: se_SourceConnectionParameters(input.ConnectionParameters, context),
     }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };
 
-const serializeAws_json1_1SourceConnectionParameters = (
-  input: SourceConnectionParameters,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SourceConnectionParameters
+ */
+const se_SourceConnectionParameters = (input: SourceConnectionParameters, context: __SerdeContext): any => {
   return {
-    ...(input.CodeStar != null && { CodeStar: serializeAws_json1_1CodeStarParameters(input.CodeStar, context) }),
+    ...(input.CodeStar != null && { CodeStar: se_CodeStarParameters(input.CodeStar, context) }),
   };
 };
 
-const serializeAws_json1_1SourceProvisioningArtifactProperties = (
-  input: Record<string, string>[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SourceProvisioningArtifactProperties
+ */
+const se_SourceProvisioningArtifactProperties = (input: Record<string, string>[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1SourceProvisioningArtifactPropertiesMap(entry, context);
+      return se_SourceProvisioningArtifactPropertiesMap(entry, context);
     });
 };
 
-const serializeAws_json1_1SourceProvisioningArtifactPropertiesMap = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SourceProvisioningArtifactPropertiesMap
+ */
+const se_SourceProvisioningArtifactPropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: Record<string, any>, [key, value]: [ProvisioningArtifactPropertyName | string, any]) => {
       if (value === null) {
@@ -7157,7 +8172,10 @@ const serializeAws_json1_1SourceProvisioningArtifactPropertiesMap = (
   );
 };
 
-const serializeAws_json1_1StackSetAccounts = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StackSetAccounts
+ */
+const se_StackSetAccounts = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7165,7 +8183,10 @@ const serializeAws_json1_1StackSetAccounts = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1StackSetRegions = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StackSetRegions
+ */
+const se_StackSetRegions = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7173,14 +8194,20 @@ const serializeAws_json1_1StackSetRegions = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeys
+ */
+const se_TagKeys = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7188,18 +8215,21 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
     });
 };
 
-const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tags
+ */
+const se_Tags = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TerminateProvisionedProductInput = (
-  input: TerminateProvisionedProductInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1TerminateProvisionedProductInput
+ */
+const se_TerminateProvisionedProductInput = (input: TerminateProvisionedProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.IgnoreErrors != null && { IgnoreErrors: input.IgnoreErrors }),
@@ -7210,17 +8240,20 @@ const serializeAws_json1_1TerminateProvisionedProductInput = (
   };
 };
 
-const serializeAws_json1_1UniqueTagResourceIdentifier = (
-  input: UniqueTagResourceIdentifier,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UniqueTagResourceIdentifier
+ */
+const se_UniqueTagResourceIdentifier = (input: UniqueTagResourceIdentifier, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1UpdateConstraintInput = (input: UpdateConstraintInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateConstraintInput
+ */
+const se_UpdateConstraintInput = (input: UpdateConstraintInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Description != null && { Description: input.Description }),
@@ -7229,57 +8262,59 @@ const serializeAws_json1_1UpdateConstraintInput = (input: UpdateConstraintInput,
   };
 };
 
-const serializeAws_json1_1UpdatePortfolioInput = (input: UpdatePortfolioInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdatePortfolioInput
+ */
+const se_UpdatePortfolioInput = (input: UpdatePortfolioInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AddTags != null && { AddTags: serializeAws_json1_1AddTags(input.AddTags, context) }),
+    ...(input.AddTags != null && { AddTags: se_AddTags(input.AddTags, context) }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
     ...(input.Id != null && { Id: input.Id }),
     ...(input.ProviderName != null && { ProviderName: input.ProviderName }),
-    ...(input.RemoveTags != null && { RemoveTags: serializeAws_json1_1TagKeys(input.RemoveTags, context) }),
+    ...(input.RemoveTags != null && { RemoveTags: se_TagKeys(input.RemoveTags, context) }),
   };
 };
 
-const serializeAws_json1_1UpdatePortfolioShareInput = (
-  input: UpdatePortfolioShareInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdatePortfolioShareInput
+ */
+const se_UpdatePortfolioShareInput = (input: UpdatePortfolioShareInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.AccountId != null && { AccountId: input.AccountId }),
-    ...(input.OrganizationNode != null && {
-      OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
-    }),
+    ...(input.OrganizationNode != null && { OrganizationNode: se_OrganizationNode(input.OrganizationNode, context) }),
     ...(input.PortfolioId != null && { PortfolioId: input.PortfolioId }),
     ...(input.SharePrincipals != null && { SharePrincipals: input.SharePrincipals }),
     ...(input.ShareTagOptions != null && { ShareTagOptions: input.ShareTagOptions }),
   };
 };
 
-const serializeAws_json1_1UpdateProductInput = (input: UpdateProductInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateProductInput
+ */
+const se_UpdateProductInput = (input: UpdateProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.AddTags != null && { AddTags: serializeAws_json1_1AddTags(input.AddTags, context) }),
+    ...(input.AddTags != null && { AddTags: se_AddTags(input.AddTags, context) }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Distributor != null && { Distributor: input.Distributor }),
     ...(input.Id != null && { Id: input.Id }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Owner != null && { Owner: input.Owner }),
-    ...(input.RemoveTags != null && { RemoveTags: serializeAws_json1_1TagKeys(input.RemoveTags, context) }),
-    ...(input.SourceConnection != null && {
-      SourceConnection: serializeAws_json1_1SourceConnection(input.SourceConnection, context),
-    }),
+    ...(input.RemoveTags != null && { RemoveTags: se_TagKeys(input.RemoveTags, context) }),
+    ...(input.SourceConnection != null && { SourceConnection: se_SourceConnection(input.SourceConnection, context) }),
     ...(input.SupportDescription != null && { SupportDescription: input.SupportDescription }),
     ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
     ...(input.SupportUrl != null && { SupportUrl: input.SupportUrl }),
   };
 };
 
-const serializeAws_json1_1UpdateProvisionedProductInput = (
-  input: UpdateProvisionedProductInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateProvisionedProductInput
+ */
+const se_UpdateProvisionedProductInput = (input: UpdateProvisionedProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.PathId != null && { PathId: input.PathId }),
@@ -7291,20 +8326,20 @@ const serializeAws_json1_1UpdateProvisionedProductInput = (
     ...(input.ProvisioningArtifactId != null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
     ...(input.ProvisioningArtifactName != null && { ProvisioningArtifactName: input.ProvisioningArtifactName }),
     ...(input.ProvisioningParameters != null && {
-      ProvisioningParameters: serializeAws_json1_1UpdateProvisioningParameters(input.ProvisioningParameters, context),
+      ProvisioningParameters: se_UpdateProvisioningParameters(input.ProvisioningParameters, context),
     }),
     ...(input.ProvisioningPreferences != null && {
-      ProvisioningPreferences: serializeAws_json1_1UpdateProvisioningPreferences(
-        input.ProvisioningPreferences,
-        context
-      ),
+      ProvisioningPreferences: se_UpdateProvisioningPreferences(input.ProvisioningPreferences, context),
     }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     UpdateToken: input.UpdateToken ?? generateIdempotencyToken(),
   };
 };
 
-const serializeAws_json1_1UpdateProvisionedProductPropertiesInput = (
+/**
+ * serializeAws_json1_1UpdateProvisionedProductPropertiesInput
+ */
+const se_UpdateProvisionedProductPropertiesInput = (
   input: UpdateProvisionedProductPropertiesInput,
   context: __SerdeContext
 ): any => {
@@ -7313,18 +8348,15 @@ const serializeAws_json1_1UpdateProvisionedProductPropertiesInput = (
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
     ...(input.ProvisionedProductId != null && { ProvisionedProductId: input.ProvisionedProductId }),
     ...(input.ProvisionedProductProperties != null && {
-      ProvisionedProductProperties: serializeAws_json1_1ProvisionedProductProperties(
-        input.ProvisionedProductProperties,
-        context
-      ),
+      ProvisionedProductProperties: se_ProvisionedProductProperties(input.ProvisionedProductProperties, context),
     }),
   };
 };
 
-const serializeAws_json1_1UpdateProvisioningArtifactInput = (
-  input: UpdateProvisioningArtifactInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateProvisioningArtifactInput
+ */
+const se_UpdateProvisioningArtifactInput = (input: UpdateProvisioningArtifactInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Active != null && { Active: input.Active }),
@@ -7336,10 +8368,10 @@ const serializeAws_json1_1UpdateProvisioningArtifactInput = (
   };
 };
 
-const serializeAws_json1_1UpdateProvisioningParameter = (
-  input: UpdateProvisioningParameter,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateProvisioningParameter
+ */
+const se_UpdateProvisioningParameter = (input: UpdateProvisioningParameter, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.UsePreviousValue != null && { UsePreviousValue: input.UsePreviousValue }),
@@ -7347,25 +8379,23 @@ const serializeAws_json1_1UpdateProvisioningParameter = (
   };
 };
 
-const serializeAws_json1_1UpdateProvisioningParameters = (
-  input: UpdateProvisioningParameter[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateProvisioningParameters
+ */
+const se_UpdateProvisioningParameters = (input: UpdateProvisioningParameter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1UpdateProvisioningParameter(entry, context);
+      return se_UpdateProvisioningParameter(entry, context);
     });
 };
 
-const serializeAws_json1_1UpdateProvisioningPreferences = (
-  input: UpdateProvisioningPreferences,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateProvisioningPreferences
+ */
+const se_UpdateProvisioningPreferences = (input: UpdateProvisioningPreferences, context: __SerdeContext): any => {
   return {
-    ...(input.StackSetAccounts != null && {
-      StackSetAccounts: serializeAws_json1_1StackSetAccounts(input.StackSetAccounts, context),
-    }),
+    ...(input.StackSetAccounts != null && { StackSetAccounts: se_StackSetAccounts(input.StackSetAccounts, context) }),
     ...(input.StackSetFailureToleranceCount != null && {
       StackSetFailureToleranceCount: input.StackSetFailureToleranceCount,
     }),
@@ -7379,28 +8409,27 @@ const serializeAws_json1_1UpdateProvisioningPreferences = (
       StackSetMaxConcurrencyPercentage: input.StackSetMaxConcurrencyPercentage,
     }),
     ...(input.StackSetOperationType != null && { StackSetOperationType: input.StackSetOperationType }),
-    ...(input.StackSetRegions != null && {
-      StackSetRegions: serializeAws_json1_1StackSetRegions(input.StackSetRegions, context),
-    }),
+    ...(input.StackSetRegions != null && { StackSetRegions: se_StackSetRegions(input.StackSetRegions, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateServiceActionInput = (
-  input: UpdateServiceActionInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateServiceActionInput
+ */
+const se_UpdateServiceActionInput = (input: UpdateServiceActionInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage != null && { AcceptLanguage: input.AcceptLanguage }),
-    ...(input.Definition != null && {
-      Definition: serializeAws_json1_1ServiceActionDefinitionMap(input.Definition, context),
-    }),
+    ...(input.Definition != null && { Definition: se_ServiceActionDefinitionMap(input.Definition, context) }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Id != null && { Id: input.Id }),
     ...(input.Name != null && { Name: input.Name }),
   };
 };
 
-const serializeAws_json1_1UpdateTagOptionInput = (input: UpdateTagOptionInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateTagOptionInput
+ */
+const se_UpdateTagOptionInput = (input: UpdateTagOptionInput, context: __SerdeContext): any => {
   return {
     ...(input.Active != null && { Active: input.Active }),
     ...(input.Id != null && { Id: input.Id }),
@@ -7408,14 +8437,17 @@ const serializeAws_json1_1UpdateTagOptionInput = (input: UpdateTagOptionInput, c
   };
 };
 
-const deserializeAws_json1_1AcceptPortfolioShareOutput = (
-  output: any,
-  context: __SerdeContext
-): AcceptPortfolioShareOutput => {
+/**
+ * deserializeAws_json1_1AcceptPortfolioShareOutput
+ */
+const de_AcceptPortfolioShareOutput = (output: any, context: __SerdeContext): AcceptPortfolioShareOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AccountIds = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1AccountIds
+ */
+const de_AccountIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7427,7 +8459,10 @@ const deserializeAws_json1_1AccountIds = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_1AllowedValues = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1AllowedValues
+ */
+const de_AllowedValues = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7439,102 +8474,138 @@ const deserializeAws_json1_1AllowedValues = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_json1_1AssociateBudgetWithResourceOutput = (
+/**
+ * deserializeAws_json1_1AssociateBudgetWithResourceOutput
+ */
+const de_AssociateBudgetWithResourceOutput = (
   output: any,
   context: __SerdeContext
 ): AssociateBudgetWithResourceOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AssociatePrincipalWithPortfolioOutput = (
+/**
+ * deserializeAws_json1_1AssociatePrincipalWithPortfolioOutput
+ */
+const de_AssociatePrincipalWithPortfolioOutput = (
   output: any,
   context: __SerdeContext
 ): AssociatePrincipalWithPortfolioOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AssociateProductWithPortfolioOutput = (
+/**
+ * deserializeAws_json1_1AssociateProductWithPortfolioOutput
+ */
+const de_AssociateProductWithPortfolioOutput = (
   output: any,
   context: __SerdeContext
 ): AssociateProductWithPortfolioOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactOutput = (
+/**
+ * deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactOutput
+ */
+const de_AssociateServiceActionWithProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): AssociateServiceActionWithProvisioningArtifactOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AssociateTagOptionWithResourceOutput = (
+/**
+ * deserializeAws_json1_1AssociateTagOptionWithResourceOutput
+ */
+const de_AssociateTagOptionWithResourceOutput = (
   output: any,
   context: __SerdeContext
 ): AssociateTagOptionWithResourceOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactOutput = (
+/**
+ * deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactOutput
+ */
+const de_BatchAssociateServiceActionWithProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): BatchAssociateServiceActionWithProvisioningArtifactOutput => {
   return {
     FailedServiceActionAssociations:
       output.FailedServiceActionAssociations != null
-        ? deserializeAws_json1_1FailedServiceActionAssociations(output.FailedServiceActionAssociations, context)
+        ? de_FailedServiceActionAssociations(output.FailedServiceActionAssociations, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactOutput = (
+/**
+ * deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactOutput
+ */
+const de_BatchDisassociateServiceActionFromProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): BatchDisassociateServiceActionFromProvisioningArtifactOutput => {
   return {
     FailedServiceActionAssociations:
       output.FailedServiceActionAssociations != null
-        ? deserializeAws_json1_1FailedServiceActionAssociations(output.FailedServiceActionAssociations, context)
+        ? de_FailedServiceActionAssociations(output.FailedServiceActionAssociations, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1BudgetDetail = (output: any, context: __SerdeContext): BudgetDetail => {
+/**
+ * deserializeAws_json1_1BudgetDetail
+ */
+const de_BudgetDetail = (output: any, context: __SerdeContext): BudgetDetail => {
   return {
     BudgetName: __expectString(output.BudgetName),
   } as any;
 };
 
-const deserializeAws_json1_1Budgets = (output: any, context: __SerdeContext): BudgetDetail[] => {
+/**
+ * deserializeAws_json1_1Budgets
+ */
+const de_Budgets = (output: any, context: __SerdeContext): BudgetDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1BudgetDetail(entry, context);
+      return de_BudgetDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CloudWatchDashboard = (output: any, context: __SerdeContext): CloudWatchDashboard => {
+/**
+ * deserializeAws_json1_1CloudWatchDashboard
+ */
+const de_CloudWatchDashboard = (output: any, context: __SerdeContext): CloudWatchDashboard => {
   return {
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_json1_1CloudWatchDashboards = (output: any, context: __SerdeContext): CloudWatchDashboard[] => {
+/**
+ * deserializeAws_json1_1CloudWatchDashboards
+ */
+const de_CloudWatchDashboards = (output: any, context: __SerdeContext): CloudWatchDashboard[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1CloudWatchDashboard(entry, context);
+      return de_CloudWatchDashboard(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CodeStarParameters = (output: any, context: __SerdeContext): CodeStarParameters => {
+/**
+ * deserializeAws_json1_1CodeStarParameters
+ */
+const de_CodeStarParameters = (output: any, context: __SerdeContext): CodeStarParameters => {
   return {
     ArtifactPath: __expectString(output.ArtifactPath),
     Branch: __expectString(output.Branch),
@@ -7543,7 +8614,10 @@ const deserializeAws_json1_1CodeStarParameters = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1ConstraintDetail = (output: any, context: __SerdeContext): ConstraintDetail => {
+/**
+ * deserializeAws_json1_1ConstraintDetail
+ */
+const de_ConstraintDetail = (output: any, context: __SerdeContext): ConstraintDetail => {
   return {
     ConstraintId: __expectString(output.ConstraintId),
     Description: __expectString(output.Description),
@@ -7554,88 +8628,105 @@ const deserializeAws_json1_1ConstraintDetail = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_1ConstraintDetails = (output: any, context: __SerdeContext): ConstraintDetail[] => {
+/**
+ * deserializeAws_json1_1ConstraintDetails
+ */
+const de_ConstraintDetails = (output: any, context: __SerdeContext): ConstraintDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ConstraintDetail(entry, context);
+      return de_ConstraintDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ConstraintSummaries = (output: any, context: __SerdeContext): ConstraintSummary[] => {
+/**
+ * deserializeAws_json1_1ConstraintSummaries
+ */
+const de_ConstraintSummaries = (output: any, context: __SerdeContext): ConstraintSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ConstraintSummary(entry, context);
+      return de_ConstraintSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ConstraintSummary = (output: any, context: __SerdeContext): ConstraintSummary => {
+/**
+ * deserializeAws_json1_1ConstraintSummary
+ */
+const de_ConstraintSummary = (output: any, context: __SerdeContext): ConstraintSummary => {
   return {
     Description: __expectString(output.Description),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1CopyProductOutput = (output: any, context: __SerdeContext): CopyProductOutput => {
+/**
+ * deserializeAws_json1_1CopyProductOutput
+ */
+const de_CopyProductOutput = (output: any, context: __SerdeContext): CopyProductOutput => {
   return {
     CopyProductToken: __expectString(output.CopyProductToken),
   } as any;
 };
 
-const deserializeAws_json1_1CreateConstraintOutput = (output: any, context: __SerdeContext): CreateConstraintOutput => {
+/**
+ * deserializeAws_json1_1CreateConstraintOutput
+ */
+const de_CreateConstraintOutput = (output: any, context: __SerdeContext): CreateConstraintOutput => {
   return {
     ConstraintDetail:
-      output.ConstraintDetail != null
-        ? deserializeAws_json1_1ConstraintDetail(output.ConstraintDetail, context)
-        : undefined,
+      output.ConstraintDetail != null ? de_ConstraintDetail(output.ConstraintDetail, context) : undefined,
     ConstraintParameters: __expectString(output.ConstraintParameters),
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1CreatePortfolioOutput = (output: any, context: __SerdeContext): CreatePortfolioOutput => {
+/**
+ * deserializeAws_json1_1CreatePortfolioOutput
+ */
+const de_CreatePortfolioOutput = (output: any, context: __SerdeContext): CreatePortfolioOutput => {
   return {
-    PortfolioDetail:
-      output.PortfolioDetail != null
-        ? deserializeAws_json1_1PortfolioDetail(output.PortfolioDetail, context)
-        : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    PortfolioDetail: output.PortfolioDetail != null ? de_PortfolioDetail(output.PortfolioDetail, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreatePortfolioShareOutput = (
-  output: any,
-  context: __SerdeContext
-): CreatePortfolioShareOutput => {
+/**
+ * deserializeAws_json1_1CreatePortfolioShareOutput
+ */
+const de_CreatePortfolioShareOutput = (output: any, context: __SerdeContext): CreatePortfolioShareOutput => {
   return {
     PortfolioShareToken: __expectString(output.PortfolioShareToken),
   } as any;
 };
 
-const deserializeAws_json1_1CreateProductOutput = (output: any, context: __SerdeContext): CreateProductOutput => {
+/**
+ * deserializeAws_json1_1CreateProductOutput
+ */
+const de_CreateProductOutput = (output: any, context: __SerdeContext): CreateProductOutput => {
   return {
     ProductViewDetail:
-      output.ProductViewDetail != null
-        ? deserializeAws_json1_1ProductViewDetail(output.ProductViewDetail, context)
-        : undefined,
+      output.ProductViewDetail != null ? de_ProductViewDetail(output.ProductViewDetail, context) : undefined,
     ProvisioningArtifactDetail:
       output.ProvisioningArtifactDetail != null
-        ? deserializeAws_json1_1ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
+        ? de_ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
         : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateProvisionedProductPlanOutput = (
+/**
+ * deserializeAws_json1_1CreateProvisionedProductPlanOutput
+ */
+const de_CreateProvisionedProductPlanOutput = (
   output: any,
   context: __SerdeContext
 ): CreateProvisionedProductPlanOutput => {
@@ -7648,105 +8739,122 @@ const deserializeAws_json1_1CreateProvisionedProductPlanOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateProvisioningArtifactOutput = (
+/**
+ * deserializeAws_json1_1CreateProvisioningArtifactOutput
+ */
+const de_CreateProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): CreateProvisioningArtifactOutput => {
   return {
-    Info: output.Info != null ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context) : undefined,
+    Info: output.Info != null ? de_ProvisioningArtifactInfo(output.Info, context) : undefined,
     ProvisioningArtifactDetail:
       output.ProvisioningArtifactDetail != null
-        ? deserializeAws_json1_1ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
+        ? de_ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
         : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1CreateServiceActionOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateServiceActionOutput => {
+/**
+ * deserializeAws_json1_1CreateServiceActionOutput
+ */
+const de_CreateServiceActionOutput = (output: any, context: __SerdeContext): CreateServiceActionOutput => {
   return {
     ServiceActionDetail:
-      output.ServiceActionDetail != null
-        ? deserializeAws_json1_1ServiceActionDetail(output.ServiceActionDetail, context)
-        : undefined,
+      output.ServiceActionDetail != null ? de_ServiceActionDetail(output.ServiceActionDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateTagOptionOutput = (output: any, context: __SerdeContext): CreateTagOptionOutput => {
+/**
+ * deserializeAws_json1_1CreateTagOptionOutput
+ */
+const de_CreateTagOptionOutput = (output: any, context: __SerdeContext): CreateTagOptionOutput => {
   return {
-    TagOptionDetail:
-      output.TagOptionDetail != null
-        ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
-        : undefined,
+    TagOptionDetail: output.TagOptionDetail != null ? de_TagOptionDetail(output.TagOptionDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteConstraintOutput = (output: any, context: __SerdeContext): DeleteConstraintOutput => {
+/**
+ * deserializeAws_json1_1DeleteConstraintOutput
+ */
+const de_DeleteConstraintOutput = (output: any, context: __SerdeContext): DeleteConstraintOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeletePortfolioOutput = (output: any, context: __SerdeContext): DeletePortfolioOutput => {
+/**
+ * deserializeAws_json1_1DeletePortfolioOutput
+ */
+const de_DeletePortfolioOutput = (output: any, context: __SerdeContext): DeletePortfolioOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeletePortfolioShareOutput = (
-  output: any,
-  context: __SerdeContext
-): DeletePortfolioShareOutput => {
+/**
+ * deserializeAws_json1_1DeletePortfolioShareOutput
+ */
+const de_DeletePortfolioShareOutput = (output: any, context: __SerdeContext): DeletePortfolioShareOutput => {
   return {
     PortfolioShareToken: __expectString(output.PortfolioShareToken),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteProductOutput = (output: any, context: __SerdeContext): DeleteProductOutput => {
+/**
+ * deserializeAws_json1_1DeleteProductOutput
+ */
+const de_DeleteProductOutput = (output: any, context: __SerdeContext): DeleteProductOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteProvisionedProductPlanOutput = (
+/**
+ * deserializeAws_json1_1DeleteProvisionedProductPlanOutput
+ */
+const de_DeleteProvisionedProductPlanOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteProvisionedProductPlanOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteProvisioningArtifactOutput = (
+/**
+ * deserializeAws_json1_1DeleteProvisioningArtifactOutput
+ */
+const de_DeleteProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteProvisioningArtifactOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteServiceActionOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteServiceActionOutput => {
+/**
+ * deserializeAws_json1_1DeleteServiceActionOutput
+ */
+const de_DeleteServiceActionOutput = (output: any, context: __SerdeContext): DeleteServiceActionOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteTagOptionOutput = (output: any, context: __SerdeContext): DeleteTagOptionOutput => {
+/**
+ * deserializeAws_json1_1DeleteTagOptionOutput
+ */
+const de_DeleteTagOptionOutput = (output: any, context: __SerdeContext): DeleteTagOptionOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DescribeConstraintOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeConstraintOutput => {
+/**
+ * deserializeAws_json1_1DescribeConstraintOutput
+ */
+const de_DescribeConstraintOutput = (output: any, context: __SerdeContext): DescribeConstraintOutput => {
   return {
     ConstraintDetail:
-      output.ConstraintDetail != null
-        ? deserializeAws_json1_1ConstraintDetail(output.ConstraintDetail, context)
-        : undefined,
+      output.ConstraintDetail != null ? de_ConstraintDetail(output.ConstraintDetail, context) : undefined,
     ConstraintParameters: __expectString(output.ConstraintParameters),
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeCopyProductStatusOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeCopyProductStatusOutput => {
+/**
+ * deserializeAws_json1_1DescribeCopyProductStatusOutput
+ */
+const de_DescribeCopyProductStatusOutput = (output: any, context: __SerdeContext): DescribeCopyProductStatusOutput => {
   return {
     CopyProductStatus: __expectString(output.CopyProductStatus),
     StatusDetail: __expectString(output.StatusDetail),
@@ -7754,36 +8862,35 @@ const deserializeAws_json1_1DescribeCopyProductStatusOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribePortfolioOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribePortfolioOutput => {
+/**
+ * deserializeAws_json1_1DescribePortfolioOutput
+ */
+const de_DescribePortfolioOutput = (output: any, context: __SerdeContext): DescribePortfolioOutput => {
   return {
-    Budgets: output.Budgets != null ? deserializeAws_json1_1Budgets(output.Budgets, context) : undefined,
-    PortfolioDetail:
-      output.PortfolioDetail != null
-        ? deserializeAws_json1_1PortfolioDetail(output.PortfolioDetail, context)
-        : undefined,
-    TagOptions:
-      output.TagOptions != null ? deserializeAws_json1_1TagOptionDetails(output.TagOptions, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Budgets: output.Budgets != null ? de_Budgets(output.Budgets, context) : undefined,
+    PortfolioDetail: output.PortfolioDetail != null ? de_PortfolioDetail(output.PortfolioDetail, context) : undefined,
+    TagOptions: output.TagOptions != null ? de_TagOptionDetails(output.TagOptions, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribePortfolioSharesOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribePortfolioSharesOutput => {
+/**
+ * deserializeAws_json1_1DescribePortfolioSharesOutput
+ */
+const de_DescribePortfolioSharesOutput = (output: any, context: __SerdeContext): DescribePortfolioSharesOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
     PortfolioShareDetails:
       output.PortfolioShareDetails != null
-        ? deserializeAws_json1_1PortfolioShareDetails(output.PortfolioShareDetails, context)
+        ? de_PortfolioShareDetails(output.PortfolioShareDetails, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribePortfolioShareStatusOutput = (
+/**
+ * deserializeAws_json1_1DescribePortfolioShareStatusOutput
+ */
+const de_DescribePortfolioShareStatusOutput = (
   output: any,
   context: __SerdeContext
 ): DescribePortfolioShareStatusOutput => {
@@ -7791,81 +8898,79 @@ const deserializeAws_json1_1DescribePortfolioShareStatusOutput = (
     OrganizationNodeValue: __expectString(output.OrganizationNodeValue),
     PortfolioId: __expectString(output.PortfolioId),
     PortfolioShareToken: __expectString(output.PortfolioShareToken),
-    ShareDetails:
-      output.ShareDetails != null ? deserializeAws_json1_1ShareDetails(output.ShareDetails, context) : undefined,
+    ShareDetails: output.ShareDetails != null ? de_ShareDetails(output.ShareDetails, context) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeProductAsAdminOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeProductAsAdminOutput => {
+/**
+ * deserializeAws_json1_1DescribeProductAsAdminOutput
+ */
+const de_DescribeProductAsAdminOutput = (output: any, context: __SerdeContext): DescribeProductAsAdminOutput => {
   return {
-    Budgets: output.Budgets != null ? deserializeAws_json1_1Budgets(output.Budgets, context) : undefined,
+    Budgets: output.Budgets != null ? de_Budgets(output.Budgets, context) : undefined,
     ProductViewDetail:
-      output.ProductViewDetail != null
-        ? deserializeAws_json1_1ProductViewDetail(output.ProductViewDetail, context)
-        : undefined,
+      output.ProductViewDetail != null ? de_ProductViewDetail(output.ProductViewDetail, context) : undefined,
     ProvisioningArtifactSummaries:
       output.ProvisioningArtifactSummaries != null
-        ? deserializeAws_json1_1ProvisioningArtifactSummaries(output.ProvisioningArtifactSummaries, context)
+        ? de_ProvisioningArtifactSummaries(output.ProvisioningArtifactSummaries, context)
         : undefined,
-    TagOptions:
-      output.TagOptions != null ? deserializeAws_json1_1TagOptionDetails(output.TagOptions, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    TagOptions: output.TagOptions != null ? de_TagOptionDetails(output.TagOptions, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeProductOutput = (output: any, context: __SerdeContext): DescribeProductOutput => {
+/**
+ * deserializeAws_json1_1DescribeProductOutput
+ */
+const de_DescribeProductOutput = (output: any, context: __SerdeContext): DescribeProductOutput => {
   return {
-    Budgets: output.Budgets != null ? deserializeAws_json1_1Budgets(output.Budgets, context) : undefined,
-    LaunchPaths:
-      output.LaunchPaths != null ? deserializeAws_json1_1LaunchPaths(output.LaunchPaths, context) : undefined,
+    Budgets: output.Budgets != null ? de_Budgets(output.Budgets, context) : undefined,
+    LaunchPaths: output.LaunchPaths != null ? de_LaunchPaths(output.LaunchPaths, context) : undefined,
     ProductViewSummary:
-      output.ProductViewSummary != null
-        ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
-        : undefined,
+      output.ProductViewSummary != null ? de_ProductViewSummary(output.ProductViewSummary, context) : undefined,
     ProvisioningArtifacts:
       output.ProvisioningArtifacts != null
-        ? deserializeAws_json1_1ProvisioningArtifacts(output.ProvisioningArtifacts, context)
+        ? de_ProvisioningArtifacts(output.ProvisioningArtifacts, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeProductViewOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeProductViewOutput => {
+/**
+ * deserializeAws_json1_1DescribeProductViewOutput
+ */
+const de_DescribeProductViewOutput = (output: any, context: __SerdeContext): DescribeProductViewOutput => {
   return {
     ProductViewSummary:
-      output.ProductViewSummary != null
-        ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
-        : undefined,
+      output.ProductViewSummary != null ? de_ProductViewSummary(output.ProductViewSummary, context) : undefined,
     ProvisioningArtifacts:
       output.ProvisioningArtifacts != null
-        ? deserializeAws_json1_1ProvisioningArtifacts(output.ProvisioningArtifacts, context)
+        ? de_ProvisioningArtifacts(output.ProvisioningArtifacts, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeProvisionedProductOutput = (
+/**
+ * deserializeAws_json1_1DescribeProvisionedProductOutput
+ */
+const de_DescribeProvisionedProductOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeProvisionedProductOutput => {
   return {
     CloudWatchDashboards:
-      output.CloudWatchDashboards != null
-        ? deserializeAws_json1_1CloudWatchDashboards(output.CloudWatchDashboards, context)
-        : undefined,
+      output.CloudWatchDashboards != null ? de_CloudWatchDashboards(output.CloudWatchDashboards, context) : undefined,
     ProvisionedProductDetail:
       output.ProvisionedProductDetail != null
-        ? deserializeAws_json1_1ProvisionedProductDetail(output.ProvisionedProductDetail, context)
+        ? de_ProvisionedProductDetail(output.ProvisionedProductDetail, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeProvisionedProductPlanOutput = (
+/**
+ * deserializeAws_json1_1DescribeProvisionedProductPlanOutput
+ */
+const de_DescribeProvisionedProductPlanOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeProvisionedProductPlanOutput => {
@@ -7873,211 +8978,240 @@ const deserializeAws_json1_1DescribeProvisionedProductPlanOutput = (
     NextPageToken: __expectString(output.NextPageToken),
     ProvisionedProductPlanDetails:
       output.ProvisionedProductPlanDetails != null
-        ? deserializeAws_json1_1ProvisionedProductPlanDetails(output.ProvisionedProductPlanDetails, context)
+        ? de_ProvisionedProductPlanDetails(output.ProvisionedProductPlanDetails, context)
         : undefined,
-    ResourceChanges:
-      output.ResourceChanges != null
-        ? deserializeAws_json1_1ResourceChanges(output.ResourceChanges, context)
-        : undefined,
+    ResourceChanges: output.ResourceChanges != null ? de_ResourceChanges(output.ResourceChanges, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeProvisioningArtifactOutput = (
+/**
+ * deserializeAws_json1_1DescribeProvisioningArtifactOutput
+ */
+const de_DescribeProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeProvisioningArtifactOutput => {
   return {
-    Info: output.Info != null ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context) : undefined,
+    Info: output.Info != null ? de_ProvisioningArtifactInfo(output.Info, context) : undefined,
     ProvisioningArtifactDetail:
       output.ProvisioningArtifactDetail != null
-        ? deserializeAws_json1_1ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
+        ? de_ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
         : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeProvisioningParametersOutput = (
+/**
+ * deserializeAws_json1_1DescribeProvisioningParametersOutput
+ */
+const de_DescribeProvisioningParametersOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeProvisioningParametersOutput => {
   return {
     ConstraintSummaries:
-      output.ConstraintSummaries != null
-        ? deserializeAws_json1_1ConstraintSummaries(output.ConstraintSummaries, context)
-        : undefined,
+      output.ConstraintSummaries != null ? de_ConstraintSummaries(output.ConstraintSummaries, context) : undefined,
     ProvisioningArtifactOutputKeys:
       output.ProvisioningArtifactOutputKeys != null
-        ? deserializeAws_json1_1ProvisioningArtifactOutputs(output.ProvisioningArtifactOutputKeys, context)
+        ? de_ProvisioningArtifactOutputs(output.ProvisioningArtifactOutputKeys, context)
         : undefined,
     ProvisioningArtifactOutputs:
       output.ProvisioningArtifactOutputs != null
-        ? deserializeAws_json1_1ProvisioningArtifactOutputs(output.ProvisioningArtifactOutputs, context)
+        ? de_ProvisioningArtifactOutputs(output.ProvisioningArtifactOutputs, context)
         : undefined,
     ProvisioningArtifactParameters:
       output.ProvisioningArtifactParameters != null
-        ? deserializeAws_json1_1ProvisioningArtifactParameters(output.ProvisioningArtifactParameters, context)
+        ? de_ProvisioningArtifactParameters(output.ProvisioningArtifactParameters, context)
         : undefined,
     ProvisioningArtifactPreferences:
       output.ProvisioningArtifactPreferences != null
-        ? deserializeAws_json1_1ProvisioningArtifactPreferences(output.ProvisioningArtifactPreferences, context)
+        ? de_ProvisioningArtifactPreferences(output.ProvisioningArtifactPreferences, context)
         : undefined,
-    TagOptions:
-      output.TagOptions != null ? deserializeAws_json1_1TagOptionSummaries(output.TagOptions, context) : undefined,
+    TagOptions: output.TagOptions != null ? de_TagOptionSummaries(output.TagOptions, context) : undefined,
     UsageInstructions:
-      output.UsageInstructions != null
-        ? deserializeAws_json1_1UsageInstructions(output.UsageInstructions, context)
-        : undefined,
+      output.UsageInstructions != null ? de_UsageInstructions(output.UsageInstructions, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeRecordOutput = (output: any, context: __SerdeContext): DescribeRecordOutput => {
+/**
+ * deserializeAws_json1_1DescribeRecordOutput
+ */
+const de_DescribeRecordOutput = (output: any, context: __SerdeContext): DescribeRecordOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
-    RecordDetail:
-      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
-    RecordOutputs:
-      output.RecordOutputs != null ? deserializeAws_json1_1RecordOutputs(output.RecordOutputs, context) : undefined,
+    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
+    RecordOutputs: output.RecordOutputs != null ? de_RecordOutputs(output.RecordOutputs, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeServiceActionExecutionParametersOutput = (
+/**
+ * deserializeAws_json1_1DescribeServiceActionExecutionParametersOutput
+ */
+const de_DescribeServiceActionExecutionParametersOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeServiceActionExecutionParametersOutput => {
   return {
     ServiceActionParameters:
       output.ServiceActionParameters != null
-        ? deserializeAws_json1_1ExecutionParameters(output.ServiceActionParameters, context)
+        ? de_ExecutionParameters(output.ServiceActionParameters, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeServiceActionOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeServiceActionOutput => {
+/**
+ * deserializeAws_json1_1DescribeServiceActionOutput
+ */
+const de_DescribeServiceActionOutput = (output: any, context: __SerdeContext): DescribeServiceActionOutput => {
   return {
     ServiceActionDetail:
-      output.ServiceActionDetail != null
-        ? deserializeAws_json1_1ServiceActionDetail(output.ServiceActionDetail, context)
-        : undefined,
+      output.ServiceActionDetail != null ? de_ServiceActionDetail(output.ServiceActionDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeTagOptionOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeTagOptionOutput => {
+/**
+ * deserializeAws_json1_1DescribeTagOptionOutput
+ */
+const de_DescribeTagOptionOutput = (output: any, context: __SerdeContext): DescribeTagOptionOutput => {
   return {
-    TagOptionDetail:
-      output.TagOptionDetail != null
-        ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
-        : undefined,
+    TagOptionDetail: output.TagOptionDetail != null ? de_TagOptionDetail(output.TagOptionDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DisableAWSOrganizationsAccessOutput = (
+/**
+ * deserializeAws_json1_1DisableAWSOrganizationsAccessOutput
+ */
+const de_DisableAWSOrganizationsAccessOutput = (
   output: any,
   context: __SerdeContext
 ): DisableAWSOrganizationsAccessOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DisassociateBudgetFromResourceOutput = (
+/**
+ * deserializeAws_json1_1DisassociateBudgetFromResourceOutput
+ */
+const de_DisassociateBudgetFromResourceOutput = (
   output: any,
   context: __SerdeContext
 ): DisassociateBudgetFromResourceOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DisassociatePrincipalFromPortfolioOutput = (
+/**
+ * deserializeAws_json1_1DisassociatePrincipalFromPortfolioOutput
+ */
+const de_DisassociatePrincipalFromPortfolioOutput = (
   output: any,
   context: __SerdeContext
 ): DisassociatePrincipalFromPortfolioOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DisassociateProductFromPortfolioOutput = (
+/**
+ * deserializeAws_json1_1DisassociateProductFromPortfolioOutput
+ */
+const de_DisassociateProductFromPortfolioOutput = (
   output: any,
   context: __SerdeContext
 ): DisassociateProductFromPortfolioOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactOutput = (
+/**
+ * deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactOutput
+ */
+const de_DisassociateServiceActionFromProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): DisassociateServiceActionFromProvisioningArtifactOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DisassociateTagOptionFromResourceOutput = (
+/**
+ * deserializeAws_json1_1DisassociateTagOptionFromResourceOutput
+ */
+const de_DisassociateTagOptionFromResourceOutput = (
   output: any,
   context: __SerdeContext
 ): DisassociateTagOptionFromResourceOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DuplicateResourceException = (
-  output: any,
-  context: __SerdeContext
-): DuplicateResourceException => {
+/**
+ * deserializeAws_json1_1DuplicateResourceException
+ */
+const de_DuplicateResourceException = (output: any, context: __SerdeContext): DuplicateResourceException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1EnableAWSOrganizationsAccessOutput = (
+/**
+ * deserializeAws_json1_1EnableAWSOrganizationsAccessOutput
+ */
+const de_EnableAWSOrganizationsAccessOutput = (
   output: any,
   context: __SerdeContext
 ): EnableAWSOrganizationsAccessOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1ExecuteProvisionedProductPlanOutput = (
+/**
+ * deserializeAws_json1_1ExecuteProvisionedProductPlanOutput
+ */
+const de_ExecuteProvisionedProductPlanOutput = (
   output: any,
   context: __SerdeContext
 ): ExecuteProvisionedProductPlanOutput => {
   return {
-    RecordDetail:
-      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
+    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ExecuteProvisionedProductServiceActionOutput = (
+/**
+ * deserializeAws_json1_1ExecuteProvisionedProductServiceActionOutput
+ */
+const de_ExecuteProvisionedProductServiceActionOutput = (
   output: any,
   context: __SerdeContext
 ): ExecuteProvisionedProductServiceActionOutput => {
   return {
-    RecordDetail:
-      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
+    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ExecutionParameter = (output: any, context: __SerdeContext): ExecutionParameter => {
+/**
+ * deserializeAws_json1_1ExecutionParameter
+ */
+const de_ExecutionParameter = (output: any, context: __SerdeContext): ExecutionParameter => {
   return {
     DefaultValues:
-      output.DefaultValues != null
-        ? deserializeAws_json1_1ExecutionParameterValueList(output.DefaultValues, context)
-        : undefined,
+      output.DefaultValues != null ? de_ExecutionParameterValueList(output.DefaultValues, context) : undefined,
     Name: __expectString(output.Name),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1ExecutionParameters = (output: any, context: __SerdeContext): ExecutionParameter[] => {
+/**
+ * deserializeAws_json1_1ExecutionParameters
+ */
+const de_ExecutionParameters = (output: any, context: __SerdeContext): ExecutionParameter[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ExecutionParameter(entry, context);
+      return de_ExecutionParameter(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ExecutionParameterValueList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ExecutionParameterValueList
+ */
+const de_ExecutionParameterValueList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8089,10 +9223,10 @@ const deserializeAws_json1_1ExecutionParameterValueList = (output: any, context:
   return retVal;
 };
 
-const deserializeAws_json1_1FailedServiceActionAssociation = (
-  output: any,
-  context: __SerdeContext
-): FailedServiceActionAssociation => {
+/**
+ * deserializeAws_json1_1FailedServiceActionAssociation
+ */
+const de_FailedServiceActionAssociation = (output: any, context: __SerdeContext): FailedServiceActionAssociation => {
   return {
     ErrorCode: __expectString(output.ErrorCode),
     ErrorMessage: __expectString(output.ErrorMessage),
@@ -8102,22 +9236,25 @@ const deserializeAws_json1_1FailedServiceActionAssociation = (
   } as any;
 };
 
-const deserializeAws_json1_1FailedServiceActionAssociations = (
-  output: any,
-  context: __SerdeContext
-): FailedServiceActionAssociation[] => {
+/**
+ * deserializeAws_json1_1FailedServiceActionAssociations
+ */
+const de_FailedServiceActionAssociations = (output: any, context: __SerdeContext): FailedServiceActionAssociation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FailedServiceActionAssociation(entry, context);
+      return de_FailedServiceActionAssociation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GetAWSOrganizationsAccessStatusOutput = (
+/**
+ * deserializeAws_json1_1GetAWSOrganizationsAccessStatusOutput
+ */
+const de_GetAWSOrganizationsAccessStatusOutput = (
   output: any,
   context: __SerdeContext
 ): GetAWSOrganizationsAccessStatusOutput => {
@@ -8126,42 +9263,53 @@ const deserializeAws_json1_1GetAWSOrganizationsAccessStatusOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1GetProvisionedProductOutputsOutput = (
+/**
+ * deserializeAws_json1_1GetProvisionedProductOutputsOutput
+ */
+const de_GetProvisionedProductOutputsOutput = (
   output: any,
   context: __SerdeContext
 ): GetProvisionedProductOutputsOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
-    Outputs: output.Outputs != null ? deserializeAws_json1_1RecordOutputs(output.Outputs, context) : undefined,
+    Outputs: output.Outputs != null ? de_RecordOutputs(output.Outputs, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ImportAsProvisionedProductOutput = (
+/**
+ * deserializeAws_json1_1ImportAsProvisionedProductOutput
+ */
+const de_ImportAsProvisionedProductOutput = (
   output: any,
   context: __SerdeContext
 ): ImportAsProvisionedProductOutput => {
   return {
-    RecordDetail:
-      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
+    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InvalidParametersException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParametersException => {
+/**
+ * deserializeAws_json1_1InvalidParametersException
+ */
+const de_InvalidParametersException = (output: any, context: __SerdeContext): InvalidParametersException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
+/**
+ * deserializeAws_json1_1InvalidStateException
+ */
+const de_InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1LastSync = (output: any, context: __SerdeContext): LastSync => {
+/**
+ * deserializeAws_json1_1LastSync
+ */
+const de_LastSync = (output: any, context: __SerdeContext): LastSync => {
   return {
     LastSuccessfulSyncProvisioningArtifactId: __expectString(output.LastSuccessfulSyncProvisioningArtifactId),
     LastSuccessfulSyncTime:
@@ -8177,158 +9325,180 @@ const deserializeAws_json1_1LastSync = (output: any, context: __SerdeContext): L
   } as any;
 };
 
-const deserializeAws_json1_1LaunchPath = (output: any, context: __SerdeContext): LaunchPath => {
+/**
+ * deserializeAws_json1_1LaunchPath
+ */
+const de_LaunchPath = (output: any, context: __SerdeContext): LaunchPath => {
   return {
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_json1_1LaunchPaths = (output: any, context: __SerdeContext): LaunchPath[] => {
+/**
+ * deserializeAws_json1_1LaunchPaths
+ */
+const de_LaunchPaths = (output: any, context: __SerdeContext): LaunchPath[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LaunchPath(entry, context);
+      return de_LaunchPath(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LaunchPathSummaries = (output: any, context: __SerdeContext): LaunchPathSummary[] => {
+/**
+ * deserializeAws_json1_1LaunchPathSummaries
+ */
+const de_LaunchPathSummaries = (output: any, context: __SerdeContext): LaunchPathSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LaunchPathSummary(entry, context);
+      return de_LaunchPathSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LaunchPathSummary = (output: any, context: __SerdeContext): LaunchPathSummary => {
+/**
+ * deserializeAws_json1_1LaunchPathSummary
+ */
+const de_LaunchPathSummary = (output: any, context: __SerdeContext): LaunchPathSummary => {
   return {
     ConstraintSummaries:
-      output.ConstraintSummaries != null
-        ? deserializeAws_json1_1ConstraintSummaries(output.ConstraintSummaries, context)
-        : undefined,
+      output.ConstraintSummaries != null ? de_ConstraintSummaries(output.ConstraintSummaries, context) : undefined,
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_1LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ListAcceptedPortfolioSharesOutput = (
+/**
+ * deserializeAws_json1_1ListAcceptedPortfolioSharesOutput
+ */
+const de_ListAcceptedPortfolioSharesOutput = (
   output: any,
   context: __SerdeContext
 ): ListAcceptedPortfolioSharesOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
     PortfolioDetails:
-      output.PortfolioDetails != null
-        ? deserializeAws_json1_1PortfolioDetails(output.PortfolioDetails, context)
-        : undefined,
+      output.PortfolioDetails != null ? de_PortfolioDetails(output.PortfolioDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListBudgetsForResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): ListBudgetsForResourceOutput => {
+/**
+ * deserializeAws_json1_1ListBudgetsForResourceOutput
+ */
+const de_ListBudgetsForResourceOutput = (output: any, context: __SerdeContext): ListBudgetsForResourceOutput => {
   return {
-    Budgets: output.Budgets != null ? deserializeAws_json1_1Budgets(output.Budgets, context) : undefined,
+    Budgets: output.Budgets != null ? de_Budgets(output.Budgets, context) : undefined,
     NextPageToken: __expectString(output.NextPageToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListConstraintsForPortfolioOutput = (
+/**
+ * deserializeAws_json1_1ListConstraintsForPortfolioOutput
+ */
+const de_ListConstraintsForPortfolioOutput = (
   output: any,
   context: __SerdeContext
 ): ListConstraintsForPortfolioOutput => {
   return {
     ConstraintDetails:
-      output.ConstraintDetails != null
-        ? deserializeAws_json1_1ConstraintDetails(output.ConstraintDetails, context)
-        : undefined,
+      output.ConstraintDetails != null ? de_ConstraintDetails(output.ConstraintDetails, context) : undefined,
     NextPageToken: __expectString(output.NextPageToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListLaunchPathsOutput = (output: any, context: __SerdeContext): ListLaunchPathsOutput => {
+/**
+ * deserializeAws_json1_1ListLaunchPathsOutput
+ */
+const de_ListLaunchPathsOutput = (output: any, context: __SerdeContext): ListLaunchPathsOutput => {
   return {
     LaunchPathSummaries:
-      output.LaunchPathSummaries != null
-        ? deserializeAws_json1_1LaunchPathSummaries(output.LaunchPathSummaries, context)
-        : undefined,
+      output.LaunchPathSummaries != null ? de_LaunchPathSummaries(output.LaunchPathSummaries, context) : undefined,
     NextPageToken: __expectString(output.NextPageToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListOrganizationPortfolioAccessOutput = (
+/**
+ * deserializeAws_json1_1ListOrganizationPortfolioAccessOutput
+ */
+const de_ListOrganizationPortfolioAccessOutput = (
   output: any,
   context: __SerdeContext
 ): ListOrganizationPortfolioAccessOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
     OrganizationNodes:
-      output.OrganizationNodes != null
-        ? deserializeAws_json1_1OrganizationNodes(output.OrganizationNodes, context)
-        : undefined,
+      output.OrganizationNodes != null ? de_OrganizationNodes(output.OrganizationNodes, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListPortfolioAccessOutput = (
-  output: any,
-  context: __SerdeContext
-): ListPortfolioAccessOutput => {
+/**
+ * deserializeAws_json1_1ListPortfolioAccessOutput
+ */
+const de_ListPortfolioAccessOutput = (output: any, context: __SerdeContext): ListPortfolioAccessOutput => {
   return {
-    AccountIds: output.AccountIds != null ? deserializeAws_json1_1AccountIds(output.AccountIds, context) : undefined,
+    AccountIds: output.AccountIds != null ? de_AccountIds(output.AccountIds, context) : undefined,
     NextPageToken: __expectString(output.NextPageToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListPortfoliosForProductOutput = (
-  output: any,
-  context: __SerdeContext
-): ListPortfoliosForProductOutput => {
+/**
+ * deserializeAws_json1_1ListPortfoliosForProductOutput
+ */
+const de_ListPortfoliosForProductOutput = (output: any, context: __SerdeContext): ListPortfoliosForProductOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
     PortfolioDetails:
-      output.PortfolioDetails != null
-        ? deserializeAws_json1_1PortfolioDetails(output.PortfolioDetails, context)
-        : undefined,
+      output.PortfolioDetails != null ? de_PortfolioDetails(output.PortfolioDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListPortfoliosOutput = (output: any, context: __SerdeContext): ListPortfoliosOutput => {
+/**
+ * deserializeAws_json1_1ListPortfoliosOutput
+ */
+const de_ListPortfoliosOutput = (output: any, context: __SerdeContext): ListPortfoliosOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
     PortfolioDetails:
-      output.PortfolioDetails != null
-        ? deserializeAws_json1_1PortfolioDetails(output.PortfolioDetails, context)
-        : undefined,
+      output.PortfolioDetails != null ? de_PortfolioDetails(output.PortfolioDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListPrincipalsForPortfolioOutput = (
+/**
+ * deserializeAws_json1_1ListPrincipalsForPortfolioOutput
+ */
+const de_ListPrincipalsForPortfolioOutput = (
   output: any,
   context: __SerdeContext
 ): ListPrincipalsForPortfolioOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
-    Principals: output.Principals != null ? deserializeAws_json1_1Principals(output.Principals, context) : undefined,
+    Principals: output.Principals != null ? de_Principals(output.Principals, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListProvisionedProductPlansOutput = (
+/**
+ * deserializeAws_json1_1ListProvisionedProductPlansOutput
+ */
+const de_ListProvisionedProductPlansOutput = (
   output: any,
   context: __SerdeContext
 ): ListProvisionedProductPlansOutput => {
@@ -8336,12 +9506,15 @@ const deserializeAws_json1_1ListProvisionedProductPlansOutput = (
     NextPageToken: __expectString(output.NextPageToken),
     ProvisionedProductPlans:
       output.ProvisionedProductPlans != null
-        ? deserializeAws_json1_1ProvisionedProductPlans(output.ProvisionedProductPlans, context)
+        ? de_ProvisionedProductPlans(output.ProvisionedProductPlans, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionOutput = (
+/**
+ * deserializeAws_json1_1ListProvisioningArtifactsForServiceActionOutput
+ */
+const de_ListProvisioningArtifactsForServiceActionOutput = (
   output: any,
   context: __SerdeContext
 ): ListProvisioningArtifactsForServiceActionOutput => {
@@ -8349,49 +9522,48 @@ const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionOutput = (
     NextPageToken: __expectString(output.NextPageToken),
     ProvisioningArtifactViews:
       output.ProvisioningArtifactViews != null
-        ? deserializeAws_json1_1ProvisioningArtifactViews(output.ProvisioningArtifactViews, context)
+        ? de_ProvisioningArtifactViews(output.ProvisioningArtifactViews, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListProvisioningArtifactsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListProvisioningArtifactsOutput => {
+/**
+ * deserializeAws_json1_1ListProvisioningArtifactsOutput
+ */
+const de_ListProvisioningArtifactsOutput = (output: any, context: __SerdeContext): ListProvisioningArtifactsOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProvisioningArtifactDetails:
       output.ProvisioningArtifactDetails != null
-        ? deserializeAws_json1_1ProvisioningArtifactDetails(output.ProvisioningArtifactDetails, context)
+        ? de_ProvisioningArtifactDetails(output.ProvisioningArtifactDetails, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListRecordHistoryOutput = (
-  output: any,
-  context: __SerdeContext
-): ListRecordHistoryOutput => {
+/**
+ * deserializeAws_json1_1ListRecordHistoryOutput
+ */
+const de_ListRecordHistoryOutput = (output: any, context: __SerdeContext): ListRecordHistoryOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
-    RecordDetails:
-      output.RecordDetails != null ? deserializeAws_json1_1RecordDetails(output.RecordDetails, context) : undefined,
+    RecordDetails: output.RecordDetails != null ? de_RecordDetails(output.RecordDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListResourcesForTagOptionOutput = (
-  output: any,
-  context: __SerdeContext
-): ListResourcesForTagOptionOutput => {
+/**
+ * deserializeAws_json1_1ListResourcesForTagOptionOutput
+ */
+const de_ListResourcesForTagOptionOutput = (output: any, context: __SerdeContext): ListResourcesForTagOptionOutput => {
   return {
     PageToken: __expectString(output.PageToken),
-    ResourceDetails:
-      output.ResourceDetails != null
-        ? deserializeAws_json1_1ResourceDetails(output.ResourceDetails, context)
-        : undefined,
+    ResourceDetails: output.ResourceDetails != null ? de_ResourceDetails(output.ResourceDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactOutput = (
+/**
+ * deserializeAws_json1_1ListServiceActionsForProvisioningArtifactOutput
+ */
+const de_ListServiceActionsForProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): ListServiceActionsForProvisioningArtifactOutput => {
@@ -8399,46 +9571,52 @@ const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactOutput = (
     NextPageToken: __expectString(output.NextPageToken),
     ServiceActionSummaries:
       output.ServiceActionSummaries != null
-        ? deserializeAws_json1_1ServiceActionSummaries(output.ServiceActionSummaries, context)
+        ? de_ServiceActionSummaries(output.ServiceActionSummaries, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListServiceActionsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListServiceActionsOutput => {
+/**
+ * deserializeAws_json1_1ListServiceActionsOutput
+ */
+const de_ListServiceActionsOutput = (output: any, context: __SerdeContext): ListServiceActionsOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ServiceActionSummaries:
       output.ServiceActionSummaries != null
-        ? deserializeAws_json1_1ServiceActionSummaries(output.ServiceActionSummaries, context)
+        ? de_ServiceActionSummaries(output.ServiceActionSummaries, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListStackInstancesForProvisionedProductOutput = (
+/**
+ * deserializeAws_json1_1ListStackInstancesForProvisionedProductOutput
+ */
+const de_ListStackInstancesForProvisionedProductOutput = (
   output: any,
   context: __SerdeContext
 ): ListStackInstancesForProvisionedProductOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
-    StackInstances:
-      output.StackInstances != null ? deserializeAws_json1_1StackInstances(output.StackInstances, context) : undefined,
+    StackInstances: output.StackInstances != null ? de_StackInstances(output.StackInstances, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTagOptionsOutput = (output: any, context: __SerdeContext): ListTagOptionsOutput => {
+/**
+ * deserializeAws_json1_1ListTagOptionsOutput
+ */
+const de_ListTagOptionsOutput = (output: any, context: __SerdeContext): ListTagOptionsOutput => {
   return {
     PageToken: __expectString(output.PageToken),
     TagOptionDetails:
-      output.TagOptionDetails != null
-        ? deserializeAws_json1_1TagOptionDetails(output.TagOptionDetails, context)
-        : undefined,
+      output.TagOptionDetails != null ? de_TagOptionDetails(output.TagOptionDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Namespaces = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1Namespaces
+ */
+const de_Namespaces = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8450,7 +9628,10 @@ const deserializeAws_json1_1Namespaces = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_1NotificationArns = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1NotificationArns
+ */
+const de_NotificationArns = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8462,60 +9643,77 @@ const deserializeAws_json1_1NotificationArns = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultOutput = (
+/**
+ * deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultOutput
+ */
+const de_NotifyProvisionProductEngineWorkflowResultOutput = (
   output: any,
   context: __SerdeContext
 ): NotifyProvisionProductEngineWorkflowResultOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultOutput = (
+/**
+ * deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultOutput
+ */
+const de_NotifyTerminateProvisionedProductEngineWorkflowResultOutput = (
   output: any,
   context: __SerdeContext
 ): NotifyTerminateProvisionedProductEngineWorkflowResultOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultOutput = (
+/**
+ * deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultOutput
+ */
+const de_NotifyUpdateProvisionedProductEngineWorkflowResultOutput = (
   output: any,
   context: __SerdeContext
 ): NotifyUpdateProvisionedProductEngineWorkflowResultOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1OperationNotSupportedException = (
-  output: any,
-  context: __SerdeContext
-): OperationNotSupportedException => {
+/**
+ * deserializeAws_json1_1OperationNotSupportedException
+ */
+const de_OperationNotSupportedException = (output: any, context: __SerdeContext): OperationNotSupportedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationNode = (output: any, context: __SerdeContext): OrganizationNode => {
+/**
+ * deserializeAws_json1_1OrganizationNode
+ */
+const de_OrganizationNode = (output: any, context: __SerdeContext): OrganizationNode => {
   return {
     Type: __expectString(output.Type),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationNodes = (output: any, context: __SerdeContext): OrganizationNode[] => {
+/**
+ * deserializeAws_json1_1OrganizationNodes
+ */
+const de_OrganizationNodes = (output: any, context: __SerdeContext): OrganizationNode[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1OrganizationNode(entry, context);
+      return de_OrganizationNode(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
+/**
+ * deserializeAws_json1_1ParameterConstraints
+ */
+const de_ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
   return {
     AllowedPattern: __expectString(output.AllowedPattern),
-    AllowedValues:
-      output.AllowedValues != null ? deserializeAws_json1_1AllowedValues(output.AllowedValues, context) : undefined,
+    AllowedValues: output.AllowedValues != null ? de_AllowedValues(output.AllowedValues, context) : undefined,
     ConstraintDescription: __expectString(output.ConstraintDescription),
     MaxLength: __expectString(output.MaxLength),
     MaxValue: __expectString(output.MaxValue),
@@ -8524,7 +9722,10 @@ const deserializeAws_json1_1ParameterConstraints = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1PortfolioDetail = (output: any, context: __SerdeContext): PortfolioDetail => {
+/**
+ * deserializeAws_json1_1PortfolioDetail
+ */
+const de_PortfolioDetail = (output: any, context: __SerdeContext): PortfolioDetail => {
   return {
     ARN: __expectString(output.ARN),
     CreatedTime:
@@ -8538,19 +9739,25 @@ const deserializeAws_json1_1PortfolioDetail = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1PortfolioDetails = (output: any, context: __SerdeContext): PortfolioDetail[] => {
+/**
+ * deserializeAws_json1_1PortfolioDetails
+ */
+const de_PortfolioDetails = (output: any, context: __SerdeContext): PortfolioDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PortfolioDetail(entry, context);
+      return de_PortfolioDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PortfolioShareDetail = (output: any, context: __SerdeContext): PortfolioShareDetail => {
+/**
+ * deserializeAws_json1_1PortfolioShareDetail
+ */
+const de_PortfolioShareDetail = (output: any, context: __SerdeContext): PortfolioShareDetail => {
   return {
     Accepted: __expectBoolean(output.Accepted),
     PrincipalId: __expectString(output.PrincipalId),
@@ -8560,38 +9767,50 @@ const deserializeAws_json1_1PortfolioShareDetail = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1PortfolioShareDetails = (output: any, context: __SerdeContext): PortfolioShareDetail[] => {
+/**
+ * deserializeAws_json1_1PortfolioShareDetails
+ */
+const de_PortfolioShareDetails = (output: any, context: __SerdeContext): PortfolioShareDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PortfolioShareDetail(entry, context);
+      return de_PortfolioShareDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Principal = (output: any, context: __SerdeContext): Principal => {
+/**
+ * deserializeAws_json1_1Principal
+ */
+const de_Principal = (output: any, context: __SerdeContext): Principal => {
   return {
     PrincipalARN: __expectString(output.PrincipalARN),
     PrincipalType: __expectString(output.PrincipalType),
   } as any;
 };
 
-const deserializeAws_json1_1Principals = (output: any, context: __SerdeContext): Principal[] => {
+/**
+ * deserializeAws_json1_1Principals
+ */
+const de_Principals = (output: any, context: __SerdeContext): Principal[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Principal(entry, context);
+      return de_Principal(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProductViewAggregations = (
+/**
+ * deserializeAws_json1_1ProductViewAggregations
+ */
+const de_ProductViewAggregations = (
   output: any,
   context: __SerdeContext
 ): Record<string, ProductViewAggregationValue[]> => {
@@ -8600,39 +9819,42 @@ const deserializeAws_json1_1ProductViewAggregations = (
       if (value === null) {
         return acc;
       }
-      acc[key] = deserializeAws_json1_1ProductViewAggregationValues(value, context);
+      acc[key] = de_ProductViewAggregationValues(value, context);
       return acc;
     },
     {}
   );
 };
 
-const deserializeAws_json1_1ProductViewAggregationValue = (
-  output: any,
-  context: __SerdeContext
-): ProductViewAggregationValue => {
+/**
+ * deserializeAws_json1_1ProductViewAggregationValue
+ */
+const de_ProductViewAggregationValue = (output: any, context: __SerdeContext): ProductViewAggregationValue => {
   return {
     ApproximateCount: __expectInt32(output.ApproximateCount),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1ProductViewAggregationValues = (
-  output: any,
-  context: __SerdeContext
-): ProductViewAggregationValue[] => {
+/**
+ * deserializeAws_json1_1ProductViewAggregationValues
+ */
+const de_ProductViewAggregationValues = (output: any, context: __SerdeContext): ProductViewAggregationValue[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProductViewAggregationValue(entry, context);
+      return de_ProductViewAggregationValue(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProductViewDetail = (output: any, context: __SerdeContext): ProductViewDetail => {
+/**
+ * deserializeAws_json1_1ProductViewDetail
+ */
+const de_ProductViewDetail = (output: any, context: __SerdeContext): ProductViewDetail => {
   return {
     CreatedTime:
       output.CreatedTime != null
@@ -8640,42 +9862,47 @@ const deserializeAws_json1_1ProductViewDetail = (output: any, context: __SerdeCo
         : undefined,
     ProductARN: __expectString(output.ProductARN),
     ProductViewSummary:
-      output.ProductViewSummary != null
-        ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
-        : undefined,
+      output.ProductViewSummary != null ? de_ProductViewSummary(output.ProductViewSummary, context) : undefined,
     SourceConnection:
-      output.SourceConnection != null
-        ? deserializeAws_json1_1SourceConnectionDetail(output.SourceConnection, context)
-        : undefined,
+      output.SourceConnection != null ? de_SourceConnectionDetail(output.SourceConnection, context) : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1ProductViewDetails = (output: any, context: __SerdeContext): ProductViewDetail[] => {
+/**
+ * deserializeAws_json1_1ProductViewDetails
+ */
+const de_ProductViewDetails = (output: any, context: __SerdeContext): ProductViewDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProductViewDetail(entry, context);
+      return de_ProductViewDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProductViewSummaries = (output: any, context: __SerdeContext): ProductViewSummary[] => {
+/**
+ * deserializeAws_json1_1ProductViewSummaries
+ */
+const de_ProductViewSummaries = (output: any, context: __SerdeContext): ProductViewSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProductViewSummary(entry, context);
+      return de_ProductViewSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProductViewSummary = (output: any, context: __SerdeContext): ProductViewSummary => {
+/**
+ * deserializeAws_json1_1ProductViewSummary
+ */
+const de_ProductViewSummary = (output: any, context: __SerdeContext): ProductViewSummary => {
   return {
     Distributor: __expectString(output.Distributor),
     HasDefaultPath: __expectBoolean(output.HasDefaultPath),
@@ -8691,10 +9918,10 @@ const deserializeAws_json1_1ProductViewSummary = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1ProvisionedProductAttribute = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedProductAttribute => {
+/**
+ * deserializeAws_json1_1ProvisionedProductAttribute
+ */
+const de_ProvisionedProductAttribute = (output: any, context: __SerdeContext): ProvisionedProductAttribute => {
   return {
     Arn: __expectString(output.Arn),
     CreatedTime:
@@ -8714,32 +9941,32 @@ const deserializeAws_json1_1ProvisionedProductAttribute = (
     ProvisioningArtifactName: __expectString(output.ProvisioningArtifactName),
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     Type: __expectString(output.Type),
     UserArn: __expectString(output.UserArn),
     UserArnSession: __expectString(output.UserArnSession),
   } as any;
 };
 
-const deserializeAws_json1_1ProvisionedProductAttributes = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedProductAttribute[] => {
+/**
+ * deserializeAws_json1_1ProvisionedProductAttributes
+ */
+const de_ProvisionedProductAttributes = (output: any, context: __SerdeContext): ProvisionedProductAttribute[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProvisionedProductAttribute(entry, context);
+      return de_ProvisionedProductAttribute(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProvisionedProductDetail = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedProductDetail => {
+/**
+ * deserializeAws_json1_1ProvisionedProductDetail
+ */
+const de_ProvisionedProductDetail = (output: any, context: __SerdeContext): ProvisionedProductDetail => {
   return {
     Arn: __expectString(output.Arn),
     CreatedTime:
@@ -8761,34 +9988,32 @@ const deserializeAws_json1_1ProvisionedProductDetail = (
   } as any;
 };
 
-const deserializeAws_json1_1ProvisionedProductDetails = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedProductDetail[] => {
+/**
+ * deserializeAws_json1_1ProvisionedProductDetails
+ */
+const de_ProvisionedProductDetails = (output: any, context: __SerdeContext): ProvisionedProductDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProvisionedProductDetail(entry, context);
+      return de_ProvisionedProductDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProvisionedProductPlanDetails = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedProductPlanDetails => {
+/**
+ * deserializeAws_json1_1ProvisionedProductPlanDetails
+ */
+const de_ProvisionedProductPlanDetails = (output: any, context: __SerdeContext): ProvisionedProductPlanDetails => {
   return {
     CreatedTime:
       output.CreatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     NotificationArns:
-      output.NotificationArns != null
-        ? deserializeAws_json1_1NotificationArns(output.NotificationArns, context)
-        : undefined,
+      output.NotificationArns != null ? de_NotificationArns(output.NotificationArns, context) : undefined,
     PathId: __expectString(output.PathId),
     PlanId: __expectString(output.PlanId),
     PlanName: __expectString(output.PlanName),
@@ -8799,11 +10024,11 @@ const deserializeAws_json1_1ProvisionedProductPlanDetails = (
     ProvisioningArtifactId: __expectString(output.ProvisioningArtifactId),
     ProvisioningParameters:
       output.ProvisioningParameters != null
-        ? deserializeAws_json1_1UpdateProvisioningParameters(output.ProvisioningParameters, context)
+        ? de_UpdateProvisioningParameters(output.ProvisioningParameters, context)
         : undefined,
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     UpdatedTime:
       output.UpdatedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedTime)))
@@ -8811,25 +10036,25 @@ const deserializeAws_json1_1ProvisionedProductPlanDetails = (
   } as any;
 };
 
-const deserializeAws_json1_1ProvisionedProductPlans = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedProductPlanSummary[] => {
+/**
+ * deserializeAws_json1_1ProvisionedProductPlans
+ */
+const de_ProvisionedProductPlans = (output: any, context: __SerdeContext): ProvisionedProductPlanSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProvisionedProductPlanSummary(entry, context);
+      return de_ProvisionedProductPlanSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProvisionedProductPlanSummary = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedProductPlanSummary => {
+/**
+ * deserializeAws_json1_1ProvisionedProductPlanSummary
+ */
+const de_ProvisionedProductPlanSummary = (output: any, context: __SerdeContext): ProvisionedProductPlanSummary => {
   return {
     PlanId: __expectString(output.PlanId),
     PlanName: __expectString(output.PlanName),
@@ -8840,10 +10065,10 @@ const deserializeAws_json1_1ProvisionedProductPlanSummary = (
   } as any;
 };
 
-const deserializeAws_json1_1ProvisionedProductProperties = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_json1_1ProvisionedProductProperties
+ */
+const de_ProvisionedProductProperties = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [PropertyKey | string, any]) => {
     if (value === null) {
       return acc;
@@ -8853,7 +10078,10 @@ const deserializeAws_json1_1ProvisionedProductProperties = (
   }, {});
 };
 
-const deserializeAws_json1_1ProvisioningArtifact = (output: any, context: __SerdeContext): ProvisioningArtifact => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifact
+ */
+const de_ProvisioningArtifact = (output: any, context: __SerdeContext): ProvisioningArtifact => {
   return {
     CreatedTime:
       output.CreatedTime != null
@@ -8866,10 +10094,10 @@ const deserializeAws_json1_1ProvisioningArtifact = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1ProvisioningArtifactDetail = (
-  output: any,
-  context: __SerdeContext
-): ProvisioningArtifactDetail => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactDetail
+ */
+const de_ProvisioningArtifactDetail = (output: any, context: __SerdeContext): ProvisioningArtifactDetail => {
   return {
     Active: __expectBoolean(output.Active),
     CreatedTime:
@@ -8885,25 +10113,25 @@ const deserializeAws_json1_1ProvisioningArtifactDetail = (
   } as any;
 };
 
-const deserializeAws_json1_1ProvisioningArtifactDetails = (
-  output: any,
-  context: __SerdeContext
-): ProvisioningArtifactDetail[] => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactDetails
+ */
+const de_ProvisioningArtifactDetails = (output: any, context: __SerdeContext): ProvisioningArtifactDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProvisioningArtifactDetail(entry, context);
+      return de_ProvisioningArtifactDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProvisioningArtifactInfo = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactInfo
+ */
+const de_ProvisioningArtifactInfo = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -8913,110 +10141,106 @@ const deserializeAws_json1_1ProvisioningArtifactInfo = (
   }, {});
 };
 
-const deserializeAws_json1_1ProvisioningArtifactOutput = (
-  output: any,
-  context: __SerdeContext
-): ProvisioningArtifactOutput => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactOutput
+ */
+const de_ProvisioningArtifactOutput = (output: any, context: __SerdeContext): ProvisioningArtifactOutput => {
   return {
     Description: __expectString(output.Description),
     Key: __expectString(output.Key),
   } as any;
 };
 
-const deserializeAws_json1_1ProvisioningArtifactOutputs = (
-  output: any,
-  context: __SerdeContext
-): ProvisioningArtifactOutput[] => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactOutputs
+ */
+const de_ProvisioningArtifactOutputs = (output: any, context: __SerdeContext): ProvisioningArtifactOutput[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProvisioningArtifactOutput(entry, context);
+      return de_ProvisioningArtifactOutput(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProvisioningArtifactParameter = (
-  output: any,
-  context: __SerdeContext
-): ProvisioningArtifactParameter => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactParameter
+ */
+const de_ProvisioningArtifactParameter = (output: any, context: __SerdeContext): ProvisioningArtifactParameter => {
   return {
     DefaultValue: __expectString(output.DefaultValue),
     Description: __expectString(output.Description),
     IsNoEcho: __expectBoolean(output.IsNoEcho),
     ParameterConstraints:
-      output.ParameterConstraints != null
-        ? deserializeAws_json1_1ParameterConstraints(output.ParameterConstraints, context)
-        : undefined,
+      output.ParameterConstraints != null ? de_ParameterConstraints(output.ParameterConstraints, context) : undefined,
     ParameterKey: __expectString(output.ParameterKey),
     ParameterType: __expectString(output.ParameterType),
   } as any;
 };
 
-const deserializeAws_json1_1ProvisioningArtifactParameters = (
-  output: any,
-  context: __SerdeContext
-): ProvisioningArtifactParameter[] => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactParameters
+ */
+const de_ProvisioningArtifactParameters = (output: any, context: __SerdeContext): ProvisioningArtifactParameter[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProvisioningArtifactParameter(entry, context);
+      return de_ProvisioningArtifactParameter(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProvisioningArtifactPreferences = (
-  output: any,
-  context: __SerdeContext
-): ProvisioningArtifactPreferences => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactPreferences
+ */
+const de_ProvisioningArtifactPreferences = (output: any, context: __SerdeContext): ProvisioningArtifactPreferences => {
   return {
     StackSetAccounts:
-      output.StackSetAccounts != null
-        ? deserializeAws_json1_1StackSetAccounts(output.StackSetAccounts, context)
-        : undefined,
-    StackSetRegions:
-      output.StackSetRegions != null
-        ? deserializeAws_json1_1StackSetRegions(output.StackSetRegions, context)
-        : undefined,
+      output.StackSetAccounts != null ? de_StackSetAccounts(output.StackSetAccounts, context) : undefined,
+    StackSetRegions: output.StackSetRegions != null ? de_StackSetRegions(output.StackSetRegions, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ProvisioningArtifacts = (output: any, context: __SerdeContext): ProvisioningArtifact[] => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifacts
+ */
+const de_ProvisioningArtifacts = (output: any, context: __SerdeContext): ProvisioningArtifact[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProvisioningArtifact(entry, context);
+      return de_ProvisioningArtifact(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProvisioningArtifactSummaries = (
-  output: any,
-  context: __SerdeContext
-): ProvisioningArtifactSummary[] => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactSummaries
+ */
+const de_ProvisioningArtifactSummaries = (output: any, context: __SerdeContext): ProvisioningArtifactSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProvisioningArtifactSummary(entry, context);
+      return de_ProvisioningArtifactSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProvisioningArtifactSummary = (
-  output: any,
-  context: __SerdeContext
-): ProvisioningArtifactSummary => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactSummary
+ */
+const de_ProvisioningArtifactSummary = (output: any, context: __SerdeContext): ProvisioningArtifactSummary => {
   return {
     CreatedTime:
       output.CreatedTime != null
@@ -9027,50 +10251,51 @@ const deserializeAws_json1_1ProvisioningArtifactSummary = (
     Name: __expectString(output.Name),
     ProvisioningArtifactMetadata:
       output.ProvisioningArtifactMetadata != null
-        ? deserializeAws_json1_1ProvisioningArtifactInfo(output.ProvisioningArtifactMetadata, context)
+        ? de_ProvisioningArtifactInfo(output.ProvisioningArtifactMetadata, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ProvisioningArtifactView = (
-  output: any,
-  context: __SerdeContext
-): ProvisioningArtifactView => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactView
+ */
+const de_ProvisioningArtifactView = (output: any, context: __SerdeContext): ProvisioningArtifactView => {
   return {
     ProductViewSummary:
-      output.ProductViewSummary != null
-        ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
-        : undefined,
+      output.ProductViewSummary != null ? de_ProductViewSummary(output.ProductViewSummary, context) : undefined,
     ProvisioningArtifact:
-      output.ProvisioningArtifact != null
-        ? deserializeAws_json1_1ProvisioningArtifact(output.ProvisioningArtifact, context)
-        : undefined,
+      output.ProvisioningArtifact != null ? de_ProvisioningArtifact(output.ProvisioningArtifact, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ProvisioningArtifactViews = (
-  output: any,
-  context: __SerdeContext
-): ProvisioningArtifactView[] => {
+/**
+ * deserializeAws_json1_1ProvisioningArtifactViews
+ */
+const de_ProvisioningArtifactViews = (output: any, context: __SerdeContext): ProvisioningArtifactView[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProvisioningArtifactView(entry, context);
+      return de_ProvisioningArtifactView(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProvisionProductOutput = (output: any, context: __SerdeContext): ProvisionProductOutput => {
+/**
+ * deserializeAws_json1_1ProvisionProductOutput
+ */
+const de_ProvisionProductOutput = (output: any, context: __SerdeContext): ProvisionProductOutput => {
   return {
-    RecordDetail:
-      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
+    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1RecordDetail = (output: any, context: __SerdeContext): RecordDetail => {
+/**
+ * deserializeAws_json1_1RecordDetail
+ */
+const de_RecordDetail = (output: any, context: __SerdeContext): RecordDetail => {
   return {
     CreatedTime:
       output.CreatedTime != null
@@ -9083,10 +10308,9 @@ const deserializeAws_json1_1RecordDetail = (output: any, context: __SerdeContext
     ProvisionedProductName: __expectString(output.ProvisionedProductName),
     ProvisionedProductType: __expectString(output.ProvisionedProductType),
     ProvisioningArtifactId: __expectString(output.ProvisioningArtifactId),
-    RecordErrors:
-      output.RecordErrors != null ? deserializeAws_json1_1RecordErrors(output.RecordErrors, context) : undefined,
+    RecordErrors: output.RecordErrors != null ? de_RecordErrors(output.RecordErrors, context) : undefined,
     RecordId: __expectString(output.RecordId),
-    RecordTags: output.RecordTags != null ? deserializeAws_json1_1RecordTags(output.RecordTags, context) : undefined,
+    RecordTags: output.RecordTags != null ? de_RecordTags(output.RecordTags, context) : undefined,
     RecordType: __expectString(output.RecordType),
     Status: __expectString(output.Status),
     UpdatedTime:
@@ -9096,38 +10320,50 @@ const deserializeAws_json1_1RecordDetail = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1RecordDetails = (output: any, context: __SerdeContext): RecordDetail[] => {
+/**
+ * deserializeAws_json1_1RecordDetails
+ */
+const de_RecordDetails = (output: any, context: __SerdeContext): RecordDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RecordDetail(entry, context);
+      return de_RecordDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RecordError = (output: any, context: __SerdeContext): RecordError => {
+/**
+ * deserializeAws_json1_1RecordError
+ */
+const de_RecordError = (output: any, context: __SerdeContext): RecordError => {
   return {
     Code: __expectString(output.Code),
     Description: __expectString(output.Description),
   } as any;
 };
 
-const deserializeAws_json1_1RecordErrors = (output: any, context: __SerdeContext): RecordError[] => {
+/**
+ * deserializeAws_json1_1RecordErrors
+ */
+const de_RecordErrors = (output: any, context: __SerdeContext): RecordError[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RecordError(entry, context);
+      return de_RecordError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RecordOutput = (output: any, context: __SerdeContext): RecordOutput => {
+/**
+ * deserializeAws_json1_1RecordOutput
+ */
+const de_RecordOutput = (output: any, context: __SerdeContext): RecordOutput => {
   return {
     Description: __expectString(output.Description),
     OutputKey: __expectString(output.OutputKey),
@@ -9135,89 +10371,113 @@ const deserializeAws_json1_1RecordOutput = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1RecordOutputs = (output: any, context: __SerdeContext): RecordOutput[] => {
+/**
+ * deserializeAws_json1_1RecordOutputs
+ */
+const de_RecordOutputs = (output: any, context: __SerdeContext): RecordOutput[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RecordOutput(entry, context);
+      return de_RecordOutput(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RecordTag = (output: any, context: __SerdeContext): RecordTag => {
+/**
+ * deserializeAws_json1_1RecordTag
+ */
+const de_RecordTag = (output: any, context: __SerdeContext): RecordTag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1RecordTags = (output: any, context: __SerdeContext): RecordTag[] => {
+/**
+ * deserializeAws_json1_1RecordTags
+ */
+const de_RecordTags = (output: any, context: __SerdeContext): RecordTag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1RecordTag(entry, context);
+      return de_RecordTag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1RejectPortfolioShareOutput = (
-  output: any,
-  context: __SerdeContext
-): RejectPortfolioShareOutput => {
+/**
+ * deserializeAws_json1_1RejectPortfolioShareOutput
+ */
+const de_RejectPortfolioShareOutput = (output: any, context: __SerdeContext): RejectPortfolioShareOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1ResourceChange = (output: any, context: __SerdeContext): ResourceChange => {
+/**
+ * deserializeAws_json1_1ResourceChange
+ */
+const de_ResourceChange = (output: any, context: __SerdeContext): ResourceChange => {
   return {
     Action: __expectString(output.Action),
-    Details: output.Details != null ? deserializeAws_json1_1ResourceChangeDetails(output.Details, context) : undefined,
+    Details: output.Details != null ? de_ResourceChangeDetails(output.Details, context) : undefined,
     LogicalResourceId: __expectString(output.LogicalResourceId),
     PhysicalResourceId: __expectString(output.PhysicalResourceId),
     Replacement: __expectString(output.Replacement),
     ResourceType: __expectString(output.ResourceType),
-    Scope: output.Scope != null ? deserializeAws_json1_1Scope(output.Scope, context) : undefined,
+    Scope: output.Scope != null ? de_Scope(output.Scope, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ResourceChangeDetail = (output: any, context: __SerdeContext): ResourceChangeDetail => {
+/**
+ * deserializeAws_json1_1ResourceChangeDetail
+ */
+const de_ResourceChangeDetail = (output: any, context: __SerdeContext): ResourceChangeDetail => {
   return {
     CausingEntity: __expectString(output.CausingEntity),
     Evaluation: __expectString(output.Evaluation),
-    Target: output.Target != null ? deserializeAws_json1_1ResourceTargetDefinition(output.Target, context) : undefined,
+    Target: output.Target != null ? de_ResourceTargetDefinition(output.Target, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ResourceChangeDetails = (output: any, context: __SerdeContext): ResourceChangeDetail[] => {
+/**
+ * deserializeAws_json1_1ResourceChangeDetails
+ */
+const de_ResourceChangeDetails = (output: any, context: __SerdeContext): ResourceChangeDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResourceChangeDetail(entry, context);
+      return de_ResourceChangeDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceChanges = (output: any, context: __SerdeContext): ResourceChange[] => {
+/**
+ * deserializeAws_json1_1ResourceChanges
+ */
+const de_ResourceChanges = (output: any, context: __SerdeContext): ResourceChange[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResourceChange(entry, context);
+      return de_ResourceChange(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceDetail = (output: any, context: __SerdeContext): ResourceDetail => {
+/**
+ * deserializeAws_json1_1ResourceDetail
+ */
+const de_ResourceDetail = (output: any, context: __SerdeContext): ResourceDetail => {
   return {
     ARN: __expectString(output.ARN),
     CreatedTime:
@@ -9230,37 +10490,43 @@ const deserializeAws_json1_1ResourceDetail = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetail[] => {
+/**
+ * deserializeAws_json1_1ResourceDetails
+ */
+const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResourceDetail(entry, context);
+      return de_ResourceDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
+/**
+ * deserializeAws_json1_1ResourceInUseException
+ */
+const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceTargetDefinition = (
-  output: any,
-  context: __SerdeContext
-): ResourceTargetDefinition => {
+/**
+ * deserializeAws_json1_1ResourceTargetDefinition
+ */
+const de_ResourceTargetDefinition = (output: any, context: __SerdeContext): ResourceTargetDefinition => {
   return {
     Attribute: __expectString(output.Attribute),
     Name: __expectString(output.Name),
@@ -9268,20 +10534,23 @@ const deserializeAws_json1_1ResourceTargetDefinition = (
   } as any;
 };
 
-const deserializeAws_json1_1ScanProvisionedProductsOutput = (
-  output: any,
-  context: __SerdeContext
-): ScanProvisionedProductsOutput => {
+/**
+ * deserializeAws_json1_1ScanProvisionedProductsOutput
+ */
+const de_ScanProvisionedProductsOutput = (output: any, context: __SerdeContext): ScanProvisionedProductsOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProvisionedProducts:
       output.ProvisionedProducts != null
-        ? deserializeAws_json1_1ProvisionedProductDetails(output.ProvisionedProducts, context)
+        ? de_ProvisionedProductDetails(output.ProvisionedProducts, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Scope = (output: any, context: __SerdeContext): (ResourceAttribute | string)[] => {
+/**
+ * deserializeAws_json1_1Scope
+ */
+const de_Scope = (output: any, context: __SerdeContext): (ResourceAttribute | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9293,51 +10562,50 @@ const deserializeAws_json1_1Scope = (output: any, context: __SerdeContext): (Res
   return retVal;
 };
 
-const deserializeAws_json1_1SearchProductsAsAdminOutput = (
-  output: any,
-  context: __SerdeContext
-): SearchProductsAsAdminOutput => {
+/**
+ * deserializeAws_json1_1SearchProductsAsAdminOutput
+ */
+const de_SearchProductsAsAdminOutput = (output: any, context: __SerdeContext): SearchProductsAsAdminOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProductViewDetails:
-      output.ProductViewDetails != null
-        ? deserializeAws_json1_1ProductViewDetails(output.ProductViewDetails, context)
-        : undefined,
+      output.ProductViewDetails != null ? de_ProductViewDetails(output.ProductViewDetails, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SearchProductsOutput = (output: any, context: __SerdeContext): SearchProductsOutput => {
+/**
+ * deserializeAws_json1_1SearchProductsOutput
+ */
+const de_SearchProductsOutput = (output: any, context: __SerdeContext): SearchProductsOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProductViewAggregations:
       output.ProductViewAggregations != null
-        ? deserializeAws_json1_1ProductViewAggregations(output.ProductViewAggregations, context)
+        ? de_ProductViewAggregations(output.ProductViewAggregations, context)
         : undefined,
     ProductViewSummaries:
-      output.ProductViewSummaries != null
-        ? deserializeAws_json1_1ProductViewSummaries(output.ProductViewSummaries, context)
-        : undefined,
+      output.ProductViewSummaries != null ? de_ProductViewSummaries(output.ProductViewSummaries, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SearchProvisionedProductsOutput = (
-  output: any,
-  context: __SerdeContext
-): SearchProvisionedProductsOutput => {
+/**
+ * deserializeAws_json1_1SearchProvisionedProductsOutput
+ */
+const de_SearchProvisionedProductsOutput = (output: any, context: __SerdeContext): SearchProvisionedProductsOutput => {
   return {
     NextPageToken: __expectString(output.NextPageToken),
     ProvisionedProducts:
       output.ProvisionedProducts != null
-        ? deserializeAws_json1_1ProvisionedProductAttributes(output.ProvisionedProducts, context)
+        ? de_ProvisionedProductAttributes(output.ProvisionedProducts, context)
         : undefined,
     TotalResultsCount: __expectInt32(output.TotalResultsCount),
   } as any;
 };
 
-const deserializeAws_json1_1ServiceActionDefinitionMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_json1_1ServiceActionDefinitionMap
+ */
+const de_ServiceActionDefinitionMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
     (acc: Record<string, string>, [key, value]: [ServiceActionDefinitionKey | string, any]) => {
       if (value === null) {
@@ -9350,32 +10618,36 @@ const deserializeAws_json1_1ServiceActionDefinitionMap = (
   );
 };
 
-const deserializeAws_json1_1ServiceActionDetail = (output: any, context: __SerdeContext): ServiceActionDetail => {
+/**
+ * deserializeAws_json1_1ServiceActionDetail
+ */
+const de_ServiceActionDetail = (output: any, context: __SerdeContext): ServiceActionDetail => {
   return {
-    Definition:
-      output.Definition != null
-        ? deserializeAws_json1_1ServiceActionDefinitionMap(output.Definition, context)
-        : undefined,
+    Definition: output.Definition != null ? de_ServiceActionDefinitionMap(output.Definition, context) : undefined,
     ServiceActionSummary:
-      output.ServiceActionSummary != null
-        ? deserializeAws_json1_1ServiceActionSummary(output.ServiceActionSummary, context)
-        : undefined,
+      output.ServiceActionSummary != null ? de_ServiceActionSummary(output.ServiceActionSummary, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ServiceActionSummaries = (output: any, context: __SerdeContext): ServiceActionSummary[] => {
+/**
+ * deserializeAws_json1_1ServiceActionSummaries
+ */
+const de_ServiceActionSummaries = (output: any, context: __SerdeContext): ServiceActionSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ServiceActionSummary(entry, context);
+      return de_ServiceActionSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ServiceActionSummary = (output: any, context: __SerdeContext): ServiceActionSummary => {
+/**
+ * deserializeAws_json1_1ServiceActionSummary
+ */
+const de_ServiceActionSummary = (output: any, context: __SerdeContext): ServiceActionSummary => {
   return {
     DefinitionType: __expectString(output.DefinitionType),
     Description: __expectString(output.Description),
@@ -9384,58 +10656,70 @@ const deserializeAws_json1_1ServiceActionSummary = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1ShareDetails = (output: any, context: __SerdeContext): ShareDetails => {
+/**
+ * deserializeAws_json1_1ShareDetails
+ */
+const de_ShareDetails = (output: any, context: __SerdeContext): ShareDetails => {
   return {
-    ShareErrors:
-      output.ShareErrors != null ? deserializeAws_json1_1ShareErrors(output.ShareErrors, context) : undefined,
+    ShareErrors: output.ShareErrors != null ? de_ShareErrors(output.ShareErrors, context) : undefined,
     SuccessfulShares:
-      output.SuccessfulShares != null
-        ? deserializeAws_json1_1SuccessfulShares(output.SuccessfulShares, context)
-        : undefined,
+      output.SuccessfulShares != null ? de_SuccessfulShares(output.SuccessfulShares, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ShareError = (output: any, context: __SerdeContext): ShareError => {
+/**
+ * deserializeAws_json1_1ShareError
+ */
+const de_ShareError = (output: any, context: __SerdeContext): ShareError => {
   return {
-    Accounts: output.Accounts != null ? deserializeAws_json1_1Namespaces(output.Accounts, context) : undefined,
+    Accounts: output.Accounts != null ? de_Namespaces(output.Accounts, context) : undefined,
     Error: __expectString(output.Error),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ShareErrors = (output: any, context: __SerdeContext): ShareError[] => {
+/**
+ * deserializeAws_json1_1ShareErrors
+ */
+const de_ShareErrors = (output: any, context: __SerdeContext): ShareError[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ShareError(entry, context);
+      return de_ShareError(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1SourceConnectionDetail = (output: any, context: __SerdeContext): SourceConnectionDetail => {
+/**
+ * deserializeAws_json1_1SourceConnectionDetail
+ */
+const de_SourceConnectionDetail = (output: any, context: __SerdeContext): SourceConnectionDetail => {
   return {
     ConnectionParameters:
       output.ConnectionParameters != null
-        ? deserializeAws_json1_1SourceConnectionParameters(output.ConnectionParameters, context)
+        ? de_SourceConnectionParameters(output.ConnectionParameters, context)
         : undefined,
-    LastSync: output.LastSync != null ? deserializeAws_json1_1LastSync(output.LastSync, context) : undefined,
+    LastSync: output.LastSync != null ? de_LastSync(output.LastSync, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1SourceConnectionParameters = (
-  output: any,
-  context: __SerdeContext
-): SourceConnectionParameters => {
+/**
+ * deserializeAws_json1_1SourceConnectionParameters
+ */
+const de_SourceConnectionParameters = (output: any, context: __SerdeContext): SourceConnectionParameters => {
   return {
-    CodeStar: output.CodeStar != null ? deserializeAws_json1_1CodeStarParameters(output.CodeStar, context) : undefined,
+    CodeStar: output.CodeStar != null ? de_CodeStarParameters(output.CodeStar, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1StackInstance = (output: any, context: __SerdeContext): StackInstance => {
+/**
+ * deserializeAws_json1_1StackInstance
+ */
+const de_StackInstance = (output: any, context: __SerdeContext): StackInstance => {
   return {
     Account: __expectString(output.Account),
     Region: __expectString(output.Region),
@@ -9443,43 +10727,25 @@ const deserializeAws_json1_1StackInstance = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1StackInstances = (output: any, context: __SerdeContext): StackInstance[] => {
+/**
+ * deserializeAws_json1_1StackInstances
+ */
+const de_StackInstances = (output: any, context: __SerdeContext): StackInstance[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1StackInstance(entry, context);
+      return de_StackInstance(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1StackSetAccounts = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1StackSetRegions = (output: any, context: __SerdeContext): string[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-  return retVal;
-};
-
-const deserializeAws_json1_1SuccessfulShares = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1StackSetAccounts
+ */
+const de_StackSetAccounts = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9491,14 +10757,50 @@ const deserializeAws_json1_1SuccessfulShares = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1StackSetRegions
+ */
+const de_StackSetRegions = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1SuccessfulShares
+ */
+const de_SuccessfulShares = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagOptionDetail = (output: any, context: __SerdeContext): TagOptionDetail => {
+/**
+ * deserializeAws_json1_1TagOptionDetail
+ */
+const de_TagOptionDetail = (output: any, context: __SerdeContext): TagOptionDetail => {
   return {
     Active: __expectBoolean(output.Active),
     Id: __expectString(output.Id),
@@ -9508,47 +10810,59 @@ const deserializeAws_json1_1TagOptionDetail = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1TagOptionDetails = (output: any, context: __SerdeContext): TagOptionDetail[] => {
+/**
+ * deserializeAws_json1_1TagOptionDetails
+ */
+const de_TagOptionDetails = (output: any, context: __SerdeContext): TagOptionDetail[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TagOptionDetail(entry, context);
+      return de_TagOptionDetail(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagOptionNotMigratedException = (
-  output: any,
-  context: __SerdeContext
-): TagOptionNotMigratedException => {
+/**
+ * deserializeAws_json1_1TagOptionNotMigratedException
+ */
+const de_TagOptionNotMigratedException = (output: any, context: __SerdeContext): TagOptionNotMigratedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1TagOptionSummaries = (output: any, context: __SerdeContext): TagOptionSummary[] => {
+/**
+ * deserializeAws_json1_1TagOptionSummaries
+ */
+const de_TagOptionSummaries = (output: any, context: __SerdeContext): TagOptionSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TagOptionSummary(entry, context);
+      return de_TagOptionSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagOptionSummary = (output: any, context: __SerdeContext): TagOptionSummary => {
+/**
+ * deserializeAws_json1_1TagOptionSummary
+ */
+const de_TagOptionSummary = (output: any, context: __SerdeContext): TagOptionSummary => {
   return {
     Key: __expectString(output.Key),
-    Values: output.Values != null ? deserializeAws_json1_1TagOptionValues(output.Values, context) : undefined,
+    Values: output.Values != null ? de_TagOptionValues(output.Values, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1TagOptionValues = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1TagOptionValues
+ */
+const de_TagOptionValues = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9560,80 +10874,89 @@ const deserializeAws_json1_1TagOptionValues = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1Tags
+ */
+const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TerminateProvisionedProductOutput = (
+/**
+ * deserializeAws_json1_1TerminateProvisionedProductOutput
+ */
+const de_TerminateProvisionedProductOutput = (
   output: any,
   context: __SerdeContext
 ): TerminateProvisionedProductOutput => {
   return {
-    RecordDetail:
-      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
+    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateConstraintOutput = (output: any, context: __SerdeContext): UpdateConstraintOutput => {
+/**
+ * deserializeAws_json1_1UpdateConstraintOutput
+ */
+const de_UpdateConstraintOutput = (output: any, context: __SerdeContext): UpdateConstraintOutput => {
   return {
     ConstraintDetail:
-      output.ConstraintDetail != null
-        ? deserializeAws_json1_1ConstraintDetail(output.ConstraintDetail, context)
-        : undefined,
+      output.ConstraintDetail != null ? de_ConstraintDetail(output.ConstraintDetail, context) : undefined,
     ConstraintParameters: __expectString(output.ConstraintParameters),
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1UpdatePortfolioOutput = (output: any, context: __SerdeContext): UpdatePortfolioOutput => {
+/**
+ * deserializeAws_json1_1UpdatePortfolioOutput
+ */
+const de_UpdatePortfolioOutput = (output: any, context: __SerdeContext): UpdatePortfolioOutput => {
   return {
-    PortfolioDetail:
-      output.PortfolioDetail != null
-        ? deserializeAws_json1_1PortfolioDetail(output.PortfolioDetail, context)
-        : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    PortfolioDetail: output.PortfolioDetail != null ? de_PortfolioDetail(output.PortfolioDetail, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdatePortfolioShareOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdatePortfolioShareOutput => {
+/**
+ * deserializeAws_json1_1UpdatePortfolioShareOutput
+ */
+const de_UpdatePortfolioShareOutput = (output: any, context: __SerdeContext): UpdatePortfolioShareOutput => {
   return {
     PortfolioShareToken: __expectString(output.PortfolioShareToken),
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateProductOutput = (output: any, context: __SerdeContext): UpdateProductOutput => {
+/**
+ * deserializeAws_json1_1UpdateProductOutput
+ */
+const de_UpdateProductOutput = (output: any, context: __SerdeContext): UpdateProductOutput => {
   return {
     ProductViewDetail:
-      output.ProductViewDetail != null
-        ? deserializeAws_json1_1ProductViewDetail(output.ProductViewDetail, context)
-        : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+      output.ProductViewDetail != null ? de_ProductViewDetail(output.ProductViewDetail, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateProvisionedProductOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateProvisionedProductOutput => {
+/**
+ * deserializeAws_json1_1UpdateProvisionedProductOutput
+ */
+const de_UpdateProvisionedProductOutput = (output: any, context: __SerdeContext): UpdateProvisionedProductOutput => {
   return {
-    RecordDetail:
-      output.RecordDetail != null ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context) : undefined,
+    RecordDetail: output.RecordDetail != null ? de_RecordDetail(output.RecordDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateProvisionedProductPropertiesOutput = (
+/**
+ * deserializeAws_json1_1UpdateProvisionedProductPropertiesOutput
+ */
+const de_UpdateProvisionedProductPropertiesOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateProvisionedProductPropertiesOutput => {
@@ -9641,31 +10964,34 @@ const deserializeAws_json1_1UpdateProvisionedProductPropertiesOutput = (
     ProvisionedProductId: __expectString(output.ProvisionedProductId),
     ProvisionedProductProperties:
       output.ProvisionedProductProperties != null
-        ? deserializeAws_json1_1ProvisionedProductProperties(output.ProvisionedProductProperties, context)
+        ? de_ProvisionedProductProperties(output.ProvisionedProductProperties, context)
         : undefined,
     RecordId: __expectString(output.RecordId),
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateProvisioningArtifactOutput = (
+/**
+ * deserializeAws_json1_1UpdateProvisioningArtifactOutput
+ */
+const de_UpdateProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateProvisioningArtifactOutput => {
   return {
-    Info: output.Info != null ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context) : undefined,
+    Info: output.Info != null ? de_ProvisioningArtifactInfo(output.Info, context) : undefined,
     ProvisioningArtifactDetail:
       output.ProvisioningArtifactDetail != null
-        ? deserializeAws_json1_1ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
+        ? de_ProvisioningArtifactDetail(output.ProvisioningArtifactDetail, context)
         : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateProvisioningParameter = (
-  output: any,
-  context: __SerdeContext
-): UpdateProvisioningParameter => {
+/**
+ * deserializeAws_json1_1UpdateProvisioningParameter
+ */
+const de_UpdateProvisioningParameter = (output: any, context: __SerdeContext): UpdateProvisioningParameter => {
   return {
     Key: __expectString(output.Key),
     UsePreviousValue: __expectBoolean(output.UsePreviousValue),
@@ -9673,57 +10999,61 @@ const deserializeAws_json1_1UpdateProvisioningParameter = (
   } as any;
 };
 
-const deserializeAws_json1_1UpdateProvisioningParameters = (
-  output: any,
-  context: __SerdeContext
-): UpdateProvisioningParameter[] => {
+/**
+ * deserializeAws_json1_1UpdateProvisioningParameters
+ */
+const de_UpdateProvisioningParameters = (output: any, context: __SerdeContext): UpdateProvisioningParameter[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1UpdateProvisioningParameter(entry, context);
+      return de_UpdateProvisioningParameter(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1UpdateServiceActionOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateServiceActionOutput => {
+/**
+ * deserializeAws_json1_1UpdateServiceActionOutput
+ */
+const de_UpdateServiceActionOutput = (output: any, context: __SerdeContext): UpdateServiceActionOutput => {
   return {
     ServiceActionDetail:
-      output.ServiceActionDetail != null
-        ? deserializeAws_json1_1ServiceActionDetail(output.ServiceActionDetail, context)
-        : undefined,
+      output.ServiceActionDetail != null ? de_ServiceActionDetail(output.ServiceActionDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdateTagOptionOutput = (output: any, context: __SerdeContext): UpdateTagOptionOutput => {
+/**
+ * deserializeAws_json1_1UpdateTagOptionOutput
+ */
+const de_UpdateTagOptionOutput = (output: any, context: __SerdeContext): UpdateTagOptionOutput => {
   return {
-    TagOptionDetail:
-      output.TagOptionDetail != null
-        ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
-        : undefined,
+    TagOptionDetail: output.TagOptionDetail != null ? de_TagOptionDetail(output.TagOptionDetail, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UsageInstruction = (output: any, context: __SerdeContext): UsageInstruction => {
+/**
+ * deserializeAws_json1_1UsageInstruction
+ */
+const de_UsageInstruction = (output: any, context: __SerdeContext): UsageInstruction => {
   return {
     Type: __expectString(output.Type),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1UsageInstructions = (output: any, context: __SerdeContext): UsageInstruction[] => {
+/**
+ * deserializeAws_json1_1UsageInstructions
+ */
+const de_UsageInstructions = (output: any, context: __SerdeContext): UsageInstruction[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1UsageInstruction(entry, context);
+      return de_UsageInstruction(entry, context);
     });
   return retVal;
 };

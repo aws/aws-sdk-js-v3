@@ -18,8 +18,8 @@ import {
   StopDBInstanceAutomatedBackupsReplicationResult,
 } from "../models/models_1";
 import {
-  deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand,
-  serializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand,
+  de_StopDBInstanceAutomatedBackupsReplicationCommand,
+  se_StopDBInstanceAutomatedBackupsReplicationCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -72,6 +72,45 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ *
+ * @example To stop replicating automated backups
+ * ```javascript
+ * // The following example ends replication of automated backups. Replicated backups are retained according to the set backup retention period.
+ * const input = {
+ *   "SourceDBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db"
+ * };
+ * const command = new StopDBInstanceAutomatedBackupsReplicationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstanceAutomatedBackup": {
+ *     "AllocatedStorage": 20,
+ *     "BackupRetentionPeriod": 7,
+ *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
+ *     "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
+ *     "DBInstanceIdentifier": "new-orcl-db",
+ *     "DbiResourceId": "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
+ *     "Encrypted": false,
+ *     "Engine": "oracle-se2",
+ *     "EngineVersion": "12.1.0.2.v21",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "InstanceCreateTime": "2020-12-04T15:28:31Z",
+ *     "LicenseModel": "bring-your-own-license",
+ *     "MasterUsername": "admin",
+ *     "OptionGroupName": "default:oracle-se2-12-1",
+ *     "Port": 1521,
+ *     "Region": "us-east-1",
+ *     "RestoreWindow": {
+ *       "EarliestTime": "2020-12-04T23:13:21.030Z",
+ *       "LatestTime": "2020-12-07T19:59:57Z"
+ *     },
+ *     "Status": "replicating",
+ *     "StorageType": "gp2"
+ *   }
+ * }
+ * *\/
+ * // example id: to-stop-replicating-automated-backups-1679701787115
+ * ```
  *
  */
 export class StopDBInstanceAutomatedBackupsReplicationCommand extends $Command<
@@ -146,7 +185,7 @@ export class StopDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     input: StopDBInstanceAutomatedBackupsReplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand(input, context);
+    return se_StopDBInstanceAutomatedBackupsReplicationCommand(input, context);
   }
 
   /**
@@ -156,7 +195,7 @@ export class StopDBInstanceAutomatedBackupsReplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput> {
-    return deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand(output, context);
+    return de_StopDBInstanceAutomatedBackupsReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

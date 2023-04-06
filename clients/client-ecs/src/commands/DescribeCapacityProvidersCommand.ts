@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { DescribeCapacityProvidersRequest, DescribeCapacityProvidersResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCapacityProvidersCommand,
-  serializeAws_json1_1DescribeCapacityProvidersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCapacityProvidersCommand, se_DescribeCapacityProvidersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,7 +136,7 @@ export class DescribeCapacityProvidersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCapacityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCapacityProvidersCommand(input, context);
+    return se_DescribeCapacityProvidersCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class DescribeCapacityProvidersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCapacityProvidersCommandOutput> {
-    return deserializeAws_json1_1DescribeCapacityProvidersCommand(output, context);
+    return de_DescribeCapacityProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

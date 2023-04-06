@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDatalakeRequest, GetDatalakeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDatalakeCommand,
-  serializeAws_restJson1GetDatalakeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDatalakeCommand, se_GetDatalakeCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -138,14 +135,14 @@ export class GetDatalakeCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDatalakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDatalakeCommand(input, context);
+    return se_GetDatalakeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDatalakeCommandOutput> {
-    return deserializeAws_restJson1GetDatalakeCommand(output, context);
+    return de_GetDatalakeCommand(output, context);
   }
 
   // Start section: command_body_extra

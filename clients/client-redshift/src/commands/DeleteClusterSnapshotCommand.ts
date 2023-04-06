@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteClusterSnapshotMessage, DeleteClusterSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteClusterSnapshotCommand,
-  serializeAws_queryDeleteClusterSnapshotCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteClusterSnapshotCommand, se_DeleteClusterSnapshotCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -134,14 +131,14 @@ export class DeleteClusterSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteClusterSnapshotCommand(input, context);
+    return se_DeleteClusterSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterSnapshotCommandOutput> {
-    return deserializeAws_queryDeleteClusterSnapshotCommand(output, context);
+    return de_DeleteClusterSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

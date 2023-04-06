@@ -20,8 +20,8 @@ import {
   SubmitMultiRegionAccessPointRoutesResult,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand,
-  serializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand,
+  de_SubmitMultiRegionAccessPointRoutesCommand,
+  se_SubmitMultiRegionAccessPointRoutesCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -187,7 +187,7 @@ export class SubmitMultiRegionAccessPointRoutesCommand extends $Command<
     input: SubmitMultiRegionAccessPointRoutesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand(input, context);
+    return se_SubmitMultiRegionAccessPointRoutesCommand(input, context);
   }
 
   /**
@@ -197,7 +197,7 @@ export class SubmitMultiRegionAccessPointRoutesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SubmitMultiRegionAccessPointRoutesCommandOutput> {
-    return deserializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand(output, context);
+    return de_SubmitMultiRegionAccessPointRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

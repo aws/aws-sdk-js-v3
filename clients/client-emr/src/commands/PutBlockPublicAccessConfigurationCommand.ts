@@ -16,8 +16,8 @@ import {
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { PutBlockPublicAccessConfigurationInput, PutBlockPublicAccessConfigurationOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand,
-  serializeAws_json1_1PutBlockPublicAccessConfigurationCommand,
+  de_PutBlockPublicAccessConfigurationCommand,
+  se_PutBlockPublicAccessConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -162,7 +162,7 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     input: PutBlockPublicAccessConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutBlockPublicAccessConfigurationCommand(input, context);
+    return se_PutBlockPublicAccessConfigurationCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBlockPublicAccessConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand(output, context);
+    return de_PutBlockPublicAccessConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAssistantRequest, CreateAssistantResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAssistantCommand,
-  serializeAws_restJson1CreateAssistantCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAssistantCommand, se_CreateAssistantCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -145,14 +142,14 @@ export class CreateAssistantCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAssistantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAssistantCommand(input, context);
+    return se_CreateAssistantCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssistantCommandOutput> {
-    return deserializeAws_restJson1CreateAssistantCommand(output, context);
+    return de_CreateAssistantCommand(output, context);
   }
 
   // Start section: command_body_extra

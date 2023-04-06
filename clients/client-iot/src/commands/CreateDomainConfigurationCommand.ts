@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateDomainConfigurationRequest, CreateDomainConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDomainConfigurationCommand,
-  serializeAws_restJson1CreateDomainConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDomainConfigurationCommand, se_CreateDomainConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -161,7 +158,7 @@ export class CreateDomainConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDomainConfigurationCommand(input, context);
+    return se_CreateDomainConfigurationCommand(input, context);
   }
 
   /**
@@ -171,7 +168,7 @@ export class CreateDomainConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateDomainConfigurationCommand(output, context);
+    return de_CreateDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

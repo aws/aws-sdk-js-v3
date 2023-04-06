@@ -19,10 +19,7 @@ import {
   CreateLocationObjectStorageRequestFilterSensitiveLog,
   CreateLocationObjectStorageResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationObjectStorageCommand,
-  serializeAws_json1_1CreateLocationObjectStorageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationObjectStorageCommand, se_CreateLocationObjectStorageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,7 +145,7 @@ export class CreateLocationObjectStorageCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLocationObjectStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationObjectStorageCommand(input, context);
+    return se_CreateLocationObjectStorageCommand(input, context);
   }
 
   /**
@@ -158,7 +155,7 @@ export class CreateLocationObjectStorageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLocationObjectStorageCommandOutput> {
-    return deserializeAws_json1_1CreateLocationObjectStorageCommand(output, context);
+    return de_CreateLocationObjectStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

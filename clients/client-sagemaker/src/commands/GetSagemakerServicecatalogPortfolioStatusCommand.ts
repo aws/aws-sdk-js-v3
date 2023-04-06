@@ -18,8 +18,8 @@ import {
   GetSagemakerServicecatalogPortfolioStatusOutput,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand,
-  serializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand,
+  de_GetSagemakerServicecatalogPortfolioStatusCommand,
+  se_GetSagemakerServicecatalogPortfolioStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -134,7 +134,7 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
     input: GetSagemakerServicecatalogPortfolioStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand(input, context);
+    return se_GetSagemakerServicecatalogPortfolioStatusCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput> {
-    return deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand(output, context);
+    return de_GetSagemakerServicecatalogPortfolioStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

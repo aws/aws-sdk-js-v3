@@ -23,10 +23,7 @@ import {
   DescribeChannelModeratorResponse,
   DescribeChannelModeratorResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeChannelModeratorCommand,
-  serializeAws_restJson1DescribeChannelModeratorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeChannelModeratorCommand, se_DescribeChannelModeratorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class DescribeChannelModeratorCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeChannelModeratorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelModeratorCommand(input, context);
+    return se_DescribeChannelModeratorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelModeratorCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelModeratorCommand(output, context);
+    return de_DescribeChannelModeratorCommand(output, context);
   }
 
   // Start section: command_body_extra

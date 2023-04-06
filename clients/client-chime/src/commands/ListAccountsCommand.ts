@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { ListAccountsRequest, ListAccountsRequestFilterSensitiveLog, ListAccountsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListAccountsCommand,
-  serializeAws_restJson1ListAccountsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAccountsCommand, se_ListAccountsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListAccountsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccountsCommand(input, context);
+    return se_ListAccountsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountsCommandOutput> {
-    return deserializeAws_restJson1ListAccountsCommand(output, context);
+    return de_ListAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

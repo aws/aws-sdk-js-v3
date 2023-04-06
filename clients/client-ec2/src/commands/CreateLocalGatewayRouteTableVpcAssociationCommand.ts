@@ -19,8 +19,8 @@ import {
   CreateLocalGatewayRouteTableVpcAssociationResult,
 } from "../models/models_1";
 import {
-  deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand,
-  serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand,
+  de_CreateLocalGatewayRouteTableVpcAssociationCommand,
+  se_CreateLocalGatewayRouteTableVpcAssociationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -148,7 +148,7 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     input: CreateLocalGatewayRouteTableVpcAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand(input, context);
+    return se_CreateLocalGatewayRouteTableVpcAssociationCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLocalGatewayRouteTableVpcAssociationCommandOutput> {
-    return deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand(output, context);
+    return de_CreateLocalGatewayRouteTableVpcAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

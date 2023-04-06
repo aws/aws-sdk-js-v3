@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DBInstanceMessage, DescribeDBInstancesMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBInstancesCommand,
-  serializeAws_queryDescribeDBInstancesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBInstancesCommand, se_DescribeDBInstancesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -73,15 +70,33 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  *
- * @example To list DB instance settings
+ * @example To describe a DB instance
  * ```javascript
- * // This example lists settings for the specified DB instance.
+ * // The following example retrieves details about the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "mymysqlinstance"
+ *   "DBInstanceIdentifier": "mydbinstancecf"
  * };
  * const command = new DescribeDBInstancesCommand(input);
- * await client.send(command);
- * // example id: describe-db-instances-0e11a8c5-4ec3-4463-8cbf-f7254d04c4fc
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstances": [
+ *     {
+ *       "DBInstanceClass": "db.t3.small",
+ *       "DBInstanceIdentifier": "mydbinstancecf",
+ *       "DBInstanceStatus": "available",
+ *       "Endpoint": {
+ *         "Address": "mydbinstancecf.abcexample.us-east-1.rds.amazonaws.com",
+ *         "HostedZoneId": "Z2R2ITUGPM61AM",
+ *         "Port": 3306
+ *       },
+ *       "Engine": "mysql",
+ *       "MasterUsername": "admin"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-a-db-instance-1680217544524
  * ```
  *
  */
@@ -148,14 +163,14 @@ export class DescribeDBInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBInstancesCommand(input, context);
+    return se_DescribeDBInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBInstancesCommandOutput> {
-    return deserializeAws_queryDescribeDBInstancesCommand(output, context);
+    return de_DescribeDBInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

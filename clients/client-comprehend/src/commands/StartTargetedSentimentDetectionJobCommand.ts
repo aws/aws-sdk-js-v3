@@ -19,8 +19,8 @@ import {
   StartTargetedSentimentDetectionJobResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1StartTargetedSentimentDetectionJobCommand,
-  serializeAws_json1_1StartTargetedSentimentDetectionJobCommand,
+  de_StartTargetedSentimentDetectionJobCommand,
+  se_StartTargetedSentimentDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -181,7 +181,7 @@ export class StartTargetedSentimentDetectionJobCommand extends $Command<
     input: StartTargetedSentimentDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartTargetedSentimentDetectionJobCommand(input, context);
+    return se_StartTargetedSentimentDetectionJobCommand(input, context);
   }
 
   /**
@@ -191,7 +191,7 @@ export class StartTargetedSentimentDetectionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartTargetedSentimentDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StartTargetedSentimentDetectionJobCommand(output, context);
+    return de_StartTargetedSentimentDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

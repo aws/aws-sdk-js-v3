@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeRoleAliasRequest, DescribeRoleAliasResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeRoleAliasCommand,
-  serializeAws_restJson1DescribeRoleAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeRoleAliasCommand, se_DescribeRoleAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DescribeRoleAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRoleAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRoleAliasCommand(input, context);
+    return se_DescribeRoleAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRoleAliasCommandOutput> {
-    return deserializeAws_restJson1DescribeRoleAliasCommand(output, context);
+    return de_DescribeRoleAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

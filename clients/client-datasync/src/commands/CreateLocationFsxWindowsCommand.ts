@@ -19,10 +19,7 @@ import {
   CreateLocationFsxWindowsRequestFilterSensitiveLog,
   CreateLocationFsxWindowsResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationFsxWindowsCommand,
-  serializeAws_json1_1CreateLocationFsxWindowsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationFsxWindowsCommand, se_CreateLocationFsxWindowsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class CreateLocationFsxWindowsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLocationFsxWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationFsxWindowsCommand(input, context);
+    return se_CreateLocationFsxWindowsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxWindowsCommandOutput> {
-    return deserializeAws_json1_1CreateLocationFsxWindowsCommand(output, context);
+    return de_CreateLocationFsxWindowsCommand(output, context);
   }
 
   // Start section: command_body_extra

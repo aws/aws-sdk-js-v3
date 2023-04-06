@@ -19,10 +19,7 @@ import {
   CreateLegalHoldInputFilterSensitiveLog,
   CreateLegalHoldOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLegalHoldCommand,
-  serializeAws_restJson1CreateLegalHoldCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateLegalHoldCommand, se_CreateLegalHoldCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class CreateLegalHoldCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLegalHoldCommand(input, context);
+    return se_CreateLegalHoldCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLegalHoldCommandOutput> {
-    return deserializeAws_restJson1CreateLegalHoldCommand(output, context);
+    return de_CreateLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

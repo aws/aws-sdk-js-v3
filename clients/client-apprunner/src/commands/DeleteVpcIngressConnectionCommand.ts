@@ -15,10 +15,7 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { DeleteVpcIngressConnectionRequest, DeleteVpcIngressConnectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteVpcIngressConnectionCommand,
-  serializeAws_json1_0DeleteVpcIngressConnectionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteVpcIngressConnectionCommand, se_DeleteVpcIngressConnectionCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -155,7 +152,7 @@ export class DeleteVpcIngressConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVpcIngressConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteVpcIngressConnectionCommand(input, context);
+    return se_DeleteVpcIngressConnectionCommand(input, context);
   }
 
   /**
@@ -165,7 +162,7 @@ export class DeleteVpcIngressConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcIngressConnectionCommandOutput> {
-    return deserializeAws_json1_0DeleteVpcIngressConnectionCommand(output, context);
+    return de_DeleteVpcIngressConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

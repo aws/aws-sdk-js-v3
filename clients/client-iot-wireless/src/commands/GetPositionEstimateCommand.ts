@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { GetPositionEstimateRequest, GetPositionEstimateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPositionEstimateCommand,
-  serializeAws_restJson1GetPositionEstimateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPositionEstimateCommand, se_GetPositionEstimateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -277,14 +274,14 @@ export class GetPositionEstimateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPositionEstimateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPositionEstimateCommand(input, context);
+    return se_GetPositionEstimateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPositionEstimateCommandOutput> {
-    return deserializeAws_restJson1GetPositionEstimateCommand(output, context);
+    return de_GetPositionEstimateCommand(output, context);
   }
 
   // Start section: command_body_extra

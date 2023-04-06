@@ -15,10 +15,7 @@ import {
 
 import { GetStreamingSessionBackupRequest, GetStreamingSessionBackupResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1GetStreamingSessionBackupCommand,
-  serializeAws_restJson1GetStreamingSessionBackupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetStreamingSessionBackupCommand, se_GetStreamingSessionBackupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class GetStreamingSessionBackupCommand extends $Command<
    * @internal
    */
   private serialize(input: GetStreamingSessionBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStreamingSessionBackupCommand(input, context);
+    return se_GetStreamingSessionBackupCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class GetStreamingSessionBackupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetStreamingSessionBackupCommandOutput> {
-    return deserializeAws_restJson1GetStreamingSessionBackupCommand(output, context);
+    return de_GetStreamingSessionBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

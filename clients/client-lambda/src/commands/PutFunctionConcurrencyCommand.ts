@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { Concurrency, PutFunctionConcurrencyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutFunctionConcurrencyCommand,
-  serializeAws_restJson1PutFunctionConcurrencyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutFunctionConcurrencyCommand, se_PutFunctionConcurrencyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class PutFunctionConcurrencyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutFunctionConcurrencyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutFunctionConcurrencyCommand(input, context);
+    return se_PutFunctionConcurrencyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutFunctionConcurrencyCommandOutput> {
-    return deserializeAws_restJson1PutFunctionConcurrencyCommand(output, context);
+    return de_PutFunctionConcurrencyCommand(output, context);
   }
 
   // Start section: command_body_extra

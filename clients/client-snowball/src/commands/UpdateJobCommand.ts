@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateJobRequest, UpdateJobResult } from "../models/models_0";
-import { deserializeAws_json1_1UpdateJobCommand, serializeAws_json1_1UpdateJobCommand } from "../protocols/Aws_json1_1";
+import { de_UpdateJobCommand, se_UpdateJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -216,14 +216,14 @@ export class UpdateJobCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateJobCommand(input, context);
+    return se_UpdateJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobCommandOutput> {
-    return deserializeAws_json1_1UpdateJobCommand(output, context);
+    return de_UpdateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

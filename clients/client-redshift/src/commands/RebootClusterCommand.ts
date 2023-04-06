@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RebootClusterMessage, RebootClusterResult } from "../models/models_1";
-import {
-  deserializeAws_queryRebootClusterCommand,
-  serializeAws_queryRebootClusterCommand,
-} from "../protocols/Aws_query";
+import { de_RebootClusterCommand, se_RebootClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -132,14 +129,14 @@ export class RebootClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: RebootClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebootClusterCommand(input, context);
+    return se_RebootClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootClusterCommandOutput> {
-    return deserializeAws_queryRebootClusterCommand(output, context);
+    return de_RebootClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

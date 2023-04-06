@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { SuspendGameServerGroupInput, SuspendGameServerGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1SuspendGameServerGroupCommand,
-  serializeAws_json1_1SuspendGameServerGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SuspendGameServerGroupCommand, se_SuspendGameServerGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class SuspendGameServerGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: SuspendGameServerGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SuspendGameServerGroupCommand(input, context);
+    return se_SuspendGameServerGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SuspendGameServerGroupCommandOutput> {
-    return deserializeAws_json1_1SuspendGameServerGroupCommand(output, context);
+    return de_SuspendGameServerGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

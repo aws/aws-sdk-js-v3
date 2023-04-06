@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AllocateHostsRequest, AllocateHostsResult } from "../models/models_0";
-import { deserializeAws_ec2AllocateHostsCommand, serializeAws_ec2AllocateHostsCommand } from "../protocols/Aws_ec2";
+import { de_AllocateHostsCommand, se_AllocateHostsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -136,14 +136,14 @@ export class AllocateHostsCommand extends $Command<
    * @internal
    */
   private serialize(input: AllocateHostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AllocateHostsCommand(input, context);
+    return se_AllocateHostsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateHostsCommandOutput> {
-    return deserializeAws_ec2AllocateHostsCommand(output, context);
+    return de_AllocateHostsCommand(output, context);
   }
 
   // Start section: command_body_extra

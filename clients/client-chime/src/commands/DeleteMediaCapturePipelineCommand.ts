@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteMediaCapturePipelineRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMediaCapturePipelineCommand,
-  serializeAws_restJson1DeleteMediaCapturePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMediaCapturePipelineCommand, se_DeleteMediaCapturePipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class DeleteMediaCapturePipelineCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMediaCapturePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMediaCapturePipelineCommand(input, context);
+    return se_DeleteMediaCapturePipelineCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class DeleteMediaCapturePipelineCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMediaCapturePipelineCommandOutput> {
-    return deserializeAws_restJson1DeleteMediaCapturePipelineCommand(output, context);
+    return de_DeleteMediaCapturePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

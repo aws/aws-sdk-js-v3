@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { UpdateThesaurusRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateThesaurusCommand,
-  serializeAws_json1_1UpdateThesaurusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateThesaurusCommand, se_UpdateThesaurusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class UpdateThesaurusCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateThesaurusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateThesaurusCommand(input, context);
+    return se_UpdateThesaurusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThesaurusCommandOutput> {
-    return deserializeAws_json1_1UpdateThesaurusCommand(output, context);
+    return de_UpdateThesaurusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetRegexPatternSetRequest, GetRegexPatternSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRegexPatternSetCommand,
-  serializeAws_json1_1GetRegexPatternSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRegexPatternSetCommand, se_GetRegexPatternSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -137,14 +134,14 @@ export class GetRegexPatternSetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRegexPatternSetCommand(input, context);
+    return se_GetRegexPatternSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegexPatternSetCommandOutput> {
-    return deserializeAws_json1_1GetRegexPatternSetCommand(output, context);
+    return de_GetRegexPatternSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSecurityPoliciesRequest, ListSecurityPoliciesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSecurityPoliciesCommand,
-  serializeAws_json1_1ListSecurityPoliciesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSecurityPoliciesCommand, se_ListSecurityPoliciesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListSecurityPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSecurityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSecurityPoliciesCommand(input, context);
+    return se_ListSecurityPoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityPoliciesCommandOutput> {
-    return deserializeAws_json1_1ListSecurityPoliciesCommand(output, context);
+    return de_ListSecurityPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

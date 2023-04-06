@@ -15,10 +15,7 @@ import {
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { DisassociateCertificateRequest, DisassociateCertificateResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DisassociateCertificateCommand,
-  serializeAws_restJson1DisassociateCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateCertificateCommand, se_DisassociateCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DisassociateCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateCertificateCommand(input, context);
+    return se_DisassociateCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateCertificateCommandOutput> {
-    return deserializeAws_restJson1DisassociateCertificateCommand(output, context);
+    return de_DisassociateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

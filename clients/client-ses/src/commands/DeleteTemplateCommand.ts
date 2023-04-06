@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteTemplateCommand,
-  serializeAws_queryDeleteTemplateCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteTemplateCommand, se_DeleteTemplateCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -121,14 +118,14 @@ export class DeleteTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteTemplateCommand(input, context);
+    return se_DeleteTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTemplateCommandOutput> {
-    return deserializeAws_queryDeleteTemplateCommand(output, context);
+    return de_DeleteTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

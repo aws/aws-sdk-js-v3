@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { UpdateTestGridProjectRequest, UpdateTestGridProjectResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateTestGridProjectCommand,
-  serializeAws_json1_1UpdateTestGridProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateTestGridProjectCommand, se_UpdateTestGridProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class UpdateTestGridProjectCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTestGridProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTestGridProjectCommand(input, context);
+    return se_UpdateTestGridProjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTestGridProjectCommandOutput> {
-    return deserializeAws_json1_1UpdateTestGridProjectCommand(output, context);
+    return de_UpdateTestGridProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

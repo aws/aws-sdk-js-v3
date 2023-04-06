@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { ListDatabasesInput, ListDatabasesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDatabasesCommand,
-  serializeAws_json1_1ListDatabasesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDatabasesCommand, se_ListDatabasesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListDatabasesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDatabasesCommand(input, context);
+    return se_ListDatabasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatabasesCommandOutput> {
-    return deserializeAws_json1_1ListDatabasesCommand(output, context);
+    return de_ListDatabasesCommand(output, context);
   }
 
   // Start section: command_body_extra

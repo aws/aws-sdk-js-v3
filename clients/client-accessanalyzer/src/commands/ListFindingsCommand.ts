@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { ListFindingsRequest, ListFindingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFindingsCommand,
-  serializeAws_restJson1ListFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFindingsCommand, se_ListFindingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class ListFindingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFindingsCommand(input, context);
+    return se_ListFindingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFindingsCommandOutput> {
-    return deserializeAws_restJson1ListFindingsCommand(output, context);
+    return de_ListFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

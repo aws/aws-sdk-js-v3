@@ -15,10 +15,7 @@ import {
 
 import { UpdateScheduledActionRequest, UpdateScheduledActionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1UpdateScheduledActionCommand,
-  serializeAws_restJson1UpdateScheduledActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateScheduledActionCommand, se_UpdateScheduledActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class UpdateScheduledActionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateScheduledActionCommand(input, context);
+    return se_UpdateScheduledActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScheduledActionCommandOutput> {
-    return deserializeAws_restJson1UpdateScheduledActionCommand(output, context);
+    return de_UpdateScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

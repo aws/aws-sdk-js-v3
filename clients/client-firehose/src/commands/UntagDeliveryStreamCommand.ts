@@ -15,10 +15,7 @@ import {
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { UntagDeliveryStreamInput, UntagDeliveryStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagDeliveryStreamCommand,
-  serializeAws_json1_1UntagDeliveryStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UntagDeliveryStreamCommand, se_UntagDeliveryStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class UntagDeliveryStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagDeliveryStreamCommand(input, context);
+    return se_UntagDeliveryStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1UntagDeliveryStreamCommand(output, context);
+    return de_UntagDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

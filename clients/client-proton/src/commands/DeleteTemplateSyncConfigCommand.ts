@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTemplateSyncConfigInput, DeleteTemplateSyncConfigOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteTemplateSyncConfigCommand,
-  serializeAws_json1_0DeleteTemplateSyncConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteTemplateSyncConfigCommand, se_DeleteTemplateSyncConfigCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -139,14 +136,14 @@ export class DeleteTemplateSyncConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTemplateSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteTemplateSyncConfigCommand(input, context);
+    return se_DeleteTemplateSyncConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTemplateSyncConfigCommandOutput> {
-    return deserializeAws_json1_0DeleteTemplateSyncConfigCommand(output, context);
+    return de_DeleteTemplateSyncConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

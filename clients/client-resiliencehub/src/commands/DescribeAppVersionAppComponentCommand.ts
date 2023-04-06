@@ -15,8 +15,8 @@ import {
 
 import { DescribeAppVersionAppComponentRequest, DescribeAppVersionAppComponentResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeAppVersionAppComponentCommand,
-  serializeAws_restJson1DescribeAppVersionAppComponentCommand,
+  de_DescribeAppVersionAppComponentCommand,
+  se_DescribeAppVersionAppComponentCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -151,7 +151,7 @@ export class DescribeAppVersionAppComponentCommand extends $Command<
     input: DescribeAppVersionAppComponentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppVersionAppComponentCommand(input, context);
+    return se_DescribeAppVersionAppComponentCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class DescribeAppVersionAppComponentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAppVersionAppComponentCommandOutput> {
-    return deserializeAws_restJson1DescribeAppVersionAppComponentCommand(output, context);
+    return de_DescribeAppVersionAppComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetFolderInput, GetFolderOutput } from "../models/models_0";
-import { deserializeAws_json1_1GetFolderCommand, serializeAws_json1_1GetFolderCommand } from "../protocols/Aws_json1_1";
+import { de_GetFolderCommand, se_GetFolderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -163,14 +163,14 @@ export class GetFolderCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFolderCommand(input, context);
+    return se_GetFolderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFolderCommandOutput> {
-    return deserializeAws_json1_1GetFolderCommand(output, context);
+    return de_GetFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

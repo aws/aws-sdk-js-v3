@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeFpgaImageAttributeRequest, DescribeFpgaImageAttributeResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeFpgaImageAttributeCommand,
-  serializeAws_ec2DescribeFpgaImageAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeFpgaImageAttributeCommand, se_DescribeFpgaImageAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -122,7 +119,7 @@ export class DescribeFpgaImageAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFpgaImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeFpgaImageAttributeCommand(input, context);
+    return se_DescribeFpgaImageAttributeCommand(input, context);
   }
 
   /**
@@ -132,7 +129,7 @@ export class DescribeFpgaImageAttributeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFpgaImageAttributeCommandOutput> {
-    return deserializeAws_ec2DescribeFpgaImageAttributeCommand(output, context);
+    return de_DescribeFpgaImageAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

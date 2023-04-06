@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { PutTemplateActionRequest, TemplateActionDocument } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutTemplateActionCommand,
-  serializeAws_restJson1PutTemplateActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutTemplateActionCommand, se_PutTemplateActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class PutTemplateActionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutTemplateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutTemplateActionCommand(input, context);
+    return se_PutTemplateActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTemplateActionCommandOutput> {
-    return deserializeAws_restJson1PutTemplateActionCommand(output, context);
+    return de_PutTemplateActionCommand(output, context);
   }
 
   // Start section: command_body_extra

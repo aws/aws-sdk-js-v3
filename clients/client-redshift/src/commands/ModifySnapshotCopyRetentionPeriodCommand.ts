@@ -15,8 +15,8 @@ import {
 
 import { ModifySnapshotCopyRetentionPeriodMessage, ModifySnapshotCopyRetentionPeriodResult } from "../models/models_1";
 import {
-  deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand,
-  serializeAws_queryModifySnapshotCopyRetentionPeriodCommand,
+  de_ModifySnapshotCopyRetentionPeriodCommand,
+  se_ModifySnapshotCopyRetentionPeriodCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -151,7 +151,7 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     input: ModifySnapshotCopyRetentionPeriodCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifySnapshotCopyRetentionPeriodCommand(input, context);
+    return se_ModifySnapshotCopyRetentionPeriodCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> {
-    return deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand(output, context);
+    return de_ModifySnapshotCopyRetentionPeriodCommand(output, context);
   }
 
   // Start section: command_body_extra

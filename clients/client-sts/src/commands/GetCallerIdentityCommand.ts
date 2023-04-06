@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetCallerIdentityRequest, GetCallerIdentityResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetCallerIdentityCommand,
-  serializeAws_queryGetCallerIdentityCommand,
-} from "../protocols/Aws_query";
+import { de_GetCallerIdentityCommand, se_GetCallerIdentityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -178,14 +175,14 @@ export class GetCallerIdentityCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCallerIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetCallerIdentityCommand(input, context);
+    return se_GetCallerIdentityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCallerIdentityCommandOutput> {
-    return deserializeAws_queryGetCallerIdentityCommand(output, context);
+    return de_GetCallerIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

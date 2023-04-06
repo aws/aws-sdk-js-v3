@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTrialComponentRequest, DeleteTrialComponentResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DeleteTrialComponentCommand,
-  serializeAws_json1_1DeleteTrialComponentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTrialComponentCommand, se_DeleteTrialComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -125,14 +122,14 @@ export class DeleteTrialComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTrialComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTrialComponentCommand(input, context);
+    return se_DeleteTrialComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrialComponentCommandOutput> {
-    return deserializeAws_json1_1DeleteTrialComponentCommand(output, context);
+    return de_DeleteTrialComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

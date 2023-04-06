@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { ChangeServerLifeCycleStateRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1ChangeServerLifeCycleStateCommand,
-  serializeAws_restJson1ChangeServerLifeCycleStateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ChangeServerLifeCycleStateCommand, se_ChangeServerLifeCycleStateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class ChangeServerLifeCycleStateCommand extends $Command<
    * @internal
    */
   private serialize(input: ChangeServerLifeCycleStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ChangeServerLifeCycleStateCommand(input, context);
+    return se_ChangeServerLifeCycleStateCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class ChangeServerLifeCycleStateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ChangeServerLifeCycleStateCommandOutput> {
-    return deserializeAws_restJson1ChangeServerLifeCycleStateCommand(output, context);
+    return de_ChangeServerLifeCycleStateCommand(output, context);
   }
 
   // Start section: command_body_extra

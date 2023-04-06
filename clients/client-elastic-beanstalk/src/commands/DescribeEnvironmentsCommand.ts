@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DescribeEnvironmentsMessage, EnvironmentDescriptionsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEnvironmentsCommand,
-  serializeAws_queryDescribeEnvironmentsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeEnvironmentsCommand, se_DescribeEnvironmentsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class DescribeEnvironmentsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEnvironmentsCommand(input, context);
+    return se_DescribeEnvironmentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEnvironmentsCommandOutput> {
-    return deserializeAws_queryDescribeEnvironmentsCommand(output, context);
+    return de_DescribeEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

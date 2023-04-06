@@ -15,8 +15,8 @@ import {
 
 import { CreateSlackChannelConfigurationRequest, CreateSlackChannelConfigurationResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateSlackChannelConfigurationCommand,
-  serializeAws_restJson1CreateSlackChannelConfigurationCommand,
+  de_CreateSlackChannelConfigurationCommand,
+  se_CreateSlackChannelConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
@@ -195,7 +195,7 @@ export class CreateSlackChannelConfigurationCommand extends $Command<
     input: CreateSlackChannelConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSlackChannelConfigurationCommand(input, context);
+    return se_CreateSlackChannelConfigurationCommand(input, context);
   }
 
   /**
@@ -205,7 +205,7 @@ export class CreateSlackChannelConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSlackChannelConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateSlackChannelConfigurationCommand(output, context);
+    return de_CreateSlackChannelConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

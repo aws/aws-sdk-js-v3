@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { DescribeAlarmHistoryInput, DescribeAlarmHistoryOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAlarmHistoryCommand,
-  serializeAws_queryDescribeAlarmHistoryCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeAlarmHistoryCommand, se_DescribeAlarmHistoryCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeAlarmHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAlarmHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAlarmHistoryCommand(input, context);
+    return se_DescribeAlarmHistoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmHistoryCommandOutput> {
-    return deserializeAws_queryDescribeAlarmHistoryCommand(output, context);
+    return de_DescribeAlarmHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

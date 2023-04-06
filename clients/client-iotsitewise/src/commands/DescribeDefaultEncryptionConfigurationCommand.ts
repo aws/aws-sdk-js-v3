@@ -19,8 +19,8 @@ import {
   DescribeDefaultEncryptionConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand,
-  serializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand,
+  de_DescribeDefaultEncryptionConfigurationCommand,
+  se_DescribeDefaultEncryptionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command<
     input: DescribeDefaultEncryptionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand(input, context);
+    return se_DescribeDefaultEncryptionConfigurationCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDefaultEncryptionConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand(output, context);
+    return de_DescribeDefaultEncryptionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

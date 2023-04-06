@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { ListFunctionsRequest, ListFunctionsResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlListFunctionsCommand,
-  serializeAws_restXmlListFunctionsCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListFunctionsCommand, se_ListFunctionsCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListFunctionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListFunctionsCommand(input, context);
+    return se_ListFunctionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionsCommandOutput> {
-    return deserializeAws_restXmlListFunctionsCommand(output, context);
+    return de_ListFunctionsCommand(output, context);
   }
 
   // Start section: command_body_extra

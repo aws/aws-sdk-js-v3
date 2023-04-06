@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { GetRuntimeManagementConfigRequest, GetRuntimeManagementConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRuntimeManagementConfigCommand,
-  serializeAws_restJson1GetRuntimeManagementConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRuntimeManagementConfigCommand, se_GetRuntimeManagementConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class GetRuntimeManagementConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRuntimeManagementConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRuntimeManagementConfigCommand(input, context);
+    return se_GetRuntimeManagementConfigCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class GetRuntimeManagementConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRuntimeManagementConfigCommandOutput> {
-    return deserializeAws_restJson1GetRuntimeManagementConfigCommand(output, context);
+    return de_GetRuntimeManagementConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

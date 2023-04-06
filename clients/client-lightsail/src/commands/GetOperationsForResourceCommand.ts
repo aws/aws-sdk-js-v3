@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetOperationsForResourceRequest, GetOperationsForResourceResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetOperationsForResourceCommand,
-  serializeAws_json1_1GetOperationsForResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetOperationsForResourceCommand, se_GetOperationsForResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class GetOperationsForResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetOperationsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOperationsForResourceCommand(input, context);
+    return se_GetOperationsForResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOperationsForResourceCommandOutput> {
-    return deserializeAws_json1_1GetOperationsForResourceCommand(output, context);
+    return de_GetOperationsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

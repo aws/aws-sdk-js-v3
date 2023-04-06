@@ -19,10 +19,7 @@ import {
   DescribeJobTemplateResponse,
   DescribeJobTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobTemplateCommand,
-  serializeAws_restJson1DescribeJobTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeJobTemplateCommand, se_DescribeJobTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribeJobTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobTemplateCommand(input, context);
+    return se_DescribeJobTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobTemplateCommandOutput> {
-    return deserializeAws_restJson1DescribeJobTemplateCommand(output, context);
+    return de_DescribeJobTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

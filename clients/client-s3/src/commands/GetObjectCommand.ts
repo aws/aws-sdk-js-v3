@@ -24,7 +24,7 @@ import {
   GetObjectRequest,
   GetObjectRequestFilterSensitiveLog,
 } from "../models/models_0";
-import { deserializeAws_restXmlGetObjectCommand, serializeAws_restXmlGetObjectCommand } from "../protocols/Aws_restXml";
+import { de_GetObjectCommand, se_GetObjectCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -252,6 +252,30 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  *  <p>The specified key does not exist.</p>
  *
  *
+ * @example To retrieve an object
+ * ```javascript
+ * // The following example retrieves an object for an S3 bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new GetObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AcceptRanges": "bytes",
+ *   "ContentLength": "3191",
+ *   "ContentType": "image/jpeg",
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
+ *   "Metadata": {},
+ *   "TagCount": 2,
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * // example id: to-retrieve-an-object-1481827837012
+ * ```
+ *
  * @example To retrieve a byte range of an object
  * ```javascript
  * // The following example retrieves an object for an S3 bucket. The request specifies the range header to retrieve a specific byte range.
@@ -275,30 +299,6 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * }
  * *\/
  * // example id: to-retrieve-a-byte-range-of-an-object--1481832674603
- * ```
- *
- * @example To retrieve an object
- * ```javascript
- * // The following example retrieves an object for an S3 bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new GetObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AcceptRanges": "bytes",
- *   "ContentLength": "3191",
- *   "ContentType": "image/jpeg",
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
- *   "Metadata": {},
- *   "TagCount": 2,
- *   "VersionId": "null"
- * }
- * *\/
- * // example id: to-retrieve-an-object-1481827837012
  * ```
  *
  */
@@ -374,7 +374,7 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
    * @internal
    */
   private serialize(input: GetObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectCommand(input, context);
+    return se_GetObjectCommand(input, context);
   }
 
   /**
@@ -384,7 +384,7 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetObjectCommandOutput> {
-    return deserializeAws_restXmlGetObjectCommand(output, context);
+    return de_GetObjectCommand(output, context);
   }
 
   // Start section: command_body_extra

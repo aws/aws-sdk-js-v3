@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteServiceSpecificCredentialRequest } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteServiceSpecificCredentialCommand,
-  serializeAws_queryDeleteServiceSpecificCredentialCommand,
+  de_DeleteServiceSpecificCredentialCommand,
+  se_DeleteServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -128,7 +128,7 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
     input: DeleteServiceSpecificCredentialCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteServiceSpecificCredentialCommand(input, context);
+    return se_DeleteServiceSpecificCredentialCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteServiceSpecificCredentialCommandOutput> {
-    return deserializeAws_queryDeleteServiceSpecificCredentialCommand(output, context);
+    return de_DeleteServiceSpecificCredentialCommand(output, context);
   }
 
   // Start section: command_body_extra

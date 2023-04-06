@@ -15,10 +15,7 @@ import {
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRealtimeEndpointCommand,
-  serializeAws_json1_1CreateRealtimeEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateRealtimeEndpointCommand, se_CreateRealtimeEndpointCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class CreateRealtimeEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRealtimeEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRealtimeEndpointCommand(input, context);
+    return se_CreateRealtimeEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRealtimeEndpointCommandOutput> {
-    return deserializeAws_json1_1CreateRealtimeEndpointCommand(output, context);
+    return de_CreateRealtimeEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

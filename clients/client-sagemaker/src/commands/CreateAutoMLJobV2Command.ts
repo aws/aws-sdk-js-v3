@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAutoMLJobV2Request, CreateAutoMLJobV2Response } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAutoMLJobV2Command,
-  serializeAws_json1_1CreateAutoMLJobV2Command,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAutoMLJobV2Command, se_CreateAutoMLJobV2Command } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -198,14 +195,14 @@ export class CreateAutoMLJobV2Command extends $Command<
    * @internal
    */
   private serialize(input: CreateAutoMLJobV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAutoMLJobV2Command(input, context);
+    return se_CreateAutoMLJobV2Command(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAutoMLJobV2CommandOutput> {
-    return deserializeAws_json1_1CreateAutoMLJobV2Command(output, context);
+    return de_CreateAutoMLJobV2Command(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import { UpdateWorkflowStepRequest, UpdateWorkflowStepResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkflowStepCommand,
-  serializeAws_restJson1UpdateWorkflowStepCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateWorkflowStepCommand, se_UpdateWorkflowStepCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -178,14 +175,14 @@ export class UpdateWorkflowStepCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWorkflowStepCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkflowStepCommand(input, context);
+    return se_UpdateWorkflowStepCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkflowStepCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkflowStepCommand(output, context);
+    return de_UpdateWorkflowStepCommand(output, context);
   }
 
   // Start section: command_body_extra

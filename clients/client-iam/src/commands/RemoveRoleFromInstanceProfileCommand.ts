@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { RemoveRoleFromInstanceProfileRequest } from "../models/models_0";
 import {
-  deserializeAws_queryRemoveRoleFromInstanceProfileCommand,
-  serializeAws_queryRemoveRoleFromInstanceProfileCommand,
+  de_RemoveRoleFromInstanceProfileCommand,
+  se_RemoveRoleFromInstanceProfileCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -160,7 +160,7 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveRoleFromInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveRoleFromInstanceProfileCommand(input, context);
+    return se_RemoveRoleFromInstanceProfileCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveRoleFromInstanceProfileCommandOutput> {
-    return deserializeAws_queryRemoveRoleFromInstanceProfileCommand(output, context);
+    return de_RemoveRoleFromInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

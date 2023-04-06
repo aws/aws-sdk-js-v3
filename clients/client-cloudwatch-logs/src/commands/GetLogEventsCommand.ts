@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { GetLogEventsRequest, GetLogEventsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetLogEventsCommand,
-  serializeAws_json1_1GetLogEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetLogEventsCommand, se_GetLogEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class GetLogEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLogEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLogEventsCommand(input, context);
+    return se_GetLogEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLogEventsCommandOutput> {
-    return deserializeAws_json1_1GetLogEventsCommand(output, context);
+    return de_GetLogEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

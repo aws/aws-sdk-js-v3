@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0ListCollectionsCommand,
-  serializeAws_json1_0ListCollectionsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListCollectionsCommand, se_ListCollectionsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ListCollectionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCollectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListCollectionsCommand(input, context);
+    return se_ListCollectionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCollectionsCommandOutput> {
-    return deserializeAws_json1_0ListCollectionsCommand(output, context);
+    return de_ListCollectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

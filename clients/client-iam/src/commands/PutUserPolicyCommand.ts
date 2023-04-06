@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { PutUserPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_queryPutUserPolicyCommand,
-  serializeAws_queryPutUserPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_PutUserPolicyCommand, se_PutUserPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class PutUserPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutUserPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutUserPolicyCommand(input, context);
+    return se_PutUserPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutUserPolicyCommandOutput> {
-    return deserializeAws_queryPutUserPolicyCommand(output, context);
+    return de_PutUserPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListWebACLsRequest, ListWebACLsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListWebACLsCommand,
-  serializeAws_json1_1ListWebACLsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListWebACLsCommand, se_ListWebACLsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -154,14 +151,14 @@ export class ListWebACLsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListWebACLsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWebACLsCommand(input, context);
+    return se_ListWebACLsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWebACLsCommandOutput> {
-    return deserializeAws_json1_1ListWebACLsCommand(output, context);
+    return de_ListWebACLsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ListAttendeesResponse,
   ListAttendeesResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListAttendeesCommand,
-  serializeAws_restJson1ListAttendeesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAttendeesCommand, se_ListAttendeesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class ListAttendeesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAttendeesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttendeesCommand(input, context);
+    return se_ListAttendeesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttendeesCommandOutput> {
-    return deserializeAws_restJson1ListAttendeesCommand(output, context);
+    return de_ListAttendeesCommand(output, context);
   }
 
   // Start section: command_body_extra

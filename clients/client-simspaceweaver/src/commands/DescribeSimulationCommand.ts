@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSimulationInput, DescribeSimulationOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSimulationCommand,
-  serializeAws_restJson1DescribeSimulationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeSimulationCommand, se_DescribeSimulationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -132,14 +129,14 @@ export class DescribeSimulationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSimulationCommand(input, context);
+    return se_DescribeSimulationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSimulationCommandOutput> {
-    return deserializeAws_restJson1DescribeSimulationCommand(output, context);
+    return de_DescribeSimulationCommand(output, context);
   }
 
   // Start section: command_body_extra

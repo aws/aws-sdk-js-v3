@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { ScheduleRunRequest, ScheduleRunResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ScheduleRunCommand,
-  serializeAws_json1_1ScheduleRunCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ScheduleRunCommand, se_ScheduleRunCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -219,14 +216,14 @@ export class ScheduleRunCommand extends $Command<
    * @internal
    */
   private serialize(input: ScheduleRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ScheduleRunCommand(input, context);
+    return se_ScheduleRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScheduleRunCommandOutput> {
-    return deserializeAws_json1_1ScheduleRunCommand(output, context);
+    return de_ScheduleRunCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { UpdateScheduleRequest, UpdateScheduleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateScheduleCommand,
-  serializeAws_restJson1UpdateScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateScheduleCommand, se_UpdateScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class UpdateScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateScheduleCommand(input, context);
+    return se_UpdateScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScheduleCommandOutput> {
-    return deserializeAws_restJson1UpdateScheduleCommand(output, context);
+    return de_UpdateScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

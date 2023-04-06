@@ -15,10 +15,7 @@ import {
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import { DeleteExperimentTemplateRequest, DeleteExperimentTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteExperimentTemplateCommand,
-  serializeAws_restJson1DeleteExperimentTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteExperimentTemplateCommand, se_DeleteExperimentTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DeleteExperimentTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteExperimentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteExperimentTemplateCommand(input, context);
+    return se_DeleteExperimentTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperimentTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteExperimentTemplateCommand(output, context);
+    return de_DeleteExperimentTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

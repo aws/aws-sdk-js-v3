@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListDimensionsRequest, ListDimensionsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListDimensionsCommand,
-  serializeAws_restJson1ListDimensionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDimensionsCommand, se_ListDimensionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListDimensionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDimensionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDimensionsCommand(input, context);
+    return se_ListDimensionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDimensionsCommandOutput> {
-    return deserializeAws_restJson1ListDimensionsCommand(output, context);
+    return de_ListDimensionsCommand(output, context);
   }
 
   // Start section: command_body_extra

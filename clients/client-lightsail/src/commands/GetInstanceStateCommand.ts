@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetInstanceStateRequest, GetInstanceStateResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetInstanceStateCommand,
-  serializeAws_json1_1GetInstanceStateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetInstanceStateCommand, se_GetInstanceStateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class GetInstanceStateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInstanceStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceStateCommand(input, context);
+    return se_GetInstanceStateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceStateCommandOutput> {
-    return deserializeAws_json1_1GetInstanceStateCommand(output, context);
+    return de_GetInstanceStateCommand(output, context);
   }
 
   // Start section: command_body_extra

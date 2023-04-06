@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAgreementRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAgreementCommand,
-  serializeAws_json1_1DeleteAgreementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAgreementCommand, se_DeleteAgreementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -134,14 +131,14 @@ export class DeleteAgreementCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAgreementCommand(input, context);
+    return se_DeleteAgreementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAgreementCommandOutput> {
-    return deserializeAws_json1_1DeleteAgreementCommand(output, context);
+    return de_DeleteAgreementCommand(output, context);
   }
 
   // Start section: command_body_extra

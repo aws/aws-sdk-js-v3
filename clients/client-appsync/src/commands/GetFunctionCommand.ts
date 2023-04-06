@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { GetFunctionRequest, GetFunctionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFunctionCommand,
-  serializeAws_restJson1GetFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetFunctionCommand, se_GetFunctionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFunctionCommand(input, context);
+    return se_GetFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFunctionCommandOutput> {
-    return deserializeAws_restJson1GetFunctionCommand(output, context);
+    return de_GetFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

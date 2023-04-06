@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { RegisterContainerInstanceRequest, RegisterContainerInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterContainerInstanceCommand,
-  serializeAws_json1_1RegisterContainerInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterContainerInstanceCommand, se_RegisterContainerInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -176,7 +173,7 @@ export class RegisterContainerInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterContainerInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterContainerInstanceCommand(input, context);
+    return se_RegisterContainerInstanceCommand(input, context);
   }
 
   /**
@@ -186,7 +183,7 @@ export class RegisterContainerInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterContainerInstanceCommandOutput> {
-    return deserializeAws_json1_1RegisterContainerInstanceCommand(output, context);
+    return de_RegisterContainerInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

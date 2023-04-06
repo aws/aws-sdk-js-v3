@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListPhoneNumbersOptedOutInput, ListPhoneNumbersOptedOutResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListPhoneNumbersOptedOutCommand,
-  serializeAws_queryListPhoneNumbersOptedOutCommand,
-} from "../protocols/Aws_query";
+import { de_ListPhoneNumbersOptedOutCommand, se_ListPhoneNumbersOptedOutCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -140,14 +137,14 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPhoneNumbersOptedOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPhoneNumbersOptedOutCommand(input, context);
+    return se_ListPhoneNumbersOptedOutCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPhoneNumbersOptedOutCommandOutput> {
-    return deserializeAws_queryListPhoneNumbersOptedOutCommand(output, context);
+    return de_ListPhoneNumbersOptedOutCommand(output, context);
   }
 
   // Start section: command_body_extra

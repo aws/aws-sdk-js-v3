@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { StartImportRequest, StartImportResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartImportCommand,
-  serializeAws_restJson1StartImportCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartImportCommand, se_StartImportCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class StartImportCommand extends $Command<
    * @internal
    */
   private serialize(input: StartImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartImportCommand(input, context);
+    return se_StartImportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportCommandOutput> {
-    return deserializeAws_restJson1StartImportCommand(output, context);
+    return de_StartImportCommand(output, context);
   }
 
   // Start section: command_body_extra

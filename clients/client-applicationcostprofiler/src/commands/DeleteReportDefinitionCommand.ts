@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
 import { DeleteReportDefinitionRequest, DeleteReportDefinitionResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteReportDefinitionCommand,
-  serializeAws_restJson1DeleteReportDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteReportDefinitionCommand, se_DeleteReportDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteReportDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteReportDefinitionCommand(input, context);
+    return se_DeleteReportDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteReportDefinitionCommand(output, context);
+    return de_DeleteReportDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

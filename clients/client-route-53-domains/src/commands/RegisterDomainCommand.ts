@@ -18,10 +18,7 @@ import {
   RegisterDomainRequestFilterSensitiveLog,
   RegisterDomainResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterDomainCommand,
-  serializeAws_json1_1RegisterDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterDomainCommand, se_RegisterDomainCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -251,14 +248,14 @@ export class RegisterDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterDomainCommand(input, context);
+    return se_RegisterDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterDomainCommandOutput> {
-    return deserializeAws_json1_1RegisterDomainCommand(output, context);
+    return de_RegisterDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

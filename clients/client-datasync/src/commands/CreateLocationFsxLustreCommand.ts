@@ -15,10 +15,7 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { CreateLocationFsxLustreRequest, CreateLocationFsxLustreResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationFsxLustreCommand,
-  serializeAws_json1_1CreateLocationFsxLustreCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationFsxLustreCommand, se_CreateLocationFsxLustreCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class CreateLocationFsxLustreCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLocationFsxLustreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationFsxLustreCommand(input, context);
+    return se_CreateLocationFsxLustreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxLustreCommandOutput> {
-    return deserializeAws_json1_1CreateLocationFsxLustreCommand(output, context);
+    return de_CreateLocationFsxLustreCommand(output, context);
   }
 
   // Start section: command_body_extra

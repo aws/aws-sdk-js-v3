@@ -15,10 +15,7 @@ import {
 
 import { RegisterRdsDbInstanceRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1RegisterRdsDbInstanceCommand,
-  serializeAws_json1_1RegisterRdsDbInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterRdsDbInstanceCommand, se_RegisterRdsDbInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class RegisterRdsDbInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterRdsDbInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterRdsDbInstanceCommand(input, context);
+    return se_RegisterRdsDbInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterRdsDbInstanceCommandOutput> {
-    return deserializeAws_json1_1RegisterRdsDbInstanceCommand(output, context);
+    return de_RegisterRdsDbInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteRepositoryInput, DeleteRepositoryOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteRepositoryCommand,
-  serializeAws_json1_0DeleteRepositoryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteRepositoryCommand, se_DeleteRepositoryCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -139,14 +136,14 @@ export class DeleteRepositoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteRepositoryCommand(input, context);
+    return se_DeleteRepositoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRepositoryCommandOutput> {
-    return deserializeAws_json1_0DeleteRepositoryCommand(output, context);
+    return de_DeleteRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
 import { GetServiceRequest, GetServiceResponse, GetServiceResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServiceCommand,
-  serializeAws_restJson1GetServiceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetServiceCommand, se_GetServiceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetServiceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServiceCommand(input, context);
+    return se_GetServiceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceCommandOutput> {
-    return deserializeAws_restJson1GetServiceCommand(output, context);
+    return de_GetServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

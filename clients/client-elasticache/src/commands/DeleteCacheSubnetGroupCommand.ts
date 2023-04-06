@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DeleteCacheSubnetGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteCacheSubnetGroupCommand,
-  serializeAws_queryDeleteCacheSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteCacheSubnetGroupCommand, se_DeleteCacheSubnetGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteCacheSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCacheSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteCacheSubnetGroupCommand(input, context);
+    return se_DeleteCacheSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCacheSubnetGroupCommandOutput> {
-    return deserializeAws_queryDeleteCacheSubnetGroupCommand(output, context);
+    return de_DeleteCacheSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

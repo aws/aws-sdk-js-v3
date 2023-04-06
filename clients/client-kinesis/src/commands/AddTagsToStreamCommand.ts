@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { AddTagsToStreamInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddTagsToStreamCommand,
-  serializeAws_json1_1AddTagsToStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AddTagsToStreamCommand, se_AddTagsToStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class AddTagsToStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: AddTagsToStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddTagsToStreamCommand(input, context);
+    return se_AddTagsToStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsToStreamCommandOutput> {
-    return deserializeAws_json1_1AddTagsToStreamCommand(output, context);
+    return de_AddTagsToStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { GetSuiteRequest, GetSuiteResult } from "../models/models_0";
-import { deserializeAws_json1_1GetSuiteCommand, serializeAws_json1_1GetSuiteCommand } from "../protocols/Aws_json1_1";
+import { de_GetSuiteCommand, se_GetSuiteCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +143,14 @@ export class GetSuiteCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSuiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSuiteCommand(input, context);
+    return se_GetSuiteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSuiteCommandOutput> {
-    return deserializeAws_json1_1GetSuiteCommand(output, context);
+    return de_GetSuiteCommand(output, context);
   }
 
   // Start section: command_body_extra

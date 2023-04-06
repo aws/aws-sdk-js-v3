@@ -15,10 +15,7 @@ import {
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { DisconnectRecoveryInstanceRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisconnectRecoveryInstanceCommand,
-  serializeAws_restJson1DisconnectRecoveryInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisconnectRecoveryInstanceCommand, se_DisconnectRecoveryInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class DisconnectRecoveryInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DisconnectRecoveryInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisconnectRecoveryInstanceCommand(input, context);
+    return se_DisconnectRecoveryInstanceCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class DisconnectRecoveryInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisconnectRecoveryInstanceCommandOutput> {
-    return deserializeAws_restJson1DisconnectRecoveryInstanceCommand(output, context);
+    return de_DisconnectRecoveryInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

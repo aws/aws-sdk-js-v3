@@ -18,8 +18,8 @@ import {
   ListStackInstancesForProvisionedProductOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListStackInstancesForProvisionedProductCommand,
-  serializeAws_json1_1ListStackInstancesForProvisionedProductCommand,
+  de_ListStackInstancesForProvisionedProductCommand,
+  se_ListStackInstancesForProvisionedProductCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -144,7 +144,7 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command<
     input: ListStackInstancesForProvisionedProductCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListStackInstancesForProvisionedProductCommand(input, context);
+    return se_ListStackInstancesForProvisionedProductCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListStackInstancesForProvisionedProductCommandOutput> {
-    return deserializeAws_json1_1ListStackInstancesForProvisionedProductCommand(output, context);
+    return de_ListStackInstancesForProvisionedProductCommand(output, context);
   }
 
   // Start section: command_body_extra

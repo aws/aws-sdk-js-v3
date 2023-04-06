@@ -316,7 +316,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_json1_1AcceptGrantCommand = async (
+/**
+ * serializeAws_json1_1AcceptGrantCommand
+ */
+export const se_AcceptGrantCommand = async (
   input: AcceptGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -325,11 +328,14 @@ export const serializeAws_json1_1AcceptGrantCommand = async (
     "x-amz-target": "AWSLicenseManager.AcceptGrant",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AcceptGrantRequest(input, context));
+  body = JSON.stringify(se_AcceptGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CheckInLicenseCommand = async (
+/**
+ * serializeAws_json1_1CheckInLicenseCommand
+ */
+export const se_CheckInLicenseCommand = async (
   input: CheckInLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -338,11 +344,14 @@ export const serializeAws_json1_1CheckInLicenseCommand = async (
     "x-amz-target": "AWSLicenseManager.CheckInLicense",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CheckInLicenseRequest(input, context));
+  body = JSON.stringify(se_CheckInLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CheckoutBorrowLicenseCommand = async (
+/**
+ * serializeAws_json1_1CheckoutBorrowLicenseCommand
+ */
+export const se_CheckoutBorrowLicenseCommand = async (
   input: CheckoutBorrowLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -351,11 +360,14 @@ export const serializeAws_json1_1CheckoutBorrowLicenseCommand = async (
     "x-amz-target": "AWSLicenseManager.CheckoutBorrowLicense",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CheckoutBorrowLicenseRequest(input, context));
+  body = JSON.stringify(se_CheckoutBorrowLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CheckoutLicenseCommand = async (
+/**
+ * serializeAws_json1_1CheckoutLicenseCommand
+ */
+export const se_CheckoutLicenseCommand = async (
   input: CheckoutLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -364,11 +376,14 @@ export const serializeAws_json1_1CheckoutLicenseCommand = async (
     "x-amz-target": "AWSLicenseManager.CheckoutLicense",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CheckoutLicenseRequest(input, context));
+  body = JSON.stringify(se_CheckoutLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateGrantCommand = async (
+/**
+ * serializeAws_json1_1CreateGrantCommand
+ */
+export const se_CreateGrantCommand = async (
   input: CreateGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -377,11 +392,14 @@ export const serializeAws_json1_1CreateGrantCommand = async (
     "x-amz-target": "AWSLicenseManager.CreateGrant",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateGrantRequest(input, context));
+  body = JSON.stringify(se_CreateGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateGrantVersionCommand = async (
+/**
+ * serializeAws_json1_1CreateGrantVersionCommand
+ */
+export const se_CreateGrantVersionCommand = async (
   input: CreateGrantVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -390,11 +408,14 @@ export const serializeAws_json1_1CreateGrantVersionCommand = async (
     "x-amz-target": "AWSLicenseManager.CreateGrantVersion",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateGrantVersionRequest(input, context));
+  body = JSON.stringify(se_CreateGrantVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateLicenseCommand = async (
+/**
+ * serializeAws_json1_1CreateLicenseCommand
+ */
+export const se_CreateLicenseCommand = async (
   input: CreateLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -403,11 +424,14 @@ export const serializeAws_json1_1CreateLicenseCommand = async (
     "x-amz-target": "AWSLicenseManager.CreateLicense",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateLicenseRequest(input, context));
+  body = JSON.stringify(se_CreateLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateLicenseConfigurationCommand = async (
+/**
+ * serializeAws_json1_1CreateLicenseConfigurationCommand
+ */
+export const se_CreateLicenseConfigurationCommand = async (
   input: CreateLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -416,11 +440,14 @@ export const serializeAws_json1_1CreateLicenseConfigurationCommand = async (
     "x-amz-target": "AWSLicenseManager.CreateLicenseConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(se_CreateLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateLicenseConversionTaskForResourceCommand = async (
+/**
+ * serializeAws_json1_1CreateLicenseConversionTaskForResourceCommand
+ */
+export const se_CreateLicenseConversionTaskForResourceCommand = async (
   input: CreateLicenseConversionTaskForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -429,11 +456,14 @@ export const serializeAws_json1_1CreateLicenseConversionTaskForResourceCommand =
     "x-amz-target": "AWSLicenseManager.CreateLicenseConversionTaskForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateLicenseConversionTaskForResourceRequest(input, context));
+  body = JSON.stringify(se_CreateLicenseConversionTaskForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateLicenseManagerReportGeneratorCommand = async (
+/**
+ * serializeAws_json1_1CreateLicenseManagerReportGeneratorCommand
+ */
+export const se_CreateLicenseManagerReportGeneratorCommand = async (
   input: CreateLicenseManagerReportGeneratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -442,11 +472,14 @@ export const serializeAws_json1_1CreateLicenseManagerReportGeneratorCommand = as
     "x-amz-target": "AWSLicenseManager.CreateLicenseManagerReportGenerator",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateLicenseManagerReportGeneratorRequest(input, context));
+  body = JSON.stringify(se_CreateLicenseManagerReportGeneratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateLicenseVersionCommand = async (
+/**
+ * serializeAws_json1_1CreateLicenseVersionCommand
+ */
+export const se_CreateLicenseVersionCommand = async (
   input: CreateLicenseVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -455,11 +488,14 @@ export const serializeAws_json1_1CreateLicenseVersionCommand = async (
     "x-amz-target": "AWSLicenseManager.CreateLicenseVersion",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateLicenseVersionRequest(input, context));
+  body = JSON.stringify(se_CreateLicenseVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateTokenCommand = async (
+/**
+ * serializeAws_json1_1CreateTokenCommand
+ */
+export const se_CreateTokenCommand = async (
   input: CreateTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -468,11 +504,14 @@ export const serializeAws_json1_1CreateTokenCommand = async (
     "x-amz-target": "AWSLicenseManager.CreateToken",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateTokenRequest(input, context));
+  body = JSON.stringify(se_CreateTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteGrantCommand = async (
+/**
+ * serializeAws_json1_1DeleteGrantCommand
+ */
+export const se_DeleteGrantCommand = async (
   input: DeleteGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -481,11 +520,14 @@ export const serializeAws_json1_1DeleteGrantCommand = async (
     "x-amz-target": "AWSLicenseManager.DeleteGrant",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteGrantRequest(input, context));
+  body = JSON.stringify(se_DeleteGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteLicenseCommand = async (
+/**
+ * serializeAws_json1_1DeleteLicenseCommand
+ */
+export const se_DeleteLicenseCommand = async (
   input: DeleteLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -494,11 +536,14 @@ export const serializeAws_json1_1DeleteLicenseCommand = async (
     "x-amz-target": "AWSLicenseManager.DeleteLicense",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteLicenseRequest(input, context));
+  body = JSON.stringify(se_DeleteLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteLicenseConfigurationCommand = async (
+/**
+ * serializeAws_json1_1DeleteLicenseConfigurationCommand
+ */
+export const se_DeleteLicenseConfigurationCommand = async (
   input: DeleteLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -507,11 +552,14 @@ export const serializeAws_json1_1DeleteLicenseConfigurationCommand = async (
     "x-amz-target": "AWSLicenseManager.DeleteLicenseConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(se_DeleteLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand = async (
+/**
+ * serializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand
+ */
+export const se_DeleteLicenseManagerReportGeneratorCommand = async (
   input: DeleteLicenseManagerReportGeneratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -520,11 +568,14 @@ export const serializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand = as
     "x-amz-target": "AWSLicenseManager.DeleteLicenseManagerReportGenerator",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteLicenseManagerReportGeneratorRequest(input, context));
+  body = JSON.stringify(se_DeleteLicenseManagerReportGeneratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteTokenCommand = async (
+/**
+ * serializeAws_json1_1DeleteTokenCommand
+ */
+export const se_DeleteTokenCommand = async (
   input: DeleteTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -533,11 +584,14 @@ export const serializeAws_json1_1DeleteTokenCommand = async (
     "x-amz-target": "AWSLicenseManager.DeleteToken",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteTokenRequest(input, context));
+  body = JSON.stringify(se_DeleteTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ExtendLicenseConsumptionCommand = async (
+/**
+ * serializeAws_json1_1ExtendLicenseConsumptionCommand
+ */
+export const se_ExtendLicenseConsumptionCommand = async (
   input: ExtendLicenseConsumptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -546,11 +600,14 @@ export const serializeAws_json1_1ExtendLicenseConsumptionCommand = async (
     "x-amz-target": "AWSLicenseManager.ExtendLicenseConsumption",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ExtendLicenseConsumptionRequest(input, context));
+  body = JSON.stringify(se_ExtendLicenseConsumptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAccessTokenCommand = async (
+/**
+ * serializeAws_json1_1GetAccessTokenCommand
+ */
+export const se_GetAccessTokenCommand = async (
   input: GetAccessTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -559,11 +616,14 @@ export const serializeAws_json1_1GetAccessTokenCommand = async (
     "x-amz-target": "AWSLicenseManager.GetAccessToken",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAccessTokenRequest(input, context));
+  body = JSON.stringify(se_GetAccessTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetGrantCommand = async (
+/**
+ * serializeAws_json1_1GetGrantCommand
+ */
+export const se_GetGrantCommand = async (
   input: GetGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -572,11 +632,14 @@ export const serializeAws_json1_1GetGrantCommand = async (
     "x-amz-target": "AWSLicenseManager.GetGrant",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetGrantRequest(input, context));
+  body = JSON.stringify(se_GetGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetLicenseCommand = async (
+/**
+ * serializeAws_json1_1GetLicenseCommand
+ */
+export const se_GetLicenseCommand = async (
   input: GetLicenseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -585,11 +648,14 @@ export const serializeAws_json1_1GetLicenseCommand = async (
     "x-amz-target": "AWSLicenseManager.GetLicense",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetLicenseRequest(input, context));
+  body = JSON.stringify(se_GetLicenseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetLicenseConfigurationCommand = async (
+/**
+ * serializeAws_json1_1GetLicenseConfigurationCommand
+ */
+export const se_GetLicenseConfigurationCommand = async (
   input: GetLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -598,11 +664,14 @@ export const serializeAws_json1_1GetLicenseConfigurationCommand = async (
     "x-amz-target": "AWSLicenseManager.GetLicenseConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(se_GetLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetLicenseConversionTaskCommand = async (
+/**
+ * serializeAws_json1_1GetLicenseConversionTaskCommand
+ */
+export const se_GetLicenseConversionTaskCommand = async (
   input: GetLicenseConversionTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -611,11 +680,14 @@ export const serializeAws_json1_1GetLicenseConversionTaskCommand = async (
     "x-amz-target": "AWSLicenseManager.GetLicenseConversionTask",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetLicenseConversionTaskRequest(input, context));
+  body = JSON.stringify(se_GetLicenseConversionTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetLicenseManagerReportGeneratorCommand = async (
+/**
+ * serializeAws_json1_1GetLicenseManagerReportGeneratorCommand
+ */
+export const se_GetLicenseManagerReportGeneratorCommand = async (
   input: GetLicenseManagerReportGeneratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -624,11 +696,14 @@ export const serializeAws_json1_1GetLicenseManagerReportGeneratorCommand = async
     "x-amz-target": "AWSLicenseManager.GetLicenseManagerReportGenerator",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetLicenseManagerReportGeneratorRequest(input, context));
+  body = JSON.stringify(se_GetLicenseManagerReportGeneratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetLicenseUsageCommand = async (
+/**
+ * serializeAws_json1_1GetLicenseUsageCommand
+ */
+export const se_GetLicenseUsageCommand = async (
   input: GetLicenseUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -637,11 +712,14 @@ export const serializeAws_json1_1GetLicenseUsageCommand = async (
     "x-amz-target": "AWSLicenseManager.GetLicenseUsage",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetLicenseUsageRequest(input, context));
+  body = JSON.stringify(se_GetLicenseUsageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetServiceSettingsCommand = async (
+/**
+ * serializeAws_json1_1GetServiceSettingsCommand
+ */
+export const se_GetServiceSettingsCommand = async (
   input: GetServiceSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -650,11 +728,14 @@ export const serializeAws_json1_1GetServiceSettingsCommand = async (
     "x-amz-target": "AWSLicenseManager.GetServiceSettings",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetServiceSettingsRequest(input, context));
+  body = JSON.stringify(se_GetServiceSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand = async (
+/**
+ * serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand
+ */
+export const se_ListAssociationsForLicenseConfigurationCommand = async (
   input: ListAssociationsForLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -663,11 +744,14 @@ export const serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand 
     "x-amz-target": "AWSLicenseManager.ListAssociationsForLicenseConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(se_ListAssociationsForLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDistributedGrantsCommand = async (
+/**
+ * serializeAws_json1_1ListDistributedGrantsCommand
+ */
+export const se_ListDistributedGrantsCommand = async (
   input: ListDistributedGrantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -676,11 +760,14 @@ export const serializeAws_json1_1ListDistributedGrantsCommand = async (
     "x-amz-target": "AWSLicenseManager.ListDistributedGrants",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDistributedGrantsRequest(input, context));
+  body = JSON.stringify(se_ListDistributedGrantsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand = async (
+/**
+ * serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
+ */
+export const se_ListFailuresForLicenseConfigurationOperationsCommand = async (
   input: ListFailuresForLicenseConfigurationOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -689,11 +776,14 @@ export const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCo
     "x-amz-target": "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest(input, context));
+  body = JSON.stringify(se_ListFailuresForLicenseConfigurationOperationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLicenseConfigurationsCommand = async (
+/**
+ * serializeAws_json1_1ListLicenseConfigurationsCommand
+ */
+export const se_ListLicenseConfigurationsCommand = async (
   input: ListLicenseConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -702,11 +792,14 @@ export const serializeAws_json1_1ListLicenseConfigurationsCommand = async (
     "x-amz-target": "AWSLicenseManager.ListLicenseConfigurations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListLicenseConfigurationsRequest(input, context));
+  body = JSON.stringify(se_ListLicenseConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLicenseConversionTasksCommand = async (
+/**
+ * serializeAws_json1_1ListLicenseConversionTasksCommand
+ */
+export const se_ListLicenseConversionTasksCommand = async (
   input: ListLicenseConversionTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -715,11 +808,14 @@ export const serializeAws_json1_1ListLicenseConversionTasksCommand = async (
     "x-amz-target": "AWSLicenseManager.ListLicenseConversionTasks",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListLicenseConversionTasksRequest(input, context));
+  body = JSON.stringify(se_ListLicenseConversionTasksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLicenseManagerReportGeneratorsCommand = async (
+/**
+ * serializeAws_json1_1ListLicenseManagerReportGeneratorsCommand
+ */
+export const se_ListLicenseManagerReportGeneratorsCommand = async (
   input: ListLicenseManagerReportGeneratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -728,11 +824,14 @@ export const serializeAws_json1_1ListLicenseManagerReportGeneratorsCommand = asy
     "x-amz-target": "AWSLicenseManager.ListLicenseManagerReportGenerators",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListLicenseManagerReportGeneratorsRequest(input, context));
+  body = JSON.stringify(se_ListLicenseManagerReportGeneratorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLicensesCommand = async (
+/**
+ * serializeAws_json1_1ListLicensesCommand
+ */
+export const se_ListLicensesCommand = async (
   input: ListLicensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -741,11 +840,14 @@ export const serializeAws_json1_1ListLicensesCommand = async (
     "x-amz-target": "AWSLicenseManager.ListLicenses",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListLicensesRequest(input, context));
+  body = JSON.stringify(se_ListLicensesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLicenseSpecificationsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListLicenseSpecificationsForResourceCommand
+ */
+export const se_ListLicenseSpecificationsForResourceCommand = async (
   input: ListLicenseSpecificationsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -754,11 +856,14 @@ export const serializeAws_json1_1ListLicenseSpecificationsForResourceCommand = a
     "x-amz-target": "AWSLicenseManager.ListLicenseSpecificationsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListLicenseSpecificationsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListLicenseSpecificationsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListLicenseVersionsCommand = async (
+/**
+ * serializeAws_json1_1ListLicenseVersionsCommand
+ */
+export const se_ListLicenseVersionsCommand = async (
   input: ListLicenseVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -767,11 +872,14 @@ export const serializeAws_json1_1ListLicenseVersionsCommand = async (
     "x-amz-target": "AWSLicenseManager.ListLicenseVersions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListLicenseVersionsRequest(input, context));
+  body = JSON.stringify(se_ListLicenseVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListReceivedGrantsCommand = async (
+/**
+ * serializeAws_json1_1ListReceivedGrantsCommand
+ */
+export const se_ListReceivedGrantsCommand = async (
   input: ListReceivedGrantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -780,11 +888,14 @@ export const serializeAws_json1_1ListReceivedGrantsCommand = async (
     "x-amz-target": "AWSLicenseManager.ListReceivedGrants",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListReceivedGrantsRequest(input, context));
+  body = JSON.stringify(se_ListReceivedGrantsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListReceivedGrantsForOrganizationCommand = async (
+/**
+ * serializeAws_json1_1ListReceivedGrantsForOrganizationCommand
+ */
+export const se_ListReceivedGrantsForOrganizationCommand = async (
   input: ListReceivedGrantsForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -793,11 +904,14 @@ export const serializeAws_json1_1ListReceivedGrantsForOrganizationCommand = asyn
     "x-amz-target": "AWSLicenseManager.ListReceivedGrantsForOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListReceivedGrantsForOrganizationRequest(input, context));
+  body = JSON.stringify(se_ListReceivedGrantsForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListReceivedLicensesCommand = async (
+/**
+ * serializeAws_json1_1ListReceivedLicensesCommand
+ */
+export const se_ListReceivedLicensesCommand = async (
   input: ListReceivedLicensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -806,11 +920,14 @@ export const serializeAws_json1_1ListReceivedLicensesCommand = async (
     "x-amz-target": "AWSLicenseManager.ListReceivedLicenses",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListReceivedLicensesRequest(input, context));
+  body = JSON.stringify(se_ListReceivedLicensesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListReceivedLicensesForOrganizationCommand = async (
+/**
+ * serializeAws_json1_1ListReceivedLicensesForOrganizationCommand
+ */
+export const se_ListReceivedLicensesForOrganizationCommand = async (
   input: ListReceivedLicensesForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -819,11 +936,14 @@ export const serializeAws_json1_1ListReceivedLicensesForOrganizationCommand = as
     "x-amz-target": "AWSLicenseManager.ListReceivedLicensesForOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListReceivedLicensesForOrganizationRequest(input, context));
+  body = JSON.stringify(se_ListReceivedLicensesForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResourceInventoryCommand = async (
+/**
+ * serializeAws_json1_1ListResourceInventoryCommand
+ */
+export const se_ListResourceInventoryCommand = async (
   input: ListResourceInventoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -832,11 +952,14 @@ export const serializeAws_json1_1ListResourceInventoryCommand = async (
     "x-amz-target": "AWSLicenseManager.ListResourceInventory",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResourceInventoryRequest(input, context));
+  body = JSON.stringify(se_ListResourceInventoryRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -845,11 +968,14 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "x-amz-target": "AWSLicenseManager.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTokensCommand = async (
+/**
+ * serializeAws_json1_1ListTokensCommand
+ */
+export const se_ListTokensCommand = async (
   input: ListTokensCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -858,11 +984,14 @@ export const serializeAws_json1_1ListTokensCommand = async (
     "x-amz-target": "AWSLicenseManager.ListTokens",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTokensRequest(input, context));
+  body = JSON.stringify(se_ListTokensRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListUsageForLicenseConfigurationCommand = async (
+/**
+ * serializeAws_json1_1ListUsageForLicenseConfigurationCommand
+ */
+export const se_ListUsageForLicenseConfigurationCommand = async (
   input: ListUsageForLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -871,11 +1000,14 @@ export const serializeAws_json1_1ListUsageForLicenseConfigurationCommand = async
     "x-amz-target": "AWSLicenseManager.ListUsageForLicenseConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListUsageForLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(se_ListUsageForLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RejectGrantCommand = async (
+/**
+ * serializeAws_json1_1RejectGrantCommand
+ */
+export const se_RejectGrantCommand = async (
   input: RejectGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -884,11 +1016,14 @@ export const serializeAws_json1_1RejectGrantCommand = async (
     "x-amz-target": "AWSLicenseManager.RejectGrant",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RejectGrantRequest(input, context));
+  body = JSON.stringify(se_RejectGrantRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -897,11 +1032,14 @@ export const serializeAws_json1_1TagResourceCommand = async (
     "x-amz-target": "AWSLicenseManager.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -910,11 +1048,14 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "x-amz-target": "AWSLicenseManager.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateLicenseConfigurationCommand = async (
+/**
+ * serializeAws_json1_1UpdateLicenseConfigurationCommand
+ */
+export const se_UpdateLicenseConfigurationCommand = async (
   input: UpdateLicenseConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -923,11 +1064,14 @@ export const serializeAws_json1_1UpdateLicenseConfigurationCommand = async (
     "x-amz-target": "AWSLicenseManager.UpdateLicenseConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateLicenseConfigurationRequest(input, context));
+  body = JSON.stringify(se_UpdateLicenseConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand = async (
+/**
+ * serializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand
+ */
+export const se_UpdateLicenseManagerReportGeneratorCommand = async (
   input: UpdateLicenseManagerReportGeneratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -936,11 +1080,14 @@ export const serializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand = as
     "x-amz-target": "AWSLicenseManager.UpdateLicenseManagerReportGenerator",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateLicenseManagerReportGeneratorRequest(input, context));
+  body = JSON.stringify(se_UpdateLicenseManagerReportGeneratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand = async (
+/**
+ * serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand
+ */
+export const se_UpdateLicenseSpecificationsForResourceCommand = async (
   input: UpdateLicenseSpecificationsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -949,11 +1096,14 @@ export const serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand =
     "x-amz-target": "AWSLicenseManager.UpdateLicenseSpecificationsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest(input, context));
+  body = JSON.stringify(se_UpdateLicenseSpecificationsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateServiceSettingsCommand = async (
+/**
+ * serializeAws_json1_1UpdateServiceSettingsCommand
+ */
+export const se_UpdateServiceSettingsCommand = async (
   input: UpdateServiceSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -962,20 +1112,23 @@ export const serializeAws_json1_1UpdateServiceSettingsCommand = async (
     "x-amz-target": "AWSLicenseManager.UpdateServiceSettings",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateServiceSettingsRequest(input, context));
+  body = JSON.stringify(se_UpdateServiceSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AcceptGrantCommand = async (
+/**
+ * deserializeAws_json1_1AcceptGrantCommand
+ */
+export const de_AcceptGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptGrantCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AcceptGrantCommandError(output, context);
+    return de_AcceptGrantCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AcceptGrantResponse(data, context);
+  contents = de_AcceptGrantResponse(data, context);
   const response: AcceptGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -983,7 +1136,10 @@ export const deserializeAws_json1_1AcceptGrantCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AcceptGrantCommandError = async (
+/**
+ * deserializeAws_json1_1AcceptGrantCommandError
+ */
+const de_AcceptGrantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptGrantCommandOutput> => {
@@ -995,25 +1151,25 @@ const deserializeAws_json1_1AcceptGrantCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1025,16 +1181,19 @@ const deserializeAws_json1_1AcceptGrantCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CheckInLicenseCommand = async (
+/**
+ * deserializeAws_json1_1CheckInLicenseCommand
+ */
+export const de_CheckInLicenseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckInLicenseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CheckInLicenseCommandError(output, context);
+    return de_CheckInLicenseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CheckInLicenseResponse(data, context);
+  contents = de_CheckInLicenseResponse(data, context);
   const response: CheckInLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1042,7 +1201,10 @@ export const deserializeAws_json1_1CheckInLicenseCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CheckInLicenseCommandError = async (
+/**
+ * deserializeAws_json1_1CheckInLicenseCommandError
+ */
+const de_CheckInLicenseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckInLicenseCommandOutput> => {
@@ -1054,28 +1216,28 @@ const deserializeAws_json1_1CheckInLicenseCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanager#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1087,16 +1249,19 @@ const deserializeAws_json1_1CheckInLicenseCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CheckoutBorrowLicenseCommand = async (
+/**
+ * deserializeAws_json1_1CheckoutBorrowLicenseCommand
+ */
+export const de_CheckoutBorrowLicenseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckoutBorrowLicenseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CheckoutBorrowLicenseCommandError(output, context);
+    return de_CheckoutBorrowLicenseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CheckoutBorrowLicenseResponse(data, context);
+  contents = de_CheckoutBorrowLicenseResponse(data, context);
   const response: CheckoutBorrowLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1104,7 +1269,10 @@ export const deserializeAws_json1_1CheckoutBorrowLicenseCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CheckoutBorrowLicenseCommandError = async (
+/**
+ * deserializeAws_json1_1CheckoutBorrowLicenseCommandError
+ */
+const de_CheckoutBorrowLicenseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckoutBorrowLicenseCommandOutput> => {
@@ -1116,37 +1284,37 @@ const deserializeAws_json1_1CheckoutBorrowLicenseCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "EntitlementNotAllowedException":
     case "com.amazonaws.licensemanager#EntitlementNotAllowedException":
-      throw await deserializeAws_json1_1EntitlementNotAllowedExceptionResponse(parsedOutput, context);
+      throw await de_EntitlementNotAllowedExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "NoEntitlementsAllowedException":
     case "com.amazonaws.licensemanager#NoEntitlementsAllowedException":
-      throw await deserializeAws_json1_1NoEntitlementsAllowedExceptionResponse(parsedOutput, context);
+      throw await de_NoEntitlementsAllowedExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "RedirectException":
     case "com.amazonaws.licensemanager#RedirectException":
-      throw await deserializeAws_json1_1RedirectExceptionResponse(parsedOutput, context);
+      throw await de_RedirectExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "UnsupportedDigitalSignatureMethodException":
     case "com.amazonaws.licensemanager#UnsupportedDigitalSignatureMethodException":
-      throw await deserializeAws_json1_1UnsupportedDigitalSignatureMethodExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDigitalSignatureMethodExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1158,16 +1326,19 @@ const deserializeAws_json1_1CheckoutBorrowLicenseCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CheckoutLicenseCommand = async (
+/**
+ * deserializeAws_json1_1CheckoutLicenseCommand
+ */
+export const de_CheckoutLicenseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckoutLicenseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CheckoutLicenseCommandError(output, context);
+    return de_CheckoutLicenseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CheckoutLicenseResponse(data, context);
+  contents = de_CheckoutLicenseResponse(data, context);
   const response: CheckoutLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1175,7 +1346,10 @@ export const deserializeAws_json1_1CheckoutLicenseCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CheckoutLicenseCommandError = async (
+/**
+ * deserializeAws_json1_1CheckoutLicenseCommandError
+ */
+const de_CheckoutLicenseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckoutLicenseCommandOutput> => {
@@ -1187,34 +1361,34 @@ const deserializeAws_json1_1CheckoutLicenseCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "NoEntitlementsAllowedException":
     case "com.amazonaws.licensemanager#NoEntitlementsAllowedException":
-      throw await deserializeAws_json1_1NoEntitlementsAllowedExceptionResponse(parsedOutput, context);
+      throw await de_NoEntitlementsAllowedExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "RedirectException":
     case "com.amazonaws.licensemanager#RedirectException":
-      throw await deserializeAws_json1_1RedirectExceptionResponse(parsedOutput, context);
+      throw await de_RedirectExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "UnsupportedDigitalSignatureMethodException":
     case "com.amazonaws.licensemanager#UnsupportedDigitalSignatureMethodException":
-      throw await deserializeAws_json1_1UnsupportedDigitalSignatureMethodExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedDigitalSignatureMethodExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1226,16 +1400,19 @@ const deserializeAws_json1_1CheckoutLicenseCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateGrantCommand = async (
+/**
+ * deserializeAws_json1_1CreateGrantCommand
+ */
+export const de_CreateGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGrantCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateGrantCommandError(output, context);
+    return de_CreateGrantCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGrantResponse(data, context);
+  contents = de_CreateGrantResponse(data, context);
   const response: CreateGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1243,7 +1420,10 @@ export const deserializeAws_json1_1CreateGrantCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateGrantCommandError = async (
+/**
+ * deserializeAws_json1_1CreateGrantCommandError
+ */
+const de_CreateGrantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGrantCommandOutput> => {
@@ -1255,25 +1435,25 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1285,16 +1465,19 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateGrantVersionCommand = async (
+/**
+ * deserializeAws_json1_1CreateGrantVersionCommand
+ */
+export const de_CreateGrantVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGrantVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateGrantVersionCommandError(output, context);
+    return de_CreateGrantVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGrantVersionResponse(data, context);
+  contents = de_CreateGrantVersionResponse(data, context);
   const response: CreateGrantVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1302,7 +1485,10 @@ export const deserializeAws_json1_1CreateGrantVersionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateGrantVersionCommandError = async (
+/**
+ * deserializeAws_json1_1CreateGrantVersionCommandError
+ */
+const de_CreateGrantVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGrantVersionCommandOutput> => {
@@ -1314,25 +1500,25 @@ const deserializeAws_json1_1CreateGrantVersionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1344,16 +1530,19 @@ const deserializeAws_json1_1CreateGrantVersionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateLicenseCommand = async (
+/**
+ * deserializeAws_json1_1CreateLicenseCommand
+ */
+export const de_CreateLicenseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLicenseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateLicenseCommandError(output, context);
+    return de_CreateLicenseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLicenseResponse(data, context);
+  contents = de_CreateLicenseResponse(data, context);
   const response: CreateLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1361,7 +1550,10 @@ export const deserializeAws_json1_1CreateLicenseCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateLicenseCommandError = async (
+/**
+ * deserializeAws_json1_1CreateLicenseCommandError
+ */
+const de_CreateLicenseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLicenseCommandOutput> => {
@@ -1373,25 +1565,25 @@ const deserializeAws_json1_1CreateLicenseCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "RedirectException":
     case "com.amazonaws.licensemanager#RedirectException":
-      throw await deserializeAws_json1_1RedirectExceptionResponse(parsedOutput, context);
+      throw await de_RedirectExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1403,16 +1595,19 @@ const deserializeAws_json1_1CreateLicenseCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateLicenseConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1CreateLicenseConfigurationCommand
+ */
+export const de_CreateLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateLicenseConfigurationCommandError(output, context);
+    return de_CreateLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLicenseConfigurationResponse(data, context);
+  contents = de_CreateLicenseConfigurationResponse(data, context);
   const response: CreateLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1420,7 +1615,10 @@ export const deserializeAws_json1_1CreateLicenseConfigurationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1CreateLicenseConfigurationCommandError
+ */
+const de_CreateLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLicenseConfigurationCommandOutput> => {
@@ -1432,22 +1630,22 @@ const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1459,16 +1657,19 @@ const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommand = async (
+/**
+ * deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommand
+ */
+export const de_CreateLicenseConversionTaskForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLicenseConversionTaskForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommandError(output, context);
+    return de_CreateLicenseConversionTaskForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLicenseConversionTaskForResourceResponse(data, context);
+  contents = de_CreateLicenseConversionTaskForResourceResponse(data, context);
   const response: CreateLicenseConversionTaskForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1476,7 +1677,10 @@ export const deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommand
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommandError
+ */
+const de_CreateLicenseConversionTaskForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLicenseConversionTaskForResourceCommandOutput> => {
@@ -1488,22 +1692,22 @@ const deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommandError =
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1515,16 +1719,19 @@ const deserializeAws_json1_1CreateLicenseConversionTaskForResourceCommandError =
   }
 };
 
-export const deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommand = async (
+/**
+ * deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommand
+ */
+export const de_CreateLicenseManagerReportGeneratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLicenseManagerReportGeneratorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommandError(output, context);
+    return de_CreateLicenseManagerReportGeneratorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLicenseManagerReportGeneratorResponse(data, context);
+  contents = de_CreateLicenseManagerReportGeneratorResponse(data, context);
   const response: CreateLicenseManagerReportGeneratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1532,7 +1739,10 @@ export const deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommand = 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommandError = async (
+/**
+ * deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommandError
+ */
+const de_CreateLicenseManagerReportGeneratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLicenseManagerReportGeneratorCommandOutput> => {
@@ -1544,28 +1754,28 @@ const deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommandError = as
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1577,16 +1787,19 @@ const deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommandError = as
   }
 };
 
-export const deserializeAws_json1_1CreateLicenseVersionCommand = async (
+/**
+ * deserializeAws_json1_1CreateLicenseVersionCommand
+ */
+export const de_CreateLicenseVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLicenseVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateLicenseVersionCommandError(output, context);
+    return de_CreateLicenseVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLicenseVersionResponse(data, context);
+  contents = de_CreateLicenseVersionResponse(data, context);
   const response: CreateLicenseVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1594,7 +1807,10 @@ export const deserializeAws_json1_1CreateLicenseVersionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateLicenseVersionCommandError = async (
+/**
+ * deserializeAws_json1_1CreateLicenseVersionCommandError
+ */
+const de_CreateLicenseVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLicenseVersionCommandOutput> => {
@@ -1606,28 +1822,28 @@ const deserializeAws_json1_1CreateLicenseVersionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanager#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "RedirectException":
     case "com.amazonaws.licensemanager#RedirectException":
-      throw await deserializeAws_json1_1RedirectExceptionResponse(parsedOutput, context);
+      throw await de_RedirectExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1639,16 +1855,19 @@ const deserializeAws_json1_1CreateLicenseVersionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateTokenCommand = async (
+/**
+ * deserializeAws_json1_1CreateTokenCommand
+ */
+export const de_CreateTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateTokenCommandError(output, context);
+    return de_CreateTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTokenResponse(data, context);
+  contents = de_CreateTokenResponse(data, context);
   const response: CreateTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1656,7 +1875,10 @@ export const deserializeAws_json1_1CreateTokenCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateTokenCommandError = async (
+/**
+ * deserializeAws_json1_1CreateTokenCommandError
+ */
+const de_CreateTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTokenCommandOutput> => {
@@ -1668,28 +1890,28 @@ const deserializeAws_json1_1CreateTokenCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "RedirectException":
     case "com.amazonaws.licensemanager#RedirectException":
-      throw await deserializeAws_json1_1RedirectExceptionResponse(parsedOutput, context);
+      throw await de_RedirectExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1701,16 +1923,19 @@ const deserializeAws_json1_1CreateTokenCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteGrantCommand = async (
+/**
+ * deserializeAws_json1_1DeleteGrantCommand
+ */
+export const de_DeleteGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGrantCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteGrantCommandError(output, context);
+    return de_DeleteGrantCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteGrantResponse(data, context);
+  contents = de_DeleteGrantResponse(data, context);
   const response: DeleteGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1718,7 +1943,10 @@ export const deserializeAws_json1_1DeleteGrantCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteGrantCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteGrantCommandError
+ */
+const de_DeleteGrantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGrantCommandOutput> => {
@@ -1730,25 +1958,25 @@ const deserializeAws_json1_1DeleteGrantCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1760,16 +1988,19 @@ const deserializeAws_json1_1DeleteGrantCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteLicenseCommand = async (
+/**
+ * deserializeAws_json1_1DeleteLicenseCommand
+ */
+export const de_DeleteLicenseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLicenseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteLicenseCommandError(output, context);
+    return de_DeleteLicenseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLicenseResponse(data, context);
+  contents = de_DeleteLicenseResponse(data, context);
   const response: DeleteLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1777,7 +2008,10 @@ export const deserializeAws_json1_1DeleteLicenseCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteLicenseCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteLicenseCommandError
+ */
+const de_DeleteLicenseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLicenseCommandOutput> => {
@@ -1789,28 +2023,28 @@ const deserializeAws_json1_1DeleteLicenseCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.licensemanager#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "RedirectException":
     case "com.amazonaws.licensemanager#RedirectException":
-      throw await deserializeAws_json1_1RedirectExceptionResponse(parsedOutput, context);
+      throw await de_RedirectExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1822,16 +2056,19 @@ const deserializeAws_json1_1DeleteLicenseCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteLicenseConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1DeleteLicenseConfigurationCommand
+ */
+export const de_DeleteLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteLicenseConfigurationCommandError(output, context);
+    return de_DeleteLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLicenseConfigurationResponse(data, context);
+  contents = de_DeleteLicenseConfigurationResponse(data, context);
   const response: DeleteLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1839,7 +2076,10 @@ export const deserializeAws_json1_1DeleteLicenseConfigurationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteLicenseConfigurationCommandError
+ */
+const de_DeleteLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLicenseConfigurationCommandOutput> => {
@@ -1851,19 +2091,19 @@ const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1875,16 +2115,19 @@ const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand = async (
+/**
+ * deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand
+ */
+export const de_DeleteLicenseManagerReportGeneratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLicenseManagerReportGeneratorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommandError(output, context);
+    return de_DeleteLicenseManagerReportGeneratorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLicenseManagerReportGeneratorResponse(data, context);
+  contents = de_DeleteLicenseManagerReportGeneratorResponse(data, context);
   const response: DeleteLicenseManagerReportGeneratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1892,7 +2135,10 @@ export const deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand = 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommandError
+ */
+const de_DeleteLicenseManagerReportGeneratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLicenseManagerReportGeneratorCommandOutput> => {
@@ -1904,28 +2150,28 @@ const deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommandError = as
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1937,16 +2183,19 @@ const deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommandError = as
   }
 };
 
-export const deserializeAws_json1_1DeleteTokenCommand = async (
+/**
+ * deserializeAws_json1_1DeleteTokenCommand
+ */
+export const de_DeleteTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteTokenCommandError(output, context);
+    return de_DeleteTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTokenResponse(data, context);
+  contents = de_DeleteTokenResponse(data, context);
   const response: DeleteTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1954,7 +2203,10 @@ export const deserializeAws_json1_1DeleteTokenCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteTokenCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteTokenCommandError
+ */
+const de_DeleteTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTokenCommandOutput> => {
@@ -1966,25 +2218,25 @@ const deserializeAws_json1_1DeleteTokenCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "RedirectException":
     case "com.amazonaws.licensemanager#RedirectException":
-      throw await deserializeAws_json1_1RedirectExceptionResponse(parsedOutput, context);
+      throw await de_RedirectExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1996,16 +2248,19 @@ const deserializeAws_json1_1DeleteTokenCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ExtendLicenseConsumptionCommand = async (
+/**
+ * deserializeAws_json1_1ExtendLicenseConsumptionCommand
+ */
+export const de_ExtendLicenseConsumptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExtendLicenseConsumptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ExtendLicenseConsumptionCommandError(output, context);
+    return de_ExtendLicenseConsumptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExtendLicenseConsumptionResponse(data, context);
+  contents = de_ExtendLicenseConsumptionResponse(data, context);
   const response: ExtendLicenseConsumptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2013,7 +2268,10 @@ export const deserializeAws_json1_1ExtendLicenseConsumptionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ExtendLicenseConsumptionCommandError = async (
+/**
+ * deserializeAws_json1_1ExtendLicenseConsumptionCommandError
+ */
+const de_ExtendLicenseConsumptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExtendLicenseConsumptionCommandOutput> => {
@@ -2025,25 +2283,25 @@ const deserializeAws_json1_1ExtendLicenseConsumptionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2055,16 +2313,19 @@ const deserializeAws_json1_1ExtendLicenseConsumptionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetAccessTokenCommand = async (
+/**
+ * deserializeAws_json1_1GetAccessTokenCommand
+ */
+export const de_GetAccessTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAccessTokenCommandError(output, context);
+    return de_GetAccessTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAccessTokenResponse(data, context);
+  contents = de_GetAccessTokenResponse(data, context);
   const response: GetAccessTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2072,7 +2333,10 @@ export const deserializeAws_json1_1GetAccessTokenCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetAccessTokenCommandError = async (
+/**
+ * deserializeAws_json1_1GetAccessTokenCommandError
+ */
+const de_GetAccessTokenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessTokenCommandOutput> => {
@@ -2084,19 +2348,19 @@ const deserializeAws_json1_1GetAccessTokenCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2108,16 +2372,19 @@ const deserializeAws_json1_1GetAccessTokenCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetGrantCommand = async (
+/**
+ * deserializeAws_json1_1GetGrantCommand
+ */
+export const de_GetGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGrantCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetGrantCommandError(output, context);
+    return de_GetGrantCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetGrantResponse(data, context);
+  contents = de_GetGrantResponse(data, context);
   const response: GetGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2125,7 +2392,10 @@ export const deserializeAws_json1_1GetGrantCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetGrantCommandError = async (
+/**
+ * deserializeAws_json1_1GetGrantCommandError
+ */
+const de_GetGrantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGrantCommandOutput> => {
@@ -2137,25 +2407,25 @@ const deserializeAws_json1_1GetGrantCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2167,16 +2437,19 @@ const deserializeAws_json1_1GetGrantCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetLicenseCommand = async (
+/**
+ * deserializeAws_json1_1GetLicenseCommand
+ */
+export const de_GetLicenseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLicenseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetLicenseCommandError(output, context);
+    return de_GetLicenseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLicenseResponse(data, context);
+  contents = de_GetLicenseResponse(data, context);
   const response: GetLicenseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2184,7 +2457,10 @@ export const deserializeAws_json1_1GetLicenseCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetLicenseCommandError = async (
+/**
+ * deserializeAws_json1_1GetLicenseCommandError
+ */
+const de_GetLicenseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLicenseCommandOutput> => {
@@ -2196,22 +2472,22 @@ const deserializeAws_json1_1GetLicenseCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2223,16 +2499,19 @@ const deserializeAws_json1_1GetLicenseCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetLicenseConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1GetLicenseConfigurationCommand
+ */
+export const de_GetLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetLicenseConfigurationCommandError(output, context);
+    return de_GetLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLicenseConfigurationResponse(data, context);
+  contents = de_GetLicenseConfigurationResponse(data, context);
   const response: GetLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2240,7 +2519,10 @@ export const deserializeAws_json1_1GetLicenseConfigurationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1GetLicenseConfigurationCommandError
+ */
+const de_GetLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLicenseConfigurationCommandOutput> => {
@@ -2252,19 +2534,19 @@ const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2276,16 +2558,19 @@ const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetLicenseConversionTaskCommand = async (
+/**
+ * deserializeAws_json1_1GetLicenseConversionTaskCommand
+ */
+export const de_GetLicenseConversionTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLicenseConversionTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetLicenseConversionTaskCommandError(output, context);
+    return de_GetLicenseConversionTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLicenseConversionTaskResponse(data, context);
+  contents = de_GetLicenseConversionTaskResponse(data, context);
   const response: GetLicenseConversionTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2293,7 +2578,10 @@ export const deserializeAws_json1_1GetLicenseConversionTaskCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetLicenseConversionTaskCommandError = async (
+/**
+ * deserializeAws_json1_1GetLicenseConversionTaskCommandError
+ */
+const de_GetLicenseConversionTaskCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLicenseConversionTaskCommandOutput> => {
@@ -2305,19 +2593,19 @@ const deserializeAws_json1_1GetLicenseConversionTaskCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2329,16 +2617,19 @@ const deserializeAws_json1_1GetLicenseConversionTaskCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetLicenseManagerReportGeneratorCommand = async (
+/**
+ * deserializeAws_json1_1GetLicenseManagerReportGeneratorCommand
+ */
+export const de_GetLicenseManagerReportGeneratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLicenseManagerReportGeneratorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetLicenseManagerReportGeneratorCommandError(output, context);
+    return de_GetLicenseManagerReportGeneratorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLicenseManagerReportGeneratorResponse(data, context);
+  contents = de_GetLicenseManagerReportGeneratorResponse(data, context);
   const response: GetLicenseManagerReportGeneratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2346,7 +2637,10 @@ export const deserializeAws_json1_1GetLicenseManagerReportGeneratorCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetLicenseManagerReportGeneratorCommandError = async (
+/**
+ * deserializeAws_json1_1GetLicenseManagerReportGeneratorCommandError
+ */
+const de_GetLicenseManagerReportGeneratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLicenseManagerReportGeneratorCommandOutput> => {
@@ -2358,28 +2652,28 @@ const deserializeAws_json1_1GetLicenseManagerReportGeneratorCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2391,16 +2685,19 @@ const deserializeAws_json1_1GetLicenseManagerReportGeneratorCommandError = async
   }
 };
 
-export const deserializeAws_json1_1GetLicenseUsageCommand = async (
+/**
+ * deserializeAws_json1_1GetLicenseUsageCommand
+ */
+export const de_GetLicenseUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLicenseUsageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetLicenseUsageCommandError(output, context);
+    return de_GetLicenseUsageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLicenseUsageResponse(data, context);
+  contents = de_GetLicenseUsageResponse(data, context);
   const response: GetLicenseUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2408,7 +2705,10 @@ export const deserializeAws_json1_1GetLicenseUsageCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetLicenseUsageCommandError = async (
+/**
+ * deserializeAws_json1_1GetLicenseUsageCommandError
+ */
+const de_GetLicenseUsageCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLicenseUsageCommandOutput> => {
@@ -2420,22 +2720,22 @@ const deserializeAws_json1_1GetLicenseUsageCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2447,16 +2747,19 @@ const deserializeAws_json1_1GetLicenseUsageCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetServiceSettingsCommand = async (
+/**
+ * deserializeAws_json1_1GetServiceSettingsCommand
+ */
+export const de_GetServiceSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetServiceSettingsCommandError(output, context);
+    return de_GetServiceSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetServiceSettingsResponse(data, context);
+  contents = de_GetServiceSettingsResponse(data, context);
   const response: GetServiceSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2464,7 +2767,10 @@ export const deserializeAws_json1_1GetServiceSettingsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetServiceSettingsCommandError = async (
+/**
+ * deserializeAws_json1_1GetServiceSettingsCommandError
+ */
+const de_GetServiceSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceSettingsCommandOutput> => {
@@ -2476,16 +2782,16 @@ const deserializeAws_json1_1GetServiceSettingsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2497,16 +2803,19 @@ const deserializeAws_json1_1GetServiceSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommand
+ */
+export const de_ListAssociationsForLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociationsForLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError(output, context);
+    return de_ListAssociationsForLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssociationsForLicenseConfigurationResponse(data, context);
+  contents = de_ListAssociationsForLicenseConfigurationResponse(data, context);
   const response: ListAssociationsForLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2514,7 +2823,10 @@ export const deserializeAws_json1_1ListAssociationsForLicenseConfigurationComman
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError
+ */
+const de_ListAssociationsForLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociationsForLicenseConfigurationCommandOutput> => {
@@ -2526,22 +2838,22 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError 
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "FilterLimitExceededException":
     case "com.amazonaws.licensemanager#FilterLimitExceededException":
-      throw await deserializeAws_json1_1FilterLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FilterLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2553,16 +2865,19 @@ const deserializeAws_json1_1ListAssociationsForLicenseConfigurationCommandError 
   }
 };
 
-export const deserializeAws_json1_1ListDistributedGrantsCommand = async (
+/**
+ * deserializeAws_json1_1ListDistributedGrantsCommand
+ */
+export const de_ListDistributedGrantsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDistributedGrantsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDistributedGrantsCommandError(output, context);
+    return de_ListDistributedGrantsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDistributedGrantsResponse(data, context);
+  contents = de_ListDistributedGrantsResponse(data, context);
   const response: ListDistributedGrantsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2570,7 +2885,10 @@ export const deserializeAws_json1_1ListDistributedGrantsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDistributedGrantsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDistributedGrantsCommandError
+ */
+const de_ListDistributedGrantsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDistributedGrantsCommandOutput> => {
@@ -2582,25 +2900,25 @@ const deserializeAws_json1_1ListDistributedGrantsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2612,16 +2930,19 @@ const deserializeAws_json1_1ListDistributedGrantsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand = async (
+/**
+ * deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
+ */
+export const de_ListFailuresForLicenseConfigurationOperationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommandError(output, context);
+    return de_ListFailuresForLicenseConfigurationOperationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsResponse(data, context);
+  contents = de_ListFailuresForLicenseConfigurationOperationsResponse(data, context);
   const response: ListFailuresForLicenseConfigurationOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2629,7 +2950,10 @@ export const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperations
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommandError
+ */
+const de_ListFailuresForLicenseConfigurationOperationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> => {
@@ -2641,19 +2965,19 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2665,16 +2989,19 @@ const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
   }
 };
 
-export const deserializeAws_json1_1ListLicenseConfigurationsCommand = async (
+/**
+ * deserializeAws_json1_1ListLicenseConfigurationsCommand
+ */
+export const de_ListLicenseConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListLicenseConfigurationsCommandError(output, context);
+    return de_ListLicenseConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLicenseConfigurationsResponse(data, context);
+  contents = de_ListLicenseConfigurationsResponse(data, context);
   const response: ListLicenseConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2682,7 +3009,10 @@ export const deserializeAws_json1_1ListLicenseConfigurationsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListLicenseConfigurationsCommandError
+ */
+const de_ListLicenseConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseConfigurationsCommandOutput> => {
@@ -2694,22 +3024,22 @@ const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "FilterLimitExceededException":
     case "com.amazonaws.licensemanager#FilterLimitExceededException":
-      throw await deserializeAws_json1_1FilterLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FilterLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2721,16 +3051,19 @@ const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListLicenseConversionTasksCommand = async (
+/**
+ * deserializeAws_json1_1ListLicenseConversionTasksCommand
+ */
+export const de_ListLicenseConversionTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseConversionTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListLicenseConversionTasksCommandError(output, context);
+    return de_ListLicenseConversionTasksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLicenseConversionTasksResponse(data, context);
+  contents = de_ListLicenseConversionTasksResponse(data, context);
   const response: ListLicenseConversionTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2738,7 +3071,10 @@ export const deserializeAws_json1_1ListLicenseConversionTasksCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListLicenseConversionTasksCommandError = async (
+/**
+ * deserializeAws_json1_1ListLicenseConversionTasksCommandError
+ */
+const de_ListLicenseConversionTasksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseConversionTasksCommandOutput> => {
@@ -2750,19 +3086,19 @@ const deserializeAws_json1_1ListLicenseConversionTasksCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2774,16 +3110,19 @@ const deserializeAws_json1_1ListLicenseConversionTasksCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommand = async (
+/**
+ * deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommand
+ */
+export const de_ListLicenseManagerReportGeneratorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseManagerReportGeneratorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommandError(output, context);
+    return de_ListLicenseManagerReportGeneratorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLicenseManagerReportGeneratorsResponse(data, context);
+  contents = de_ListLicenseManagerReportGeneratorsResponse(data, context);
   const response: ListLicenseManagerReportGeneratorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2791,7 +3130,10 @@ export const deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommand = a
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommandError = async (
+/**
+ * deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommandError
+ */
+const de_ListLicenseManagerReportGeneratorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseManagerReportGeneratorsCommandOutput> => {
@@ -2803,28 +3145,28 @@ const deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommandError = asy
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2836,16 +3178,19 @@ const deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommandError = asy
   }
 };
 
-export const deserializeAws_json1_1ListLicensesCommand = async (
+/**
+ * deserializeAws_json1_1ListLicensesCommand
+ */
+export const de_ListLicensesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicensesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListLicensesCommandError(output, context);
+    return de_ListLicensesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLicensesResponse(data, context);
+  contents = de_ListLicensesResponse(data, context);
   const response: ListLicensesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2853,7 +3198,10 @@ export const deserializeAws_json1_1ListLicensesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListLicensesCommandError = async (
+/**
+ * deserializeAws_json1_1ListLicensesCommandError
+ */
+const de_ListLicensesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicensesCommandOutput> => {
@@ -2865,22 +3213,22 @@ const deserializeAws_json1_1ListLicensesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2892,16 +3240,19 @@ const deserializeAws_json1_1ListLicensesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand
+ */
+export const de_ListLicenseSpecificationsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseSpecificationsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError(output, context);
+    return de_ListLicenseSpecificationsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse(data, context);
+  contents = de_ListLicenseSpecificationsForResourceResponse(data, context);
   const response: ListLicenseSpecificationsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2909,7 +3260,10 @@ export const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand =
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError
+ */
+const de_ListLicenseSpecificationsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseSpecificationsForResourceCommandOutput> => {
@@ -2921,19 +3275,19 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError = a
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2945,16 +3299,19 @@ const deserializeAws_json1_1ListLicenseSpecificationsForResourceCommandError = a
   }
 };
 
-export const deserializeAws_json1_1ListLicenseVersionsCommand = async (
+/**
+ * deserializeAws_json1_1ListLicenseVersionsCommand
+ */
+export const de_ListLicenseVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListLicenseVersionsCommandError(output, context);
+    return de_ListLicenseVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLicenseVersionsResponse(data, context);
+  contents = de_ListLicenseVersionsResponse(data, context);
   const response: ListLicenseVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2962,7 +3319,10 @@ export const deserializeAws_json1_1ListLicenseVersionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListLicenseVersionsCommandError = async (
+/**
+ * deserializeAws_json1_1ListLicenseVersionsCommandError
+ */
+const de_ListLicenseVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLicenseVersionsCommandOutput> => {
@@ -2974,19 +3334,19 @@ const deserializeAws_json1_1ListLicenseVersionsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2998,16 +3358,19 @@ const deserializeAws_json1_1ListLicenseVersionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListReceivedGrantsCommand = async (
+/**
+ * deserializeAws_json1_1ListReceivedGrantsCommand
+ */
+export const de_ListReceivedGrantsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReceivedGrantsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListReceivedGrantsCommandError(output, context);
+    return de_ListReceivedGrantsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReceivedGrantsResponse(data, context);
+  contents = de_ListReceivedGrantsResponse(data, context);
   const response: ListReceivedGrantsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3015,7 +3378,10 @@ export const deserializeAws_json1_1ListReceivedGrantsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListReceivedGrantsCommandError = async (
+/**
+ * deserializeAws_json1_1ListReceivedGrantsCommandError
+ */
+const de_ListReceivedGrantsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReceivedGrantsCommandOutput> => {
@@ -3027,25 +3393,25 @@ const deserializeAws_json1_1ListReceivedGrantsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3057,16 +3423,19 @@ const deserializeAws_json1_1ListReceivedGrantsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListReceivedGrantsForOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1ListReceivedGrantsForOrganizationCommand
+ */
+export const de_ListReceivedGrantsForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReceivedGrantsForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListReceivedGrantsForOrganizationCommandError(output, context);
+    return de_ListReceivedGrantsForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReceivedGrantsForOrganizationResponse(data, context);
+  contents = de_ListReceivedGrantsForOrganizationResponse(data, context);
   const response: ListReceivedGrantsForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3074,7 +3443,10 @@ export const deserializeAws_json1_1ListReceivedGrantsForOrganizationCommand = as
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListReceivedGrantsForOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1ListReceivedGrantsForOrganizationCommandError
+ */
+const de_ListReceivedGrantsForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReceivedGrantsForOrganizationCommandOutput> => {
@@ -3086,25 +3458,25 @@ const deserializeAws_json1_1ListReceivedGrantsForOrganizationCommandError = asyn
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3116,16 +3488,19 @@ const deserializeAws_json1_1ListReceivedGrantsForOrganizationCommandError = asyn
   }
 };
 
-export const deserializeAws_json1_1ListReceivedLicensesCommand = async (
+/**
+ * deserializeAws_json1_1ListReceivedLicensesCommand
+ */
+export const de_ListReceivedLicensesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReceivedLicensesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListReceivedLicensesCommandError(output, context);
+    return de_ListReceivedLicensesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReceivedLicensesResponse(data, context);
+  contents = de_ListReceivedLicensesResponse(data, context);
   const response: ListReceivedLicensesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3133,7 +3508,10 @@ export const deserializeAws_json1_1ListReceivedLicensesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListReceivedLicensesCommandError = async (
+/**
+ * deserializeAws_json1_1ListReceivedLicensesCommandError
+ */
+const de_ListReceivedLicensesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReceivedLicensesCommandOutput> => {
@@ -3145,25 +3523,25 @@ const deserializeAws_json1_1ListReceivedLicensesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3175,16 +3553,19 @@ const deserializeAws_json1_1ListReceivedLicensesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListReceivedLicensesForOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1ListReceivedLicensesForOrganizationCommand
+ */
+export const de_ListReceivedLicensesForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReceivedLicensesForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListReceivedLicensesForOrganizationCommandError(output, context);
+    return de_ListReceivedLicensesForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReceivedLicensesForOrganizationResponse(data, context);
+  contents = de_ListReceivedLicensesForOrganizationResponse(data, context);
   const response: ListReceivedLicensesForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3192,7 +3573,10 @@ export const deserializeAws_json1_1ListReceivedLicensesForOrganizationCommand = 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListReceivedLicensesForOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1ListReceivedLicensesForOrganizationCommandError
+ */
+const de_ListReceivedLicensesForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReceivedLicensesForOrganizationCommandOutput> => {
@@ -3204,25 +3588,25 @@ const deserializeAws_json1_1ListReceivedLicensesForOrganizationCommandError = as
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3234,16 +3618,19 @@ const deserializeAws_json1_1ListReceivedLicensesForOrganizationCommandError = as
   }
 };
 
-export const deserializeAws_json1_1ListResourceInventoryCommand = async (
+/**
+ * deserializeAws_json1_1ListResourceInventoryCommand
+ */
+export const de_ListResourceInventoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceInventoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResourceInventoryCommandError(output, context);
+    return de_ListResourceInventoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourceInventoryResponse(data, context);
+  contents = de_ListResourceInventoryResponse(data, context);
   const response: ListResourceInventoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3251,7 +3638,10 @@ export const deserializeAws_json1_1ListResourceInventoryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResourceInventoryCommandError = async (
+/**
+ * deserializeAws_json1_1ListResourceInventoryCommandError
+ */
+const de_ListResourceInventoryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceInventoryCommandOutput> => {
@@ -3263,25 +3653,25 @@ const deserializeAws_json1_1ListResourceInventoryCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.licensemanager#FailedDependencyException":
-      throw await deserializeAws_json1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
     case "FilterLimitExceededException":
     case "com.amazonaws.licensemanager#FilterLimitExceededException":
-      throw await deserializeAws_json1_1FilterLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FilterLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3293,16 +3683,19 @@ const deserializeAws_json1_1ListResourceInventoryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3310,7 +3703,10 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -3322,19 +3718,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3346,16 +3742,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTokensCommand = async (
+/**
+ * deserializeAws_json1_1ListTokensCommand
+ */
+export const de_ListTokensCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTokensCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTokensCommandError(output, context);
+    return de_ListTokensCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTokensResponse(data, context);
+  contents = de_ListTokensResponse(data, context);
   const response: ListTokensCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3363,7 +3762,10 @@ export const deserializeAws_json1_1ListTokensCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTokensCommandError = async (
+/**
+ * deserializeAws_json1_1ListTokensCommandError
+ */
+const de_ListTokensCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTokensCommandOutput> => {
@@ -3375,19 +3777,19 @@ const deserializeAws_json1_1ListTokensCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3399,16 +3801,19 @@ const deserializeAws_json1_1ListTokensCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListUsageForLicenseConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1ListUsageForLicenseConfigurationCommand
+ */
+export const de_ListUsageForLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsageForLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError(output, context);
+    return de_ListUsageForLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUsageForLicenseConfigurationResponse(data, context);
+  contents = de_ListUsageForLicenseConfigurationResponse(data, context);
   const response: ListUsageForLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3416,7 +3821,10 @@ export const deserializeAws_json1_1ListUsageForLicenseConfigurationCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError
+ */
+const de_ListUsageForLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsageForLicenseConfigurationCommandOutput> => {
@@ -3428,22 +3836,22 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "FilterLimitExceededException":
     case "com.amazonaws.licensemanager#FilterLimitExceededException":
-      throw await deserializeAws_json1_1FilterLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_FilterLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3455,16 +3863,19 @@ const deserializeAws_json1_1ListUsageForLicenseConfigurationCommandError = async
   }
 };
 
-export const deserializeAws_json1_1RejectGrantCommand = async (
+/**
+ * deserializeAws_json1_1RejectGrantCommand
+ */
+export const de_RejectGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectGrantCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RejectGrantCommandError(output, context);
+    return de_RejectGrantCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RejectGrantResponse(data, context);
+  contents = de_RejectGrantResponse(data, context);
   const response: RejectGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3472,7 +3883,10 @@ export const deserializeAws_json1_1RejectGrantCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RejectGrantCommandError = async (
+/**
+ * deserializeAws_json1_1RejectGrantCommandError
+ */
+const de_RejectGrantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectGrantCommandOutput> => {
@@ -3484,25 +3898,25 @@ const deserializeAws_json1_1RejectGrantCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3514,16 +3928,19 @@ const deserializeAws_json1_1RejectGrantCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3531,7 +3948,10 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -3543,19 +3963,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3567,16 +3987,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3584,7 +4007,10 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -3596,19 +4022,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3620,16 +4046,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateLicenseConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1UpdateLicenseConfigurationCommand
+ */
+export const de_UpdateLicenseConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLicenseConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateLicenseConfigurationCommandError(output, context);
+    return de_UpdateLicenseConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateLicenseConfigurationResponse(data, context);
+  contents = de_UpdateLicenseConfigurationResponse(data, context);
   const response: UpdateLicenseConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3637,7 +4066,10 @@ export const deserializeAws_json1_1UpdateLicenseConfigurationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateLicenseConfigurationCommandError
+ */
+const de_UpdateLicenseConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLicenseConfigurationCommandOutput> => {
@@ -3649,22 +4081,22 @@ const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3676,16 +4108,19 @@ const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand = async (
+/**
+ * deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand
+ */
+export const de_UpdateLicenseManagerReportGeneratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLicenseManagerReportGeneratorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommandError(output, context);
+    return de_UpdateLicenseManagerReportGeneratorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateLicenseManagerReportGeneratorResponse(data, context);
+  contents = de_UpdateLicenseManagerReportGeneratorResponse(data, context);
   const response: UpdateLicenseManagerReportGeneratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3693,7 +4128,10 @@ export const deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand = 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommandError
+ */
+const de_UpdateLicenseManagerReportGeneratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLicenseManagerReportGeneratorCommandOutput> => {
@@ -3705,28 +4143,28 @@ const deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommandError = as
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.licensemanager#ResourceLimitExceededException":
-      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.licensemanager#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.licensemanager#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3738,16 +4176,19 @@ const deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommandError = as
   }
 };
 
-export const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand
+ */
+export const de_UpdateLicenseSpecificationsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError(output, context);
+    return de_UpdateLicenseSpecificationsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateLicenseSpecificationsForResourceResponse(data, context);
+  contents = de_UpdateLicenseSpecificationsForResourceResponse(data, context);
   const response: UpdateLicenseSpecificationsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3755,7 +4196,10 @@ export const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError
+ */
+const de_UpdateLicenseSpecificationsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> => {
@@ -3767,25 +4211,25 @@ const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError =
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidResourceStateException":
     case "com.amazonaws.licensemanager#InvalidResourceStateException":
-      throw await deserializeAws_json1_1InvalidResourceStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
     case "LicenseUsageException":
     case "com.amazonaws.licensemanager#LicenseUsageException":
-      throw await deserializeAws_json1_1LicenseUsageExceptionResponse(parsedOutput, context);
+      throw await de_LicenseUsageExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3797,16 +4241,19 @@ const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommandError =
   }
 };
 
-export const deserializeAws_json1_1UpdateServiceSettingsCommand = async (
+/**
+ * deserializeAws_json1_1UpdateServiceSettingsCommand
+ */
+export const de_UpdateServiceSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateServiceSettingsCommandError(output, context);
+    return de_UpdateServiceSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateServiceSettingsResponse(data, context);
+  contents = de_UpdateServiceSettingsResponse(data, context);
   const response: UpdateServiceSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3814,7 +4261,10 @@ export const deserializeAws_json1_1UpdateServiceSettingsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateServiceSettingsCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateServiceSettingsCommandError
+ */
+const de_UpdateServiceSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceSettingsCommandOutput> => {
@@ -3826,19 +4276,19 @@ const deserializeAws_json1_1UpdateServiceSettingsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.licensemanager#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AuthorizationException":
     case "com.amazonaws.licensemanager#AuthorizationException":
-      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+      throw await de_AuthorizationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.licensemanager#InvalidParameterValueException":
-      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "RateLimitExceededException":
     case "com.amazonaws.licensemanager#RateLimitExceededException":
-      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_RateLimitExceededExceptionRes(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.licensemanager#ServerInternalException":
-      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+      throw await de_ServerInternalExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3850,12 +4300,15 @@ const deserializeAws_json1_1UpdateServiceSettingsCommandError = async (
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3863,12 +4316,15 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AuthorizationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AuthorizationExceptionRes
+ */
+const de_AuthorizationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AuthorizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AuthorizationException(body, context);
+  const deserialized: any = de_AuthorizationException(body, context);
   const exception = new AuthorizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3876,12 +4332,12 @@ const deserializeAws_json1_1AuthorizationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3889,12 +4345,15 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EntitlementNotAllowedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EntitlementNotAllowedExceptionRes
+ */
+const de_EntitlementNotAllowedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntitlementNotAllowedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EntitlementNotAllowedException(body, context);
+  const deserialized: any = de_EntitlementNotAllowedException(body, context);
   const exception = new EntitlementNotAllowedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3902,12 +4361,15 @@ const deserializeAws_json1_1EntitlementNotAllowedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FailedDependencyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FailedDependencyExceptionRes
+ */
+const de_FailedDependencyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FailedDependencyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FailedDependencyException(body, context);
+  const deserialized: any = de_FailedDependencyException(body, context);
   const exception = new FailedDependencyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3915,12 +4377,15 @@ const deserializeAws_json1_1FailedDependencyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FilterLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FilterLimitExceededExceptionRes
+ */
+const de_FilterLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FilterLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FilterLimitExceededException(body, context);
+  const deserialized: any = de_FilterLimitExceededException(body, context);
   const exception = new FilterLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3928,12 +4393,15 @@ const deserializeAws_json1_1FilterLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterValueExceptionRes
+ */
+const de_InvalidParameterValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterValueException(body, context);
+  const deserialized: any = de_InvalidParameterValueException(body, context);
   const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3941,12 +4409,15 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidResourceStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidResourceStateExceptionRes
+ */
+const de_InvalidResourceStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidResourceStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidResourceStateException(body, context);
+  const deserialized: any = de_InvalidResourceStateException(body, context);
   const exception = new InvalidResourceStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3954,12 +4425,15 @@ const deserializeAws_json1_1InvalidResourceStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LicenseUsageExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LicenseUsageExceptionRes
+ */
+const de_LicenseUsageExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LicenseUsageException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LicenseUsageException(body, context);
+  const deserialized: any = de_LicenseUsageException(body, context);
   const exception = new LicenseUsageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3967,12 +4441,15 @@ const deserializeAws_json1_1LicenseUsageExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NoEntitlementsAllowedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1NoEntitlementsAllowedExceptionRes
+ */
+const de_NoEntitlementsAllowedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoEntitlementsAllowedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NoEntitlementsAllowedException(body, context);
+  const deserialized: any = de_NoEntitlementsAllowedException(body, context);
   const exception = new NoEntitlementsAllowedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3980,12 +4457,15 @@ const deserializeAws_json1_1NoEntitlementsAllowedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RateLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RateLimitExceededExceptionRes
+ */
+const de_RateLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RateLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RateLimitExceededException(body, context);
+  const deserialized: any = de_RateLimitExceededException(body, context);
   const exception = new RateLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3993,12 +4473,12 @@ const deserializeAws_json1_1RateLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RedirectExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<RedirectException> => {
+/**
+ * deserializeAws_json1_1RedirectExceptionRes
+ */
+const de_RedirectExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<RedirectException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RedirectException(body, context);
+  const deserialized: any = de_RedirectException(body, context);
   const exception = new RedirectException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4006,12 +4486,15 @@ const deserializeAws_json1_1RedirectExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceLimitExceededExceptionRes
+ */
+const de_ResourceLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceLimitExceededException(body, context);
+  const deserialized: any = de_ResourceLimitExceededException(body, context);
   const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4019,12 +4502,15 @@ const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4032,12 +4518,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServerInternalExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ServerInternalExceptionRes
+ */
+const de_ServerInternalExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServerInternalException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServerInternalException(body, context);
+  const deserialized: any = de_ServerInternalException(body, context);
   const exception = new ServerInternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4045,12 +4534,15 @@ const deserializeAws_json1_1ServerInternalExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedDigitalSignatureMethodExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedDigitalSignatureMethodExceptionRes
+ */
+const de_UnsupportedDigitalSignatureMethodExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedDigitalSignatureMethodException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedDigitalSignatureMethodException(body, context);
+  const deserialized: any = de_UnsupportedDigitalSignatureMethodException(body, context);
   const exception = new UnsupportedDigitalSignatureMethodException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4058,12 +4550,12 @@ const deserializeAws_json1_1UnsupportedDigitalSignatureMethodExceptionResponse =
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = de_ValidationException(body, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4071,16 +4563,19 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AcceptGrantRequest = (input: AcceptGrantRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AcceptGrantRequest
+ */
+const se_AcceptGrantRequest = (input: AcceptGrantRequest, context: __SerdeContext): any => {
   return {
     ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
   };
 };
 
-const serializeAws_json1_1AllowedOperationList = (
-  input: (AllowedOperation | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AllowedOperationList
+ */
+const se_AllowedOperationList = (input: (AllowedOperation | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4088,7 +4583,10 @@ const serializeAws_json1_1AllowedOperationList = (
     });
 };
 
-const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ArnList
+ */
+const se_ArnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4096,99 +4594,108 @@ const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): 
     });
 };
 
-const serializeAws_json1_1BorrowConfiguration = (input: BorrowConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1BorrowConfiguration
+ */
+const se_BorrowConfiguration = (input: BorrowConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.AllowEarlyCheckIn != null && { AllowEarlyCheckIn: input.AllowEarlyCheckIn }),
     ...(input.MaxTimeToLiveInMinutes != null && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
   };
 };
 
-const serializeAws_json1_1CheckInLicenseRequest = (input: CheckInLicenseRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CheckInLicenseRequest
+ */
+const se_CheckInLicenseRequest = (input: CheckInLicenseRequest, context: __SerdeContext): any => {
   return {
     ...(input.Beneficiary != null && { Beneficiary: input.Beneficiary }),
     ...(input.LicenseConsumptionToken != null && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
   };
 };
 
-const serializeAws_json1_1CheckoutBorrowLicenseRequest = (
-  input: CheckoutBorrowLicenseRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CheckoutBorrowLicenseRequest
+ */
+const se_CheckoutBorrowLicenseRequest = (input: CheckoutBorrowLicenseRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CheckoutMetadata != null && {
-      CheckoutMetadata: serializeAws_json1_1MetadataList(input.CheckoutMetadata, context),
-    }),
+    ...(input.CheckoutMetadata != null && { CheckoutMetadata: se_MetadataList(input.CheckoutMetadata, context) }),
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.DigitalSignatureMethod != null && { DigitalSignatureMethod: input.DigitalSignatureMethod }),
-    ...(input.Entitlements != null && {
-      Entitlements: serializeAws_json1_1EntitlementDataList(input.Entitlements, context),
-    }),
+    ...(input.Entitlements != null && { Entitlements: se_EntitlementDataList(input.Entitlements, context) }),
     ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
     ...(input.NodeId != null && { NodeId: input.NodeId }),
   };
 };
 
-const serializeAws_json1_1CheckoutLicenseRequest = (input: CheckoutLicenseRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CheckoutLicenseRequest
+ */
+const se_CheckoutLicenseRequest = (input: CheckoutLicenseRequest, context: __SerdeContext): any => {
   return {
     ...(input.Beneficiary != null && { Beneficiary: input.Beneficiary }),
     ...(input.CheckoutType != null && { CheckoutType: input.CheckoutType }),
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
-    ...(input.Entitlements != null && {
-      Entitlements: serializeAws_json1_1EntitlementDataList(input.Entitlements, context),
-    }),
+    ...(input.Entitlements != null && { Entitlements: se_EntitlementDataList(input.Entitlements, context) }),
     ...(input.KeyFingerprint != null && { KeyFingerprint: input.KeyFingerprint }),
     ...(input.NodeId != null && { NodeId: input.NodeId }),
     ...(input.ProductSKU != null && { ProductSKU: input.ProductSKU }),
   };
 };
 
-const serializeAws_json1_1ConsumptionConfiguration = (
-  input: ConsumptionConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ConsumptionConfiguration
+ */
+const se_ConsumptionConfiguration = (input: ConsumptionConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.BorrowConfiguration != null && {
-      BorrowConfiguration: serializeAws_json1_1BorrowConfiguration(input.BorrowConfiguration, context),
+      BorrowConfiguration: se_BorrowConfiguration(input.BorrowConfiguration, context),
     }),
     ...(input.ProvisionalConfiguration != null && {
-      ProvisionalConfiguration: serializeAws_json1_1ProvisionalConfiguration(input.ProvisionalConfiguration, context),
+      ProvisionalConfiguration: se_ProvisionalConfiguration(input.ProvisionalConfiguration, context),
     }),
     ...(input.RenewType != null && { RenewType: input.RenewType }),
   };
 };
 
-const serializeAws_json1_1CreateGrantRequest = (input: CreateGrantRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateGrantRequest
+ */
+const se_CreateGrantRequest = (input: CreateGrantRequest, context: __SerdeContext): any => {
   return {
     ...(input.AllowedOperations != null && {
-      AllowedOperations: serializeAws_json1_1AllowedOperationList(input.AllowedOperations, context),
+      AllowedOperations: se_AllowedOperationList(input.AllowedOperations, context),
     }),
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.GrantName != null && { GrantName: input.GrantName }),
     ...(input.HomeRegion != null && { HomeRegion: input.HomeRegion }),
     ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-    ...(input.Principals != null && { Principals: serializeAws_json1_1PrincipalArnList(input.Principals, context) }),
+    ...(input.Principals != null && { Principals: se_PrincipalArnList(input.Principals, context) }),
   };
 };
 
-const serializeAws_json1_1CreateGrantVersionRequest = (
-  input: CreateGrantVersionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateGrantVersionRequest
+ */
+const se_CreateGrantVersionRequest = (input: CreateGrantVersionRequest, context: __SerdeContext): any => {
   return {
     ...(input.AllowedOperations != null && {
-      AllowedOperations: serializeAws_json1_1AllowedOperationList(input.AllowedOperations, context),
+      AllowedOperations: se_AllowedOperationList(input.AllowedOperations, context),
     }),
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
     ...(input.GrantName != null && { GrantName: input.GrantName }),
-    ...(input.Options != null && { Options: serializeAws_json1_1Options(input.Options, context) }),
+    ...(input.Options != null && { Options: se_Options(input.Options, context) }),
     ...(input.SourceVersion != null && { SourceVersion: input.SourceVersion }),
     ...(input.Status != null && { Status: input.Status }),
     ...(input.StatusReason != null && { StatusReason: input.StatusReason }),
   };
 };
 
-const serializeAws_json1_1CreateLicenseConfigurationRequest = (
+/**
+ * serializeAws_json1_1CreateLicenseConfigurationRequest
+ */
+const se_CreateLicenseConfigurationRequest = (
   input: CreateLicenseConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -4198,117 +4705,121 @@ const serializeAws_json1_1CreateLicenseConfigurationRequest = (
     ...(input.LicenseCount != null && { LicenseCount: input.LicenseCount }),
     ...(input.LicenseCountHardLimit != null && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
     ...(input.LicenseCountingType != null && { LicenseCountingType: input.LicenseCountingType }),
-    ...(input.LicenseRules != null && { LicenseRules: serializeAws_json1_1StringList(input.LicenseRules, context) }),
+    ...(input.LicenseRules != null && { LicenseRules: se_StringList(input.LicenseRules, context) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ProductInformationList != null && {
-      ProductInformationList: serializeAws_json1_1ProductInformationList(input.ProductInformationList, context),
+      ProductInformationList: se_ProductInformationList(input.ProductInformationList, context),
     }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateLicenseConversionTaskForResourceRequest = (
+/**
+ * serializeAws_json1_1CreateLicenseConversionTaskForResourceRequest
+ */
+const se_CreateLicenseConversionTaskForResourceRequest = (
   input: CreateLicenseConversionTaskForResourceRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.DestinationLicenseContext != null && {
-      DestinationLicenseContext: serializeAws_json1_1LicenseConversionContext(input.DestinationLicenseContext, context),
+      DestinationLicenseContext: se_LicenseConversionContext(input.DestinationLicenseContext, context),
     }),
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
     ...(input.SourceLicenseContext != null && {
-      SourceLicenseContext: serializeAws_json1_1LicenseConversionContext(input.SourceLicenseContext, context),
+      SourceLicenseContext: se_LicenseConversionContext(input.SourceLicenseContext, context),
     }),
   };
 };
 
-const serializeAws_json1_1CreateLicenseManagerReportGeneratorRequest = (
+/**
+ * serializeAws_json1_1CreateLicenseManagerReportGeneratorRequest
+ */
+const se_CreateLicenseManagerReportGeneratorRequest = (
   input: CreateLicenseManagerReportGeneratorRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.Description != null && { Description: input.Description }),
-    ...(input.ReportContext != null && {
-      ReportContext: serializeAws_json1_1ReportContext(input.ReportContext, context),
-    }),
-    ...(input.ReportFrequency != null && {
-      ReportFrequency: serializeAws_json1_1ReportFrequency(input.ReportFrequency, context),
-    }),
+    ...(input.ReportContext != null && { ReportContext: se_ReportContext(input.ReportContext, context) }),
+    ...(input.ReportFrequency != null && { ReportFrequency: se_ReportFrequency(input.ReportFrequency, context) }),
     ...(input.ReportGeneratorName != null && { ReportGeneratorName: input.ReportGeneratorName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.Type != null && { Type: serializeAws_json1_1ReportTypeList(input.Type, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
+    ...(input.Type != null && { Type: se_ReportTypeList(input.Type, context) }),
   };
 };
 
-const serializeAws_json1_1CreateLicenseRequest = (input: CreateLicenseRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateLicenseRequest
+ */
+const se_CreateLicenseRequest = (input: CreateLicenseRequest, context: __SerdeContext): any => {
   return {
     ...(input.Beneficiary != null && { Beneficiary: input.Beneficiary }),
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.ConsumptionConfiguration != null && {
-      ConsumptionConfiguration: serializeAws_json1_1ConsumptionConfiguration(input.ConsumptionConfiguration, context),
+      ConsumptionConfiguration: se_ConsumptionConfiguration(input.ConsumptionConfiguration, context),
     }),
-    ...(input.Entitlements != null && {
-      Entitlements: serializeAws_json1_1EntitlementList(input.Entitlements, context),
-    }),
+    ...(input.Entitlements != null && { Entitlements: se_EntitlementList(input.Entitlements, context) }),
     ...(input.HomeRegion != null && { HomeRegion: input.HomeRegion }),
-    ...(input.Issuer != null && { Issuer: serializeAws_json1_1Issuer(input.Issuer, context) }),
-    ...(input.LicenseMetadata != null && {
-      LicenseMetadata: serializeAws_json1_1MetadataList(input.LicenseMetadata, context),
-    }),
+    ...(input.Issuer != null && { Issuer: se_Issuer(input.Issuer, context) }),
+    ...(input.LicenseMetadata != null && { LicenseMetadata: se_MetadataList(input.LicenseMetadata, context) }),
     ...(input.LicenseName != null && { LicenseName: input.LicenseName }),
     ...(input.ProductName != null && { ProductName: input.ProductName }),
     ...(input.ProductSKU != null && { ProductSKU: input.ProductSKU }),
-    ...(input.Validity != null && { Validity: serializeAws_json1_1DatetimeRange(input.Validity, context) }),
+    ...(input.Validity != null && { Validity: se_DatetimeRange(input.Validity, context) }),
   };
 };
 
-const serializeAws_json1_1CreateLicenseVersionRequest = (
-  input: CreateLicenseVersionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateLicenseVersionRequest
+ */
+const se_CreateLicenseVersionRequest = (input: CreateLicenseVersionRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.ConsumptionConfiguration != null && {
-      ConsumptionConfiguration: serializeAws_json1_1ConsumptionConfiguration(input.ConsumptionConfiguration, context),
+      ConsumptionConfiguration: se_ConsumptionConfiguration(input.ConsumptionConfiguration, context),
     }),
-    ...(input.Entitlements != null && {
-      Entitlements: serializeAws_json1_1EntitlementList(input.Entitlements, context),
-    }),
+    ...(input.Entitlements != null && { Entitlements: se_EntitlementList(input.Entitlements, context) }),
     ...(input.HomeRegion != null && { HomeRegion: input.HomeRegion }),
-    ...(input.Issuer != null && { Issuer: serializeAws_json1_1Issuer(input.Issuer, context) }),
+    ...(input.Issuer != null && { Issuer: se_Issuer(input.Issuer, context) }),
     ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-    ...(input.LicenseMetadata != null && {
-      LicenseMetadata: serializeAws_json1_1MetadataList(input.LicenseMetadata, context),
-    }),
+    ...(input.LicenseMetadata != null && { LicenseMetadata: se_MetadataList(input.LicenseMetadata, context) }),
     ...(input.LicenseName != null && { LicenseName: input.LicenseName }),
     ...(input.ProductName != null && { ProductName: input.ProductName }),
     ...(input.SourceVersion != null && { SourceVersion: input.SourceVersion }),
     ...(input.Status != null && { Status: input.Status }),
-    ...(input.Validity != null && { Validity: serializeAws_json1_1DatetimeRange(input.Validity, context) }),
+    ...(input.Validity != null && { Validity: se_DatetimeRange(input.Validity, context) }),
   };
 };
 
-const serializeAws_json1_1CreateTokenRequest = (input: CreateTokenRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateTokenRequest
+ */
+const se_CreateTokenRequest = (input: CreateTokenRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.ExpirationInDays != null && { ExpirationInDays: input.ExpirationInDays }),
     ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
-    ...(input.RoleArns != null && { RoleArns: serializeAws_json1_1ArnList(input.RoleArns, context) }),
-    ...(input.TokenProperties != null && {
-      TokenProperties: serializeAws_json1_1MaxSize3StringList(input.TokenProperties, context),
-    }),
+    ...(input.RoleArns != null && { RoleArns: se_ArnList(input.RoleArns, context) }),
+    ...(input.TokenProperties != null && { TokenProperties: se_MaxSize3StringList(input.TokenProperties, context) }),
   };
 };
 
-const serializeAws_json1_1DatetimeRange = (input: DatetimeRange, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DatetimeRange
+ */
+const se_DatetimeRange = (input: DatetimeRange, context: __SerdeContext): any => {
   return {
     ...(input.Begin != null && { Begin: input.Begin }),
     ...(input.End != null && { End: input.End }),
   };
 };
 
-const serializeAws_json1_1DeleteGrantRequest = (input: DeleteGrantRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteGrantRequest
+ */
+const se_DeleteGrantRequest = (input: DeleteGrantRequest, context: __SerdeContext): any => {
   return {
     ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
     ...(input.StatusReason != null && { StatusReason: input.StatusReason }),
@@ -4316,7 +4827,10 @@ const serializeAws_json1_1DeleteGrantRequest = (input: DeleteGrantRequest, conte
   };
 };
 
-const serializeAws_json1_1DeleteLicenseConfigurationRequest = (
+/**
+ * serializeAws_json1_1DeleteLicenseConfigurationRequest
+ */
+const se_DeleteLicenseConfigurationRequest = (
   input: DeleteLicenseConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -4325,7 +4839,10 @@ const serializeAws_json1_1DeleteLicenseConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteLicenseManagerReportGeneratorRequest = (
+/**
+ * serializeAws_json1_1DeleteLicenseManagerReportGeneratorRequest
+ */
+const se_DeleteLicenseManagerReportGeneratorRequest = (
   input: DeleteLicenseManagerReportGeneratorRequest,
   context: __SerdeContext
 ): any => {
@@ -4336,20 +4853,29 @@ const serializeAws_json1_1DeleteLicenseManagerReportGeneratorRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteLicenseRequest = (input: DeleteLicenseRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteLicenseRequest
+ */
+const se_DeleteLicenseRequest = (input: DeleteLicenseRequest, context: __SerdeContext): any => {
   return {
     ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
     ...(input.SourceVersion != null && { SourceVersion: input.SourceVersion }),
   };
 };
 
-const serializeAws_json1_1DeleteTokenRequest = (input: DeleteTokenRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteTokenRequest
+ */
+const se_DeleteTokenRequest = (input: DeleteTokenRequest, context: __SerdeContext): any => {
   return {
     ...(input.TokenId != null && { TokenId: input.TokenId }),
   };
 };
 
-const serializeAws_json1_1Entitlement = (input: Entitlement, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Entitlement
+ */
+const se_Entitlement = (input: Entitlement, context: __SerdeContext): any => {
   return {
     ...(input.AllowCheckIn != null && { AllowCheckIn: input.AllowCheckIn }),
     ...(input.MaxCount != null && { MaxCount: input.MaxCount }),
@@ -4360,7 +4886,10 @@ const serializeAws_json1_1Entitlement = (input: Entitlement, context: __SerdeCon
   };
 };
 
-const serializeAws_json1_1EntitlementData = (input: EntitlementData, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EntitlementData
+ */
+const se_EntitlementData = (input: EntitlementData, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Unit != null && { Unit: input.Unit }),
@@ -4368,56 +4897,74 @@ const serializeAws_json1_1EntitlementData = (input: EntitlementData, context: __
   };
 };
 
-const serializeAws_json1_1EntitlementDataList = (input: EntitlementData[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EntitlementDataList
+ */
+const se_EntitlementDataList = (input: EntitlementData[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1EntitlementData(entry, context);
+      return se_EntitlementData(entry, context);
     });
 };
 
-const serializeAws_json1_1EntitlementList = (input: Entitlement[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EntitlementList
+ */
+const se_EntitlementList = (input: Entitlement[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Entitlement(entry, context);
+      return se_Entitlement(entry, context);
     });
 };
 
-const serializeAws_json1_1ExtendLicenseConsumptionRequest = (
-  input: ExtendLicenseConsumptionRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ExtendLicenseConsumptionRequest
+ */
+const se_ExtendLicenseConsumptionRequest = (input: ExtendLicenseConsumptionRequest, context: __SerdeContext): any => {
   return {
     ...(input.DryRun != null && { DryRun: input.DryRun }),
     ...(input.LicenseConsumptionToken != null && { LicenseConsumptionToken: input.LicenseConsumptionToken }),
   };
 };
 
-const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Filter
+ */
+const se_Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Values != null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
+    ...(input.Values != null && { Values: se_FilterValues(input.Values, context) }),
   };
 };
 
-const serializeAws_json1_1FilterList = (input: Filter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FilterList
+ */
+const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Filter(entry, context);
+      return se_Filter(entry, context);
     });
 };
 
-const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Filters
+ */
+const se_Filters = (input: Filter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Filter(entry, context);
+      return se_Filter(entry, context);
     });
 };
 
-const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FilterValues
+ */
+const se_FilterValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4425,41 +4972,48 @@ const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_json1_1GetAccessTokenRequest = (input: GetAccessTokenRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetAccessTokenRequest
+ */
+const se_GetAccessTokenRequest = (input: GetAccessTokenRequest, context: __SerdeContext): any => {
   return {
     ...(input.Token != null && { Token: input.Token }),
-    ...(input.TokenProperties != null && {
-      TokenProperties: serializeAws_json1_1MaxSize3StringList(input.TokenProperties, context),
-    }),
+    ...(input.TokenProperties != null && { TokenProperties: se_MaxSize3StringList(input.TokenProperties, context) }),
   };
 };
 
-const serializeAws_json1_1GetGrantRequest = (input: GetGrantRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetGrantRequest
+ */
+const se_GetGrantRequest = (input: GetGrantRequest, context: __SerdeContext): any => {
   return {
     ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
     ...(input.Version != null && { Version: input.Version }),
   };
 };
 
-const serializeAws_json1_1GetLicenseConfigurationRequest = (
-  input: GetLicenseConfigurationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetLicenseConfigurationRequest
+ */
+const se_GetLicenseConfigurationRequest = (input: GetLicenseConfigurationRequest, context: __SerdeContext): any => {
   return {
     ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
   };
 };
 
-const serializeAws_json1_1GetLicenseConversionTaskRequest = (
-  input: GetLicenseConversionTaskRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetLicenseConversionTaskRequest
+ */
+const se_GetLicenseConversionTaskRequest = (input: GetLicenseConversionTaskRequest, context: __SerdeContext): any => {
   return {
     ...(input.LicenseConversionTaskId != null && { LicenseConversionTaskId: input.LicenseConversionTaskId }),
   };
 };
 
-const serializeAws_json1_1GetLicenseManagerReportGeneratorRequest = (
+/**
+ * serializeAws_json1_1GetLicenseManagerReportGeneratorRequest
+ */
+const se_GetLicenseManagerReportGeneratorRequest = (
   input: GetLicenseManagerReportGeneratorRequest,
   context: __SerdeContext
 ): any => {
@@ -4470,27 +5024,36 @@ const serializeAws_json1_1GetLicenseManagerReportGeneratorRequest = (
   };
 };
 
-const serializeAws_json1_1GetLicenseRequest = (input: GetLicenseRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetLicenseRequest
+ */
+const se_GetLicenseRequest = (input: GetLicenseRequest, context: __SerdeContext): any => {
   return {
     ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
     ...(input.Version != null && { Version: input.Version }),
   };
 };
 
-const serializeAws_json1_1GetLicenseUsageRequest = (input: GetLicenseUsageRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetLicenseUsageRequest
+ */
+const se_GetLicenseUsageRequest = (input: GetLicenseUsageRequest, context: __SerdeContext): any => {
   return {
     ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
   };
 };
 
-const serializeAws_json1_1GetServiceSettingsRequest = (
-  input: GetServiceSettingsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetServiceSettingsRequest
+ */
+const se_GetServiceSettingsRequest = (input: GetServiceSettingsRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_1InventoryFilter = (input: InventoryFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InventoryFilter
+ */
+const se_InventoryFilter = (input: InventoryFilter, context: __SerdeContext): any => {
   return {
     ...(input.Condition != null && { Condition: input.Condition }),
     ...(input.Name != null && { Name: input.Name }),
@@ -4498,46 +5061,61 @@ const serializeAws_json1_1InventoryFilter = (input: InventoryFilter, context: __
   };
 };
 
-const serializeAws_json1_1InventoryFilterList = (input: InventoryFilter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1InventoryFilterList
+ */
+const se_InventoryFilterList = (input: InventoryFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1InventoryFilter(entry, context);
+      return se_InventoryFilter(entry, context);
     });
 };
 
-const serializeAws_json1_1Issuer = (input: Issuer, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Issuer
+ */
+const se_Issuer = (input: Issuer, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.SignKey != null && { SignKey: input.SignKey }),
   };
 };
 
-const serializeAws_json1_1LicenseConversionContext = (
-  input: LicenseConversionContext,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1LicenseConversionContext
+ */
+const se_LicenseConversionContext = (input: LicenseConversionContext, context: __SerdeContext): any => {
   return {
     ...(input.UsageOperation != null && { UsageOperation: input.UsageOperation }),
   };
 };
 
-const serializeAws_json1_1LicenseSpecification = (input: LicenseSpecification, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1LicenseSpecification
+ */
+const se_LicenseSpecification = (input: LicenseSpecification, context: __SerdeContext): any => {
   return {
     ...(input.AmiAssociationScope != null && { AmiAssociationScope: input.AmiAssociationScope }),
     ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
   };
 };
 
-const serializeAws_json1_1LicenseSpecifications = (input: LicenseSpecification[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1LicenseSpecifications
+ */
+const se_LicenseSpecifications = (input: LicenseSpecification[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1LicenseSpecification(entry, context);
+      return se_LicenseSpecification(entry, context);
     });
 };
 
-const serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest = (
+/**
+ * serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest
+ */
+const se_ListAssociationsForLicenseConfigurationRequest = (
   input: ListAssociationsForLicenseConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -4548,19 +5126,22 @@ const serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_1ListDistributedGrantsRequest = (
-  input: ListDistributedGrantsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListDistributedGrantsRequest
+ */
+const se_ListDistributedGrantsRequest = (input: ListDistributedGrantsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.GrantArns != null && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
+    ...(input.GrantArns != null && { GrantArns: se_ArnList(input.GrantArns, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest = (
+/**
+ * serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest
+ */
+const se_ListFailuresForLicenseConfigurationOperationsRequest = (
   input: ListFailuresForLicenseConfigurationOperationsRequest,
   context: __SerdeContext
 ): any => {
@@ -4571,43 +5152,52 @@ const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest =
   };
 };
 
-const serializeAws_json1_1ListLicenseConfigurationsRequest = (
-  input: ListLicenseConfigurationsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListLicenseConfigurationsRequest
+ */
+const se_ListLicenseConfigurationsRequest = (input: ListLicenseConfigurationsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.LicenseConfigurationArns != null && {
-      LicenseConfigurationArns: serializeAws_json1_1StringList(input.LicenseConfigurationArns, context),
+      LicenseConfigurationArns: se_StringList(input.LicenseConfigurationArns, context),
     }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListLicenseConversionTasksRequest = (
+/**
+ * serializeAws_json1_1ListLicenseConversionTasksRequest
+ */
+const se_ListLicenseConversionTasksRequest = (
   input: ListLicenseConversionTasksRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListLicenseManagerReportGeneratorsRequest = (
+/**
+ * serializeAws_json1_1ListLicenseManagerReportGeneratorsRequest
+ */
+const se_ListLicenseManagerReportGeneratorsRequest = (
   input: ListLicenseManagerReportGeneratorsRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListLicenseSpecificationsForResourceRequest = (
+/**
+ * serializeAws_json1_1ListLicenseSpecificationsForResourceRequest
+ */
+const se_ListLicenseSpecificationsForResourceRequest = (
   input: ListLicenseSpecificationsForResourceRequest,
   context: __SerdeContext
 ): any => {
@@ -4618,19 +5208,22 @@ const serializeAws_json1_1ListLicenseSpecificationsForResourceRequest = (
   };
 };
 
-const serializeAws_json1_1ListLicensesRequest = (input: ListLicensesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListLicensesRequest
+ */
+const se_ListLicensesRequest = (input: ListLicensesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.LicenseArns != null && { LicenseArns: serializeAws_json1_1ArnList(input.LicenseArns, context) }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
+    ...(input.LicenseArns != null && { LicenseArns: se_ArnList(input.LicenseArns, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListLicenseVersionsRequest = (
-  input: ListLicenseVersionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListLicenseVersionsRequest
+ */
+const se_ListLicenseVersionsRequest = (input: ListLicenseVersionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -4638,95 +5231,110 @@ const serializeAws_json1_1ListLicenseVersionsRequest = (
   };
 };
 
-const serializeAws_json1_1ListReceivedGrantsForOrganizationRequest = (
+/**
+ * serializeAws_json1_1ListReceivedGrantsForOrganizationRequest
+ */
+const se_ListReceivedGrantsForOrganizationRequest = (
   input: ListReceivedGrantsForOrganizationRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
     ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListReceivedGrantsRequest = (
-  input: ListReceivedGrantsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListReceivedGrantsRequest
+ */
+const se_ListReceivedGrantsRequest = (input: ListReceivedGrantsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.GrantArns != null && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
+    ...(input.GrantArns != null && { GrantArns: se_ArnList(input.GrantArns, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListReceivedLicensesForOrganizationRequest = (
+/**
+ * serializeAws_json1_1ListReceivedLicensesForOrganizationRequest
+ */
+const se_ListReceivedLicensesForOrganizationRequest = (
   input: ListReceivedLicensesForOrganizationRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListReceivedLicensesRequest = (
-  input: ListReceivedLicensesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListReceivedLicensesRequest
+ */
+const se_ListReceivedLicensesRequest = (input: ListReceivedLicensesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
-    ...(input.LicenseArns != null && { LicenseArns: serializeAws_json1_1ArnList(input.LicenseArns, context) }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
+    ...(input.LicenseArns != null && { LicenseArns: se_ArnList(input.LicenseArns, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListResourceInventoryRequest = (
-  input: ListResourceInventoryRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListResourceInventoryRequest
+ */
+const se_ListResourceInventoryRequest = (input: ListResourceInventoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1InventoryFilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_InventoryFilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
-const serializeAws_json1_1ListTokensRequest = (input: ListTokensRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListTokensRequest
+ */
+const se_ListTokensRequest = (input: ListTokensRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_FilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.TokenIds != null && { TokenIds: serializeAws_json1_1StringList(input.TokenIds, context) }),
+    ...(input.TokenIds != null && { TokenIds: se_StringList(input.TokenIds, context) }),
   };
 };
 
-const serializeAws_json1_1ListUsageForLicenseConfigurationRequest = (
+/**
+ * serializeAws_json1_1ListUsageForLicenseConfigurationRequest
+ */
+const se_ListUsageForLicenseConfigurationRequest = (
   input: ListUsageForLicenseConfigurationRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.LicenseConfigurationArn != null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1MaxSize3StringList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1MaxSize3StringList
+ */
+const se_MaxSize3StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4734,37 +5342,49 @@ const serializeAws_json1_1MaxSize3StringList = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_1Metadata = (input: Metadata, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Metadata
+ */
+const se_Metadata = (input: Metadata, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1MetadataList = (input: Metadata[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1MetadataList
+ */
+const se_MetadataList = (input: Metadata[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Metadata(entry, context);
+      return se_Metadata(entry, context);
     });
 };
 
-const serializeAws_json1_1Options = (input: Options, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Options
+ */
+const se_Options = (input: Options, context: __SerdeContext): any => {
   return {
     ...(input.ActivationOverrideBehavior != null && { ActivationOverrideBehavior: input.ActivationOverrideBehavior }),
   };
 };
 
-const serializeAws_json1_1OrganizationConfiguration = (
-  input: OrganizationConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1OrganizationConfiguration
+ */
+const se_OrganizationConfiguration = (input: OrganizationConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.EnableIntegration != null && { EnableIntegration: input.EnableIntegration }),
   };
 };
 
-const serializeAws_json1_1PrincipalArnList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PrincipalArnList
+ */
+const se_PrincipalArnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4772,22 +5392,22 @@ const serializeAws_json1_1PrincipalArnList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1ProductInformation = (input: ProductInformation, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProductInformation
+ */
+const se_ProductInformation = (input: ProductInformation, context: __SerdeContext): any => {
   return {
     ...(input.ProductInformationFilterList != null && {
-      ProductInformationFilterList: serializeAws_json1_1ProductInformationFilterList(
-        input.ProductInformationFilterList,
-        context
-      ),
+      ProductInformationFilterList: se_ProductInformationFilterList(input.ProductInformationFilterList, context),
     }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   };
 };
 
-const serializeAws_json1_1ProductInformationFilter = (
-  input: ProductInformationFilter,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ProductInformationFilter
+ */
+const se_ProductInformationFilter = (input: ProductInformationFilter, context: __SerdeContext): any => {
   return {
     ...(input.ProductInformationFilterComparator != null && {
       ProductInformationFilterComparator: input.ProductInformationFilterComparator,
@@ -4796,61 +5416,76 @@ const serializeAws_json1_1ProductInformationFilter = (
       ProductInformationFilterName: input.ProductInformationFilterName,
     }),
     ...(input.ProductInformationFilterValue != null && {
-      ProductInformationFilterValue: serializeAws_json1_1StringList(input.ProductInformationFilterValue, context),
+      ProductInformationFilterValue: se_StringList(input.ProductInformationFilterValue, context),
     }),
   };
 };
 
-const serializeAws_json1_1ProductInformationFilterList = (
-  input: ProductInformationFilter[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ProductInformationFilterList
+ */
+const se_ProductInformationFilterList = (input: ProductInformationFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ProductInformationFilter(entry, context);
+      return se_ProductInformationFilter(entry, context);
     });
 };
 
-const serializeAws_json1_1ProductInformationList = (input: ProductInformation[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProductInformationList
+ */
+const se_ProductInformationList = (input: ProductInformation[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ProductInformation(entry, context);
+      return se_ProductInformation(entry, context);
     });
 };
 
-const serializeAws_json1_1ProvisionalConfiguration = (
-  input: ProvisionalConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ProvisionalConfiguration
+ */
+const se_ProvisionalConfiguration = (input: ProvisionalConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.MaxTimeToLiveInMinutes != null && { MaxTimeToLiveInMinutes: input.MaxTimeToLiveInMinutes }),
   };
 };
 
-const serializeAws_json1_1RejectGrantRequest = (input: RejectGrantRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RejectGrantRequest
+ */
+const se_RejectGrantRequest = (input: RejectGrantRequest, context: __SerdeContext): any => {
   return {
     ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
   };
 };
 
-const serializeAws_json1_1ReportContext = (input: ReportContext, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ReportContext
+ */
+const se_ReportContext = (input: ReportContext, context: __SerdeContext): any => {
   return {
     ...(input.licenseConfigurationArns != null && {
-      licenseConfigurationArns: serializeAws_json1_1ArnList(input.licenseConfigurationArns, context),
+      licenseConfigurationArns: se_ArnList(input.licenseConfigurationArns, context),
     }),
   };
 };
 
-const serializeAws_json1_1ReportFrequency = (input: ReportFrequency, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ReportFrequency
+ */
+const se_ReportFrequency = (input: ReportFrequency, context: __SerdeContext): any => {
   return {
     ...(input.period != null && { period: input.period }),
     ...(input.value != null && { value: input.value }),
   };
 };
 
-const serializeAws_json1_1ReportTypeList = (input: (ReportType | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ReportTypeList
+ */
+const se_ReportTypeList = (input: (ReportType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4858,7 +5493,10 @@ const serializeAws_json1_1ReportTypeList = (input: (ReportType | string)[], cont
     });
 };
 
-const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1StringList
+ */
+const se_StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4866,14 +5504,20 @@ const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4881,29 +5525,41 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateLicenseConfigurationRequest = (
+/**
+ * serializeAws_json1_1UpdateLicenseConfigurationRequest
+ */
+const se_UpdateLicenseConfigurationRequest = (
   input: UpdateLicenseConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -4914,15 +5570,18 @@ const serializeAws_json1_1UpdateLicenseConfigurationRequest = (
     ...(input.LicenseConfigurationStatus != null && { LicenseConfigurationStatus: input.LicenseConfigurationStatus }),
     ...(input.LicenseCount != null && { LicenseCount: input.LicenseCount }),
     ...(input.LicenseCountHardLimit != null && { LicenseCountHardLimit: input.LicenseCountHardLimit }),
-    ...(input.LicenseRules != null && { LicenseRules: serializeAws_json1_1StringList(input.LicenseRules, context) }),
+    ...(input.LicenseRules != null && { LicenseRules: se_StringList(input.LicenseRules, context) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ProductInformationList != null && {
-      ProductInformationList: serializeAws_json1_1ProductInformationList(input.ProductInformationList, context),
+      ProductInformationList: se_ProductInformationList(input.ProductInformationList, context),
     }),
   };
 };
 
-const serializeAws_json1_1UpdateLicenseManagerReportGeneratorRequest = (
+/**
+ * serializeAws_json1_1UpdateLicenseManagerReportGeneratorRequest
+ */
+const se_UpdateLicenseManagerReportGeneratorRequest = (
   input: UpdateLicenseManagerReportGeneratorRequest,
   context: __SerdeContext
 ): any => {
@@ -4932,55 +5591,51 @@ const serializeAws_json1_1UpdateLicenseManagerReportGeneratorRequest = (
     ...(input.LicenseManagerReportGeneratorArn != null && {
       LicenseManagerReportGeneratorArn: input.LicenseManagerReportGeneratorArn,
     }),
-    ...(input.ReportContext != null && {
-      ReportContext: serializeAws_json1_1ReportContext(input.ReportContext, context),
-    }),
-    ...(input.ReportFrequency != null && {
-      ReportFrequency: serializeAws_json1_1ReportFrequency(input.ReportFrequency, context),
-    }),
+    ...(input.ReportContext != null && { ReportContext: se_ReportContext(input.ReportContext, context) }),
+    ...(input.ReportFrequency != null && { ReportFrequency: se_ReportFrequency(input.ReportFrequency, context) }),
     ...(input.ReportGeneratorName != null && { ReportGeneratorName: input.ReportGeneratorName }),
-    ...(input.Type != null && { Type: serializeAws_json1_1ReportTypeList(input.Type, context) }),
+    ...(input.Type != null && { Type: se_ReportTypeList(input.Type, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest = (
+/**
+ * serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest
+ */
+const se_UpdateLicenseSpecificationsForResourceRequest = (
   input: UpdateLicenseSpecificationsForResourceRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AddLicenseSpecifications != null && {
-      AddLicenseSpecifications: serializeAws_json1_1LicenseSpecifications(input.AddLicenseSpecifications, context),
+      AddLicenseSpecifications: se_LicenseSpecifications(input.AddLicenseSpecifications, context),
     }),
     ...(input.RemoveLicenseSpecifications != null && {
-      RemoveLicenseSpecifications: serializeAws_json1_1LicenseSpecifications(
-        input.RemoveLicenseSpecifications,
-        context
-      ),
+      RemoveLicenseSpecifications: se_LicenseSpecifications(input.RemoveLicenseSpecifications, context),
     }),
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
-const serializeAws_json1_1UpdateServiceSettingsRequest = (
-  input: UpdateServiceSettingsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateServiceSettingsRequest
+ */
+const se_UpdateServiceSettingsRequest = (input: UpdateServiceSettingsRequest, context: __SerdeContext): any => {
   return {
     ...(input.EnableCrossAccountsDiscovery != null && {
       EnableCrossAccountsDiscovery: input.EnableCrossAccountsDiscovery,
     }),
     ...(input.OrganizationConfiguration != null && {
-      OrganizationConfiguration: serializeAws_json1_1OrganizationConfiguration(
-        input.OrganizationConfiguration,
-        context
-      ),
+      OrganizationConfiguration: se_OrganizationConfiguration(input.OrganizationConfiguration, context),
     }),
     ...(input.S3BucketArn != null && { S3BucketArn: input.S3BucketArn }),
     ...(input.SnsTopicArn != null && { SnsTopicArn: input.SnsTopicArn }),
   };
 };
 
-const deserializeAws_json1_1AcceptGrantResponse = (output: any, context: __SerdeContext): AcceptGrantResponse => {
+/**
+ * deserializeAws_json1_1AcceptGrantResponse
+ */
+const de_AcceptGrantResponse = (output: any, context: __SerdeContext): AcceptGrantResponse => {
   return {
     GrantArn: __expectString(output.GrantArn),
     Status: __expectString(output.Status),
@@ -4988,16 +5643,19 @@ const deserializeAws_json1_1AcceptGrantResponse = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_1AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1AllowedOperationList = (
-  output: any,
-  context: __SerdeContext
-): (AllowedOperation | string)[] => {
+/**
+ * deserializeAws_json1_1AllowedOperationList
+ */
+const de_AllowedOperationList = (output: any, context: __SerdeContext): (AllowedOperation | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5009,7 +5667,10 @@ const deserializeAws_json1_1AllowedOperationList = (
   return retVal;
 };
 
-const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ArnList
+ */
+const de_ArnList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5021,16 +5682,19 @@ const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): st
   return retVal;
 };
 
-const deserializeAws_json1_1AuthorizationException = (output: any, context: __SerdeContext): AuthorizationException => {
+/**
+ * deserializeAws_json1_1AuthorizationException
+ */
+const de_AuthorizationException = (output: any, context: __SerdeContext): AuthorizationException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1AutomatedDiscoveryInformation = (
-  output: any,
-  context: __SerdeContext
-): AutomatedDiscoveryInformation => {
+/**
+ * deserializeAws_json1_1AutomatedDiscoveryInformation
+ */
+const de_AutomatedDiscoveryInformation = (output: any, context: __SerdeContext): AutomatedDiscoveryInformation => {
   return {
     LastRunTime:
       output.LastRunTime != null
@@ -5039,30 +5703,31 @@ const deserializeAws_json1_1AutomatedDiscoveryInformation = (
   } as any;
 };
 
-const deserializeAws_json1_1BorrowConfiguration = (output: any, context: __SerdeContext): BorrowConfiguration => {
+/**
+ * deserializeAws_json1_1BorrowConfiguration
+ */
+const de_BorrowConfiguration = (output: any, context: __SerdeContext): BorrowConfiguration => {
   return {
     AllowEarlyCheckIn: __expectBoolean(output.AllowEarlyCheckIn),
     MaxTimeToLiveInMinutes: __expectInt32(output.MaxTimeToLiveInMinutes),
   } as any;
 };
 
-const deserializeAws_json1_1CheckInLicenseResponse = (output: any, context: __SerdeContext): CheckInLicenseResponse => {
+/**
+ * deserializeAws_json1_1CheckInLicenseResponse
+ */
+const de_CheckInLicenseResponse = (output: any, context: __SerdeContext): CheckInLicenseResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1CheckoutBorrowLicenseResponse = (
-  output: any,
-  context: __SerdeContext
-): CheckoutBorrowLicenseResponse => {
+/**
+ * deserializeAws_json1_1CheckoutBorrowLicenseResponse
+ */
+const de_CheckoutBorrowLicenseResponse = (output: any, context: __SerdeContext): CheckoutBorrowLicenseResponse => {
   return {
-    CheckoutMetadata:
-      output.CheckoutMetadata != null
-        ? deserializeAws_json1_1MetadataList(output.CheckoutMetadata, context)
-        : undefined,
+    CheckoutMetadata: output.CheckoutMetadata != null ? de_MetadataList(output.CheckoutMetadata, context) : undefined,
     EntitlementsAllowed:
-      output.EntitlementsAllowed != null
-        ? deserializeAws_json1_1EntitlementDataList(output.EntitlementsAllowed, context)
-        : undefined,
+      output.EntitlementsAllowed != null ? de_EntitlementDataList(output.EntitlementsAllowed, context) : undefined,
     Expiration: __expectString(output.Expiration),
     IssuedAt: __expectString(output.IssuedAt),
     LicenseArn: __expectString(output.LicenseArn),
@@ -5072,16 +5737,14 @@ const deserializeAws_json1_1CheckoutBorrowLicenseResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1CheckoutLicenseResponse = (
-  output: any,
-  context: __SerdeContext
-): CheckoutLicenseResponse => {
+/**
+ * deserializeAws_json1_1CheckoutLicenseResponse
+ */
+const de_CheckoutLicenseResponse = (output: any, context: __SerdeContext): CheckoutLicenseResponse => {
   return {
     CheckoutType: __expectString(output.CheckoutType),
     EntitlementsAllowed:
-      output.EntitlementsAllowed != null
-        ? deserializeAws_json1_1EntitlementDataList(output.EntitlementsAllowed, context)
-        : undefined,
+      output.EntitlementsAllowed != null ? de_EntitlementDataList(output.EntitlementsAllowed, context) : undefined,
     Expiration: __expectString(output.Expiration),
     IssuedAt: __expectString(output.IssuedAt),
     LicenseArn: __expectString(output.LicenseArn),
@@ -5091,52 +5754,59 @@ const deserializeAws_json1_1CheckoutLicenseResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_1ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ConsumedLicenseSummary = (output: any, context: __SerdeContext): ConsumedLicenseSummary => {
+/**
+ * deserializeAws_json1_1ConsumedLicenseSummary
+ */
+const de_ConsumedLicenseSummary = (output: any, context: __SerdeContext): ConsumedLicenseSummary => {
   return {
     ConsumedLicenses: __expectLong(output.ConsumedLicenses),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
-const deserializeAws_json1_1ConsumedLicenseSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ConsumedLicenseSummary[] => {
+/**
+ * deserializeAws_json1_1ConsumedLicenseSummaryList
+ */
+const de_ConsumedLicenseSummaryList = (output: any, context: __SerdeContext): ConsumedLicenseSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ConsumedLicenseSummary(entry, context);
+      return de_ConsumedLicenseSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ConsumptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ConsumptionConfiguration => {
+/**
+ * deserializeAws_json1_1ConsumptionConfiguration
+ */
+const de_ConsumptionConfiguration = (output: any, context: __SerdeContext): ConsumptionConfiguration => {
   return {
     BorrowConfiguration:
-      output.BorrowConfiguration != null
-        ? deserializeAws_json1_1BorrowConfiguration(output.BorrowConfiguration, context)
-        : undefined,
+      output.BorrowConfiguration != null ? de_BorrowConfiguration(output.BorrowConfiguration, context) : undefined,
     ProvisionalConfiguration:
       output.ProvisionalConfiguration != null
-        ? deserializeAws_json1_1ProvisionalConfiguration(output.ProvisionalConfiguration, context)
+        ? de_ProvisionalConfiguration(output.ProvisionalConfiguration, context)
         : undefined,
     RenewType: __expectString(output.RenewType),
   } as any;
 };
 
-const deserializeAws_json1_1CreateGrantResponse = (output: any, context: __SerdeContext): CreateGrantResponse => {
+/**
+ * deserializeAws_json1_1CreateGrantResponse
+ */
+const de_CreateGrantResponse = (output: any, context: __SerdeContext): CreateGrantResponse => {
   return {
     GrantArn: __expectString(output.GrantArn),
     Status: __expectString(output.Status),
@@ -5144,10 +5814,10 @@ const deserializeAws_json1_1CreateGrantResponse = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1CreateGrantVersionResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateGrantVersionResponse => {
+/**
+ * deserializeAws_json1_1CreateGrantVersionResponse
+ */
+const de_CreateGrantVersionResponse = (output: any, context: __SerdeContext): CreateGrantVersionResponse => {
   return {
     GrantArn: __expectString(output.GrantArn),
     Status: __expectString(output.Status),
@@ -5155,7 +5825,10 @@ const deserializeAws_json1_1CreateGrantVersionResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateLicenseConfigurationResponse = (
+/**
+ * deserializeAws_json1_1CreateLicenseConfigurationResponse
+ */
+const de_CreateLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): CreateLicenseConfigurationResponse => {
@@ -5164,7 +5837,10 @@ const deserializeAws_json1_1CreateLicenseConfigurationResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateLicenseConversionTaskForResourceResponse = (
+/**
+ * deserializeAws_json1_1CreateLicenseConversionTaskForResourceResponse
+ */
+const de_CreateLicenseConversionTaskForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): CreateLicenseConversionTaskForResourceResponse => {
@@ -5173,7 +5849,10 @@ const deserializeAws_json1_1CreateLicenseConversionTaskForResourceResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateLicenseManagerReportGeneratorResponse = (
+/**
+ * deserializeAws_json1_1CreateLicenseManagerReportGeneratorResponse
+ */
+const de_CreateLicenseManagerReportGeneratorResponse = (
   output: any,
   context: __SerdeContext
 ): CreateLicenseManagerReportGeneratorResponse => {
@@ -5182,7 +5861,10 @@ const deserializeAws_json1_1CreateLicenseManagerReportGeneratorResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateLicenseResponse = (output: any, context: __SerdeContext): CreateLicenseResponse => {
+/**
+ * deserializeAws_json1_1CreateLicenseResponse
+ */
+const de_CreateLicenseResponse = (output: any, context: __SerdeContext): CreateLicenseResponse => {
   return {
     LicenseArn: __expectString(output.LicenseArn),
     Status: __expectString(output.Status),
@@ -5190,10 +5872,10 @@ const deserializeAws_json1_1CreateLicenseResponse = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1CreateLicenseVersionResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateLicenseVersionResponse => {
+/**
+ * deserializeAws_json1_1CreateLicenseVersionResponse
+ */
+const de_CreateLicenseVersionResponse = (output: any, context: __SerdeContext): CreateLicenseVersionResponse => {
   return {
     LicenseArn: __expectString(output.LicenseArn),
     Status: __expectString(output.Status),
@@ -5201,7 +5883,10 @@ const deserializeAws_json1_1CreateLicenseVersionResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateTokenResponse = (output: any, context: __SerdeContext): CreateTokenResponse => {
+/**
+ * deserializeAws_json1_1CreateTokenResponse
+ */
+const de_CreateTokenResponse = (output: any, context: __SerdeContext): CreateTokenResponse => {
   return {
     Token: __expectString(output.Token),
     TokenId: __expectString(output.TokenId),
@@ -5209,14 +5894,20 @@ const deserializeAws_json1_1CreateTokenResponse = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1DatetimeRange = (output: any, context: __SerdeContext): DatetimeRange => {
+/**
+ * deserializeAws_json1_1DatetimeRange
+ */
+const de_DatetimeRange = (output: any, context: __SerdeContext): DatetimeRange => {
   return {
     Begin: __expectString(output.Begin),
     End: __expectString(output.End),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteGrantResponse = (output: any, context: __SerdeContext): DeleteGrantResponse => {
+/**
+ * deserializeAws_json1_1DeleteGrantResponse
+ */
+const de_DeleteGrantResponse = (output: any, context: __SerdeContext): DeleteGrantResponse => {
   return {
     GrantArn: __expectString(output.GrantArn),
     Status: __expectString(output.Status),
@@ -5224,32 +5915,47 @@ const deserializeAws_json1_1DeleteGrantResponse = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1DeleteLicenseConfigurationResponse = (
+/**
+ * deserializeAws_json1_1DeleteLicenseConfigurationResponse
+ */
+const de_DeleteLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteLicenseConfigurationResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteLicenseManagerReportGeneratorResponse = (
+/**
+ * deserializeAws_json1_1DeleteLicenseManagerReportGeneratorResponse
+ */
+const de_DeleteLicenseManagerReportGeneratorResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteLicenseManagerReportGeneratorResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteLicenseResponse = (output: any, context: __SerdeContext): DeleteLicenseResponse => {
+/**
+ * deserializeAws_json1_1DeleteLicenseResponse
+ */
+const de_DeleteLicenseResponse = (output: any, context: __SerdeContext): DeleteLicenseResponse => {
   return {
     DeletionDate: __expectString(output.DeletionDate),
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteTokenResponse = (output: any, context: __SerdeContext): DeleteTokenResponse => {
+/**
+ * deserializeAws_json1_1DeleteTokenResponse
+ */
+const de_DeleteTokenResponse = (output: any, context: __SerdeContext): DeleteTokenResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext): Entitlement => {
+/**
+ * deserializeAws_json1_1Entitlement
+ */
+const de_Entitlement = (output: any, context: __SerdeContext): Entitlement => {
   return {
     AllowCheckIn: __expectBoolean(output.AllowCheckIn),
     MaxCount: __expectLong(output.MaxCount),
@@ -5260,7 +5966,10 @@ const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1EntitlementData = (output: any, context: __SerdeContext): EntitlementData => {
+/**
+ * deserializeAws_json1_1EntitlementData
+ */
+const de_EntitlementData = (output: any, context: __SerdeContext): EntitlementData => {
   return {
     Name: __expectString(output.Name),
     Unit: __expectString(output.Unit),
@@ -5268,40 +5977,49 @@ const deserializeAws_json1_1EntitlementData = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1EntitlementDataList = (output: any, context: __SerdeContext): EntitlementData[] => {
+/**
+ * deserializeAws_json1_1EntitlementDataList
+ */
+const de_EntitlementDataList = (output: any, context: __SerdeContext): EntitlementData[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EntitlementData(entry, context);
+      return de_EntitlementData(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeContext): Entitlement[] => {
+/**
+ * deserializeAws_json1_1EntitlementList
+ */
+const de_EntitlementList = (output: any, context: __SerdeContext): Entitlement[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Entitlement(entry, context);
+      return de_Entitlement(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EntitlementNotAllowedException = (
-  output: any,
-  context: __SerdeContext
-): EntitlementNotAllowedException => {
+/**
+ * deserializeAws_json1_1EntitlementNotAllowedException
+ */
+const de_EntitlementNotAllowedException = (output: any, context: __SerdeContext): EntitlementNotAllowedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1EntitlementUsage = (output: any, context: __SerdeContext): EntitlementUsage => {
+/**
+ * deserializeAws_json1_1EntitlementUsage
+ */
+const de_EntitlementUsage = (output: any, context: __SerdeContext): EntitlementUsage => {
   return {
     ConsumedValue: __expectString(output.ConsumedValue),
     MaxCount: __expectString(output.MaxCount),
@@ -5310,19 +6028,25 @@ const deserializeAws_json1_1EntitlementUsage = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_1EntitlementUsageList = (output: any, context: __SerdeContext): EntitlementUsage[] => {
+/**
+ * deserializeAws_json1_1EntitlementUsageList
+ */
+const de_EntitlementUsageList = (output: any, context: __SerdeContext): EntitlementUsage[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EntitlementUsage(entry, context);
+      return de_EntitlementUsage(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ExtendLicenseConsumptionResponse = (
+/**
+ * deserializeAws_json1_1ExtendLicenseConsumptionResponse
+ */
+const de_ExtendLicenseConsumptionResponse = (
   output: any,
   context: __SerdeContext
 ): ExtendLicenseConsumptionResponse => {
@@ -5332,49 +6056,55 @@ const deserializeAws_json1_1ExtendLicenseConsumptionResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1FailedDependencyException = (
-  output: any,
-  context: __SerdeContext
-): FailedDependencyException => {
+/**
+ * deserializeAws_json1_1FailedDependencyException
+ */
+const de_FailedDependencyException = (output: any, context: __SerdeContext): FailedDependencyException => {
   return {
     ErrorCode: __expectString(output.ErrorCode),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1FilterLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): FilterLimitExceededException => {
+/**
+ * deserializeAws_json1_1FilterLimitExceededException
+ */
+const de_FilterLimitExceededException = (output: any, context: __SerdeContext): FilterLimitExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1GetAccessTokenResponse = (output: any, context: __SerdeContext): GetAccessTokenResponse => {
+/**
+ * deserializeAws_json1_1GetAccessTokenResponse
+ */
+const de_GetAccessTokenResponse = (output: any, context: __SerdeContext): GetAccessTokenResponse => {
   return {
     AccessToken: __expectString(output.AccessToken),
   } as any;
 };
 
-const deserializeAws_json1_1GetGrantResponse = (output: any, context: __SerdeContext): GetGrantResponse => {
+/**
+ * deserializeAws_json1_1GetGrantResponse
+ */
+const de_GetGrantResponse = (output: any, context: __SerdeContext): GetGrantResponse => {
   return {
-    Grant: output.Grant != null ? deserializeAws_json1_1Grant(output.Grant, context) : undefined,
+    Grant: output.Grant != null ? de_Grant(output.Grant, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetLicenseConfigurationResponse = (
-  output: any,
-  context: __SerdeContext
-): GetLicenseConfigurationResponse => {
+/**
+ * deserializeAws_json1_1GetLicenseConfigurationResponse
+ */
+const de_GetLicenseConfigurationResponse = (output: any, context: __SerdeContext): GetLicenseConfigurationResponse => {
   return {
     AutomatedDiscoveryInformation:
       output.AutomatedDiscoveryInformation != null
-        ? deserializeAws_json1_1AutomatedDiscoveryInformation(output.AutomatedDiscoveryInformation, context)
+        ? de_AutomatedDiscoveryInformation(output.AutomatedDiscoveryInformation, context)
         : undefined,
     ConsumedLicenseSummaryList:
       output.ConsumedLicenseSummaryList != null
-        ? deserializeAws_json1_1ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
+        ? de_ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
         : undefined,
     ConsumedLicenses: __expectLong(output.ConsumedLicenses),
     Description: __expectString(output.Description),
@@ -5384,31 +6114,33 @@ const deserializeAws_json1_1GetLicenseConfigurationResponse = (
     LicenseCount: __expectLong(output.LicenseCount),
     LicenseCountHardLimit: __expectBoolean(output.LicenseCountHardLimit),
     LicenseCountingType: __expectString(output.LicenseCountingType),
-    LicenseRules:
-      output.LicenseRules != null ? deserializeAws_json1_1StringList(output.LicenseRules, context) : undefined,
+    LicenseRules: output.LicenseRules != null ? de_StringList(output.LicenseRules, context) : undefined,
     ManagedResourceSummaryList:
       output.ManagedResourceSummaryList != null
-        ? deserializeAws_json1_1ManagedResourceSummaryList(output.ManagedResourceSummaryList, context)
+        ? de_ManagedResourceSummaryList(output.ManagedResourceSummaryList, context)
         : undefined,
     Name: __expectString(output.Name),
     OwnerAccountId: __expectString(output.OwnerAccountId),
     ProductInformationList:
       output.ProductInformationList != null
-        ? deserializeAws_json1_1ProductInformationList(output.ProductInformationList, context)
+        ? de_ProductInformationList(output.ProductInformationList, context)
         : undefined,
     Status: __expectString(output.Status),
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetLicenseConversionTaskResponse = (
+/**
+ * deserializeAws_json1_1GetLicenseConversionTaskResponse
+ */
+const de_GetLicenseConversionTaskResponse = (
   output: any,
   context: __SerdeContext
 ): GetLicenseConversionTaskResponse => {
   return {
     DestinationLicenseContext:
       output.DestinationLicenseContext != null
-        ? deserializeAws_json1_1LicenseConversionContext(output.DestinationLicenseContext, context)
+        ? de_LicenseConversionContext(output.DestinationLicenseContext, context)
         : undefined,
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
@@ -5420,7 +6152,7 @@ const deserializeAws_json1_1GetLicenseConversionTaskResponse = (
     ResourceArn: __expectString(output.ResourceArn),
     SourceLicenseContext:
       output.SourceLicenseContext != null
-        ? deserializeAws_json1_1LicenseConversionContext(output.SourceLicenseContext, context)
+        ? de_LicenseConversionContext(output.SourceLicenseContext, context)
         : undefined,
     StartTime:
       output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
@@ -5429,140 +6161,151 @@ const deserializeAws_json1_1GetLicenseConversionTaskResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1GetLicenseManagerReportGeneratorResponse = (
+/**
+ * deserializeAws_json1_1GetLicenseManagerReportGeneratorResponse
+ */
+const de_GetLicenseManagerReportGeneratorResponse = (
   output: any,
   context: __SerdeContext
 ): GetLicenseManagerReportGeneratorResponse => {
   return {
-    ReportGenerator:
-      output.ReportGenerator != null
-        ? deserializeAws_json1_1ReportGenerator(output.ReportGenerator, context)
-        : undefined,
+    ReportGenerator: output.ReportGenerator != null ? de_ReportGenerator(output.ReportGenerator, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetLicenseResponse = (output: any, context: __SerdeContext): GetLicenseResponse => {
+/**
+ * deserializeAws_json1_1GetLicenseResponse
+ */
+const de_GetLicenseResponse = (output: any, context: __SerdeContext): GetLicenseResponse => {
   return {
-    License: output.License != null ? deserializeAws_json1_1License(output.License, context) : undefined,
+    License: output.License != null ? de_License(output.License, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetLicenseUsageResponse = (
-  output: any,
-  context: __SerdeContext
-): GetLicenseUsageResponse => {
+/**
+ * deserializeAws_json1_1GetLicenseUsageResponse
+ */
+const de_GetLicenseUsageResponse = (output: any, context: __SerdeContext): GetLicenseUsageResponse => {
   return {
-    LicenseUsage:
-      output.LicenseUsage != null ? deserializeAws_json1_1LicenseUsage(output.LicenseUsage, context) : undefined,
+    LicenseUsage: output.LicenseUsage != null ? de_LicenseUsage(output.LicenseUsage, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetServiceSettingsResponse = (
-  output: any,
-  context: __SerdeContext
-): GetServiceSettingsResponse => {
+/**
+ * deserializeAws_json1_1GetServiceSettingsResponse
+ */
+const de_GetServiceSettingsResponse = (output: any, context: __SerdeContext): GetServiceSettingsResponse => {
   return {
     EnableCrossAccountsDiscovery: __expectBoolean(output.EnableCrossAccountsDiscovery),
     LicenseManagerResourceShareArn: __expectString(output.LicenseManagerResourceShareArn),
     OrganizationConfiguration:
       output.OrganizationConfiguration != null
-        ? deserializeAws_json1_1OrganizationConfiguration(output.OrganizationConfiguration, context)
+        ? de_OrganizationConfiguration(output.OrganizationConfiguration, context)
         : undefined,
     S3BucketArn: __expectString(output.S3BucketArn),
     SnsTopicArn: __expectString(output.SnsTopicArn),
   } as any;
 };
 
-const deserializeAws_json1_1Grant = (output: any, context: __SerdeContext): Grant => {
+/**
+ * deserializeAws_json1_1Grant
+ */
+const de_Grant = (output: any, context: __SerdeContext): Grant => {
   return {
     GrantArn: __expectString(output.GrantArn),
     GrantName: __expectString(output.GrantName),
     GrantStatus: __expectString(output.GrantStatus),
     GrantedOperations:
-      output.GrantedOperations != null
-        ? deserializeAws_json1_1AllowedOperationList(output.GrantedOperations, context)
-        : undefined,
+      output.GrantedOperations != null ? de_AllowedOperationList(output.GrantedOperations, context) : undefined,
     GranteePrincipalArn: __expectString(output.GranteePrincipalArn),
     HomeRegion: __expectString(output.HomeRegion),
     LicenseArn: __expectString(output.LicenseArn),
-    Options: output.Options != null ? deserializeAws_json1_1Options(output.Options, context) : undefined,
+    Options: output.Options != null ? de_Options(output.Options, context) : undefined,
     ParentArn: __expectString(output.ParentArn),
     StatusReason: __expectString(output.StatusReason),
     Version: __expectString(output.Version),
   } as any;
 };
 
-const deserializeAws_json1_1GrantedLicense = (output: any, context: __SerdeContext): GrantedLicense => {
+/**
+ * deserializeAws_json1_1GrantedLicense
+ */
+const de_GrantedLicense = (output: any, context: __SerdeContext): GrantedLicense => {
   return {
     Beneficiary: __expectString(output.Beneficiary),
     ConsumptionConfiguration:
       output.ConsumptionConfiguration != null
-        ? deserializeAws_json1_1ConsumptionConfiguration(output.ConsumptionConfiguration, context)
+        ? de_ConsumptionConfiguration(output.ConsumptionConfiguration, context)
         : undefined,
     CreateTime: __expectString(output.CreateTime),
-    Entitlements:
-      output.Entitlements != null ? deserializeAws_json1_1EntitlementList(output.Entitlements, context) : undefined,
+    Entitlements: output.Entitlements != null ? de_EntitlementList(output.Entitlements, context) : undefined,
     HomeRegion: __expectString(output.HomeRegion),
-    Issuer: output.Issuer != null ? deserializeAws_json1_1IssuerDetails(output.Issuer, context) : undefined,
+    Issuer: output.Issuer != null ? de_IssuerDetails(output.Issuer, context) : undefined,
     LicenseArn: __expectString(output.LicenseArn),
-    LicenseMetadata:
-      output.LicenseMetadata != null ? deserializeAws_json1_1MetadataList(output.LicenseMetadata, context) : undefined,
+    LicenseMetadata: output.LicenseMetadata != null ? de_MetadataList(output.LicenseMetadata, context) : undefined,
     LicenseName: __expectString(output.LicenseName),
     ProductName: __expectString(output.ProductName),
     ProductSKU: __expectString(output.ProductSKU),
     ReceivedMetadata:
-      output.ReceivedMetadata != null
-        ? deserializeAws_json1_1ReceivedMetadata(output.ReceivedMetadata, context)
-        : undefined,
+      output.ReceivedMetadata != null ? de_ReceivedMetadata(output.ReceivedMetadata, context) : undefined,
     Status: __expectString(output.Status),
-    Validity: output.Validity != null ? deserializeAws_json1_1DatetimeRange(output.Validity, context) : undefined,
+    Validity: output.Validity != null ? de_DatetimeRange(output.Validity, context) : undefined,
     Version: __expectString(output.Version),
   } as any;
 };
 
-const deserializeAws_json1_1GrantedLicenseList = (output: any, context: __SerdeContext): GrantedLicense[] => {
+/**
+ * deserializeAws_json1_1GrantedLicenseList
+ */
+const de_GrantedLicenseList = (output: any, context: __SerdeContext): GrantedLicense[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1GrantedLicense(entry, context);
+      return de_GrantedLicense(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GrantList = (output: any, context: __SerdeContext): Grant[] => {
+/**
+ * deserializeAws_json1_1GrantList
+ */
+const de_GrantList = (output: any, context: __SerdeContext): Grant[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Grant(entry, context);
+      return de_Grant(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InvalidParameterValueException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterValueException => {
+/**
+ * deserializeAws_json1_1InvalidParameterValueException
+ */
+const de_InvalidParameterValueException = (output: any, context: __SerdeContext): InvalidParameterValueException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidResourceStateException = (
-  output: any,
-  context: __SerdeContext
-): InvalidResourceStateException => {
+/**
+ * deserializeAws_json1_1InvalidResourceStateException
+ */
+const de_InvalidResourceStateException = (output: any, context: __SerdeContext): InvalidResourceStateException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1IssuerDetails = (output: any, context: __SerdeContext): IssuerDetails => {
+/**
+ * deserializeAws_json1_1IssuerDetails
+ */
+const de_IssuerDetails = (output: any, context: __SerdeContext): IssuerDetails => {
   return {
     KeyFingerprint: __expectString(output.KeyFingerprint),
     Name: __expectString(output.Name),
@@ -5570,39 +6313,43 @@ const deserializeAws_json1_1IssuerDetails = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1License = (output: any, context: __SerdeContext): License => {
+/**
+ * deserializeAws_json1_1License
+ */
+const de_License = (output: any, context: __SerdeContext): License => {
   return {
     Beneficiary: __expectString(output.Beneficiary),
     ConsumptionConfiguration:
       output.ConsumptionConfiguration != null
-        ? deserializeAws_json1_1ConsumptionConfiguration(output.ConsumptionConfiguration, context)
+        ? de_ConsumptionConfiguration(output.ConsumptionConfiguration, context)
         : undefined,
     CreateTime: __expectString(output.CreateTime),
-    Entitlements:
-      output.Entitlements != null ? deserializeAws_json1_1EntitlementList(output.Entitlements, context) : undefined,
+    Entitlements: output.Entitlements != null ? de_EntitlementList(output.Entitlements, context) : undefined,
     HomeRegion: __expectString(output.HomeRegion),
-    Issuer: output.Issuer != null ? deserializeAws_json1_1IssuerDetails(output.Issuer, context) : undefined,
+    Issuer: output.Issuer != null ? de_IssuerDetails(output.Issuer, context) : undefined,
     LicenseArn: __expectString(output.LicenseArn),
-    LicenseMetadata:
-      output.LicenseMetadata != null ? deserializeAws_json1_1MetadataList(output.LicenseMetadata, context) : undefined,
+    LicenseMetadata: output.LicenseMetadata != null ? de_MetadataList(output.LicenseMetadata, context) : undefined,
     LicenseName: __expectString(output.LicenseName),
     ProductName: __expectString(output.ProductName),
     ProductSKU: __expectString(output.ProductSKU),
     Status: __expectString(output.Status),
-    Validity: output.Validity != null ? deserializeAws_json1_1DatetimeRange(output.Validity, context) : undefined,
+    Validity: output.Validity != null ? de_DatetimeRange(output.Validity, context) : undefined,
     Version: __expectString(output.Version),
   } as any;
 };
 
-const deserializeAws_json1_1LicenseConfiguration = (output: any, context: __SerdeContext): LicenseConfiguration => {
+/**
+ * deserializeAws_json1_1LicenseConfiguration
+ */
+const de_LicenseConfiguration = (output: any, context: __SerdeContext): LicenseConfiguration => {
   return {
     AutomatedDiscoveryInformation:
       output.AutomatedDiscoveryInformation != null
-        ? deserializeAws_json1_1AutomatedDiscoveryInformation(output.AutomatedDiscoveryInformation, context)
+        ? de_AutomatedDiscoveryInformation(output.AutomatedDiscoveryInformation, context)
         : undefined,
     ConsumedLicenseSummaryList:
       output.ConsumedLicenseSummaryList != null
-        ? deserializeAws_json1_1ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
+        ? de_ConsumedLicenseSummaryList(output.ConsumedLicenseSummaryList, context)
         : undefined,
     ConsumedLicenses: __expectLong(output.ConsumedLicenses),
     Description: __expectString(output.Description),
@@ -5612,26 +6359,25 @@ const deserializeAws_json1_1LicenseConfiguration = (output: any, context: __Serd
     LicenseCount: __expectLong(output.LicenseCount),
     LicenseCountHardLimit: __expectBoolean(output.LicenseCountHardLimit),
     LicenseCountingType: __expectString(output.LicenseCountingType),
-    LicenseRules:
-      output.LicenseRules != null ? deserializeAws_json1_1StringList(output.LicenseRules, context) : undefined,
+    LicenseRules: output.LicenseRules != null ? de_StringList(output.LicenseRules, context) : undefined,
     ManagedResourceSummaryList:
       output.ManagedResourceSummaryList != null
-        ? deserializeAws_json1_1ManagedResourceSummaryList(output.ManagedResourceSummaryList, context)
+        ? de_ManagedResourceSummaryList(output.ManagedResourceSummaryList, context)
         : undefined,
     Name: __expectString(output.Name),
     OwnerAccountId: __expectString(output.OwnerAccountId),
     ProductInformationList:
       output.ProductInformationList != null
-        ? deserializeAws_json1_1ProductInformationList(output.ProductInformationList, context)
+        ? de_ProductInformationList(output.ProductInformationList, context)
         : undefined,
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1LicenseConfigurationAssociation = (
-  output: any,
-  context: __SerdeContext
-): LicenseConfigurationAssociation => {
+/**
+ * deserializeAws_json1_1LicenseConfigurationAssociation
+ */
+const de_LicenseConfigurationAssociation = (output: any, context: __SerdeContext): LicenseConfigurationAssociation => {
   return {
     AmiAssociationScope: __expectString(output.AmiAssociationScope),
     AssociationTime:
@@ -5644,7 +6390,10 @@ const deserializeAws_json1_1LicenseConfigurationAssociation = (
   } as any;
 };
 
-const deserializeAws_json1_1LicenseConfigurationAssociations = (
+/**
+ * deserializeAws_json1_1LicenseConfigurationAssociations
+ */
+const de_LicenseConfigurationAssociations = (
   output: any,
   context: __SerdeContext
 ): LicenseConfigurationAssociation[] => {
@@ -5654,27 +6403,30 @@ const deserializeAws_json1_1LicenseConfigurationAssociations = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LicenseConfigurationAssociation(entry, context);
+      return de_LicenseConfigurationAssociation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LicenseConfigurations = (output: any, context: __SerdeContext): LicenseConfiguration[] => {
+/**
+ * deserializeAws_json1_1LicenseConfigurations
+ */
+const de_LicenseConfigurations = (output: any, context: __SerdeContext): LicenseConfiguration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LicenseConfiguration(entry, context);
+      return de_LicenseConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LicenseConfigurationUsage = (
-  output: any,
-  context: __SerdeContext
-): LicenseConfigurationUsage => {
+/**
+ * deserializeAws_json1_1LicenseConfigurationUsage
+ */
+const de_LicenseConfigurationUsage = (output: any, context: __SerdeContext): LicenseConfigurationUsage => {
   return {
     AssociationTime:
       output.AssociationTime != null
@@ -5688,35 +6440,38 @@ const deserializeAws_json1_1LicenseConfigurationUsage = (
   } as any;
 };
 
-const deserializeAws_json1_1LicenseConfigurationUsageList = (
-  output: any,
-  context: __SerdeContext
-): LicenseConfigurationUsage[] => {
+/**
+ * deserializeAws_json1_1LicenseConfigurationUsageList
+ */
+const de_LicenseConfigurationUsageList = (output: any, context: __SerdeContext): LicenseConfigurationUsage[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LicenseConfigurationUsage(entry, context);
+      return de_LicenseConfigurationUsage(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LicenseConversionContext = (
-  output: any,
-  context: __SerdeContext
-): LicenseConversionContext => {
+/**
+ * deserializeAws_json1_1LicenseConversionContext
+ */
+const de_LicenseConversionContext = (output: any, context: __SerdeContext): LicenseConversionContext => {
   return {
     UsageOperation: __expectString(output.UsageOperation),
   } as any;
 };
 
-const deserializeAws_json1_1LicenseConversionTask = (output: any, context: __SerdeContext): LicenseConversionTask => {
+/**
+ * deserializeAws_json1_1LicenseConversionTask
+ */
+const de_LicenseConversionTask = (output: any, context: __SerdeContext): LicenseConversionTask => {
   return {
     DestinationLicenseContext:
       output.DestinationLicenseContext != null
-        ? deserializeAws_json1_1LicenseConversionContext(output.DestinationLicenseContext, context)
+        ? de_LicenseConversionContext(output.DestinationLicenseContext, context)
         : undefined,
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
@@ -5728,7 +6483,7 @@ const deserializeAws_json1_1LicenseConversionTask = (output: any, context: __Ser
     ResourceArn: __expectString(output.ResourceArn),
     SourceLicenseContext:
       output.SourceLicenseContext != null
-        ? deserializeAws_json1_1LicenseConversionContext(output.SourceLicenseContext, context)
+        ? de_LicenseConversionContext(output.SourceLicenseContext, context)
         : undefined,
     StartTime:
       output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
@@ -5737,45 +6492,47 @@ const deserializeAws_json1_1LicenseConversionTask = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1LicenseConversionTasks = (
-  output: any,
-  context: __SerdeContext
-): LicenseConversionTask[] => {
+/**
+ * deserializeAws_json1_1LicenseConversionTasks
+ */
+const de_LicenseConversionTasks = (output: any, context: __SerdeContext): LicenseConversionTask[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LicenseConversionTask(entry, context);
+      return de_LicenseConversionTask(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LicenseList = (output: any, context: __SerdeContext): License[] => {
+/**
+ * deserializeAws_json1_1LicenseList
+ */
+const de_LicenseList = (output: any, context: __SerdeContext): License[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1License(entry, context);
+      return de_License(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LicenseOperationFailure = (
-  output: any,
-  context: __SerdeContext
-): LicenseOperationFailure => {
+/**
+ * deserializeAws_json1_1LicenseOperationFailure
+ */
+const de_LicenseOperationFailure = (output: any, context: __SerdeContext): LicenseOperationFailure => {
   return {
     ErrorMessage: __expectString(output.ErrorMessage),
     FailureTime:
       output.FailureTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FailureTime)))
         : undefined,
-    MetadataList:
-      output.MetadataList != null ? deserializeAws_json1_1MetadataList(output.MetadataList, context) : undefined,
+    MetadataList: output.MetadataList != null ? de_MetadataList(output.MetadataList, context) : undefined,
     OperationName: __expectString(output.OperationName),
     OperationRequestedBy: __expectString(output.OperationRequestedBy),
     ResourceArn: __expectString(output.ResourceArn),
@@ -5784,265 +6541,312 @@ const deserializeAws_json1_1LicenseOperationFailure = (
   } as any;
 };
 
-const deserializeAws_json1_1LicenseOperationFailureList = (
-  output: any,
-  context: __SerdeContext
-): LicenseOperationFailure[] => {
+/**
+ * deserializeAws_json1_1LicenseOperationFailureList
+ */
+const de_LicenseOperationFailureList = (output: any, context: __SerdeContext): LicenseOperationFailure[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LicenseOperationFailure(entry, context);
+      return de_LicenseOperationFailure(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LicenseSpecification = (output: any, context: __SerdeContext): LicenseSpecification => {
+/**
+ * deserializeAws_json1_1LicenseSpecification
+ */
+const de_LicenseSpecification = (output: any, context: __SerdeContext): LicenseSpecification => {
   return {
     AmiAssociationScope: __expectString(output.AmiAssociationScope),
     LicenseConfigurationArn: __expectString(output.LicenseConfigurationArn),
   } as any;
 };
 
-const deserializeAws_json1_1LicenseSpecifications = (output: any, context: __SerdeContext): LicenseSpecification[] => {
+/**
+ * deserializeAws_json1_1LicenseSpecifications
+ */
+const de_LicenseSpecifications = (output: any, context: __SerdeContext): LicenseSpecification[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1LicenseSpecification(entry, context);
+      return de_LicenseSpecification(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LicenseUsage = (output: any, context: __SerdeContext): LicenseUsage => {
+/**
+ * deserializeAws_json1_1LicenseUsage
+ */
+const de_LicenseUsage = (output: any, context: __SerdeContext): LicenseUsage => {
   return {
     EntitlementUsages:
-      output.EntitlementUsages != null
-        ? deserializeAws_json1_1EntitlementUsageList(output.EntitlementUsages, context)
-        : undefined,
+      output.EntitlementUsages != null ? de_EntitlementUsageList(output.EntitlementUsages, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1LicenseUsageException = (output: any, context: __SerdeContext): LicenseUsageException => {
+/**
+ * deserializeAws_json1_1LicenseUsageException
+ */
+const de_LicenseUsageException = (output: any, context: __SerdeContext): LicenseUsageException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ListAssociationsForLicenseConfigurationResponse = (
+/**
+ * deserializeAws_json1_1ListAssociationsForLicenseConfigurationResponse
+ */
+const de_ListAssociationsForLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): ListAssociationsForLicenseConfigurationResponse => {
   return {
     LicenseConfigurationAssociations:
       output.LicenseConfigurationAssociations != null
-        ? deserializeAws_json1_1LicenseConfigurationAssociations(output.LicenseConfigurationAssociations, context)
+        ? de_LicenseConfigurationAssociations(output.LicenseConfigurationAssociations, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListDistributedGrantsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDistributedGrantsResponse => {
+/**
+ * deserializeAws_json1_1ListDistributedGrantsResponse
+ */
+const de_ListDistributedGrantsResponse = (output: any, context: __SerdeContext): ListDistributedGrantsResponse => {
   return {
-    Grants: output.Grants != null ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
+    Grants: output.Grants != null ? de_GrantList(output.Grants, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsResponse = (
+/**
+ * deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsResponse
+ */
+const de_ListFailuresForLicenseConfigurationOperationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListFailuresForLicenseConfigurationOperationsResponse => {
   return {
     LicenseOperationFailureList:
       output.LicenseOperationFailureList != null
-        ? deserializeAws_json1_1LicenseOperationFailureList(output.LicenseOperationFailureList, context)
+        ? de_LicenseOperationFailureList(output.LicenseOperationFailureList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListLicenseConfigurationsResponse = (
+/**
+ * deserializeAws_json1_1ListLicenseConfigurationsResponse
+ */
+const de_ListLicenseConfigurationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListLicenseConfigurationsResponse => {
   return {
     LicenseConfigurations:
       output.LicenseConfigurations != null
-        ? deserializeAws_json1_1LicenseConfigurations(output.LicenseConfigurations, context)
+        ? de_LicenseConfigurations(output.LicenseConfigurations, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListLicenseConversionTasksResponse = (
+/**
+ * deserializeAws_json1_1ListLicenseConversionTasksResponse
+ */
+const de_ListLicenseConversionTasksResponse = (
   output: any,
   context: __SerdeContext
 ): ListLicenseConversionTasksResponse => {
   return {
     LicenseConversionTasks:
       output.LicenseConversionTasks != null
-        ? deserializeAws_json1_1LicenseConversionTasks(output.LicenseConversionTasks, context)
+        ? de_LicenseConversionTasks(output.LicenseConversionTasks, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListLicenseManagerReportGeneratorsResponse = (
+/**
+ * deserializeAws_json1_1ListLicenseManagerReportGeneratorsResponse
+ */
+const de_ListLicenseManagerReportGeneratorsResponse = (
   output: any,
   context: __SerdeContext
 ): ListLicenseManagerReportGeneratorsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     ReportGenerators:
-      output.ReportGenerators != null
-        ? deserializeAws_json1_1ReportGeneratorList(output.ReportGenerators, context)
-        : undefined,
+      output.ReportGenerators != null ? de_ReportGeneratorList(output.ReportGenerators, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse = (
+/**
+ * deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse
+ */
+const de_ListLicenseSpecificationsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): ListLicenseSpecificationsForResourceResponse => {
   return {
     LicenseSpecifications:
       output.LicenseSpecifications != null
-        ? deserializeAws_json1_1LicenseSpecifications(output.LicenseSpecifications, context)
+        ? de_LicenseSpecifications(output.LicenseSpecifications, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListLicensesResponse = (output: any, context: __SerdeContext): ListLicensesResponse => {
+/**
+ * deserializeAws_json1_1ListLicensesResponse
+ */
+const de_ListLicensesResponse = (output: any, context: __SerdeContext): ListLicensesResponse => {
   return {
-    Licenses: output.Licenses != null ? deserializeAws_json1_1LicenseList(output.Licenses, context) : undefined,
+    Licenses: output.Licenses != null ? de_LicenseList(output.Licenses, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListLicenseVersionsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListLicenseVersionsResponse => {
+/**
+ * deserializeAws_json1_1ListLicenseVersionsResponse
+ */
+const de_ListLicenseVersionsResponse = (output: any, context: __SerdeContext): ListLicenseVersionsResponse => {
   return {
-    Licenses: output.Licenses != null ? deserializeAws_json1_1LicenseList(output.Licenses, context) : undefined,
+    Licenses: output.Licenses != null ? de_LicenseList(output.Licenses, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListReceivedGrantsForOrganizationResponse = (
+/**
+ * deserializeAws_json1_1ListReceivedGrantsForOrganizationResponse
+ */
+const de_ListReceivedGrantsForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): ListReceivedGrantsForOrganizationResponse => {
   return {
-    Grants: output.Grants != null ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
+    Grants: output.Grants != null ? de_GrantList(output.Grants, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListReceivedGrantsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListReceivedGrantsResponse => {
+/**
+ * deserializeAws_json1_1ListReceivedGrantsResponse
+ */
+const de_ListReceivedGrantsResponse = (output: any, context: __SerdeContext): ListReceivedGrantsResponse => {
   return {
-    Grants: output.Grants != null ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
+    Grants: output.Grants != null ? de_GrantList(output.Grants, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListReceivedLicensesForOrganizationResponse = (
+/**
+ * deserializeAws_json1_1ListReceivedLicensesForOrganizationResponse
+ */
+const de_ListReceivedLicensesForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): ListReceivedLicensesForOrganizationResponse => {
   return {
-    Licenses: output.Licenses != null ? deserializeAws_json1_1GrantedLicenseList(output.Licenses, context) : undefined,
+    Licenses: output.Licenses != null ? de_GrantedLicenseList(output.Licenses, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListReceivedLicensesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListReceivedLicensesResponse => {
+/**
+ * deserializeAws_json1_1ListReceivedLicensesResponse
+ */
+const de_ListReceivedLicensesResponse = (output: any, context: __SerdeContext): ListReceivedLicensesResponse => {
   return {
-    Licenses: output.Licenses != null ? deserializeAws_json1_1GrantedLicenseList(output.Licenses, context) : undefined,
+    Licenses: output.Licenses != null ? de_GrantedLicenseList(output.Licenses, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListResourceInventoryResponse = (
-  output: any,
-  context: __SerdeContext
-): ListResourceInventoryResponse => {
+/**
+ * deserializeAws_json1_1ListResourceInventoryResponse
+ */
+const de_ListResourceInventoryResponse = (output: any, context: __SerdeContext): ListResourceInventoryResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     ResourceInventoryList:
       output.ResourceInventoryList != null
-        ? deserializeAws_json1_1ResourceInventoryList(output.ResourceInventoryList, context)
+        ? de_ResourceInventoryList(output.ResourceInventoryList, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_1ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTokensResponse = (output: any, context: __SerdeContext): ListTokensResponse => {
+/**
+ * deserializeAws_json1_1ListTokensResponse
+ */
+const de_ListTokensResponse = (output: any, context: __SerdeContext): ListTokensResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tokens: output.Tokens != null ? deserializeAws_json1_1TokenList(output.Tokens, context) : undefined,
+    Tokens: output.Tokens != null ? de_TokenList(output.Tokens, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListUsageForLicenseConfigurationResponse = (
+/**
+ * deserializeAws_json1_1ListUsageForLicenseConfigurationResponse
+ */
+const de_ListUsageForLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): ListUsageForLicenseConfigurationResponse => {
   return {
     LicenseConfigurationUsageList:
       output.LicenseConfigurationUsageList != null
-        ? deserializeAws_json1_1LicenseConfigurationUsageList(output.LicenseConfigurationUsageList, context)
+        ? de_LicenseConfigurationUsageList(output.LicenseConfigurationUsageList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ManagedResourceSummary = (output: any, context: __SerdeContext): ManagedResourceSummary => {
+/**
+ * deserializeAws_json1_1ManagedResourceSummary
+ */
+const de_ManagedResourceSummary = (output: any, context: __SerdeContext): ManagedResourceSummary => {
   return {
     AssociationCount: __expectLong(output.AssociationCount),
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
-const deserializeAws_json1_1ManagedResourceSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ManagedResourceSummary[] => {
+/**
+ * deserializeAws_json1_1ManagedResourceSummaryList
+ */
+const de_ManagedResourceSummaryList = (output: any, context: __SerdeContext): ManagedResourceSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ManagedResourceSummary(entry, context);
+      return de_ManagedResourceSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1MaxSize3StringList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1MaxSize3StringList
+ */
+const de_MaxSize3StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6054,137 +6858,159 @@ const deserializeAws_json1_1MaxSize3StringList = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_json1_1Metadata = (output: any, context: __SerdeContext): Metadata => {
+/**
+ * deserializeAws_json1_1Metadata
+ */
+const de_Metadata = (output: any, context: __SerdeContext): Metadata => {
   return {
     Name: __expectString(output.Name),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1MetadataList = (output: any, context: __SerdeContext): Metadata[] => {
+/**
+ * deserializeAws_json1_1MetadataList
+ */
+const de_MetadataList = (output: any, context: __SerdeContext): Metadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Metadata(entry, context);
+      return de_Metadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1NoEntitlementsAllowedException = (
-  output: any,
-  context: __SerdeContext
-): NoEntitlementsAllowedException => {
+/**
+ * deserializeAws_json1_1NoEntitlementsAllowedException
+ */
+const de_NoEntitlementsAllowedException = (output: any, context: __SerdeContext): NoEntitlementsAllowedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1Options = (output: any, context: __SerdeContext): Options => {
+/**
+ * deserializeAws_json1_1Options
+ */
+const de_Options = (output: any, context: __SerdeContext): Options => {
   return {
     ActivationOverrideBehavior: __expectString(output.ActivationOverrideBehavior),
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): OrganizationConfiguration => {
+/**
+ * deserializeAws_json1_1OrganizationConfiguration
+ */
+const de_OrganizationConfiguration = (output: any, context: __SerdeContext): OrganizationConfiguration => {
   return {
     EnableIntegration: __expectBoolean(output.EnableIntegration),
   } as any;
 };
 
-const deserializeAws_json1_1ProductInformation = (output: any, context: __SerdeContext): ProductInformation => {
+/**
+ * deserializeAws_json1_1ProductInformation
+ */
+const de_ProductInformation = (output: any, context: __SerdeContext): ProductInformation => {
   return {
     ProductInformationFilterList:
       output.ProductInformationFilterList != null
-        ? deserializeAws_json1_1ProductInformationFilterList(output.ProductInformationFilterList, context)
+        ? de_ProductInformationFilterList(output.ProductInformationFilterList, context)
         : undefined,
     ResourceType: __expectString(output.ResourceType),
   } as any;
 };
 
-const deserializeAws_json1_1ProductInformationFilter = (
-  output: any,
-  context: __SerdeContext
-): ProductInformationFilter => {
+/**
+ * deserializeAws_json1_1ProductInformationFilter
+ */
+const de_ProductInformationFilter = (output: any, context: __SerdeContext): ProductInformationFilter => {
   return {
     ProductInformationFilterComparator: __expectString(output.ProductInformationFilterComparator),
     ProductInformationFilterName: __expectString(output.ProductInformationFilterName),
     ProductInformationFilterValue:
       output.ProductInformationFilterValue != null
-        ? deserializeAws_json1_1StringList(output.ProductInformationFilterValue, context)
+        ? de_StringList(output.ProductInformationFilterValue, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ProductInformationFilterList = (
-  output: any,
-  context: __SerdeContext
-): ProductInformationFilter[] => {
+/**
+ * deserializeAws_json1_1ProductInformationFilterList
+ */
+const de_ProductInformationFilterList = (output: any, context: __SerdeContext): ProductInformationFilter[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProductInformationFilter(entry, context);
+      return de_ProductInformationFilter(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProductInformationList = (output: any, context: __SerdeContext): ProductInformation[] => {
+/**
+ * deserializeAws_json1_1ProductInformationList
+ */
+const de_ProductInformationList = (output: any, context: __SerdeContext): ProductInformation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProductInformation(entry, context);
+      return de_ProductInformation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProvisionalConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ProvisionalConfiguration => {
+/**
+ * deserializeAws_json1_1ProvisionalConfiguration
+ */
+const de_ProvisionalConfiguration = (output: any, context: __SerdeContext): ProvisionalConfiguration => {
   return {
     MaxTimeToLiveInMinutes: __expectInt32(output.MaxTimeToLiveInMinutes),
   } as any;
 };
 
-const deserializeAws_json1_1RateLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): RateLimitExceededException => {
+/**
+ * deserializeAws_json1_1RateLimitExceededException
+ */
+const de_RateLimitExceededException = (output: any, context: __SerdeContext): RateLimitExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ReceivedMetadata = (output: any, context: __SerdeContext): ReceivedMetadata => {
+/**
+ * deserializeAws_json1_1ReceivedMetadata
+ */
+const de_ReceivedMetadata = (output: any, context: __SerdeContext): ReceivedMetadata => {
   return {
     AllowedOperations:
-      output.AllowedOperations != null
-        ? deserializeAws_json1_1AllowedOperationList(output.AllowedOperations, context)
-        : undefined,
+      output.AllowedOperations != null ? de_AllowedOperationList(output.AllowedOperations, context) : undefined,
     ReceivedStatus: __expectString(output.ReceivedStatus),
     ReceivedStatusReason: __expectString(output.ReceivedStatusReason),
   } as any;
 };
 
-const deserializeAws_json1_1RedirectException = (output: any, context: __SerdeContext): RedirectException => {
+/**
+ * deserializeAws_json1_1RedirectException
+ */
+const de_RedirectException = (output: any, context: __SerdeContext): RedirectException => {
   return {
     Location: __expectString(output.Location),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1RejectGrantResponse = (output: any, context: __SerdeContext): RejectGrantResponse => {
+/**
+ * deserializeAws_json1_1RejectGrantResponse
+ */
+const de_RejectGrantResponse = (output: any, context: __SerdeContext): RejectGrantResponse => {
   return {
     GrantArn: __expectString(output.GrantArn),
     Status: __expectString(output.Status),
@@ -6192,23 +7018,30 @@ const deserializeAws_json1_1RejectGrantResponse = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1ReportContext = (output: any, context: __SerdeContext): ReportContext => {
+/**
+ * deserializeAws_json1_1ReportContext
+ */
+const de_ReportContext = (output: any, context: __SerdeContext): ReportContext => {
   return {
     licenseConfigurationArns:
-      output.licenseConfigurationArns != null
-        ? deserializeAws_json1_1ArnList(output.licenseConfigurationArns, context)
-        : undefined,
+      output.licenseConfigurationArns != null ? de_ArnList(output.licenseConfigurationArns, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ReportFrequency = (output: any, context: __SerdeContext): ReportFrequency => {
+/**
+ * deserializeAws_json1_1ReportFrequency
+ */
+const de_ReportFrequency = (output: any, context: __SerdeContext): ReportFrequency => {
   return {
     period: __expectString(output.period),
     value: __expectInt32(output.value),
   } as any;
 };
 
-const deserializeAws_json1_1ReportGenerator = (output: any, context: __SerdeContext): ReportGenerator => {
+/**
+ * deserializeAws_json1_1ReportGenerator
+ */
+const de_ReportGenerator = (output: any, context: __SerdeContext): ReportGenerator => {
   return {
     CreateTime: __expectString(output.CreateTime),
     Description: __expectString(output.Description),
@@ -6216,34 +7049,35 @@ const deserializeAws_json1_1ReportGenerator = (output: any, context: __SerdeCont
     LastRunFailureReason: __expectString(output.LastRunFailureReason),
     LastRunStatus: __expectString(output.LastRunStatus),
     LicenseManagerReportGeneratorArn: __expectString(output.LicenseManagerReportGeneratorArn),
-    ReportContext:
-      output.ReportContext != null ? deserializeAws_json1_1ReportContext(output.ReportContext, context) : undefined,
+    ReportContext: output.ReportContext != null ? de_ReportContext(output.ReportContext, context) : undefined,
     ReportCreatorAccount: __expectString(output.ReportCreatorAccount),
-    ReportFrequency:
-      output.ReportFrequency != null
-        ? deserializeAws_json1_1ReportFrequency(output.ReportFrequency, context)
-        : undefined,
+    ReportFrequency: output.ReportFrequency != null ? de_ReportFrequency(output.ReportFrequency, context) : undefined,
     ReportGeneratorName: __expectString(output.ReportGeneratorName),
-    ReportType:
-      output.ReportType != null ? deserializeAws_json1_1ReportTypeList(output.ReportType, context) : undefined,
-    S3Location: output.S3Location != null ? deserializeAws_json1_1S3Location(output.S3Location, context) : undefined,
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    ReportType: output.ReportType != null ? de_ReportTypeList(output.ReportType, context) : undefined,
+    S3Location: output.S3Location != null ? de_S3Location(output.S3Location, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ReportGeneratorList = (output: any, context: __SerdeContext): ReportGenerator[] => {
+/**
+ * deserializeAws_json1_1ReportGeneratorList
+ */
+const de_ReportGeneratorList = (output: any, context: __SerdeContext): ReportGenerator[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ReportGenerator(entry, context);
+      return de_ReportGenerator(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ReportTypeList = (output: any, context: __SerdeContext): (ReportType | string)[] => {
+/**
+ * deserializeAws_json1_1ReportTypeList
+ */
+const de_ReportTypeList = (output: any, context: __SerdeContext): (ReportType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6255,7 +7089,10 @@ const deserializeAws_json1_1ReportTypeList = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceInventory = (output: any, context: __SerdeContext): ResourceInventory => {
+/**
+ * deserializeAws_json1_1ResourceInventory
+ */
+const de_ResourceInventory = (output: any, context: __SerdeContext): ResourceInventory => {
   return {
     Platform: __expectString(output.Platform),
     PlatformVersion: __expectString(output.PlatformVersion),
@@ -6266,53 +7103,62 @@ const deserializeAws_json1_1ResourceInventory = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1ResourceInventoryList = (output: any, context: __SerdeContext): ResourceInventory[] => {
+/**
+ * deserializeAws_json1_1ResourceInventoryList
+ */
+const de_ResourceInventoryList = (output: any, context: __SerdeContext): ResourceInventory[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResourceInventory(entry, context);
+      return de_ResourceInventory(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceLimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): ResourceLimitExceededException => {
+/**
+ * deserializeAws_json1_1ResourceLimitExceededException
+ */
+const de_ResourceLimitExceededException = (output: any, context: __SerdeContext): ResourceLimitExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
+/**
+ * deserializeAws_json1_1S3Location
+ */
+const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
     bucket: __expectString(output.bucket),
     keyPrefix: __expectString(output.keyPrefix),
   } as any;
 };
 
-const deserializeAws_json1_1ServerInternalException = (
-  output: any,
-  context: __SerdeContext
-): ServerInternalException => {
+/**
+ * deserializeAws_json1_1ServerInternalException
+ */
+const de_ServerInternalException = (output: any, context: __SerdeContext): ServerInternalException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1StringList
+ */
+const de_StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6324,57 +7170,73 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_1TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1TokenData = (output: any, context: __SerdeContext): TokenData => {
+/**
+ * deserializeAws_json1_1TokenData
+ */
+const de_TokenData = (output: any, context: __SerdeContext): TokenData => {
   return {
     ExpirationTime: __expectString(output.ExpirationTime),
     LicenseArn: __expectString(output.LicenseArn),
-    RoleArns: output.RoleArns != null ? deserializeAws_json1_1ArnList(output.RoleArns, context) : undefined,
+    RoleArns: output.RoleArns != null ? de_ArnList(output.RoleArns, context) : undefined,
     Status: __expectString(output.Status),
     TokenId: __expectString(output.TokenId),
     TokenProperties:
-      output.TokenProperties != null
-        ? deserializeAws_json1_1MaxSize3StringList(output.TokenProperties, context)
-        : undefined,
+      output.TokenProperties != null ? de_MaxSize3StringList(output.TokenProperties, context) : undefined,
     TokenType: __expectString(output.TokenType),
   } as any;
 };
 
-const deserializeAws_json1_1TokenList = (output: any, context: __SerdeContext): TokenData[] => {
+/**
+ * deserializeAws_json1_1TokenList
+ */
+const de_TokenList = (output: any, context: __SerdeContext): TokenData[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1TokenData(entry, context);
+      return de_TokenData(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1UnsupportedDigitalSignatureMethodException = (
+/**
+ * deserializeAws_json1_1UnsupportedDigitalSignatureMethodException
+ */
+const de_UnsupportedDigitalSignatureMethodException = (
   output: any,
   context: __SerdeContext
 ): UnsupportedDigitalSignatureMethodException => {
@@ -6383,39 +7245,54 @@ const deserializeAws_json1_1UnsupportedDigitalSignatureMethodException = (
   } as any;
 };
 
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_1UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateLicenseConfigurationResponse = (
+/**
+ * deserializeAws_json1_1UpdateLicenseConfigurationResponse
+ */
+const de_UpdateLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateLicenseConfigurationResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateLicenseManagerReportGeneratorResponse = (
+/**
+ * deserializeAws_json1_1UpdateLicenseManagerReportGeneratorResponse
+ */
+const de_UpdateLicenseManagerReportGeneratorResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateLicenseManagerReportGeneratorResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceResponse = (
+/**
+ * deserializeAws_json1_1UpdateLicenseSpecificationsForResourceResponse
+ */
+const de_UpdateLicenseSpecificationsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateLicenseSpecificationsForResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateServiceSettingsResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateServiceSettingsResponse => {
+/**
+ * deserializeAws_json1_1UpdateServiceSettingsResponse
+ */
+const de_UpdateServiceSettingsResponse = (output: any, context: __SerdeContext): UpdateServiceSettingsResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+/**
+ * deserializeAws_json1_1ValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Message: __expectString(output.Message),
   } as any;

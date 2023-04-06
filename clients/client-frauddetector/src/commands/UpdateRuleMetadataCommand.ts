@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { UpdateRuleMetadataRequest, UpdateRuleMetadataResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRuleMetadataCommand,
-  serializeAws_json1_1UpdateRuleMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRuleMetadataCommand, se_UpdateRuleMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UpdateRuleMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRuleMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRuleMetadataCommand(input, context);
+    return se_UpdateRuleMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleMetadataCommandOutput> {
-    return deserializeAws_json1_1UpdateRuleMetadataCommand(output, context);
+    return de_UpdateRuleMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

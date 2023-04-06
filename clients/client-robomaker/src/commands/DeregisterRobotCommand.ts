@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeregisterRobotRequest, DeregisterRobotResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterRobotCommand,
-  serializeAws_restJson1DeregisterRobotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeregisterRobotCommand, se_DeregisterRobotCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -139,14 +136,14 @@ export class DeregisterRobotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterRobotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterRobotCommand(input, context);
+    return se_DeregisterRobotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterRobotCommandOutput> {
-    return deserializeAws_restJson1DeregisterRobotCommand(output, context);
+    return de_DeregisterRobotCommand(output, context);
   }
 
   // Start section: command_body_extra

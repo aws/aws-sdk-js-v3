@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import { AddApplicationInputRequest, AddApplicationInputResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddApplicationInputCommand,
-  serializeAws_json1_1AddApplicationInputCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AddApplicationInputCommand, se_AddApplicationInputCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -194,14 +191,14 @@ export class AddApplicationInputCommand extends $Command<
    * @internal
    */
   private serialize(input: AddApplicationInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationInputCommand(input, context);
+    return se_AddApplicationInputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddApplicationInputCommandOutput> {
-    return deserializeAws_json1_1AddApplicationInputCommand(output, context);
+    return de_AddApplicationInputCommand(output, context);
   }
 
   // Start section: command_body_extra

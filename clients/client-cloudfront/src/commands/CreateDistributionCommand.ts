@@ -20,10 +20,7 @@ import {
   CreateDistributionResult,
   CreateDistributionResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateDistributionCommand,
-  serializeAws_restXmlCreateDistributionCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateDistributionCommand, se_CreateDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -648,14 +645,14 @@ export class CreateDistributionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateDistributionCommand(input, context);
+    return se_CreateDistributionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDistributionCommandOutput> {
-    return deserializeAws_restXmlCreateDistributionCommand(output, context);
+    return de_CreateDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

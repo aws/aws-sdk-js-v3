@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEventSubscriptionCommand,
-  serializeAws_json1_1DeleteEventSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEventSubscriptionCommand, se_DeleteEventSubscriptionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DeleteEventSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEventSubscriptionCommand(input, context);
+    return se_DeleteEventSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteEventSubscriptionCommand(output, context);
+    return de_DeleteEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

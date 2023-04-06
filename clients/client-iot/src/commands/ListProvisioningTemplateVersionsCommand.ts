@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListProvisioningTemplateVersionsRequest, ListProvisioningTemplateVersionsResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListProvisioningTemplateVersionsCommand,
-  serializeAws_restJson1ListProvisioningTemplateVersionsCommand,
+  de_ListProvisioningTemplateVersionsCommand,
+  se_ListProvisioningTemplateVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class ListProvisioningTemplateVersionsCommand extends $Command<
     input: ListProvisioningTemplateVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProvisioningTemplateVersionsCommand(input, context);
+    return se_ListProvisioningTemplateVersionsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class ListProvisioningTemplateVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisioningTemplateVersionsCommandOutput> {
-    return deserializeAws_restJson1ListProvisioningTemplateVersionsCommand(output, context);
+    return de_ListProvisioningTemplateVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

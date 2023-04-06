@@ -19,8 +19,8 @@ import {
   DescribeNetworkInsightsAccessScopesResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeNetworkInsightsAccessScopesCommand,
-  serializeAws_ec2DescribeNetworkInsightsAccessScopesCommand,
+  de_DescribeNetworkInsightsAccessScopesCommand,
+  se_DescribeNetworkInsightsAccessScopesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeNetworkInsightsAccessScopesCommand extends $Command<
     input: DescribeNetworkInsightsAccessScopesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInsightsAccessScopesCommand(input, context);
+    return se_DescribeNetworkInsightsAccessScopesCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeNetworkInsightsAccessScopesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNetworkInsightsAccessScopesCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInsightsAccessScopesCommand(output, context);
+    return de_DescribeNetworkInsightsAccessScopesCommand(output, context);
   }
 
   // Start section: command_body_extra

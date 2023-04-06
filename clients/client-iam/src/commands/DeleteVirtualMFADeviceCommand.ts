@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteVirtualMFADeviceRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteVirtualMFADeviceCommand,
-  serializeAws_queryDeleteVirtualMFADeviceCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteVirtualMFADeviceCommand, se_DeleteVirtualMFADeviceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class DeleteVirtualMFADeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVirtualMFADeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteVirtualMFADeviceCommand(input, context);
+    return se_DeleteVirtualMFADeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualMFADeviceCommandOutput> {
-    return deserializeAws_queryDeleteVirtualMFADeviceCommand(output, context);
+    return de_DeleteVirtualMFADeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -21,10 +21,7 @@ import {
   UploadPartRequest,
   UploadPartRequestFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlUploadPartCommand,
-  serializeAws_restXmlUploadPartCommand,
-} from "../protocols/Aws_restXml";
+import { de_UploadPartCommand, se_UploadPartCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -310,14 +307,14 @@ export class UploadPartCommand extends $Command<
    * @internal
    */
   private serialize(input: UploadPartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUploadPartCommand(input, context);
+    return se_UploadPartCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadPartCommandOutput> {
-    return deserializeAws_restXmlUploadPartCommand(output, context);
+    return de_UploadPartCommand(output, context);
   }
 
   // Start section: command_body_extra

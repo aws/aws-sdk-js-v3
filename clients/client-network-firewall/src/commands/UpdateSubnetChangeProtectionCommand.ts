@@ -16,8 +16,8 @@ import {
 import { UpdateSubnetChangeProtectionRequest, UpdateSubnetChangeProtectionResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0UpdateSubnetChangeProtectionCommand,
-  serializeAws_json1_0UpdateSubnetChangeProtectionCommand,
+  de_UpdateSubnetChangeProtectionCommand,
+  se_UpdateSubnetChangeProtectionCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -157,7 +157,7 @@ export class UpdateSubnetChangeProtectionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSubnetChangeProtectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateSubnetChangeProtectionCommand(input, context);
+    return se_UpdateSubnetChangeProtectionCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class UpdateSubnetChangeProtectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSubnetChangeProtectionCommandOutput> {
-    return deserializeAws_json1_0UpdateSubnetChangeProtectionCommand(output, context);
+    return de_UpdateSubnetChangeProtectionCommand(output, context);
   }
 
   // Start section: command_body_extra

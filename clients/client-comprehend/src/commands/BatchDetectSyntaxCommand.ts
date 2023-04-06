@@ -20,10 +20,7 @@ import {
   BatchDetectSyntaxResponse,
   BatchDetectSyntaxResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDetectSyntaxCommand,
-  serializeAws_json1_1BatchDetectSyntaxCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDetectSyntaxCommand, se_BatchDetectSyntaxCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class BatchDetectSyntaxCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDetectSyntaxCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDetectSyntaxCommand(input, context);
+    return se_BatchDetectSyntaxCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDetectSyntaxCommandOutput> {
-    return deserializeAws_json1_1BatchDetectSyntaxCommand(output, context);
+    return de_BatchDetectSyntaxCommand(output, context);
   }
 
   // Start section: command_body_extra

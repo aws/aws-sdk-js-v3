@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { DeleteBackendEnvironmentRequest, DeleteBackendEnvironmentResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBackendEnvironmentCommand,
-  serializeAws_restJson1DeleteBackendEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteBackendEnvironmentCommand, se_DeleteBackendEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteBackendEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBackendEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackendEnvironmentCommand(input, context);
+    return se_DeleteBackendEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackendEnvironmentCommandOutput> {
-    return deserializeAws_restJson1DeleteBackendEnvironmentCommand(output, context);
+    return de_DeleteBackendEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

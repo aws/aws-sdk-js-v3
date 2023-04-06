@@ -15,8 +15,8 @@ import {
 
 import { DeleteBucketInventoryConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand,
-  serializeAws_restXmlDeleteBucketInventoryConfigurationCommand,
+  de_DeleteBucketInventoryConfigurationCommand,
+  se_DeleteBucketInventoryConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -156,7 +156,7 @@ export class DeleteBucketInventoryConfigurationCommand extends $Command<
     input: DeleteBucketInventoryConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketInventoryConfigurationCommand(input, context);
+    return se_DeleteBucketInventoryConfigurationCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class DeleteBucketInventoryConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketInventoryConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand(output, context);
+    return de_DeleteBucketInventoryConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

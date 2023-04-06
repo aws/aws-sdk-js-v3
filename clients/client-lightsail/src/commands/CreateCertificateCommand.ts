@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { CreateCertificateRequest, CreateCertificateResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCertificateCommand,
-  serializeAws_json1_1CreateCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateCertificateCommand, se_CreateCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class CreateCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCertificateCommand(input, context);
+    return se_CreateCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCertificateCommandOutput> {
-    return deserializeAws_json1_1CreateCertificateCommand(output, context);
+    return de_CreateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

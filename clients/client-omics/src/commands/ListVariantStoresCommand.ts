@@ -15,10 +15,7 @@ import {
 
 import { ListVariantStoresRequest, ListVariantStoresResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListVariantStoresCommand,
-  serializeAws_restJson1ListVariantStoresCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVariantStoresCommand, se_ListVariantStoresCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListVariantStoresCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVariantStoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVariantStoresCommand(input, context);
+    return se_ListVariantStoresCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVariantStoresCommandOutput> {
-    return deserializeAws_restJson1ListVariantStoresCommand(output, context);
+    return de_ListVariantStoresCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { SubscribeToEventRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1SubscribeToEventCommand,
-  serializeAws_json1_1SubscribeToEventCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SubscribeToEventCommand, se_SubscribeToEventCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class SubscribeToEventCommand extends $Command<
    * @internal
    */
   private serialize(input: SubscribeToEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubscribeToEventCommand(input, context);
+    return se_SubscribeToEventCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeToEventCommandOutput> {
-    return deserializeAws_json1_1SubscribeToEventCommand(output, context);
+    return de_SubscribeToEventCommand(output, context);
   }
 
   // Start section: command_body_extra

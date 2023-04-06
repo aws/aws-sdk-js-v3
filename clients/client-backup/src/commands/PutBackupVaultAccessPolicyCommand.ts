@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { PutBackupVaultAccessPolicyInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutBackupVaultAccessPolicyCommand,
-  serializeAws_restJson1PutBackupVaultAccessPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutBackupVaultAccessPolicyCommand, se_PutBackupVaultAccessPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBackupVaultAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutBackupVaultAccessPolicyCommand(input, context);
+    return se_PutBackupVaultAccessPolicyCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBackupVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1PutBackupVaultAccessPolicyCommand(output, context);
+    return de_PutBackupVaultAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

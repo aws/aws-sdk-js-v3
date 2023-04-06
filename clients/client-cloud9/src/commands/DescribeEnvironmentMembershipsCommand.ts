@@ -16,8 +16,8 @@ import {
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import { DescribeEnvironmentMembershipsRequest, DescribeEnvironmentMembershipsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeEnvironmentMembershipsCommand,
-  serializeAws_json1_1DescribeEnvironmentMembershipsCommand,
+  de_DescribeEnvironmentMembershipsCommand,
+  se_DescribeEnvironmentMembershipsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -238,7 +238,7 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
     input: DescribeEnvironmentMembershipsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEnvironmentMembershipsCommand(input, context);
+    return se_DescribeEnvironmentMembershipsCommand(input, context);
   }
 
   /**
@@ -248,7 +248,7 @@ export class DescribeEnvironmentMembershipsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentMembershipsCommandOutput> {
-    return deserializeAws_json1_1DescribeEnvironmentMembershipsCommand(output, context);
+    return de_DescribeEnvironmentMembershipsCommand(output, context);
   }
 
   // Start section: command_body_extra

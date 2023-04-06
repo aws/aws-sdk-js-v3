@@ -15,10 +15,7 @@ import {
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { DeleteNotificationRequest, DeleteNotificationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteNotificationCommand,
-  serializeAws_json1_1DeleteNotificationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteNotificationCommand, se_DeleteNotificationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteNotificationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteNotificationCommand(input, context);
+    return se_DeleteNotificationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNotificationCommandOutput> {
-    return deserializeAws_json1_1DeleteNotificationCommand(output, context);
+    return de_DeleteNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { DeletePricingPlanInput, DeletePricingPlanOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePricingPlanCommand,
-  serializeAws_restJson1DeletePricingPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePricingPlanCommand, se_DeletePricingPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeletePricingPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePricingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePricingPlanCommand(input, context);
+    return se_DeletePricingPlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePricingPlanCommandOutput> {
-    return deserializeAws_restJson1DeletePricingPlanCommand(output, context);
+    return de_DeletePricingPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

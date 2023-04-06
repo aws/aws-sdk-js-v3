@@ -19,10 +19,7 @@ import {
   DescribeServersResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1DescribeServersCommand,
-  serializeAws_json1_1DescribeServersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeServersCommand, se_DescribeServersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class DescribeServersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServersCommand(input, context);
+    return se_DescribeServersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServersCommandOutput> {
-    return deserializeAws_json1_1DescribeServersCommand(output, context);
+    return de_DescribeServersCommand(output, context);
   }
 
   // Start section: command_body_extra

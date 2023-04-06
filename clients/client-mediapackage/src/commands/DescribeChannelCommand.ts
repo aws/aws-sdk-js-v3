@@ -15,10 +15,7 @@ import {
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
 import { DescribeChannelRequest, DescribeChannelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeChannelCommand,
-  serializeAws_restJson1DescribeChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeChannelCommand, se_DescribeChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DescribeChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChannelCommand(input, context);
+    return se_DescribeChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelCommandOutput> {
-    return deserializeAws_restJson1DescribeChannelCommand(output, context);
+    return de_DescribeChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

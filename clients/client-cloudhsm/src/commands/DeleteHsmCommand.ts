@@ -15,7 +15,7 @@ import {
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { DeleteHsmRequest, DeleteHsmResponse } from "../models/models_0";
-import { deserializeAws_json1_1DeleteHsmCommand, serializeAws_json1_1DeleteHsmCommand } from "../protocols/Aws_json1_1";
+import { de_DeleteHsmCommand, se_DeleteHsmCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +135,14 @@ export class DeleteHsmCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHsmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteHsmCommand(input, context);
+    return se_DeleteHsmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHsmCommandOutput> {
-    return deserializeAws_json1_1DeleteHsmCommand(output, context);
+    return de_DeleteHsmCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { UpdateLiveSourceRequest, UpdateLiveSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLiveSourceCommand,
-  serializeAws_restJson1UpdateLiveSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLiveSourceCommand, se_UpdateLiveSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class UpdateLiveSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLiveSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLiveSourceCommand(input, context);
+    return se_UpdateLiveSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLiveSourceCommandOutput> {
-    return deserializeAws_restJson1UpdateLiveSourceCommand(output, context);
+    return de_UpdateLiveSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

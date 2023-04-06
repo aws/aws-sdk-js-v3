@@ -20,8 +20,8 @@ import {
 } from "../KinesisAnalyticsV2Client";
 import { AddApplicationVpcConfigurationRequest, AddApplicationVpcConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1AddApplicationVpcConfigurationCommand,
-  serializeAws_json1_1AddApplicationVpcConfigurationCommand,
+  de_AddApplicationVpcConfigurationCommand,
+  se_AddApplicationVpcConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -167,7 +167,7 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
     input: AddApplicationVpcConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationVpcConfigurationCommand(input, context);
+    return se_AddApplicationVpcConfigurationCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddApplicationVpcConfigurationCommandOutput> {
-    return deserializeAws_json1_1AddApplicationVpcConfigurationCommand(output, context);
+    return de_AddApplicationVpcConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

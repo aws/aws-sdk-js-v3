@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DeleteTaskTemplateRequest, DeleteTaskTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTaskTemplateCommand,
-  serializeAws_restJson1DeleteTaskTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTaskTemplateCommand, se_DeleteTaskTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteTaskTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTaskTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTaskTemplateCommand(input, context);
+    return se_DeleteTaskTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTaskTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteTaskTemplateCommand(output, context);
+    return de_DeleteTaskTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

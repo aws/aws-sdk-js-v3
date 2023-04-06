@@ -315,7 +315,10 @@ import {
 } from "../models/models_0";
 import { OrganizationsServiceException as __BaseException } from "../models/OrganizationsServiceException";
 
-export const serializeAws_json1_1AcceptHandshakeCommand = async (
+/**
+ * serializeAws_json1_1AcceptHandshakeCommand
+ */
+export const se_AcceptHandshakeCommand = async (
   input: AcceptHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -324,11 +327,14 @@ export const serializeAws_json1_1AcceptHandshakeCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.AcceptHandshake",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AcceptHandshakeRequest(input, context));
+  body = JSON.stringify(se_AcceptHandshakeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AttachPolicyCommand = async (
+/**
+ * serializeAws_json1_1AttachPolicyCommand
+ */
+export const se_AttachPolicyCommand = async (
   input: AttachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -337,11 +343,14 @@ export const serializeAws_json1_1AttachPolicyCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.AttachPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AttachPolicyRequest(input, context));
+  body = JSON.stringify(se_AttachPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CancelHandshakeCommand = async (
+/**
+ * serializeAws_json1_1CancelHandshakeCommand
+ */
+export const se_CancelHandshakeCommand = async (
   input: CancelHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -350,11 +359,14 @@ export const serializeAws_json1_1CancelHandshakeCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.CancelHandshake",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CancelHandshakeRequest(input, context));
+  body = JSON.stringify(se_CancelHandshakeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CloseAccountCommand = async (
+/**
+ * serializeAws_json1_1CloseAccountCommand
+ */
+export const se_CloseAccountCommand = async (
   input: CloseAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -363,11 +375,14 @@ export const serializeAws_json1_1CloseAccountCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.CloseAccount",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CloseAccountRequest(input, context));
+  body = JSON.stringify(se_CloseAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateAccountCommand = async (
+/**
+ * serializeAws_json1_1CreateAccountCommand
+ */
+export const se_CreateAccountCommand = async (
   input: CreateAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -376,11 +391,14 @@ export const serializeAws_json1_1CreateAccountCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.CreateAccount",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateAccountRequest(input, context));
+  body = JSON.stringify(se_CreateAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateGovCloudAccountCommand = async (
+/**
+ * serializeAws_json1_1CreateGovCloudAccountCommand
+ */
+export const se_CreateGovCloudAccountCommand = async (
   input: CreateGovCloudAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -389,11 +407,14 @@ export const serializeAws_json1_1CreateGovCloudAccountCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.CreateGovCloudAccount",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateGovCloudAccountRequest(input, context));
+  body = JSON.stringify(se_CreateGovCloudAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateOrganizationCommand = async (
+/**
+ * serializeAws_json1_1CreateOrganizationCommand
+ */
+export const se_CreateOrganizationCommand = async (
   input: CreateOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -402,11 +423,14 @@ export const serializeAws_json1_1CreateOrganizationCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.CreateOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateOrganizationRequest(input, context));
+  body = JSON.stringify(se_CreateOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateOrganizationalUnitCommand = async (
+/**
+ * serializeAws_json1_1CreateOrganizationalUnitCommand
+ */
+export const se_CreateOrganizationalUnitCommand = async (
   input: CreateOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -415,11 +439,14 @@ export const serializeAws_json1_1CreateOrganizationalUnitCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.CreateOrganizationalUnit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateOrganizationalUnitRequest(input, context));
+  body = JSON.stringify(se_CreateOrganizationalUnitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreatePolicyCommand = async (
+/**
+ * serializeAws_json1_1CreatePolicyCommand
+ */
+export const se_CreatePolicyCommand = async (
   input: CreatePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -428,11 +455,14 @@ export const serializeAws_json1_1CreatePolicyCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.CreatePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreatePolicyRequest(input, context));
+  body = JSON.stringify(se_CreatePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeclineHandshakeCommand = async (
+/**
+ * serializeAws_json1_1DeclineHandshakeCommand
+ */
+export const se_DeclineHandshakeCommand = async (
   input: DeclineHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -441,11 +471,14 @@ export const serializeAws_json1_1DeclineHandshakeCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DeclineHandshake",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeclineHandshakeRequest(input, context));
+  body = JSON.stringify(se_DeclineHandshakeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteOrganizationCommand = async (
+/**
+ * serializeAws_json1_1DeleteOrganizationCommand
+ */
+export const se_DeleteOrganizationCommand = async (
   input: DeleteOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -457,7 +490,10 @@ export const serializeAws_json1_1DeleteOrganizationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteOrganizationalUnitCommand = async (
+/**
+ * serializeAws_json1_1DeleteOrganizationalUnitCommand
+ */
+export const se_DeleteOrganizationalUnitCommand = async (
   input: DeleteOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -466,11 +502,14 @@ export const serializeAws_json1_1DeleteOrganizationalUnitCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DeleteOrganizationalUnit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteOrganizationalUnitRequest(input, context));
+  body = JSON.stringify(se_DeleteOrganizationalUnitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeletePolicyCommand = async (
+/**
+ * serializeAws_json1_1DeletePolicyCommand
+ */
+export const se_DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -479,11 +518,14 @@ export const serializeAws_json1_1DeletePolicyCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DeletePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeletePolicyRequest(input, context));
+  body = JSON.stringify(se_DeletePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -495,7 +537,10 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeregisterDelegatedAdministratorCommand = async (
+/**
+ * serializeAws_json1_1DeregisterDelegatedAdministratorCommand
+ */
+export const se_DeregisterDelegatedAdministratorCommand = async (
   input: DeregisterDelegatedAdministratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -504,11 +549,14 @@ export const serializeAws_json1_1DeregisterDelegatedAdministratorCommand = async
     "x-amz-target": "AWSOrganizationsV20161128.DeregisterDelegatedAdministrator",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeregisterDelegatedAdministratorRequest(input, context));
+  body = JSON.stringify(se_DeregisterDelegatedAdministratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeAccountCommand = async (
+/**
+ * serializeAws_json1_1DescribeAccountCommand
+ */
+export const se_DescribeAccountCommand = async (
   input: DescribeAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -517,11 +565,14 @@ export const serializeAws_json1_1DescribeAccountCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DescribeAccount",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeAccountRequest(input, context));
+  body = JSON.stringify(se_DescribeAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCreateAccountStatusCommand = async (
+/**
+ * serializeAws_json1_1DescribeCreateAccountStatusCommand
+ */
+export const se_DescribeCreateAccountStatusCommand = async (
   input: DescribeCreateAccountStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -530,11 +581,14 @@ export const serializeAws_json1_1DescribeCreateAccountStatusCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DescribeCreateAccountStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCreateAccountStatusRequest(input, context));
+  body = JSON.stringify(se_DescribeCreateAccountStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEffectivePolicyCommand = async (
+/**
+ * serializeAws_json1_1DescribeEffectivePolicyCommand
+ */
+export const se_DescribeEffectivePolicyCommand = async (
   input: DescribeEffectivePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -543,11 +597,14 @@ export const serializeAws_json1_1DescribeEffectivePolicyCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DescribeEffectivePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEffectivePolicyRequest(input, context));
+  body = JSON.stringify(se_DescribeEffectivePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeHandshakeCommand = async (
+/**
+ * serializeAws_json1_1DescribeHandshakeCommand
+ */
+export const se_DescribeHandshakeCommand = async (
   input: DescribeHandshakeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -556,11 +613,14 @@ export const serializeAws_json1_1DescribeHandshakeCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DescribeHandshake",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeHandshakeRequest(input, context));
+  body = JSON.stringify(se_DescribeHandshakeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeOrganizationCommand = async (
+/**
+ * serializeAws_json1_1DescribeOrganizationCommand
+ */
+export const se_DescribeOrganizationCommand = async (
   input: DescribeOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -572,7 +632,10 @@ export const serializeAws_json1_1DescribeOrganizationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeOrganizationalUnitCommand = async (
+/**
+ * serializeAws_json1_1DescribeOrganizationalUnitCommand
+ */
+export const se_DescribeOrganizationalUnitCommand = async (
   input: DescribeOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -581,11 +644,14 @@ export const serializeAws_json1_1DescribeOrganizationalUnitCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DescribeOrganizationalUnit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeOrganizationalUnitRequest(input, context));
+  body = JSON.stringify(se_DescribeOrganizationalUnitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribePolicyCommand = async (
+/**
+ * serializeAws_json1_1DescribePolicyCommand
+ */
+export const se_DescribePolicyCommand = async (
   input: DescribePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -594,11 +660,14 @@ export const serializeAws_json1_1DescribePolicyCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DescribePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribePolicyRequest(input, context));
+  body = JSON.stringify(se_DescribePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1DescribeResourcePolicyCommand
+ */
+export const se_DescribeResourcePolicyCommand = async (
   input: DescribeResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -610,7 +679,10 @@ export const serializeAws_json1_1DescribeResourcePolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DetachPolicyCommand = async (
+/**
+ * serializeAws_json1_1DetachPolicyCommand
+ */
+export const se_DetachPolicyCommand = async (
   input: DetachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -619,11 +691,14 @@ export const serializeAws_json1_1DetachPolicyCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DetachPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DetachPolicyRequest(input, context));
+  body = JSON.stringify(se_DetachPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisableAWSServiceAccessCommand = async (
+/**
+ * serializeAws_json1_1DisableAWSServiceAccessCommand
+ */
+export const se_DisableAWSServiceAccessCommand = async (
   input: DisableAWSServiceAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -632,11 +707,14 @@ export const serializeAws_json1_1DisableAWSServiceAccessCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DisableAWSServiceAccess",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisableAWSServiceAccessRequest(input, context));
+  body = JSON.stringify(se_DisableAWSServiceAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisablePolicyTypeCommand = async (
+/**
+ * serializeAws_json1_1DisablePolicyTypeCommand
+ */
+export const se_DisablePolicyTypeCommand = async (
   input: DisablePolicyTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -645,11 +723,14 @@ export const serializeAws_json1_1DisablePolicyTypeCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.DisablePolicyType",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisablePolicyTypeRequest(input, context));
+  body = JSON.stringify(se_DisablePolicyTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1EnableAllFeaturesCommand = async (
+/**
+ * serializeAws_json1_1EnableAllFeaturesCommand
+ */
+export const se_EnableAllFeaturesCommand = async (
   input: EnableAllFeaturesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -658,11 +739,14 @@ export const serializeAws_json1_1EnableAllFeaturesCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.EnableAllFeatures",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1EnableAllFeaturesRequest(input, context));
+  body = JSON.stringify(se_EnableAllFeaturesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1EnableAWSServiceAccessCommand = async (
+/**
+ * serializeAws_json1_1EnableAWSServiceAccessCommand
+ */
+export const se_EnableAWSServiceAccessCommand = async (
   input: EnableAWSServiceAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -671,11 +755,14 @@ export const serializeAws_json1_1EnableAWSServiceAccessCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.EnableAWSServiceAccess",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1EnableAWSServiceAccessRequest(input, context));
+  body = JSON.stringify(se_EnableAWSServiceAccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1EnablePolicyTypeCommand = async (
+/**
+ * serializeAws_json1_1EnablePolicyTypeCommand
+ */
+export const se_EnablePolicyTypeCommand = async (
   input: EnablePolicyTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -684,11 +771,14 @@ export const serializeAws_json1_1EnablePolicyTypeCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.EnablePolicyType",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1EnablePolicyTypeRequest(input, context));
+  body = JSON.stringify(se_EnablePolicyTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1InviteAccountToOrganizationCommand = async (
+/**
+ * serializeAws_json1_1InviteAccountToOrganizationCommand
+ */
+export const se_InviteAccountToOrganizationCommand = async (
   input: InviteAccountToOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -697,11 +787,14 @@ export const serializeAws_json1_1InviteAccountToOrganizationCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.InviteAccountToOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1InviteAccountToOrganizationRequest(input, context));
+  body = JSON.stringify(se_InviteAccountToOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1LeaveOrganizationCommand = async (
+/**
+ * serializeAws_json1_1LeaveOrganizationCommand
+ */
+export const se_LeaveOrganizationCommand = async (
   input: LeaveOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -713,7 +806,10 @@ export const serializeAws_json1_1LeaveOrganizationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAccountsCommand = async (
+/**
+ * serializeAws_json1_1ListAccountsCommand
+ */
+export const se_ListAccountsCommand = async (
   input: ListAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -722,11 +818,14 @@ export const serializeAws_json1_1ListAccountsCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListAccounts",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAccountsRequest(input, context));
+  body = JSON.stringify(se_ListAccountsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAccountsForParentCommand = async (
+/**
+ * serializeAws_json1_1ListAccountsForParentCommand
+ */
+export const se_ListAccountsForParentCommand = async (
   input: ListAccountsForParentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -735,11 +834,14 @@ export const serializeAws_json1_1ListAccountsForParentCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListAccountsForParent",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAccountsForParentRequest(input, context));
+  body = JSON.stringify(se_ListAccountsForParentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand = async (
+/**
+ * serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand
+ */
+export const se_ListAWSServiceAccessForOrganizationCommand = async (
   input: ListAWSServiceAccessForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -748,11 +850,14 @@ export const serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand = as
     "x-amz-target": "AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest(input, context));
+  body = JSON.stringify(se_ListAWSServiceAccessForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListChildrenCommand = async (
+/**
+ * serializeAws_json1_1ListChildrenCommand
+ */
+export const se_ListChildrenCommand = async (
   input: ListChildrenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -761,11 +866,14 @@ export const serializeAws_json1_1ListChildrenCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListChildren",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListChildrenRequest(input, context));
+  body = JSON.stringify(se_ListChildrenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListCreateAccountStatusCommand = async (
+/**
+ * serializeAws_json1_1ListCreateAccountStatusCommand
+ */
+export const se_ListCreateAccountStatusCommand = async (
   input: ListCreateAccountStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -774,11 +882,14 @@ export const serializeAws_json1_1ListCreateAccountStatusCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListCreateAccountStatus",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListCreateAccountStatusRequest(input, context));
+  body = JSON.stringify(se_ListCreateAccountStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDelegatedAdministratorsCommand = async (
+/**
+ * serializeAws_json1_1ListDelegatedAdministratorsCommand
+ */
+export const se_ListDelegatedAdministratorsCommand = async (
   input: ListDelegatedAdministratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -787,11 +898,14 @@ export const serializeAws_json1_1ListDelegatedAdministratorsCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListDelegatedAdministrators",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDelegatedAdministratorsRequest(input, context));
+  body = JSON.stringify(se_ListDelegatedAdministratorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDelegatedServicesForAccountCommand = async (
+/**
+ * serializeAws_json1_1ListDelegatedServicesForAccountCommand
+ */
+export const se_ListDelegatedServicesForAccountCommand = async (
   input: ListDelegatedServicesForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -800,11 +914,14 @@ export const serializeAws_json1_1ListDelegatedServicesForAccountCommand = async 
     "x-amz-target": "AWSOrganizationsV20161128.ListDelegatedServicesForAccount",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDelegatedServicesForAccountRequest(input, context));
+  body = JSON.stringify(se_ListDelegatedServicesForAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListHandshakesForAccountCommand = async (
+/**
+ * serializeAws_json1_1ListHandshakesForAccountCommand
+ */
+export const se_ListHandshakesForAccountCommand = async (
   input: ListHandshakesForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -813,11 +930,14 @@ export const serializeAws_json1_1ListHandshakesForAccountCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListHandshakesForAccount",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListHandshakesForAccountRequest(input, context));
+  body = JSON.stringify(se_ListHandshakesForAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListHandshakesForOrganizationCommand = async (
+/**
+ * serializeAws_json1_1ListHandshakesForOrganizationCommand
+ */
+export const se_ListHandshakesForOrganizationCommand = async (
   input: ListHandshakesForOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -826,11 +946,14 @@ export const serializeAws_json1_1ListHandshakesForOrganizationCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListHandshakesForOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListHandshakesForOrganizationRequest(input, context));
+  body = JSON.stringify(se_ListHandshakesForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListOrganizationalUnitsForParentCommand = async (
+/**
+ * serializeAws_json1_1ListOrganizationalUnitsForParentCommand
+ */
+export const se_ListOrganizationalUnitsForParentCommand = async (
   input: ListOrganizationalUnitsForParentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -839,11 +962,14 @@ export const serializeAws_json1_1ListOrganizationalUnitsForParentCommand = async
     "x-amz-target": "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListOrganizationalUnitsForParentRequest(input, context));
+  body = JSON.stringify(se_ListOrganizationalUnitsForParentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListParentsCommand = async (
+/**
+ * serializeAws_json1_1ListParentsCommand
+ */
+export const se_ListParentsCommand = async (
   input: ListParentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -852,11 +978,14 @@ export const serializeAws_json1_1ListParentsCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListParents",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListParentsRequest(input, context));
+  body = JSON.stringify(se_ListParentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPoliciesCommand = async (
+/**
+ * serializeAws_json1_1ListPoliciesCommand
+ */
+export const se_ListPoliciesCommand = async (
   input: ListPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -865,11 +994,14 @@ export const serializeAws_json1_1ListPoliciesCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListPolicies",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPoliciesRequest(input, context));
+  body = JSON.stringify(se_ListPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPoliciesForTargetCommand = async (
+/**
+ * serializeAws_json1_1ListPoliciesForTargetCommand
+ */
+export const se_ListPoliciesForTargetCommand = async (
   input: ListPoliciesForTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -878,11 +1010,14 @@ export const serializeAws_json1_1ListPoliciesForTargetCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListPoliciesForTarget",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPoliciesForTargetRequest(input, context));
+  body = JSON.stringify(se_ListPoliciesForTargetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListRootsCommand = async (
+/**
+ * serializeAws_json1_1ListRootsCommand
+ */
+export const se_ListRootsCommand = async (
   input: ListRootsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -891,11 +1026,14 @@ export const serializeAws_json1_1ListRootsCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListRoots",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListRootsRequest(input, context));
+  body = JSON.stringify(se_ListRootsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -904,11 +1042,14 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTargetsForPolicyCommand = async (
+/**
+ * serializeAws_json1_1ListTargetsForPolicyCommand
+ */
+export const se_ListTargetsForPolicyCommand = async (
   input: ListTargetsForPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -917,11 +1058,14 @@ export const serializeAws_json1_1ListTargetsForPolicyCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.ListTargetsForPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTargetsForPolicyRequest(input, context));
+  body = JSON.stringify(se_ListTargetsForPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1MoveAccountCommand = async (
+/**
+ * serializeAws_json1_1MoveAccountCommand
+ */
+export const se_MoveAccountCommand = async (
   input: MoveAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -930,11 +1074,14 @@ export const serializeAws_json1_1MoveAccountCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.MoveAccount",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1MoveAccountRequest(input, context));
+  body = JSON.stringify(se_MoveAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutResourcePolicyCommand = async (
+/**
+ * serializeAws_json1_1PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -943,11 +1090,14 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.PutResourcePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
+  body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RegisterDelegatedAdministratorCommand = async (
+/**
+ * serializeAws_json1_1RegisterDelegatedAdministratorCommand
+ */
+export const se_RegisterDelegatedAdministratorCommand = async (
   input: RegisterDelegatedAdministratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -956,11 +1106,14 @@ export const serializeAws_json1_1RegisterDelegatedAdministratorCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.RegisterDelegatedAdministrator",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RegisterDelegatedAdministratorRequest(input, context));
+  body = JSON.stringify(se_RegisterDelegatedAdministratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RemoveAccountFromOrganizationCommand = async (
+/**
+ * serializeAws_json1_1RemoveAccountFromOrganizationCommand
+ */
+export const se_RemoveAccountFromOrganizationCommand = async (
   input: RemoveAccountFromOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -969,11 +1122,14 @@ export const serializeAws_json1_1RemoveAccountFromOrganizationCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.RemoveAccountFromOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RemoveAccountFromOrganizationRequest(input, context));
+  body = JSON.stringify(se_RemoveAccountFromOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -982,11 +1138,14 @@ export const serializeAws_json1_1TagResourceCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -995,11 +1154,14 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateOrganizationalUnitCommand = async (
+/**
+ * serializeAws_json1_1UpdateOrganizationalUnitCommand
+ */
+export const se_UpdateOrganizationalUnitCommand = async (
   input: UpdateOrganizationalUnitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1008,11 +1170,14 @@ export const serializeAws_json1_1UpdateOrganizationalUnitCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.UpdateOrganizationalUnit",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateOrganizationalUnitRequest(input, context));
+  body = JSON.stringify(se_UpdateOrganizationalUnitRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePolicyCommand = async (
+/**
+ * serializeAws_json1_1UpdatePolicyCommand
+ */
+export const se_UpdatePolicyCommand = async (
   input: UpdatePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1021,20 +1186,23 @@ export const serializeAws_json1_1UpdatePolicyCommand = async (
     "x-amz-target": "AWSOrganizationsV20161128.UpdatePolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePolicyRequest(input, context));
+  body = JSON.stringify(se_UpdatePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AcceptHandshakeCommand = async (
+/**
+ * deserializeAws_json1_1AcceptHandshakeCommand
+ */
+export const de_AcceptHandshakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptHandshakeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AcceptHandshakeCommandError(output, context);
+    return de_AcceptHandshakeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AcceptHandshakeResponse(data, context);
+  contents = de_AcceptHandshakeResponse(data, context);
   const response: AcceptHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1042,7 +1210,10 @@ export const deserializeAws_json1_1AcceptHandshakeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AcceptHandshakeCommandError = async (
+/**
+ * deserializeAws_json1_1AcceptHandshakeCommandError
+ */
+const de_AcceptHandshakeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptHandshakeCommandOutput> => {
@@ -1054,37 +1225,37 @@ const deserializeAws_json1_1AcceptHandshakeCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccessDeniedForDependencyException":
     case "com.amazonaws.organizations#AccessDeniedForDependencyException":
-      throw await deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedForDependencyExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "HandshakeAlreadyInStateException":
     case "com.amazonaws.organizations#HandshakeAlreadyInStateException":
-      throw await deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse(parsedOutput, context);
+      throw await de_HandshakeAlreadyInStateExceptionRes(parsedOutput, context);
     case "HandshakeConstraintViolationException":
     case "com.amazonaws.organizations#HandshakeConstraintViolationException":
-      throw await deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_HandshakeConstraintViolationExceptionRes(parsedOutput, context);
     case "HandshakeNotFoundException":
     case "com.amazonaws.organizations#HandshakeNotFoundException":
-      throw await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_HandshakeNotFoundExceptionRes(parsedOutput, context);
     case "InvalidHandshakeTransitionException":
     case "com.amazonaws.organizations#InvalidHandshakeTransitionException":
-      throw await deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidHandshakeTransitionExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1096,12 +1267,15 @@ const deserializeAws_json1_1AcceptHandshakeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AttachPolicyCommand = async (
+/**
+ * deserializeAws_json1_1AttachPolicyCommand
+ */
+export const de_AttachPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AttachPolicyCommandError(output, context);
+    return de_AttachPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AttachPolicyCommandOutput = {
@@ -1110,7 +1284,10 @@ export const deserializeAws_json1_1AttachPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AttachPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1AttachPolicyCommandError
+ */
+const de_AttachPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachPolicyCommandOutput> => {
@@ -1122,43 +1299,43 @@ const deserializeAws_json1_1AttachPolicyCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "DuplicatePolicyAttachmentException":
     case "com.amazonaws.organizations#DuplicatePolicyAttachmentException":
-      throw await deserializeAws_json1_1DuplicatePolicyAttachmentExceptionResponse(parsedOutput, context);
+      throw await de_DuplicatePolicyAttachmentExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "PolicyChangesInProgressException":
     case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      throw await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context);
+      throw await de_PolicyChangesInProgressExceptionRes(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     case "PolicyTypeNotEnabledException":
     case "com.amazonaws.organizations#PolicyTypeNotEnabledException":
-      throw await deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_PolicyTypeNotEnabledExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1170,16 +1347,19 @@ const deserializeAws_json1_1AttachPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CancelHandshakeCommand = async (
+/**
+ * deserializeAws_json1_1CancelHandshakeCommand
+ */
+export const de_CancelHandshakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelHandshakeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CancelHandshakeCommandError(output, context);
+    return de_CancelHandshakeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelHandshakeResponse(data, context);
+  contents = de_CancelHandshakeResponse(data, context);
   const response: CancelHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1187,7 +1367,10 @@ export const deserializeAws_json1_1CancelHandshakeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CancelHandshakeCommandError = async (
+/**
+ * deserializeAws_json1_1CancelHandshakeCommandError
+ */
+const de_CancelHandshakeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelHandshakeCommandOutput> => {
@@ -1199,28 +1382,28 @@ const deserializeAws_json1_1CancelHandshakeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "HandshakeAlreadyInStateException":
     case "com.amazonaws.organizations#HandshakeAlreadyInStateException":
-      throw await deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse(parsedOutput, context);
+      throw await de_HandshakeAlreadyInStateExceptionRes(parsedOutput, context);
     case "HandshakeNotFoundException":
     case "com.amazonaws.organizations#HandshakeNotFoundException":
-      throw await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_HandshakeNotFoundExceptionRes(parsedOutput, context);
     case "InvalidHandshakeTransitionException":
     case "com.amazonaws.organizations#InvalidHandshakeTransitionException":
-      throw await deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidHandshakeTransitionExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1232,12 +1415,15 @@ const deserializeAws_json1_1CancelHandshakeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CloseAccountCommand = async (
+/**
+ * deserializeAws_json1_1CloseAccountCommand
+ */
+export const de_CloseAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CloseAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CloseAccountCommandError(output, context);
+    return de_CloseAccountCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CloseAccountCommandOutput = {
@@ -1246,7 +1432,10 @@ export const deserializeAws_json1_1CloseAccountCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CloseAccountCommandError = async (
+/**
+ * deserializeAws_json1_1CloseAccountCommandError
+ */
+const de_CloseAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CloseAccountCommandOutput> => {
@@ -1258,37 +1447,37 @@ const deserializeAws_json1_1CloseAccountCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountAlreadyClosedException":
     case "com.amazonaws.organizations#AccountAlreadyClosedException":
-      throw await deserializeAws_json1_1AccountAlreadyClosedExceptionResponse(parsedOutput, context);
+      throw await de_AccountAlreadyClosedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.organizations#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1300,16 +1489,19 @@ const deserializeAws_json1_1CloseAccountCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateAccountCommand = async (
+/**
+ * deserializeAws_json1_1CreateAccountCommand
+ */
+export const de_CreateAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateAccountCommandError(output, context);
+    return de_CreateAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAccountResponse(data, context);
+  contents = de_CreateAccountResponse(data, context);
   const response: CreateAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1317,7 +1509,10 @@ export const deserializeAws_json1_1CreateAccountCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateAccountCommandError = async (
+/**
+ * deserializeAws_json1_1CreateAccountCommandError
+ */
+const de_CreateAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccountCommandOutput> => {
@@ -1329,31 +1524,31 @@ const deserializeAws_json1_1CreateAccountCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "FinalizingOrganizationException":
     case "com.amazonaws.organizations#FinalizingOrganizationException":
-      throw await deserializeAws_json1_1FinalizingOrganizationExceptionResponse(parsedOutput, context);
+      throw await de_FinalizingOrganizationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1365,16 +1560,19 @@ const deserializeAws_json1_1CreateAccountCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateGovCloudAccountCommand = async (
+/**
+ * deserializeAws_json1_1CreateGovCloudAccountCommand
+ */
+export const de_CreateGovCloudAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGovCloudAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateGovCloudAccountCommandError(output, context);
+    return de_CreateGovCloudAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGovCloudAccountResponse(data, context);
+  contents = de_CreateGovCloudAccountResponse(data, context);
   const response: CreateGovCloudAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1382,7 +1580,10 @@ export const deserializeAws_json1_1CreateGovCloudAccountCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateGovCloudAccountCommandError = async (
+/**
+ * deserializeAws_json1_1CreateGovCloudAccountCommandError
+ */
+const de_CreateGovCloudAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGovCloudAccountCommandOutput> => {
@@ -1394,31 +1595,31 @@ const deserializeAws_json1_1CreateGovCloudAccountCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "FinalizingOrganizationException":
     case "com.amazonaws.organizations#FinalizingOrganizationException":
-      throw await deserializeAws_json1_1FinalizingOrganizationExceptionResponse(parsedOutput, context);
+      throw await de_FinalizingOrganizationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1430,16 +1631,19 @@ const deserializeAws_json1_1CreateGovCloudAccountCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1CreateOrganizationCommand
+ */
+export const de_CreateOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateOrganizationCommandError(output, context);
+    return de_CreateOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateOrganizationResponse(data, context);
+  contents = de_CreateOrganizationResponse(data, context);
   const response: CreateOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1447,7 +1651,10 @@ export const deserializeAws_json1_1CreateOrganizationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1CreateOrganizationCommandError
+ */
+const de_CreateOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOrganizationCommandOutput> => {
@@ -1459,28 +1666,28 @@ const deserializeAws_json1_1CreateOrganizationCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccessDeniedForDependencyException":
     case "com.amazonaws.organizations#AccessDeniedForDependencyException":
-      throw await deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedForDependencyExceptionRes(parsedOutput, context);
     case "AlreadyInOrganizationException":
     case "com.amazonaws.organizations#AlreadyInOrganizationException":
-      throw await deserializeAws_json1_1AlreadyInOrganizationExceptionResponse(parsedOutput, context);
+      throw await de_AlreadyInOrganizationExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1492,16 +1699,19 @@ const deserializeAws_json1_1CreateOrganizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateOrganizationalUnitCommand = async (
+/**
+ * deserializeAws_json1_1CreateOrganizationalUnitCommand
+ */
+export const de_CreateOrganizationalUnitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOrganizationalUnitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateOrganizationalUnitCommandError(output, context);
+    return de_CreateOrganizationalUnitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateOrganizationalUnitResponse(data, context);
+  contents = de_CreateOrganizationalUnitResponse(data, context);
   const response: CreateOrganizationalUnitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1509,7 +1719,10 @@ export const deserializeAws_json1_1CreateOrganizationalUnitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateOrganizationalUnitCommandError = async (
+/**
+ * deserializeAws_json1_1CreateOrganizationalUnitCommandError
+ */
+const de_CreateOrganizationalUnitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOrganizationalUnitCommandOutput> => {
@@ -1521,31 +1734,31 @@ const deserializeAws_json1_1CreateOrganizationalUnitCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "DuplicateOrganizationalUnitException":
     case "com.amazonaws.organizations#DuplicateOrganizationalUnitException":
-      throw await deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateOrganizationalUnitExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ParentNotFoundException":
     case "com.amazonaws.organizations#ParentNotFoundException":
-      throw await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ParentNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1557,16 +1770,19 @@ const deserializeAws_json1_1CreateOrganizationalUnitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreatePolicyCommand = async (
+/**
+ * deserializeAws_json1_1CreatePolicyCommand
+ */
+export const de_CreatePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreatePolicyCommandError(output, context);
+    return de_CreatePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePolicyResponse(data, context);
+  contents = de_CreatePolicyResponse(data, context);
   const response: CreatePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1574,7 +1790,10 @@ export const deserializeAws_json1_1CreatePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreatePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1CreatePolicyCommandError
+ */
+const de_CreatePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePolicyCommandOutput> => {
@@ -1586,37 +1805,37 @@ const deserializeAws_json1_1CreatePolicyCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "DuplicatePolicyException":
     case "com.amazonaws.organizations#DuplicatePolicyException":
-      throw await deserializeAws_json1_1DuplicatePolicyExceptionResponse(parsedOutput, context);
+      throw await de_DuplicatePolicyExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.organizations#MalformedPolicyDocumentException":
-      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "PolicyTypeNotAvailableForOrganizationException":
     case "com.amazonaws.organizations#PolicyTypeNotAvailableForOrganizationException":
-      throw await deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionResponse(parsedOutput, context);
+      throw await de_PolicyTypeNotAvailableForOrganizationExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1628,16 +1847,19 @@ const deserializeAws_json1_1CreatePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeclineHandshakeCommand = async (
+/**
+ * deserializeAws_json1_1DeclineHandshakeCommand
+ */
+export const de_DeclineHandshakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeclineHandshakeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeclineHandshakeCommandError(output, context);
+    return de_DeclineHandshakeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeclineHandshakeResponse(data, context);
+  contents = de_DeclineHandshakeResponse(data, context);
   const response: DeclineHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1645,7 +1867,10 @@ export const deserializeAws_json1_1DeclineHandshakeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeclineHandshakeCommandError = async (
+/**
+ * deserializeAws_json1_1DeclineHandshakeCommandError
+ */
+const de_DeclineHandshakeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeclineHandshakeCommandOutput> => {
@@ -1657,28 +1882,28 @@ const deserializeAws_json1_1DeclineHandshakeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "HandshakeAlreadyInStateException":
     case "com.amazonaws.organizations#HandshakeAlreadyInStateException":
-      throw await deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse(parsedOutput, context);
+      throw await de_HandshakeAlreadyInStateExceptionRes(parsedOutput, context);
     case "HandshakeNotFoundException":
     case "com.amazonaws.organizations#HandshakeNotFoundException":
-      throw await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_HandshakeNotFoundExceptionRes(parsedOutput, context);
     case "InvalidHandshakeTransitionException":
     case "com.amazonaws.organizations#InvalidHandshakeTransitionException":
-      throw await deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse(parsedOutput, context);
+      throw await de_InvalidHandshakeTransitionExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1690,12 +1915,15 @@ const deserializeAws_json1_1DeclineHandshakeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1DeleteOrganizationCommand
+ */
+export const de_DeleteOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteOrganizationCommandError(output, context);
+    return de_DeleteOrganizationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteOrganizationCommandOutput = {
@@ -1704,7 +1932,10 @@ export const deserializeAws_json1_1DeleteOrganizationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteOrganizationCommandError
+ */
+const de_DeleteOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOrganizationCommandOutput> => {
@@ -1716,25 +1947,25 @@ const deserializeAws_json1_1DeleteOrganizationCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "OrganizationNotEmptyException":
     case "com.amazonaws.organizations#OrganizationNotEmptyException":
-      throw await deserializeAws_json1_1OrganizationNotEmptyExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotEmptyExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1746,12 +1977,15 @@ const deserializeAws_json1_1DeleteOrganizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteOrganizationalUnitCommand = async (
+/**
+ * deserializeAws_json1_1DeleteOrganizationalUnitCommand
+ */
+export const de_DeleteOrganizationalUnitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOrganizationalUnitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteOrganizationalUnitCommandError(output, context);
+    return de_DeleteOrganizationalUnitCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteOrganizationalUnitCommandOutput = {
@@ -1760,7 +1994,10 @@ export const deserializeAws_json1_1DeleteOrganizationalUnitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteOrganizationalUnitCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteOrganizationalUnitCommandError
+ */
+const de_DeleteOrganizationalUnitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOrganizationalUnitCommandOutput> => {
@@ -1772,28 +2009,28 @@ const deserializeAws_json1_1DeleteOrganizationalUnitCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "OrganizationalUnitNotEmptyException":
     case "com.amazonaws.organizations#OrganizationalUnitNotEmptyException":
-      throw await deserializeAws_json1_1OrganizationalUnitNotEmptyExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationalUnitNotEmptyExceptionRes(parsedOutput, context);
     case "OrganizationalUnitNotFoundException":
     case "com.amazonaws.organizations#OrganizationalUnitNotFoundException":
-      throw await deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationalUnitNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1805,12 +2042,15 @@ const deserializeAws_json1_1DeleteOrganizationalUnitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeletePolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeletePolicyCommand
+ */
+export const de_DeletePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeletePolicyCommandError(output, context);
+    return de_DeletePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePolicyCommandOutput = {
@@ -1819,7 +2059,10 @@ export const deserializeAws_json1_1DeletePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeletePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeletePolicyCommandError
+ */
+const de_DeletePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
@@ -1831,31 +2074,31 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "PolicyInUseException":
     case "com.amazonaws.organizations#PolicyInUseException":
-      throw await deserializeAws_json1_1PolicyInUseExceptionResponse(parsedOutput, context);
+      throw await de_PolicyInUseExceptionRes(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1867,12 +2110,15 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
+    return de_DeleteResourcePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteResourcePolicyCommandOutput = {
@@ -1881,7 +2127,10 @@ export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommandError
+ */
+const de_DeleteResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
@@ -1893,28 +2142,28 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "ResourcePolicyNotFoundException":
     case "com.amazonaws.organizations#ResourcePolicyNotFoundException":
-      throw await deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourcePolicyNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1926,12 +2175,15 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeregisterDelegatedAdministratorCommand = async (
+/**
+ * deserializeAws_json1_1DeregisterDelegatedAdministratorCommand
+ */
+export const de_DeregisterDelegatedAdministratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterDelegatedAdministratorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError(output, context);
+    return de_DeregisterDelegatedAdministratorCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeregisterDelegatedAdministratorCommandOutput = {
@@ -1940,7 +2192,10 @@ export const deserializeAws_json1_1DeregisterDelegatedAdministratorCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError = async (
+/**
+ * deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError
+ */
+const de_DeregisterDelegatedAdministratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterDelegatedAdministratorCommandOutput> => {
@@ -1952,34 +2207,34 @@ const deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError = async
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "AccountNotRegisteredException":
     case "com.amazonaws.organizations#AccountNotRegisteredException":
-      throw await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotRegisteredExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1991,16 +2246,19 @@ const deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError = async
   }
 };
 
-export const deserializeAws_json1_1DescribeAccountCommand = async (
+/**
+ * deserializeAws_json1_1DescribeAccountCommand
+ */
+export const de_DescribeAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeAccountCommandError(output, context);
+    return de_DescribeAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAccountResponse(data, context);
+  contents = de_DescribeAccountResponse(data, context);
   const response: DescribeAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2008,7 +2266,10 @@ export const deserializeAws_json1_1DescribeAccountCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeAccountCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeAccountCommandError
+ */
+const de_DescribeAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountCommandOutput> => {
@@ -2020,22 +2281,22 @@ const deserializeAws_json1_1DescribeAccountCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2047,16 +2308,19 @@ const deserializeAws_json1_1DescribeAccountCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeCreateAccountStatusCommand = async (
+/**
+ * deserializeAws_json1_1DescribeCreateAccountStatusCommand
+ */
+export const de_DescribeCreateAccountStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCreateAccountStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCreateAccountStatusCommandError(output, context);
+    return de_DescribeCreateAccountStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCreateAccountStatusResponse(data, context);
+  contents = de_DescribeCreateAccountStatusResponse(data, context);
   const response: DescribeCreateAccountStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2064,7 +2328,10 @@ export const deserializeAws_json1_1DescribeCreateAccountStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeCreateAccountStatusCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCreateAccountStatusCommandError
+ */
+const de_DescribeCreateAccountStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCreateAccountStatusCommandOutput> => {
@@ -2076,25 +2343,25 @@ const deserializeAws_json1_1DescribeCreateAccountStatusCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "CreateAccountStatusNotFoundException":
     case "com.amazonaws.organizations#CreateAccountStatusNotFoundException":
-      throw await deserializeAws_json1_1CreateAccountStatusNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_CreateAccountStatusNotFoundExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2106,16 +2373,19 @@ const deserializeAws_json1_1DescribeCreateAccountStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeEffectivePolicyCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEffectivePolicyCommand
+ */
+export const de_DescribeEffectivePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEffectivePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEffectivePolicyCommandError(output, context);
+    return de_DescribeEffectivePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEffectivePolicyResponse(data, context);
+  contents = de_DescribeEffectivePolicyResponse(data, context);
   const response: DescribeEffectivePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2123,7 +2393,10 @@ export const deserializeAws_json1_1DescribeEffectivePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEffectivePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEffectivePolicyCommandError
+ */
+const de_DescribeEffectivePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEffectivePolicyCommandOutput> => {
@@ -2135,31 +2408,31 @@ const deserializeAws_json1_1DescribeEffectivePolicyCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "EffectivePolicyNotFoundException":
     case "com.amazonaws.organizations#EffectivePolicyNotFoundException":
-      throw await deserializeAws_json1_1EffectivePolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EffectivePolicyNotFoundExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2171,16 +2444,19 @@ const deserializeAws_json1_1DescribeEffectivePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeHandshakeCommand = async (
+/**
+ * deserializeAws_json1_1DescribeHandshakeCommand
+ */
+export const de_DescribeHandshakeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHandshakeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeHandshakeCommandError(output, context);
+    return de_DescribeHandshakeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeHandshakeResponse(data, context);
+  contents = de_DescribeHandshakeResponse(data, context);
   const response: DescribeHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2188,7 +2464,10 @@ export const deserializeAws_json1_1DescribeHandshakeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeHandshakeCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeHandshakeCommandError
+ */
+const de_DescribeHandshakeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHandshakeCommandOutput> => {
@@ -2200,22 +2479,22 @@ const deserializeAws_json1_1DescribeHandshakeCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "HandshakeNotFoundException":
     case "com.amazonaws.organizations#HandshakeNotFoundException":
-      throw await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_HandshakeNotFoundExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2227,16 +2506,19 @@ const deserializeAws_json1_1DescribeHandshakeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeOrganizationCommand
+ */
+export const de_DescribeOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeOrganizationCommandError(output, context);
+    return de_DescribeOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeOrganizationResponse(data, context);
+  contents = de_DescribeOrganizationResponse(data, context);
   const response: DescribeOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2244,7 +2526,10 @@ export const deserializeAws_json1_1DescribeOrganizationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeOrganizationCommandError
+ */
+const de_DescribeOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOrganizationCommandOutput> => {
@@ -2256,19 +2541,19 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2280,16 +2565,19 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeOrganizationalUnitCommand = async (
+/**
+ * deserializeAws_json1_1DescribeOrganizationalUnitCommand
+ */
+export const de_DescribeOrganizationalUnitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOrganizationalUnitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeOrganizationalUnitCommandError(output, context);
+    return de_DescribeOrganizationalUnitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeOrganizationalUnitResponse(data, context);
+  contents = de_DescribeOrganizationalUnitResponse(data, context);
   const response: DescribeOrganizationalUnitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2297,7 +2585,10 @@ export const deserializeAws_json1_1DescribeOrganizationalUnitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeOrganizationalUnitCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeOrganizationalUnitCommandError
+ */
+const de_DescribeOrganizationalUnitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOrganizationalUnitCommandOutput> => {
@@ -2309,22 +2600,22 @@ const deserializeAws_json1_1DescribeOrganizationalUnitCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "OrganizationalUnitNotFoundException":
     case "com.amazonaws.organizations#OrganizationalUnitNotFoundException":
-      throw await deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationalUnitNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2336,16 +2627,19 @@ const deserializeAws_json1_1DescribeOrganizationalUnitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribePolicyCommand = async (
+/**
+ * deserializeAws_json1_1DescribePolicyCommand
+ */
+export const de_DescribePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribePolicyCommandError(output, context);
+    return de_DescribePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePolicyResponse(data, context);
+  contents = de_DescribePolicyResponse(data, context);
   const response: DescribePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2353,7 +2647,10 @@ export const deserializeAws_json1_1DescribePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DescribePolicyCommandError
+ */
+const de_DescribePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePolicyCommandOutput> => {
@@ -2365,25 +2662,25 @@ const deserializeAws_json1_1DescribePolicyCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2395,16 +2692,19 @@ const deserializeAws_json1_1DescribePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1DescribeResourcePolicyCommand
+ */
+export const de_DescribeResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeResourcePolicyCommandError(output, context);
+    return de_DescribeResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeResourcePolicyResponse(data, context);
+  contents = de_DescribeResourcePolicyResponse(data, context);
   const response: DescribeResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2412,7 +2712,10 @@ export const deserializeAws_json1_1DescribeResourcePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeResourcePolicyCommandError
+ */
+const de_DescribeResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourcePolicyCommandOutput> => {
@@ -2424,25 +2727,25 @@ const deserializeAws_json1_1DescribeResourcePolicyCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "ResourcePolicyNotFoundException":
     case "com.amazonaws.organizations#ResourcePolicyNotFoundException":
-      throw await deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourcePolicyNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2454,12 +2757,15 @@ const deserializeAws_json1_1DescribeResourcePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DetachPolicyCommand = async (
+/**
+ * deserializeAws_json1_1DetachPolicyCommand
+ */
+export const de_DetachPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DetachPolicyCommandError(output, context);
+    return de_DetachPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DetachPolicyCommandOutput = {
@@ -2468,7 +2774,10 @@ export const deserializeAws_json1_1DetachPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DetachPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DetachPolicyCommandError
+ */
+const de_DetachPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachPolicyCommandOutput> => {
@@ -2480,40 +2789,40 @@ const deserializeAws_json1_1DetachPolicyCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "PolicyChangesInProgressException":
     case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      throw await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context);
+      throw await de_PolicyChangesInProgressExceptionRes(parsedOutput, context);
     case "PolicyNotAttachedException":
     case "com.amazonaws.organizations#PolicyNotAttachedException":
-      throw await deserializeAws_json1_1PolicyNotAttachedExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotAttachedExceptionRes(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2525,12 +2834,15 @@ const deserializeAws_json1_1DetachPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisableAWSServiceAccessCommand = async (
+/**
+ * deserializeAws_json1_1DisableAWSServiceAccessCommand
+ */
+export const de_DisableAWSServiceAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableAWSServiceAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisableAWSServiceAccessCommandError(output, context);
+    return de_DisableAWSServiceAccessCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisableAWSServiceAccessCommandOutput = {
@@ -2539,7 +2851,10 @@ export const deserializeAws_json1_1DisableAWSServiceAccessCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisableAWSServiceAccessCommandError = async (
+/**
+ * deserializeAws_json1_1DisableAWSServiceAccessCommandError
+ */
+const de_DisableAWSServiceAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableAWSServiceAccessCommandOutput> => {
@@ -2551,28 +2866,28 @@ const deserializeAws_json1_1DisableAWSServiceAccessCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2584,16 +2899,19 @@ const deserializeAws_json1_1DisableAWSServiceAccessCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisablePolicyTypeCommand = async (
+/**
+ * deserializeAws_json1_1DisablePolicyTypeCommand
+ */
+export const de_DisablePolicyTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisablePolicyTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisablePolicyTypeCommandError(output, context);
+    return de_DisablePolicyTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisablePolicyTypeResponse(data, context);
+  contents = de_DisablePolicyTypeResponse(data, context);
   const response: DisablePolicyTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2601,7 +2919,10 @@ export const deserializeAws_json1_1DisablePolicyTypeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisablePolicyTypeCommandError = async (
+/**
+ * deserializeAws_json1_1DisablePolicyTypeCommandError
+ */
+const de_DisablePolicyTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisablePolicyTypeCommandOutput> => {
@@ -2613,37 +2934,37 @@ const deserializeAws_json1_1DisablePolicyTypeCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "PolicyChangesInProgressException":
     case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      throw await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context);
+      throw await de_PolicyChangesInProgressExceptionRes(parsedOutput, context);
     case "PolicyTypeNotEnabledException":
     case "com.amazonaws.organizations#PolicyTypeNotEnabledException":
-      throw await deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse(parsedOutput, context);
+      throw await de_PolicyTypeNotEnabledExceptionRes(parsedOutput, context);
     case "RootNotFoundException":
     case "com.amazonaws.organizations#RootNotFoundException":
-      throw await deserializeAws_json1_1RootNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RootNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2655,16 +2976,19 @@ const deserializeAws_json1_1DisablePolicyTypeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1EnableAllFeaturesCommand = async (
+/**
+ * deserializeAws_json1_1EnableAllFeaturesCommand
+ */
+export const de_EnableAllFeaturesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAllFeaturesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1EnableAllFeaturesCommandError(output, context);
+    return de_EnableAllFeaturesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnableAllFeaturesResponse(data, context);
+  contents = de_EnableAllFeaturesResponse(data, context);
   const response: EnableAllFeaturesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2672,7 +2996,10 @@ export const deserializeAws_json1_1EnableAllFeaturesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1EnableAllFeaturesCommandError = async (
+/**
+ * deserializeAws_json1_1EnableAllFeaturesCommandError
+ */
+const de_EnableAllFeaturesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAllFeaturesCommandOutput> => {
@@ -2684,25 +3011,25 @@ const deserializeAws_json1_1EnableAllFeaturesCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "HandshakeConstraintViolationException":
     case "com.amazonaws.organizations#HandshakeConstraintViolationException":
-      throw await deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_HandshakeConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2714,12 +3041,15 @@ const deserializeAws_json1_1EnableAllFeaturesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1EnableAWSServiceAccessCommand = async (
+/**
+ * deserializeAws_json1_1EnableAWSServiceAccessCommand
+ */
+export const de_EnableAWSServiceAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAWSServiceAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1EnableAWSServiceAccessCommandError(output, context);
+    return de_EnableAWSServiceAccessCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableAWSServiceAccessCommandOutput = {
@@ -2728,7 +3058,10 @@ export const deserializeAws_json1_1EnableAWSServiceAccessCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1EnableAWSServiceAccessCommandError = async (
+/**
+ * deserializeAws_json1_1EnableAWSServiceAccessCommandError
+ */
+const de_EnableAWSServiceAccessCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAWSServiceAccessCommandOutput> => {
@@ -2740,28 +3073,28 @@ const deserializeAws_json1_1EnableAWSServiceAccessCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2773,16 +3106,19 @@ const deserializeAws_json1_1EnableAWSServiceAccessCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1EnablePolicyTypeCommand = async (
+/**
+ * deserializeAws_json1_1EnablePolicyTypeCommand
+ */
+export const de_EnablePolicyTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnablePolicyTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1EnablePolicyTypeCommandError(output, context);
+    return de_EnablePolicyTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnablePolicyTypeResponse(data, context);
+  contents = de_EnablePolicyTypeResponse(data, context);
   const response: EnablePolicyTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2790,7 +3126,10 @@ export const deserializeAws_json1_1EnablePolicyTypeCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1EnablePolicyTypeCommandError = async (
+/**
+ * deserializeAws_json1_1EnablePolicyTypeCommandError
+ */
+const de_EnablePolicyTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnablePolicyTypeCommandOutput> => {
@@ -2802,40 +3141,40 @@ const deserializeAws_json1_1EnablePolicyTypeCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "PolicyChangesInProgressException":
     case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      throw await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context);
+      throw await de_PolicyChangesInProgressExceptionRes(parsedOutput, context);
     case "PolicyTypeAlreadyEnabledException":
     case "com.amazonaws.organizations#PolicyTypeAlreadyEnabledException":
-      throw await deserializeAws_json1_1PolicyTypeAlreadyEnabledExceptionResponse(parsedOutput, context);
+      throw await de_PolicyTypeAlreadyEnabledExceptionRes(parsedOutput, context);
     case "PolicyTypeNotAvailableForOrganizationException":
     case "com.amazonaws.organizations#PolicyTypeNotAvailableForOrganizationException":
-      throw await deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionResponse(parsedOutput, context);
+      throw await de_PolicyTypeNotAvailableForOrganizationExceptionRes(parsedOutput, context);
     case "RootNotFoundException":
     case "com.amazonaws.organizations#RootNotFoundException":
-      throw await deserializeAws_json1_1RootNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_RootNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2847,16 +3186,19 @@ const deserializeAws_json1_1EnablePolicyTypeCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1InviteAccountToOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1InviteAccountToOrganizationCommand
+ */
+export const de_InviteAccountToOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InviteAccountToOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1InviteAccountToOrganizationCommandError(output, context);
+    return de_InviteAccountToOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1InviteAccountToOrganizationResponse(data, context);
+  contents = de_InviteAccountToOrganizationResponse(data, context);
   const response: InviteAccountToOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2864,7 +3206,10 @@ export const deserializeAws_json1_1InviteAccountToOrganizationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1InviteAccountToOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1InviteAccountToOrganizationCommandError
+ */
+const de_InviteAccountToOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InviteAccountToOrganizationCommandOutput> => {
@@ -2876,37 +3221,37 @@ const deserializeAws_json1_1InviteAccountToOrganizationCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountOwnerNotVerifiedException":
     case "com.amazonaws.organizations#AccountOwnerNotVerifiedException":
-      throw await deserializeAws_json1_1AccountOwnerNotVerifiedExceptionResponse(parsedOutput, context);
+      throw await de_AccountOwnerNotVerifiedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "DuplicateHandshakeException":
     case "com.amazonaws.organizations#DuplicateHandshakeException":
-      throw await deserializeAws_json1_1DuplicateHandshakeExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateHandshakeExceptionRes(parsedOutput, context);
     case "FinalizingOrganizationException":
     case "com.amazonaws.organizations#FinalizingOrganizationException":
-      throw await deserializeAws_json1_1FinalizingOrganizationExceptionResponse(parsedOutput, context);
+      throw await de_FinalizingOrganizationExceptionRes(parsedOutput, context);
     case "HandshakeConstraintViolationException":
     case "com.amazonaws.organizations#HandshakeConstraintViolationException":
-      throw await deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_HandshakeConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2918,12 +3263,15 @@ const deserializeAws_json1_1InviteAccountToOrganizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1LeaveOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1LeaveOrganizationCommand
+ */
+export const de_LeaveOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LeaveOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1LeaveOrganizationCommandError(output, context);
+    return de_LeaveOrganizationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: LeaveOrganizationCommandOutput = {
@@ -2932,7 +3280,10 @@ export const deserializeAws_json1_1LeaveOrganizationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1LeaveOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1LeaveOrganizationCommandError
+ */
+const de_LeaveOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LeaveOrganizationCommandOutput> => {
@@ -2944,31 +3295,31 @@ const deserializeAws_json1_1LeaveOrganizationCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "MasterCannotLeaveOrganizationException":
     case "com.amazonaws.organizations#MasterCannotLeaveOrganizationException":
-      throw await deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse(parsedOutput, context);
+      throw await de_MasterCannotLeaveOrganizationExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2980,16 +3331,19 @@ const deserializeAws_json1_1LeaveOrganizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAccountsCommand = async (
+/**
+ * deserializeAws_json1_1ListAccountsCommand
+ */
+export const de_ListAccountsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAccountsCommandError(output, context);
+    return de_ListAccountsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAccountsResponse(data, context);
+  contents = de_ListAccountsResponse(data, context);
   const response: ListAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2997,7 +3351,10 @@ export const deserializeAws_json1_1ListAccountsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAccountsCommandError = async (
+/**
+ * deserializeAws_json1_1ListAccountsCommandError
+ */
+const de_ListAccountsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountsCommandOutput> => {
@@ -3009,19 +3366,19 @@ const deserializeAws_json1_1ListAccountsCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3033,16 +3390,19 @@ const deserializeAws_json1_1ListAccountsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAccountsForParentCommand = async (
+/**
+ * deserializeAws_json1_1ListAccountsForParentCommand
+ */
+export const de_ListAccountsForParentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountsForParentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAccountsForParentCommandError(output, context);
+    return de_ListAccountsForParentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAccountsForParentResponse(data, context);
+  contents = de_ListAccountsForParentResponse(data, context);
   const response: ListAccountsForParentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3050,7 +3410,10 @@ export const deserializeAws_json1_1ListAccountsForParentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAccountsForParentCommandError = async (
+/**
+ * deserializeAws_json1_1ListAccountsForParentCommandError
+ */
+const de_ListAccountsForParentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountsForParentCommandOutput> => {
@@ -3062,22 +3425,22 @@ const deserializeAws_json1_1ListAccountsForParentCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ParentNotFoundException":
     case "com.amazonaws.organizations#ParentNotFoundException":
-      throw await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ParentNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3089,16 +3452,19 @@ const deserializeAws_json1_1ListAccountsForParentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand
+ */
+export const de_ListAWSServiceAccessForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError(output, context);
+    return de_ListAWSServiceAccessForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAWSServiceAccessForOrganizationResponse(data, context);
+  contents = de_ListAWSServiceAccessForOrganizationResponse(data, context);
   const response: ListAWSServiceAccessForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3106,7 +3472,10 @@ export const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand = 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError
+ */
+const de_ListAWSServiceAccessForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> => {
@@ -3118,25 +3487,25 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError = as
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3148,16 +3517,19 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError = as
   }
 };
 
-export const deserializeAws_json1_1ListChildrenCommand = async (
+/**
+ * deserializeAws_json1_1ListChildrenCommand
+ */
+export const de_ListChildrenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChildrenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListChildrenCommandError(output, context);
+    return de_ListChildrenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListChildrenResponse(data, context);
+  contents = de_ListChildrenResponse(data, context);
   const response: ListChildrenCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3165,7 +3537,10 @@ export const deserializeAws_json1_1ListChildrenCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListChildrenCommandError = async (
+/**
+ * deserializeAws_json1_1ListChildrenCommandError
+ */
+const de_ListChildrenCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChildrenCommandOutput> => {
@@ -3177,22 +3552,22 @@ const deserializeAws_json1_1ListChildrenCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ParentNotFoundException":
     case "com.amazonaws.organizations#ParentNotFoundException":
-      throw await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ParentNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3204,16 +3579,19 @@ const deserializeAws_json1_1ListChildrenCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListCreateAccountStatusCommand = async (
+/**
+ * deserializeAws_json1_1ListCreateAccountStatusCommand
+ */
+export const de_ListCreateAccountStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCreateAccountStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListCreateAccountStatusCommandError(output, context);
+    return de_ListCreateAccountStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCreateAccountStatusResponse(data, context);
+  contents = de_ListCreateAccountStatusResponse(data, context);
   const response: ListCreateAccountStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3221,7 +3599,10 @@ export const deserializeAws_json1_1ListCreateAccountStatusCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListCreateAccountStatusCommandError = async (
+/**
+ * deserializeAws_json1_1ListCreateAccountStatusCommandError
+ */
+const de_ListCreateAccountStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCreateAccountStatusCommandOutput> => {
@@ -3233,22 +3614,22 @@ const deserializeAws_json1_1ListCreateAccountStatusCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3260,16 +3641,19 @@ const deserializeAws_json1_1ListCreateAccountStatusCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListDelegatedAdministratorsCommand = async (
+/**
+ * deserializeAws_json1_1ListDelegatedAdministratorsCommand
+ */
+export const de_ListDelegatedAdministratorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDelegatedAdministratorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDelegatedAdministratorsCommandError(output, context);
+    return de_ListDelegatedAdministratorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDelegatedAdministratorsResponse(data, context);
+  contents = de_ListDelegatedAdministratorsResponse(data, context);
   const response: ListDelegatedAdministratorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3277,7 +3661,10 @@ export const deserializeAws_json1_1ListDelegatedAdministratorsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDelegatedAdministratorsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDelegatedAdministratorsCommandError
+ */
+const de_ListDelegatedAdministratorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDelegatedAdministratorsCommandOutput> => {
@@ -3289,25 +3676,25 @@ const deserializeAws_json1_1ListDelegatedAdministratorsCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3319,16 +3706,19 @@ const deserializeAws_json1_1ListDelegatedAdministratorsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListDelegatedServicesForAccountCommand = async (
+/**
+ * deserializeAws_json1_1ListDelegatedServicesForAccountCommand
+ */
+export const de_ListDelegatedServicesForAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDelegatedServicesForAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDelegatedServicesForAccountCommandError(output, context);
+    return de_ListDelegatedServicesForAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDelegatedServicesForAccountResponse(data, context);
+  contents = de_ListDelegatedServicesForAccountResponse(data, context);
   const response: ListDelegatedServicesForAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3336,7 +3726,10 @@ export const deserializeAws_json1_1ListDelegatedServicesForAccountCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDelegatedServicesForAccountCommandError = async (
+/**
+ * deserializeAws_json1_1ListDelegatedServicesForAccountCommandError
+ */
+const de_ListDelegatedServicesForAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDelegatedServicesForAccountCommandOutput> => {
@@ -3348,31 +3741,31 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountCommandError = async 
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "AccountNotRegisteredException":
     case "com.amazonaws.organizations#AccountNotRegisteredException":
-      throw await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotRegisteredExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3384,16 +3777,19 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1ListHandshakesForAccountCommand = async (
+/**
+ * deserializeAws_json1_1ListHandshakesForAccountCommand
+ */
+export const de_ListHandshakesForAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHandshakesForAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListHandshakesForAccountCommandError(output, context);
+    return de_ListHandshakesForAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListHandshakesForAccountResponse(data, context);
+  contents = de_ListHandshakesForAccountResponse(data, context);
   const response: ListHandshakesForAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3401,7 +3797,10 @@ export const deserializeAws_json1_1ListHandshakesForAccountCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListHandshakesForAccountCommandError = async (
+/**
+ * deserializeAws_json1_1ListHandshakesForAccountCommandError
+ */
+const de_ListHandshakesForAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHandshakesForAccountCommandOutput> => {
@@ -3413,19 +3812,19 @@ const deserializeAws_json1_1ListHandshakesForAccountCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3437,16 +3836,19 @@ const deserializeAws_json1_1ListHandshakesForAccountCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListHandshakesForOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1ListHandshakesForOrganizationCommand
+ */
+export const de_ListHandshakesForOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHandshakesForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListHandshakesForOrganizationCommandError(output, context);
+    return de_ListHandshakesForOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListHandshakesForOrganizationResponse(data, context);
+  contents = de_ListHandshakesForOrganizationResponse(data, context);
   const response: ListHandshakesForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3454,7 +3856,10 @@ export const deserializeAws_json1_1ListHandshakesForOrganizationCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListHandshakesForOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1ListHandshakesForOrganizationCommandError
+ */
+const de_ListHandshakesForOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHandshakesForOrganizationCommandOutput> => {
@@ -3466,22 +3871,22 @@ const deserializeAws_json1_1ListHandshakesForOrganizationCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3493,16 +3898,19 @@ const deserializeAws_json1_1ListHandshakesForOrganizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListOrganizationalUnitsForParentCommand = async (
+/**
+ * deserializeAws_json1_1ListOrganizationalUnitsForParentCommand
+ */
+export const de_ListOrganizationalUnitsForParentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOrganizationalUnitsForParentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError(output, context);
+    return de_ListOrganizationalUnitsForParentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListOrganizationalUnitsForParentResponse(data, context);
+  contents = de_ListOrganizationalUnitsForParentResponse(data, context);
   const response: ListOrganizationalUnitsForParentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3510,7 +3918,10 @@ export const deserializeAws_json1_1ListOrganizationalUnitsForParentCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError = async (
+/**
+ * deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError
+ */
+const de_ListOrganizationalUnitsForParentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOrganizationalUnitsForParentCommandOutput> => {
@@ -3522,22 +3933,22 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError = async
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ParentNotFoundException":
     case "com.amazonaws.organizations#ParentNotFoundException":
-      throw await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ParentNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3549,16 +3960,19 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError = async
   }
 };
 
-export const deserializeAws_json1_1ListParentsCommand = async (
+/**
+ * deserializeAws_json1_1ListParentsCommand
+ */
+export const de_ListParentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListParentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListParentsCommandError(output, context);
+    return de_ListParentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListParentsResponse(data, context);
+  contents = de_ListParentsResponse(data, context);
   const response: ListParentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3566,7 +3980,10 @@ export const deserializeAws_json1_1ListParentsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListParentsCommandError = async (
+/**
+ * deserializeAws_json1_1ListParentsCommandError
+ */
+const de_ListParentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListParentsCommandOutput> => {
@@ -3578,22 +3995,22 @@ const deserializeAws_json1_1ListParentsCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ChildNotFoundException":
     case "com.amazonaws.organizations#ChildNotFoundException":
-      throw await deserializeAws_json1_1ChildNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ChildNotFoundExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3605,16 +4022,19 @@ const deserializeAws_json1_1ListParentsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListPoliciesCommand = async (
+/**
+ * deserializeAws_json1_1ListPoliciesCommand
+ */
+export const de_ListPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPoliciesCommandError(output, context);
+    return de_ListPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPoliciesResponse(data, context);
+  contents = de_ListPoliciesResponse(data, context);
   const response: ListPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3622,7 +4042,10 @@ export const deserializeAws_json1_1ListPoliciesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListPoliciesCommandError = async (
+/**
+ * deserializeAws_json1_1ListPoliciesCommandError
+ */
+const de_ListPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> => {
@@ -3634,22 +4057,22 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3661,16 +4084,19 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListPoliciesForTargetCommand = async (
+/**
+ * deserializeAws_json1_1ListPoliciesForTargetCommand
+ */
+export const de_ListPoliciesForTargetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesForTargetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPoliciesForTargetCommandError(output, context);
+    return de_ListPoliciesForTargetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPoliciesForTargetResponse(data, context);
+  contents = de_ListPoliciesForTargetResponse(data, context);
   const response: ListPoliciesForTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3678,7 +4104,10 @@ export const deserializeAws_json1_1ListPoliciesForTargetCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListPoliciesForTargetCommandError = async (
+/**
+ * deserializeAws_json1_1ListPoliciesForTargetCommandError
+ */
+const de_ListPoliciesForTargetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesForTargetCommandOutput> => {
@@ -3690,25 +4119,25 @@ const deserializeAws_json1_1ListPoliciesForTargetCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3720,16 +4149,19 @@ const deserializeAws_json1_1ListPoliciesForTargetCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListRootsCommand = async (
+/**
+ * deserializeAws_json1_1ListRootsCommand
+ */
+export const de_ListRootsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRootsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListRootsCommandError(output, context);
+    return de_ListRootsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRootsResponse(data, context);
+  contents = de_ListRootsResponse(data, context);
   const response: ListRootsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3737,7 +4169,10 @@ export const deserializeAws_json1_1ListRootsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListRootsCommandError = async (
+/**
+ * deserializeAws_json1_1ListRootsCommandError
+ */
+const de_ListRootsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRootsCommandOutput> => {
@@ -3749,19 +4184,19 @@ const deserializeAws_json1_1ListRootsCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3773,16 +4208,19 @@ const deserializeAws_json1_1ListRootsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3790,7 +4228,10 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -3802,22 +4243,22 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3829,16 +4270,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTargetsForPolicyCommand = async (
+/**
+ * deserializeAws_json1_1ListTargetsForPolicyCommand
+ */
+export const de_ListTargetsForPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTargetsForPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTargetsForPolicyCommandError(output, context);
+    return de_ListTargetsForPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTargetsForPolicyResponse(data, context);
+  contents = de_ListTargetsForPolicyResponse(data, context);
   const response: ListTargetsForPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3846,7 +4290,10 @@ export const deserializeAws_json1_1ListTargetsForPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTargetsForPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1ListTargetsForPolicyCommandError
+ */
+const de_ListTargetsForPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTargetsForPolicyCommandOutput> => {
@@ -3858,25 +4305,25 @@ const deserializeAws_json1_1ListTargetsForPolicyCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3888,12 +4335,15 @@ const deserializeAws_json1_1ListTargetsForPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1MoveAccountCommand = async (
+/**
+ * deserializeAws_json1_1MoveAccountCommand
+ */
+export const de_MoveAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MoveAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1MoveAccountCommandError(output, context);
+    return de_MoveAccountCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: MoveAccountCommandOutput = {
@@ -3902,7 +4352,10 @@ export const deserializeAws_json1_1MoveAccountCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1MoveAccountCommandError = async (
+/**
+ * deserializeAws_json1_1MoveAccountCommandError
+ */
+const de_MoveAccountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MoveAccountCommandOutput> => {
@@ -3914,34 +4367,34 @@ const deserializeAws_json1_1MoveAccountCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "DestinationParentNotFoundException":
     case "com.amazonaws.organizations#DestinationParentNotFoundException":
-      throw await deserializeAws_json1_1DestinationParentNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_DestinationParentNotFoundExceptionRes(parsedOutput, context);
     case "DuplicateAccountException":
     case "com.amazonaws.organizations#DuplicateAccountException":
-      throw await deserializeAws_json1_1DuplicateAccountExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateAccountExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "SourceParentNotFoundException":
     case "com.amazonaws.organizations#SourceParentNotFoundException":
-      throw await deserializeAws_json1_1SourceParentNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_SourceParentNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3953,16 +4406,19 @@ const deserializeAws_json1_1MoveAccountCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutResourcePolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
+    return de_PutResourcePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
+  contents = de_PutResourcePolicyResponse(data, context);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3970,7 +4426,10 @@ export const deserializeAws_json1_1PutResourcePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutResourcePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommandError
+ */
+const de_PutResourcePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
@@ -3982,28 +4441,28 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4015,12 +4474,15 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RegisterDelegatedAdministratorCommand = async (
+/**
+ * deserializeAws_json1_1RegisterDelegatedAdministratorCommand
+ */
+export const de_RegisterDelegatedAdministratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterDelegatedAdministratorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RegisterDelegatedAdministratorCommandError(output, context);
+    return de_RegisterDelegatedAdministratorCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RegisterDelegatedAdministratorCommandOutput = {
@@ -4029,7 +4491,10 @@ export const deserializeAws_json1_1RegisterDelegatedAdministratorCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RegisterDelegatedAdministratorCommandError = async (
+/**
+ * deserializeAws_json1_1RegisterDelegatedAdministratorCommandError
+ */
+const de_RegisterDelegatedAdministratorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterDelegatedAdministratorCommandOutput> => {
@@ -4041,34 +4506,34 @@ const deserializeAws_json1_1RegisterDelegatedAdministratorCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountAlreadyRegisteredException":
     case "com.amazonaws.organizations#AccountAlreadyRegisteredException":
-      throw await deserializeAws_json1_1AccountAlreadyRegisteredExceptionResponse(parsedOutput, context);
+      throw await de_AccountAlreadyRegisteredExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4080,12 +4545,15 @@ const deserializeAws_json1_1RegisterDelegatedAdministratorCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RemoveAccountFromOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1RemoveAccountFromOrganizationCommand
+ */
+export const de_RemoveAccountFromOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAccountFromOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RemoveAccountFromOrganizationCommandError(output, context);
+    return de_RemoveAccountFromOrganizationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemoveAccountFromOrganizationCommandOutput = {
@@ -4094,7 +4562,10 @@ export const deserializeAws_json1_1RemoveAccountFromOrganizationCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RemoveAccountFromOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1RemoveAccountFromOrganizationCommandError
+ */
+const de_RemoveAccountFromOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAccountFromOrganizationCommandOutput> => {
@@ -4106,31 +4577,31 @@ const deserializeAws_json1_1RemoveAccountFromOrganizationCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "MasterCannotLeaveOrganizationException":
     case "com.amazonaws.organizations#MasterCannotLeaveOrganizationException":
-      throw await deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse(parsedOutput, context);
+      throw await de_MasterCannotLeaveOrganizationExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4142,12 +4613,15 @@ const deserializeAws_json1_1RemoveAccountFromOrganizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
@@ -4156,7 +4630,10 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -4168,28 +4645,28 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4201,12 +4678,15 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
@@ -4215,7 +4695,10 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -4227,28 +4710,28 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4260,16 +4743,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateOrganizationalUnitCommand = async (
+/**
+ * deserializeAws_json1_1UpdateOrganizationalUnitCommand
+ */
+export const de_UpdateOrganizationalUnitCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateOrganizationalUnitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateOrganizationalUnitCommandError(output, context);
+    return de_UpdateOrganizationalUnitCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateOrganizationalUnitResponse(data, context);
+  contents = de_UpdateOrganizationalUnitResponse(data, context);
   const response: UpdateOrganizationalUnitCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4277,7 +4763,10 @@ export const deserializeAws_json1_1UpdateOrganizationalUnitCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateOrganizationalUnitCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateOrganizationalUnitCommandError
+ */
+const de_UpdateOrganizationalUnitCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateOrganizationalUnitCommandOutput> => {
@@ -4289,28 +4778,28 @@ const deserializeAws_json1_1UpdateOrganizationalUnitCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "DuplicateOrganizationalUnitException":
     case "com.amazonaws.organizations#DuplicateOrganizationalUnitException":
-      throw await deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse(parsedOutput, context);
+      throw await de_DuplicateOrganizationalUnitExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "OrganizationalUnitNotFoundException":
     case "com.amazonaws.organizations#OrganizationalUnitNotFoundException":
-      throw await deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationalUnitNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4322,16 +4811,19 @@ const deserializeAws_json1_1UpdateOrganizationalUnitCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdatePolicyCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePolicyCommand
+ */
+export const de_UpdatePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePolicyCommandError(output, context);
+    return de_UpdatePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePolicyResponse(data, context);
+  contents = de_UpdatePolicyResponse(data, context);
   const response: UpdatePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4339,7 +4831,10 @@ export const deserializeAws_json1_1UpdatePolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdatePolicyCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePolicyCommandError
+ */
+const de_UpdatePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePolicyCommandOutput> => {
@@ -4351,40 +4846,40 @@ const deserializeAws_json1_1UpdatePolicyCommandError = async (
   switch (errorCode) {
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "DuplicatePolicyException":
     case "com.amazonaws.organizations#DuplicatePolicyException":
-      throw await deserializeAws_json1_1DuplicatePolicyExceptionResponse(parsedOutput, context);
+      throw await de_DuplicatePolicyExceptionRes(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.organizations#MalformedPolicyDocumentException":
-      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "PolicyChangesInProgressException":
     case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      throw await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context);
+      throw await de_PolicyChangesInProgressExceptionRes(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4396,12 +4891,15 @@ const deserializeAws_json1_1UpdatePolicyCommandError = async (
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4409,12 +4907,15 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedForDependencyExceptionRes
+ */
+const de_AccessDeniedForDependencyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedForDependencyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedForDependencyException(body, context);
+  const deserialized: any = de_AccessDeniedForDependencyException(body, context);
   const exception = new AccessDeniedForDependencyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4422,12 +4923,15 @@ const deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AccountAlreadyClosedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccountAlreadyClosedExceptionRes
+ */
+const de_AccountAlreadyClosedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccountAlreadyClosedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccountAlreadyClosedException(body, context);
+  const deserialized: any = de_AccountAlreadyClosedException(body, context);
   const exception = new AccountAlreadyClosedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4435,12 +4939,15 @@ const deserializeAws_json1_1AccountAlreadyClosedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AccountAlreadyRegisteredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccountAlreadyRegisteredExceptionRes
+ */
+const de_AccountAlreadyRegisteredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccountAlreadyRegisteredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccountAlreadyRegisteredException(body, context);
+  const deserialized: any = de_AccountAlreadyRegisteredException(body, context);
   const exception = new AccountAlreadyRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4448,12 +4955,15 @@ const deserializeAws_json1_1AccountAlreadyRegisteredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AccountNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccountNotFoundExceptionRes
+ */
+const de_AccountNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccountNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccountNotFoundException(body, context);
+  const deserialized: any = de_AccountNotFoundException(body, context);
   const exception = new AccountNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4461,12 +4971,15 @@ const deserializeAws_json1_1AccountNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AccountNotRegisteredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccountNotRegisteredExceptionRes
+ */
+const de_AccountNotRegisteredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccountNotRegisteredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccountNotRegisteredException(body, context);
+  const deserialized: any = de_AccountNotRegisteredException(body, context);
   const exception = new AccountNotRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4474,12 +4987,15 @@ const deserializeAws_json1_1AccountNotRegisteredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AccountOwnerNotVerifiedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccountOwnerNotVerifiedExceptionRes
+ */
+const de_AccountOwnerNotVerifiedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccountOwnerNotVerifiedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccountOwnerNotVerifiedException(body, context);
+  const deserialized: any = de_AccountOwnerNotVerifiedException(body, context);
   const exception = new AccountOwnerNotVerifiedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4487,12 +5003,15 @@ const deserializeAws_json1_1AccountOwnerNotVerifiedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AlreadyInOrganizationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AlreadyInOrganizationExceptionRes
+ */
+const de_AlreadyInOrganizationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlreadyInOrganizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AlreadyInOrganizationException(body, context);
+  const deserialized: any = de_AlreadyInOrganizationException(body, context);
   const exception = new AlreadyInOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4500,12 +5019,15 @@ const deserializeAws_json1_1AlreadyInOrganizationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AWSOrganizationsNotInUseExceptionRes
+ */
+const de_AWSOrganizationsNotInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AWSOrganizationsNotInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AWSOrganizationsNotInUseException(body, context);
+  const deserialized: any = de_AWSOrganizationsNotInUseException(body, context);
   const exception = new AWSOrganizationsNotInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4513,12 +5035,15 @@ const deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ChildNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ChildNotFoundExceptionRes
+ */
+const de_ChildNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ChildNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ChildNotFoundException(body, context);
+  const deserialized: any = de_ChildNotFoundException(body, context);
   const exception = new ChildNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4526,12 +5051,15 @@ const deserializeAws_json1_1ChildNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
+  const deserialized: any = de_ConcurrentModificationException(body, context);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4539,12 +5067,12 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4552,12 +5080,15 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConstraintViolationExceptionRes
+ */
+const de_ConstraintViolationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConstraintViolationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConstraintViolationException(body, context);
+  const deserialized: any = de_ConstraintViolationException(body, context);
   const exception = new ConstraintViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4565,12 +5096,15 @@ const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1CreateAccountStatusNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1CreateAccountStatusNotFoundExceptionRes
+ */
+const de_CreateAccountStatusNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CreateAccountStatusNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CreateAccountStatusNotFoundException(body, context);
+  const deserialized: any = de_CreateAccountStatusNotFoundException(body, context);
   const exception = new CreateAccountStatusNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4578,12 +5112,15 @@ const deserializeAws_json1_1CreateAccountStatusNotFoundExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DestinationParentNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DestinationParentNotFoundExceptionRes
+ */
+const de_DestinationParentNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DestinationParentNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DestinationParentNotFoundException(body, context);
+  const deserialized: any = de_DestinationParentNotFoundException(body, context);
   const exception = new DestinationParentNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4591,12 +5128,15 @@ const deserializeAws_json1_1DestinationParentNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DuplicateAccountExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DuplicateAccountExceptionRes
+ */
+const de_DuplicateAccountExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateAccountException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DuplicateAccountException(body, context);
+  const deserialized: any = de_DuplicateAccountException(body, context);
   const exception = new DuplicateAccountException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4604,12 +5144,15 @@ const deserializeAws_json1_1DuplicateAccountExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DuplicateHandshakeExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DuplicateHandshakeExceptionRes
+ */
+const de_DuplicateHandshakeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateHandshakeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DuplicateHandshakeException(body, context);
+  const deserialized: any = de_DuplicateHandshakeException(body, context);
   const exception = new DuplicateHandshakeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4617,12 +5160,15 @@ const deserializeAws_json1_1DuplicateHandshakeExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DuplicateOrganizationalUnitExceptionRes
+ */
+const de_DuplicateOrganizationalUnitExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateOrganizationalUnitException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DuplicateOrganizationalUnitException(body, context);
+  const deserialized: any = de_DuplicateOrganizationalUnitException(body, context);
   const exception = new DuplicateOrganizationalUnitException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4630,12 +5176,15 @@ const deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse = async
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DuplicatePolicyAttachmentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DuplicatePolicyAttachmentExceptionRes
+ */
+const de_DuplicatePolicyAttachmentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicatePolicyAttachmentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DuplicatePolicyAttachmentException(body, context);
+  const deserialized: any = de_DuplicatePolicyAttachmentException(body, context);
   const exception = new DuplicatePolicyAttachmentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4643,12 +5192,15 @@ const deserializeAws_json1_1DuplicatePolicyAttachmentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DuplicatePolicyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DuplicatePolicyExceptionRes
+ */
+const de_DuplicatePolicyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicatePolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DuplicatePolicyException(body, context);
+  const deserialized: any = de_DuplicatePolicyException(body, context);
   const exception = new DuplicatePolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4656,12 +5208,15 @@ const deserializeAws_json1_1DuplicatePolicyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EffectivePolicyNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EffectivePolicyNotFoundExceptionRes
+ */
+const de_EffectivePolicyNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EffectivePolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EffectivePolicyNotFoundException(body, context);
+  const deserialized: any = de_EffectivePolicyNotFoundException(body, context);
   const exception = new EffectivePolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4669,12 +5224,15 @@ const deserializeAws_json1_1EffectivePolicyNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1FinalizingOrganizationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1FinalizingOrganizationExceptionRes
+ */
+const de_FinalizingOrganizationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FinalizingOrganizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1FinalizingOrganizationException(body, context);
+  const deserialized: any = de_FinalizingOrganizationException(body, context);
   const exception = new FinalizingOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4682,12 +5240,15 @@ const deserializeAws_json1_1FinalizingOrganizationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1HandshakeAlreadyInStateExceptionRes
+ */
+const de_HandshakeAlreadyInStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HandshakeAlreadyInStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1HandshakeAlreadyInStateException(body, context);
+  const deserialized: any = de_HandshakeAlreadyInStateException(body, context);
   const exception = new HandshakeAlreadyInStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4695,12 +5256,15 @@ const deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1HandshakeConstraintViolationExceptionRes
+ */
+const de_HandshakeConstraintViolationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HandshakeConstraintViolationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1HandshakeConstraintViolationException(body, context);
+  const deserialized: any = de_HandshakeConstraintViolationException(body, context);
   const exception = new HandshakeConstraintViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4708,12 +5272,15 @@ const deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1HandshakeNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1HandshakeNotFoundExceptionRes
+ */
+const de_HandshakeNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HandshakeNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1HandshakeNotFoundException(body, context);
+  const deserialized: any = de_HandshakeNotFoundException(body, context);
   const exception = new HandshakeNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4721,12 +5288,15 @@ const deserializeAws_json1_1HandshakeNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidHandshakeTransitionExceptionRes
+ */
+const de_InvalidHandshakeTransitionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidHandshakeTransitionException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidHandshakeTransitionException(body, context);
+  const deserialized: any = de_InvalidHandshakeTransitionException(body, context);
   const exception = new InvalidHandshakeTransitionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4734,12 +5304,15 @@ const deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
+  const deserialized: any = de_InvalidInputException(body, context);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4747,12 +5320,15 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MalformedPolicyDocumentExceptionRes
+ */
+const de_MalformedPolicyDocumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MalformedPolicyDocumentException(body, context);
+  const deserialized: any = de_MalformedPolicyDocumentException(body, context);
   const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4760,12 +5336,15 @@ const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionRes
+ */
+const de_MasterCannotLeaveOrganizationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MasterCannotLeaveOrganizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MasterCannotLeaveOrganizationException(body, context);
+  const deserialized: any = de_MasterCannotLeaveOrganizationException(body, context);
   const exception = new MasterCannotLeaveOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4773,12 +5352,15 @@ const deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OrganizationalUnitNotEmptyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1OrganizationalUnitNotEmptyExceptionRes
+ */
+const de_OrganizationalUnitNotEmptyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OrganizationalUnitNotEmptyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OrganizationalUnitNotEmptyException(body, context);
+  const deserialized: any = de_OrganizationalUnitNotEmptyException(body, context);
   const exception = new OrganizationalUnitNotEmptyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4786,12 +5368,15 @@ const deserializeAws_json1_1OrganizationalUnitNotEmptyExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1OrganizationalUnitNotFoundExceptionRes
+ */
+const de_OrganizationalUnitNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OrganizationalUnitNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OrganizationalUnitNotFoundException(body, context);
+  const deserialized: any = de_OrganizationalUnitNotFoundException(body, context);
   const exception = new OrganizationalUnitNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4799,12 +5384,15 @@ const deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse = async 
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OrganizationNotEmptyExceptionResponse = async (
+/**
+ * deserializeAws_json1_1OrganizationNotEmptyExceptionRes
+ */
+const de_OrganizationNotEmptyExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OrganizationNotEmptyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OrganizationNotEmptyException(body, context);
+  const deserialized: any = de_OrganizationNotEmptyException(body, context);
   const exception = new OrganizationNotEmptyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4812,12 +5400,15 @@ const deserializeAws_json1_1OrganizationNotEmptyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ParentNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ParentNotFoundExceptionRes
+ */
+const de_ParentNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ParentNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ParentNotFoundException(body, context);
+  const deserialized: any = de_ParentNotFoundException(body, context);
   const exception = new ParentNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4825,12 +5416,15 @@ const deserializeAws_json1_1ParentNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PolicyChangesInProgressExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PolicyChangesInProgressExceptionRes
+ */
+const de_PolicyChangesInProgressExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyChangesInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PolicyChangesInProgressException(body, context);
+  const deserialized: any = de_PolicyChangesInProgressException(body, context);
   const exception = new PolicyChangesInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4838,12 +5432,15 @@ const deserializeAws_json1_1PolicyChangesInProgressExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PolicyInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PolicyInUseExceptionRes
+ */
+const de_PolicyInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PolicyInUseException(body, context);
+  const deserialized: any = de_PolicyInUseException(body, context);
   const exception = new PolicyInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4851,12 +5448,15 @@ const deserializeAws_json1_1PolicyInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PolicyNotAttachedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PolicyNotAttachedExceptionRes
+ */
+const de_PolicyNotAttachedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyNotAttachedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PolicyNotAttachedException(body, context);
+  const deserialized: any = de_PolicyNotAttachedException(body, context);
   const exception = new PolicyNotAttachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4864,12 +5464,15 @@ const deserializeAws_json1_1PolicyNotAttachedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PolicyNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PolicyNotFoundExceptionRes
+ */
+const de_PolicyNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PolicyNotFoundException(body, context);
+  const deserialized: any = de_PolicyNotFoundException(body, context);
   const exception = new PolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4877,12 +5480,15 @@ const deserializeAws_json1_1PolicyNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PolicyTypeAlreadyEnabledExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PolicyTypeAlreadyEnabledExceptionRes
+ */
+const de_PolicyTypeAlreadyEnabledExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyTypeAlreadyEnabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PolicyTypeAlreadyEnabledException(body, context);
+  const deserialized: any = de_PolicyTypeAlreadyEnabledException(body, context);
   const exception = new PolicyTypeAlreadyEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4890,12 +5496,15 @@ const deserializeAws_json1_1PolicyTypeAlreadyEnabledExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionRes
+ */
+const de_PolicyTypeNotAvailableForOrganizationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyTypeNotAvailableForOrganizationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationException(body, context);
+  const deserialized: any = de_PolicyTypeNotAvailableForOrganizationException(body, context);
   const exception = new PolicyTypeNotAvailableForOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4903,12 +5512,15 @@ const deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionRespon
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PolicyTypeNotEnabledExceptionRes
+ */
+const de_PolicyTypeNotEnabledExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyTypeNotEnabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PolicyTypeNotEnabledException(body, context);
+  const deserialized: any = de_PolicyTypeNotEnabledException(body, context);
   const exception = new PolicyTypeNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4916,12 +5528,15 @@ const deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourcePolicyNotFoundExceptionRes
+ */
+const de_ResourcePolicyNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourcePolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourcePolicyNotFoundException(body, context);
+  const deserialized: any = de_ResourcePolicyNotFoundException(body, context);
   const exception = new ResourcePolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4929,12 +5544,15 @@ const deserializeAws_json1_1ResourcePolicyNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1RootNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1RootNotFoundExceptionRes
+ */
+const de_RootNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RootNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1RootNotFoundException(body, context);
+  const deserialized: any = de_RootNotFoundException(body, context);
   const exception = new RootNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4942,12 +5560,12 @@ const deserializeAws_json1_1RootNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ServiceException> => {
+/**
+ * deserializeAws_json1_1ServiceExceptionRes
+ */
+const de_ServiceExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceException(body, context);
+  const deserialized: any = de_ServiceException(body, context);
   const exception = new ServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4955,12 +5573,15 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1SourceParentNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1SourceParentNotFoundExceptionRes
+ */
+const de_SourceParentNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SourceParentNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1SourceParentNotFoundException(body, context);
+  const deserialized: any = de_SourceParentNotFoundException(body, context);
   const exception = new SourceParentNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4968,12 +5589,15 @@ const deserializeAws_json1_1SourceParentNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TargetNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TargetNotFoundExceptionRes
+ */
+const de_TargetNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TargetNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TargetNotFoundException(body, context);
+  const deserialized: any = de_TargetNotFoundException(body, context);
   const exception = new TargetNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4981,12 +5605,15 @@ const deserializeAws_json1_1TargetNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyRequestsException(body, context);
+  const deserialized: any = de_TooManyRequestsException(body, context);
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4994,12 +5621,15 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedAPIEndpointExceptionRes
+ */
+const de_UnsupportedAPIEndpointExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedAPIEndpointException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedAPIEndpointException(body, context);
+  const deserialized: any = de_UnsupportedAPIEndpointException(body, context);
   const exception = new UnsupportedAPIEndpointException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5007,45 +5637,60 @@ const deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AcceptHandshakeRequest = (input: AcceptHandshakeRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AcceptHandshakeRequest
+ */
+const se_AcceptHandshakeRequest = (input: AcceptHandshakeRequest, context: __SerdeContext): any => {
   return {
     ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
   };
 };
 
-const serializeAws_json1_1AttachPolicyRequest = (input: AttachPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AttachPolicyRequest
+ */
+const se_AttachPolicyRequest = (input: AttachPolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
     ...(input.TargetId != null && { TargetId: input.TargetId }),
   };
 };
 
-const serializeAws_json1_1CancelHandshakeRequest = (input: CancelHandshakeRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CancelHandshakeRequest
+ */
+const se_CancelHandshakeRequest = (input: CancelHandshakeRequest, context: __SerdeContext): any => {
   return {
     ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
   };
 };
 
-const serializeAws_json1_1CloseAccountRequest = (input: CloseAccountRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CloseAccountRequest
+ */
+const se_CloseAccountRequest = (input: CloseAccountRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountId != null && { AccountId: input.AccountId }),
   };
 };
 
-const serializeAws_json1_1CreateAccountRequest = (input: CreateAccountRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateAccountRequest
+ */
+const se_CreateAccountRequest = (input: CreateAccountRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountName != null && { AccountName: input.AccountName }),
     ...(input.Email != null && { Email: input.Email }),
     ...(input.IamUserAccessToBilling != null && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
     ...(input.RoleName != null && { RoleName: input.RoleName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateAccountStates = (
-  input: (CreateAccountState | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateAccountStates
+ */
+const se_CreateAccountStates = (input: (CreateAccountState | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5053,71 +5698,83 @@ const serializeAws_json1_1CreateAccountStates = (
     });
 };
 
-const serializeAws_json1_1CreateGovCloudAccountRequest = (
-  input: CreateGovCloudAccountRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateGovCloudAccountRequest
+ */
+const se_CreateGovCloudAccountRequest = (input: CreateGovCloudAccountRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountName != null && { AccountName: input.AccountName }),
     ...(input.Email != null && { Email: input.Email }),
     ...(input.IamUserAccessToBilling != null && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
     ...(input.RoleName != null && { RoleName: input.RoleName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateOrganizationalUnitRequest = (
-  input: CreateOrganizationalUnitRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateOrganizationalUnitRequest
+ */
+const se_CreateOrganizationalUnitRequest = (input: CreateOrganizationalUnitRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.ParentId != null && { ParentId: input.ParentId }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1CreateOrganizationRequest = (
-  input: CreateOrganizationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateOrganizationRequest
+ */
+const se_CreateOrganizationRequest = (input: CreateOrganizationRequest, context: __SerdeContext): any => {
   return {
     ...(input.FeatureSet != null && { FeatureSet: input.FeatureSet }),
   };
 };
 
-const serializeAws_json1_1CreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreatePolicyRequest
+ */
+const se_CreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.Content != null && { Content: input.Content }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };
 
-const serializeAws_json1_1DeclineHandshakeRequest = (input: DeclineHandshakeRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeclineHandshakeRequest
+ */
+const se_DeclineHandshakeRequest = (input: DeclineHandshakeRequest, context: __SerdeContext): any => {
   return {
     ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
   };
 };
 
-const serializeAws_json1_1DeleteOrganizationalUnitRequest = (
-  input: DeleteOrganizationalUnitRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteOrganizationalUnitRequest
+ */
+const se_DeleteOrganizationalUnitRequest = (input: DeleteOrganizationalUnitRequest, context: __SerdeContext): any => {
   return {
     ...(input.OrganizationalUnitId != null && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 
-const serializeAws_json1_1DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeletePolicyRequest
+ */
+const se_DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
   };
 };
 
-const serializeAws_json1_1DeregisterDelegatedAdministratorRequest = (
+/**
+ * serializeAws_json1_1DeregisterDelegatedAdministratorRequest
+ */
+const se_DeregisterDelegatedAdministratorRequest = (
   input: DeregisterDelegatedAdministratorRequest,
   context: __SerdeContext
 ): any => {
@@ -5127,13 +5784,19 @@ const serializeAws_json1_1DeregisterDelegatedAdministratorRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeAccountRequest = (input: DescribeAccountRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeAccountRequest
+ */
+const se_DescribeAccountRequest = (input: DescribeAccountRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountId != null && { AccountId: input.AccountId }),
   };
 };
 
-const serializeAws_json1_1DescribeCreateAccountStatusRequest = (
+/**
+ * serializeAws_json1_1DescribeCreateAccountStatusRequest
+ */
+const se_DescribeCreateAccountStatusRequest = (
   input: DescribeCreateAccountStatusRequest,
   context: __SerdeContext
 ): any => {
@@ -5142,26 +5805,29 @@ const serializeAws_json1_1DescribeCreateAccountStatusRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeEffectivePolicyRequest = (
-  input: DescribeEffectivePolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeEffectivePolicyRequest
+ */
+const se_DescribeEffectivePolicyRequest = (input: DescribeEffectivePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.PolicyType != null && { PolicyType: input.PolicyType }),
     ...(input.TargetId != null && { TargetId: input.TargetId }),
   };
 };
 
-const serializeAws_json1_1DescribeHandshakeRequest = (
-  input: DescribeHandshakeRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeHandshakeRequest
+ */
+const se_DescribeHandshakeRequest = (input: DescribeHandshakeRequest, context: __SerdeContext): any => {
   return {
     ...(input.HandshakeId != null && { HandshakeId: input.HandshakeId }),
   };
 };
 
-const serializeAws_json1_1DescribeOrganizationalUnitRequest = (
+/**
+ * serializeAws_json1_1DescribeOrganizationalUnitRequest
+ */
+const se_DescribeOrganizationalUnitRequest = (
   input: DescribeOrganizationalUnitRequest,
   context: __SerdeContext
 ): any => {
@@ -5170,90 +5836,108 @@ const serializeAws_json1_1DescribeOrganizationalUnitRequest = (
   };
 };
 
-const serializeAws_json1_1DescribePolicyRequest = (input: DescribePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribePolicyRequest
+ */
+const se_DescribePolicyRequest = (input: DescribePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
   };
 };
 
-const serializeAws_json1_1DetachPolicyRequest = (input: DetachPolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DetachPolicyRequest
+ */
+const se_DetachPolicyRequest = (input: DetachPolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
     ...(input.TargetId != null && { TargetId: input.TargetId }),
   };
 };
 
-const serializeAws_json1_1DisableAWSServiceAccessRequest = (
-  input: DisableAWSServiceAccessRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DisableAWSServiceAccessRequest
+ */
+const se_DisableAWSServiceAccessRequest = (input: DisableAWSServiceAccessRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
-const serializeAws_json1_1DisablePolicyTypeRequest = (
-  input: DisablePolicyTypeRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DisablePolicyTypeRequest
+ */
+const se_DisablePolicyTypeRequest = (input: DisablePolicyTypeRequest, context: __SerdeContext): any => {
   return {
     ...(input.PolicyType != null && { PolicyType: input.PolicyType }),
     ...(input.RootId != null && { RootId: input.RootId }),
   };
 };
 
-const serializeAws_json1_1EnableAllFeaturesRequest = (
-  input: EnableAllFeaturesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1EnableAllFeaturesRequest
+ */
+const se_EnableAllFeaturesRequest = (input: EnableAllFeaturesRequest, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_1EnableAWSServiceAccessRequest = (
-  input: EnableAWSServiceAccessRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1EnableAWSServiceAccessRequest
+ */
+const se_EnableAWSServiceAccessRequest = (input: EnableAWSServiceAccessRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServicePrincipal != null && { ServicePrincipal: input.ServicePrincipal }),
   };
 };
 
-const serializeAws_json1_1EnablePolicyTypeRequest = (input: EnablePolicyTypeRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EnablePolicyTypeRequest
+ */
+const se_EnablePolicyTypeRequest = (input: EnablePolicyTypeRequest, context: __SerdeContext): any => {
   return {
     ...(input.PolicyType != null && { PolicyType: input.PolicyType }),
     ...(input.RootId != null && { RootId: input.RootId }),
   };
 };
 
-const serializeAws_json1_1HandshakeFilter = (input: HandshakeFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1HandshakeFilter
+ */
+const se_HandshakeFilter = (input: HandshakeFilter, context: __SerdeContext): any => {
   return {
     ...(input.ActionType != null && { ActionType: input.ActionType }),
     ...(input.ParentHandshakeId != null && { ParentHandshakeId: input.ParentHandshakeId }),
   };
 };
 
-const serializeAws_json1_1HandshakeParty = (input: HandshakeParty, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1HandshakeParty
+ */
+const se_HandshakeParty = (input: HandshakeParty, context: __SerdeContext): any => {
   return {
     ...(input.Id != null && { Id: input.Id }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };
 
-const serializeAws_json1_1InviteAccountToOrganizationRequest = (
+/**
+ * serializeAws_json1_1InviteAccountToOrganizationRequest
+ */
+const se_InviteAccountToOrganizationRequest = (
   input: InviteAccountToOrganizationRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.Notes != null && { Notes: input.Notes }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.Target != null && { Target: serializeAws_json1_1HandshakeParty(input.Target, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
+    ...(input.Target != null && { Target: se_HandshakeParty(input.Target, context) }),
   };
 };
 
-const serializeAws_json1_1ListAccountsForParentRequest = (
-  input: ListAccountsForParentRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListAccountsForParentRequest
+ */
+const se_ListAccountsForParentRequest = (input: ListAccountsForParentRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -5261,14 +5945,20 @@ const serializeAws_json1_1ListAccountsForParentRequest = (
   };
 };
 
-const serializeAws_json1_1ListAccountsRequest = (input: ListAccountsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListAccountsRequest
+ */
+const se_ListAccountsRequest = (input: ListAccountsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest = (
+/**
+ * serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest
+ */
+const se_ListAWSServiceAccessForOrganizationRequest = (
   input: ListAWSServiceAccessForOrganizationRequest,
   context: __SerdeContext
 ): any => {
@@ -5278,7 +5968,10 @@ const serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest = (
   };
 };
 
-const serializeAws_json1_1ListChildrenRequest = (input: ListChildrenRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListChildrenRequest
+ */
+const se_ListChildrenRequest = (input: ListChildrenRequest, context: __SerdeContext): any => {
   return {
     ...(input.ChildType != null && { ChildType: input.ChildType }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -5287,18 +5980,21 @@ const serializeAws_json1_1ListChildrenRequest = (input: ListChildrenRequest, con
   };
 };
 
-const serializeAws_json1_1ListCreateAccountStatusRequest = (
-  input: ListCreateAccountStatusRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListCreateAccountStatusRequest
+ */
+const se_ListCreateAccountStatusRequest = (input: ListCreateAccountStatusRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
-    ...(input.States != null && { States: serializeAws_json1_1CreateAccountStates(input.States, context) }),
+    ...(input.States != null && { States: se_CreateAccountStates(input.States, context) }),
   };
 };
 
-const serializeAws_json1_1ListDelegatedAdministratorsRequest = (
+/**
+ * serializeAws_json1_1ListDelegatedAdministratorsRequest
+ */
+const se_ListDelegatedAdministratorsRequest = (
   input: ListDelegatedAdministratorsRequest,
   context: __SerdeContext
 ): any => {
@@ -5309,7 +6005,10 @@ const serializeAws_json1_1ListDelegatedAdministratorsRequest = (
   };
 };
 
-const serializeAws_json1_1ListDelegatedServicesForAccountRequest = (
+/**
+ * serializeAws_json1_1ListDelegatedServicesForAccountRequest
+ */
+const se_ListDelegatedServicesForAccountRequest = (
   input: ListDelegatedServicesForAccountRequest,
   context: __SerdeContext
 ): any => {
@@ -5320,29 +6019,35 @@ const serializeAws_json1_1ListDelegatedServicesForAccountRequest = (
   };
 };
 
-const serializeAws_json1_1ListHandshakesForAccountRequest = (
-  input: ListHandshakesForAccountRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListHandshakesForAccountRequest
+ */
+const se_ListHandshakesForAccountRequest = (input: ListHandshakesForAccountRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter != null && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
+    ...(input.Filter != null && { Filter: se_HandshakeFilter(input.Filter, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListHandshakesForOrganizationRequest = (
+/**
+ * serializeAws_json1_1ListHandshakesForOrganizationRequest
+ */
+const se_ListHandshakesForOrganizationRequest = (
   input: ListHandshakesForOrganizationRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter != null && { Filter: serializeAws_json1_1HandshakeFilter(input.Filter, context) }),
+    ...(input.Filter != null && { Filter: se_HandshakeFilter(input.Filter, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListOrganizationalUnitsForParentRequest = (
+/**
+ * serializeAws_json1_1ListOrganizationalUnitsForParentRequest
+ */
+const se_ListOrganizationalUnitsForParentRequest = (
   input: ListOrganizationalUnitsForParentRequest,
   context: __SerdeContext
 ): any => {
@@ -5353,7 +6058,10 @@ const serializeAws_json1_1ListOrganizationalUnitsForParentRequest = (
   };
 };
 
-const serializeAws_json1_1ListParentsRequest = (input: ListParentsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListParentsRequest
+ */
+const se_ListParentsRequest = (input: ListParentsRequest, context: __SerdeContext): any => {
   return {
     ...(input.ChildId != null && { ChildId: input.ChildId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -5361,10 +6069,10 @@ const serializeAws_json1_1ListParentsRequest = (input: ListParentsRequest, conte
   };
 };
 
-const serializeAws_json1_1ListPoliciesForTargetRequest = (
-  input: ListPoliciesForTargetRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListPoliciesForTargetRequest
+ */
+const se_ListPoliciesForTargetRequest = (input: ListPoliciesForTargetRequest, context: __SerdeContext): any => {
   return {
     ...(input.Filter != null && { Filter: input.Filter }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -5373,7 +6081,10 @@ const serializeAws_json1_1ListPoliciesForTargetRequest = (
   };
 };
 
-const serializeAws_json1_1ListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListPoliciesRequest
+ */
+const se_ListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
   return {
     ...(input.Filter != null && { Filter: input.Filter }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -5381,27 +6092,30 @@ const serializeAws_json1_1ListPoliciesRequest = (input: ListPoliciesRequest, con
   };
 };
 
-const serializeAws_json1_1ListRootsRequest = (input: ListRootsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListRootsRequest
+ */
+const se_ListRootsRequest = (input: ListRootsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_json1_1ListTargetsForPolicyRequest = (
-  input: ListTargetsForPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTargetsForPolicyRequest
+ */
+const se_ListTargetsForPolicyRequest = (input: ListTargetsForPolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -5409,7 +6123,10 @@ const serializeAws_json1_1ListTargetsForPolicyRequest = (
   };
 };
 
-const serializeAws_json1_1MoveAccountRequest = (input: MoveAccountRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1MoveAccountRequest
+ */
+const se_MoveAccountRequest = (input: MoveAccountRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountId != null && { AccountId: input.AccountId }),
     ...(input.DestinationParentId != null && { DestinationParentId: input.DestinationParentId }),
@@ -5417,17 +6134,20 @@ const serializeAws_json1_1MoveAccountRequest = (input: MoveAccountRequest, conte
   };
 };
 
-const serializeAws_json1_1PutResourcePolicyRequest = (
-  input: PutResourcePolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutResourcePolicyRequest
+ */
+const se_PutResourcePolicyRequest = (input: PutResourcePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.Content != null && { Content: input.Content }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1RegisterDelegatedAdministratorRequest = (
+/**
+ * serializeAws_json1_1RegisterDelegatedAdministratorRequest
+ */
+const se_RegisterDelegatedAdministratorRequest = (
   input: RegisterDelegatedAdministratorRequest,
   context: __SerdeContext
 ): any => {
@@ -5437,7 +6157,10 @@ const serializeAws_json1_1RegisterDelegatedAdministratorRequest = (
   };
 };
 
-const serializeAws_json1_1RemoveAccountFromOrganizationRequest = (
+/**
+ * serializeAws_json1_1RemoveAccountFromOrganizationRequest
+ */
+const se_RemoveAccountFromOrganizationRequest = (
   input: RemoveAccountFromOrganizationRequest,
   context: __SerdeContext
 ): any => {
@@ -5446,14 +6169,20 @@ const serializeAws_json1_1RemoveAccountFromOrganizationRequest = (
   };
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeys
+ */
+const se_TagKeys = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5461,39 +6190,51 @@ const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): 
     });
 };
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tags
+ */
+const se_Tags = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeys(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateOrganizationalUnitRequest = (
-  input: UpdateOrganizationalUnitRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateOrganizationalUnitRequest
+ */
+const se_UpdateOrganizationalUnitRequest = (input: UpdateOrganizationalUnitRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationalUnitId != null && { OrganizationalUnitId: input.OrganizationalUnitId }),
   };
 };
 
-const serializeAws_json1_1UpdatePolicyRequest = (input: UpdatePolicyRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdatePolicyRequest
+ */
+const se_UpdatePolicyRequest = (input: UpdatePolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.Content != null && { Content: input.Content }),
     ...(input.Description != null && { Description: input.Description }),
@@ -5502,22 +6243,28 @@ const serializeAws_json1_1UpdatePolicyRequest = (input: UpdatePolicyRequest, con
   };
 };
 
-const deserializeAws_json1_1AcceptHandshakeResponse = (
-  output: any,
-  context: __SerdeContext
-): AcceptHandshakeResponse => {
+/**
+ * deserializeAws_json1_1AcceptHandshakeResponse
+ */
+const de_AcceptHandshakeResponse = (output: any, context: __SerdeContext): AcceptHandshakeResponse => {
   return {
-    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
+    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_1AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1AccessDeniedForDependencyException = (
+/**
+ * deserializeAws_json1_1AccessDeniedForDependencyException
+ */
+const de_AccessDeniedForDependencyException = (
   output: any,
   context: __SerdeContext
 ): AccessDeniedForDependencyException => {
@@ -5527,7 +6274,10 @@ const deserializeAws_json1_1AccessDeniedForDependencyException = (
   } as any;
 };
 
-const deserializeAws_json1_1Account = (output: any, context: __SerdeContext): Account => {
+/**
+ * deserializeAws_json1_1Account
+ */
+const de_Account = (output: any, context: __SerdeContext): Account => {
   return {
     Arn: __expectString(output.Arn),
     Email: __expectString(output.Email),
@@ -5542,16 +6292,19 @@ const deserializeAws_json1_1Account = (output: any, context: __SerdeContext): Ac
   } as any;
 };
 
-const deserializeAws_json1_1AccountAlreadyClosedException = (
-  output: any,
-  context: __SerdeContext
-): AccountAlreadyClosedException => {
+/**
+ * deserializeAws_json1_1AccountAlreadyClosedException
+ */
+const de_AccountAlreadyClosedException = (output: any, context: __SerdeContext): AccountAlreadyClosedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1AccountAlreadyRegisteredException = (
+/**
+ * deserializeAws_json1_1AccountAlreadyRegisteredException
+ */
+const de_AccountAlreadyRegisteredException = (
   output: any,
   context: __SerdeContext
 ): AccountAlreadyRegisteredException => {
@@ -5560,25 +6313,28 @@ const deserializeAws_json1_1AccountAlreadyRegisteredException = (
   } as any;
 };
 
-const deserializeAws_json1_1AccountNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): AccountNotFoundException => {
+/**
+ * deserializeAws_json1_1AccountNotFoundException
+ */
+const de_AccountNotFoundException = (output: any, context: __SerdeContext): AccountNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1AccountNotRegisteredException = (
-  output: any,
-  context: __SerdeContext
-): AccountNotRegisteredException => {
+/**
+ * deserializeAws_json1_1AccountNotRegisteredException
+ */
+const de_AccountNotRegisteredException = (output: any, context: __SerdeContext): AccountNotRegisteredException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1AccountOwnerNotVerifiedException = (
+/**
+ * deserializeAws_json1_1AccountOwnerNotVerifiedException
+ */
+const de_AccountOwnerNotVerifiedException = (
   output: any,
   context: __SerdeContext
 ): AccountOwnerNotVerifiedException => {
@@ -5587,28 +6343,34 @@ const deserializeAws_json1_1AccountOwnerNotVerifiedException = (
   } as any;
 };
 
-const deserializeAws_json1_1Accounts = (output: any, context: __SerdeContext): Account[] => {
+/**
+ * deserializeAws_json1_1Accounts
+ */
+const de_Accounts = (output: any, context: __SerdeContext): Account[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Account(entry, context);
+      return de_Account(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1AlreadyInOrganizationException = (
-  output: any,
-  context: __SerdeContext
-): AlreadyInOrganizationException => {
+/**
+ * deserializeAws_json1_1AlreadyInOrganizationException
+ */
+const de_AlreadyInOrganizationException = (output: any, context: __SerdeContext): AlreadyInOrganizationException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1AWSOrganizationsNotInUseException = (
+/**
+ * deserializeAws_json1_1AWSOrganizationsNotInUseException
+ */
+const de_AWSOrganizationsNotInUseException = (
   output: any,
   context: __SerdeContext
 ): AWSOrganizationsNotInUseException => {
@@ -5617,75 +6379,91 @@ const deserializeAws_json1_1AWSOrganizationsNotInUseException = (
   } as any;
 };
 
-const deserializeAws_json1_1CancelHandshakeResponse = (
-  output: any,
-  context: __SerdeContext
-): CancelHandshakeResponse => {
+/**
+ * deserializeAws_json1_1CancelHandshakeResponse
+ */
+const de_CancelHandshakeResponse = (output: any, context: __SerdeContext): CancelHandshakeResponse => {
   return {
-    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
+    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Child = (output: any, context: __SerdeContext): Child => {
+/**
+ * deserializeAws_json1_1Child
+ */
+const de_Child = (output: any, context: __SerdeContext): Child => {
   return {
     Id: __expectString(output.Id),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1ChildNotFoundException = (output: any, context: __SerdeContext): ChildNotFoundException => {
+/**
+ * deserializeAws_json1_1ChildNotFoundException
+ */
+const de_ChildNotFoundException = (output: any, context: __SerdeContext): ChildNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1Children = (output: any, context: __SerdeContext): Child[] => {
+/**
+ * deserializeAws_json1_1Children
+ */
+const de_Children = (output: any, context: __SerdeContext): Child[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Child(entry, context);
+      return de_Child(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
+/**
+ * deserializeAws_json1_1ConcurrentModificationException
+ */
+const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_1ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ConstraintViolationException = (
-  output: any,
-  context: __SerdeContext
-): ConstraintViolationException => {
+/**
+ * deserializeAws_json1_1ConstraintViolationException
+ */
+const de_ConstraintViolationException = (output: any, context: __SerdeContext): ConstraintViolationException => {
   return {
     Message: __expectString(output.Message),
     Reason: __expectString(output.Reason),
   } as any;
 };
 
-const deserializeAws_json1_1CreateAccountResponse = (output: any, context: __SerdeContext): CreateAccountResponse => {
+/**
+ * deserializeAws_json1_1CreateAccountResponse
+ */
+const de_CreateAccountResponse = (output: any, context: __SerdeContext): CreateAccountResponse => {
   return {
     CreateAccountStatus:
-      output.CreateAccountStatus != null
-        ? deserializeAws_json1_1CreateAccountStatus(output.CreateAccountStatus, context)
-        : undefined,
+      output.CreateAccountStatus != null ? de_CreateAccountStatus(output.CreateAccountStatus, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateAccountStatus = (output: any, context: __SerdeContext): CreateAccountStatus => {
+/**
+ * deserializeAws_json1_1CreateAccountStatus
+ */
+const de_CreateAccountStatus = (output: any, context: __SerdeContext): CreateAccountStatus => {
   return {
     AccountId: __expectString(output.AccountId),
     AccountName: __expectString(output.AccountName),
@@ -5704,19 +6482,25 @@ const deserializeAws_json1_1CreateAccountStatus = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1CreateAccountStatuses = (output: any, context: __SerdeContext): CreateAccountStatus[] => {
+/**
+ * deserializeAws_json1_1CreateAccountStatuses
+ */
+const de_CreateAccountStatuses = (output: any, context: __SerdeContext): CreateAccountStatus[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1CreateAccountStatus(entry, context);
+      return de_CreateAccountStatus(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1CreateAccountStatusNotFoundException = (
+/**
+ * deserializeAws_json1_1CreateAccountStatusNotFoundException
+ */
+const de_CreateAccountStatusNotFoundException = (
   output: any,
   context: __SerdeContext
 ): CreateAccountStatusNotFoundException => {
@@ -5725,56 +6509,60 @@ const deserializeAws_json1_1CreateAccountStatusNotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateGovCloudAccountResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateGovCloudAccountResponse => {
+/**
+ * deserializeAws_json1_1CreateGovCloudAccountResponse
+ */
+const de_CreateGovCloudAccountResponse = (output: any, context: __SerdeContext): CreateGovCloudAccountResponse => {
   return {
     CreateAccountStatus:
-      output.CreateAccountStatus != null
-        ? deserializeAws_json1_1CreateAccountStatus(output.CreateAccountStatus, context)
-        : undefined,
+      output.CreateAccountStatus != null ? de_CreateAccountStatus(output.CreateAccountStatus, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateOrganizationalUnitResponse = (
+/**
+ * deserializeAws_json1_1CreateOrganizationalUnitResponse
+ */
+const de_CreateOrganizationalUnitResponse = (
   output: any,
   context: __SerdeContext
 ): CreateOrganizationalUnitResponse => {
   return {
     OrganizationalUnit:
-      output.OrganizationalUnit != null
-        ? deserializeAws_json1_1OrganizationalUnit(output.OrganizationalUnit, context)
-        : undefined,
+      output.OrganizationalUnit != null ? de_OrganizationalUnit(output.OrganizationalUnit, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreateOrganizationResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateOrganizationResponse => {
+/**
+ * deserializeAws_json1_1CreateOrganizationResponse
+ */
+const de_CreateOrganizationResponse = (output: any, context: __SerdeContext): CreateOrganizationResponse => {
   return {
-    Organization:
-      output.Organization != null ? deserializeAws_json1_1Organization(output.Organization, context) : undefined,
+    Organization: output.Organization != null ? de_Organization(output.Organization, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1CreatePolicyResponse = (output: any, context: __SerdeContext): CreatePolicyResponse => {
+/**
+ * deserializeAws_json1_1CreatePolicyResponse
+ */
+const de_CreatePolicyResponse = (output: any, context: __SerdeContext): CreatePolicyResponse => {
   return {
-    Policy: output.Policy != null ? deserializeAws_json1_1Policy(output.Policy, context) : undefined,
+    Policy: output.Policy != null ? de_Policy(output.Policy, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeclineHandshakeResponse = (
-  output: any,
-  context: __SerdeContext
-): DeclineHandshakeResponse => {
+/**
+ * deserializeAws_json1_1DeclineHandshakeResponse
+ */
+const de_DeclineHandshakeResponse = (output: any, context: __SerdeContext): DeclineHandshakeResponse => {
   return {
-    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
+    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DelegatedAdministrator = (output: any, context: __SerdeContext): DelegatedAdministrator => {
+/**
+ * deserializeAws_json1_1DelegatedAdministrator
+ */
+const de_DelegatedAdministrator = (output: any, context: __SerdeContext): DelegatedAdministrator => {
   return {
     Arn: __expectString(output.Arn),
     DelegationEnabledDate:
@@ -5793,22 +6581,25 @@ const deserializeAws_json1_1DelegatedAdministrator = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_1DelegatedAdministrators = (
-  output: any,
-  context: __SerdeContext
-): DelegatedAdministrator[] => {
+/**
+ * deserializeAws_json1_1DelegatedAdministrators
+ */
+const de_DelegatedAdministrators = (output: any, context: __SerdeContext): DelegatedAdministrator[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DelegatedAdministrator(entry, context);
+      return de_DelegatedAdministrator(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DelegatedService = (output: any, context: __SerdeContext): DelegatedService => {
+/**
+ * deserializeAws_json1_1DelegatedService
+ */
+const de_DelegatedService = (output: any, context: __SerdeContext): DelegatedService => {
   return {
     DelegationEnabledDate:
       output.DelegationEnabledDate != null
@@ -5818,99 +6609,105 @@ const deserializeAws_json1_1DelegatedService = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_1DelegatedServices = (output: any, context: __SerdeContext): DelegatedService[] => {
+/**
+ * deserializeAws_json1_1DelegatedServices
+ */
+const de_DelegatedServices = (output: any, context: __SerdeContext): DelegatedService[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DelegatedService(entry, context);
+      return de_DelegatedService(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DescribeAccountResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeAccountResponse => {
+/**
+ * deserializeAws_json1_1DescribeAccountResponse
+ */
+const de_DescribeAccountResponse = (output: any, context: __SerdeContext): DescribeAccountResponse => {
   return {
-    Account: output.Account != null ? deserializeAws_json1_1Account(output.Account, context) : undefined,
+    Account: output.Account != null ? de_Account(output.Account, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeCreateAccountStatusResponse = (
+/**
+ * deserializeAws_json1_1DescribeCreateAccountStatusResponse
+ */
+const de_DescribeCreateAccountStatusResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCreateAccountStatusResponse => {
   return {
     CreateAccountStatus:
-      output.CreateAccountStatus != null
-        ? deserializeAws_json1_1CreateAccountStatus(output.CreateAccountStatus, context)
-        : undefined,
+      output.CreateAccountStatus != null ? de_CreateAccountStatus(output.CreateAccountStatus, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeEffectivePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeEffectivePolicyResponse => {
+/**
+ * deserializeAws_json1_1DescribeEffectivePolicyResponse
+ */
+const de_DescribeEffectivePolicyResponse = (output: any, context: __SerdeContext): DescribeEffectivePolicyResponse => {
   return {
-    EffectivePolicy:
-      output.EffectivePolicy != null
-        ? deserializeAws_json1_1EffectivePolicy(output.EffectivePolicy, context)
-        : undefined,
+    EffectivePolicy: output.EffectivePolicy != null ? de_EffectivePolicy(output.EffectivePolicy, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeHandshakeResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeHandshakeResponse => {
+/**
+ * deserializeAws_json1_1DescribeHandshakeResponse
+ */
+const de_DescribeHandshakeResponse = (output: any, context: __SerdeContext): DescribeHandshakeResponse => {
   return {
-    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
+    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeOrganizationalUnitResponse = (
+/**
+ * deserializeAws_json1_1DescribeOrganizationalUnitResponse
+ */
+const de_DescribeOrganizationalUnitResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeOrganizationalUnitResponse => {
   return {
     OrganizationalUnit:
-      output.OrganizationalUnit != null
-        ? deserializeAws_json1_1OrganizationalUnit(output.OrganizationalUnit, context)
-        : undefined,
+      output.OrganizationalUnit != null ? de_OrganizationalUnit(output.OrganizationalUnit, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeOrganizationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeOrganizationResponse => {
+/**
+ * deserializeAws_json1_1DescribeOrganizationResponse
+ */
+const de_DescribeOrganizationResponse = (output: any, context: __SerdeContext): DescribeOrganizationResponse => {
   return {
-    Organization:
-      output.Organization != null ? deserializeAws_json1_1Organization(output.Organization, context) : undefined,
+    Organization: output.Organization != null ? de_Organization(output.Organization, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribePolicyResponse = (output: any, context: __SerdeContext): DescribePolicyResponse => {
+/**
+ * deserializeAws_json1_1DescribePolicyResponse
+ */
+const de_DescribePolicyResponse = (output: any, context: __SerdeContext): DescribePolicyResponse => {
   return {
-    Policy: output.Policy != null ? deserializeAws_json1_1Policy(output.Policy, context) : undefined,
+    Policy: output.Policy != null ? de_Policy(output.Policy, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DescribeResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeResourcePolicyResponse => {
+/**
+ * deserializeAws_json1_1DescribeResourcePolicyResponse
+ */
+const de_DescribeResourcePolicyResponse = (output: any, context: __SerdeContext): DescribeResourcePolicyResponse => {
   return {
-    ResourcePolicy:
-      output.ResourcePolicy != null ? deserializeAws_json1_1ResourcePolicy(output.ResourcePolicy, context) : undefined,
+    ResourcePolicy: output.ResourcePolicy != null ? de_ResourcePolicy(output.ResourcePolicy, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DestinationParentNotFoundException = (
+/**
+ * deserializeAws_json1_1DestinationParentNotFoundException
+ */
+const de_DestinationParentNotFoundException = (
   output: any,
   context: __SerdeContext
 ): DestinationParentNotFoundException => {
@@ -5919,34 +6716,37 @@ const deserializeAws_json1_1DestinationParentNotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_1DisablePolicyTypeResponse = (
-  output: any,
-  context: __SerdeContext
-): DisablePolicyTypeResponse => {
+/**
+ * deserializeAws_json1_1DisablePolicyTypeResponse
+ */
+const de_DisablePolicyTypeResponse = (output: any, context: __SerdeContext): DisablePolicyTypeResponse => {
   return {
-    Root: output.Root != null ? deserializeAws_json1_1Root(output.Root, context) : undefined,
+    Root: output.Root != null ? de_Root(output.Root, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DuplicateAccountException = (
-  output: any,
-  context: __SerdeContext
-): DuplicateAccountException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1DuplicateHandshakeException = (
-  output: any,
-  context: __SerdeContext
-): DuplicateHandshakeException => {
+/**
+ * deserializeAws_json1_1DuplicateAccountException
+ */
+const de_DuplicateAccountException = (output: any, context: __SerdeContext): DuplicateAccountException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1DuplicateOrganizationalUnitException = (
+/**
+ * deserializeAws_json1_1DuplicateHandshakeException
+ */
+const de_DuplicateHandshakeException = (output: any, context: __SerdeContext): DuplicateHandshakeException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1DuplicateOrganizationalUnitException
+ */
+const de_DuplicateOrganizationalUnitException = (
   output: any,
   context: __SerdeContext
 ): DuplicateOrganizationalUnitException => {
@@ -5955,7 +6755,10 @@ const deserializeAws_json1_1DuplicateOrganizationalUnitException = (
   } as any;
 };
 
-const deserializeAws_json1_1DuplicatePolicyAttachmentException = (
+/**
+ * deserializeAws_json1_1DuplicatePolicyAttachmentException
+ */
+const de_DuplicatePolicyAttachmentException = (
   output: any,
   context: __SerdeContext
 ): DuplicatePolicyAttachmentException => {
@@ -5964,16 +6767,19 @@ const deserializeAws_json1_1DuplicatePolicyAttachmentException = (
   } as any;
 };
 
-const deserializeAws_json1_1DuplicatePolicyException = (
-  output: any,
-  context: __SerdeContext
-): DuplicatePolicyException => {
+/**
+ * deserializeAws_json1_1DuplicatePolicyException
+ */
+const de_DuplicatePolicyException = (output: any, context: __SerdeContext): DuplicatePolicyException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1EffectivePolicy = (output: any, context: __SerdeContext): EffectivePolicy => {
+/**
+ * deserializeAws_json1_1EffectivePolicy
+ */
+const de_EffectivePolicy = (output: any, context: __SerdeContext): EffectivePolicy => {
   return {
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp != null
@@ -5985,7 +6791,10 @@ const deserializeAws_json1_1EffectivePolicy = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1EffectivePolicyNotFoundException = (
+/**
+ * deserializeAws_json1_1EffectivePolicyNotFoundException
+ */
+const de_EffectivePolicyNotFoundException = (
   output: any,
   context: __SerdeContext
 ): EffectivePolicyNotFoundException => {
@@ -5994,19 +6803,19 @@ const deserializeAws_json1_1EffectivePolicyNotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_1EnableAllFeaturesResponse = (
-  output: any,
-  context: __SerdeContext
-): EnableAllFeaturesResponse => {
+/**
+ * deserializeAws_json1_1EnableAllFeaturesResponse
+ */
+const de_EnableAllFeaturesResponse = (output: any, context: __SerdeContext): EnableAllFeaturesResponse => {
   return {
-    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
+    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1EnabledServicePrincipal = (
-  output: any,
-  context: __SerdeContext
-): EnabledServicePrincipal => {
+/**
+ * deserializeAws_json1_1EnabledServicePrincipal
+ */
+const de_EnabledServicePrincipal = (output: any, context: __SerdeContext): EnabledServicePrincipal => {
   return {
     DateEnabled:
       output.DateEnabled != null
@@ -6016,40 +6825,43 @@ const deserializeAws_json1_1EnabledServicePrincipal = (
   } as any;
 };
 
-const deserializeAws_json1_1EnabledServicePrincipals = (
-  output: any,
-  context: __SerdeContext
-): EnabledServicePrincipal[] => {
+/**
+ * deserializeAws_json1_1EnabledServicePrincipals
+ */
+const de_EnabledServicePrincipals = (output: any, context: __SerdeContext): EnabledServicePrincipal[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1EnabledServicePrincipal(entry, context);
+      return de_EnabledServicePrincipal(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EnablePolicyTypeResponse = (
-  output: any,
-  context: __SerdeContext
-): EnablePolicyTypeResponse => {
+/**
+ * deserializeAws_json1_1EnablePolicyTypeResponse
+ */
+const de_EnablePolicyTypeResponse = (output: any, context: __SerdeContext): EnablePolicyTypeResponse => {
   return {
-    Root: output.Root != null ? deserializeAws_json1_1Root(output.Root, context) : undefined,
+    Root: output.Root != null ? de_Root(output.Root, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1FinalizingOrganizationException = (
-  output: any,
-  context: __SerdeContext
-): FinalizingOrganizationException => {
+/**
+ * deserializeAws_json1_1FinalizingOrganizationException
+ */
+const de_FinalizingOrganizationException = (output: any, context: __SerdeContext): FinalizingOrganizationException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1Handshake = (output: any, context: __SerdeContext): Handshake => {
+/**
+ * deserializeAws_json1_1Handshake
+ */
+const de_Handshake = (output: any, context: __SerdeContext): Handshake => {
   return {
     Action: __expectString(output.Action),
     Arn: __expectString(output.Arn),
@@ -6058,18 +6870,20 @@ const deserializeAws_json1_1Handshake = (output: any, context: __SerdeContext): 
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTimestamp)))
         : undefined,
     Id: __expectString(output.Id),
-    Parties: output.Parties != null ? deserializeAws_json1_1HandshakeParties(output.Parties, context) : undefined,
+    Parties: output.Parties != null ? de_HandshakeParties(output.Parties, context) : undefined,
     RequestedTimestamp:
       output.RequestedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.RequestedTimestamp)))
         : undefined,
-    Resources:
-      output.Resources != null ? deserializeAws_json1_1HandshakeResources(output.Resources, context) : undefined,
+    Resources: output.Resources != null ? de_HandshakeResources(output.Resources, context) : undefined,
     State: __expectString(output.State),
   } as any;
 };
 
-const deserializeAws_json1_1HandshakeAlreadyInStateException = (
+/**
+ * deserializeAws_json1_1HandshakeAlreadyInStateException
+ */
+const de_HandshakeAlreadyInStateException = (
   output: any,
   context: __SerdeContext
 ): HandshakeAlreadyInStateException => {
@@ -6078,7 +6892,10 @@ const deserializeAws_json1_1HandshakeAlreadyInStateException = (
   } as any;
 };
 
-const deserializeAws_json1_1HandshakeConstraintViolationException = (
+/**
+ * deserializeAws_json1_1HandshakeConstraintViolationException
+ */
+const de_HandshakeConstraintViolationException = (
   output: any,
   context: __SerdeContext
 ): HandshakeConstraintViolationException => {
@@ -6088,68 +6905,85 @@ const deserializeAws_json1_1HandshakeConstraintViolationException = (
   } as any;
 };
 
-const deserializeAws_json1_1HandshakeNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): HandshakeNotFoundException => {
+/**
+ * deserializeAws_json1_1HandshakeNotFoundException
+ */
+const de_HandshakeNotFoundException = (output: any, context: __SerdeContext): HandshakeNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1HandshakeParties = (output: any, context: __SerdeContext): HandshakeParty[] => {
+/**
+ * deserializeAws_json1_1HandshakeParties
+ */
+const de_HandshakeParties = (output: any, context: __SerdeContext): HandshakeParty[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1HandshakeParty(entry, context);
+      return de_HandshakeParty(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1HandshakeParty = (output: any, context: __SerdeContext): HandshakeParty => {
+/**
+ * deserializeAws_json1_1HandshakeParty
+ */
+const de_HandshakeParty = (output: any, context: __SerdeContext): HandshakeParty => {
   return {
     Id: __expectString(output.Id),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1HandshakeResource = (output: any, context: __SerdeContext): HandshakeResource => {
+/**
+ * deserializeAws_json1_1HandshakeResource
+ */
+const de_HandshakeResource = (output: any, context: __SerdeContext): HandshakeResource => {
   return {
-    Resources:
-      output.Resources != null ? deserializeAws_json1_1HandshakeResources(output.Resources, context) : undefined,
+    Resources: output.Resources != null ? de_HandshakeResources(output.Resources, context) : undefined,
     Type: __expectString(output.Type),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1HandshakeResources = (output: any, context: __SerdeContext): HandshakeResource[] => {
+/**
+ * deserializeAws_json1_1HandshakeResources
+ */
+const de_HandshakeResources = (output: any, context: __SerdeContext): HandshakeResource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1HandshakeResource(entry, context);
+      return de_HandshakeResource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Handshakes = (output: any, context: __SerdeContext): Handshake[] => {
+/**
+ * deserializeAws_json1_1Handshakes
+ */
+const de_Handshakes = (output: any, context: __SerdeContext): Handshake[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Handshake(entry, context);
+      return de_Handshake(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InvalidHandshakeTransitionException = (
+/**
+ * deserializeAws_json1_1InvalidHandshakeTransitionException
+ */
+const de_InvalidHandshakeTransitionException = (
   output: any,
   context: __SerdeContext
 ): InvalidHandshakeTransitionException => {
@@ -6158,183 +6992,221 @@ const deserializeAws_json1_1InvalidHandshakeTransitionException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
+/**
+ * deserializeAws_json1_1InvalidInputException
+ */
+const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
     Message: __expectString(output.Message),
     Reason: __expectString(output.Reason),
   } as any;
 };
 
-const deserializeAws_json1_1InviteAccountToOrganizationResponse = (
+/**
+ * deserializeAws_json1_1InviteAccountToOrganizationResponse
+ */
+const de_InviteAccountToOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): InviteAccountToOrganizationResponse => {
   return {
-    Handshake: output.Handshake != null ? deserializeAws_json1_1Handshake(output.Handshake, context) : undefined,
+    Handshake: output.Handshake != null ? de_Handshake(output.Handshake, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListAccountsForParentResponse = (
-  output: any,
-  context: __SerdeContext
-): ListAccountsForParentResponse => {
+/**
+ * deserializeAws_json1_1ListAccountsForParentResponse
+ */
+const de_ListAccountsForParentResponse = (output: any, context: __SerdeContext): ListAccountsForParentResponse => {
   return {
-    Accounts: output.Accounts != null ? deserializeAws_json1_1Accounts(output.Accounts, context) : undefined,
+    Accounts: output.Accounts != null ? de_Accounts(output.Accounts, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListAccountsResponse = (output: any, context: __SerdeContext): ListAccountsResponse => {
+/**
+ * deserializeAws_json1_1ListAccountsResponse
+ */
+const de_ListAccountsResponse = (output: any, context: __SerdeContext): ListAccountsResponse => {
   return {
-    Accounts: output.Accounts != null ? deserializeAws_json1_1Accounts(output.Accounts, context) : undefined,
+    Accounts: output.Accounts != null ? de_Accounts(output.Accounts, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListAWSServiceAccessForOrganizationResponse = (
+/**
+ * deserializeAws_json1_1ListAWSServiceAccessForOrganizationResponse
+ */
+const de_ListAWSServiceAccessForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): ListAWSServiceAccessForOrganizationResponse => {
   return {
     EnabledServicePrincipals:
       output.EnabledServicePrincipals != null
-        ? deserializeAws_json1_1EnabledServicePrincipals(output.EnabledServicePrincipals, context)
+        ? de_EnabledServicePrincipals(output.EnabledServicePrincipals, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListChildrenResponse = (output: any, context: __SerdeContext): ListChildrenResponse => {
+/**
+ * deserializeAws_json1_1ListChildrenResponse
+ */
+const de_ListChildrenResponse = (output: any, context: __SerdeContext): ListChildrenResponse => {
   return {
-    Children: output.Children != null ? deserializeAws_json1_1Children(output.Children, context) : undefined,
+    Children: output.Children != null ? de_Children(output.Children, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListCreateAccountStatusResponse = (
-  output: any,
-  context: __SerdeContext
-): ListCreateAccountStatusResponse => {
+/**
+ * deserializeAws_json1_1ListCreateAccountStatusResponse
+ */
+const de_ListCreateAccountStatusResponse = (output: any, context: __SerdeContext): ListCreateAccountStatusResponse => {
   return {
     CreateAccountStatuses:
       output.CreateAccountStatuses != null
-        ? deserializeAws_json1_1CreateAccountStatuses(output.CreateAccountStatuses, context)
+        ? de_CreateAccountStatuses(output.CreateAccountStatuses, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListDelegatedAdministratorsResponse = (
+/**
+ * deserializeAws_json1_1ListDelegatedAdministratorsResponse
+ */
+const de_ListDelegatedAdministratorsResponse = (
   output: any,
   context: __SerdeContext
 ): ListDelegatedAdministratorsResponse => {
   return {
     DelegatedAdministrators:
       output.DelegatedAdministrators != null
-        ? deserializeAws_json1_1DelegatedAdministrators(output.DelegatedAdministrators, context)
+        ? de_DelegatedAdministrators(output.DelegatedAdministrators, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListDelegatedServicesForAccountResponse = (
+/**
+ * deserializeAws_json1_1ListDelegatedServicesForAccountResponse
+ */
+const de_ListDelegatedServicesForAccountResponse = (
   output: any,
   context: __SerdeContext
 ): ListDelegatedServicesForAccountResponse => {
   return {
     DelegatedServices:
-      output.DelegatedServices != null
-        ? deserializeAws_json1_1DelegatedServices(output.DelegatedServices, context)
-        : undefined,
+      output.DelegatedServices != null ? de_DelegatedServices(output.DelegatedServices, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListHandshakesForAccountResponse = (
+/**
+ * deserializeAws_json1_1ListHandshakesForAccountResponse
+ */
+const de_ListHandshakesForAccountResponse = (
   output: any,
   context: __SerdeContext
 ): ListHandshakesForAccountResponse => {
   return {
-    Handshakes: output.Handshakes != null ? deserializeAws_json1_1Handshakes(output.Handshakes, context) : undefined,
+    Handshakes: output.Handshakes != null ? de_Handshakes(output.Handshakes, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListHandshakesForOrganizationResponse = (
+/**
+ * deserializeAws_json1_1ListHandshakesForOrganizationResponse
+ */
+const de_ListHandshakesForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): ListHandshakesForOrganizationResponse => {
   return {
-    Handshakes: output.Handshakes != null ? deserializeAws_json1_1Handshakes(output.Handshakes, context) : undefined,
+    Handshakes: output.Handshakes != null ? de_Handshakes(output.Handshakes, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListOrganizationalUnitsForParentResponse = (
+/**
+ * deserializeAws_json1_1ListOrganizationalUnitsForParentResponse
+ */
+const de_ListOrganizationalUnitsForParentResponse = (
   output: any,
   context: __SerdeContext
 ): ListOrganizationalUnitsForParentResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     OrganizationalUnits:
-      output.OrganizationalUnits != null
-        ? deserializeAws_json1_1OrganizationalUnits(output.OrganizationalUnits, context)
-        : undefined,
+      output.OrganizationalUnits != null ? de_OrganizationalUnits(output.OrganizationalUnits, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListParentsResponse = (output: any, context: __SerdeContext): ListParentsResponse => {
+/**
+ * deserializeAws_json1_1ListParentsResponse
+ */
+const de_ListParentsResponse = (output: any, context: __SerdeContext): ListParentsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Parents: output.Parents != null ? deserializeAws_json1_1Parents(output.Parents, context) : undefined,
+    Parents: output.Parents != null ? de_Parents(output.Parents, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListPoliciesForTargetResponse = (
-  output: any,
-  context: __SerdeContext
-): ListPoliciesForTargetResponse => {
+/**
+ * deserializeAws_json1_1ListPoliciesForTargetResponse
+ */
+const de_ListPoliciesForTargetResponse = (output: any, context: __SerdeContext): ListPoliciesForTargetResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Policies: output.Policies != null ? deserializeAws_json1_1Policies(output.Policies, context) : undefined,
+    Policies: output.Policies != null ? de_Policies(output.Policies, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
+/**
+ * deserializeAws_json1_1ListPoliciesResponse
+ */
+const de_ListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Policies: output.Policies != null ? deserializeAws_json1_1Policies(output.Policies, context) : undefined,
+    Policies: output.Policies != null ? de_Policies(output.Policies, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListRootsResponse = (output: any, context: __SerdeContext): ListRootsResponse => {
+/**
+ * deserializeAws_json1_1ListRootsResponse
+ */
+const de_ListRootsResponse = (output: any, context: __SerdeContext): ListRootsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Roots: output.Roots != null ? deserializeAws_json1_1Roots(output.Roots, context) : undefined,
+    Roots: output.Roots != null ? de_Roots(output.Roots, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_1ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Tags: output.Tags != null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTargetsForPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTargetsForPolicyResponse => {
+/**
+ * deserializeAws_json1_1ListTargetsForPolicyResponse
+ */
+const de_ListTargetsForPolicyResponse = (output: any, context: __SerdeContext): ListTargetsForPolicyResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Targets: output.Targets != null ? deserializeAws_json1_1PolicyTargets(output.Targets, context) : undefined,
+    Targets: output.Targets != null ? de_PolicyTargets(output.Targets, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MalformedPolicyDocumentException = (
+/**
+ * deserializeAws_json1_1MalformedPolicyDocumentException
+ */
+const de_MalformedPolicyDocumentException = (
   output: any,
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
@@ -6343,7 +7215,10 @@ const deserializeAws_json1_1MalformedPolicyDocumentException = (
   } as any;
 };
 
-const deserializeAws_json1_1MasterCannotLeaveOrganizationException = (
+/**
+ * deserializeAws_json1_1MasterCannotLeaveOrganizationException
+ */
+const de_MasterCannotLeaveOrganizationException = (
   output: any,
   context: __SerdeContext
 ): MasterCannotLeaveOrganizationException => {
@@ -6352,13 +7227,14 @@ const deserializeAws_json1_1MasterCannotLeaveOrganizationException = (
   } as any;
 };
 
-const deserializeAws_json1_1Organization = (output: any, context: __SerdeContext): Organization => {
+/**
+ * deserializeAws_json1_1Organization
+ */
+const de_Organization = (output: any, context: __SerdeContext): Organization => {
   return {
     Arn: __expectString(output.Arn),
     AvailablePolicyTypes:
-      output.AvailablePolicyTypes != null
-        ? deserializeAws_json1_1PolicyTypes(output.AvailablePolicyTypes, context)
-        : undefined,
+      output.AvailablePolicyTypes != null ? de_PolicyTypes(output.AvailablePolicyTypes, context) : undefined,
     FeatureSet: __expectString(output.FeatureSet),
     Id: __expectString(output.Id),
     MasterAccountArn: __expectString(output.MasterAccountArn),
@@ -6367,7 +7243,10 @@ const deserializeAws_json1_1Organization = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationalUnit = (output: any, context: __SerdeContext): OrganizationalUnit => {
+/**
+ * deserializeAws_json1_1OrganizationalUnit
+ */
+const de_OrganizationalUnit = (output: any, context: __SerdeContext): OrganizationalUnit => {
   return {
     Arn: __expectString(output.Arn),
     Id: __expectString(output.Id),
@@ -6375,7 +7254,10 @@ const deserializeAws_json1_1OrganizationalUnit = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationalUnitNotEmptyException = (
+/**
+ * deserializeAws_json1_1OrganizationalUnitNotEmptyException
+ */
+const de_OrganizationalUnitNotEmptyException = (
   output: any,
   context: __SerdeContext
 ): OrganizationalUnitNotEmptyException => {
@@ -6384,7 +7266,10 @@ const deserializeAws_json1_1OrganizationalUnitNotEmptyException = (
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationalUnitNotFoundException = (
+/**
+ * deserializeAws_json1_1OrganizationalUnitNotFoundException
+ */
+const de_OrganizationalUnitNotFoundException = (
   output: any,
   context: __SerdeContext
 ): OrganizationalUnitNotFoundException => {
@@ -6393,76 +7278,93 @@ const deserializeAws_json1_1OrganizationalUnitNotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationalUnits = (output: any, context: __SerdeContext): OrganizationalUnit[] => {
+/**
+ * deserializeAws_json1_1OrganizationalUnits
+ */
+const de_OrganizationalUnits = (output: any, context: __SerdeContext): OrganizationalUnit[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1OrganizationalUnit(entry, context);
+      return de_OrganizationalUnit(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1OrganizationNotEmptyException = (
-  output: any,
-  context: __SerdeContext
-): OrganizationNotEmptyException => {
+/**
+ * deserializeAws_json1_1OrganizationNotEmptyException
+ */
+const de_OrganizationNotEmptyException = (output: any, context: __SerdeContext): OrganizationNotEmptyException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1Parent = (output: any, context: __SerdeContext): Parent => {
+/**
+ * deserializeAws_json1_1Parent
+ */
+const de_Parent = (output: any, context: __SerdeContext): Parent => {
   return {
     Id: __expectString(output.Id),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1ParentNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ParentNotFoundException => {
+/**
+ * deserializeAws_json1_1ParentNotFoundException
+ */
+const de_ParentNotFoundException = (output: any, context: __SerdeContext): ParentNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1Parents = (output: any, context: __SerdeContext): Parent[] => {
+/**
+ * deserializeAws_json1_1Parents
+ */
+const de_Parents = (output: any, context: __SerdeContext): Parent[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Parent(entry, context);
+      return de_Parent(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Policies = (output: any, context: __SerdeContext): PolicySummary[] => {
+/**
+ * deserializeAws_json1_1Policies
+ */
+const de_Policies = (output: any, context: __SerdeContext): PolicySummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PolicySummary(entry, context);
+      return de_PolicySummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Policy = (output: any, context: __SerdeContext): Policy => {
+/**
+ * deserializeAws_json1_1Policy
+ */
+const de_Policy = (output: any, context: __SerdeContext): Policy => {
   return {
     Content: __expectString(output.Content),
-    PolicySummary:
-      output.PolicySummary != null ? deserializeAws_json1_1PolicySummary(output.PolicySummary, context) : undefined,
+    PolicySummary: output.PolicySummary != null ? de_PolicySummary(output.PolicySummary, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PolicyChangesInProgressException = (
+/**
+ * deserializeAws_json1_1PolicyChangesInProgressException
+ */
+const de_PolicyChangesInProgressException = (
   output: any,
   context: __SerdeContext
 ): PolicyChangesInProgressException => {
@@ -6471,31 +7373,37 @@ const deserializeAws_json1_1PolicyChangesInProgressException = (
   } as any;
 };
 
-const deserializeAws_json1_1PolicyInUseException = (output: any, context: __SerdeContext): PolicyInUseException => {
+/**
+ * deserializeAws_json1_1PolicyInUseException
+ */
+const de_PolicyInUseException = (output: any, context: __SerdeContext): PolicyInUseException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1PolicyNotAttachedException = (
-  output: any,
-  context: __SerdeContext
-): PolicyNotAttachedException => {
+/**
+ * deserializeAws_json1_1PolicyNotAttachedException
+ */
+const de_PolicyNotAttachedException = (output: any, context: __SerdeContext): PolicyNotAttachedException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1PolicyNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): PolicyNotFoundException => {
+/**
+ * deserializeAws_json1_1PolicyNotFoundException
+ */
+const de_PolicyNotFoundException = (output: any, context: __SerdeContext): PolicyNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContext): PolicySummary => {
+/**
+ * deserializeAws_json1_1PolicySummary
+ */
+const de_PolicySummary = (output: any, context: __SerdeContext): PolicySummary => {
   return {
     Arn: __expectString(output.Arn),
     AwsManaged: __expectBoolean(output.AwsManaged),
@@ -6506,19 +7414,25 @@ const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1PolicyTargets = (output: any, context: __SerdeContext): PolicyTargetSummary[] => {
+/**
+ * deserializeAws_json1_1PolicyTargets
+ */
+const de_PolicyTargets = (output: any, context: __SerdeContext): PolicyTargetSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PolicyTargetSummary(entry, context);
+      return de_PolicyTargetSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PolicyTargetSummary = (output: any, context: __SerdeContext): PolicyTargetSummary => {
+/**
+ * deserializeAws_json1_1PolicyTargetSummary
+ */
+const de_PolicyTargetSummary = (output: any, context: __SerdeContext): PolicyTargetSummary => {
   return {
     Arn: __expectString(output.Arn),
     Name: __expectString(output.Name),
@@ -6527,7 +7441,10 @@ const deserializeAws_json1_1PolicyTargetSummary = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1PolicyTypeAlreadyEnabledException = (
+/**
+ * deserializeAws_json1_1PolicyTypeAlreadyEnabledException
+ */
+const de_PolicyTypeAlreadyEnabledException = (
   output: any,
   context: __SerdeContext
 ): PolicyTypeAlreadyEnabledException => {
@@ -6536,7 +7453,10 @@ const deserializeAws_json1_1PolicyTypeAlreadyEnabledException = (
   } as any;
 };
 
-const deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationException = (
+/**
+ * deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationException
+ */
+const de_PolicyTypeNotAvailableForOrganizationException = (
   output: any,
   context: __SerdeContext
 ): PolicyTypeNotAvailableForOrganizationException => {
@@ -6545,175 +7465,207 @@ const deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationException = (
   } as any;
 };
 
-const deserializeAws_json1_1PolicyTypeNotEnabledException = (
-  output: any,
-  context: __SerdeContext
-): PolicyTypeNotEnabledException => {
+/**
+ * deserializeAws_json1_1PolicyTypeNotEnabledException
+ */
+const de_PolicyTypeNotEnabledException = (output: any, context: __SerdeContext): PolicyTypeNotEnabledException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1PolicyTypes = (output: any, context: __SerdeContext): PolicyTypeSummary[] => {
+/**
+ * deserializeAws_json1_1PolicyTypes
+ */
+const de_PolicyTypes = (output: any, context: __SerdeContext): PolicyTypeSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PolicyTypeSummary(entry, context);
+      return de_PolicyTypeSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PolicyTypeSummary = (output: any, context: __SerdeContext): PolicyTypeSummary => {
+/**
+ * deserializeAws_json1_1PolicyTypeSummary
+ */
+const de_PolicyTypeSummary = (output: any, context: __SerdeContext): PolicyTypeSummary => {
   return {
     Status: __expectString(output.Status),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1PutResourcePolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): PutResourcePolicyResponse => {
+/**
+ * deserializeAws_json1_1PutResourcePolicyResponse
+ */
+const de_PutResourcePolicyResponse = (output: any, context: __SerdeContext): PutResourcePolicyResponse => {
   return {
-    ResourcePolicy:
-      output.ResourcePolicy != null ? deserializeAws_json1_1ResourcePolicy(output.ResourcePolicy, context) : undefined,
+    ResourcePolicy: output.ResourcePolicy != null ? de_ResourcePolicy(output.ResourcePolicy, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
+/**
+ * deserializeAws_json1_1ResourcePolicy
+ */
+const de_ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
   return {
     Content: __expectString(output.Content),
     ResourcePolicySummary:
       output.ResourcePolicySummary != null
-        ? deserializeAws_json1_1ResourcePolicySummary(output.ResourcePolicySummary, context)
+        ? de_ResourcePolicySummary(output.ResourcePolicySummary, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ResourcePolicyNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourcePolicyNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourcePolicyNotFoundException
+ */
+const de_ResourcePolicyNotFoundException = (output: any, context: __SerdeContext): ResourcePolicyNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ResourcePolicySummary = (output: any, context: __SerdeContext): ResourcePolicySummary => {
+/**
+ * deserializeAws_json1_1ResourcePolicySummary
+ */
+const de_ResourcePolicySummary = (output: any, context: __SerdeContext): ResourcePolicySummary => {
   return {
     Arn: __expectString(output.Arn),
     Id: __expectString(output.Id),
   } as any;
 };
 
-const deserializeAws_json1_1Root = (output: any, context: __SerdeContext): Root => {
+/**
+ * deserializeAws_json1_1Root
+ */
+const de_Root = (output: any, context: __SerdeContext): Root => {
   return {
     Arn: __expectString(output.Arn),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
-    PolicyTypes:
-      output.PolicyTypes != null ? deserializeAws_json1_1PolicyTypes(output.PolicyTypes, context) : undefined,
+    PolicyTypes: output.PolicyTypes != null ? de_PolicyTypes(output.PolicyTypes, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1RootNotFoundException = (output: any, context: __SerdeContext): RootNotFoundException => {
+/**
+ * deserializeAws_json1_1RootNotFoundException
+ */
+const de_RootNotFoundException = (output: any, context: __SerdeContext): RootNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1Roots = (output: any, context: __SerdeContext): Root[] => {
+/**
+ * deserializeAws_json1_1Roots
+ */
+const de_Roots = (output: any, context: __SerdeContext): Root[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Root(entry, context);
+      return de_Root(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
+/**
+ * deserializeAws_json1_1ServiceException
+ */
+const de_ServiceException = (output: any, context: __SerdeContext): ServiceException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1SourceParentNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): SourceParentNotFoundException => {
+/**
+ * deserializeAws_json1_1SourceParentNotFoundException
+ */
+const de_SourceParentNotFoundException = (output: any, context: __SerdeContext): SourceParentNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1Tags
+ */
+const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TargetNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): TargetNotFoundException => {
+/**
+ * deserializeAws_json1_1TargetNotFoundException
+ */
+const de_TargetNotFoundException = (output: any, context: __SerdeContext): TargetNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1TooManyRequestsException = (
-  output: any,
-  context: __SerdeContext
-): TooManyRequestsException => {
+/**
+ * deserializeAws_json1_1TooManyRequestsException
+ */
+const de_TooManyRequestsException = (output: any, context: __SerdeContext): TooManyRequestsException => {
   return {
     Message: __expectString(output.Message),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1UnsupportedAPIEndpointException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedAPIEndpointException => {
+/**
+ * deserializeAws_json1_1UnsupportedAPIEndpointException
+ */
+const de_UnsupportedAPIEndpointException = (output: any, context: __SerdeContext): UnsupportedAPIEndpointException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1UpdateOrganizationalUnitResponse = (
+/**
+ * deserializeAws_json1_1UpdateOrganizationalUnitResponse
+ */
+const de_UpdateOrganizationalUnitResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateOrganizationalUnitResponse => {
   return {
     OrganizationalUnit:
-      output.OrganizationalUnit != null
-        ? deserializeAws_json1_1OrganizationalUnit(output.OrganizationalUnit, context)
-        : undefined,
+      output.OrganizationalUnit != null ? de_OrganizationalUnit(output.OrganizationalUnit, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1UpdatePolicyResponse = (output: any, context: __SerdeContext): UpdatePolicyResponse => {
+/**
+ * deserializeAws_json1_1UpdatePolicyResponse
+ */
+const de_UpdatePolicyResponse = (output: any, context: __SerdeContext): UpdatePolicyResponse => {
   return {
-    Policy: output.Policy != null ? deserializeAws_json1_1Policy(output.Policy, context) : undefined,
+    Policy: output.Policy != null ? de_Policy(output.Policy, context) : undefined,
   } as any;
 };
 

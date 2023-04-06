@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { DeletePullThroughCacheRuleRequest, DeletePullThroughCacheRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePullThroughCacheRuleCommand,
-  serializeAws_json1_1DeletePullThroughCacheRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePullThroughCacheRuleCommand, se_DeletePullThroughCacheRuleCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePullThroughCacheRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePullThroughCacheRuleCommand(input, context);
+    return se_DeletePullThroughCacheRuleCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePullThroughCacheRuleCommandOutput> {
-    return deserializeAws_json1_1DeletePullThroughCacheRuleCommand(output, context);
+    return de_DeletePullThroughCacheRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

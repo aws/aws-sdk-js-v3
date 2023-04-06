@@ -16,8 +16,8 @@ import {
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { RemoveTagsFromOnPremisesInstancesInput } from "../models/models_0";
 import {
-  deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand,
-  serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand,
+  de_RemoveTagsFromOnPremisesInstancesCommand,
+  se_RemoveTagsFromOnPremisesInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
     input: RemoveTagsFromOnPremisesInstancesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand(input, context);
+    return se_RemoveTagsFromOnPremisesInstancesCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> {
-    return deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand(output, context);
+    return de_RemoveTagsFromOnPremisesInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { ListAssessmentRunsRequest, ListAssessmentRunsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAssessmentRunsCommand,
-  serializeAws_json1_1ListAssessmentRunsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAssessmentRunsCommand, se_ListAssessmentRunsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -187,14 +184,14 @@ export class ListAssessmentRunsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAssessmentRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssessmentRunsCommand(input, context);
+    return se_ListAssessmentRunsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssessmentRunsCommandOutput> {
-    return deserializeAws_json1_1ListAssessmentRunsCommand(output, context);
+    return de_ListAssessmentRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

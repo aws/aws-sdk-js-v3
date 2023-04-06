@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SignOutUserRequest, SignOutUserResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SignOutUserCommand,
-  serializeAws_restJson1SignOutUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SignOutUserCommand, se_SignOutUserCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
@@ -137,14 +134,14 @@ export class SignOutUserCommand extends $Command<
    * @internal
    */
   private serialize(input: SignOutUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SignOutUserCommand(input, context);
+    return se_SignOutUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignOutUserCommandOutput> {
-    return deserializeAws_restJson1SignOutUserCommand(output, context);
+    return de_SignOutUserCommand(output, context);
   }
 
   // Start section: command_body_extra

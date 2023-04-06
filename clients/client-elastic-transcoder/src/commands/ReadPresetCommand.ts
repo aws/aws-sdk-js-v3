@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
 import { ReadPresetRequest, ReadPresetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ReadPresetCommand,
-  serializeAws_restJson1ReadPresetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ReadPresetCommand, se_ReadPresetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ReadPresetCommand extends $Command<
    * @internal
    */
   private serialize(input: ReadPresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ReadPresetCommand(input, context);
+    return se_ReadPresetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReadPresetCommandOutput> {
-    return deserializeAws_restJson1ReadPresetCommand(output, context);
+    return de_ReadPresetCommand(output, context);
   }
 
   // Start section: command_body_extra

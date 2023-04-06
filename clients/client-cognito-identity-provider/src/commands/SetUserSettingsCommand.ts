@@ -23,10 +23,7 @@ import {
   SetUserSettingsRequestFilterSensitiveLog,
   SetUserSettingsResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SetUserSettingsCommand,
-  serializeAws_json1_1SetUserSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetUserSettingsCommand, se_SetUserSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class SetUserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: SetUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetUserSettingsCommand(input, context);
+    return se_SetUserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserSettingsCommandOutput> {
-    return deserializeAws_json1_1SetUserSettingsCommand(output, context);
+    return de_SetUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

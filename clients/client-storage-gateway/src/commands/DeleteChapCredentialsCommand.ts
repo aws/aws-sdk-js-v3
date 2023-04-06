@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteChapCredentialsInput, DeleteChapCredentialsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteChapCredentialsCommand,
-  serializeAws_json1_1DeleteChapCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteChapCredentialsCommand, se_DeleteChapCredentialsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -149,14 +146,14 @@ export class DeleteChapCredentialsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteChapCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteChapCredentialsCommand(input, context);
+    return se_DeleteChapCredentialsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChapCredentialsCommandOutput> {
-    return deserializeAws_json1_1DeleteChapCredentialsCommand(output, context);
+    return de_DeleteChapCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

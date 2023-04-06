@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateScheduledActionMessage, ScheduledAction } from "../models/models_0";
-import {
-  deserializeAws_queryCreateScheduledActionCommand,
-  serializeAws_queryCreateScheduledActionCommand,
-} from "../protocols/Aws_query";
+import { de_CreateScheduledActionCommand, se_CreateScheduledActionCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -163,14 +160,14 @@ export class CreateScheduledActionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateScheduledActionCommand(input, context);
+    return se_CreateScheduledActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduledActionCommandOutput> {
-    return deserializeAws_queryCreateScheduledActionCommand(output, context);
+    return de_CreateScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

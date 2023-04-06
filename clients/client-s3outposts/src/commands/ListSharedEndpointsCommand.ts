@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSharedEndpointsRequest, ListSharedEndpointsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSharedEndpointsCommand,
-  serializeAws_restJson1ListSharedEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSharedEndpointsCommand, se_ListSharedEndpointsCommand } from "../protocols/Aws_restJson1";
 import { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 
 /**
@@ -150,14 +147,14 @@ export class ListSharedEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSharedEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSharedEndpointsCommand(input, context);
+    return se_ListSharedEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSharedEndpointsCommandOutput> {
-    return deserializeAws_restJson1ListSharedEndpointsCommand(output, context);
+    return de_ListSharedEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

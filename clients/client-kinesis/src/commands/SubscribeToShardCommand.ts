@@ -20,10 +20,7 @@ import {
   SubscribeToShardOutput,
   SubscribeToShardOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1SubscribeToShardCommand,
-  serializeAws_json1_1SubscribeToShardCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SubscribeToShardCommand, se_SubscribeToShardCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -175,7 +172,7 @@ export class SubscribeToShardCommand extends $Command<
    * @internal
    */
   private serialize(input: SubscribeToShardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubscribeToShardCommand(input, context);
+    return se_SubscribeToShardCommand(input, context);
   }
 
   /**
@@ -185,7 +182,7 @@ export class SubscribeToShardCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<SubscribeToShardCommandOutput> {
-    return deserializeAws_json1_1SubscribeToShardCommand(output, context);
+    return de_SubscribeToShardCommand(output, context);
   }
 
   // Start section: command_body_extra

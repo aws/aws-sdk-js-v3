@@ -16,8 +16,8 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetCommentsForComparedCommitInput, GetCommentsForComparedCommitOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetCommentsForComparedCommitCommand,
-  serializeAws_json1_1GetCommentsForComparedCommitCommand,
+  de_GetCommentsForComparedCommitCommand,
+  se_GetCommentsForComparedCommitCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -175,7 +175,7 @@ export class GetCommentsForComparedCommitCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCommentsForComparedCommitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCommentsForComparedCommitCommand(input, context);
+    return se_GetCommentsForComparedCommitCommand(input, context);
   }
 
   /**
@@ -185,7 +185,7 @@ export class GetCommentsForComparedCommitCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCommentsForComparedCommitCommandOutput> {
-    return deserializeAws_json1_1GetCommentsForComparedCommitCommand(output, context);
+    return de_GetCommentsForComparedCommitCommand(output, context);
   }
 
   // Start section: command_body_extra

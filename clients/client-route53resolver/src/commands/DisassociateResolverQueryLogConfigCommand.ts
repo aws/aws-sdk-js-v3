@@ -18,8 +18,8 @@ import {
   DisassociateResolverQueryLogConfigResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateResolverQueryLogConfigCommand,
-  serializeAws_json1_1DisassociateResolverQueryLogConfigCommand,
+  de_DisassociateResolverQueryLogConfigCommand,
+  se_DisassociateResolverQueryLogConfigCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -161,7 +161,7 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command<
     input: DisassociateResolverQueryLogConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateResolverQueryLogConfigCommand(input, context);
+    return se_DisassociateResolverQueryLogConfigCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateResolverQueryLogConfigCommandOutput> {
-    return deserializeAws_json1_1DisassociateResolverQueryLogConfigCommand(output, context);
+    return de_DisassociateResolverQueryLogConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ForecastqueryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastqueryClient";
 import { QueryForecastRequest, QueryForecastResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1QueryForecastCommand,
-  serializeAws_json1_1QueryForecastCommand,
-} from "../protocols/Aws_json1_1";
+import { de_QueryForecastCommand, se_QueryForecastCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class QueryForecastCommand extends $Command<
    * @internal
    */
   private serialize(input: QueryForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1QueryForecastCommand(input, context);
+    return se_QueryForecastCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryForecastCommandOutput> {
-    return deserializeAws_json1_1QueryForecastCommand(output, context);
+    return de_QueryForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

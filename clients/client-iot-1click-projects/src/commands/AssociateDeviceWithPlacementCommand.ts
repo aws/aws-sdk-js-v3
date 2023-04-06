@@ -20,8 +20,8 @@ import {
 } from "../IoT1ClickProjectsClient";
 import { AssociateDeviceWithPlacementRequest, AssociateDeviceWithPlacementResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateDeviceWithPlacementCommand,
-  serializeAws_restJson1AssociateDeviceWithPlacementCommand,
+  de_AssociateDeviceWithPlacementCommand,
+  se_AssociateDeviceWithPlacementCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateDeviceWithPlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateDeviceWithPlacementCommand(input, context);
+    return se_AssociateDeviceWithPlacementCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDeviceWithPlacementCommandOutput> {
-    return deserializeAws_restJson1AssociateDeviceWithPlacementCommand(output, context);
+    return de_AssociateDeviceWithPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

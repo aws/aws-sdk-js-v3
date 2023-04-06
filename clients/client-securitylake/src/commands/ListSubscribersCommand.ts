@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSubscribersRequest, ListSubscribersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSubscribersCommand,
-  serializeAws_restJson1ListSubscribersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSubscribersCommand, se_ListSubscribersCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -147,14 +144,14 @@ export class ListSubscribersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSubscribersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSubscribersCommand(input, context);
+    return se_ListSubscribersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscribersCommandOutput> {
-    return deserializeAws_restJson1ListSubscribersCommand(output, context);
+    return de_ListSubscribersCommand(output, context);
   }
 
   // Start section: command_body_extra

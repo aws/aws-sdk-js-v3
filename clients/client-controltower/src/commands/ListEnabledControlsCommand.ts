@@ -15,10 +15,7 @@ import {
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { ListEnabledControlsInput, ListEnabledControlsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEnabledControlsCommand,
-  serializeAws_restJson1ListEnabledControlsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEnabledControlsCommand, se_ListEnabledControlsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListEnabledControlsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEnabledControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEnabledControlsCommand(input, context);
+    return se_ListEnabledControlsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnabledControlsCommandOutput> {
-    return deserializeAws_restJson1ListEnabledControlsCommand(output, context);
+    return de_ListEnabledControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { ListVPCEConfigurationsRequest, ListVPCEConfigurationsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListVPCEConfigurationsCommand,
-  serializeAws_json1_1ListVPCEConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListVPCEConfigurationsCommand, se_ListVPCEConfigurationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ListVPCEConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVPCEConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListVPCEConfigurationsCommand(input, context);
+    return se_ListVPCEConfigurationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVPCEConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListVPCEConfigurationsCommand(output, context);
+    return de_ListVPCEConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

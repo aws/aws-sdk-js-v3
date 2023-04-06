@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { CreateTrafficDistributionGroupRequest, CreateTrafficDistributionGroupResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateTrafficDistributionGroupCommand,
-  serializeAws_restJson1CreateTrafficDistributionGroupCommand,
+  de_CreateTrafficDistributionGroupCommand,
+  se_CreateTrafficDistributionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -157,7 +157,7 @@ export class CreateTrafficDistributionGroupCommand extends $Command<
     input: CreateTrafficDistributionGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTrafficDistributionGroupCommand(input, context);
+    return se_CreateTrafficDistributionGroupCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class CreateTrafficDistributionGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTrafficDistributionGroupCommandOutput> {
-    return deserializeAws_restJson1CreateTrafficDistributionGroupCommand(output, context);
+    return de_CreateTrafficDistributionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

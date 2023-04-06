@@ -15,10 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { DeleteCertificateAuthorityRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCertificateAuthorityCommand,
-  serializeAws_json1_1DeleteCertificateAuthorityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCertificateAuthorityCommand, se_DeleteCertificateAuthorityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,7 +151,7 @@ export class DeleteCertificateAuthorityCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCertificateAuthorityCommand(input, context);
+    return se_DeleteCertificateAuthorityCommand(input, context);
   }
 
   /**
@@ -164,7 +161,7 @@ export class DeleteCertificateAuthorityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1DeleteCertificateAuthorityCommand(output, context);
+    return de_DeleteCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

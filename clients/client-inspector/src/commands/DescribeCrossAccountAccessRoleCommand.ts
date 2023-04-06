@@ -16,8 +16,8 @@ import {
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { DescribeCrossAccountAccessRoleResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand,
-  serializeAws_json1_1DescribeCrossAccountAccessRoleCommand,
+  de_DescribeCrossAccountAccessRoleCommand,
+  se_DescribeCrossAccountAccessRoleCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -143,7 +143,7 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
     input: DescribeCrossAccountAccessRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCrossAccountAccessRoleCommand(input, context);
+    return se_DescribeCrossAccountAccessRoleCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCrossAccountAccessRoleCommandOutput> {
-    return deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand(output, context);
+    return de_DescribeCrossAccountAccessRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

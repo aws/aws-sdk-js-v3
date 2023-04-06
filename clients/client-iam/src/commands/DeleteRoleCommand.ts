@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteRoleRequest } from "../models/models_0";
-import { deserializeAws_queryDeleteRoleCommand, serializeAws_queryDeleteRoleCommand } from "../protocols/Aws_query";
+import { de_DeleteRoleCommand, se_DeleteRoleCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -175,14 +175,14 @@ export class DeleteRoleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteRoleCommand(input, context);
+    return se_DeleteRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRoleCommandOutput> {
-    return deserializeAws_queryDeleteRoleCommand(output, context);
+    return de_DeleteRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

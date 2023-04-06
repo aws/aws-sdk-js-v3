@@ -19,8 +19,8 @@ import {
   DescribeKinesisStreamingDestinationOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeKinesisStreamingDestinationCommand,
-  serializeAws_json1_0DescribeKinesisStreamingDestinationCommand,
+  de_DescribeKinesisStreamingDestinationCommand,
+  se_DescribeKinesisStreamingDestinationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -137,7 +137,7 @@ export class DescribeKinesisStreamingDestinationCommand extends $Command<
     input: DescribeKinesisStreamingDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeKinesisStreamingDestinationCommand(input, context);
+    return se_DescribeKinesisStreamingDestinationCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DescribeKinesisStreamingDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeKinesisStreamingDestinationCommandOutput> {
-    return deserializeAws_json1_0DescribeKinesisStreamingDestinationCommand(output, context);
+    return de_DescribeKinesisStreamingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

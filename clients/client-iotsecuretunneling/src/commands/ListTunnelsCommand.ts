@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
 import { ListTunnelsRequest, ListTunnelsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTunnelsCommand,
-  serializeAws_json1_1ListTunnelsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTunnelsCommand, se_ListTunnelsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class ListTunnelsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTunnelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTunnelsCommand(input, context);
+    return se_ListTunnelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTunnelsCommandOutput> {
-    return deserializeAws_json1_1ListTunnelsCommand(output, context);
+    return de_ListTunnelsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { ExecuteQueryRequest, ExecuteQueryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExecuteQueryCommand,
-  serializeAws_restJson1ExecuteQueryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExecuteQueryCommand, se_ExecuteQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ExecuteQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: ExecuteQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExecuteQueryCommand(input, context);
+    return se_ExecuteQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteQueryCommandOutput> {
-    return deserializeAws_restJson1ExecuteQueryCommand(output, context);
+    return de_ExecuteQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

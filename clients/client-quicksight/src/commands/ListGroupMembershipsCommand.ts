@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListGroupMembershipsRequest, ListGroupMembershipsResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1ListGroupMembershipsCommand,
-  serializeAws_restJson1ListGroupMembershipsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListGroupMembershipsCommand, se_ListGroupMembershipsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -151,14 +148,14 @@ export class ListGroupMembershipsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGroupMembershipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListGroupMembershipsCommand(input, context);
+    return se_ListGroupMembershipsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupMembershipsCommandOutput> {
-    return deserializeAws_restJson1ListGroupMembershipsCommand(output, context);
+    return de_ListGroupMembershipsCommand(output, context);
   }
 
   // Start section: command_body_extra

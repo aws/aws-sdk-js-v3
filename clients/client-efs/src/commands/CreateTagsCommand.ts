@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { CreateTagsRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTagsCommand,
-  serializeAws_restJson1CreateTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateTagsCommand, se_CreateTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class CreateTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTagsCommand(input, context);
+    return se_CreateTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTagsCommandOutput> {
-    return deserializeAws_restJson1CreateTagsCommand(output, context);
+    return de_CreateTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

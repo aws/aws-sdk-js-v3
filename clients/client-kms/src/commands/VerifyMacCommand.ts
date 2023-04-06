@@ -15,7 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { VerifyMacRequest, VerifyMacRequestFilterSensitiveLog, VerifyMacResponse } from "../models/models_0";
-import { deserializeAws_json1_1VerifyMacCommand, serializeAws_json1_1VerifyMacCommand } from "../protocols/Aws_json1_1";
+import { de_VerifyMacCommand, se_VerifyMacCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -220,14 +220,14 @@ export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacC
    * @internal
    */
   private serialize(input: VerifyMacCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1VerifyMacCommand(input, context);
+    return se_VerifyMacCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyMacCommandOutput> {
-    return deserializeAws_json1_1VerifyMacCommand(output, context);
+    return de_VerifyMacCommand(output, context);
   }
 
   // Start section: command_body_extra

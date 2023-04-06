@@ -19,10 +19,7 @@ import {
   DeleteSubscriberRequestFilterSensitiveLog,
   DeleteSubscriberResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSubscriberCommand,
-  serializeAws_json1_1DeleteSubscriberCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSubscriberCommand, se_DeleteSubscriberCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class DeleteSubscriberCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSubscriberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSubscriberCommand(input, context);
+    return se_DeleteSubscriberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubscriberCommandOutput> {
-    return deserializeAws_json1_1DeleteSubscriberCommand(output, context);
+    return de_DeleteSubscriberCommand(output, context);
   }
 
   // Start section: command_body_extra

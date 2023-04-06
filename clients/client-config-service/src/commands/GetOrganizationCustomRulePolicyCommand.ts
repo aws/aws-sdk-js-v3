@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { GetOrganizationCustomRulePolicyRequest, GetOrganizationCustomRulePolicyResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetOrganizationCustomRulePolicyCommand,
-  serializeAws_json1_1GetOrganizationCustomRulePolicyCommand,
+  de_GetOrganizationCustomRulePolicyCommand,
+  se_GetOrganizationCustomRulePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -149,7 +149,7 @@ export class GetOrganizationCustomRulePolicyCommand extends $Command<
     input: GetOrganizationCustomRulePolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOrganizationCustomRulePolicyCommand(input, context);
+    return se_GetOrganizationCustomRulePolicyCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class GetOrganizationCustomRulePolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOrganizationCustomRulePolicyCommandOutput> {
-    return deserializeAws_json1_1GetOrganizationCustomRulePolicyCommand(output, context);
+    return de_GetOrganizationCustomRulePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

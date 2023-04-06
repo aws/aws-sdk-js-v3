@@ -15,7 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { StopFleetRequest, StopFleetResult } from "../models/models_0";
-import { deserializeAws_json1_1StopFleetCommand, serializeAws_json1_1StopFleetCommand } from "../protocols/Aws_json1_1";
+import { de_StopFleetCommand, se_StopFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -121,14 +121,14 @@ export class StopFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: StopFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopFleetCommand(input, context);
+    return se_StopFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFleetCommandOutput> {
-    return deserializeAws_json1_1StopFleetCommand(output, context);
+    return de_StopFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

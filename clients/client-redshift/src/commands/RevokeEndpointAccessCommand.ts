@@ -15,10 +15,7 @@ import {
 
 import { EndpointAuthorization } from "../models/models_0";
 import { RevokeEndpointAccessMessage } from "../models/models_1";
-import {
-  deserializeAws_queryRevokeEndpointAccessCommand,
-  serializeAws_queryRevokeEndpointAccessCommand,
-} from "../protocols/Aws_query";
+import { de_RevokeEndpointAccessCommand, se_RevokeEndpointAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -148,14 +145,14 @@ export class RevokeEndpointAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRevokeEndpointAccessCommand(input, context);
+    return se_RevokeEndpointAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeEndpointAccessCommandOutput> {
-    return deserializeAws_queryRevokeEndpointAccessCommand(output, context);
+    return de_RevokeEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

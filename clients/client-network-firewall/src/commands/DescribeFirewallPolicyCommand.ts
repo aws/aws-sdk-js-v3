@@ -15,10 +15,7 @@ import {
 
 import { DescribeFirewallPolicyRequest, DescribeFirewallPolicyResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DescribeFirewallPolicyCommand,
-  serializeAws_json1_0DescribeFirewallPolicyCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeFirewallPolicyCommand, se_DescribeFirewallPolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DescribeFirewallPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFirewallPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeFirewallPolicyCommand(input, context);
+    return se_DescribeFirewallPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFirewallPolicyCommandOutput> {
-    return deserializeAws_json1_0DescribeFirewallPolicyCommand(output, context);
+    return de_DescribeFirewallPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

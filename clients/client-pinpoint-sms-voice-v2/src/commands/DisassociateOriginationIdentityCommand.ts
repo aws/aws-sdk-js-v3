@@ -20,8 +20,8 @@ import {
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
 import {
-  deserializeAws_json1_0DisassociateOriginationIdentityCommand,
-  serializeAws_json1_0DisassociateOriginationIdentityCommand,
+  de_DisassociateOriginationIdentityCommand,
+  se_DisassociateOriginationIdentityCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -158,7 +158,7 @@ export class DisassociateOriginationIdentityCommand extends $Command<
     input: DisassociateOriginationIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisassociateOriginationIdentityCommand(input, context);
+    return se_DisassociateOriginationIdentityCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class DisassociateOriginationIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateOriginationIdentityCommandOutput> {
-    return deserializeAws_json1_0DisassociateOriginationIdentityCommand(output, context);
+    return de_DisassociateOriginationIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

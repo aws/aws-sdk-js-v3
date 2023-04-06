@@ -15,10 +15,7 @@ import {
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import { DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeLoggingOptionsCommand,
-  serializeAws_restJson1DescribeLoggingOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeLoggingOptionsCommand, se_DescribeLoggingOptionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeLoggingOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeLoggingOptionsCommand(input, context);
+    return se_DescribeLoggingOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1DescribeLoggingOptionsCommand(output, context);
+    return de_DescribeLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

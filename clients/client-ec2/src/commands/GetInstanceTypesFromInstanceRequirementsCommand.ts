@@ -19,8 +19,8 @@ import {
   GetInstanceTypesFromInstanceRequirementsResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand,
-  serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand,
+  de_GetInstanceTypesFromInstanceRequirementsCommand,
+  se_GetInstanceTypesFromInstanceRequirementsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -220,7 +220,7 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
     input: GetInstanceTypesFromInstanceRequirementsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand(input, context);
+    return se_GetInstanceTypesFromInstanceRequirementsCommand(input, context);
   }
 
   /**
@@ -230,7 +230,7 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput> {
-    return deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand(output, context);
+    return de_GetInstanceTypesFromInstanceRequirementsCommand(output, context);
   }
 
   // Start section: command_body_extra

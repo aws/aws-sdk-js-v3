@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SearchDataSourcesRequest, SearchDataSourcesResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1SearchDataSourcesCommand,
-  serializeAws_restJson1SearchDataSourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchDataSourcesCommand, se_SearchDataSourcesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -150,14 +147,14 @@ export class SearchDataSourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchDataSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchDataSourcesCommand(input, context);
+    return se_SearchDataSourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDataSourcesCommandOutput> {
-    return deserializeAws_restJson1SearchDataSourcesCommand(output, context);
+    return de_SearchDataSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,8 +23,8 @@ import {
   DisassociateConfigurationItemsFromApplicationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand,
-  serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand,
+  de_DisassociateConfigurationItemsFromApplicationCommand,
+  se_DisassociateConfigurationItemsFromApplicationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -159,7 +159,7 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     input: DisassociateConfigurationItemsFromApplicationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand(input, context);
+    return se_DisassociateConfigurationItemsFromApplicationCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> {
-    return deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand(output, context);
+    return de_DisassociateConfigurationItemsFromApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

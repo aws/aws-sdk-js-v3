@@ -19,10 +19,7 @@ import {
   DescribeBudgetActionResponse,
   DescribeBudgetActionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeBudgetActionCommand,
-  serializeAws_json1_1DescribeBudgetActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeBudgetActionCommand, se_DescribeBudgetActionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DescribeBudgetActionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeBudgetActionCommand(input, context);
+    return se_DescribeBudgetActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBudgetActionCommandOutput> {
-    return deserializeAws_json1_1DescribeBudgetActionCommand(output, context);
+    return de_DescribeBudgetActionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
 import { GetTranscriptRequest, GetTranscriptResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTranscriptCommand,
-  serializeAws_restJson1GetTranscriptCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTranscriptCommand, se_GetTranscriptCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class GetTranscriptCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTranscriptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTranscriptCommand(input, context);
+    return se_GetTranscriptCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTranscriptCommandOutput> {
-    return deserializeAws_restJson1GetTranscriptCommand(output, context);
+    return de_GetTranscriptCommand(output, context);
   }
 
   // Start section: command_body_extra

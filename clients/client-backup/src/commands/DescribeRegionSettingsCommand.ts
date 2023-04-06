@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DescribeRegionSettingsInput, DescribeRegionSettingsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRegionSettingsCommand,
-  serializeAws_restJson1DescribeRegionSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeRegionSettingsCommand, se_DescribeRegionSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class DescribeRegionSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRegionSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRegionSettingsCommand(input, context);
+    return se_DescribeRegionSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegionSettingsCommandOutput> {
-    return deserializeAws_restJson1DescribeRegionSettingsCommand(output, context);
+    return de_DescribeRegionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

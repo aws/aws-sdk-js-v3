@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DisableUserRequest, DisableUserRequestFilterSensitiveLog, DisableUserResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableUserCommand,
-  serializeAws_json1_1DisableUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableUserCommand, se_DisableUserCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class DisableUserCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableUserCommand(input, context);
+    return se_DisableUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableUserCommandOutput> {
-    return deserializeAws_json1_1DisableUserCommand(output, context);
+    return de_DisableUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetResourceLFTagsRequest, GetResourceLFTagsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceLFTagsCommand,
-  serializeAws_restJson1GetResourceLFTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetResourceLFTagsCommand, se_GetResourceLFTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -194,14 +191,14 @@ export class GetResourceLFTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourceLFTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceLFTagsCommand(input, context);
+    return se_GetResourceLFTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceLFTagsCommandOutput> {
-    return deserializeAws_restJson1GetResourceLFTagsCommand(output, context);
+    return de_GetResourceLFTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

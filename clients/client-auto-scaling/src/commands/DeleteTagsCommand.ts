@@ -15,7 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DeleteTagsType } from "../models/models_0";
-import { deserializeAws_queryDeleteTagsCommand, serializeAws_queryDeleteTagsCommand } from "../protocols/Aws_query";
+import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -148,14 +148,14 @@ export class DeleteTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteTagsCommand(input, context);
+    return se_DeleteTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagsCommandOutput> {
-    return deserializeAws_queryDeleteTagsCommand(output, context);
+    return de_DeleteTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { DeletePlaceIndexRequest, DeletePlaceIndexResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePlaceIndexCommand,
-  serializeAws_restJson1DeletePlaceIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePlaceIndexCommand, se_DeletePlaceIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeletePlaceIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePlaceIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePlaceIndexCommand(input, context);
+    return se_DeletePlaceIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePlaceIndexCommandOutput> {
-    return deserializeAws_restJson1DeletePlaceIndexCommand(output, context);
+    return de_DeletePlaceIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

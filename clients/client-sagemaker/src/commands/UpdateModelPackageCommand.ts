@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateModelPackageInput, UpdateModelPackageOutput } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateModelPackageCommand,
-  serializeAws_json1_1UpdateModelPackageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateModelPackageCommand, se_UpdateModelPackageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -164,14 +161,14 @@ export class UpdateModelPackageCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateModelPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateModelPackageCommand(input, context);
+    return se_UpdateModelPackageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelPackageCommandOutput> {
-    return deserializeAws_json1_1UpdateModelPackageCommand(output, context);
+    return de_UpdateModelPackageCommand(output, context);
   }
 
   // Start section: command_body_extra

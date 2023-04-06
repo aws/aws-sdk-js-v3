@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { PolicyARNType, PutScalingPolicyType } from "../models/models_0";
-import {
-  deserializeAws_queryPutScalingPolicyCommand,
-  serializeAws_queryPutScalingPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_PutScalingPolicyCommand, se_PutScalingPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -316,14 +313,14 @@ export class PutScalingPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutScalingPolicyCommand(input, context);
+    return se_PutScalingPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScalingPolicyCommandOutput> {
-    return deserializeAws_queryPutScalingPolicyCommand(output, context);
+    return de_PutScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

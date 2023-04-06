@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteFlowDefinitionRequest, DeleteFlowDefinitionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteFlowDefinitionCommand,
-  serializeAws_json1_1DeleteFlowDefinitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteFlowDefinitionCommand, se_DeleteFlowDefinitionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -126,14 +123,14 @@ export class DeleteFlowDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFlowDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteFlowDefinitionCommand(input, context);
+    return se_DeleteFlowDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFlowDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteFlowDefinitionCommand(output, context);
+    return de_DeleteFlowDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

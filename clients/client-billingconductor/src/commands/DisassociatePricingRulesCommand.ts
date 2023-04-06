@@ -15,10 +15,7 @@ import {
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import { DisassociatePricingRulesInput, DisassociatePricingRulesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociatePricingRulesCommand,
-  serializeAws_restJson1DisassociatePricingRulesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociatePricingRulesCommand, se_DisassociatePricingRulesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DisassociatePricingRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociatePricingRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociatePricingRulesCommand(input, context);
+    return se_DisassociatePricingRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociatePricingRulesCommandOutput> {
-    return deserializeAws_restJson1DisassociatePricingRulesCommand(output, context);
+    return de_DisassociatePricingRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

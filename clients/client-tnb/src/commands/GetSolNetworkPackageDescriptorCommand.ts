@@ -15,8 +15,8 @@ import {
 
 import { GetSolNetworkPackageDescriptorInput, GetSolNetworkPackageDescriptorOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetSolNetworkPackageDescriptorCommand,
-  serializeAws_restJson1GetSolNetworkPackageDescriptorCommand,
+  de_GetSolNetworkPackageDescriptorCommand,
+  se_GetSolNetworkPackageDescriptorCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
@@ -141,7 +141,7 @@ export class GetSolNetworkPackageDescriptorCommand extends $Command<
     input: GetSolNetworkPackageDescriptorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSolNetworkPackageDescriptorCommand(input, context);
+    return se_GetSolNetworkPackageDescriptorCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class GetSolNetworkPackageDescriptorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSolNetworkPackageDescriptorCommandOutput> {
-    return deserializeAws_restJson1GetSolNetworkPackageDescriptorCommand(output, context);
+    return de_GetSolNetworkPackageDescriptorCommand(output, context);
   }
 
   // Start section: command_body_extra

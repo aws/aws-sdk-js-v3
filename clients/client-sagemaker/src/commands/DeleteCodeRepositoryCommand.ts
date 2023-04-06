@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteCodeRepositoryInput } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteCodeRepositoryCommand,
-  serializeAws_json1_1DeleteCodeRepositoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCodeRepositoryCommand, se_DeleteCodeRepositoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -120,14 +117,14 @@ export class DeleteCodeRepositoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCodeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCodeRepositoryCommand(input, context);
+    return se_DeleteCodeRepositoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCodeRepositoryCommandOutput> {
-    return deserializeAws_json1_1DeleteCodeRepositoryCommand(output, context);
+    return de_DeleteCodeRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

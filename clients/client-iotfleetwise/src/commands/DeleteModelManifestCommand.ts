@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { DeleteModelManifestRequest, DeleteModelManifestResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteModelManifestCommand,
-  serializeAws_json1_0DeleteModelManifestCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteModelManifestCommand, se_DeleteModelManifestCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteModelManifestCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteModelManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteModelManifestCommand(input, context);
+    return se_DeleteModelManifestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelManifestCommandOutput> {
-    return deserializeAws_json1_0DeleteModelManifestCommand(output, context);
+    return de_DeleteModelManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

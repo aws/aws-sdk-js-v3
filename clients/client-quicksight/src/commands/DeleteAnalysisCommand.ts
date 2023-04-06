@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAnalysisRequest, DeleteAnalysisResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteAnalysisCommand,
-  serializeAws_restJson1DeleteAnalysisCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAnalysisCommand, se_DeleteAnalysisCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -155,14 +152,14 @@ export class DeleteAnalysisCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAnalysisCommand(input, context);
+    return se_DeleteAnalysisCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnalysisCommandOutput> {
-    return deserializeAws_restJson1DeleteAnalysisCommand(output, context);
+    return de_DeleteAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

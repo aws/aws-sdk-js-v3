@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { GetComponentRequest, GetComponentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetComponentCommand,
-  serializeAws_restJson1GetComponentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetComponentCommand, se_GetComponentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetComponentCommand(input, context);
+    return se_GetComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComponentCommandOutput> {
-    return deserializeAws_restJson1GetComponentCommand(output, context);
+    return de_GetComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

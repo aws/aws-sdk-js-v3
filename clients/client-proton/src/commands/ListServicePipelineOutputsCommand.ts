@@ -18,10 +18,7 @@ import {
   ListServicePipelineOutputsOutput,
   ListServicePipelineOutputsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListServicePipelineOutputsCommand,
-  serializeAws_json1_0ListServicePipelineOutputsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListServicePipelineOutputsCommand, se_ListServicePipelineOutputsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -140,7 +137,7 @@ export class ListServicePipelineOutputsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListServicePipelineOutputsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListServicePipelineOutputsCommand(input, context);
+    return se_ListServicePipelineOutputsCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class ListServicePipelineOutputsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServicePipelineOutputsCommandOutput> {
-    return deserializeAws_json1_0ListServicePipelineOutputsCommand(output, context);
+    return de_ListServicePipelineOutputsCommand(output, context);
   }
 
   // Start section: command_body_extra

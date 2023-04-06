@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { ListCustomRoutingListenersRequest, ListCustomRoutingListenersResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCustomRoutingListenersCommand,
-  serializeAws_json1_1ListCustomRoutingListenersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCustomRoutingListenersCommand, se_ListCustomRoutingListenersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class ListCustomRoutingListenersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCustomRoutingListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCustomRoutingListenersCommand(input, context);
+    return se_ListCustomRoutingListenersCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class ListCustomRoutingListenersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomRoutingListenersCommandOutput> {
-    return deserializeAws_json1_1ListCustomRoutingListenersCommand(output, context);
+    return de_ListCustomRoutingListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

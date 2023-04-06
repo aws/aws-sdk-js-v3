@@ -16,8 +16,8 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { GetEvidenceByEvidenceFolderRequest, GetEvidenceByEvidenceFolderResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetEvidenceByEvidenceFolderCommand,
-  serializeAws_restJson1GetEvidenceByEvidenceFolderCommand,
+  de_GetEvidenceByEvidenceFolderCommand,
+  se_GetEvidenceByEvidenceFolderCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class GetEvidenceByEvidenceFolderCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEvidenceByEvidenceFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEvidenceByEvidenceFolderCommand(input, context);
+    return se_GetEvidenceByEvidenceFolderCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class GetEvidenceByEvidenceFolderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEvidenceByEvidenceFolderCommandOutput> {
-    return deserializeAws_restJson1GetEvidenceByEvidenceFolderCommand(output, context);
+    return de_GetEvidenceByEvidenceFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

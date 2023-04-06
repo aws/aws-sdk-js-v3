@@ -15,7 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CreateUserMessage, User } from "../models/models_0";
-import { deserializeAws_queryCreateUserCommand, serializeAws_queryCreateUserCommand } from "../protocols/Aws_query";
+import { de_CreateUserCommand, se_CreateUserCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -155,14 +155,14 @@ export class CreateUserCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateUserCommand(input, context);
+    return se_CreateUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserCommandOutput> {
-    return deserializeAws_queryCreateUserCommand(output, context);
+    return de_CreateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

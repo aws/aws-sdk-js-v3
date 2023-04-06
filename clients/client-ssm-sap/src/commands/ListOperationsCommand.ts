@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListOperationsInput, ListOperationsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListOperationsCommand,
-  serializeAws_restJson1ListOperationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListOperationsCommand, se_ListOperationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -135,14 +132,14 @@ export class ListOperationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOperationsCommand(input, context);
+    return se_ListOperationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOperationsCommandOutput> {
-    return deserializeAws_restJson1ListOperationsCommand(output, context);
+    return de_ListOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

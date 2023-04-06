@@ -15,10 +15,7 @@ import {
 
 import { GetCampaignDateRangeKpiRequest, GetCampaignDateRangeKpiResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetCampaignDateRangeKpiCommand,
-  serializeAws_restJson1GetCampaignDateRangeKpiCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCampaignDateRangeKpiCommand, se_GetCampaignDateRangeKpiCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class GetCampaignDateRangeKpiCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCampaignDateRangeKpiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCampaignDateRangeKpiCommand(input, context);
+    return se_GetCampaignDateRangeKpiCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignDateRangeKpiCommandOutput> {
-    return deserializeAws_restJson1GetCampaignDateRangeKpiCommand(output, context);
+    return de_GetCampaignDateRangeKpiCommand(output, context);
   }
 
   // Start section: command_body_extra

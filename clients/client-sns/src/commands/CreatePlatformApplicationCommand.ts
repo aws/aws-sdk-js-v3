@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreatePlatformApplicationInput, CreatePlatformApplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCreatePlatformApplicationCommand,
-  serializeAws_queryCreatePlatformApplicationCommand,
-} from "../protocols/Aws_query";
+import { de_CreatePlatformApplicationCommand, se_CreatePlatformApplicationCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -178,7 +175,7 @@ export class CreatePlatformApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePlatformApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreatePlatformApplicationCommand(input, context);
+    return se_CreatePlatformApplicationCommand(input, context);
   }
 
   /**
@@ -188,7 +185,7 @@ export class CreatePlatformApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePlatformApplicationCommandOutput> {
-    return deserializeAws_queryCreatePlatformApplicationCommand(output, context);
+    return de_CreatePlatformApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

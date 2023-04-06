@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAttributeGroupRequest, DeleteAttributeGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAttributeGroupCommand,
-  serializeAws_restJson1DeleteAttributeGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAttributeGroupCommand, se_DeleteAttributeGroupCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -133,14 +130,14 @@ export class DeleteAttributeGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAttributeGroupCommand(input, context);
+    return se_DeleteAttributeGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAttributeGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteAttributeGroupCommand(output, context);
+    return de_DeleteAttributeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

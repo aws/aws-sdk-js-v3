@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { StopJobRequest, StopJobResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopJobCommand,
-  serializeAws_restJson1StopJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopJobCommand, se_StopJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommand
    * @internal
    */
   private serialize(input: StopJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopJobCommand(input, context);
+    return se_StopJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopJobCommandOutput> {
-    return deserializeAws_restJson1StopJobCommand(output, context);
+    return de_StopJobCommand(output, context);
   }
 
   // Start section: command_body_extra

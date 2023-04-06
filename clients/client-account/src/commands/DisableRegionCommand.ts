@@ -15,10 +15,7 @@ import {
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { DisableRegionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableRegionCommand,
-  serializeAws_restJson1DisableRegionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisableRegionCommand, se_DisableRegionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DisableRegionCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableRegionCommand(input, context);
+    return se_DisableRegionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableRegionCommandOutput> {
-    return deserializeAws_restJson1DisableRegionCommand(output, context);
+    return de_DisableRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

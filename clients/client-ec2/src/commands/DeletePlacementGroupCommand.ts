@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeletePlacementGroupRequest } from "../models/models_2";
-import {
-  deserializeAws_ec2DeletePlacementGroupCommand,
-  serializeAws_ec2DeletePlacementGroupCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeletePlacementGroupCommand, se_DeletePlacementGroupCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeletePlacementGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePlacementGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeletePlacementGroupCommand(input, context);
+    return se_DeletePlacementGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePlacementGroupCommandOutput> {
-    return deserializeAws_ec2DeletePlacementGroupCommand(output, context);
+    return de_DeletePlacementGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

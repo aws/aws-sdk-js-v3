@@ -15,10 +15,7 @@ import {
 
 import { UpdateAdmChannelRequest, UpdateAdmChannelResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateAdmChannelCommand,
-  serializeAws_restJson1UpdateAdmChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateAdmChannelCommand, se_UpdateAdmChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class UpdateAdmChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAdmChannelCommand(input, context);
+    return se_UpdateAdmChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAdmChannelCommandOutput> {
-    return deserializeAws_restJson1UpdateAdmChannelCommand(output, context);
+    return de_UpdateAdmChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

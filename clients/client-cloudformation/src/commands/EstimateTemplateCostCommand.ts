@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { EstimateTemplateCostInput, EstimateTemplateCostOutput } from "../models/models_0";
-import {
-  deserializeAws_queryEstimateTemplateCostCommand,
-  serializeAws_queryEstimateTemplateCostCommand,
-} from "../protocols/Aws_query";
+import { de_EstimateTemplateCostCommand, se_EstimateTemplateCostCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class EstimateTemplateCostCommand extends $Command<
    * @internal
    */
   private serialize(input: EstimateTemplateCostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEstimateTemplateCostCommand(input, context);
+    return se_EstimateTemplateCostCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EstimateTemplateCostCommandOutput> {
-    return deserializeAws_queryEstimateTemplateCostCommand(output, context);
+    return de_EstimateTemplateCostCommand(output, context);
   }
 
   // Start section: command_body_extra

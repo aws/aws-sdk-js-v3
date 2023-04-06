@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { UpdateListenerRequest, UpdateListenerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateListenerCommand,
-  serializeAws_json1_1UpdateListenerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateListenerCommand, se_UpdateListenerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateListenerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateListenerCommand(input, context);
+    return se_UpdateListenerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateListenerCommandOutput> {
-    return deserializeAws_json1_1UpdateListenerCommand(output, context);
+    return de_UpdateListenerCommand(output, context);
   }
 
   // Start section: command_body_extra

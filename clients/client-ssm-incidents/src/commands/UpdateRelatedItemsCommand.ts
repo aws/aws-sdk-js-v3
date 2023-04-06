@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateRelatedItemsInput, UpdateRelatedItemsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRelatedItemsCommand,
-  serializeAws_restJson1UpdateRelatedItemsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRelatedItemsCommand, se_UpdateRelatedItemsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -173,14 +170,14 @@ export class UpdateRelatedItemsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRelatedItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRelatedItemsCommand(input, context);
+    return se_UpdateRelatedItemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRelatedItemsCommandOutput> {
-    return deserializeAws_restJson1UpdateRelatedItemsCommand(output, context);
+    return de_UpdateRelatedItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ListLexiconsInput, ListLexiconsOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1ListLexiconsCommand,
-  serializeAws_restJson1ListLexiconsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLexiconsCommand, se_ListLexiconsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class ListLexiconsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLexiconsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLexiconsCommand(input, context);
+    return se_ListLexiconsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLexiconsCommandOutput> {
-    return deserializeAws_restJson1ListLexiconsCommand(output, context);
+    return de_ListLexiconsCommand(output, context);
   }
 
   // Start section: command_body_extra

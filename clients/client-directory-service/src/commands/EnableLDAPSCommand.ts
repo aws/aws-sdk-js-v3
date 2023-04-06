@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { EnableLDAPSRequest, EnableLDAPSResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1EnableLDAPSCommand,
-  serializeAws_json1_1EnableLDAPSCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnableLDAPSCommand, se_EnableLDAPSCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class EnableLDAPSCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableLDAPSCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableLDAPSCommand(input, context);
+    return se_EnableLDAPSCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableLDAPSCommandOutput> {
-    return deserializeAws_json1_1EnableLDAPSCommand(output, context);
+    return de_EnableLDAPSCommand(output, context);
   }
 
   // Start section: command_body_extra

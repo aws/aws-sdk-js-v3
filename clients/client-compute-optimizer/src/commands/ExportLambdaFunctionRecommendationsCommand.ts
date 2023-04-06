@@ -19,8 +19,8 @@ import {
   ExportLambdaFunctionRecommendationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommand,
-  serializeAws_json1_0ExportLambdaFunctionRecommendationsCommand,
+  de_ExportLambdaFunctionRecommendationsCommand,
+  se_ExportLambdaFunctionRecommendationsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -177,7 +177,7 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command<
     input: ExportLambdaFunctionRecommendationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ExportLambdaFunctionRecommendationsCommand(input, context);
+    return se_ExportLambdaFunctionRecommendationsCommand(input, context);
   }
 
   /**
@@ -187,7 +187,7 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ExportLambdaFunctionRecommendationsCommandOutput> {
-    return deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommand(output, context);
+    return de_ExportLambdaFunctionRecommendationsCommand(output, context);
   }
 
   // Start section: command_body_extra

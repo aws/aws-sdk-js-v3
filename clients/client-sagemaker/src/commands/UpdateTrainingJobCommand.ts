@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateTrainingJobRequest, UpdateTrainingJobResponse } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateTrainingJobCommand,
-  serializeAws_json1_1UpdateTrainingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateTrainingJobCommand, se_UpdateTrainingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -148,14 +145,14 @@ export class UpdateTrainingJobCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTrainingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTrainingJobCommand(input, context);
+    return se_UpdateTrainingJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrainingJobCommandOutput> {
-    return deserializeAws_json1_1UpdateTrainingJobCommand(output, context);
+    return de_UpdateTrainingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

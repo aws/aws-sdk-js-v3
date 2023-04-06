@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DescribeThesaurusRequest, DescribeThesaurusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeThesaurusCommand,
-  serializeAws_json1_1DescribeThesaurusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeThesaurusCommand, se_DescribeThesaurusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DescribeThesaurusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeThesaurusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeThesaurusCommand(input, context);
+    return se_DescribeThesaurusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeThesaurusCommandOutput> {
-    return deserializeAws_json1_1DescribeThesaurusCommand(output, context);
+    return de_DescribeThesaurusCommand(output, context);
   }
 
   // Start section: command_body_extra

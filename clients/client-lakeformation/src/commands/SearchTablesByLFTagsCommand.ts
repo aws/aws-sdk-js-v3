@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { SearchTablesByLFTagsRequest, SearchTablesByLFTagsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchTablesByLFTagsCommand,
-  serializeAws_restJson1SearchTablesByLFTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchTablesByLFTagsCommand, se_SearchTablesByLFTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class SearchTablesByLFTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchTablesByLFTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchTablesByLFTagsCommand(input, context);
+    return se_SearchTablesByLFTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchTablesByLFTagsCommandOutput> {
-    return deserializeAws_restJson1SearchTablesByLFTagsCommand(output, context);
+    return de_SearchTablesByLFTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

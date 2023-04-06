@@ -15,10 +15,7 @@ import {
 
 import { AssociateCustomerGatewayRequest, AssociateCustomerGatewayResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1AssociateCustomerGatewayCommand,
-  serializeAws_restJson1AssociateCustomerGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateCustomerGatewayCommand, se_AssociateCustomerGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class AssociateCustomerGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateCustomerGatewayCommand(input, context);
+    return se_AssociateCustomerGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCustomerGatewayCommandOutput> {
-    return deserializeAws_restJson1AssociateCustomerGatewayCommand(output, context);
+    return de_AssociateCustomerGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

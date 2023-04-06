@@ -15,8 +15,8 @@ import {
 
 import { CreateSimulationApplicationRequest, CreateSimulationApplicationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateSimulationApplicationCommand,
-  serializeAws_restJson1CreateSimulationApplicationCommand,
+  de_CreateSimulationApplicationCommand,
+  se_CreateSimulationApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
@@ -168,7 +168,7 @@ export class CreateSimulationApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSimulationApplicationCommand(input, context);
+    return se_CreateSimulationApplicationCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class CreateSimulationApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateSimulationApplicationCommand(output, context);
+    return de_CreateSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

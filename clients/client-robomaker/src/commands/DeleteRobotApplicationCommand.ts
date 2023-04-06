@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteRobotApplicationRequest, DeleteRobotApplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRobotApplicationCommand,
-  serializeAws_restJson1DeleteRobotApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRobotApplicationCommand, se_DeleteRobotApplicationCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -131,14 +128,14 @@ export class DeleteRobotApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRobotApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRobotApplicationCommand(input, context);
+    return se_DeleteRobotApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1DeleteRobotApplicationCommand(output, context);
+    return de_DeleteRobotApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

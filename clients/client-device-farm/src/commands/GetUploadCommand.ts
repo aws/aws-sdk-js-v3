@@ -15,7 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { GetUploadRequest, GetUploadResult, GetUploadResultFilterSensitiveLog } from "../models/models_0";
-import { deserializeAws_json1_1GetUploadCommand, serializeAws_json1_1GetUploadCommand } from "../protocols/Aws_json1_1";
+import { de_GetUploadCommand, se_GetUploadCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +143,14 @@ export class GetUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUploadCommand(input, context);
+    return se_GetUploadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUploadCommandOutput> {
-    return deserializeAws_json1_1GetUploadCommand(output, context);
+    return de_GetUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

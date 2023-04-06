@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { GetImagePolicyRequest, GetImagePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetImagePolicyCommand,
-  serializeAws_restJson1GetImagePolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetImagePolicyCommand, se_GetImagePolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetImagePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetImagePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetImagePolicyCommand(input, context);
+    return se_GetImagePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImagePolicyCommandOutput> {
-    return deserializeAws_restJson1GetImagePolicyCommand(output, context);
+    return de_GetImagePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

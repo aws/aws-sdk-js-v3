@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
 import { GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetHLSStreamingSessionURLCommand,
-  serializeAws_restJson1GetHLSStreamingSessionURLCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetHLSStreamingSessionURLCommand, se_GetHLSStreamingSessionURLCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -357,7 +354,7 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
    * @internal
    */
   private serialize(input: GetHLSStreamingSessionURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetHLSStreamingSessionURLCommand(input, context);
+    return se_GetHLSStreamingSessionURLCommand(input, context);
   }
 
   /**
@@ -367,7 +364,7 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHLSStreamingSessionURLCommandOutput> {
-    return deserializeAws_restJson1GetHLSStreamingSessionURLCommand(output, context);
+    return de_GetHLSStreamingSessionURLCommand(output, context);
   }
 
   // Start section: command_body_extra

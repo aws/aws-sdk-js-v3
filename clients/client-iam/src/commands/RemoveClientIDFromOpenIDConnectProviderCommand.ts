@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { RemoveClientIDFromOpenIDConnectProviderRequest } from "../models/models_0";
 import {
-  deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand,
-  serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand,
+  de_RemoveClientIDFromOpenIDConnectProviderCommand,
+  se_RemoveClientIDFromOpenIDConnectProviderCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -147,7 +147,7 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
     input: RemoveClientIDFromOpenIDConnectProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand(input, context);
+    return se_RemoveClientIDFromOpenIDConnectProviderCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand(output, context);
+    return de_RemoveClientIDFromOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

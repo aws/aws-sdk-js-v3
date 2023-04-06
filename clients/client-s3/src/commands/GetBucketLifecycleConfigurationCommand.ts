@@ -15,8 +15,8 @@ import {
 
 import { GetBucketLifecycleConfigurationOutput, GetBucketLifecycleConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetBucketLifecycleConfigurationCommand,
-  serializeAws_restXmlGetBucketLifecycleConfigurationCommand,
+  de_GetBucketLifecycleConfigurationCommand,
+  se_GetBucketLifecycleConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -213,7 +213,7 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     input: GetBucketLifecycleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketLifecycleConfigurationCommand(input, context);
+    return se_GetBucketLifecycleConfigurationCommand(input, context);
   }
 
   /**
@@ -223,7 +223,7 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketLifecycleConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketLifecycleConfigurationCommand(output, context);
+    return de_GetBucketLifecycleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

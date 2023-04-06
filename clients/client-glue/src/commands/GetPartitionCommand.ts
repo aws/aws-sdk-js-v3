@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetPartitionRequest, GetPartitionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetPartitionCommand,
-  serializeAws_json1_1GetPartitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetPartitionCommand, se_GetPartitionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetPartitionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPartitionCommand(input, context);
+    return se_GetPartitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPartitionCommandOutput> {
-    return deserializeAws_json1_1GetPartitionCommand(output, context);
+    return de_GetPartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

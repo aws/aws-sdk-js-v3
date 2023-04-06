@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetRegistrationCodeRequest, GetRegistrationCodeResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetRegistrationCodeCommand,
-  serializeAws_restJson1GetRegistrationCodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRegistrationCodeCommand, se_GetRegistrationCodeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetRegistrationCodeCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRegistrationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRegistrationCodeCommand(input, context);
+    return se_GetRegistrationCodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRegistrationCodeCommandOutput> {
-    return deserializeAws_restJson1GetRegistrationCodeCommand(output, context);
+    return de_GetRegistrationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

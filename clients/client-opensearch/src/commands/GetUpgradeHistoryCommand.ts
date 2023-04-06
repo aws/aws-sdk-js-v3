@@ -15,10 +15,7 @@ import {
 
 import { GetUpgradeHistoryRequest, GetUpgradeHistoryResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1GetUpgradeHistoryCommand,
-  serializeAws_restJson1GetUpgradeHistoryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUpgradeHistoryCommand, se_GetUpgradeHistoryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetUpgradeHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUpgradeHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUpgradeHistoryCommand(input, context);
+    return se_GetUpgradeHistoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUpgradeHistoryCommandOutput> {
-    return deserializeAws_restJson1GetUpgradeHistoryCommand(output, context);
+    return de_GetUpgradeHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

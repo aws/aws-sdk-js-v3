@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDatalakeRequest, DeleteDatalakeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDatalakeCommand,
-  serializeAws_restJson1DeleteDatalakeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDatalakeCommand, se_DeleteDatalakeCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -154,14 +151,14 @@ export class DeleteDatalakeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDatalakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatalakeCommand(input, context);
+    return se_DeleteDatalakeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatalakeCommandOutput> {
-    return deserializeAws_restJson1DeleteDatalakeCommand(output, context);
+    return de_DeleteDatalakeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeSnapshotsRequest, DescribeSnapshotsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeSnapshotsCommand,
-  serializeAws_ec2DescribeSnapshotsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeSnapshotsCommand, se_DescribeSnapshotsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -249,14 +246,14 @@ export class DescribeSnapshotsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeSnapshotsCommand(input, context);
+    return se_DescribeSnapshotsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotsCommandOutput> {
-    return deserializeAws_ec2DescribeSnapshotsCommand(output, context);
+    return de_DescribeSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   BatchDeleteDelegationByAssessmentResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommand,
-  serializeAws_restJson1BatchDeleteDelegationByAssessmentCommand,
+  de_BatchDeleteDelegationByAssessmentCommand,
+  se_BatchDeleteDelegationByAssessmentCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class BatchDeleteDelegationByAssessmentCommand extends $Command<
     input: BatchDeleteDelegationByAssessmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteDelegationByAssessmentCommand(input, context);
+    return se_BatchDeleteDelegationByAssessmentCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class BatchDeleteDelegationByAssessmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteDelegationByAssessmentCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommand(output, context);
+    return de_BatchDeleteDelegationByAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

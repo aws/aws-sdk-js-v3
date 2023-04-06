@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { DeleteSlotRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSlotCommand,
-  serializeAws_restJson1DeleteSlotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSlotCommand, se_DeleteSlotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeleteSlotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSlotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSlotCommand(input, context);
+    return se_DeleteSlotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSlotCommandOutput> {
-    return deserializeAws_restJson1DeleteSlotCommand(output, context);
+    return de_DeleteSlotCommand(output, context);
   }
 
   // Start section: command_body_extra

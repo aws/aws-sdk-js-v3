@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateResourceShareRequest, AssociateResourceShareResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateResourceShareCommand,
-  serializeAws_restJson1AssociateResourceShareCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateResourceShareCommand, se_AssociateResourceShareCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
@@ -165,14 +162,14 @@ export class AssociateResourceShareCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateResourceShareCommand(input, context);
+    return se_AssociateResourceShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateResourceShareCommandOutput> {
-    return deserializeAws_restJson1AssociateResourceShareCommand(output, context);
+    return de_AssociateResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

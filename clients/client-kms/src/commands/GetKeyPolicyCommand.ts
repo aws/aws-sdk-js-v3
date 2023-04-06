@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { GetKeyPolicyRequest, GetKeyPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetKeyPolicyCommand,
-  serializeAws_json1_1GetKeyPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetKeyPolicyCommand, se_GetKeyPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -177,14 +174,14 @@ export class GetKeyPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetKeyPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetKeyPolicyCommand(input, context);
+    return se_GetKeyPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyPolicyCommandOutput> {
-    return deserializeAws_json1_1GetKeyPolicyCommand(output, context);
+    return de_GetKeyPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

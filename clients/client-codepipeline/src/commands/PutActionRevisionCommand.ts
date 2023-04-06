@@ -15,10 +15,7 @@ import {
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { PutActionRevisionInput, PutActionRevisionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutActionRevisionCommand,
-  serializeAws_json1_1PutActionRevisionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutActionRevisionCommand, se_PutActionRevisionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class PutActionRevisionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutActionRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutActionRevisionCommand(input, context);
+    return se_PutActionRevisionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutActionRevisionCommandOutput> {
-    return deserializeAws_json1_1PutActionRevisionCommand(output, context);
+    return de_PutActionRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

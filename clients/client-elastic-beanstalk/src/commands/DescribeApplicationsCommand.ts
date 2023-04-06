@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ApplicationDescriptionsMessage, DescribeApplicationsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeApplicationsCommand,
-  serializeAws_queryDescribeApplicationsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeApplicationsCommand, se_DescribeApplicationsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class DescribeApplicationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeApplicationsCommand(input, context);
+    return se_DescribeApplicationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationsCommandOutput> {
-    return deserializeAws_queryDescribeApplicationsCommand(output, context);
+    return de_DescribeApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

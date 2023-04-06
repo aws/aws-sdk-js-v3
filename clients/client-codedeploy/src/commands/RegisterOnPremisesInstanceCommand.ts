@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { RegisterOnPremisesInstanceInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterOnPremisesInstanceCommand,
-  serializeAws_json1_1RegisterOnPremisesInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterOnPremisesInstanceCommand, se_RegisterOnPremisesInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,7 +155,7 @@ export class RegisterOnPremisesInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterOnPremisesInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterOnPremisesInstanceCommand(input, context);
+    return se_RegisterOnPremisesInstanceCommand(input, context);
   }
 
   /**
@@ -168,7 +165,7 @@ export class RegisterOnPremisesInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterOnPremisesInstanceCommandOutput> {
-    return deserializeAws_json1_1RegisterOnPremisesInstanceCommand(output, context);
+    return de_RegisterOnPremisesInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

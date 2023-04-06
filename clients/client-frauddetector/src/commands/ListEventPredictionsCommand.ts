@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { ListEventPredictionsRequest, ListEventPredictionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEventPredictionsCommand,
-  serializeAws_json1_1ListEventPredictionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEventPredictionsCommand, se_ListEventPredictionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class ListEventPredictionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEventPredictionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEventPredictionsCommand(input, context);
+    return se_ListEventPredictionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventPredictionsCommandOutput> {
-    return deserializeAws_json1_1ListEventPredictionsCommand(output, context);
+    return de_ListEventPredictionsCommand(output, context);
   }
 
   // Start section: command_body_extra

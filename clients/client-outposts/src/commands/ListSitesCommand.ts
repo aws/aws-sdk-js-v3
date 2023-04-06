@@ -15,10 +15,7 @@ import {
 
 import { ListSitesInput, ListSitesOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1ListSitesCommand,
-  serializeAws_restJson1ListSitesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSitesCommand, se_ListSitesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ListSitesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSitesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSitesCommand(input, context);
+    return se_ListSitesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSitesCommandOutput> {
-    return deserializeAws_restJson1ListSitesCommand(output, context);
+    return de_ListSitesCommand(output, context);
   }
 
   // Start section: command_body_extra

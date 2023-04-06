@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  deserializeAws_queryEndpointOperationCommand,
-  serializeAws_queryEndpointOperationCommand,
-} from "../protocols/Aws_query";
+import { de_EndpointOperationCommand, se_EndpointOperationCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -82,14 +79,14 @@ export class EndpointOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: EndpointOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEndpointOperationCommand(input, context);
+    return se_EndpointOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EndpointOperationCommandOutput> {
-    return deserializeAws_queryEndpointOperationCommand(output, context);
+    return de_EndpointOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

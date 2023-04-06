@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { ListProfileTimesRequest, ListProfileTimesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProfileTimesCommand,
-  serializeAws_restJson1ListProfileTimesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListProfileTimesCommand, se_ListProfileTimesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListProfileTimesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProfileTimesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProfileTimesCommand(input, context);
+    return se_ListProfileTimesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfileTimesCommandOutput> {
-    return deserializeAws_restJson1ListProfileTimesCommand(output, context);
+    return de_ListProfileTimesCommand(output, context);
   }
 
   // Start section: command_body_extra

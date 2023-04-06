@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { CreateGlobalTableInput, CreateGlobalTableOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateGlobalTableCommand,
-  serializeAws_json1_0CreateGlobalTableCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateGlobalTableCommand, se_CreateGlobalTableCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -212,14 +209,14 @@ export class CreateGlobalTableCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateGlobalTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateGlobalTableCommand(input, context);
+    return se_CreateGlobalTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalTableCommandOutput> {
-    return deserializeAws_json1_0CreateGlobalTableCommand(output, context);
+    return de_CreateGlobalTableCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTargetGroupRequest, DeleteTargetGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTargetGroupCommand,
-  serializeAws_restJson1DeleteTargetGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTargetGroupCommand, se_DeleteTargetGroupCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -138,14 +135,14 @@ export class DeleteTargetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTargetGroupCommand(input, context);
+    return se_DeleteTargetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTargetGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteTargetGroupCommand(output, context);
+    return de_DeleteTargetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

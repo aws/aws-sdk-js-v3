@@ -19,10 +19,7 @@ import {
   CreateCliTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import {
-  deserializeAws_restJson1CreateCliTokenCommand,
-  serializeAws_restJson1CreateCliTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateCliTokenCommand, se_CreateCliTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class CreateCliTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCliTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCliTokenCommand(input, context);
+    return se_CreateCliTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCliTokenCommandOutput> {
-    return deserializeAws_restJson1CreateCliTokenCommand(output, context);
+    return de_CreateCliTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

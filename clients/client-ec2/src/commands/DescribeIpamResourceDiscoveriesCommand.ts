@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeIpamResourceDiscoveriesRequest, DescribeIpamResourceDiscoveriesResult } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeIpamResourceDiscoveriesCommand,
-  serializeAws_ec2DescribeIpamResourceDiscoveriesCommand,
+  de_DescribeIpamResourceDiscoveriesCommand,
+  se_DescribeIpamResourceDiscoveriesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -138,7 +138,7 @@ export class DescribeIpamResourceDiscoveriesCommand extends $Command<
     input: DescribeIpamResourceDiscoveriesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeIpamResourceDiscoveriesCommand(input, context);
+    return se_DescribeIpamResourceDiscoveriesCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DescribeIpamResourceDiscoveriesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIpamResourceDiscoveriesCommandOutput> {
-    return deserializeAws_ec2DescribeIpamResourceDiscoveriesCommand(output, context);
+    return de_DescribeIpamResourceDiscoveriesCommand(output, context);
   }
 
   // Start section: command_body_extra

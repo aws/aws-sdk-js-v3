@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelTaskInput, CancelTaskOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelTaskCommand,
-  serializeAws_restJson1CancelTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelTaskCommand, se_CancelTaskCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -142,14 +139,14 @@ export class CancelTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelTaskCommand(input, context);
+    return se_CancelTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelTaskCommandOutput> {
-    return deserializeAws_restJson1CancelTaskCommand(output, context);
+    return de_CancelTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

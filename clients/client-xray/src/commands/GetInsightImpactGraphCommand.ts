@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetInsightImpactGraphRequest, GetInsightImpactGraphResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetInsightImpactGraphCommand,
-  serializeAws_restJson1GetInsightImpactGraphCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetInsightImpactGraphCommand, se_GetInsightImpactGraphCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -130,14 +127,14 @@ export class GetInsightImpactGraphCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInsightImpactGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetInsightImpactGraphCommand(input, context);
+    return se_GetInsightImpactGraphCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightImpactGraphCommandOutput> {
-    return deserializeAws_restJson1GetInsightImpactGraphCommand(output, context);
+    return de_GetInsightImpactGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

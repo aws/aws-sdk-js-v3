@@ -16,8 +16,8 @@ import {
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { StopDeliveryStreamEncryptionInput, StopDeliveryStreamEncryptionOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1StopDeliveryStreamEncryptionCommand,
-  serializeAws_json1_1StopDeliveryStreamEncryptionCommand,
+  de_StopDeliveryStreamEncryptionCommand,
+  se_StopDeliveryStreamEncryptionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class StopDeliveryStreamEncryptionCommand extends $Command<
    * @internal
    */
   private serialize(input: StopDeliveryStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopDeliveryStreamEncryptionCommand(input, context);
+    return se_StopDeliveryStreamEncryptionCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class StopDeliveryStreamEncryptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDeliveryStreamEncryptionCommandOutput> {
-    return deserializeAws_json1_1StopDeliveryStreamEncryptionCommand(output, context);
+    return de_StopDeliveryStreamEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

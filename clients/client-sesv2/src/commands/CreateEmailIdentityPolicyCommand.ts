@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateEmailIdentityPolicyRequest, CreateEmailIdentityPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEmailIdentityPolicyCommand,
-  serializeAws_restJson1CreateEmailIdentityPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateEmailIdentityPolicyCommand, se_CreateEmailIdentityPolicyCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -147,7 +144,7 @@ export class CreateEmailIdentityPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEmailIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEmailIdentityPolicyCommand(input, context);
+    return se_CreateEmailIdentityPolicyCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class CreateEmailIdentityPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEmailIdentityPolicyCommandOutput> {
-    return deserializeAws_restJson1CreateEmailIdentityPolicyCommand(output, context);
+    return de_CreateEmailIdentityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

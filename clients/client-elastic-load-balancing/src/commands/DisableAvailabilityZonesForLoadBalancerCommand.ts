@@ -20,8 +20,8 @@ import {
 } from "../ElasticLoadBalancingClient";
 import { RemoveAvailabilityZonesInput, RemoveAvailabilityZonesOutput } from "../models/models_0";
 import {
-  deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand,
-  serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand,
+  de_DisableAvailabilityZonesForLoadBalancerCommand,
+  se_DisableAvailabilityZonesForLoadBalancerCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -173,7 +173,7 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
     input: DisableAvailabilityZonesForLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand(input, context);
+    return se_DisableAvailabilityZonesForLoadBalancerCommand(input, context);
   }
 
   /**
@@ -183,7 +183,7 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> {
-    return deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand(output, context);
+    return de_DisableAvailabilityZonesForLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

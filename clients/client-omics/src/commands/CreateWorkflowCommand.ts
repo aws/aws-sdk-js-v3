@@ -15,10 +15,7 @@ import {
 
 import { CreateWorkflowRequest, CreateWorkflowResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1CreateWorkflowCommand,
-  serializeAws_restJson1CreateWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWorkflowCommand, se_CreateWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class CreateWorkflowCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkflowCommand(input, context);
+    return se_CreateWorkflowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkflowCommandOutput> {
-    return deserializeAws_restJson1CreateWorkflowCommand(output, context);
+    return de_CreateWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateNotebookInstanceInput, CreateNotebookInstanceOutput } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateNotebookInstanceCommand,
-  serializeAws_json1_1CreateNotebookInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateNotebookInstanceCommand, se_CreateNotebookInstanceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -186,14 +183,14 @@ export class CreateNotebookInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateNotebookInstanceCommand(input, context);
+    return se_CreateNotebookInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNotebookInstanceCommandOutput> {
-    return deserializeAws_json1_1CreateNotebookInstanceCommand(output, context);
+    return de_CreateNotebookInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

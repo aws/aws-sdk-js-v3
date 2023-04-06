@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateAgreementRequest, UpdateAgreementResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAgreementCommand,
-  serializeAws_json1_1UpdateAgreementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateAgreementCommand, se_UpdateAgreementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -148,14 +145,14 @@ export class UpdateAgreementCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAgreementCommand(input, context);
+    return se_UpdateAgreementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAgreementCommandOutput> {
-    return deserializeAws_json1_1UpdateAgreementCommand(output, context);
+    return de_UpdateAgreementCommand(output, context);
   }
 
   // Start section: command_body_extra

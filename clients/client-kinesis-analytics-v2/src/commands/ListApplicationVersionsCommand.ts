@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import { ListApplicationVersionsRequest, ListApplicationVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApplicationVersionsCommand,
-  serializeAws_json1_1ListApplicationVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListApplicationVersionsCommand, se_ListApplicationVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListApplicationVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListApplicationVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApplicationVersionsCommand(input, context);
+    return se_ListApplicationVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationVersionsCommandOutput> {
-    return deserializeAws_json1_1ListApplicationVersionsCommand(output, context);
+    return de_ListApplicationVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

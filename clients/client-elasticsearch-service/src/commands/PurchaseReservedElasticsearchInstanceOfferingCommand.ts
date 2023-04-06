@@ -23,8 +23,8 @@ import {
   PurchaseReservedElasticsearchInstanceOfferingResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand,
-  serializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand,
+  de_PurchaseReservedElasticsearchInstanceOfferingCommand,
+  se_PurchaseReservedElasticsearchInstanceOfferingCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -159,7 +159,7 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     input: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand(input, context);
+    return se_PurchaseReservedElasticsearchInstanceOfferingCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> {
-    return deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand(output, context);
+    return de_PurchaseReservedElasticsearchInstanceOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

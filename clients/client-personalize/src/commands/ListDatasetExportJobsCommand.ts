@@ -15,10 +15,7 @@ import {
 
 import { ListDatasetExportJobsRequest, ListDatasetExportJobsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListDatasetExportJobsCommand,
-  serializeAws_json1_1ListDatasetExportJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDatasetExportJobsCommand, se_ListDatasetExportJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListDatasetExportJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDatasetExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDatasetExportJobsCommand(input, context);
+    return se_ListDatasetExportJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDatasetExportJobsCommandOutput> {
-    return deserializeAws_json1_1ListDatasetExportJobsCommand(output, context);
+    return de_ListDatasetExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { ListShardsInput, ListShardsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListShardsCommand,
-  serializeAws_json1_1ListShardsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListShardsCommand, se_ListShardsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class ListShardsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListShardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListShardsCommand(input, context);
+    return se_ListShardsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListShardsCommandOutput> {
-    return deserializeAws_json1_1ListShardsCommand(output, context);
+    return de_ListShardsCommand(output, context);
   }
 
   // Start section: command_body_extra

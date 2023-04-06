@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { WithdrawByoipCidrRequest, WithdrawByoipCidrResult } from "../models/models_7";
-import {
-  deserializeAws_ec2WithdrawByoipCidrCommand,
-  serializeAws_ec2WithdrawByoipCidrCommand,
-} from "../protocols/Aws_ec2";
+import { de_WithdrawByoipCidrCommand, se_WithdrawByoipCidrCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class WithdrawByoipCidrCommand extends $Command<
    * @internal
    */
   private serialize(input: WithdrawByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2WithdrawByoipCidrCommand(input, context);
+    return se_WithdrawByoipCidrCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WithdrawByoipCidrCommandOutput> {
-    return deserializeAws_ec2WithdrawByoipCidrCommand(output, context);
+    return de_WithdrawByoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

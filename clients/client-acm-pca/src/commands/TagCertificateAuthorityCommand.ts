@@ -15,10 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { TagCertificateAuthorityRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1TagCertificateAuthorityCommand,
-  serializeAws_json1_1TagCertificateAuthorityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TagCertificateAuthorityCommand, se_TagCertificateAuthorityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class TagCertificateAuthorityCommand extends $Command<
    * @internal
    */
   private serialize(input: TagCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagCertificateAuthorityCommand(input, context);
+    return se_TagCertificateAuthorityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1TagCertificateAuthorityCommand(output, context);
+    return de_TagCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

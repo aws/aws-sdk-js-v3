@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AssociateRouteTableRequest, AssociateRouteTableResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AssociateRouteTableCommand,
-  serializeAws_ec2AssociateRouteTableCommand,
-} from "../protocols/Aws_ec2";
+import { de_AssociateRouteTableCommand, se_AssociateRouteTableCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class AssociateRouteTableCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateRouteTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateRouteTableCommand(input, context);
+    return se_AssociateRouteTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRouteTableCommandOutput> {
-    return deserializeAws_ec2AssociateRouteTableCommand(output, context);
+    return de_AssociateRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeCodeRepositoryInput, DescribeCodeRepositoryOutput } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeCodeRepositoryCommand,
-  serializeAws_json1_1DescribeCodeRepositoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCodeRepositoryCommand, se_DescribeCodeRepositoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -120,14 +117,14 @@ export class DescribeCodeRepositoryCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCodeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCodeRepositoryCommand(input, context);
+    return se_DescribeCodeRepositoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCodeRepositoryCommandOutput> {
-    return deserializeAws_json1_1DescribeCodeRepositoryCommand(output, context);
+    return de_DescribeCodeRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

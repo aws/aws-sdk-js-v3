@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { DescribeExperienceRequest, DescribeExperienceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeExperienceCommand,
-  serializeAws_json1_1DescribeExperienceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeExperienceCommand, se_DescribeExperienceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DescribeExperienceCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeExperienceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExperienceCommand(input, context);
+    return se_DescribeExperienceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExperienceCommandOutput> {
-    return deserializeAws_json1_1DescribeExperienceCommand(output, context);
+    return de_DescribeExperienceCommand(output, context);
   }
 
   // Start section: command_body_extra

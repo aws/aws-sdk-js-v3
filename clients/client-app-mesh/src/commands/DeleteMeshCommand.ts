@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { DeleteMeshInput, DeleteMeshOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteMeshCommand,
-  serializeAws_restJson1DeleteMeshCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteMeshCommand, se_DeleteMeshCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteMeshCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMeshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteMeshCommand(input, context);
+    return se_DeleteMeshCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMeshCommandOutput> {
-    return deserializeAws_restJson1DeleteMeshCommand(output, context);
+    return de_DeleteMeshCommand(output, context);
   }
 
   // Start section: command_body_extra

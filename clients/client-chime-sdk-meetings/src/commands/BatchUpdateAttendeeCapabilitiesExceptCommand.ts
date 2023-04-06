@@ -16,8 +16,8 @@ import {
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import { BatchUpdateAttendeeCapabilitiesExceptRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand,
-  serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand,
+  de_BatchUpdateAttendeeCapabilitiesExceptCommand,
+  se_BatchUpdateAttendeeCapabilitiesExceptCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -172,7 +172,7 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
     input: BatchUpdateAttendeeCapabilitiesExceptCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand(input, context);
+    return se_BatchUpdateAttendeeCapabilitiesExceptCommand(input, context);
   }
 
   /**
@@ -182,7 +182,7 @@ export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchUpdateAttendeeCapabilitiesExceptCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommand(output, context);
+    return de_BatchUpdateAttendeeCapabilitiesExceptCommand(output, context);
   }
 
   // Start section: command_body_extra

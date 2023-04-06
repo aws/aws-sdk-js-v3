@@ -33,7 +33,10 @@ import {
 } from "../models/models_0";
 import { SagemakerEdgeServiceException as __BaseException } from "../models/SagemakerEdgeServiceException";
 
-export const serializeAws_restJson1GetDeploymentsCommand = async (
+/**
+ * serializeAws_restJson1GetDeploymentsCommand
+ */
+export const se_GetDeploymentsCommand = async (
   input: GetDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -58,7 +61,10 @@ export const serializeAws_restJson1GetDeploymentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetDeviceRegistrationCommand = async (
+/**
+ * serializeAws_restJson1GetDeviceRegistrationCommand
+ */
+export const se_GetDeviceRegistrationCommand = async (
   input: GetDeviceRegistrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -83,7 +89,10 @@ export const serializeAws_restJson1GetDeviceRegistrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1SendHeartbeatCommand = async (
+/**
+ * serializeAws_restJson1SendHeartbeatCommand
+ */
+export const se_SendHeartbeatCommand = async (
   input: SendHeartbeatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -94,14 +103,12 @@ export const serializeAws_restJson1SendHeartbeatCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SendHeartbeat";
   let body: any;
   body = JSON.stringify({
-    ...(input.AgentMetrics != null && { AgentMetrics: serializeAws_restJson1EdgeMetrics(input.AgentMetrics, context) }),
+    ...(input.AgentMetrics != null && { AgentMetrics: se_EdgeMetrics(input.AgentMetrics, context) }),
     ...(input.AgentVersion != null && { AgentVersion: input.AgentVersion }),
-    ...(input.DeploymentResult != null && {
-      DeploymentResult: serializeAws_restJson1DeploymentResult(input.DeploymentResult, context),
-    }),
+    ...(input.DeploymentResult != null && { DeploymentResult: se_DeploymentResult(input.DeploymentResult, context) }),
     ...(input.DeviceFleetName != null && { DeviceFleetName: input.DeviceFleetName }),
     ...(input.DeviceName != null && { DeviceName: input.DeviceName }),
-    ...(input.Models != null && { Models: serializeAws_restJson1Models(input.Models, context) }),
+    ...(input.Models != null && { Models: se_Models(input.Models, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -114,24 +121,30 @@ export const serializeAws_restJson1SendHeartbeatCommand = async (
   });
 };
 
-export const deserializeAws_restJson1GetDeploymentsCommand = async (
+/**
+ * deserializeAws_restJson1GetDeploymentsCommand
+ */
+export const de_GetDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeploymentsCommandError(output, context);
+    return de_GetDeploymentsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Deployments != null) {
-    contents.Deployments = deserializeAws_restJson1EdgeDeployments(data.Deployments, context);
+    contents.Deployments = de_EdgeDeployments(data.Deployments, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetDeploymentsCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeploymentsCommandError
+ */
+const de_GetDeploymentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentsCommandOutput> => {
@@ -143,7 +156,7 @@ const deserializeAws_restJson1GetDeploymentsCommandError = async (
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.sagemakeredge#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -155,12 +168,15 @@ const deserializeAws_restJson1GetDeploymentsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetDeviceRegistrationCommand = async (
+/**
+ * deserializeAws_restJson1GetDeviceRegistrationCommand
+ */
+export const de_GetDeviceRegistrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceRegistrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetDeviceRegistrationCommandError(output, context);
+    return de_GetDeviceRegistrationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -175,7 +191,10 @@ export const deserializeAws_restJson1GetDeviceRegistrationCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetDeviceRegistrationCommandError = async (
+/**
+ * deserializeAws_restJson1GetDeviceRegistrationCommandError
+ */
+const de_GetDeviceRegistrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceRegistrationCommandOutput> => {
@@ -187,7 +206,7 @@ const deserializeAws_restJson1GetDeviceRegistrationCommandError = async (
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.sagemakeredge#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -199,12 +218,15 @@ const deserializeAws_restJson1GetDeviceRegistrationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1SendHeartbeatCommand = async (
+/**
+ * deserializeAws_restJson1SendHeartbeatCommand
+ */
+export const de_SendHeartbeatCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendHeartbeatCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SendHeartbeatCommandError(output, context);
+    return de_SendHeartbeatCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -213,7 +235,10 @@ export const deserializeAws_restJson1SendHeartbeatCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1SendHeartbeatCommandError = async (
+/**
+ * deserializeAws_restJson1SendHeartbeatCommandError
+ */
+const de_SendHeartbeatCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendHeartbeatCommandOutput> => {
@@ -225,7 +250,7 @@ const deserializeAws_restJson1SendHeartbeatCommandError = async (
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.sagemakeredge#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -238,7 +263,10 @@ const deserializeAws_restJson1SendHeartbeatCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1InternalServiceExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServiceExceptionRes
+ */
+const de_InternalServiceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
@@ -254,7 +282,10 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1DeploymentModel = (input: DeploymentModel, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DeploymentModel
+ */
+const se_DeploymentModel = (input: DeploymentModel, context: __SerdeContext): any => {
   return {
     ...(input.DesiredState != null && { DesiredState: input.DesiredState }),
     ...(input.ModelHandle != null && { ModelHandle: input.ModelHandle }),
@@ -267,20 +298,24 @@ const serializeAws_restJson1DeploymentModel = (input: DeploymentModel, context: 
   };
 };
 
-const serializeAws_restJson1DeploymentModels = (input: DeploymentModel[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DeploymentModels
+ */
+const se_DeploymentModels = (input: DeploymentModel[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1DeploymentModel(entry, context);
+      return se_DeploymentModel(entry, context);
     });
 };
 
-const serializeAws_restJson1DeploymentResult = (input: DeploymentResult, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DeploymentResult
+ */
+const se_DeploymentResult = (input: DeploymentResult, context: __SerdeContext): any => {
   return {
     ...(input.DeploymentEndTime != null && { DeploymentEndTime: Math.round(input.DeploymentEndTime.getTime() / 1000) }),
-    ...(input.DeploymentModels != null && {
-      DeploymentModels: serializeAws_restJson1DeploymentModels(input.DeploymentModels, context),
-    }),
+    ...(input.DeploymentModels != null && { DeploymentModels: se_DeploymentModels(input.DeploymentModels, context) }),
     ...(input.DeploymentName != null && { DeploymentName: input.DeploymentName }),
     ...(input.DeploymentStartTime != null && {
       DeploymentStartTime: Math.round(input.DeploymentStartTime.getTime() / 1000),
@@ -290,7 +325,10 @@ const serializeAws_restJson1DeploymentResult = (input: DeploymentResult, context
   };
 };
 
-const serializeAws_restJson1EdgeMetric = (input: EdgeMetric, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EdgeMetric
+ */
+const se_EdgeMetric = (input: EdgeMetric, context: __SerdeContext): any => {
   return {
     ...(input.Dimension != null && { Dimension: input.Dimension }),
     ...(input.MetricName != null && { MetricName: input.MetricName }),
@@ -299,78 +337,101 @@ const serializeAws_restJson1EdgeMetric = (input: EdgeMetric, context: __SerdeCon
   };
 };
 
-const serializeAws_restJson1EdgeMetrics = (input: EdgeMetric[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EdgeMetrics
+ */
+const se_EdgeMetrics = (input: EdgeMetric[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1EdgeMetric(entry, context);
+      return se_EdgeMetric(entry, context);
     });
 };
 
-const serializeAws_restJson1Model = (input: Model, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Model
+ */
+const se_Model = (input: Model, context: __SerdeContext): any => {
   return {
     ...(input.LatestInference != null && { LatestInference: Math.round(input.LatestInference.getTime() / 1000) }),
     ...(input.LatestSampleTime != null && { LatestSampleTime: Math.round(input.LatestSampleTime.getTime() / 1000) }),
-    ...(input.ModelMetrics != null && { ModelMetrics: serializeAws_restJson1EdgeMetrics(input.ModelMetrics, context) }),
+    ...(input.ModelMetrics != null && { ModelMetrics: se_EdgeMetrics(input.ModelMetrics, context) }),
     ...(input.ModelName != null && { ModelName: input.ModelName }),
     ...(input.ModelVersion != null && { ModelVersion: input.ModelVersion }),
   };
 };
 
-const serializeAws_restJson1Models = (input: Model[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Models
+ */
+const se_Models = (input: Model[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Model(entry, context);
+      return se_Model(entry, context);
     });
 };
 
-const deserializeAws_restJson1Checksum = (output: any, context: __SerdeContext): Checksum => {
+/**
+ * deserializeAws_restJson1Checksum
+ */
+const de_Checksum = (output: any, context: __SerdeContext): Checksum => {
   return {
     Sum: __expectString(output.Sum),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_restJson1Definition = (output: any, context: __SerdeContext): Definition => {
+/**
+ * deserializeAws_restJson1Definition
+ */
+const de_Definition = (output: any, context: __SerdeContext): Definition => {
   return {
-    Checksum: output.Checksum != null ? deserializeAws_restJson1Checksum(output.Checksum, context) : undefined,
+    Checksum: output.Checksum != null ? de_Checksum(output.Checksum, context) : undefined,
     ModelHandle: __expectString(output.ModelHandle),
     S3Url: __expectString(output.S3Url),
     State: __expectString(output.State),
   } as any;
 };
 
-const deserializeAws_restJson1Definitions = (output: any, context: __SerdeContext): Definition[] => {
+/**
+ * deserializeAws_restJson1Definitions
+ */
+const de_Definitions = (output: any, context: __SerdeContext): Definition[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Definition(entry, context);
+      return de_Definition(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1EdgeDeployment = (output: any, context: __SerdeContext): EdgeDeployment => {
+/**
+ * deserializeAws_restJson1EdgeDeployment
+ */
+const de_EdgeDeployment = (output: any, context: __SerdeContext): EdgeDeployment => {
   return {
-    Definitions:
-      output.Definitions != null ? deserializeAws_restJson1Definitions(output.Definitions, context) : undefined,
+    Definitions: output.Definitions != null ? de_Definitions(output.Definitions, context) : undefined,
     DeploymentName: __expectString(output.DeploymentName),
     FailureHandlingPolicy: __expectString(output.FailureHandlingPolicy),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_restJson1EdgeDeployments = (output: any, context: __SerdeContext): EdgeDeployment[] => {
+/**
+ * deserializeAws_restJson1EdgeDeployments
+ */
+const de_EdgeDeployments = (output: any, context: __SerdeContext): EdgeDeployment[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1EdgeDeployment(entry, context);
+      return de_EdgeDeployment(entry, context);
     });
   return retVal;
 };

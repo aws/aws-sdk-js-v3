@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeNetworkInsightsPathsRequest, DescribeNetworkInsightsPathsResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeNetworkInsightsPathsCommand,
-  serializeAws_ec2DescribeNetworkInsightsPathsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeNetworkInsightsPathsCommand, se_DescribeNetworkInsightsPathsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class DescribeNetworkInsightsPathsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeNetworkInsightsPathsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeNetworkInsightsPathsCommand(input, context);
+    return se_DescribeNetworkInsightsPathsCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DescribeNetworkInsightsPathsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNetworkInsightsPathsCommandOutput> {
-    return deserializeAws_ec2DescribeNetworkInsightsPathsCommand(output, context);
+    return de_DescribeNetworkInsightsPathsCommand(output, context);
   }
 
   // Start section: command_body_extra

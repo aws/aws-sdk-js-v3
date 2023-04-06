@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutStorageLensConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutStorageLensConfigurationCommand,
-  serializeAws_restXmlPutStorageLensConfigurationCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutStorageLensConfigurationCommand, se_PutStorageLensConfigurationCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -218,7 +215,7 @@ export class PutStorageLensConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutStorageLensConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutStorageLensConfigurationCommand(input, context);
+    return se_PutStorageLensConfigurationCommand(input, context);
   }
 
   /**
@@ -228,7 +225,7 @@ export class PutStorageLensConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutStorageLensConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutStorageLensConfigurationCommand(output, context);
+    return de_PutStorageLensConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

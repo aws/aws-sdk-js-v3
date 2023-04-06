@@ -15,10 +15,7 @@ import {
 
 import { AssociateLinkRequest, AssociateLinkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1AssociateLinkCommand,
-  serializeAws_restJson1AssociateLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateLinkCommand, se_AssociateLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class AssociateLinkCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateLinkCommand(input, context);
+    return se_AssociateLinkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLinkCommandOutput> {
-    return deserializeAws_restJson1AssociateLinkCommand(output, context);
+    return de_AssociateLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetWorldTemplateBodyRequest, GetWorldTemplateBodyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetWorldTemplateBodyCommand,
-  serializeAws_restJson1GetWorldTemplateBodyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetWorldTemplateBodyCommand, se_GetWorldTemplateBodyCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -134,14 +131,14 @@ export class GetWorldTemplateBodyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetWorldTemplateBodyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWorldTemplateBodyCommand(input, context);
+    return se_GetWorldTemplateBodyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorldTemplateBodyCommandOutput> {
-    return deserializeAws_restJson1GetWorldTemplateBodyCommand(output, context);
+    return de_GetWorldTemplateBodyCommand(output, context);
   }
 
   // Start section: command_body_extra

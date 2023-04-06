@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { GetPricingPlanRequest, GetPricingPlanResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPricingPlanCommand,
-  serializeAws_restJson1GetPricingPlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPricingPlanCommand, se_GetPricingPlanCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetPricingPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPricingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPricingPlanCommand(input, context);
+    return se_GetPricingPlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPricingPlanCommandOutput> {
-    return deserializeAws_restJson1GetPricingPlanCommand(output, context);
+    return de_GetPricingPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

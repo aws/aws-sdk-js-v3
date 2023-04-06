@@ -19,10 +19,7 @@ import {
   InvokeEndpointOutput,
   InvokeEndpointOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1InvokeEndpointCommand,
-  serializeAws_restJson1InvokeEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InvokeEndpointCommand, se_InvokeEndpointCommand } from "../protocols/Aws_restJson1";
 import { SageMakerRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerRuntimeClient";
 
 /**
@@ -175,14 +172,14 @@ export class InvokeEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: InvokeEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InvokeEndpointCommand(input, context);
+    return se_InvokeEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeEndpointCommandOutput> {
-    return deserializeAws_restJson1InvokeEndpointCommand(output, context);
+    return de_InvokeEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

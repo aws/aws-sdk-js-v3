@@ -19,8 +19,8 @@ import {
   DeleteTransitGatewayRouteTableAnnouncementResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand,
-  serializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand,
+  de_DeleteTransitGatewayRouteTableAnnouncementCommand,
+  se_DeleteTransitGatewayRouteTableAnnouncementCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -136,7 +136,7 @@ export class DeleteTransitGatewayRouteTableAnnouncementCommand extends $Command<
     input: DeleteTransitGatewayRouteTableAnnouncementCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand(input, context);
+    return se_DeleteTransitGatewayRouteTableAnnouncementCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DeleteTransitGatewayRouteTableAnnouncementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayRouteTableAnnouncementCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand(output, context);
+    return de_DeleteTransitGatewayRouteTableAnnouncementCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { DeleteFunctionCodeSigningConfigRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommand,
-  serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand,
+  de_DeleteFunctionCodeSigningConfigCommand,
+  se_DeleteFunctionCodeSigningConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class DeleteFunctionCodeSigningConfigCommand extends $Command<
     input: DeleteFunctionCodeSigningConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand(input, context);
+    return se_DeleteFunctionCodeSigningConfigCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DeleteFunctionCodeSigningConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFunctionCodeSigningConfigCommandOutput> {
-    return deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommand(output, context);
+    return de_DeleteFunctionCodeSigningConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

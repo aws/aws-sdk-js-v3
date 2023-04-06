@@ -19,8 +19,8 @@ import {
   DescribeDataRepositoryAssociationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDataRepositoryAssociationsCommand,
-  serializeAws_json1_1DescribeDataRepositoryAssociationsCommand,
+  de_DescribeDataRepositoryAssociationsCommand,
+  se_DescribeDataRepositoryAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -173,7 +173,7 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command<
     input: DescribeDataRepositoryAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDataRepositoryAssociationsCommand(input, context);
+    return se_DescribeDataRepositoryAssociationsCommand(input, context);
   }
 
   /**
@@ -183,7 +183,7 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDataRepositoryAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeDataRepositoryAssociationsCommand(output, context);
+    return de_DescribeDataRepositoryAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

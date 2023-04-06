@@ -15,10 +15,7 @@ import {
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import { DescribeEnvironmentStatusRequest, DescribeEnvironmentStatusResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEnvironmentStatusCommand,
-  serializeAws_json1_1DescribeEnvironmentStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEnvironmentStatusCommand, se_DescribeEnvironmentStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,7 +155,7 @@ export class DescribeEnvironmentStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEnvironmentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEnvironmentStatusCommand(input, context);
+    return se_DescribeEnvironmentStatusCommand(input, context);
   }
 
   /**
@@ -168,7 +165,7 @@ export class DescribeEnvironmentStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEnvironmentStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeEnvironmentStatusCommand(output, context);
+    return de_DescribeEnvironmentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

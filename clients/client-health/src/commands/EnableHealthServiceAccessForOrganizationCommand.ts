@@ -15,8 +15,8 @@ import {
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
-  deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand,
-  serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand,
+  de_EnableHealthServiceAccessForOrganizationCommand,
+  se_EnableHealthServiceAccessForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
     input: EnableHealthServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(input, context);
+    return se_EnableHealthServiceAccessForOrganizationCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> {
-    return deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand(output, context);
+    return de_EnableHealthServiceAccessForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   UpdateStorageVirtualMachineRequestFilterSensitiveLog,
   UpdateStorageVirtualMachineResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateStorageVirtualMachineCommand,
-  serializeAws_json1_1UpdateStorageVirtualMachineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateStorageVirtualMachineCommand, se_UpdateStorageVirtualMachineCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,7 +151,7 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStorageVirtualMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStorageVirtualMachineCommand(input, context);
+    return se_UpdateStorageVirtualMachineCommand(input, context);
   }
 
   /**
@@ -164,7 +161,7 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateStorageVirtualMachineCommandOutput> {
-    return deserializeAws_json1_1UpdateStorageVirtualMachineCommand(output, context);
+    return de_UpdateStorageVirtualMachineCommand(output, context);
   }
 
   // Start section: command_body_extra

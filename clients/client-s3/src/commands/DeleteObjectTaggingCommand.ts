@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteObjectTaggingOutput, DeleteObjectTaggingRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteObjectTaggingCommand,
-  serializeAws_restXmlDeleteObjectTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteObjectTaggingCommand, se_DeleteObjectTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -78,23 +75,6 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  *
- * @example To remove tag set from an object
- * ```javascript
- * // The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new DeleteObjectTaggingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VersionId": "null"
- * }
- * *\/
- * // example id: to-remove-tag-set-from-an-object-1483145342862
- * ```
- *
  * @example To remove tag set from an object version
  * ```javascript
  * // The following example removes tag set associated with the specified object version. The request specifies both the object key and object version.
@@ -111,6 +91,23 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * }
  * *\/
  * // example id: to-remove-tag-set-from-an-object-version-1483145285913
+ * ```
+ *
+ * @example To remove tag set from an object
+ * ```javascript
+ * // The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new DeleteObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * // example id: to-remove-tag-set-from-an-object-1483145342862
  * ```
  *
  */
@@ -183,14 +180,14 @@ export class DeleteObjectTaggingCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteObjectTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteObjectTaggingCommand(input, context);
+    return se_DeleteObjectTaggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectTaggingCommandOutput> {
-    return deserializeAws_restXmlDeleteObjectTaggingCommand(output, context);
+    return de_DeleteObjectTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

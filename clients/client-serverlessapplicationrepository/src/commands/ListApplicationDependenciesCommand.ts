@@ -15,8 +15,8 @@ import {
 
 import { ListApplicationDependenciesRequest, ListApplicationDependenciesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListApplicationDependenciesCommand,
-  serializeAws_restJson1ListApplicationDependenciesCommand,
+  de_ListApplicationDependenciesCommand,
+  se_ListApplicationDependenciesCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
@@ -144,7 +144,7 @@ export class ListApplicationDependenciesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListApplicationDependenciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApplicationDependenciesCommand(input, context);
+    return se_ListApplicationDependenciesCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class ListApplicationDependenciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListApplicationDependenciesCommandOutput> {
-    return deserializeAws_restJson1ListApplicationDependenciesCommand(output, context);
+    return de_ListApplicationDependenciesCommand(output, context);
   }
 
   // Start section: command_body_extra

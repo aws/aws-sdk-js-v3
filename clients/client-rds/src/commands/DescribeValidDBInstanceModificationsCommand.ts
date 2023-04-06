@@ -18,8 +18,8 @@ import {
   DescribeValidDBInstanceModificationsResult,
 } from "../models/models_1";
 import {
-  deserializeAws_queryDescribeValidDBInstanceModificationsCommand,
-  serializeAws_queryDescribeValidDBInstanceModificationsCommand,
+  de_DescribeValidDBInstanceModificationsCommand,
+  se_DescribeValidDBInstanceModificationsCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -69,6 +69,40 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ *
+ * @example To describe valid modifications for a DB instance
+ * ```javascript
+ * // The following example retrieves details about the valid modifications for the specified DB instance.
+ * const input = {
+ *   "DBInstanceIdentifier": "database-test1"
+ * };
+ * const command = new DescribeValidDBInstanceModificationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ValidDBInstanceModificationsMessage": {
+ *     "Storage": [
+ *       {
+ *         "StorageSize": [
+ *           {
+ *             "From": 20,
+ *             "Step": 1,
+ *             "To": 20
+ *           },
+ *           {
+ *             "From": 22,
+ *             "Step": 1,
+ *             "To": 6144
+ *           }
+ *         ],
+ *         "StorageType": "gp2"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-describe-valid-modifications-for-a-db-instance-1680284230997
+ * ```
  *
  */
 export class DescribeValidDBInstanceModificationsCommand extends $Command<
@@ -137,7 +171,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     input: DescribeValidDBInstanceModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeValidDBInstanceModificationsCommand(input, context);
+    return se_DescribeValidDBInstanceModificationsCommand(input, context);
   }
 
   /**
@@ -147,7 +181,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput> {
-    return deserializeAws_queryDescribeValidDBInstanceModificationsCommand(output, context);
+    return de_DescribeValidDBInstanceModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

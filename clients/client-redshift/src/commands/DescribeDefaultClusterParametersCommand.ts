@@ -15,8 +15,8 @@ import {
 
 import { DescribeDefaultClusterParametersMessage, DescribeDefaultClusterParametersResult } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeDefaultClusterParametersCommand,
-  serializeAws_queryDescribeDefaultClusterParametersCommand,
+  de_DescribeDefaultClusterParametersCommand,
+  se_DescribeDefaultClusterParametersCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -132,7 +132,7 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     input: DescribeDefaultClusterParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDefaultClusterParametersCommand(input, context);
+    return se_DescribeDefaultClusterParametersCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDefaultClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeDefaultClusterParametersCommand(output, context);
+    return de_DescribeDefaultClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

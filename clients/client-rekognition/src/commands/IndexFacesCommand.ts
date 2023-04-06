@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IndexFacesRequest, IndexFacesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1IndexFacesCommand,
-  serializeAws_json1_1IndexFacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_IndexFacesCommand, se_IndexFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -401,14 +398,14 @@ export class IndexFacesCommand extends $Command<
    * @internal
    */
   private serialize(input: IndexFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1IndexFacesCommand(input, context);
+    return se_IndexFacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IndexFacesCommandOutput> {
-    return deserializeAws_json1_1IndexFacesCommand(output, context);
+    return de_IndexFacesCommand(output, context);
   }
 
   // Start section: command_body_extra

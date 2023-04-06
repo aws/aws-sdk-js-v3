@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { ListDataQualityResultsRequest, ListDataQualityResultsResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ListDataQualityResultsCommand,
-  serializeAws_json1_1ListDataQualityResultsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDataQualityResultsCommand, se_ListDataQualityResultsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class ListDataQualityResultsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDataQualityResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDataQualityResultsCommand(input, context);
+    return se_ListDataQualityResultsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataQualityResultsCommandOutput> {
-    return deserializeAws_json1_1ListDataQualityResultsCommand(output, context);
+    return de_ListDataQualityResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

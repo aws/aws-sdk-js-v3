@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { ResetResourceLogLevelRequest, ResetResourceLogLevelResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ResetResourceLogLevelCommand,
-  serializeAws_restJson1ResetResourceLogLevelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ResetResourceLogLevelCommand, se_ResetResourceLogLevelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ResetResourceLogLevelCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetResourceLogLevelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ResetResourceLogLevelCommand(input, context);
+    return se_ResetResourceLogLevelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetResourceLogLevelCommandOutput> {
-    return deserializeAws_restJson1ResetResourceLogLevelCommand(output, context);
+    return de_ResetResourceLogLevelCommand(output, context);
   }
 
   // Start section: command_body_extra

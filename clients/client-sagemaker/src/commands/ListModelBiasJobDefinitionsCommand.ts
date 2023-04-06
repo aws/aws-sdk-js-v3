@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListModelBiasJobDefinitionsRequest, ListModelBiasJobDefinitionsResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListModelBiasJobDefinitionsCommand,
-  serializeAws_json1_1ListModelBiasJobDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListModelBiasJobDefinitionsCommand, se_ListModelBiasJobDefinitionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -129,7 +126,7 @@ export class ListModelBiasJobDefinitionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListModelBiasJobDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListModelBiasJobDefinitionsCommand(input, context);
+    return se_ListModelBiasJobDefinitionsCommand(input, context);
   }
 
   /**
@@ -139,7 +136,7 @@ export class ListModelBiasJobDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListModelBiasJobDefinitionsCommandOutput> {
-    return deserializeAws_json1_1ListModelBiasJobDefinitionsCommand(output, context);
+    return de_ListModelBiasJobDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

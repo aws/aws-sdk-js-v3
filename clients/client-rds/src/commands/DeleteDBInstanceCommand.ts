@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBInstanceCommand,
-  serializeAws_queryDeleteDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBInstanceCommand, se_DeleteDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -104,21 +101,25 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  *             snapshots.</p>
  *
  *
- * @example To delete a DB instance.
+ * @example To delete a DB instance
  * ```javascript
- * // This example deletes the specified DB instance.
+ * // The following example deletes the specified DB instance after creating a final DB snapshot named test-instance-final-snap.
  * const input = {
- *   "DBInstanceIdentifier": "mymysqlinstance",
- *   "SkipFinalSnapshot": true
+ *   "DBInstanceIdentifier": "test-instance",
+ *   "FinalDBSnapshotIdentifier": "test-instance-final-snap",
+ *   "SkipFinalSnapshot": false
  * };
  * const command = new DeleteDBInstanceCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBInstance": {}
+ *   "DBInstance": {
+ *     "DBInstanceIdentifier": "test-instance",
+ *     "DBInstanceStatus": "deleting"
+ *   }
  * }
  * *\/
- * // example id: delete-db-instance-4412e650-949c-488a-b32a-7d3038ebccc4
+ * // example id: to-delete-a-db-instance-1680197458232
  * ```
  *
  */
@@ -185,14 +186,14 @@ export class DeleteDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBInstanceCommand(input, context);
+    return se_DeleteDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBInstanceCommandOutput> {
-    return deserializeAws_queryDeleteDBInstanceCommand(output, context);
+    return de_DeleteDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

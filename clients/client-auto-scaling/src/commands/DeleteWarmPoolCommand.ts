@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DeleteWarmPoolAnswer, DeleteWarmPoolType } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteWarmPoolCommand,
-  serializeAws_queryDeleteWarmPoolCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteWarmPoolCommand, se_DeleteWarmPoolCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteWarmPoolCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWarmPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteWarmPoolCommand(input, context);
+    return se_DeleteWarmPoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWarmPoolCommandOutput> {
-    return deserializeAws_queryDeleteWarmPoolCommand(output, context);
+    return de_DeleteWarmPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

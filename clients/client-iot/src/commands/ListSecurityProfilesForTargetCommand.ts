@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListSecurityProfilesForTargetRequest, ListSecurityProfilesForTargetResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListSecurityProfilesForTargetCommand,
-  serializeAws_restJson1ListSecurityProfilesForTargetCommand,
+  de_ListSecurityProfilesForTargetCommand,
+  se_ListSecurityProfilesForTargetCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -138,7 +138,7 @@ export class ListSecurityProfilesForTargetCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSecurityProfilesForTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSecurityProfilesForTargetCommand(input, context);
+    return se_ListSecurityProfilesForTargetCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class ListSecurityProfilesForTargetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSecurityProfilesForTargetCommandOutput> {
-    return deserializeAws_restJson1ListSecurityProfilesForTargetCommand(output, context);
+    return de_ListSecurityProfilesForTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

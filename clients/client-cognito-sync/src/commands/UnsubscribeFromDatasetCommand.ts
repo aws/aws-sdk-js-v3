@@ -15,10 +15,7 @@ import {
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { UnsubscribeFromDatasetRequest, UnsubscribeFromDatasetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UnsubscribeFromDatasetCommand,
-  serializeAws_restJson1UnsubscribeFromDatasetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UnsubscribeFromDatasetCommand, se_UnsubscribeFromDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -189,14 +186,14 @@ export class UnsubscribeFromDatasetCommand extends $Command<
    * @internal
    */
   private serialize(input: UnsubscribeFromDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnsubscribeFromDatasetCommand(input, context);
+    return se_UnsubscribeFromDatasetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeFromDatasetCommandOutput> {
-    return deserializeAws_restJson1UnsubscribeFromDatasetCommand(output, context);
+    return de_UnsubscribeFromDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

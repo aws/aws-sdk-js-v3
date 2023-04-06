@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import {
-  deserializeAws_json1_0PutKeywordCommand,
-  serializeAws_json1_0PutKeywordCommand,
-} from "../protocols/Aws_json1_0";
+import { de_PutKeywordCommand, se_PutKeywordCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class PutKeywordCommand extends $Command<
    * @internal
    */
   private serialize(input: PutKeywordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PutKeywordCommand(input, context);
+    return se_PutKeywordCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutKeywordCommandOutput> {
-    return deserializeAws_json1_0PutKeywordCommand(output, context);
+    return de_PutKeywordCommand(output, context);
   }
 
   // Start section: command_body_extra

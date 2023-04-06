@@ -19,8 +19,8 @@ import {
   IncreaseNodeGroupsInGlobalReplicationGroupResult,
 } from "../models/models_0";
 import {
-  deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand,
-  serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand,
+  de_IncreaseNodeGroupsInGlobalReplicationGroupCommand,
+  se_IncreaseNodeGroupsInGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -160,7 +160,7 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     input: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand(input, context);
+    return se_IncreaseNodeGroupsInGlobalReplicationGroupCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand(output, context);
+    return de_IncreaseNodeGroupsInGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

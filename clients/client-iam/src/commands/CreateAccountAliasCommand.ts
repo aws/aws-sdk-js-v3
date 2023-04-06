@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { CreateAccountAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_queryCreateAccountAliasCommand,
-  serializeAws_queryCreateAccountAliasCommand,
-} from "../protocols/Aws_query";
+import { de_CreateAccountAliasCommand, se_CreateAccountAliasCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateAccountAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateAccountAliasCommand(input, context);
+    return se_CreateAccountAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccountAliasCommandOutput> {
-    return deserializeAws_queryCreateAccountAliasCommand(output, context);
+    return de_CreateAccountAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

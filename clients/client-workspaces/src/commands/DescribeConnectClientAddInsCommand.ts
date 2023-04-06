@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeConnectClientAddInsRequest, DescribeConnectClientAddInsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConnectClientAddInsCommand,
-  serializeAws_json1_1DescribeConnectClientAddInsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeConnectClientAddInsCommand, se_DescribeConnectClientAddInsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -131,7 +128,7 @@ export class DescribeConnectClientAddInsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConnectClientAddInsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectClientAddInsCommand(input, context);
+    return se_DescribeConnectClientAddInsCommand(input, context);
   }
 
   /**
@@ -141,7 +138,7 @@ export class DescribeConnectClientAddInsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConnectClientAddInsCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectClientAddInsCommand(output, context);
+    return de_DescribeConnectClientAddInsCommand(output, context);
   }
 
   // Start section: command_body_extra

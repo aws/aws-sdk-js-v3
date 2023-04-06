@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PartnerIntegrationInputMessage, PartnerIntegrationOutputMessage } from "../models/models_0";
-import { deserializeAws_queryAddPartnerCommand, serializeAws_queryAddPartnerCommand } from "../protocols/Aws_query";
+import { de_AddPartnerCommand, se_AddPartnerCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -130,14 +130,14 @@ export class AddPartnerCommand extends $Command<
    * @internal
    */
   private serialize(input: AddPartnerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddPartnerCommand(input, context);
+    return se_AddPartnerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPartnerCommandOutput> {
-    return deserializeAws_queryAddPartnerCommand(output, context);
+    return de_AddPartnerCommand(output, context);
   }
 
   // Start section: command_body_extra

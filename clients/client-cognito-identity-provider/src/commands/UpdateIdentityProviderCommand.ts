@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { UpdateIdentityProviderRequest, UpdateIdentityProviderResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateIdentityProviderCommand,
-  serializeAws_json1_1UpdateIdentityProviderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateIdentityProviderCommand, se_UpdateIdentityProviderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class UpdateIdentityProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateIdentityProviderCommand(input, context);
+    return se_UpdateIdentityProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIdentityProviderCommandOutput> {
-    return deserializeAws_json1_1UpdateIdentityProviderCommand(output, context);
+    return de_UpdateIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

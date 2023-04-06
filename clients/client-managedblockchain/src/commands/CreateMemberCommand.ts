@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import { CreateMemberInput, CreateMemberInputFilterSensitiveLog, CreateMemberOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMemberCommand,
-  serializeAws_restJson1CreateMemberCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMemberCommand, se_CreateMemberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -179,14 +176,14 @@ export class CreateMemberCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMemberCommand(input, context);
+    return se_CreateMemberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMemberCommandOutput> {
-    return deserializeAws_restJson1CreateMemberCommand(output, context);
+    return de_CreateMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

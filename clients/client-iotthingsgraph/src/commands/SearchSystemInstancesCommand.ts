@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { SearchSystemInstancesRequest, SearchSystemInstancesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchSystemInstancesCommand,
-  serializeAws_json1_1SearchSystemInstancesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchSystemInstancesCommand, se_SearchSystemInstancesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class SearchSystemInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchSystemInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchSystemInstancesCommand(input, context);
+    return se_SearchSystemInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSystemInstancesCommandOutput> {
-    return deserializeAws_json1_1SearchSystemInstancesCommand(output, context);
+    return de_SearchSystemInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

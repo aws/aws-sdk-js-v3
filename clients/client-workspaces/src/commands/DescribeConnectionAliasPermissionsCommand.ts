@@ -18,8 +18,8 @@ import {
   DescribeConnectionAliasPermissionsResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeConnectionAliasPermissionsCommand,
-  serializeAws_json1_1DescribeConnectionAliasPermissionsCommand,
+  de_DescribeConnectionAliasPermissionsCommand,
+  se_DescribeConnectionAliasPermissionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -145,7 +145,7 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command<
     input: DescribeConnectionAliasPermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionAliasPermissionsCommand(input, context);
+    return se_DescribeConnectionAliasPermissionsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConnectionAliasPermissionsCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionAliasPermissionsCommand(output, context);
+    return de_DescribeConnectionAliasPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

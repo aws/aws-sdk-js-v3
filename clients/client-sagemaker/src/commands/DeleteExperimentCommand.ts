@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteExperimentRequest, DeleteExperimentResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteExperimentCommand,
-  serializeAws_json1_1DeleteExperimentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteExperimentCommand, se_DeleteExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -125,14 +122,14 @@ export class DeleteExperimentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteExperimentCommand(input, context);
+    return se_DeleteExperimentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperimentCommandOutput> {
-    return deserializeAws_json1_1DeleteExperimentCommand(output, context);
+    return de_DeleteExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

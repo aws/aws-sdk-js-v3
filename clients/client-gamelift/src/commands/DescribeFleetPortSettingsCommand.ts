@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DescribeFleetPortSettingsInput, DescribeFleetPortSettingsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeFleetPortSettingsCommand,
-  serializeAws_json1_1DescribeFleetPortSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeFleetPortSettingsCommand, se_DescribeFleetPortSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -163,7 +160,7 @@ export class DescribeFleetPortSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFleetPortSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFleetPortSettingsCommand(input, context);
+    return se_DescribeFleetPortSettingsCommand(input, context);
   }
 
   /**
@@ -173,7 +170,7 @@ export class DescribeFleetPortSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFleetPortSettingsCommandOutput> {
-    return deserializeAws_json1_1DescribeFleetPortSettingsCommand(output, context);
+    return de_DescribeFleetPortSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

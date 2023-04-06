@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { ListByoipCidrsRequest, ListByoipCidrsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListByoipCidrsCommand,
-  serializeAws_json1_1ListByoipCidrsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListByoipCidrsCommand, se_ListByoipCidrsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListByoipCidrsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListByoipCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListByoipCidrsCommand(input, context);
+    return se_ListByoipCidrsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListByoipCidrsCommandOutput> {
-    return deserializeAws_json1_1ListByoipCidrsCommand(output, context);
+    return de_ListByoipCidrsCommand(output, context);
   }
 
   // Start section: command_body_extra

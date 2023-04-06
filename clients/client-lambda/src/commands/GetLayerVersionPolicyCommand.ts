@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { GetLayerVersionPolicyRequest, GetLayerVersionPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLayerVersionPolicyCommand,
-  serializeAws_restJson1GetLayerVersionPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLayerVersionPolicyCommand, se_GetLayerVersionPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetLayerVersionPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLayerVersionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLayerVersionPolicyCommand(input, context);
+    return se_GetLayerVersionPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayerVersionPolicyCommandOutput> {
-    return deserializeAws_restJson1GetLayerVersionPolicyCommand(output, context);
+    return de_GetLayerVersionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

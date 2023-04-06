@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetReadinessCheckStatusRequest, GetReadinessCheckStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetReadinessCheckStatusCommand,
-  serializeAws_restJson1GetReadinessCheckStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReadinessCheckStatusCommand, se_GetReadinessCheckStatusCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
   ServiceInputTypes,
@@ -141,14 +138,14 @@ export class GetReadinessCheckStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetReadinessCheckStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReadinessCheckStatusCommand(input, context);
+    return se_GetReadinessCheckStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReadinessCheckStatusCommandOutput> {
-    return deserializeAws_restJson1GetReadinessCheckStatusCommand(output, context);
+    return de_GetReadinessCheckStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

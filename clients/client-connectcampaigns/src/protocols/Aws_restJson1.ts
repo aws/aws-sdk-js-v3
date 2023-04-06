@@ -102,7 +102,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateCampaignCommand = async (
+/**
+ * serializeAws_restJson1CreateCampaignCommand
+ */
+export const se_CreateCampaignCommand = async (
   input: CreateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -114,14 +117,12 @@ export const serializeAws_restJson1CreateCampaignCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.connectInstanceId != null && { connectInstanceId: input.connectInstanceId }),
-    ...(input.dialerConfig != null && {
-      dialerConfig: serializeAws_restJson1DialerConfig(input.dialerConfig, context),
-    }),
+    ...(input.dialerConfig != null && { dialerConfig: se_DialerConfig(input.dialerConfig, context) }),
     ...(input.name != null && { name: input.name }),
     ...(input.outboundCallConfig != null && {
-      outboundCallConfig: serializeAws_restJson1OutboundCallConfig(input.outboundCallConfig, context),
+      outboundCallConfig: se_OutboundCallConfig(input.outboundCallConfig, context),
     }),
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -134,7 +135,10 @@ export const serializeAws_restJson1CreateCampaignCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteCampaignCommand = async (
+/**
+ * serializeAws_restJson1DeleteCampaignCommand
+ */
+export const se_DeleteCampaignCommand = async (
   input: DeleteCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -154,7 +158,10 @@ export const serializeAws_restJson1DeleteCampaignCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteConnectInstanceConfigCommand = async (
+/**
+ * serializeAws_restJson1DeleteConnectInstanceConfigCommand
+ */
+export const se_DeleteConnectInstanceConfigCommand = async (
   input: DeleteConnectInstanceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -183,7 +190,10 @@ export const serializeAws_restJson1DeleteConnectInstanceConfigCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteInstanceOnboardingJobCommand = async (
+/**
+ * serializeAws_restJson1DeleteInstanceOnboardingJobCommand
+ */
+export const se_DeleteInstanceOnboardingJobCommand = async (
   input: DeleteInstanceOnboardingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -212,7 +222,10 @@ export const serializeAws_restJson1DeleteInstanceOnboardingJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeCampaignCommand = async (
+/**
+ * serializeAws_restJson1DescribeCampaignCommand
+ */
+export const se_DescribeCampaignCommand = async (
   input: DescribeCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -232,7 +245,10 @@ export const serializeAws_restJson1DescribeCampaignCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCampaignStateCommand = async (
+/**
+ * serializeAws_restJson1GetCampaignStateCommand
+ */
+export const se_GetCampaignStateCommand = async (
   input: GetCampaignStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -252,7 +268,10 @@ export const serializeAws_restJson1GetCampaignStateCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetCampaignStateBatchCommand = async (
+/**
+ * serializeAws_restJson1GetCampaignStateBatchCommand
+ */
+export const se_GetCampaignStateBatchCommand = async (
   input: GetCampaignStateBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -263,7 +282,7 @@ export const serializeAws_restJson1GetCampaignStateBatchCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns-state";
   let body: any;
   body = JSON.stringify({
-    ...(input.campaignIds != null && { campaignIds: serializeAws_restJson1CampaignIdList(input.campaignIds, context) }),
+    ...(input.campaignIds != null && { campaignIds: se_CampaignIdList(input.campaignIds, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -276,7 +295,10 @@ export const serializeAws_restJson1GetCampaignStateBatchCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetConnectInstanceConfigCommand = async (
+/**
+ * serializeAws_restJson1GetConnectInstanceConfigCommand
+ */
+export const se_GetConnectInstanceConfigCommand = async (
   input: GetConnectInstanceConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -305,7 +327,10 @@ export const serializeAws_restJson1GetConnectInstanceConfigCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetInstanceOnboardingJobStatusCommand = async (
+/**
+ * serializeAws_restJson1GetInstanceOnboardingJobStatusCommand
+ */
+export const se_GetInstanceOnboardingJobStatusCommand = async (
   input: GetInstanceOnboardingJobStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -334,7 +359,10 @@ export const serializeAws_restJson1GetInstanceOnboardingJobStatusCommand = async
   });
 };
 
-export const serializeAws_restJson1ListCampaignsCommand = async (
+/**
+ * serializeAws_restJson1ListCampaignsCommand
+ */
+export const se_ListCampaignsCommand = async (
   input: ListCampaignsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -345,7 +373,7 @@ export const serializeAws_restJson1ListCampaignsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/campaigns-summary";
   let body: any;
   body = JSON.stringify({
-    ...(input.filters != null && { filters: serializeAws_restJson1CampaignFilters(input.filters, context) }),
+    ...(input.filters != null && { filters: se_CampaignFilters(input.filters, context) }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
@@ -360,7 +388,10 @@ export const serializeAws_restJson1ListCampaignsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -380,7 +411,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1PauseCampaignCommand = async (
+/**
+ * serializeAws_restJson1PauseCampaignCommand
+ */
+export const se_PauseCampaignCommand = async (
   input: PauseCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -400,7 +434,10 @@ export const serializeAws_restJson1PauseCampaignCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutDialRequestBatchCommand = async (
+/**
+ * serializeAws_restJson1PutDialRequestBatchCommand
+ */
+export const se_PutDialRequestBatchCommand = async (
   input: PutDialRequestBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -413,9 +450,7 @@ export const serializeAws_restJson1PutDialRequestBatchCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.dialRequests != null && {
-      dialRequests: serializeAws_restJson1DialRequestList(input.dialRequests, context),
-    }),
+    ...(input.dialRequests != null && { dialRequests: se_DialRequestList(input.dialRequests, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -428,7 +463,10 @@ export const serializeAws_restJson1PutDialRequestBatchCommand = async (
   });
 };
 
-export const serializeAws_restJson1ResumeCampaignCommand = async (
+/**
+ * serializeAws_restJson1ResumeCampaignCommand
+ */
+export const se_ResumeCampaignCommand = async (
   input: ResumeCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -448,7 +486,10 @@ export const serializeAws_restJson1ResumeCampaignCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartCampaignCommand = async (
+/**
+ * serializeAws_restJson1StartCampaignCommand
+ */
+export const se_StartCampaignCommand = async (
   input: StartCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -468,7 +509,10 @@ export const serializeAws_restJson1StartCampaignCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartInstanceOnboardingJobCommand = async (
+/**
+ * serializeAws_restJson1StartInstanceOnboardingJobCommand
+ */
+export const se_StartInstanceOnboardingJobCommand = async (
   input: StartInstanceOnboardingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -489,9 +533,7 @@ export const serializeAws_restJson1StartInstanceOnboardingJobCommand = async (
   );
   let body: any;
   body = JSON.stringify({
-    ...(input.encryptionConfig != null && {
-      encryptionConfig: serializeAws_restJson1EncryptionConfig(input.encryptionConfig, context),
-    }),
+    ...(input.encryptionConfig != null && { encryptionConfig: se_EncryptionConfig(input.encryptionConfig, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -504,7 +546,10 @@ export const serializeAws_restJson1StartInstanceOnboardingJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopCampaignCommand = async (
+/**
+ * serializeAws_restJson1StopCampaignCommand
+ */
+export const se_StopCampaignCommand = async (
   input: StopCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -524,7 +569,10 @@ export const serializeAws_restJson1StopCampaignCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -536,7 +584,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "arn", () => input.arn!, "{arn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags != null && { tags: se_TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -549,7 +597,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -576,7 +627,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateCampaignDialerConfigCommand = async (
+/**
+ * serializeAws_restJson1UpdateCampaignDialerConfigCommand
+ */
+export const se_UpdateCampaignDialerConfigCommand = async (
   input: UpdateCampaignDialerConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -589,9 +643,7 @@ export const serializeAws_restJson1UpdateCampaignDialerConfigCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.dialerConfig != null && {
-      dialerConfig: serializeAws_restJson1DialerConfig(input.dialerConfig, context),
-    }),
+    ...(input.dialerConfig != null && { dialerConfig: se_DialerConfig(input.dialerConfig, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -604,7 +656,10 @@ export const serializeAws_restJson1UpdateCampaignDialerConfigCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateCampaignNameCommand = async (
+/**
+ * serializeAws_restJson1UpdateCampaignNameCommand
+ */
+export const se_UpdateCampaignNameCommand = async (
   input: UpdateCampaignNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -629,7 +684,10 @@ export const serializeAws_restJson1UpdateCampaignNameCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand = async (
+/**
+ * serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand
+ */
+export const se_UpdateCampaignOutboundCallConfigCommand = async (
   input: UpdateCampaignOutboundCallConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -643,10 +701,7 @@ export const serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand = asy
   let body: any;
   body = JSON.stringify({
     ...(input.answerMachineDetectionConfig != null && {
-      answerMachineDetectionConfig: serializeAws_restJson1AnswerMachineDetectionConfig(
-        input.answerMachineDetectionConfig,
-        context
-      ),
+      answerMachineDetectionConfig: se_AnswerMachineDetectionConfig(input.answerMachineDetectionConfig, context),
     }),
     ...(input.connectContactFlowId != null && { connectContactFlowId: input.connectContactFlowId }),
     ...(input.connectSourcePhoneNumber != null && { connectSourcePhoneNumber: input.connectSourcePhoneNumber }),
@@ -662,12 +717,15 @@ export const serializeAws_restJson1UpdateCampaignOutboundCallConfigCommand = asy
   });
 };
 
-export const deserializeAws_restJson1CreateCampaignCommand = async (
+/**
+ * deserializeAws_restJson1CreateCampaignCommand
+ */
+export const de_CreateCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateCampaignCommandError(output, context);
+    return de_CreateCampaignCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -680,12 +738,15 @@ export const deserializeAws_restJson1CreateCampaignCommand = async (
     contents.id = __expectString(data.id);
   }
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1CreateCampaignCommandError
+ */
+const de_CreateCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
@@ -697,25 +758,25 @@ const deserializeAws_restJson1CreateCampaignCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.connectcampaigns#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.connectcampaigns#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -727,12 +788,15 @@ const deserializeAws_restJson1CreateCampaignCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteCampaignCommand = async (
+/**
+ * deserializeAws_restJson1DeleteCampaignCommand
+ */
+export const de_DeleteCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteCampaignCommandError(output, context);
+    return de_DeleteCampaignCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -741,7 +805,10 @@ export const deserializeAws_restJson1DeleteCampaignCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteCampaignCommandError
+ */
+const de_DeleteCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
@@ -753,16 +820,16 @@ const deserializeAws_restJson1DeleteCampaignCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -774,12 +841,15 @@ const deserializeAws_restJson1DeleteCampaignCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteConnectInstanceConfigCommand = async (
+/**
+ * deserializeAws_restJson1DeleteConnectInstanceConfigCommand
+ */
+export const de_DeleteConnectInstanceConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectInstanceConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteConnectInstanceConfigCommandError(output, context);
+    return de_DeleteConnectInstanceConfigCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -788,7 +858,10 @@ export const deserializeAws_restJson1DeleteConnectInstanceConfigCommand = async 
   return contents;
 };
 
-const deserializeAws_restJson1DeleteConnectInstanceConfigCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteConnectInstanceConfigCommandError
+ */
+const de_DeleteConnectInstanceConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectInstanceConfigCommandOutput> => {
@@ -800,22 +873,22 @@ const deserializeAws_restJson1DeleteConnectInstanceConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.connectcampaigns#InvalidStateException":
-      throw await deserializeAws_restJson1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -827,12 +900,15 @@ const deserializeAws_restJson1DeleteConnectInstanceConfigCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteInstanceOnboardingJobCommand = async (
+/**
+ * deserializeAws_restJson1DeleteInstanceOnboardingJobCommand
+ */
+export const de_DeleteInstanceOnboardingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInstanceOnboardingJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteInstanceOnboardingJobCommandError(output, context);
+    return de_DeleteInstanceOnboardingJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -841,7 +917,10 @@ export const deserializeAws_restJson1DeleteInstanceOnboardingJobCommand = async 
   return contents;
 };
 
-const deserializeAws_restJson1DeleteInstanceOnboardingJobCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteInstanceOnboardingJobCommandError
+ */
+const de_DeleteInstanceOnboardingJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInstanceOnboardingJobCommandOutput> => {
@@ -853,19 +932,19 @@ const deserializeAws_restJson1DeleteInstanceOnboardingJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.connectcampaigns#InvalidStateException":
-      throw await deserializeAws_restJson1InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -877,24 +956,30 @@ const deserializeAws_restJson1DeleteInstanceOnboardingJobCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeCampaignCommand = async (
+/**
+ * deserializeAws_restJson1DescribeCampaignCommand
+ */
+export const de_DescribeCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeCampaignCommandError(output, context);
+    return de_DescribeCampaignCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.campaign != null) {
-    contents.campaign = deserializeAws_restJson1Campaign(data.campaign, context);
+    contents.campaign = de_Campaign(data.campaign, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeCampaignCommandError
+ */
+const de_DescribeCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCampaignCommandOutput> => {
@@ -906,16 +991,16 @@ const deserializeAws_restJson1DescribeCampaignCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -927,12 +1012,15 @@ const deserializeAws_restJson1DescribeCampaignCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetCampaignStateCommand = async (
+/**
+ * deserializeAws_restJson1GetCampaignStateCommand
+ */
+export const de_GetCampaignStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignStateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCampaignStateCommandError(output, context);
+    return de_GetCampaignStateCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -944,7 +1032,10 @@ export const deserializeAws_restJson1GetCampaignStateCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetCampaignStateCommandError = async (
+/**
+ * deserializeAws_restJson1GetCampaignStateCommandError
+ */
+const de_GetCampaignStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignStateCommandOutput> => {
@@ -956,19 +1047,19 @@ const deserializeAws_restJson1GetCampaignStateCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -980,30 +1071,33 @@ const deserializeAws_restJson1GetCampaignStateCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetCampaignStateBatchCommand = async (
+/**
+ * deserializeAws_restJson1GetCampaignStateBatchCommand
+ */
+export const de_GetCampaignStateBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignStateBatchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetCampaignStateBatchCommandError(output, context);
+    return de_GetCampaignStateBatchCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.failedRequests != null) {
-    contents.failedRequests = deserializeAws_restJson1FailedCampaignStateResponseList(data.failedRequests, context);
+    contents.failedRequests = de_FailedCampaignStateResponseList(data.failedRequests, context);
   }
   if (data.successfulRequests != null) {
-    contents.successfulRequests = deserializeAws_restJson1SuccessfulCampaignStateResponseList(
-      data.successfulRequests,
-      context
-    );
+    contents.successfulRequests = de_SuccessfulCampaignStateResponseList(data.successfulRequests, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetCampaignStateBatchCommandError = async (
+/**
+ * deserializeAws_restJson1GetCampaignStateBatchCommandError
+ */
+const de_GetCampaignStateBatchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignStateBatchCommandOutput> => {
@@ -1015,16 +1109,16 @@ const deserializeAws_restJson1GetCampaignStateBatchCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1036,24 +1130,30 @@ const deserializeAws_restJson1GetCampaignStateBatchCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetConnectInstanceConfigCommand = async (
+/**
+ * deserializeAws_restJson1GetConnectInstanceConfigCommand
+ */
+export const de_GetConnectInstanceConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectInstanceConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetConnectInstanceConfigCommandError(output, context);
+    return de_GetConnectInstanceConfigCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectInstanceConfig != null) {
-    contents.connectInstanceConfig = deserializeAws_restJson1InstanceConfig(data.connectInstanceConfig, context);
+    contents.connectInstanceConfig = de_InstanceConfig(data.connectInstanceConfig, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetConnectInstanceConfigCommandError = async (
+/**
+ * deserializeAws_restJson1GetConnectInstanceConfigCommandError
+ */
+const de_GetConnectInstanceConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectInstanceConfigCommandOutput> => {
@@ -1065,16 +1165,16 @@ const deserializeAws_restJson1GetConnectInstanceConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1086,19 +1186,22 @@ const deserializeAws_restJson1GetConnectInstanceConfigCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetInstanceOnboardingJobStatusCommand = async (
+/**
+ * deserializeAws_restJson1GetInstanceOnboardingJobStatusCommand
+ */
+export const de_GetInstanceOnboardingJobStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInstanceOnboardingJobStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetInstanceOnboardingJobStatusCommandError(output, context);
+    return de_GetInstanceOnboardingJobStatusCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectInstanceOnboardingJobStatus != null) {
-    contents.connectInstanceOnboardingJobStatus = deserializeAws_restJson1InstanceOnboardingJobStatus(
+    contents.connectInstanceOnboardingJobStatus = de_InstanceOnboardingJobStatus(
       data.connectInstanceOnboardingJobStatus,
       context
     );
@@ -1106,7 +1209,10 @@ export const deserializeAws_restJson1GetInstanceOnboardingJobStatusCommand = asy
   return contents;
 };
 
-const deserializeAws_restJson1GetInstanceOnboardingJobStatusCommandError = async (
+/**
+ * deserializeAws_restJson1GetInstanceOnboardingJobStatusCommandError
+ */
+const de_GetInstanceOnboardingJobStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInstanceOnboardingJobStatusCommandOutput> => {
@@ -1118,16 +1224,16 @@ const deserializeAws_restJson1GetInstanceOnboardingJobStatusCommandError = async
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1139,19 +1245,22 @@ const deserializeAws_restJson1GetInstanceOnboardingJobStatusCommandError = async
   }
 };
 
-export const deserializeAws_restJson1ListCampaignsCommand = async (
+/**
+ * deserializeAws_restJson1ListCampaignsCommand
+ */
+export const de_ListCampaignsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCampaignsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListCampaignsCommandError(output, context);
+    return de_ListCampaignsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.campaignSummaryList != null) {
-    contents.campaignSummaryList = deserializeAws_restJson1CampaignSummaryList(data.campaignSummaryList, context);
+    contents.campaignSummaryList = de_CampaignSummaryList(data.campaignSummaryList, context);
   }
   if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1159,7 +1268,10 @@ export const deserializeAws_restJson1ListCampaignsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListCampaignsCommandError = async (
+/**
+ * deserializeAws_restJson1ListCampaignsCommandError
+ */
+const de_ListCampaignsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCampaignsCommandOutput> => {
@@ -1171,13 +1283,13 @@ const deserializeAws_restJson1ListCampaignsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1189,24 +1301,30 @@ const deserializeAws_restJson1ListCampaignsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags != null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+    contents.tags = de_TagMap(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1218,19 +1336,19 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1242,12 +1360,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PauseCampaignCommand = async (
+/**
+ * deserializeAws_restJson1PauseCampaignCommand
+ */
+export const de_PauseCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PauseCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PauseCampaignCommandError(output, context);
+    return de_PauseCampaignCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1256,7 +1377,10 @@ export const deserializeAws_restJson1PauseCampaignCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PauseCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1PauseCampaignCommandError
+ */
+const de_PauseCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PauseCampaignCommandOutput> => {
@@ -1268,25 +1392,25 @@ const deserializeAws_restJson1PauseCampaignCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.connectcampaigns#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidCampaignStateException":
     case "com.amazonaws.connectcampaigns#InvalidCampaignStateException":
-      throw await deserializeAws_restJson1InvalidCampaignStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCampaignStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1298,27 +1422,33 @@ const deserializeAws_restJson1PauseCampaignCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutDialRequestBatchCommand = async (
+/**
+ * deserializeAws_restJson1PutDialRequestBatchCommand
+ */
+export const de_PutDialRequestBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDialRequestBatchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutDialRequestBatchCommandError(output, context);
+    return de_PutDialRequestBatchCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.failedRequests != null) {
-    contents.failedRequests = deserializeAws_restJson1FailedRequestList(data.failedRequests, context);
+    contents.failedRequests = de_FailedRequestList(data.failedRequests, context);
   }
   if (data.successfulRequests != null) {
-    contents.successfulRequests = deserializeAws_restJson1SuccessfulRequestList(data.successfulRequests, context);
+    contents.successfulRequests = de_SuccessfulRequestList(data.successfulRequests, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1PutDialRequestBatchCommandError = async (
+/**
+ * deserializeAws_restJson1PutDialRequestBatchCommandError
+ */
+const de_PutDialRequestBatchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDialRequestBatchCommandOutput> => {
@@ -1330,25 +1460,25 @@ const deserializeAws_restJson1PutDialRequestBatchCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.connectcampaigns#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidCampaignStateException":
     case "com.amazonaws.connectcampaigns#InvalidCampaignStateException":
-      throw await deserializeAws_restJson1InvalidCampaignStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCampaignStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1360,12 +1490,15 @@ const deserializeAws_restJson1PutDialRequestBatchCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ResumeCampaignCommand = async (
+/**
+ * deserializeAws_restJson1ResumeCampaignCommand
+ */
+export const de_ResumeCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResumeCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ResumeCampaignCommandError(output, context);
+    return de_ResumeCampaignCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1374,7 +1507,10 @@ export const deserializeAws_restJson1ResumeCampaignCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ResumeCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1ResumeCampaignCommandError
+ */
+const de_ResumeCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResumeCampaignCommandOutput> => {
@@ -1386,25 +1522,25 @@ const deserializeAws_restJson1ResumeCampaignCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.connectcampaigns#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidCampaignStateException":
     case "com.amazonaws.connectcampaigns#InvalidCampaignStateException":
-      throw await deserializeAws_restJson1InvalidCampaignStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCampaignStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1416,12 +1552,15 @@ const deserializeAws_restJson1ResumeCampaignCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartCampaignCommand = async (
+/**
+ * deserializeAws_restJson1StartCampaignCommand
+ */
+export const de_StartCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartCampaignCommandError(output, context);
+    return de_StartCampaignCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1430,7 +1569,10 @@ export const deserializeAws_restJson1StartCampaignCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StartCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1StartCampaignCommandError
+ */
+const de_StartCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartCampaignCommandOutput> => {
@@ -1442,25 +1584,25 @@ const deserializeAws_restJson1StartCampaignCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.connectcampaigns#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidCampaignStateException":
     case "com.amazonaws.connectcampaigns#InvalidCampaignStateException":
-      throw await deserializeAws_restJson1InvalidCampaignStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCampaignStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1472,19 +1614,22 @@ const deserializeAws_restJson1StartCampaignCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartInstanceOnboardingJobCommand = async (
+/**
+ * deserializeAws_restJson1StartInstanceOnboardingJobCommand
+ */
+export const de_StartInstanceOnboardingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartInstanceOnboardingJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartInstanceOnboardingJobCommandError(output, context);
+    return de_StartInstanceOnboardingJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectInstanceOnboardingJobStatus != null) {
-    contents.connectInstanceOnboardingJobStatus = deserializeAws_restJson1InstanceOnboardingJobStatus(
+    contents.connectInstanceOnboardingJobStatus = de_InstanceOnboardingJobStatus(
       data.connectInstanceOnboardingJobStatus,
       context
     );
@@ -1492,7 +1637,10 @@ export const deserializeAws_restJson1StartInstanceOnboardingJobCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StartInstanceOnboardingJobCommandError = async (
+/**
+ * deserializeAws_restJson1StartInstanceOnboardingJobCommandError
+ */
+const de_StartInstanceOnboardingJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartInstanceOnboardingJobCommandOutput> => {
@@ -1504,22 +1652,22 @@ const deserializeAws_restJson1StartInstanceOnboardingJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.connectcampaigns#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1531,12 +1679,15 @@ const deserializeAws_restJson1StartInstanceOnboardingJobCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StopCampaignCommand = async (
+/**
+ * deserializeAws_restJson1StopCampaignCommand
+ */
+export const de_StopCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopCampaignCommandError(output, context);
+    return de_StopCampaignCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1545,7 +1696,10 @@ export const deserializeAws_restJson1StopCampaignCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StopCampaignCommandError = async (
+/**
+ * deserializeAws_restJson1StopCampaignCommandError
+ */
+const de_StopCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopCampaignCommandOutput> => {
@@ -1557,25 +1711,25 @@ const deserializeAws_restJson1StopCampaignCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.connectcampaigns#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidCampaignStateException":
     case "com.amazonaws.connectcampaigns#InvalidCampaignStateException":
-      throw await deserializeAws_restJson1InvalidCampaignStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCampaignStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1587,12 +1741,15 @@ const deserializeAws_restJson1StopCampaignCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1601,7 +1758,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1613,19 +1773,19 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1637,12 +1797,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1651,7 +1814,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1663,19 +1829,19 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1687,12 +1853,15 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateCampaignDialerConfigCommand = async (
+/**
+ * deserializeAws_restJson1UpdateCampaignDialerConfigCommand
+ */
+export const de_UpdateCampaignDialerConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignDialerConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateCampaignDialerConfigCommandError(output, context);
+    return de_UpdateCampaignDialerConfigCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1701,7 +1870,10 @@ export const deserializeAws_restJson1UpdateCampaignDialerConfigCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateCampaignDialerConfigCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateCampaignDialerConfigCommandError
+ */
+const de_UpdateCampaignDialerConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignDialerConfigCommandOutput> => {
@@ -1713,19 +1885,19 @@ const deserializeAws_restJson1UpdateCampaignDialerConfigCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.connectcampaigns#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1737,12 +1909,15 @@ const deserializeAws_restJson1UpdateCampaignDialerConfigCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateCampaignNameCommand = async (
+/**
+ * deserializeAws_restJson1UpdateCampaignNameCommand
+ */
+export const de_UpdateCampaignNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateCampaignNameCommandError(output, context);
+    return de_UpdateCampaignNameCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1751,7 +1926,10 @@ export const deserializeAws_restJson1UpdateCampaignNameCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateCampaignNameCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateCampaignNameCommandError
+ */
+const de_UpdateCampaignNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignNameCommandOutput> => {
@@ -1763,19 +1941,19 @@ const deserializeAws_restJson1UpdateCampaignNameCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.connectcampaigns#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1787,12 +1965,15 @@ const deserializeAws_restJson1UpdateCampaignNameCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommand = async (
+/**
+ * deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommand
+ */
+export const de_UpdateCampaignOutboundCallConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignOutboundCallConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommandError(output, context);
+    return de_UpdateCampaignOutboundCallConfigCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1801,7 +1982,10 @@ export const deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommand = a
   return contents;
 };
 
-const deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommandError
+ */
+const de_UpdateCampaignOutboundCallConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignOutboundCallConfigCommandOutput> => {
@@ -1813,22 +1997,22 @@ const deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommandError = asy
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcampaigns#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.connectcampaigns#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectcampaigns#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcampaigns#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcampaigns#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.connectcampaigns#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1841,7 +2025,10 @@ const deserializeAws_restJson1UpdateCampaignOutboundCallConfigCommandError = asy
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -1859,10 +2046,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
@@ -1877,7 +2064,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -1895,7 +2085,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidCampaignStateExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidCampaignStateExceptionRes
+ */
+const de_InvalidCampaignStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCampaignStateException> => {
@@ -1916,7 +2109,10 @@ const deserializeAws_restJson1InvalidCampaignStateExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidStateExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidStateExceptionRes
+ */
+const de_InvalidStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidStateException> => {
@@ -1934,7 +2130,10 @@ const deserializeAws_restJson1InvalidStateExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -1952,7 +2151,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -1970,10 +2172,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
@@ -1988,10 +2190,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({
     xAmzErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
@@ -2006,10 +2208,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AnswerMachineDetectionConfig = (
-  input: AnswerMachineDetectionConfig,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1AnswerMachineDetectionConfig
+ */
+const se_AnswerMachineDetectionConfig = (input: AnswerMachineDetectionConfig, context: __SerdeContext): any => {
   return {
     ...(input.enableAnswerMachineDetection != null && {
       enableAnswerMachineDetection: input.enableAnswerMachineDetection,
@@ -2017,7 +2219,10 @@ const serializeAws_restJson1AnswerMachineDetectionConfig = (
   };
 };
 
-const serializeAws_restJson1Attributes = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Attributes
+ */
+const se_Attributes = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2027,15 +2232,19 @@ const serializeAws_restJson1Attributes = (input: Record<string, string>, context
   }, {});
 };
 
-const serializeAws_restJson1CampaignFilters = (input: CampaignFilters, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CampaignFilters
+ */
+const se_CampaignFilters = (input: CampaignFilters, context: __SerdeContext): any => {
   return {
-    ...(input.instanceIdFilter != null && {
-      instanceIdFilter: serializeAws_restJson1InstanceIdFilter(input.instanceIdFilter, context),
-    }),
+    ...(input.instanceIdFilter != null && { instanceIdFilter: se_InstanceIdFilter(input.instanceIdFilter, context) }),
   };
 };
 
-const serializeAws_restJson1CampaignIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CampaignIdList
+ */
+const se_CampaignIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2043,36 +2252,44 @@ const serializeAws_restJson1CampaignIdList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_restJson1DialerConfig = (input: DialerConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DialerConfig
+ */
+const se_DialerConfig = (input: DialerConfig, context: __SerdeContext): any => {
   return DialerConfig.visit(input, {
-    predictiveDialerConfig: (value) => ({
-      predictiveDialerConfig: serializeAws_restJson1PredictiveDialerConfig(value, context),
-    }),
-    progressiveDialerConfig: (value) => ({
-      progressiveDialerConfig: serializeAws_restJson1ProgressiveDialerConfig(value, context),
-    }),
+    predictiveDialerConfig: (value) => ({ predictiveDialerConfig: se_PredictiveDialerConfig(value, context) }),
+    progressiveDialerConfig: (value) => ({ progressiveDialerConfig: se_ProgressiveDialerConfig(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1DialRequest = (input: DialRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DialRequest
+ */
+const se_DialRequest = (input: DialRequest, context: __SerdeContext): any => {
   return {
-    ...(input.attributes != null && { attributes: serializeAws_restJson1Attributes(input.attributes, context) }),
+    ...(input.attributes != null && { attributes: se_Attributes(input.attributes, context) }),
     ...(input.clientToken != null && { clientToken: input.clientToken }),
     ...(input.expirationTime != null && { expirationTime: input.expirationTime.toISOString().split(".")[0] + "Z" }),
     ...(input.phoneNumber != null && { phoneNumber: input.phoneNumber }),
   };
 };
 
-const serializeAws_restJson1DialRequestList = (input: DialRequest[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DialRequestList
+ */
+const se_DialRequestList = (input: DialRequest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1DialRequest(entry, context);
+      return se_DialRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EncryptionConfig
+ */
+const se_EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
   return {
     ...(input.enabled != null && { enabled: input.enabled }),
     ...(input.encryptionType != null && { encryptionType: input.encryptionType }),
@@ -2080,20 +2297,23 @@ const serializeAws_restJson1EncryptionConfig = (input: EncryptionConfig, context
   };
 };
 
-const serializeAws_restJson1InstanceIdFilter = (input: InstanceIdFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1InstanceIdFilter
+ */
+const se_InstanceIdFilter = (input: InstanceIdFilter, context: __SerdeContext): any => {
   return {
     ...(input.operator != null && { operator: input.operator }),
     ...(input.value != null && { value: input.value }),
   };
 };
 
-const serializeAws_restJson1OutboundCallConfig = (input: OutboundCallConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1OutboundCallConfig
+ */
+const se_OutboundCallConfig = (input: OutboundCallConfig, context: __SerdeContext): any => {
   return {
     ...(input.answerMachineDetectionConfig != null && {
-      answerMachineDetectionConfig: serializeAws_restJson1AnswerMachineDetectionConfig(
-        input.answerMachineDetectionConfig,
-        context
-      ),
+      answerMachineDetectionConfig: se_AnswerMachineDetectionConfig(input.answerMachineDetectionConfig, context),
     }),
     ...(input.connectContactFlowId != null && { connectContactFlowId: input.connectContactFlowId }),
     ...(input.connectQueueId != null && { connectQueueId: input.connectQueueId }),
@@ -2101,22 +2321,28 @@ const serializeAws_restJson1OutboundCallConfig = (input: OutboundCallConfig, con
   };
 };
 
-const serializeAws_restJson1PredictiveDialerConfig = (input: PredictiveDialerConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PredictiveDialerConfig
+ */
+const se_PredictiveDialerConfig = (input: PredictiveDialerConfig, context: __SerdeContext): any => {
   return {
     ...(input.bandwidthAllocation != null && { bandwidthAllocation: __serializeFloat(input.bandwidthAllocation) }),
   };
 };
 
-const serializeAws_restJson1ProgressiveDialerConfig = (
-  input: ProgressiveDialerConfig,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ProgressiveDialerConfig
+ */
+const se_ProgressiveDialerConfig = (input: ProgressiveDialerConfig, context: __SerdeContext): any => {
   return {
     ...(input.bandwidthAllocation != null && { bandwidthAllocation: __serializeFloat(input.bandwidthAllocation) }),
   };
 };
 
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagMap
+ */
+const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2126,34 +2352,36 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
   }, {});
 };
 
-const deserializeAws_restJson1AnswerMachineDetectionConfig = (
-  output: any,
-  context: __SerdeContext
-): AnswerMachineDetectionConfig => {
+/**
+ * deserializeAws_restJson1AnswerMachineDetectionConfig
+ */
+const de_AnswerMachineDetectionConfig = (output: any, context: __SerdeContext): AnswerMachineDetectionConfig => {
   return {
     enableAnswerMachineDetection: __expectBoolean(output.enableAnswerMachineDetection),
   } as any;
 };
 
-const deserializeAws_restJson1Campaign = (output: any, context: __SerdeContext): Campaign => {
+/**
+ * deserializeAws_restJson1Campaign
+ */
+const de_Campaign = (output: any, context: __SerdeContext): Campaign => {
   return {
     arn: __expectString(output.arn),
     connectInstanceId: __expectString(output.connectInstanceId),
     dialerConfig:
-      output.dialerConfig != null
-        ? deserializeAws_restJson1DialerConfig(__expectUnion(output.dialerConfig), context)
-        : undefined,
+      output.dialerConfig != null ? de_DialerConfig(__expectUnion(output.dialerConfig), context) : undefined,
     id: __expectString(output.id),
     name: __expectString(output.name),
     outboundCallConfig:
-      output.outboundCallConfig != null
-        ? deserializeAws_restJson1OutboundCallConfig(output.outboundCallConfig, context)
-        : undefined,
-    tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
+      output.outboundCallConfig != null ? de_OutboundCallConfig(output.outboundCallConfig, context) : undefined,
+    tags: output.tags != null ? de_TagMap(output.tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1CampaignSummary = (output: any, context: __SerdeContext): CampaignSummary => {
+/**
+ * deserializeAws_restJson1CampaignSummary
+ */
+const de_CampaignSummary = (output: any, context: __SerdeContext): CampaignSummary => {
   return {
     arn: __expectString(output.arn),
     connectInstanceId: __expectString(output.connectInstanceId),
@@ -2162,33 +2390,42 @@ const deserializeAws_restJson1CampaignSummary = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1CampaignSummaryList = (output: any, context: __SerdeContext): CampaignSummary[] => {
+/**
+ * deserializeAws_restJson1CampaignSummaryList
+ */
+const de_CampaignSummaryList = (output: any, context: __SerdeContext): CampaignSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1CampaignSummary(entry, context);
+      return de_CampaignSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DialerConfig = (output: any, context: __SerdeContext): DialerConfig => {
+/**
+ * deserializeAws_restJson1DialerConfig
+ */
+const de_DialerConfig = (output: any, context: __SerdeContext): DialerConfig => {
   if (output.predictiveDialerConfig != null) {
     return {
-      predictiveDialerConfig: deserializeAws_restJson1PredictiveDialerConfig(output.predictiveDialerConfig, context),
+      predictiveDialerConfig: de_PredictiveDialerConfig(output.predictiveDialerConfig, context),
     };
   }
   if (output.progressiveDialerConfig != null) {
     return {
-      progressiveDialerConfig: deserializeAws_restJson1ProgressiveDialerConfig(output.progressiveDialerConfig, context),
+      progressiveDialerConfig: de_ProgressiveDialerConfig(output.progressiveDialerConfig, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
+/**
+ * deserializeAws_restJson1EncryptionConfig
+ */
+const de_EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
   return {
     enabled: __expectBoolean(output.enabled),
     encryptionType: __expectString(output.encryptionType),
@@ -2196,32 +2433,35 @@ const deserializeAws_restJson1EncryptionConfig = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1FailedCampaignStateResponse = (
-  output: any,
-  context: __SerdeContext
-): FailedCampaignStateResponse => {
+/**
+ * deserializeAws_restJson1FailedCampaignStateResponse
+ */
+const de_FailedCampaignStateResponse = (output: any, context: __SerdeContext): FailedCampaignStateResponse => {
   return {
     campaignId: __expectString(output.campaignId),
     failureCode: __expectString(output.failureCode),
   } as any;
 };
 
-const deserializeAws_restJson1FailedCampaignStateResponseList = (
-  output: any,
-  context: __SerdeContext
-): FailedCampaignStateResponse[] => {
+/**
+ * deserializeAws_restJson1FailedCampaignStateResponseList
+ */
+const de_FailedCampaignStateResponseList = (output: any, context: __SerdeContext): FailedCampaignStateResponse[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1FailedCampaignStateResponse(entry, context);
+      return de_FailedCampaignStateResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1FailedRequest = (output: any, context: __SerdeContext): FailedRequest => {
+/**
+ * deserializeAws_restJson1FailedRequest
+ */
+const de_FailedRequest = (output: any, context: __SerdeContext): FailedRequest => {
   return {
     clientToken: __expectString(output.clientToken),
     failureCode: __expectString(output.failureCode),
@@ -2229,33 +2469,37 @@ const deserializeAws_restJson1FailedRequest = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_restJson1FailedRequestList = (output: any, context: __SerdeContext): FailedRequest[] => {
+/**
+ * deserializeAws_restJson1FailedRequestList
+ */
+const de_FailedRequestList = (output: any, context: __SerdeContext): FailedRequest[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1FailedRequest(entry, context);
+      return de_FailedRequest(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1InstanceConfig = (output: any, context: __SerdeContext): InstanceConfig => {
+/**
+ * deserializeAws_restJson1InstanceConfig
+ */
+const de_InstanceConfig = (output: any, context: __SerdeContext): InstanceConfig => {
   return {
     connectInstanceId: __expectString(output.connectInstanceId),
     encryptionConfig:
-      output.encryptionConfig != null
-        ? deserializeAws_restJson1EncryptionConfig(output.encryptionConfig, context)
-        : undefined,
+      output.encryptionConfig != null ? de_EncryptionConfig(output.encryptionConfig, context) : undefined,
     serviceLinkedRoleArn: __expectString(output.serviceLinkedRoleArn),
   } as any;
 };
 
-const deserializeAws_restJson1InstanceOnboardingJobStatus = (
-  output: any,
-  context: __SerdeContext
-): InstanceOnboardingJobStatus => {
+/**
+ * deserializeAws_restJson1InstanceOnboardingJobStatus
+ */
+const de_InstanceOnboardingJobStatus = (output: any, context: __SerdeContext): InstanceOnboardingJobStatus => {
   return {
     connectInstanceId: __expectString(output.connectInstanceId),
     failureCode: __expectString(output.failureCode),
@@ -2263,11 +2507,14 @@ const deserializeAws_restJson1InstanceOnboardingJobStatus = (
   } as any;
 };
 
-const deserializeAws_restJson1OutboundCallConfig = (output: any, context: __SerdeContext): OutboundCallConfig => {
+/**
+ * deserializeAws_restJson1OutboundCallConfig
+ */
+const de_OutboundCallConfig = (output: any, context: __SerdeContext): OutboundCallConfig => {
   return {
     answerMachineDetectionConfig:
       output.answerMachineDetectionConfig != null
-        ? deserializeAws_restJson1AnswerMachineDetectionConfig(output.answerMachineDetectionConfig, context)
+        ? de_AnswerMachineDetectionConfig(output.answerMachineDetectionConfig, context)
         : undefined,
     connectContactFlowId: __expectString(output.connectContactFlowId),
     connectQueueId: __expectString(output.connectQueueId),
@@ -2275,35 +2522,38 @@ const deserializeAws_restJson1OutboundCallConfig = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_restJson1PredictiveDialerConfig = (
-  output: any,
-  context: __SerdeContext
-): PredictiveDialerConfig => {
+/**
+ * deserializeAws_restJson1PredictiveDialerConfig
+ */
+const de_PredictiveDialerConfig = (output: any, context: __SerdeContext): PredictiveDialerConfig => {
   return {
     bandwidthAllocation: __limitedParseDouble(output.bandwidthAllocation),
   } as any;
 };
 
-const deserializeAws_restJson1ProgressiveDialerConfig = (
-  output: any,
-  context: __SerdeContext
-): ProgressiveDialerConfig => {
+/**
+ * deserializeAws_restJson1ProgressiveDialerConfig
+ */
+const de_ProgressiveDialerConfig = (output: any, context: __SerdeContext): ProgressiveDialerConfig => {
   return {
     bandwidthAllocation: __limitedParseDouble(output.bandwidthAllocation),
   } as any;
 };
 
-const deserializeAws_restJson1SuccessfulCampaignStateResponse = (
-  output: any,
-  context: __SerdeContext
-): SuccessfulCampaignStateResponse => {
+/**
+ * deserializeAws_restJson1SuccessfulCampaignStateResponse
+ */
+const de_SuccessfulCampaignStateResponse = (output: any, context: __SerdeContext): SuccessfulCampaignStateResponse => {
   return {
     campaignId: __expectString(output.campaignId),
     state: __expectString(output.state),
   } as any;
 };
 
-const deserializeAws_restJson1SuccessfulCampaignStateResponseList = (
+/**
+ * deserializeAws_restJson1SuccessfulCampaignStateResponseList
+ */
+const de_SuccessfulCampaignStateResponseList = (
   output: any,
   context: __SerdeContext
 ): SuccessfulCampaignStateResponse[] => {
@@ -2313,31 +2563,40 @@ const deserializeAws_restJson1SuccessfulCampaignStateResponseList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SuccessfulCampaignStateResponse(entry, context);
+      return de_SuccessfulCampaignStateResponse(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SuccessfulRequest = (output: any, context: __SerdeContext): SuccessfulRequest => {
+/**
+ * deserializeAws_restJson1SuccessfulRequest
+ */
+const de_SuccessfulRequest = (output: any, context: __SerdeContext): SuccessfulRequest => {
   return {
     clientToken: __expectString(output.clientToken),
     id: __expectString(output.id),
   } as any;
 };
 
-const deserializeAws_restJson1SuccessfulRequestList = (output: any, context: __SerdeContext): SuccessfulRequest[] => {
+/**
+ * deserializeAws_restJson1SuccessfulRequestList
+ */
+const de_SuccessfulRequestList = (output: any, context: __SerdeContext): SuccessfulRequest[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SuccessfulRequest(entry, context);
+      return de_SuccessfulRequest(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TagMap
+ */
+const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;

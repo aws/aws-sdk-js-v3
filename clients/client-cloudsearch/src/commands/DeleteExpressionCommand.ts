@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DeleteExpressionRequest, DeleteExpressionResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteExpressionCommand,
-  serializeAws_queryDeleteExpressionCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteExpressionCommand, se_DeleteExpressionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteExpressionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteExpressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteExpressionCommand(input, context);
+    return se_DeleteExpressionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExpressionCommandOutput> {
-    return deserializeAws_queryDeleteExpressionCommand(output, context);
+    return de_DeleteExpressionCommand(output, context);
   }
 
   // Start section: command_body_extra

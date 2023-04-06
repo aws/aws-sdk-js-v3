@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetTrustStoreCertificateRequest, GetTrustStoreCertificateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTrustStoreCertificateCommand,
-  serializeAws_restJson1GetTrustStoreCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTrustStoreCertificateCommand, se_GetTrustStoreCertificateCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -136,14 +133,14 @@ export class GetTrustStoreCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTrustStoreCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTrustStoreCertificateCommand(input, context);
+    return se_GetTrustStoreCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrustStoreCertificateCommandOutput> {
-    return deserializeAws_restJson1GetTrustStoreCertificateCommand(output, context);
+    return de_GetTrustStoreCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

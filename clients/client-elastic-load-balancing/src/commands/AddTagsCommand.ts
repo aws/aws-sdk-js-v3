@@ -19,7 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
 import { AddTagsInput, AddTagsOutput } from "../models/models_0";
-import { deserializeAws_queryAddTagsCommand, serializeAws_queryAddTagsCommand } from "../protocols/Aws_query";
+import { de_AddTagsCommand, se_AddTagsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -165,14 +165,14 @@ export class AddTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: AddTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddTagsCommand(input, context);
+    return se_AddTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddTagsCommandOutput> {
-    return deserializeAws_queryAddTagsCommand(output, context);
+    return de_AddTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

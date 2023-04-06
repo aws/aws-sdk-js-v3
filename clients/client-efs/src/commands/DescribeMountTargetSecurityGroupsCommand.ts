@@ -19,8 +19,8 @@ import {
   DescribeMountTargetSecurityGroupsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand,
-  serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand,
+  de_DescribeMountTargetSecurityGroupsCommand,
+  se_DescribeMountTargetSecurityGroupsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -176,7 +176,7 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     input: DescribeMountTargetSecurityGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand(input, context);
+    return se_DescribeMountTargetSecurityGroupsCommand(input, context);
   }
 
   /**
@@ -186,7 +186,7 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1DescribeMountTargetSecurityGroupsCommand(output, context);
+    return de_DescribeMountTargetSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

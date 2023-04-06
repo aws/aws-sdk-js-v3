@@ -15,7 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { GetPolicyRequest, GetPolicyResponse } from "../models/models_0";
-import { deserializeAws_json1_1GetPolicyCommand, serializeAws_json1_1GetPolicyCommand } from "../protocols/Aws_json1_1";
+import { de_GetPolicyCommand, se_GetPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -159,14 +159,14 @@ export class GetPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPolicyCommand(input, context);
+    return se_GetPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyCommandOutput> {
-    return deserializeAws_json1_1GetPolicyCommand(output, context);
+    return de_GetPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { DescribeDataIngestionJobRequest, DescribeDataIngestionJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeDataIngestionJobCommand,
-  serializeAws_json1_0DescribeDataIngestionJobCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeDataIngestionJobCommand, se_DescribeDataIngestionJobCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeDataIngestionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDataIngestionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeDataIngestionJobCommand(input, context);
+    return se_DescribeDataIngestionJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataIngestionJobCommandOutput> {
-    return deserializeAws_json1_0DescribeDataIngestionJobCommand(output, context);
+    return de_DescribeDataIngestionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

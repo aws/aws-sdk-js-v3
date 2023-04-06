@@ -24,10 +24,7 @@ import {
   GlobalSignOutRequestFilterSensitiveLog,
   GlobalSignOutResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GlobalSignOutCommand,
-  serializeAws_json1_1GlobalSignOutCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GlobalSignOutCommand, se_GlobalSignOutCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class GlobalSignOutCommand extends $Command<
    * @internal
    */
   private serialize(input: GlobalSignOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GlobalSignOutCommand(input, context);
+    return se_GlobalSignOutCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GlobalSignOutCommandOutput> {
-    return deserializeAws_json1_1GlobalSignOutCommand(output, context);
+    return de_GlobalSignOutCommand(output, context);
   }
 
   // Start section: command_body_extra

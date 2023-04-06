@@ -19,8 +19,8 @@ import {
   DisassociateAwsAccountFromPartnerAccountResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateAwsAccountFromPartnerAccountCommand,
-  serializeAws_restJson1DisassociateAwsAccountFromPartnerAccountCommand,
+  de_DisassociateAwsAccountFromPartnerAccountCommand,
+  se_DisassociateAwsAccountFromPartnerAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -148,7 +148,7 @@ export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command<
     input: DisassociateAwsAccountFromPartnerAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateAwsAccountFromPartnerAccountCommand(input, context);
+    return se_DisassociateAwsAccountFromPartnerAccountCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateAwsAccountFromPartnerAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateAwsAccountFromPartnerAccountCommand(output, context);
+    return de_DisassociateAwsAccountFromPartnerAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

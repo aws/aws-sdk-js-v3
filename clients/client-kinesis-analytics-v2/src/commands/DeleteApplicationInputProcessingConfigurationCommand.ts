@@ -23,8 +23,8 @@ import {
   DeleteApplicationInputProcessingConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand,
-  serializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand,
+  de_DeleteApplicationInputProcessingConfigurationCommand,
+  se_DeleteApplicationInputProcessingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -158,7 +158,7 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
     input: DeleteApplicationInputProcessingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand(input, context);
+    return se_DeleteApplicationInputProcessingConfigurationCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationInputProcessingConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand(output, context);
+    return de_DeleteApplicationInputProcessingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

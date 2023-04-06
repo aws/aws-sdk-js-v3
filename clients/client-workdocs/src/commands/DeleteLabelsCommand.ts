@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteLabelsRequest, DeleteLabelsRequestFilterSensitiveLog, DeleteLabelsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLabelsCommand,
-  serializeAws_restJson1DeleteLabelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLabelsCommand, se_DeleteLabelsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -143,14 +140,14 @@ export class DeleteLabelsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLabelsCommand(input, context);
+    return se_DeleteLabelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLabelsCommandOutput> {
-    return deserializeAws_restJson1DeleteLabelsCommand(output, context);
+    return de_DeleteLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

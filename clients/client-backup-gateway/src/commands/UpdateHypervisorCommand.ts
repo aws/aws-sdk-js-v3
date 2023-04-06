@@ -19,10 +19,7 @@ import {
   UpdateHypervisorInputFilterSensitiveLog,
   UpdateHypervisorOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateHypervisorCommand,
-  serializeAws_json1_0UpdateHypervisorCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateHypervisorCommand, se_UpdateHypervisorCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class UpdateHypervisorCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateHypervisorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateHypervisorCommand(input, context);
+    return se_UpdateHypervisorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHypervisorCommandOutput> {
-    return deserializeAws_json1_0UpdateHypervisorCommand(output, context);
+    return de_UpdateHypervisorCommand(output, context);
   }
 
   // Start section: command_body_extra

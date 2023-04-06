@@ -18,8 +18,8 @@ import {
   GetBucketIntelligentTieringConfigurationRequest,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand,
-  serializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand,
+  de_GetBucketIntelligentTieringConfigurationCommand,
+  se_GetBucketIntelligentTieringConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -163,7 +163,7 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command<
     input: GetBucketIntelligentTieringConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand(input, context);
+    return se_GetBucketIntelligentTieringConfigurationCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBucketIntelligentTieringConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand(output, context);
+    return de_GetBucketIntelligentTieringConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

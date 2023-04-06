@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { RequestValidator, UpdateRequestValidatorRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRequestValidatorCommand,
-  serializeAws_restJson1UpdateRequestValidatorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRequestValidatorCommand, se_UpdateRequestValidatorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateRequestValidatorCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRequestValidatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRequestValidatorCommand(input, context);
+    return se_UpdateRequestValidatorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRequestValidatorCommandOutput> {
-    return deserializeAws_restJson1UpdateRequestValidatorCommand(output, context);
+    return de_UpdateRequestValidatorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdatePortfolioShareInput, UpdatePortfolioShareOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePortfolioShareCommand,
-  serializeAws_json1_1UpdatePortfolioShareCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePortfolioShareCommand, se_UpdatePortfolioShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -155,14 +152,14 @@ export class UpdatePortfolioShareCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePortfolioShareCommand(input, context);
+    return se_UpdatePortfolioShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePortfolioShareCommandOutput> {
-    return deserializeAws_json1_1UpdatePortfolioShareCommand(output, context);
+    return de_UpdatePortfolioShareCommand(output, context);
   }
 
   // Start section: command_body_extra

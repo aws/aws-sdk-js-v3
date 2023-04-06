@@ -20,8 +20,8 @@ import {
   DescribeLaunchTemplateVersionsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeLaunchTemplateVersionsCommand,
-  serializeAws_ec2DescribeLaunchTemplateVersionsCommand,
+  de_DescribeLaunchTemplateVersionsCommand,
+  se_DescribeLaunchTemplateVersionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -214,7 +214,7 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
     input: DescribeLaunchTemplateVersionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLaunchTemplateVersionsCommand(input, context);
+    return se_DescribeLaunchTemplateVersionsCommand(input, context);
   }
 
   /**
@@ -224,7 +224,7 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLaunchTemplateVersionsCommandOutput> {
-    return deserializeAws_ec2DescribeLaunchTemplateVersionsCommand(output, context);
+    return de_DescribeLaunchTemplateVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

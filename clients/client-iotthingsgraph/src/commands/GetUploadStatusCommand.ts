@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { GetUploadStatusRequest, GetUploadStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetUploadStatusCommand,
-  serializeAws_json1_1GetUploadStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetUploadStatusCommand, se_GetUploadStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetUploadStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUploadStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetUploadStatusCommand(input, context);
+    return se_GetUploadStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUploadStatusCommandOutput> {
-    return deserializeAws_json1_1GetUploadStatusCommand(output, context);
+    return de_GetUploadStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

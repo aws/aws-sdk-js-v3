@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
 import { UnsubscribeRequest, UnsubscribeRequestFilterSensitiveLog, UnsubscribeResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1UnsubscribeCommand,
-  serializeAws_restJson1UnsubscribeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UnsubscribeCommand, se_UnsubscribeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class UnsubscribeCommand extends $Command<
    * @internal
    */
   private serialize(input: UnsubscribeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnsubscribeCommand(input, context);
+    return se_UnsubscribeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeCommandOutput> {
-    return deserializeAws_restJson1UnsubscribeCommand(output, context);
+    return de_UnsubscribeCommand(output, context);
   }
 
   // Start section: command_body_extra

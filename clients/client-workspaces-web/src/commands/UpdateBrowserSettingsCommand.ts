@@ -19,10 +19,7 @@ import {
   UpdateBrowserSettingsResponse,
   UpdateBrowserSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateBrowserSettingsCommand,
-  serializeAws_restJson1UpdateBrowserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateBrowserSettingsCommand, se_UpdateBrowserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -142,14 +139,14 @@ export class UpdateBrowserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateBrowserSettingsCommand(input, context);
+    return se_UpdateBrowserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrowserSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateBrowserSettingsCommand(output, context);
+    return de_UpdateBrowserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1AssociateCertificateCommand,
-  serializeAws_restJson1AssociateCertificateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateCertificateCommand, se_AssociateCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class AssociateCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateCertificateCommand(input, context);
+    return se_AssociateCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCertificateCommandOutput> {
-    return deserializeAws_restJson1AssociateCertificateCommand(output, context);
+    return de_AssociateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

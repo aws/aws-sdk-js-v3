@@ -15,7 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { ActivateTypeInput, ActivateTypeOutput } from "../models/models_0";
-import { deserializeAws_queryActivateTypeCommand, serializeAws_queryActivateTypeCommand } from "../protocols/Aws_query";
+import { de_ActivateTypeCommand, se_ActivateTypeCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -138,14 +138,14 @@ export class ActivateTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: ActivateTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryActivateTypeCommand(input, context);
+    return se_ActivateTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateTypeCommandOutput> {
-    return deserializeAws_queryActivateTypeCommand(output, context);
+    return de_ActivateTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

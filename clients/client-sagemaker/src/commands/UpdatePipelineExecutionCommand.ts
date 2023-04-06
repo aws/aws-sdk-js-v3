@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdatePipelineExecutionRequest, UpdatePipelineExecutionResponse } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdatePipelineExecutionCommand,
-  serializeAws_json1_1UpdatePipelineExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePipelineExecutionCommand, se_UpdatePipelineExecutionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -128,14 +125,14 @@ export class UpdatePipelineExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePipelineExecutionCommand(input, context);
+    return se_UpdatePipelineExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineExecutionCommandOutput> {
-    return deserializeAws_json1_1UpdatePipelineExecutionCommand(output, context);
+    return de_UpdatePipelineExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisassociateResourceRequest, DisassociateResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateResourceCommand,
-  serializeAws_restJson1DisassociateResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateResourceCommand, se_DisassociateResourceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -133,14 +130,14 @@ export class DisassociateResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateResourceCommand(input, context);
+    return se_DisassociateResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateResourceCommandOutput> {
-    return deserializeAws_restJson1DisassociateResourceCommand(output, context);
+    return de_DisassociateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

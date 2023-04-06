@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { DeregisterResourceRequest, DeregisterResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterResourceCommand,
-  serializeAws_restJson1DeregisterResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeregisterResourceCommand, se_DeregisterResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeregisterResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterResourceCommand(input, context);
+    return se_DeregisterResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterResourceCommandOutput> {
-    return deserializeAws_restJson1DeregisterResourceCommand(output, context);
+    return de_DeregisterResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

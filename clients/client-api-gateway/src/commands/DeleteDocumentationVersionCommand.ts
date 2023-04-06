@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { DeleteDocumentationVersionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDocumentationVersionCommand,
-  serializeAws_restJson1DeleteDocumentationVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDocumentationVersionCommand, se_DeleteDocumentationVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class DeleteDocumentationVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDocumentationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDocumentationVersionCommand(input, context);
+    return se_DeleteDocumentationVersionCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class DeleteDocumentationVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDocumentationVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteDocumentationVersionCommand(output, context);
+    return de_DeleteDocumentationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

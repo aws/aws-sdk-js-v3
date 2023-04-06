@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeManagedRuleGroupRequest, DescribeManagedRuleGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeManagedRuleGroupCommand,
-  serializeAws_json1_1DescribeManagedRuleGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeManagedRuleGroupCommand, se_DescribeManagedRuleGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -167,14 +164,14 @@ export class DescribeManagedRuleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeManagedRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeManagedRuleGroupCommand(input, context);
+    return se_DescribeManagedRuleGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeManagedRuleGroupCommandOutput> {
-    return deserializeAws_json1_1DescribeManagedRuleGroupCommand(output, context);
+    return de_DescribeManagedRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,7 +16,7 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetJobsRequest } from "../models/models_1";
 import { GetJobsResponse, GetJobsResponseFilterSensitiveLog } from "../models/models_2";
-import { deserializeAws_json1_1GetJobsCommand, serializeAws_json1_1GetJobsCommand } from "../protocols/Aws_json1_1";
+import { de_GetJobsCommand, se_GetJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -125,14 +125,14 @@ export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommand
    * @internal
    */
   private serialize(input: GetJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetJobsCommand(input, context);
+    return se_GetJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobsCommandOutput> {
-    return deserializeAws_json1_1GetJobsCommand(output, context);
+    return de_GetJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

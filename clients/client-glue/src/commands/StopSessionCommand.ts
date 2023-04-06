@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { StopSessionRequest, StopSessionResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1StopSessionCommand,
-  serializeAws_json1_1StopSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopSessionCommand, se_StopSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class StopSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: StopSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopSessionCommand(input, context);
+    return se_StopSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSessionCommandOutput> {
-    return deserializeAws_json1_1StopSessionCommand(output, context);
+    return de_StopSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateServiceActionInput, CreateServiceActionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateServiceActionCommand,
-  serializeAws_json1_1CreateServiceActionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateServiceActionCommand, se_CreateServiceActionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -134,14 +131,14 @@ export class CreateServiceActionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateServiceActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateServiceActionCommand(input, context);
+    return se_CreateServiceActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceActionCommandOutput> {
-    return deserializeAws_json1_1CreateServiceActionCommand(output, context);
+    return de_CreateServiceActionCommand(output, context);
   }
 
   // Start section: command_body_extra

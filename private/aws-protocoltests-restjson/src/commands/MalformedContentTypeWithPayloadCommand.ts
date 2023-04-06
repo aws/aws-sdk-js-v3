@@ -14,8 +14,8 @@ import {
 
 import { MalformedContentTypeWithPayloadInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1MalformedContentTypeWithPayloadCommand,
-  serializeAws_restJson1MalformedContentTypeWithPayloadCommand,
+  de_MalformedContentTypeWithPayloadCommand,
+  se_MalformedContentTypeWithPayloadCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -86,7 +86,7 @@ export class MalformedContentTypeWithPayloadCommand extends $Command<
     input: MalformedContentTypeWithPayloadCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedContentTypeWithPayloadCommand(input, context);
+    return se_MalformedContentTypeWithPayloadCommand(input, context);
   }
 
   /**
@@ -96,7 +96,7 @@ export class MalformedContentTypeWithPayloadCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MalformedContentTypeWithPayloadCommandOutput> {
-    return deserializeAws_restJson1MalformedContentTypeWithPayloadCommand(output, context);
+    return de_MalformedContentTypeWithPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

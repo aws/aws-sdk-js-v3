@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetScheduleGroupInput, GetScheduleGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetScheduleGroupCommand,
-  serializeAws_restJson1GetScheduleGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetScheduleGroupCommand, se_GetScheduleGroupCommand } from "../protocols/Aws_restJson1";
 import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 
 /**
@@ -132,14 +129,14 @@ export class GetScheduleGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: GetScheduleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetScheduleGroupCommand(input, context);
+    return se_GetScheduleGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetScheduleGroupCommandOutput> {
-    return deserializeAws_restJson1GetScheduleGroupCommand(output, context);
+    return de_GetScheduleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

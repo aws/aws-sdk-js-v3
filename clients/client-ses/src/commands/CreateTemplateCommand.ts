@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateTemplateRequest, CreateTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCreateTemplateCommand,
-  serializeAws_queryCreateTemplateCommand,
-} from "../protocols/Aws_query";
+import { de_CreateTemplateCommand, se_CreateTemplateCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -140,14 +137,14 @@ export class CreateTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateTemplateCommand(input, context);
+    return se_CreateTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTemplateCommandOutput> {
-    return deserializeAws_queryCreateTemplateCommand(output, context);
+    return de_CreateTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

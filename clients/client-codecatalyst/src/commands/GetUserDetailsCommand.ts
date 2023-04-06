@@ -15,10 +15,7 @@ import {
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { GetUserDetailsRequest, GetUserDetailsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUserDetailsCommand,
-  serializeAws_restJson1GetUserDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUserDetailsCommand, se_GetUserDetailsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetUserDetailsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUserDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUserDetailsCommand(input, context);
+    return se_GetUserDetailsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserDetailsCommandOutput> {
-    return deserializeAws_restJson1GetUserDetailsCommand(output, context);
+    return de_GetUserDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

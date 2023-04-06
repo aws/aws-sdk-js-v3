@@ -15,8 +15,8 @@ import {
 
 import { DisassociateTagOptionFromResourceInput, DisassociateTagOptionFromResourceOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateTagOptionFromResourceCommand,
-  serializeAws_json1_1DisassociateTagOptionFromResourceCommand,
+  de_DisassociateTagOptionFromResourceCommand,
+  se_DisassociateTagOptionFromResourceCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -134,7 +134,7 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
     input: DisassociateTagOptionFromResourceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateTagOptionFromResourceCommand(input, context);
+    return se_DisassociateTagOptionFromResourceCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTagOptionFromResourceCommandOutput> {
-    return deserializeAws_json1_1DisassociateTagOptionFromResourceCommand(output, context);
+    return de_DisassociateTagOptionFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

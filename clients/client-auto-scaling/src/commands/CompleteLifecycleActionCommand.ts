@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { CompleteLifecycleActionAnswer, CompleteLifecycleActionType } from "../models/models_0";
-import {
-  deserializeAws_queryCompleteLifecycleActionCommand,
-  serializeAws_queryCompleteLifecycleActionCommand,
-} from "../protocols/Aws_query";
+import { de_CompleteLifecycleActionCommand, se_CompleteLifecycleActionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -179,14 +176,14 @@ export class CompleteLifecycleActionCommand extends $Command<
    * @internal
    */
   private serialize(input: CompleteLifecycleActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCompleteLifecycleActionCommand(input, context);
+    return se_CompleteLifecycleActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteLifecycleActionCommandOutput> {
-    return deserializeAws_queryCompleteLifecycleActionCommand(output, context);
+    return de_CompleteLifecycleActionCommand(output, context);
   }
 
   // Start section: command_body_extra

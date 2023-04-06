@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CopyDBParameterGroupMessage, CopyDBParameterGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCopyDBParameterGroupCommand,
-  serializeAws_queryCopyDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CopyDBParameterGroupCommand, se_CopyDBParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -78,20 +75,25 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  *
  * @example To copy a DB parameter group
  * ```javascript
- * // This example copies a DB parameter group.
+ * // The following example makes a copy of a DB parameter group.
  * const input = {
- *   "SourceDBParameterGroupIdentifier": "mymysqlparametergroup",
- *   "TargetDBParameterGroupDescription": "My MySQL parameter group copy",
- *   "TargetDBParameterGroupIdentifier": "mymysqlparametergroup-copy"
+ *   "SourceDBParameterGroupIdentifier": "mydbpg",
+ *   "TargetDBParameterGroupDescription": "Copy of mydbpg parameter group",
+ *   "TargetDBParameterGroupIdentifier": "mydbpgcopy"
  * };
  * const command = new CopyDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBParameterGroup": {}
+ *   "DBParameterGroup": {
+ *     "DBParameterGroupArn": "arn:aws:rds:us-east-1:814387698303:pg:mydbpgcopy",
+ *     "DBParameterGroupFamily": "mysql5.7",
+ *     "DBParameterGroupName": "mydbpgcopy",
+ *     "Description": "Copy of mydbpg parameter group"
+ *   }
  * }
  * *\/
- * // example id: copy-db-parameter-group-610d4dba-2c87-467f-ae5d-edd7f8e47349
+ * // example id: to-copy-a-db-parameter-group-1679695426993
  * ```
  *
  */
@@ -158,14 +160,14 @@ export class CopyDBParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyDBParameterGroupCommand(input, context);
+    return se_CopyDBParameterGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBParameterGroupCommandOutput> {
-    return deserializeAws_queryCopyDBParameterGroupCommand(output, context);
+    return de_CopyDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopDBInstanceMessage, StopDBInstanceResult } from "../models/models_1";
-import {
-  deserializeAws_queryStopDBInstanceCommand,
-  serializeAws_queryStopDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_StopDBInstanceCommand, se_StopDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -86,6 +83,24 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  *             snapshots.</p>
  *
  *
+ * @example To stop a DB instance
+ * ```javascript
+ * // The following example stops the specified DB instance.
+ * const input = {
+ *   "DBInstanceIdentifier": "test-instance"
+ * };
+ * const command = new StopDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {
+ *     "DBInstanceStatus": "stopping"
+ *   }
+ * }
+ * *\/
+ * // example id: to-stop-a-db-instance-1679701630959
+ * ```
+ *
  */
 export class StopDBInstanceCommand extends $Command<
   StopDBInstanceCommandInput,
@@ -150,14 +165,14 @@ export class StopDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: StopDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopDBInstanceCommand(input, context);
+    return se_StopDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBInstanceCommandOutput> {
-    return deserializeAws_queryStopDBInstanceCommand(output, context);
+    return de_StopDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

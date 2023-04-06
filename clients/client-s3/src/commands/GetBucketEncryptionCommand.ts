@@ -18,10 +18,7 @@ import {
   GetBucketEncryptionOutputFilterSensitiveLog,
   GetBucketEncryptionRequest,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketEncryptionCommand,
-  serializeAws_restXmlGetBucketEncryptionCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketEncryptionCommand, se_GetBucketEncryptionCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -152,14 +149,14 @@ export class GetBucketEncryptionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketEncryptionCommand(input, context);
+    return se_GetBucketEncryptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketEncryptionCommandOutput> {
-    return deserializeAws_restXmlGetBucketEncryptionCommand(output, context);
+    return de_GetBucketEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

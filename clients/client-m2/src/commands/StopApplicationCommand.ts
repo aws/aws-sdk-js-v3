@@ -15,10 +15,7 @@ import {
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { StopApplicationRequest, StopApplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopApplicationCommand,
-  serializeAws_restJson1StopApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopApplicationCommand, se_StopApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class StopApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: StopApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopApplicationCommand(input, context);
+    return se_StopApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopApplicationCommandOutput> {
-    return deserializeAws_restJson1StopApplicationCommand(output, context);
+    return de_StopApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

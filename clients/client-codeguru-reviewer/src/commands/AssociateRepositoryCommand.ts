@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
 import { AssociateRepositoryRequest, AssociateRepositoryResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateRepositoryCommand,
-  serializeAws_restJson1AssociateRepositoryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateRepositoryCommand, se_AssociateRepositoryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -185,14 +182,14 @@ export class AssociateRepositoryCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateRepositoryCommand(input, context);
+    return se_AssociateRepositoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRepositoryCommandOutput> {
-    return deserializeAws_restJson1AssociateRepositoryCommand(output, context);
+    return de_AssociateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRegexMatchSetsRequest, ListRegexMatchSetsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRegexMatchSetsCommand,
-  serializeAws_json1_1ListRegexMatchSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRegexMatchSetsCommand, se_ListRegexMatchSetsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -135,14 +132,14 @@ export class ListRegexMatchSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRegexMatchSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRegexMatchSetsCommand(input, context);
+    return se_ListRegexMatchSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegexMatchSetsCommandOutput> {
-    return deserializeAws_json1_1ListRegexMatchSetsCommand(output, context);
+    return de_ListRegexMatchSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

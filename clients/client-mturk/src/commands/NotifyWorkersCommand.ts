@@ -15,10 +15,7 @@ import {
 
 import { NotifyWorkersRequest, NotifyWorkersResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1NotifyWorkersCommand,
-  serializeAws_json1_1NotifyWorkersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_NotifyWorkersCommand, se_NotifyWorkersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class NotifyWorkersCommand extends $Command<
    * @internal
    */
   private serialize(input: NotifyWorkersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1NotifyWorkersCommand(input, context);
+    return se_NotifyWorkersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyWorkersCommandOutput> {
-    return deserializeAws_json1_1NotifyWorkersCommand(output, context);
+    return de_NotifyWorkersCommand(output, context);
   }
 
   // Start section: command_body_extra

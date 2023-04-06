@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { UpdateResourceProfileRequest, UpdateResourceProfileResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateResourceProfileCommand,
-  serializeAws_restJson1UpdateResourceProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateResourceProfileCommand, se_UpdateResourceProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UpdateResourceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateResourceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateResourceProfileCommand(input, context);
+    return se_UpdateResourceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateResourceProfileCommand(output, context);
+    return de_UpdateResourceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

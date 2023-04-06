@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetIPSetRequest, GetIPSetResponse } from "../models/models_0";
-import { deserializeAws_json1_1GetIPSetCommand, serializeAws_json1_1GetIPSetCommand } from "../protocols/Aws_json1_1";
+import { de_GetIPSetCommand, se_GetIPSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -153,14 +153,14 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
    * @internal
    */
   private serialize(input: GetIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetIPSetCommand(input, context);
+    return se_GetIPSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIPSetCommandOutput> {
-    return deserializeAws_json1_1GetIPSetCommand(output, context);
+    return de_GetIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

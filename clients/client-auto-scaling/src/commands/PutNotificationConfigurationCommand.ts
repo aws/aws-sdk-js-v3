@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { PutNotificationConfigurationType } from "../models/models_0";
-import {
-  deserializeAws_queryPutNotificationConfigurationCommand,
-  serializeAws_queryPutNotificationConfigurationCommand,
-} from "../protocols/Aws_query";
+import { de_PutNotificationConfigurationCommand, se_PutNotificationConfigurationCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -160,7 +157,7 @@ export class PutNotificationConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutNotificationConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutNotificationConfigurationCommand(input, context);
+    return se_PutNotificationConfigurationCommand(input, context);
   }
 
   /**
@@ -170,7 +167,7 @@ export class PutNotificationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutNotificationConfigurationCommandOutput> {
-    return deserializeAws_queryPutNotificationConfigurationCommand(output, context);
+    return de_PutNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SetTopicAttributesInput } from "../models/models_0";
-import {
-  deserializeAws_querySetTopicAttributesCommand,
-  serializeAws_querySetTopicAttributesCommand,
-} from "../protocols/Aws_query";
+import { de_SetTopicAttributesCommand, se_SetTopicAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -144,14 +141,14 @@ export class SetTopicAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: SetTopicAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetTopicAttributesCommand(input, context);
+    return se_SetTopicAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTopicAttributesCommandOutput> {
-    return deserializeAws_querySetTopicAttributesCommand(output, context);
+    return de_SetTopicAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { ListBackupsInput, ListBackupsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListBackupsCommand,
-  serializeAws_json1_0ListBackupsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListBackupsCommand, se_ListBackupsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListBackupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListBackupsCommand(input, context);
+    return se_ListBackupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupsCommandOutput> {
-    return deserializeAws_json1_0ListBackupsCommand(output, context);
+    return de_ListBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

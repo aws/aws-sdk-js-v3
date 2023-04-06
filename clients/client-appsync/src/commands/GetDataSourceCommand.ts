@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { GetDataSourceRequest, GetDataSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataSourceCommand,
-  serializeAws_restJson1GetDataSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDataSourceCommand, se_GetDataSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetDataSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataSourceCommand(input, context);
+    return se_GetDataSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSourceCommandOutput> {
-    return deserializeAws_restJson1GetDataSourceCommand(output, context);
+    return de_GetDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

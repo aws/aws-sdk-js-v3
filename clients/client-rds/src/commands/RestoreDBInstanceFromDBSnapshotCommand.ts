@@ -15,8 +15,8 @@ import {
 
 import { RestoreDBInstanceFromDBSnapshotMessage, RestoreDBInstanceFromDBSnapshotResult } from "../models/models_1";
 import {
-  deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand,
-  serializeAws_queryRestoreDBInstanceFromDBSnapshotCommand,
+  de_RestoreDBInstanceFromDBSnapshotCommand,
+  se_RestoreDBInstanceFromDBSnapshotCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -199,97 +199,39 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *             with the DB instance.</p>
  *
  *
- * @example To restore a DB instance from a DB snapshot.
+ * @example To restore a DB instance from a DB snapshot
  * ```javascript
- * // The following example restores a DB instance from a DB snapshot.
+ * // The following example creates a new DB instance named db7-new-instance with the db.t3.small DB instance class from the specified DB snapshot. The source DB instance from which the snapshot was taken uses a deprecated DB instance class, so you can't upgrade it.
  * const input = {
- *   "DBInstanceIdentifier": "mysqldb-restored",
- *   "DBSnapshotIdentifier": "rds:mysqldb-2014-04-22-08-15"
+ *   "DBInstanceClass": "db.t3.small",
+ *   "DBInstanceIdentifier": "db7-new-instance",
+ *   "DBSnapshotIdentifier": "db7-test-snapshot"
  * };
  * const command = new RestoreDBInstanceFromDBSnapshotCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
  *   "DBInstance": {
- *     "AllocatedStorage": 200,
+ *     "AssociatedRoles": [],
  *     "AutoMinorVersionUpgrade": true,
- *     "AvailabilityZone": "us-west-2b",
- *     "BackupRetentionPeriod": 7,
- *     "CACertificateIdentifier": "rds-ca-2015",
- *     "CopyTagsToSnapshot": false,
- *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:mysqldb-restored",
- *     "DBInstanceClass": "db.t2.small",
- *     "DBInstanceIdentifier": "mysqldb-restored",
- *     "DBInstanceStatus": "available",
- *     "DBName": "sample",
- *     "DBParameterGroups": [
- *       {
- *         "DBParameterGroupName": "default.mysql5.6",
- *         "ParameterApplyStatus": "in-sync"
- *       }
- *     ],
- *     "DBSecurityGroups": [],
- *     "DBSubnetGroup": {
- *       "DBSubnetGroupDescription": "default",
- *       "DBSubnetGroupName": "default",
- *       "SubnetGroupStatus": "Complete",
- *       "Subnets": [
- *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2a"
- *           },
- *           "SubnetIdentifier": "subnet-77e8db03",
- *           "SubnetStatus": "Active"
- *         },
- *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2b"
- *           },
- *           "SubnetIdentifier": "subnet-c39989a1",
- *           "SubnetStatus": "Active"
- *         },
- *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2c"
- *           },
- *           "SubnetIdentifier": "subnet-4b267b0d",
- *           "SubnetStatus": "Active"
- *         }
- *       ],
- *       "VpcId": "vpc-c1c5b3a3"
- *     },
- *     "DbInstancePort": 0,
- *     "DbiResourceId": "db-VNZUCCBTEDC4WR7THXNJO72HVQ",
- *     "DomainMemberships": [],
+ *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:db7-new-instance",
+ *     "DBInstanceClass": "db.t3.small",
+ *     "DBInstanceIdentifier": "db7-new-instance",
+ *     "DBInstanceStatus": "creating",
+ *     "DeletionProtection": false,
  *     "Engine": "mysql",
- *     "EngineVersion": "5.6.27",
+ *     "EngineVersion": "5.7.22",
+ *     "IAMDatabaseAuthenticationEnabled": false,
  *     "LicenseModel": "general-public-license",
- *     "MasterUsername": "mymasteruser",
- *     "MonitoringInterval": 0,
  *     "MultiAZ": false,
- *     "OptionGroupMemberships": [
- *       {
- *         "OptionGroupName": "default:mysql-5-6",
- *         "Status": "in-sync"
- *       }
- *     ],
  *     "PendingModifiedValues": {},
- *     "PreferredBackupWindow": "12:58-13:28",
- *     "PreferredMaintenanceWindow": "tue:10:16-tue:10:46",
- *     "PubliclyAccessible": true,
- *     "ReadReplicaDBInstanceIdentifiers": [],
- *     "StorageEncrypted": false,
- *     "StorageType": "gp2",
- *     "VpcSecurityGroups": [
- *       {
- *         "Status": "active",
- *         "VpcSecurityGroupId": "sg-e5e5b0d2"
- *       }
- *     ]
+ *     "PerformanceInsightsEnabled": false,
+ *     "PreferredMaintenanceWindow": "mon:07:37-mon:08:07",
+ *     "ReadReplicaDBInstanceIdentifiers": []
  *   }
  * }
  * *\/
- * // example id: to-restore-a-db-instance-from-a-db-snapshot-1473961657311
+ * // example id: to-restore-a-db-instance-from-a-db-snapshot-1680093236214
  * ```
  *
  */
@@ -359,7 +301,7 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
     input: RestoreDBInstanceFromDBSnapshotCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBInstanceFromDBSnapshotCommand(input, context);
+    return se_RestoreDBInstanceFromDBSnapshotCommand(input, context);
   }
 
   /**
@@ -369,7 +311,7 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput> {
-    return deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand(output, context);
+    return de_RestoreDBInstanceFromDBSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

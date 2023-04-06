@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { AssociateDeviceWithRoomRequest, AssociateDeviceWithRoomResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateDeviceWithRoomCommand,
-  serializeAws_json1_1AssociateDeviceWithRoomCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateDeviceWithRoomCommand, se_AssociateDeviceWithRoomCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class AssociateDeviceWithRoomCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateDeviceWithRoomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDeviceWithRoomCommand(input, context);
+    return se_AssociateDeviceWithRoomCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateDeviceWithRoomCommandOutput> {
-    return deserializeAws_json1_1AssociateDeviceWithRoomCommand(output, context);
+    return de_AssociateDeviceWithRoomCommand(output, context);
   }
 
   // Start section: command_body_extra

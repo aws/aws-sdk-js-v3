@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { CancelInstanceRefreshAnswer, CancelInstanceRefreshType } from "../models/models_0";
-import {
-  deserializeAws_queryCancelInstanceRefreshCommand,
-  serializeAws_queryCancelInstanceRefreshCommand,
-} from "../protocols/Aws_query";
+import { de_CancelInstanceRefreshCommand, se_CancelInstanceRefreshCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class CancelInstanceRefreshCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelInstanceRefreshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCancelInstanceRefreshCommand(input, context);
+    return se_CancelInstanceRefreshCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelInstanceRefreshCommandOutput> {
-    return deserializeAws_queryCancelInstanceRefreshCommand(output, context);
+    return de_CancelInstanceRefreshCommand(output, context);
   }
 
   // Start section: command_body_extra

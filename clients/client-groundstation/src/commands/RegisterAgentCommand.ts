@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { RegisterAgentRequest, RegisterAgentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterAgentCommand,
-  serializeAws_restJson1RegisterAgentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RegisterAgentCommand, se_RegisterAgentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class RegisterAgentCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterAgentCommand(input, context);
+    return se_RegisterAgentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterAgentCommandOutput> {
-    return deserializeAws_restJson1RegisterAgentCommand(output, context);
+    return de_RegisterAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

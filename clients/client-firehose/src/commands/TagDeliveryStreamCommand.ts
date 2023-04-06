@@ -15,10 +15,7 @@ import {
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { TagDeliveryStreamInput, TagDeliveryStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1TagDeliveryStreamCommand,
-  serializeAws_json1_1TagDeliveryStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TagDeliveryStreamCommand, se_TagDeliveryStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class TagDeliveryStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: TagDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagDeliveryStreamCommand(input, context);
+    return se_TagDeliveryStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1TagDeliveryStreamCommand(output, context);
+    return de_TagDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
 import { ListCodeReviewsRequest, ListCodeReviewsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCodeReviewsCommand,
-  serializeAws_restJson1ListCodeReviewsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCodeReviewsCommand, se_ListCodeReviewsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ListCodeReviewsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCodeReviewsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCodeReviewsCommand(input, context);
+    return se_ListCodeReviewsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCodeReviewsCommandOutput> {
-    return deserializeAws_restJson1ListCodeReviewsCommand(output, context);
+    return de_ListCodeReviewsCommand(output, context);
   }
 
   // Start section: command_body_extra

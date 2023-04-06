@@ -15,10 +15,7 @@ import {
 
 import { RemoveApplicationInstanceRequest, RemoveApplicationInstanceResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1RemoveApplicationInstanceCommand,
-  serializeAws_restJson1RemoveApplicationInstanceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveApplicationInstanceCommand, se_RemoveApplicationInstanceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class RemoveApplicationInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveApplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveApplicationInstanceCommand(input, context);
+    return se_RemoveApplicationInstanceCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class RemoveApplicationInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveApplicationInstanceCommandOutput> {
-    return deserializeAws_restJson1RemoveApplicationInstanceCommand(output, context);
+    return de_RemoveApplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

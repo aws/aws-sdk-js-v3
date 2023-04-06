@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import { StartMeetingTranscriptionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartMeetingTranscriptionCommand,
-  serializeAws_restJson1StartMeetingTranscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartMeetingTranscriptionCommand, se_StartMeetingTranscriptionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -179,7 +176,7 @@ export class StartMeetingTranscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartMeetingTranscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartMeetingTranscriptionCommand(input, context);
+    return se_StartMeetingTranscriptionCommand(input, context);
   }
 
   /**
@@ -189,7 +186,7 @@ export class StartMeetingTranscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartMeetingTranscriptionCommandOutput> {
-    return deserializeAws_restJson1StartMeetingTranscriptionCommand(output, context);
+    return de_StartMeetingTranscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

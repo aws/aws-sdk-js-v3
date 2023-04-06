@@ -16,8 +16,8 @@ import {
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { PurchaseReservedNodesOfferingRequest, PurchaseReservedNodesOfferingResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1PurchaseReservedNodesOfferingCommand,
-  serializeAws_json1_1PurchaseReservedNodesOfferingCommand,
+  de_PurchaseReservedNodesOfferingCommand,
+  se_PurchaseReservedNodesOfferingCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class PurchaseReservedNodesOfferingCommand extends $Command<
    * @internal
    */
   private serialize(input: PurchaseReservedNodesOfferingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PurchaseReservedNodesOfferingCommand(input, context);
+    return se_PurchaseReservedNodesOfferingCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class PurchaseReservedNodesOfferingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedNodesOfferingCommandOutput> {
-    return deserializeAws_json1_1PurchaseReservedNodesOfferingCommand(output, context);
+    return de_PurchaseReservedNodesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { RebootRelationalDatabaseRequest, RebootRelationalDatabaseResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1RebootRelationalDatabaseCommand,
-  serializeAws_json1_1RebootRelationalDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RebootRelationalDatabaseCommand, se_RebootRelationalDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class RebootRelationalDatabaseCommand extends $Command<
    * @internal
    */
   private serialize(input: RebootRelationalDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RebootRelationalDatabaseCommand(input, context);
+    return se_RebootRelationalDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1RebootRelationalDatabaseCommand(output, context);
+    return de_RebootRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

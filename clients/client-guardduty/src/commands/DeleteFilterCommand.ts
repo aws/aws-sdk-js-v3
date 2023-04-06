@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { DeleteFilterRequest, DeleteFilterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFilterCommand,
-  serializeAws_restJson1DeleteFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFilterCommand, se_DeleteFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class DeleteFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFilterCommand(input, context);
+    return se_DeleteFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFilterCommandOutput> {
-    return deserializeAws_restJson1DeleteFilterCommand(output, context);
+    return de_DeleteFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

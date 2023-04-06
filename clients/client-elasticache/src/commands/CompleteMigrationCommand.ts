@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CompleteMigrationMessage, CompleteMigrationResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCompleteMigrationCommand,
-  serializeAws_queryCompleteMigrationCommand,
-} from "../protocols/Aws_query";
+import { de_CompleteMigrationCommand, se_CompleteMigrationCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class CompleteMigrationCommand extends $Command<
    * @internal
    */
   private serialize(input: CompleteMigrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCompleteMigrationCommand(input, context);
+    return se_CompleteMigrationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteMigrationCommandOutput> {
-    return deserializeAws_queryCompleteMigrationCommand(output, context);
+    return de_CompleteMigrationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { FilterLogEventsRequest, FilterLogEventsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1FilterLogEventsCommand,
-  serializeAws_json1_1FilterLogEventsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_FilterLogEventsCommand, se_FilterLogEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class FilterLogEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: FilterLogEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1FilterLogEventsCommand(input, context);
+    return se_FilterLogEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FilterLogEventsCommandOutput> {
-    return deserializeAws_json1_1FilterLogEventsCommand(output, context);
+    return de_FilterLogEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

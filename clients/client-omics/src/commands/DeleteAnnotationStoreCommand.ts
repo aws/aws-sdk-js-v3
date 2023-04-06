@@ -15,10 +15,7 @@ import {
 
 import { DeleteAnnotationStoreRequest, DeleteAnnotationStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1DeleteAnnotationStoreCommand,
-  serializeAws_restJson1DeleteAnnotationStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAnnotationStoreCommand, se_DeleteAnnotationStoreCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteAnnotationStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAnnotationStoreCommand(input, context);
+    return se_DeleteAnnotationStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnnotationStoreCommandOutput> {
-    return deserializeAws_restJson1DeleteAnnotationStoreCommand(output, context);
+    return de_DeleteAnnotationStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

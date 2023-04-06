@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetViewInput, GetViewOutput, GetViewOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetViewCommand,
-  serializeAws_restJson1GetViewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetViewCommand, se_GetViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -145,14 +142,14 @@ export class GetViewCommand extends $Command<
    * @internal
    */
   private serialize(input: GetViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetViewCommand(input, context);
+    return se_GetViewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetViewCommandOutput> {
-    return deserializeAws_restJson1GetViewCommand(output, context);
+    return de_GetViewCommand(output, context);
   }
 
   // Start section: command_body_extra

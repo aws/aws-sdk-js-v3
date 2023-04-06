@@ -15,10 +15,7 @@ import {
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { DescribeApplicationStateRequest, DescribeApplicationStateResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeApplicationStateCommand,
-  serializeAws_json1_1DescribeApplicationStateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeApplicationStateCommand, se_DescribeApplicationStateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class DescribeApplicationStateCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeApplicationStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicationStateCommand(input, context);
+    return se_DescribeApplicationStateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationStateCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicationStateCommand(output, context);
+    return de_DescribeApplicationStateCommand(output, context);
   }
 
   // Start section: command_body_extra

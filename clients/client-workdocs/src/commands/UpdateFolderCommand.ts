@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateFolderRequest, UpdateFolderRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFolderCommand,
-  serializeAws_restJson1UpdateFolderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFolderCommand, se_UpdateFolderCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -155,14 +152,14 @@ export class UpdateFolderCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFolderCommand(input, context);
+    return se_UpdateFolderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFolderCommandOutput> {
-    return deserializeAws_restJson1UpdateFolderCommand(output, context);
+    return de_UpdateFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

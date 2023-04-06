@@ -16,8 +16,8 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetPullRequestApprovalStatesInput, GetPullRequestApprovalStatesOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetPullRequestApprovalStatesCommand,
-  serializeAws_json1_1GetPullRequestApprovalStatesCommand,
+  de_GetPullRequestApprovalStatesCommand,
+  se_GetPullRequestApprovalStatesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -154,7 +154,7 @@ export class GetPullRequestApprovalStatesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPullRequestApprovalStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPullRequestApprovalStatesCommand(input, context);
+    return se_GetPullRequestApprovalStatesCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class GetPullRequestApprovalStatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPullRequestApprovalStatesCommandOutput> {
-    return deserializeAws_json1_1GetPullRequestApprovalStatesCommand(output, context);
+    return de_GetPullRequestApprovalStatesCommand(output, context);
   }
 
   // Start section: command_body_extra

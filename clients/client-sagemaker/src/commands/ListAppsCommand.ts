@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAppsRequest, ListAppsResponse } from "../models/models_3";
-import { deserializeAws_json1_1ListAppsCommand, serializeAws_json1_1ListAppsCommand } from "../protocols/Aws_json1_1";
+import { de_ListAppsCommand, se_ListAppsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -121,14 +121,14 @@ export class ListAppsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAppsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAppsCommand(input, context);
+    return se_ListAppsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppsCommandOutput> {
-    return deserializeAws_json1_1ListAppsCommand(output, context);
+    return de_ListAppsCommand(output, context);
   }
 
   // Start section: command_body_extra

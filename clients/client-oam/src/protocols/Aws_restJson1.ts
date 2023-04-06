@@ -50,7 +50,10 @@ import {
 } from "../models/models_0";
 import { OAMServiceException as __BaseException } from "../models/OAMServiceException";
 
-export const serializeAws_restJson1CreateLinkCommand = async (
+/**
+ * serializeAws_restJson1CreateLinkCommand
+ */
+export const se_CreateLinkCommand = async (
   input: CreateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -62,11 +65,9 @@ export const serializeAws_restJson1CreateLinkCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.LabelTemplate != null && { LabelTemplate: input.LabelTemplate }),
-    ...(input.ResourceTypes != null && {
-      ResourceTypes: serializeAws_restJson1ResourceTypesInput(input.ResourceTypes, context),
-    }),
+    ...(input.ResourceTypes != null && { ResourceTypes: se_ResourceTypesInput(input.ResourceTypes, context) }),
     ...(input.SinkIdentifier != null && { SinkIdentifier: input.SinkIdentifier }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMapInput(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagMapInput(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -79,7 +80,10 @@ export const serializeAws_restJson1CreateLinkCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateSinkCommand = async (
+/**
+ * serializeAws_restJson1CreateSinkCommand
+ */
+export const se_CreateSinkCommand = async (
   input: CreateSinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -91,7 +95,7 @@ export const serializeAws_restJson1CreateSinkCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMapInput(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagMapInput(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -104,7 +108,10 @@ export const serializeAws_restJson1CreateSinkCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteLinkCommand = async (
+/**
+ * serializeAws_restJson1DeleteLinkCommand
+ */
+export const se_DeleteLinkCommand = async (
   input: DeleteLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -128,7 +135,10 @@ export const serializeAws_restJson1DeleteLinkCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSinkCommand = async (
+/**
+ * serializeAws_restJson1DeleteSinkCommand
+ */
+export const se_DeleteSinkCommand = async (
   input: DeleteSinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -152,7 +162,10 @@ export const serializeAws_restJson1DeleteSinkCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetLinkCommand = async (
+/**
+ * serializeAws_restJson1GetLinkCommand
+ */
+export const se_GetLinkCommand = async (
   input: GetLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -176,7 +189,10 @@ export const serializeAws_restJson1GetLinkCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSinkCommand = async (
+/**
+ * serializeAws_restJson1GetSinkCommand
+ */
+export const se_GetSinkCommand = async (
   input: GetSinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -200,7 +216,10 @@ export const serializeAws_restJson1GetSinkCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSinkPolicyCommand = async (
+/**
+ * serializeAws_restJson1GetSinkPolicyCommand
+ */
+export const se_GetSinkPolicyCommand = async (
   input: GetSinkPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -224,7 +243,10 @@ export const serializeAws_restJson1GetSinkPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAttachedLinksCommand = async (
+/**
+ * serializeAws_restJson1ListAttachedLinksCommand
+ */
+export const se_ListAttachedLinksCommand = async (
   input: ListAttachedLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -250,7 +272,10 @@ export const serializeAws_restJson1ListAttachedLinksCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListLinksCommand = async (
+/**
+ * serializeAws_restJson1ListLinksCommand
+ */
+export const se_ListLinksCommand = async (
   input: ListLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -275,7 +300,10 @@ export const serializeAws_restJson1ListLinksCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSinksCommand = async (
+/**
+ * serializeAws_restJson1ListSinksCommand
+ */
+export const se_ListSinksCommand = async (
   input: ListSinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -300,7 +328,10 @@ export const serializeAws_restJson1ListSinksCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -320,7 +351,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutSinkPolicyCommand = async (
+/**
+ * serializeAws_restJson1PutSinkPolicyCommand
+ */
+export const se_PutSinkPolicyCommand = async (
   input: PutSinkPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -345,7 +379,10 @@ export const serializeAws_restJson1PutSinkPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -357,7 +394,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagMapInput(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagMapInput(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -370,7 +407,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -397,7 +437,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateLinkCommand = async (
+/**
+ * serializeAws_restJson1UpdateLinkCommand
+ */
+export const se_UpdateLinkCommand = async (
   input: UpdateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -409,9 +452,7 @@ export const serializeAws_restJson1UpdateLinkCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Identifier != null && { Identifier: input.Identifier }),
-    ...(input.ResourceTypes != null && {
-      ResourceTypes: serializeAws_restJson1ResourceTypesInput(input.ResourceTypes, context),
-    }),
+    ...(input.ResourceTypes != null && { ResourceTypes: se_ResourceTypesInput(input.ResourceTypes, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -424,12 +465,15 @@ export const serializeAws_restJson1UpdateLinkCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateLinkCommand = async (
+/**
+ * deserializeAws_restJson1CreateLinkCommand
+ */
+export const de_CreateLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateLinkCommandError(output, context);
+    return de_CreateLinkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -448,18 +492,21 @@ export const deserializeAws_restJson1CreateLinkCommand = async (
     contents.LabelTemplate = __expectString(data.LabelTemplate);
   }
   if (data.ResourceTypes != null) {
-    contents.ResourceTypes = deserializeAws_restJson1ResourceTypesOutput(data.ResourceTypes, context);
+    contents.ResourceTypes = de_ResourceTypesOutput(data.ResourceTypes, context);
   }
   if (data.SinkArn != null) {
     contents.SinkArn = __expectString(data.SinkArn);
   }
   if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagMapOutput(data.Tags, context);
+    contents.Tags = de_TagMapOutput(data.Tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateLinkCommandError = async (
+/**
+ * deserializeAws_restJson1CreateLinkCommandError
+ */
+const de_CreateLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLinkCommandOutput> => {
@@ -471,19 +518,19 @@ const deserializeAws_restJson1CreateLinkCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.oam#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.oam#MissingRequiredParameterException":
-      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.oam#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -495,12 +542,15 @@ const deserializeAws_restJson1CreateLinkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateSinkCommand = async (
+/**
+ * deserializeAws_restJson1CreateSinkCommand
+ */
+export const de_CreateSinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSinkCommandError(output, context);
+    return de_CreateSinkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -516,12 +566,15 @@ export const deserializeAws_restJson1CreateSinkCommand = async (
     contents.Name = __expectString(data.Name);
   }
   if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagMapOutput(data.Tags, context);
+    contents.Tags = de_TagMapOutput(data.Tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateSinkCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSinkCommandError
+ */
+const de_CreateSinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSinkCommandOutput> => {
@@ -533,19 +586,19 @@ const deserializeAws_restJson1CreateSinkCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.oam#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.oam#MissingRequiredParameterException":
-      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.oam#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -557,12 +610,15 @@ const deserializeAws_restJson1CreateSinkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteLinkCommand = async (
+/**
+ * deserializeAws_restJson1DeleteLinkCommand
+ */
+export const de_DeleteLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteLinkCommandError(output, context);
+    return de_DeleteLinkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -571,7 +627,10 @@ export const deserializeAws_restJson1DeleteLinkCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteLinkCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteLinkCommandError
+ */
+const de_DeleteLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLinkCommandOutput> => {
@@ -583,16 +642,16 @@ const deserializeAws_restJson1DeleteLinkCommandError = async (
   switch (errorCode) {
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.oam#MissingRequiredParameterException":
-      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -604,12 +663,15 @@ const deserializeAws_restJson1DeleteLinkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteSinkCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSinkCommand
+ */
+export const de_DeleteSinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSinkCommandError(output, context);
+    return de_DeleteSinkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -618,7 +680,10 @@ export const deserializeAws_restJson1DeleteSinkCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteSinkCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSinkCommandError
+ */
+const de_DeleteSinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSinkCommandOutput> => {
@@ -630,19 +695,19 @@ const deserializeAws_restJson1DeleteSinkCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.oam#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.oam#MissingRequiredParameterException":
-      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -654,12 +719,15 @@ const deserializeAws_restJson1DeleteSinkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetLinkCommand = async (
+/**
+ * deserializeAws_restJson1GetLinkCommand
+ */
+export const de_GetLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetLinkCommandError(output, context);
+    return de_GetLinkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -678,18 +746,21 @@ export const deserializeAws_restJson1GetLinkCommand = async (
     contents.LabelTemplate = __expectString(data.LabelTemplate);
   }
   if (data.ResourceTypes != null) {
-    contents.ResourceTypes = deserializeAws_restJson1ResourceTypesOutput(data.ResourceTypes, context);
+    contents.ResourceTypes = de_ResourceTypesOutput(data.ResourceTypes, context);
   }
   if (data.SinkArn != null) {
     contents.SinkArn = __expectString(data.SinkArn);
   }
   if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagMapOutput(data.Tags, context);
+    contents.Tags = de_TagMapOutput(data.Tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetLinkCommandError = async (
+/**
+ * deserializeAws_restJson1GetLinkCommandError
+ */
+const de_GetLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLinkCommandOutput> => {
@@ -701,16 +772,16 @@ const deserializeAws_restJson1GetLinkCommandError = async (
   switch (errorCode) {
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.oam#MissingRequiredParameterException":
-      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -722,12 +793,15 @@ const deserializeAws_restJson1GetLinkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetSinkCommand = async (
+/**
+ * deserializeAws_restJson1GetSinkCommand
+ */
+export const de_GetSinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSinkCommandError(output, context);
+    return de_GetSinkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -743,12 +817,15 @@ export const deserializeAws_restJson1GetSinkCommand = async (
     contents.Name = __expectString(data.Name);
   }
   if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagMapOutput(data.Tags, context);
+    contents.Tags = de_TagMapOutput(data.Tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetSinkCommandError = async (
+/**
+ * deserializeAws_restJson1GetSinkCommandError
+ */
+const de_GetSinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSinkCommandOutput> => {
@@ -760,16 +837,16 @@ const deserializeAws_restJson1GetSinkCommandError = async (
   switch (errorCode) {
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.oam#MissingRequiredParameterException":
-      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -781,12 +858,15 @@ const deserializeAws_restJson1GetSinkCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetSinkPolicyCommand = async (
+/**
+ * deserializeAws_restJson1GetSinkPolicyCommand
+ */
+export const de_GetSinkPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSinkPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSinkPolicyCommandError(output, context);
+    return de_GetSinkPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -804,7 +884,10 @@ export const deserializeAws_restJson1GetSinkPolicyCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetSinkPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1GetSinkPolicyCommandError
+ */
+const de_GetSinkPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSinkPolicyCommandOutput> => {
@@ -816,16 +899,16 @@ const deserializeAws_restJson1GetSinkPolicyCommandError = async (
   switch (errorCode) {
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.oam#MissingRequiredParameterException":
-      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -837,19 +920,22 @@ const deserializeAws_restJson1GetSinkPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListAttachedLinksCommand = async (
+/**
+ * deserializeAws_restJson1ListAttachedLinksCommand
+ */
+export const de_ListAttachedLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAttachedLinksCommandError(output, context);
+    return de_ListAttachedLinksCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items != null) {
-    contents.Items = deserializeAws_restJson1ListAttachedLinksItems(data.Items, context);
+    contents.Items = de_ListAttachedLinksItems(data.Items, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -857,7 +943,10 @@ export const deserializeAws_restJson1ListAttachedLinksCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListAttachedLinksCommandError = async (
+/**
+ * deserializeAws_restJson1ListAttachedLinksCommandError
+ */
+const de_ListAttachedLinksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedLinksCommandOutput> => {
@@ -869,16 +958,16 @@ const deserializeAws_restJson1ListAttachedLinksCommandError = async (
   switch (errorCode) {
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.oam#MissingRequiredParameterException":
-      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -890,19 +979,22 @@ const deserializeAws_restJson1ListAttachedLinksCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListLinksCommand = async (
+/**
+ * deserializeAws_restJson1ListLinksCommand
+ */
+export const de_ListLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListLinksCommandError(output, context);
+    return de_ListLinksCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items != null) {
-    contents.Items = deserializeAws_restJson1ListLinksItems(data.Items, context);
+    contents.Items = de_ListLinksItems(data.Items, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -910,7 +1002,10 @@ export const deserializeAws_restJson1ListLinksCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListLinksCommandError = async (
+/**
+ * deserializeAws_restJson1ListLinksCommandError
+ */
+const de_ListLinksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLinksCommandOutput> => {
@@ -922,13 +1017,13 @@ const deserializeAws_restJson1ListLinksCommandError = async (
   switch (errorCode) {
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -940,19 +1035,22 @@ const deserializeAws_restJson1ListLinksCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListSinksCommand = async (
+/**
+ * deserializeAws_restJson1ListSinksCommand
+ */
+export const de_ListSinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSinksCommandError(output, context);
+    return de_ListSinksCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Items != null) {
-    contents.Items = deserializeAws_restJson1ListSinksItems(data.Items, context);
+    contents.Items = de_ListSinksItems(data.Items, context);
   }
   if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
@@ -960,7 +1058,10 @@ export const deserializeAws_restJson1ListSinksCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListSinksCommandError = async (
+/**
+ * deserializeAws_restJson1ListSinksCommandError
+ */
+const de_ListSinksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSinksCommandOutput> => {
@@ -972,13 +1073,13 @@ const deserializeAws_restJson1ListSinksCommandError = async (
   switch (errorCode) {
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -990,24 +1091,30 @@ const deserializeAws_restJson1ListSinksCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagMapOutput(data.Tags, context);
+    contents.Tags = de_TagMapOutput(data.Tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1019,10 +1126,10 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.oam#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1034,12 +1141,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutSinkPolicyCommand = async (
+/**
+ * deserializeAws_restJson1PutSinkPolicyCommand
+ */
+export const de_PutSinkPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSinkPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutSinkPolicyCommandError(output, context);
+    return de_PutSinkPolicyCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1057,7 +1167,10 @@ export const deserializeAws_restJson1PutSinkPolicyCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutSinkPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1PutSinkPolicyCommandError
+ */
+const de_PutSinkPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSinkPolicyCommandOutput> => {
@@ -1069,16 +1182,16 @@ const deserializeAws_restJson1PutSinkPolicyCommandError = async (
   switch (errorCode) {
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.oam#MissingRequiredParameterException":
-      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1090,12 +1203,15 @@ const deserializeAws_restJson1PutSinkPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1104,7 +1220,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -1116,13 +1235,13 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.oam#TooManyTagsException":
-      throw await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.oam#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1134,12 +1253,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1148,7 +1270,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -1160,10 +1285,10 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.oam#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1175,12 +1300,15 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateLinkCommand = async (
+/**
+ * deserializeAws_restJson1UpdateLinkCommand
+ */
+export const de_UpdateLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateLinkCommandError(output, context);
+    return de_UpdateLinkCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1199,18 +1327,21 @@ export const deserializeAws_restJson1UpdateLinkCommand = async (
     contents.LabelTemplate = __expectString(data.LabelTemplate);
   }
   if (data.ResourceTypes != null) {
-    contents.ResourceTypes = deserializeAws_restJson1ResourceTypesOutput(data.ResourceTypes, context);
+    contents.ResourceTypes = de_ResourceTypesOutput(data.ResourceTypes, context);
   }
   if (data.SinkArn != null) {
     contents.SinkArn = __expectString(data.SinkArn);
   }
   if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagMapOutput(data.Tags, context);
+    contents.Tags = de_TagMapOutput(data.Tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateLinkCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateLinkCommandError
+ */
+const de_UpdateLinkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLinkCommandOutput> => {
@@ -1222,16 +1353,16 @@ const deserializeAws_restJson1UpdateLinkCommandError = async (
   switch (errorCode) {
     case "InternalServiceFault":
     case "com.amazonaws.oam#InternalServiceFault":
-      throw await deserializeAws_restJson1InternalServiceFaultResponse(parsedOutput, context);
+      throw await de_InternalServiceFaultRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.oam#InvalidParameterException":
-      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.oam#MissingRequiredParameterException":
-      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.oam#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1244,10 +1375,10 @@ const deserializeAws_restJson1UpdateLinkCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({
     amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
   });
@@ -1262,7 +1393,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServiceFaultResponse = async (
+/**
+ * deserializeAws_restJson1InternalServiceFaultRes
+ */
+const de_InternalServiceFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceFault> => {
@@ -1280,7 +1414,10 @@ const deserializeAws_restJson1InternalServiceFaultResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
@@ -1298,7 +1435,10 @@ const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MissingRequiredParameterExceptionResponse = async (
+/**
+ * deserializeAws_restJson1MissingRequiredParameterExceptionRes
+ */
+const de_MissingRequiredParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MissingRequiredParameterException> => {
@@ -1316,7 +1456,10 @@ const deserializeAws_restJson1MissingRequiredParameterExceptionResponse = async 
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -1334,7 +1477,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -1352,7 +1498,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
@@ -1368,10 +1517,10 @@ const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Message != null) {
@@ -1384,7 +1533,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ResourceTypesInput = (input: (ResourceType | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ResourceTypesInput
+ */
+const se_ResourceTypesInput = (input: (ResourceType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1392,7 +1544,10 @@ const serializeAws_restJson1ResourceTypesInput = (input: (ResourceType | string)
     });
 };
 
-const serializeAws_restJson1TagMapInput = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagMapInput
+ */
+const se_TagMapInput = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1402,58 +1557,64 @@ const serializeAws_restJson1TagMapInput = (input: Record<string, string>, contex
   }, {});
 };
 
-const deserializeAws_restJson1ListAttachedLinksItem = (output: any, context: __SerdeContext): ListAttachedLinksItem => {
+/**
+ * deserializeAws_restJson1ListAttachedLinksItem
+ */
+const de_ListAttachedLinksItem = (output: any, context: __SerdeContext): ListAttachedLinksItem => {
   return {
     Label: __expectString(output.Label),
     LinkArn: __expectString(output.LinkArn),
-    ResourceTypes:
-      output.ResourceTypes != null
-        ? deserializeAws_restJson1ResourceTypesOutput(output.ResourceTypes, context)
-        : undefined,
+    ResourceTypes: output.ResourceTypes != null ? de_ResourceTypesOutput(output.ResourceTypes, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ListAttachedLinksItems = (
-  output: any,
-  context: __SerdeContext
-): ListAttachedLinksItem[] => {
+/**
+ * deserializeAws_restJson1ListAttachedLinksItems
+ */
+const de_ListAttachedLinksItems = (output: any, context: __SerdeContext): ListAttachedLinksItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ListAttachedLinksItem(entry, context);
+      return de_ListAttachedLinksItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListLinksItem = (output: any, context: __SerdeContext): ListLinksItem => {
+/**
+ * deserializeAws_restJson1ListLinksItem
+ */
+const de_ListLinksItem = (output: any, context: __SerdeContext): ListLinksItem => {
   return {
     Arn: __expectString(output.Arn),
     Id: __expectString(output.Id),
     Label: __expectString(output.Label),
-    ResourceTypes:
-      output.ResourceTypes != null
-        ? deserializeAws_restJson1ResourceTypesOutput(output.ResourceTypes, context)
-        : undefined,
+    ResourceTypes: output.ResourceTypes != null ? de_ResourceTypesOutput(output.ResourceTypes, context) : undefined,
     SinkArn: __expectString(output.SinkArn),
   } as any;
 };
 
-const deserializeAws_restJson1ListLinksItems = (output: any, context: __SerdeContext): ListLinksItem[] => {
+/**
+ * deserializeAws_restJson1ListLinksItems
+ */
+const de_ListLinksItems = (output: any, context: __SerdeContext): ListLinksItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ListLinksItem(entry, context);
+      return de_ListLinksItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ListSinksItem = (output: any, context: __SerdeContext): ListSinksItem => {
+/**
+ * deserializeAws_restJson1ListSinksItem
+ */
+const de_ListSinksItem = (output: any, context: __SerdeContext): ListSinksItem => {
   return {
     Arn: __expectString(output.Arn),
     Id: __expectString(output.Id),
@@ -1461,19 +1622,25 @@ const deserializeAws_restJson1ListSinksItem = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_restJson1ListSinksItems = (output: any, context: __SerdeContext): ListSinksItem[] => {
+/**
+ * deserializeAws_restJson1ListSinksItems
+ */
+const de_ListSinksItems = (output: any, context: __SerdeContext): ListSinksItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ListSinksItem(entry, context);
+      return de_ListSinksItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ResourceTypesOutput = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1ResourceTypesOutput
+ */
+const de_ResourceTypesOutput = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1485,7 +1652,10 @@ const deserializeAws_restJson1ResourceTypesOutput = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_restJson1TagMapOutput = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TagMapOutput
+ */
+const de_TagMapOutput = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;

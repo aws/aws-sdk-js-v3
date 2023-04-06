@@ -18,8 +18,8 @@ import {
   ListAssociatedRoute53HealthChecksResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommand,
-  serializeAws_restJson1ListAssociatedRoute53HealthChecksCommand,
+  de_ListAssociatedRoute53HealthChecksCommand,
+  se_ListAssociatedRoute53HealthChecksCommand,
 } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
@@ -143,7 +143,7 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
     input: ListAssociatedRoute53HealthChecksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssociatedRoute53HealthChecksCommand(input, context);
+    return se_ListAssociatedRoute53HealthChecksCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAssociatedRoute53HealthChecksCommandOutput> {
-    return deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommand(output, context);
+    return de_ListAssociatedRoute53HealthChecksCommand(output, context);
   }
 
   // Start section: command_body_extra

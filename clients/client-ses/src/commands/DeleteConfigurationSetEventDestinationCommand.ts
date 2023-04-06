@@ -18,8 +18,8 @@ import {
   DeleteConfigurationSetEventDestinationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteConfigurationSetEventDestinationCommand,
-  serializeAws_queryDeleteConfigurationSetEventDestinationCommand,
+  de_DeleteConfigurationSetEventDestinationCommand,
+  se_DeleteConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -139,7 +139,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     input: DeleteConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteConfigurationSetEventDestinationCommand(input, context);
+    return se_DeleteConfigurationSetEventDestinationCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_queryDeleteConfigurationSetEventDestinationCommand(output, context);
+    return de_DeleteConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

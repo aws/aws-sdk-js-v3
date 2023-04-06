@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { UpdateDataCatalogInput, UpdateDataCatalogOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDataCatalogCommand,
-  serializeAws_json1_1UpdateDataCatalogCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDataCatalogCommand, se_UpdateDataCatalogCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class UpdateDataCatalogCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDataCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDataCatalogCommand(input, context);
+    return se_UpdateDataCatalogCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataCatalogCommandOutput> {
-    return deserializeAws_json1_1UpdateDataCatalogCommand(output, context);
+    return de_UpdateDataCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

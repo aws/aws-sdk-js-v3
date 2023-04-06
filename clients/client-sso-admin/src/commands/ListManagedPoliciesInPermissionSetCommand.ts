@@ -18,8 +18,8 @@ import {
   ListManagedPoliciesInPermissionSetResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListManagedPoliciesInPermissionSetCommand,
-  serializeAws_json1_1ListManagedPoliciesInPermissionSetCommand,
+  de_ListManagedPoliciesInPermissionSetCommand,
+  se_ListManagedPoliciesInPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -148,7 +148,7 @@ export class ListManagedPoliciesInPermissionSetCommand extends $Command<
     input: ListManagedPoliciesInPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListManagedPoliciesInPermissionSetCommand(input, context);
+    return se_ListManagedPoliciesInPermissionSetCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class ListManagedPoliciesInPermissionSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListManagedPoliciesInPermissionSetCommandOutput> {
-    return deserializeAws_json1_1ListManagedPoliciesInPermissionSetCommand(output, context);
+    return de_ListManagedPoliciesInPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

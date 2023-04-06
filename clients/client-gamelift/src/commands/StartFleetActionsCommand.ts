@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { StartFleetActionsInput, StartFleetActionsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartFleetActionsCommand,
-  serializeAws_json1_1StartFleetActionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartFleetActionsCommand, se_StartFleetActionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class StartFleetActionsCommand extends $Command<
    * @internal
    */
   private serialize(input: StartFleetActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartFleetActionsCommand(input, context);
+    return se_StartFleetActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartFleetActionsCommandOutput> {
-    return deserializeAws_json1_1StartFleetActionsCommand(output, context);
+    return de_StartFleetActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

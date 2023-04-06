@@ -19,8 +19,8 @@ import {
   ListTrafficPolicyInstancesByHostedZoneResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand,
-  serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand,
+  de_ListTrafficPolicyInstancesByHostedZoneCommand,
+  se_ListTrafficPolicyInstancesByHostedZoneCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
@@ -154,7 +154,7 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     input: ListTrafficPolicyInstancesByHostedZoneCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(input, context);
+    return se_ListTrafficPolicyInstancesByHostedZoneCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> {
-    return deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand(output, context);
+    return de_ListTrafficPolicyInstancesByHostedZoneCommand(output, context);
   }
 
   // Start section: command_body_extra

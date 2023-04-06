@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteDomainConfigurationRequest, DeleteDomainConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDomainConfigurationCommand,
-  serializeAws_restJson1DeleteDomainConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDomainConfigurationCommand, se_DeleteDomainConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,7 +136,7 @@ export class DeleteDomainConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDomainConfigurationCommand(input, context);
+    return se_DeleteDomainConfigurationCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class DeleteDomainConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteDomainConfigurationCommand(output, context);
+    return de_DeleteDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

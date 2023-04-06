@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListFolderMembersRequest, ListFolderMembersResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1ListFolderMembersCommand,
-  serializeAws_restJson1ListFolderMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFolderMembersCommand, se_ListFolderMembersCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -150,14 +147,14 @@ export class ListFolderMembersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFolderMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFolderMembersCommand(input, context);
+    return se_ListFolderMembersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFolderMembersCommandOutput> {
-    return deserializeAws_restJson1ListFolderMembersCommand(output, context);
+    return de_ListFolderMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

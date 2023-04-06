@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { ListDeploymentConfigsInput, ListDeploymentConfigsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeploymentConfigsCommand,
-  serializeAws_json1_1ListDeploymentConfigsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDeploymentConfigsCommand, se_ListDeploymentConfigsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class ListDeploymentConfigsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDeploymentConfigsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeploymentConfigsCommand(input, context);
+    return se_ListDeploymentConfigsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentConfigsCommandOutput> {
-    return deserializeAws_json1_1ListDeploymentConfigsCommand(output, context);
+    return de_ListDeploymentConfigsCommand(output, context);
   }
 
   // Start section: command_body_extra

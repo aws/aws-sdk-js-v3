@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { ListProtectedResourcesInput, ListProtectedResourcesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProtectedResourcesCommand,
-  serializeAws_restJson1ListProtectedResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListProtectedResourcesCommand, se_ListProtectedResourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class ListProtectedResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProtectedResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProtectedResourcesCommand(input, context);
+    return se_ListProtectedResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectedResourcesCommandOutput> {
-    return deserializeAws_restJson1ListProtectedResourcesCommand(output, context);
+    return de_ListProtectedResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

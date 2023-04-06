@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateOpenIDConnectProviderThumbprintRequest } from "../models/models_1";
 import {
-  deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,
-  serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,
+  de_UpdateOpenIDConnectProviderThumbprintCommand,
+  se_UpdateOpenIDConnectProviderThumbprintCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -161,7 +161,7 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     input: UpdateOpenIDConnectProviderThumbprintCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(input, context);
+    return se_UpdateOpenIDConnectProviderThumbprintCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> {
-    return deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand(output, context);
+    return de_UpdateOpenIDConnectProviderThumbprintCommand(output, context);
   }
 
   // Start section: command_body_extra

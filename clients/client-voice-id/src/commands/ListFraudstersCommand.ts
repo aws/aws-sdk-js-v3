@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListFraudstersRequest, ListFraudstersResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListFraudstersCommand,
-  serializeAws_json1_0ListFraudstersCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListFraudstersCommand, se_ListFraudstersCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -144,14 +141,14 @@ export class ListFraudstersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFraudstersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListFraudstersCommand(input, context);
+    return se_ListFraudstersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFraudstersCommandOutput> {
-    return deserializeAws_json1_0ListFraudstersCommand(output, context);
+    return de_ListFraudstersCommand(output, context);
   }
 
   // Start section: command_body_extra

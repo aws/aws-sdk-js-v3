@@ -15,10 +15,7 @@ import {
 
 import { UpdateLayerRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateLayerCommand,
-  serializeAws_json1_1UpdateLayerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateLayerCommand, se_UpdateLayerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -195,14 +192,14 @@ export class UpdateLayerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLayerCommand(input, context);
+    return se_UpdateLayerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLayerCommandOutput> {
-    return deserializeAws_json1_1UpdateLayerCommand(output, context);
+    return de_UpdateLayerCommand(output, context);
   }
 
   // Start section: command_body_extra

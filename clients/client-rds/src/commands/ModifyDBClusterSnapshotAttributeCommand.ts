@@ -15,8 +15,8 @@ import {
 
 import { ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult } from "../models/models_1";
 import {
-  deserializeAws_queryModifyDBClusterSnapshotAttributeCommand,
-  serializeAws_queryModifyDBClusterSnapshotAttributeCommand,
+  de_ModifyDBClusterSnapshotAttributeCommand,
+  se_ModifyDBClusterSnapshotAttributeCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -93,28 +93,34 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  *  <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
  *
  *
- * @example To add or remove access to a manual DB cluster snapshot
+ * @example To modify a DB cluster snapshot attribute
  * ```javascript
- * // The following example gives two AWS accounts access to a manual DB cluster snapshot and ensures that the DB cluster snapshot is private by removing the value "all".
+ * // The following example makes changes to the specified DB cluster snapshot attribute.
  * const input = {
  *   "AttributeName": "restore",
- *   "DBClusterSnapshotIdentifier": "manual-cluster-snapshot1",
+ *   "DBClusterSnapshotIdentifier": "myclustersnapshot",
  *   "ValuesToAdd": [
- *     "123451234512",
  *     "123456789012"
- *   ],
- *   "ValuesToRemove": [
- *     "all"
  *   ]
  * };
  * const command = new ModifyDBClusterSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBClusterSnapshotAttributesResult": {}
+ *   "DBClusterSnapshotAttributesResult": {
+ *     "DBClusterSnapshotAttributes": [
+ *       {
+ *         "AttributeName": "restore",
+ *         "AttributeValues": [
+ *           "123456789012"
+ *         ]
+ *       }
+ *     ],
+ *     "DBClusterSnapshotIdentifier": "myclustersnapshot"
+ *   }
  * }
  * *\/
- * // example id: to-add-or-remove-access-to-a-manual-db-cluster-snapshot-1473889426431
+ * // example id: to-modify-a-db-cluster-snapshot-attribute-1680310358770
  * ```
  *
  */
@@ -184,7 +190,7 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     input: ModifyDBClusterSnapshotAttributeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBClusterSnapshotAttributeCommand(input, context);
+    return se_ModifyDBClusterSnapshotAttributeCommand(input, context);
   }
 
   /**
@@ -194,7 +200,7 @@ export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> {
-    return deserializeAws_queryModifyDBClusterSnapshotAttributeCommand(output, context);
+    return de_ModifyDBClusterSnapshotAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

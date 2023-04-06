@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSchemasRequest, ListSchemasResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSchemasCommand,
-  serializeAws_restJson1ListSchemasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSchemasCommand, se_ListSchemasCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -131,14 +128,14 @@ export class ListSchemasCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSchemasCommand(input, context);
+    return se_ListSchemasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemasCommandOutput> {
-    return deserializeAws_restJson1ListSchemasCommand(output, context);
+    return de_ListSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

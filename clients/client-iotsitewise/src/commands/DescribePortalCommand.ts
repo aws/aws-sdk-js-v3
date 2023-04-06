@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DescribePortalRequest, DescribePortalResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribePortalCommand,
-  serializeAws_restJson1DescribePortalCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribePortalCommand, se_DescribePortalCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribePortalCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribePortalCommand(input, context);
+    return se_DescribePortalCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePortalCommandOutput> {
-    return deserializeAws_restJson1DescribePortalCommand(output, context);
+    return de_DescribePortalCommand(output, context);
   }
 
   // Start section: command_body_extra

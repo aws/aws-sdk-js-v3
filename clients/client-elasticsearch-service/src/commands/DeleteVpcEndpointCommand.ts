@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { DeleteVpcEndpointRequest, DeleteVpcEndpointResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVpcEndpointCommand,
-  serializeAws_restJson1DeleteVpcEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVpcEndpointCommand, se_DeleteVpcEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteVpcEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVpcEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVpcEndpointCommand(input, context);
+    return se_DeleteVpcEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcEndpointCommandOutput> {
-    return deserializeAws_restJson1DeleteVpcEndpointCommand(output, context);
+    return de_DeleteVpcEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

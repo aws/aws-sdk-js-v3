@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { CreateAccessPolicyRequest, CreateAccessPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAccessPolicyCommand,
-  serializeAws_restJson1CreateAccessPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAccessPolicyCommand, se_CreateAccessPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class CreateAccessPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccessPolicyCommand(input, context);
+    return se_CreateAccessPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1CreateAccessPolicyCommand(output, context);
+    return de_CreateAccessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

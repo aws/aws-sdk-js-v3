@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { PutMetricStreamInput, PutMetricStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_queryPutMetricStreamCommand,
-  serializeAws_queryPutMetricStreamCommand,
-} from "../protocols/Aws_query";
+import { de_PutMetricStreamCommand, se_PutMetricStreamCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -201,14 +198,14 @@ export class PutMetricStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: PutMetricStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutMetricStreamCommand(input, context);
+    return se_PutMetricStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutMetricStreamCommandOutput> {
-    return deserializeAws_queryPutMetricStreamCommand(output, context);
+    return de_PutMetricStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

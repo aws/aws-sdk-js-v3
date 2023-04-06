@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { SplitShardInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1SplitShardCommand,
-  serializeAws_json1_1SplitShardCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SplitShardCommand, se_SplitShardCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -192,14 +189,14 @@ export class SplitShardCommand extends $Command<
    * @internal
    */
   private serialize(input: SplitShardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SplitShardCommand(input, context);
+    return se_SplitShardCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SplitShardCommandOutput> {
-    return deserializeAws_json1_1SplitShardCommand(output, context);
+    return de_SplitShardCommand(output, context);
   }
 
   // Start section: command_body_extra

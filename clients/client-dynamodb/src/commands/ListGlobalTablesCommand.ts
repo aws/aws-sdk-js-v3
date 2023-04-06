@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { ListGlobalTablesInput, ListGlobalTablesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListGlobalTablesCommand,
-  serializeAws_json1_0ListGlobalTablesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListGlobalTablesCommand, se_ListGlobalTablesCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListGlobalTablesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGlobalTablesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListGlobalTablesCommand(input, context);
+    return se_ListGlobalTablesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGlobalTablesCommandOutput> {
-    return deserializeAws_json1_0ListGlobalTablesCommand(output, context);
+    return de_ListGlobalTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

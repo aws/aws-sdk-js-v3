@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { DescribeRegistryRequest, DescribeRegistryResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRegistryCommand,
-  serializeAws_json1_1DescribeRegistryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRegistryCommand, se_DescribeRegistryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DescribeRegistryCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRegistryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRegistryCommand(input, context);
+    return se_DescribeRegistryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRegistryCommandOutput> {
-    return deserializeAws_json1_1DescribeRegistryCommand(output, context);
+    return de_DescribeRegistryCommand(output, context);
   }
 
   // Start section: command_body_extra

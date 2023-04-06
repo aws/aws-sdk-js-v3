@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ShutdownGatewayInput, ShutdownGatewayOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ShutdownGatewayCommand,
-  serializeAws_json1_1ShutdownGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ShutdownGatewayCommand, se_ShutdownGatewayCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -167,14 +164,14 @@ export class ShutdownGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: ShutdownGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ShutdownGatewayCommand(input, context);
+    return se_ShutdownGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ShutdownGatewayCommandOutput> {
-    return deserializeAws_json1_1ShutdownGatewayCommand(output, context);
+    return de_ShutdownGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

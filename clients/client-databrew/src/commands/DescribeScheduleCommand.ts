@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { DescribeScheduleRequest, DescribeScheduleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeScheduleCommand,
-  serializeAws_restJson1DescribeScheduleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeScheduleCommand, se_DescribeScheduleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DescribeScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeScheduleCommand(input, context);
+    return se_DescribeScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduleCommandOutput> {
-    return deserializeAws_restJson1DescribeScheduleCommand(output, context);
+    return de_DescribeScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

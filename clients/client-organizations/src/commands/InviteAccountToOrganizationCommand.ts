@@ -20,10 +20,7 @@ import {
   InviteAccountToOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1InviteAccountToOrganizationCommand,
-  serializeAws_json1_1InviteAccountToOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_InviteAccountToOrganizationCommand, se_InviteAccountToOrganizationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -628,7 +625,7 @@ export class InviteAccountToOrganizationCommand extends $Command<
    * @internal
    */
   private serialize(input: InviteAccountToOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InviteAccountToOrganizationCommand(input, context);
+    return se_InviteAccountToOrganizationCommand(input, context);
   }
 
   /**
@@ -638,7 +635,7 @@ export class InviteAccountToOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InviteAccountToOrganizationCommandOutput> {
-    return deserializeAws_json1_1InviteAccountToOrganizationCommand(output, context);
+    return de_InviteAccountToOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

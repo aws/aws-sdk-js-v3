@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import { ListServerNeighborsRequest, ListServerNeighborsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListServerNeighborsCommand,
-  serializeAws_json1_1ListServerNeighborsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListServerNeighborsCommand, se_ListServerNeighborsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListServerNeighborsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListServerNeighborsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServerNeighborsCommand(input, context);
+    return se_ListServerNeighborsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServerNeighborsCommandOutput> {
-    return deserializeAws_json1_1ListServerNeighborsCommand(output, context);
+    return de_ListServerNeighborsCommand(output, context);
   }
 
   // Start section: command_body_extra

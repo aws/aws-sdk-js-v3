@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { GetMinuteUsageRequest, GetMinuteUsageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMinuteUsageCommand,
-  serializeAws_restJson1GetMinuteUsageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMinuteUsageCommand, se_GetMinuteUsageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetMinuteUsageCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMinuteUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMinuteUsageCommand(input, context);
+    return se_GetMinuteUsageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMinuteUsageCommandOutput> {
-    return deserializeAws_restJson1GetMinuteUsageCommand(output, context);
+    return de_GetMinuteUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

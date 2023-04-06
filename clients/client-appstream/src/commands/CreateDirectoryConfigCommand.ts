@@ -20,10 +20,7 @@ import {
   CreateDirectoryConfigResult,
   CreateDirectoryConfigResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDirectoryConfigCommand,
-  serializeAws_json1_1CreateDirectoryConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDirectoryConfigCommand, se_CreateDirectoryConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class CreateDirectoryConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDirectoryConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDirectoryConfigCommand(input, context);
+    return se_CreateDirectoryConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDirectoryConfigCommandOutput> {
-    return deserializeAws_json1_1CreateDirectoryConfigCommand(output, context);
+    return de_CreateDirectoryConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

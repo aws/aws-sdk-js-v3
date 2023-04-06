@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeletePolicyVersionRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeletePolicyVersionCommand,
-  serializeAws_queryDeletePolicyVersionCommand,
-} from "../protocols/Aws_query";
+import { de_DeletePolicyVersionCommand, se_DeletePolicyVersionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class DeletePolicyVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeletePolicyVersionCommand(input, context);
+    return se_DeletePolicyVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePolicyVersionCommandOutput> {
-    return deserializeAws_queryDeletePolicyVersionCommand(output, context);
+    return de_DeletePolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

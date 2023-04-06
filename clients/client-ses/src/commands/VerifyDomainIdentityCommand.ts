@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { VerifyDomainIdentityRequest, VerifyDomainIdentityResponse } from "../models/models_0";
-import {
-  deserializeAws_queryVerifyDomainIdentityCommand,
-  serializeAws_queryVerifyDomainIdentityCommand,
-} from "../protocols/Aws_query";
+import { de_VerifyDomainIdentityCommand, se_VerifyDomainIdentityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -142,14 +139,14 @@ export class VerifyDomainIdentityCommand extends $Command<
    * @internal
    */
   private serialize(input: VerifyDomainIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryVerifyDomainIdentityCommand(input, context);
+    return se_VerifyDomainIdentityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyDomainIdentityCommandOutput> {
-    return deserializeAws_queryVerifyDomainIdentityCommand(output, context);
+    return de_VerifyDomainIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

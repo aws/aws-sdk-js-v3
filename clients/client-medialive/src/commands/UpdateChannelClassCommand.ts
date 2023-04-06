@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { UpdateChannelClassRequest, UpdateChannelClassResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateChannelClassCommand,
-  serializeAws_restJson1UpdateChannelClassCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateChannelClassCommand, se_UpdateChannelClassCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class UpdateChannelClassCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateChannelClassCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateChannelClassCommand(input, context);
+    return se_UpdateChannelClassCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelClassCommandOutput> {
-    return deserializeAws_restJson1UpdateChannelClassCommand(output, context);
+    return de_UpdateChannelClassCommand(output, context);
   }
 
   // Start section: command_body_extra

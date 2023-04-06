@@ -16,10 +16,7 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { ListWirelessDevicesRequest } from "../models/models_0";
 import { ListWirelessDevicesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListWirelessDevicesCommand,
-  serializeAws_restJson1ListWirelessDevicesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListWirelessDevicesCommand, se_ListWirelessDevicesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListWirelessDevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListWirelessDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWirelessDevicesCommand(input, context);
+    return se_ListWirelessDevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWirelessDevicesCommandOutput> {
-    return deserializeAws_restJson1ListWirelessDevicesCommand(output, context);
+    return de_ListWirelessDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

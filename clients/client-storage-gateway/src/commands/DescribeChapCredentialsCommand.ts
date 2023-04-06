@@ -18,10 +18,7 @@ import {
   DescribeChapCredentialsOutput,
   DescribeChapCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeChapCredentialsCommand,
-  serializeAws_json1_1DescribeChapCredentialsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeChapCredentialsCommand, se_DescribeChapCredentialsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -157,14 +154,14 @@ export class DescribeChapCredentialsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeChapCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeChapCredentialsCommand(input, context);
+    return se_DescribeChapCredentialsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChapCredentialsCommandOutput> {
-    return deserializeAws_json1_1DescribeChapCredentialsCommand(output, context);
+    return de_DescribeChapCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

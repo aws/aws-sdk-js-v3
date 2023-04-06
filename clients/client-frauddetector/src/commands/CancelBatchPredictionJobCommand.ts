@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { CancelBatchPredictionJobRequest, CancelBatchPredictionJobResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelBatchPredictionJobCommand,
-  serializeAws_json1_1CancelBatchPredictionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelBatchPredictionJobCommand, se_CancelBatchPredictionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class CancelBatchPredictionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelBatchPredictionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelBatchPredictionJobCommand(input, context);
+    return se_CancelBatchPredictionJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelBatchPredictionJobCommandOutput> {
-    return deserializeAws_json1_1CancelBatchPredictionJobCommand(output, context);
+    return de_CancelBatchPredictionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

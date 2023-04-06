@@ -16,8 +16,8 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { AssociateApprovalRuleTemplateWithRepositoryInput } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand,
-  serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand,
+  de_AssociateApprovalRuleTemplateWithRepositoryCommand,
+  se_AssociateApprovalRuleTemplateWithRepositoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -184,7 +184,7 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     input: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(input, context);
+    return se_AssociateApprovalRuleTemplateWithRepositoryCommand(input, context);
   }
 
   /**
@@ -194,7 +194,7 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> {
-    return deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(output, context);
+    return de_AssociateApprovalRuleTemplateWithRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

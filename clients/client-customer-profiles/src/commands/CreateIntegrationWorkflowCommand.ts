@@ -15,10 +15,7 @@ import {
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
 import { CreateIntegrationWorkflowRequest, CreateIntegrationWorkflowResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateIntegrationWorkflowCommand,
-  serializeAws_restJson1CreateIntegrationWorkflowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateIntegrationWorkflowCommand, se_CreateIntegrationWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -218,7 +215,7 @@ export class CreateIntegrationWorkflowCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIntegrationWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateIntegrationWorkflowCommand(input, context);
+    return se_CreateIntegrationWorkflowCommand(input, context);
   }
 
   /**
@@ -228,7 +225,7 @@ export class CreateIntegrationWorkflowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateIntegrationWorkflowCommandOutput> {
-    return deserializeAws_restJson1CreateIntegrationWorkflowCommand(output, context);
+    return de_CreateIntegrationWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

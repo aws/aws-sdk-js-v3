@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateLabelsRequest, CreateLabelsRequestFilterSensitiveLog, CreateLabelsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLabelsCommand,
-  serializeAws_restJson1CreateLabelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateLabelsCommand, se_CreateLabelsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -144,14 +141,14 @@ export class CreateLabelsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLabelsCommand(input, context);
+    return se_CreateLabelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLabelsCommandOutput> {
-    return deserializeAws_restJson1CreateLabelsCommand(output, context);
+    return de_CreateLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

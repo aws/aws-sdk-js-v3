@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteThingTypeRequest, DeleteThingTypeResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteThingTypeCommand,
-  serializeAws_restJson1DeleteThingTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteThingTypeCommand, se_DeleteThingTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteThingTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteThingTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteThingTypeCommand(input, context);
+    return se_DeleteThingTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThingTypeCommandOutput> {
-    return deserializeAws_restJson1DeleteThingTypeCommand(output, context);
+    return de_DeleteThingTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

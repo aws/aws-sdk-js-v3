@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CopyOptionGroupMessage, CopyOptionGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCopyOptionGroupCommand,
-  serializeAws_queryCopyOptionGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CopyOptionGroupCommand, se_CopyOptionGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -75,20 +72,28 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  *
  * @example To copy an option group
  * ```javascript
- * // This example copies an option group.
+ * // The following example makes a copy of an option group.
  * const input = {
- *   "SourceOptionGroupIdentifier": "mymysqloptiongroup",
- *   "TargetOptionGroupDescription": "My MySQL option group copy",
- *   "TargetOptionGroupIdentifier": "mymysqloptiongroup-copy"
+ *   "SourceOptionGroupIdentifier": "myoptiongroup",
+ *   "TargetOptionGroupDescription": "My option group copy",
+ *   "TargetOptionGroupIdentifier": "new-option-group"
  * };
  * const command = new CopyOptionGroupCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "OptionGroup": {}
+ *   "OptionGroup": {
+ *     "AllowsVpcAndNonVpcInstanceMemberships": true,
+ *     "EngineName": "oracle-ee",
+ *     "MajorEngineVersion": "11.2",
+ *     "OptionGroupArn": "arn:aws:rds:us-east-1:123456789012:og:new-option-group",
+ *     "OptionGroupDescription": "My option group copy",
+ *     "OptionGroupName": "new-option-group",
+ *     "Options": []
+ *   }
  * }
  * *\/
- * // example id: copy-option-group-8d5c01c3-8846-4e9c-a4b0-1b7237f7d0ec
+ * // example id: to-copy-an-option-group-1679695800102
  * ```
  *
  */
@@ -155,14 +160,14 @@ export class CopyOptionGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyOptionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCopyOptionGroupCommand(input, context);
+    return se_CopyOptionGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyOptionGroupCommandOutput> {
-    return deserializeAws_queryCopyOptionGroupCommand(output, context);
+    return de_CopyOptionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

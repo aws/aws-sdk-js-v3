@@ -15,10 +15,7 @@ import {
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { StopAccessLoggingInput, StopAccessLoggingOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopAccessLoggingCommand,
-  serializeAws_json1_1StopAccessLoggingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopAccessLoggingCommand, se_StopAccessLoggingCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class StopAccessLoggingCommand extends $Command<
    * @internal
    */
   private serialize(input: StopAccessLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopAccessLoggingCommand(input, context);
+    return se_StopAccessLoggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAccessLoggingCommandOutput> {
-    return deserializeAws_json1_1StopAccessLoggingCommand(output, context);
+    return de_StopAccessLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

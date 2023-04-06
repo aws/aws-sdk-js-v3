@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteSigningCertificateRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSigningCertificateCommand,
-  serializeAws_queryDeleteSigningCertificateCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteSigningCertificateCommand, se_DeleteSigningCertificateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class DeleteSigningCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSigningCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSigningCertificateCommand(input, context);
+    return se_DeleteSigningCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSigningCertificateCommandOutput> {
-    return deserializeAws_queryDeleteSigningCertificateCommand(output, context);
+    return de_DeleteSigningCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

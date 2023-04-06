@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { DeleteBotVersionRequest, DeleteBotVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBotVersionCommand,
-  serializeAws_restJson1DeleteBotVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteBotVersionCommand, se_DeleteBotVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteBotVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBotVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBotVersionCommand(input, context);
+    return se_DeleteBotVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBotVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteBotVersionCommand(output, context);
+    return de_DeleteBotVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

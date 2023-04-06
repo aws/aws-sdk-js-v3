@@ -15,10 +15,7 @@ import {
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { DescribeEventsMessage, EventsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEventsCommand,
-  serializeAws_queryDescribeEventsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeEventsCommand, se_DescribeEventsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -186,14 +183,14 @@ export class DescribeEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventsCommand(input, context);
+    return se_DescribeEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventsCommandOutput> {
-    return deserializeAws_queryDescribeEventsCommand(output, context);
+    return de_DescribeEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

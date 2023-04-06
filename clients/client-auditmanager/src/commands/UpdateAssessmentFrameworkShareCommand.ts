@@ -16,8 +16,8 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { UpdateAssessmentFrameworkShareRequest, UpdateAssessmentFrameworkShareResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateAssessmentFrameworkShareCommand,
-  serializeAws_restJson1UpdateAssessmentFrameworkShareCommand,
+  de_UpdateAssessmentFrameworkShareCommand,
+  se_UpdateAssessmentFrameworkShareCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class UpdateAssessmentFrameworkShareCommand extends $Command<
     input: UpdateAssessmentFrameworkShareCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateAssessmentFrameworkShareCommand(input, context);
+    return se_UpdateAssessmentFrameworkShareCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class UpdateAssessmentFrameworkShareCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAssessmentFrameworkShareCommandOutput> {
-    return deserializeAws_restJson1UpdateAssessmentFrameworkShareCommand(output, context);
+    return de_UpdateAssessmentFrameworkShareCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DescribeUsersRequest, DescribeUsersResult, DescribeUsersResultFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeUsersCommand,
-  serializeAws_json1_1DescribeUsersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeUsersCommand, se_DescribeUsersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DescribeUsersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUsersCommand(input, context);
+    return se_DescribeUsersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUsersCommandOutput> {
-    return deserializeAws_json1_1DescribeUsersCommand(output, context);
+    return de_DescribeUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

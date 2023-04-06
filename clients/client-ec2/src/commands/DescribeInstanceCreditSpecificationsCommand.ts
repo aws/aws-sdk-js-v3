@@ -19,8 +19,8 @@ import {
   DescribeInstanceCreditSpecificationsResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DescribeInstanceCreditSpecificationsCommand,
-  serializeAws_ec2DescribeInstanceCreditSpecificationsCommand,
+  de_DescribeInstanceCreditSpecificationsCommand,
+  se_DescribeInstanceCreditSpecificationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -160,7 +160,7 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
     input: DescribeInstanceCreditSpecificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstanceCreditSpecificationsCommand(input, context);
+    return se_DescribeInstanceCreditSpecificationsCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceCreditSpecificationsCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceCreditSpecificationsCommand(output, context);
+    return de_DescribeInstanceCreditSpecificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

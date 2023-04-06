@@ -15,10 +15,7 @@ import {
 
 import { DeleteJourneyRequest, DeleteJourneyResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteJourneyCommand,
-  serializeAws_restJson1DeleteJourneyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteJourneyCommand, se_DeleteJourneyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteJourneyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteJourneyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteJourneyCommand(input, context);
+    return se_DeleteJourneyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJourneyCommandOutput> {
-    return deserializeAws_restJson1DeleteJourneyCommand(output, context);
+    return de_DeleteJourneyCommand(output, context);
   }
 
   // Start section: command_body_extra

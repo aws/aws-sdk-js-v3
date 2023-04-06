@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { RemovePermissionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemovePermissionCommand,
-  serializeAws_restJson1RemovePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemovePermissionCommand, se_RemovePermissionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class RemovePermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: RemovePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemovePermissionCommand(input, context);
+    return se_RemovePermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemovePermissionCommandOutput> {
-    return deserializeAws_restJson1RemovePermissionCommand(output, context);
+    return de_RemovePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

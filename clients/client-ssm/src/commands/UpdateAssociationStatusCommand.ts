@@ -18,10 +18,7 @@ import {
   UpdateAssociationStatusResult,
   UpdateAssociationStatusResultFilterSensitiveLog,
 } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateAssociationStatusCommand,
-  serializeAws_json1_1UpdateAssociationStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateAssociationStatusCommand, se_UpdateAssociationStatusCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -171,14 +168,14 @@ export class UpdateAssociationStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAssociationStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAssociationStatusCommand(input, context);
+    return se_UpdateAssociationStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAssociationStatusCommandOutput> {
-    return deserializeAws_json1_1UpdateAssociationStatusCommand(output, context);
+    return de_UpdateAssociationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

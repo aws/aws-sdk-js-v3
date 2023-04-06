@@ -15,10 +15,7 @@ import {
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import { UpdatePermissionsRequest, UpdatePermissionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePermissionsCommand,
-  serializeAws_restJson1UpdatePermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePermissionsCommand, se_UpdatePermissionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class UpdatePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePermissionsCommand(input, context);
+    return se_UpdatePermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePermissionsCommandOutput> {
-    return deserializeAws_restJson1UpdatePermissionsCommand(output, context);
+    return de_UpdatePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

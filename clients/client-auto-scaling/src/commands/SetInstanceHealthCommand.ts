@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { SetInstanceHealthQuery } from "../models/models_0";
-import {
-  deserializeAws_querySetInstanceHealthCommand,
-  serializeAws_querySetInstanceHealthCommand,
-} from "../protocols/Aws_query";
+import { de_SetInstanceHealthCommand, se_SetInstanceHealthCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class SetInstanceHealthCommand extends $Command<
    * @internal
    */
   private serialize(input: SetInstanceHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetInstanceHealthCommand(input, context);
+    return se_SetInstanceHealthCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetInstanceHealthCommandOutput> {
-    return deserializeAws_querySetInstanceHealthCommand(output, context);
+    return de_SetInstanceHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

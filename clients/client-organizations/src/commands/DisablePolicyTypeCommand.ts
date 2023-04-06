@@ -15,10 +15,7 @@ import {
 
 import { DisablePolicyTypeRequest, DisablePolicyTypeResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DisablePolicyTypeCommand,
-  serializeAws_json1_1DisablePolicyTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisablePolicyTypeCommand, se_DisablePolicyTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -497,14 +494,14 @@ export class DisablePolicyTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DisablePolicyTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisablePolicyTypeCommand(input, context);
+    return se_DisablePolicyTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisablePolicyTypeCommandOutput> {
-    return deserializeAws_json1_1DisablePolicyTypeCommand(output, context);
+    return de_DisablePolicyTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

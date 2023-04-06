@@ -18,8 +18,8 @@ import {
   UpdateSubscriptionNotificationConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand,
-  serializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand,
+  de_UpdateSubscriptionNotificationConfigurationCommand,
+  se_UpdateSubscriptionNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -170,7 +170,7 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
     input: UpdateSubscriptionNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand(input, context);
+    return se_UpdateSubscriptionNotificationConfigurationCommand(input, context);
   }
 
   /**
@@ -180,7 +180,7 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSubscriptionNotificationConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand(output, context);
+    return de_UpdateSubscriptionNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { DescribeFeatureTransformationRequest, DescribeFeatureTransformationResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
-  deserializeAws_json1_1DescribeFeatureTransformationCommand,
-  serializeAws_json1_1DescribeFeatureTransformationCommand,
+  de_DescribeFeatureTransformationCommand,
+  se_DescribeFeatureTransformationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -128,7 +128,7 @@ export class DescribeFeatureTransformationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFeatureTransformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFeatureTransformationCommand(input, context);
+    return se_DescribeFeatureTransformationCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class DescribeFeatureTransformationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeFeatureTransformationCommandOutput> {
-    return deserializeAws_json1_1DescribeFeatureTransformationCommand(output, context);
+    return de_DescribeFeatureTransformationCommand(output, context);
   }
 
   // Start section: command_body_extra

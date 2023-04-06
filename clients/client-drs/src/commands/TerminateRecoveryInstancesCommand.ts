@@ -19,10 +19,7 @@ import {
   TerminateRecoveryInstancesResponse,
   TerminateRecoveryInstancesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1TerminateRecoveryInstancesCommand,
-  serializeAws_restJson1TerminateRecoveryInstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TerminateRecoveryInstancesCommand, se_TerminateRecoveryInstancesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class TerminateRecoveryInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateRecoveryInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TerminateRecoveryInstancesCommand(input, context);
+    return se_TerminateRecoveryInstancesCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class TerminateRecoveryInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateRecoveryInstancesCommandOutput> {
-    return deserializeAws_restJson1TerminateRecoveryInstancesCommand(output, context);
+    return de_TerminateRecoveryInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

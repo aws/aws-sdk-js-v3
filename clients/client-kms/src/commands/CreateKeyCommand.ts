@@ -15,7 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { CreateKeyRequest, CreateKeyResponse } from "../models/models_0";
-import { deserializeAws_json1_1CreateKeyCommand, serializeAws_json1_1CreateKeyCommand } from "../protocols/Aws_json1_1";
+import { de_CreateKeyCommand, se_CreateKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -696,14 +696,14 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
    * @internal
    */
   private serialize(input: CreateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateKeyCommand(input, context);
+    return se_CreateKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeyCommandOutput> {
-    return deserializeAws_json1_1CreateKeyCommand(output, context);
+    return de_CreateKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

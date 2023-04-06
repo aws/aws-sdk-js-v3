@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListMonitoringExecutionsRequest, ListMonitoringExecutionsResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListMonitoringExecutionsCommand,
-  serializeAws_json1_1ListMonitoringExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListMonitoringExecutionsCommand, se_ListMonitoringExecutionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -134,14 +131,14 @@ export class ListMonitoringExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMonitoringExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMonitoringExecutionsCommand(input, context);
+    return se_ListMonitoringExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitoringExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListMonitoringExecutionsCommand(output, context);
+    return de_ListMonitoringExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

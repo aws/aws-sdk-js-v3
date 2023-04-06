@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeletePartitionRequest, DeletePartitionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeletePartitionCommand,
-  serializeAws_json1_1DeletePartitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePartitionCommand, se_DeletePartitionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeletePartitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePartitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePartitionCommand(input, context);
+    return se_DeletePartitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePartitionCommandOutput> {
-    return deserializeAws_json1_1DeletePartitionCommand(output, context);
+    return de_DeletePartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { ApproveSkillRequest, ApproveSkillResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ApproveSkillCommand,
-  serializeAws_json1_1ApproveSkillCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ApproveSkillCommand, se_ApproveSkillCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ApproveSkillCommand extends $Command<
    * @internal
    */
   private serialize(input: ApproveSkillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ApproveSkillCommand(input, context);
+    return se_ApproveSkillCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ApproveSkillCommandOutput> {
-    return deserializeAws_json1_1ApproveSkillCommand(output, context);
+    return de_ApproveSkillCommand(output, context);
   }
 
   // Start section: command_body_extra

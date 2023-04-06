@@ -15,10 +15,7 @@ import {
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { DescribeObjectsInput, DescribeObjectsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeObjectsCommand,
-  serializeAws_json1_1DescribeObjectsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeObjectsCommand, se_DescribeObjectsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -195,14 +192,14 @@ export class DescribeObjectsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeObjectsCommand(input, context);
+    return se_DescribeObjectsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeObjectsCommandOutput> {
-    return deserializeAws_json1_1DescribeObjectsCommand(output, context);
+    return de_DescribeObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

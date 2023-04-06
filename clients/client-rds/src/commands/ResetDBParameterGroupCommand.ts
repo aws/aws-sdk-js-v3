@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DBParameterGroupNameMessage, ResetDBParameterGroupMessage } from "../models/models_1";
-import {
-  deserializeAws_queryResetDBParameterGroupCommand,
-  serializeAws_queryResetDBParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ResetDBParameterGroupCommand, se_ResetDBParameterGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -91,16 +88,21 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  *             this state.</p>
  *
  *
- * @example To reset the values of a DB parameter group
+ * @example To reset all parameters to their default values
  * ```javascript
- * // This example resets all parameters for the specified DB parameter group to their default values.
+ * // The following example resets all parameter values in a customer-created DB parameter group to their default values.
  * const input = {
- *   "DBParameterGroupName": "mydbparametergroup",
+ *   "DBParameterGroupName": "mypg",
  *   "ResetAllParameters": true
  * };
  * const command = new ResetDBParameterGroupCommand(input);
- * await client.send(command);
- * // example id: reset-db-parameter-group-ed2ed723-de0d-4824-8af5-3c65fa130abf
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBParameterGroupName": "mypg"
+ * }
+ * *\/
+ * // example id: to-reset-all-parameters-to-their-default-values-1680069721142
  * ```
  *
  */
@@ -167,14 +169,14 @@ export class ResetDBParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetDBParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResetDBParameterGroupCommand(input, context);
+    return se_ResetDBParameterGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetDBParameterGroupCommandOutput> {
-    return deserializeAws_queryResetDBParameterGroupCommand(output, context);
+    return de_ResetDBParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

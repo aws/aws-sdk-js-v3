@@ -15,10 +15,7 @@ import {
 
 import { ListSchemasRequest, ListSchemasResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListSchemasCommand,
-  serializeAws_json1_1ListSchemasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSchemasCommand, se_ListSchemasCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class ListSchemasCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSchemasCommand(input, context);
+    return se_ListSchemasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemasCommandOutput> {
-    return deserializeAws_json1_1ListSchemasCommand(output, context);
+    return de_ListSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

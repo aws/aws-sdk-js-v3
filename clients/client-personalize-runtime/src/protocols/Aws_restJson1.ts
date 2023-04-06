@@ -23,7 +23,10 @@ import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from 
 import { InvalidInputException, PredictedItem, Promotion, ResourceNotFoundException } from "../models/models_0";
 import { PersonalizeRuntimeServiceException as __BaseException } from "../models/PersonalizeRuntimeServiceException";
 
-export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
+/**
+ * serializeAws_restJson1GetPersonalizedRankingCommand
+ */
+export const se_GetPersonalizedRankingCommand = async (
   input: GetPersonalizedRankingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -35,12 +38,10 @@ export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.campaignArn != null && { campaignArn: input.campaignArn }),
-    ...(input.context != null && { context: serializeAws_restJson1Context(input.context, context) }),
+    ...(input.context != null && { context: se_Context(input.context, context) }),
     ...(input.filterArn != null && { filterArn: input.filterArn }),
-    ...(input.filterValues != null && {
-      filterValues: serializeAws_restJson1FilterValues(input.filterValues, context),
-    }),
-    ...(input.inputList != null && { inputList: serializeAws_restJson1InputList(input.inputList, context) }),
+    ...(input.filterValues != null && { filterValues: se_FilterValues(input.filterValues, context) }),
+    ...(input.inputList != null && { inputList: se_InputList(input.inputList, context) }),
     ...(input.userId != null && { userId: input.userId }),
   });
   return new __HttpRequest({
@@ -54,7 +55,10 @@ export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRecommendationsCommand = async (
+/**
+ * serializeAws_restJson1GetRecommendationsCommand
+ */
+export const se_GetRecommendationsCommand = async (
   input: GetRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -66,14 +70,12 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.campaignArn != null && { campaignArn: input.campaignArn }),
-    ...(input.context != null && { context: serializeAws_restJson1Context(input.context, context) }),
+    ...(input.context != null && { context: se_Context(input.context, context) }),
     ...(input.filterArn != null && { filterArn: input.filterArn }),
-    ...(input.filterValues != null && {
-      filterValues: serializeAws_restJson1FilterValues(input.filterValues, context),
-    }),
+    ...(input.filterValues != null && { filterValues: se_FilterValues(input.filterValues, context) }),
     ...(input.itemId != null && { itemId: input.itemId }),
     ...(input.numResults != null && { numResults: input.numResults }),
-    ...(input.promotions != null && { promotions: serializeAws_restJson1PromotionList(input.promotions, context) }),
+    ...(input.promotions != null && { promotions: se_PromotionList(input.promotions, context) }),
     ...(input.recommenderArn != null && { recommenderArn: input.recommenderArn }),
     ...(input.userId != null && { userId: input.userId }),
   });
@@ -88,19 +90,22 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   });
 };
 
-export const deserializeAws_restJson1GetPersonalizedRankingCommand = async (
+/**
+ * deserializeAws_restJson1GetPersonalizedRankingCommand
+ */
+export const de_GetPersonalizedRankingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPersonalizedRankingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetPersonalizedRankingCommandError(output, context);
+    return de_GetPersonalizedRankingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.personalizedRanking != null) {
-    contents.personalizedRanking = deserializeAws_restJson1ItemList(data.personalizedRanking, context);
+    contents.personalizedRanking = de_ItemList(data.personalizedRanking, context);
   }
   if (data.recommendationId != null) {
     contents.recommendationId = __expectString(data.recommendationId);
@@ -108,7 +113,10 @@ export const deserializeAws_restJson1GetPersonalizedRankingCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetPersonalizedRankingCommandError = async (
+/**
+ * deserializeAws_restJson1GetPersonalizedRankingCommandError
+ */
+const de_GetPersonalizedRankingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPersonalizedRankingCommandOutput> => {
@@ -120,10 +128,10 @@ const deserializeAws_restJson1GetPersonalizedRankingCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalizeruntime#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalizeruntime#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -135,19 +143,22 @@ const deserializeAws_restJson1GetPersonalizedRankingCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetRecommendationsCommand = async (
+/**
+ * deserializeAws_restJson1GetRecommendationsCommand
+ */
+export const de_GetRecommendationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRecommendationsCommandError(output, context);
+    return de_GetRecommendationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.itemList != null) {
-    contents.itemList = deserializeAws_restJson1ItemList(data.itemList, context);
+    contents.itemList = de_ItemList(data.itemList, context);
   }
   if (data.recommendationId != null) {
     contents.recommendationId = __expectString(data.recommendationId);
@@ -155,7 +166,10 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetRecommendationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetRecommendationsCommandError
+ */
+const de_GetRecommendationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecommendationsCommandOutput> => {
@@ -167,10 +181,10 @@ const deserializeAws_restJson1GetRecommendationsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalizeruntime#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalizeruntime#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -183,7 +197,10 @@ const deserializeAws_restJson1GetRecommendationsCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1InvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
@@ -199,7 +216,10 @@ const deserializeAws_restJson1InvalidInputExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -215,7 +235,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1Context = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Context
+ */
+const se_Context = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -225,7 +248,10 @@ const serializeAws_restJson1Context = (input: Record<string, string>, context: _
   }, {});
 };
 
-const serializeAws_restJson1FilterValues = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FilterValues
+ */
+const se_FilterValues = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -235,7 +261,10 @@ const serializeAws_restJson1FilterValues = (input: Record<string, string>, conte
   }, {});
 };
 
-const serializeAws_restJson1InputList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1InputList
+ */
+const se_InputList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -243,38 +272,48 @@ const serializeAws_restJson1InputList = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_restJson1Promotion = (input: Promotion, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Promotion
+ */
+const se_Promotion = (input: Promotion, context: __SerdeContext): any => {
   return {
     ...(input.filterArn != null && { filterArn: input.filterArn }),
-    ...(input.filterValues != null && {
-      filterValues: serializeAws_restJson1FilterValues(input.filterValues, context),
-    }),
+    ...(input.filterValues != null && { filterValues: se_FilterValues(input.filterValues, context) }),
     ...(input.name != null && { name: input.name }),
     ...(input.percentPromotedItems != null && { percentPromotedItems: input.percentPromotedItems }),
   };
 };
 
-const serializeAws_restJson1PromotionList = (input: Promotion[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PromotionList
+ */
+const se_PromotionList = (input: Promotion[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Promotion(entry, context);
+      return se_Promotion(entry, context);
     });
 };
 
-const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext): PredictedItem[] => {
+/**
+ * deserializeAws_restJson1ItemList
+ */
+const de_ItemList = (output: any, context: __SerdeContext): PredictedItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1PredictedItem(entry, context);
+      return de_PredictedItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
+/**
+ * deserializeAws_restJson1PredictedItem
+ */
+const de_PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
   return {
     itemId: __expectString(output.itemId),
     promotionName: __expectString(output.promotionName),

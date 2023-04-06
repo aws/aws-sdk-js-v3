@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HttpPayloadTraitsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlHttpPayloadTraitsCommand,
-  serializeAws_restXmlHttpPayloadTraitsCommand,
-} from "../protocols/Aws_restXml";
+import { de_HttpPayloadTraitsCommand, se_HttpPayloadTraitsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -111,14 +108,14 @@ export class HttpPayloadTraitsCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpPayloadTraitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpPayloadTraitsCommand(input, context);
+    return se_HttpPayloadTraitsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPayloadTraitsCommandOutput> {
-    return deserializeAws_restXmlHttpPayloadTraitsCommand(output, context);
+    return de_HttpPayloadTraitsCommand(output, context);
   }
 
   // Start section: command_body_extra

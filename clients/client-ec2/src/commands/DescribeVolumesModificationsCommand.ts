@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeVolumesModificationsRequest, DescribeVolumesModificationsResult } from "../models/models_5";
-import {
-  deserializeAws_ec2DescribeVolumesModificationsCommand,
-  serializeAws_ec2DescribeVolumesModificationsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeVolumesModificationsCommand, se_DescribeVolumesModificationsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class DescribeVolumesModificationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVolumesModificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVolumesModificationsCommand(input, context);
+    return se_DescribeVolumesModificationsCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class DescribeVolumesModificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVolumesModificationsCommandOutput> {
-    return deserializeAws_ec2DescribeVolumesModificationsCommand(output, context);
+    return de_DescribeVolumesModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

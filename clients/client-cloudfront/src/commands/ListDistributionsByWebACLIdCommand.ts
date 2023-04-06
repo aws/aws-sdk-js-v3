@@ -19,10 +19,7 @@ import {
   ListDistributionsByWebACLIdResult,
   ListDistributionsByWebACLIdResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlListDistributionsByWebACLIdCommand,
-  serializeAws_restXmlListDistributionsByWebACLIdCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListDistributionsByWebACLIdCommand, se_ListDistributionsByWebACLIdCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDistributionsByWebACLIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByWebACLIdCommand(input, context);
+    return se_ListDistributionsByWebACLIdCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class ListDistributionsByWebACLIdCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByWebACLIdCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByWebACLIdCommand(output, context);
+    return de_ListDistributionsByWebACLIdCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAssistantAssociationRequest, DeleteAssistantAssociationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAssistantAssociationCommand,
-  serializeAws_restJson1DeleteAssistantAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAssistantAssociationCommand, se_DeleteAssistantAssociationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -130,7 +127,7 @@ export class DeleteAssistantAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAssistantAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAssistantAssociationCommand(input, context);
+    return se_DeleteAssistantAssociationCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class DeleteAssistantAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAssistantAssociationCommandOutput> {
-    return deserializeAws_restJson1DeleteAssistantAssociationCommand(output, context);
+    return de_DeleteAssistantAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisassociateTrunkInterfaceRequest, DisassociateTrunkInterfaceResult } from "../models/models_5";
-import {
-  deserializeAws_ec2DisassociateTrunkInterfaceCommand,
-  serializeAws_ec2DisassociateTrunkInterfaceCommand,
-} from "../protocols/Aws_ec2";
+import { de_DisassociateTrunkInterfaceCommand, se_DisassociateTrunkInterfaceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class DisassociateTrunkInterfaceCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateTrunkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateTrunkInterfaceCommand(input, context);
+    return se_DisassociateTrunkInterfaceCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class DisassociateTrunkInterfaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTrunkInterfaceCommandOutput> {
-    return deserializeAws_ec2DisassociateTrunkInterfaceCommand(output, context);
+    return de_DisassociateTrunkInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { InitiateMultipartUploadInput, InitiateMultipartUploadOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1InitiateMultipartUploadCommand,
-  serializeAws_restJson1InitiateMultipartUploadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InitiateMultipartUploadCommand, se_InitiateMultipartUploadCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -188,14 +185,14 @@ export class InitiateMultipartUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: InitiateMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InitiateMultipartUploadCommand(input, context);
+    return se_InitiateMultipartUploadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateMultipartUploadCommandOutput> {
-    return deserializeAws_restJson1InitiateMultipartUploadCommand(output, context);
+    return de_InitiateMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { StartVirtualMachinesMetadataSyncInput, StartVirtualMachinesMetadataSyncOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0StartVirtualMachinesMetadataSyncCommand,
-  serializeAws_json1_0StartVirtualMachinesMetadataSyncCommand,
+  de_StartVirtualMachinesMetadataSyncCommand,
+  se_StartVirtualMachinesMetadataSyncCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -141,7 +141,7 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
     input: StartVirtualMachinesMetadataSyncCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartVirtualMachinesMetadataSyncCommand(input, context);
+    return se_StartVirtualMachinesMetadataSyncCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartVirtualMachinesMetadataSyncCommandOutput> {
-    return deserializeAws_json1_0StartVirtualMachinesMetadataSyncCommand(output, context);
+    return de_StartVirtualMachinesMetadataSyncCommand(output, context);
   }
 
   // Start section: command_body_extra

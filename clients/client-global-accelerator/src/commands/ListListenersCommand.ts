@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { ListListenersRequest, ListListenersResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListListenersCommand,
-  serializeAws_json1_1ListListenersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListListenersCommand, se_ListListenersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListListenersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListListenersCommand(input, context);
+    return se_ListListenersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListListenersCommandOutput> {
-    return deserializeAws_json1_1ListListenersCommand(output, context);
+    return de_ListListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

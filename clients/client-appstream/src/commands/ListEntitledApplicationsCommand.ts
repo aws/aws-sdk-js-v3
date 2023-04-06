@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { ListEntitledApplicationsRequest, ListEntitledApplicationsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEntitledApplicationsCommand,
-  serializeAws_json1_1ListEntitledApplicationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEntitledApplicationsCommand, se_ListEntitledApplicationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListEntitledApplicationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEntitledApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEntitledApplicationsCommand(input, context);
+    return se_ListEntitledApplicationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitledApplicationsCommandOutput> {
-    return deserializeAws_json1_1ListEntitledApplicationsCommand(output, context);
+    return de_ListEntitledApplicationsCommand(output, context);
   }
 
   // Start section: command_body_extra

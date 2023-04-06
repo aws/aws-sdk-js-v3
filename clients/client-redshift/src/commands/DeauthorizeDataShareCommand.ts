@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataShare, DeauthorizeDataShareMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeauthorizeDataShareCommand,
-  serializeAws_queryDeauthorizeDataShareCommand,
-} from "../protocols/Aws_query";
+import { de_DeauthorizeDataShareCommand, se_DeauthorizeDataShareCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -124,14 +121,14 @@ export class DeauthorizeDataShareCommand extends $Command<
    * @internal
    */
   private serialize(input: DeauthorizeDataShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeauthorizeDataShareCommand(input, context);
+    return se_DeauthorizeDataShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeauthorizeDataShareCommandOutput> {
-    return deserializeAws_queryDeauthorizeDataShareCommand(output, context);
+    return de_DeauthorizeDataShareCommand(output, context);
   }
 
   // Start section: command_body_extra

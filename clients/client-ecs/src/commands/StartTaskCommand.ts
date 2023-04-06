@@ -15,7 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { StartTaskRequest, StartTaskResponse } from "../models/models_0";
-import { deserializeAws_json1_1StartTaskCommand, serializeAws_json1_1StartTaskCommand } from "../protocols/Aws_json1_1";
+import { de_StartTaskCommand, se_StartTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -201,14 +201,14 @@ export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskC
    * @internal
    */
   private serialize(input: StartTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartTaskCommand(input, context);
+    return se_StartTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTaskCommandOutput> {
-    return deserializeAws_json1_1StartTaskCommand(output, context);
+    return de_StartTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

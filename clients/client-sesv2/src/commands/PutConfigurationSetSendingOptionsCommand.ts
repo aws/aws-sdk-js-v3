@@ -18,8 +18,8 @@ import {
   PutConfigurationSetSendingOptionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand,
-  serializeAws_restJson1PutConfigurationSetSendingOptionsCommand,
+  de_PutConfigurationSetSendingOptionsCommand,
+  se_PutConfigurationSetSendingOptionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -139,7 +139,7 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     input: PutConfigurationSetSendingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutConfigurationSetSendingOptionsCommand(input, context);
+    return se_PutConfigurationSetSendingOptionsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetSendingOptionsCommandOutput> {
-    return deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand(output, context);
+    return de_PutConfigurationSetSendingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

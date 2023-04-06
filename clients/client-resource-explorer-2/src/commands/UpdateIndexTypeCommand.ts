@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateIndexTypeInput, UpdateIndexTypeOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateIndexTypeCommand,
-  serializeAws_restJson1UpdateIndexTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateIndexTypeCommand, se_UpdateIndexTypeCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -209,14 +206,14 @@ export class UpdateIndexTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateIndexTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIndexTypeCommand(input, context);
+    return se_UpdateIndexTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIndexTypeCommandOutput> {
-    return deserializeAws_restJson1UpdateIndexTypeCommand(output, context);
+    return de_UpdateIndexTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   DeleteApplicationCloudWatchLoggingOptionResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand,
-  serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand,
+  de_DeleteApplicationCloudWatchLoggingOptionCommand,
+  se_DeleteApplicationCloudWatchLoggingOptionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -157,7 +157,7 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     input: DeleteApplicationCloudWatchLoggingOptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand(input, context);
+    return se_DeleteApplicationCloudWatchLoggingOptionCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationCloudWatchLoggingOptionCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand(output, context);
+    return de_DeleteApplicationCloudWatchLoggingOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

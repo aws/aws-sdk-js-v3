@@ -19,10 +19,7 @@ import {
   ListHandshakesForAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListHandshakesForAccountCommand,
-  serializeAws_json1_1ListHandshakesForAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListHandshakesForAccountCommand, se_ListHandshakesForAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -326,14 +323,14 @@ export class ListHandshakesForAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHandshakesForAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHandshakesForAccountCommand(input, context);
+    return se_ListHandshakesForAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHandshakesForAccountCommandOutput> {
-    return deserializeAws_json1_1ListHandshakesForAccountCommand(output, context);
+    return de_ListHandshakesForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

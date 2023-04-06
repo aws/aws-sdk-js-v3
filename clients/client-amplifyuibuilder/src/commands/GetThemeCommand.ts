@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { GetThemeRequest, GetThemeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetThemeCommand,
-  serializeAws_restJson1GetThemeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetThemeCommand, se_GetThemeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetThemeCommand extends $Command<
    * @internal
    */
   private serialize(input: GetThemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetThemeCommand(input, context);
+    return se_GetThemeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetThemeCommandOutput> {
-    return deserializeAws_restJson1GetThemeCommand(output, context);
+    return de_GetThemeCommand(output, context);
   }
 
   // Start section: command_body_extra

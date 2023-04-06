@@ -19,8 +19,8 @@ import {
   GetScalingPlanResourceForecastDataResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand,
-  serializeAws_json1_1GetScalingPlanResourceForecastDataCommand,
+  de_GetScalingPlanResourceForecastDataCommand,
+  se_GetScalingPlanResourceForecastDataCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -144,7 +144,7 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command<
     input: GetScalingPlanResourceForecastDataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetScalingPlanResourceForecastDataCommand(input, context);
+    return se_GetScalingPlanResourceForecastDataCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetScalingPlanResourceForecastDataCommandOutput> {
-    return deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand(output, context);
+    return de_GetScalingPlanResourceForecastDataCommand(output, context);
   }
 
   // Start section: command_body_extra

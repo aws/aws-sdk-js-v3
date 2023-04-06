@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateSecurityGroupRequest, CreateSecurityGroupResult } from "../models/models_2";
-import {
-  deserializeAws_ec2CreateSecurityGroupCommand,
-  serializeAws_ec2CreateSecurityGroupCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateSecurityGroupCommand, se_CreateSecurityGroupCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class CreateSecurityGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateSecurityGroupCommand(input, context);
+    return se_CreateSecurityGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSecurityGroupCommandOutput> {
-    return deserializeAws_ec2CreateSecurityGroupCommand(output, context);
+    return de_CreateSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

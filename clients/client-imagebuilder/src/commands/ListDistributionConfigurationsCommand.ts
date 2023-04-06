@@ -16,8 +16,8 @@ import {
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { ListDistributionConfigurationsRequest, ListDistributionConfigurationsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListDistributionConfigurationsCommand,
-  serializeAws_restJson1ListDistributionConfigurationsCommand,
+  de_ListDistributionConfigurationsCommand,
+  se_ListDistributionConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -158,7 +158,7 @@ export class ListDistributionConfigurationsCommand extends $Command<
     input: ListDistributionConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDistributionConfigurationsCommand(input, context);
+    return se_ListDistributionConfigurationsCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class ListDistributionConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListDistributionConfigurationsCommand(output, context);
+    return de_ListDistributionConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

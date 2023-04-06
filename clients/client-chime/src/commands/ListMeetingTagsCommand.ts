@@ -19,10 +19,7 @@ import {
   ListMeetingTagsResponse,
   ListMeetingTagsResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListMeetingTagsCommand,
-  serializeAws_restJson1ListMeetingTagsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListMeetingTagsCommand, se_ListMeetingTagsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class ListMeetingTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMeetingTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMeetingTagsCommand(input, context);
+    return se_ListMeetingTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMeetingTagsCommandOutput> {
-    return deserializeAws_restJson1ListMeetingTagsCommand(output, context);
+    return de_ListMeetingTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

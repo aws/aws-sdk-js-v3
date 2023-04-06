@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteFleetsRequest, DeleteFleetsResult } from "../models/models_2";
-import { deserializeAws_ec2DeleteFleetsCommand, serializeAws_ec2DeleteFleetsCommand } from "../protocols/Aws_ec2";
+import { de_DeleteFleetsCommand, se_DeleteFleetsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -144,14 +144,14 @@ export class DeleteFleetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteFleetsCommand(input, context);
+    return se_DeleteFleetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFleetsCommandOutput> {
-    return deserializeAws_ec2DeleteFleetsCommand(output, context);
+    return de_DeleteFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

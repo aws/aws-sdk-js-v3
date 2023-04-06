@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyInstanceEventStartTimeRequest, ModifyInstanceEventStartTimeResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyInstanceEventStartTimeCommand,
-  serializeAws_ec2ModifyInstanceEventStartTimeCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyInstanceEventStartTimeCommand, se_ModifyInstanceEventStartTimeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,7 +122,7 @@ export class ModifyInstanceEventStartTimeCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyInstanceEventStartTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceEventStartTimeCommand(input, context);
+    return se_ModifyInstanceEventStartTimeCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class ModifyInstanceEventStartTimeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyInstanceEventStartTimeCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceEventStartTimeCommand(output, context);
+    return de_ModifyInstanceEventStartTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

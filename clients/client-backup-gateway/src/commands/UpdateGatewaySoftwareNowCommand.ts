@@ -15,10 +15,7 @@ import {
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateGatewaySoftwareNowCommand,
-  serializeAws_json1_0UpdateGatewaySoftwareNowCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateGatewaySoftwareNowCommand, se_UpdateGatewaySoftwareNowCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UpdateGatewaySoftwareNowCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGatewaySoftwareNowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateGatewaySoftwareNowCommand(input, context);
+    return se_UpdateGatewaySoftwareNowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGatewaySoftwareNowCommandOutput> {
-    return deserializeAws_json1_0UpdateGatewaySoftwareNowCommand(output, context);
+    return de_UpdateGatewaySoftwareNowCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { DeleteCorsConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCorsConfigurationCommand,
-  serializeAws_restJson1DeleteCorsConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCorsConfigurationCommand, se_DeleteCorsConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DeleteCorsConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCorsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCorsConfigurationCommand(input, context);
+    return se_DeleteCorsConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCorsConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteCorsConfigurationCommand(output, context);
+    return de_DeleteCorsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

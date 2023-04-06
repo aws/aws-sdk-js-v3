@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { StopLaunchRequest, StopLaunchResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopLaunchCommand,
-  serializeAws_restJson1StopLaunchCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopLaunchCommand, se_StopLaunchCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class StopLaunchCommand extends $Command<
    * @internal
    */
   private serialize(input: StopLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopLaunchCommand(input, context);
+    return se_StopLaunchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopLaunchCommandOutput> {
-    return deserializeAws_restJson1StopLaunchCommand(output, context);
+    return de_StopLaunchCommand(output, context);
   }
 
   // Start section: command_body_extra

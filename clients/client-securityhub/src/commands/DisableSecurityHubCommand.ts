@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisableSecurityHubRequest, DisableSecurityHubResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DisableSecurityHubCommand,
-  serializeAws_restJson1DisableSecurityHubCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisableSecurityHubCommand, se_DisableSecurityHubCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -139,14 +136,14 @@ export class DisableSecurityHubCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableSecurityHubCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableSecurityHubCommand(input, context);
+    return se_DisableSecurityHubCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableSecurityHubCommandOutput> {
-    return deserializeAws_restJson1DisableSecurityHubCommand(output, context);
+    return de_DisableSecurityHubCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListPolicyTagsRequest, ListPolicyTagsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListPolicyTagsCommand,
-  serializeAws_queryListPolicyTagsCommand,
-} from "../protocols/Aws_query";
+import { de_ListPolicyTagsCommand, se_ListPolicyTagsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListPolicyTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPolicyTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPolicyTagsCommand(input, context);
+    return se_ListPolicyTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyTagsCommandOutput> {
-    return deserializeAws_queryListPolicyTagsCommand(output, context);
+    return de_ListPolicyTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

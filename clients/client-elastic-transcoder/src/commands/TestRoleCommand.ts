@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
 import { TestRoleRequest, TestRoleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1TestRoleCommand,
-  serializeAws_restJson1TestRoleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TestRoleCommand, se_TestRoleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class TestRoleCommand extends $Command<
    * @internal
    */
   private serialize(input: TestRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestRoleCommand(input, context);
+    return se_TestRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestRoleCommandOutput> {
-    return deserializeAws_restJson1TestRoleCommand(output, context);
+    return de_TestRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

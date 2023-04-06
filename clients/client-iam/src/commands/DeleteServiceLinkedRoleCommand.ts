@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteServiceLinkedRoleRequest, DeleteServiceLinkedRoleResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteServiceLinkedRoleCommand,
-  serializeAws_queryDeleteServiceLinkedRoleCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteServiceLinkedRoleCommand, se_DeleteServiceLinkedRoleCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteServiceLinkedRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteServiceLinkedRoleCommand(input, context);
+    return se_DeleteServiceLinkedRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceLinkedRoleCommandOutput> {
-    return deserializeAws_queryDeleteServiceLinkedRoleCommand(output, context);
+    return de_DeleteServiceLinkedRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

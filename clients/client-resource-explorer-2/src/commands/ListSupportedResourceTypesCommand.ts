@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSupportedResourceTypesInput, ListSupportedResourceTypesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSupportedResourceTypesCommand,
-  serializeAws_restJson1ListSupportedResourceTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSupportedResourceTypesCommand, se_ListSupportedResourceTypesCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -141,7 +138,7 @@ export class ListSupportedResourceTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSupportedResourceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSupportedResourceTypesCommand(input, context);
+    return se_ListSupportedResourceTypesCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class ListSupportedResourceTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSupportedResourceTypesCommandOutput> {
-    return deserializeAws_restJson1ListSupportedResourceTypesCommand(output, context);
+    return de_ListSupportedResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeWorkspacesRequest, DescribeWorkspacesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkspacesCommand,
-  serializeAws_json1_1DescribeWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeWorkspacesCommand, se_DescribeWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -135,14 +132,14 @@ export class DescribeWorkspacesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspacesCommand(input, context);
+    return se_DescribeWorkspacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspacesCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspacesCommand(output, context);
+    return de_DescribeWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { GetBuiltinSlotTypesRequest, GetBuiltinSlotTypesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBuiltinSlotTypesCommand,
-  serializeAws_restJson1GetBuiltinSlotTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBuiltinSlotTypesCommand, se_GetBuiltinSlotTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class GetBuiltinSlotTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBuiltinSlotTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBuiltinSlotTypesCommand(input, context);
+    return se_GetBuiltinSlotTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBuiltinSlotTypesCommandOutput> {
-    return deserializeAws_restJson1GetBuiltinSlotTypesCommand(output, context);
+    return de_GetBuiltinSlotTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

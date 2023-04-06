@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteActivityInput, DeleteActivityOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteActivityCommand,
-  serializeAws_json1_0DeleteActivityCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteActivityCommand, se_DeleteActivityCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -123,14 +120,14 @@ export class DeleteActivityCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteActivityCommand(input, context);
+    return se_DeleteActivityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteActivityCommandOutput> {
-    return deserializeAws_json1_0DeleteActivityCommand(output, context);
+    return de_DeleteActivityCommand(output, context);
   }
 
   // Start section: command_body_extra

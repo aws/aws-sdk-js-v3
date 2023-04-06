@@ -15,10 +15,7 @@ import {
 
 import { DBEngineVersion } from "../models/models_0";
 import { ModifyCustomDBEngineVersionMessage } from "../models/models_1";
-import {
-  deserializeAws_queryModifyCustomDBEngineVersionCommand,
-  serializeAws_queryModifyCustomDBEngineVersionCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyCustomDBEngineVersionCommand, se_ModifyCustomDBEngineVersionCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -140,7 +137,7 @@ export class ModifyCustomDBEngineVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyCustomDBEngineVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyCustomDBEngineVersionCommand(input, context);
+    return se_ModifyCustomDBEngineVersionCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class ModifyCustomDBEngineVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyCustomDBEngineVersionCommandOutput> {
-    return deserializeAws_queryModifyCustomDBEngineVersionCommand(output, context);
+    return de_ModifyCustomDBEngineVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   UpdateProxySessionResponse,
   UpdateProxySessionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateProxySessionCommand,
-  serializeAws_restJson1UpdateProxySessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateProxySessionCommand, se_UpdateProxySessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class UpdateProxySessionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateProxySessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProxySessionCommand(input, context);
+    return se_UpdateProxySessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProxySessionCommandOutput> {
-    return deserializeAws_restJson1UpdateProxySessionCommand(output, context);
+    return de_UpdateProxySessionCommand(output, context);
   }
 
   // Start section: command_body_extra

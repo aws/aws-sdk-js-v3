@@ -15,10 +15,7 @@ import {
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import { ListVirtualClustersRequest, ListVirtualClustersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListVirtualClustersCommand,
-  serializeAws_restJson1ListVirtualClustersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListVirtualClustersCommand, se_ListVirtualClustersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListVirtualClustersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListVirtualClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVirtualClustersCommand(input, context);
+    return se_ListVirtualClustersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVirtualClustersCommandOutput> {
-    return deserializeAws_restJson1ListVirtualClustersCommand(output, context);
+    return de_ListVirtualClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

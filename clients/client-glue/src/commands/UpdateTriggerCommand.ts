@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { UpdateTriggerRequest, UpdateTriggerResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateTriggerCommand,
-  serializeAws_json1_1UpdateTriggerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateTriggerCommand, se_UpdateTriggerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -168,14 +165,14 @@ export class UpdateTriggerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTriggerCommand(input, context);
+    return se_UpdateTriggerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTriggerCommandOutput> {
-    return deserializeAws_json1_1UpdateTriggerCommand(output, context);
+    return de_UpdateTriggerCommand(output, context);
   }
 
   // Start section: command_body_extra

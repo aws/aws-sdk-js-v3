@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { PutLoggingOptionsRequest, PutLoggingOptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutLoggingOptionsCommand,
-  serializeAws_restJson1PutLoggingOptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutLoggingOptionsCommand, se_PutLoggingOptionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class PutLoggingOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutLoggingOptionsCommand(input, context);
+    return se_PutLoggingOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLoggingOptionsCommandOutput> {
-    return deserializeAws_restJson1PutLoggingOptionsCommand(output, context);
+    return de_PutLoggingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

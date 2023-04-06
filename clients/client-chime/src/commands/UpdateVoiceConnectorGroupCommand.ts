@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { UpdateVoiceConnectorGroupRequest, UpdateVoiceConnectorGroupResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateVoiceConnectorGroupCommand,
-  serializeAws_restJson1UpdateVoiceConnectorGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateVoiceConnectorGroupCommand, se_UpdateVoiceConnectorGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,7 +150,7 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVoiceConnectorGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVoiceConnectorGroupCommand(input, context);
+    return se_UpdateVoiceConnectorGroupCommand(input, context);
   }
 
   /**
@@ -163,7 +160,7 @@ export class UpdateVoiceConnectorGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1UpdateVoiceConnectorGroupCommand(output, context);
+    return de_UpdateVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

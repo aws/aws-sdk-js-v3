@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AnalyzeDocumentRequest, AnalyzeDocumentResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AnalyzeDocumentCommand,
-  serializeAws_json1_1AnalyzeDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AnalyzeDocumentCommand, se_AnalyzeDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -239,14 +236,14 @@ export class AnalyzeDocumentCommand extends $Command<
    * @internal
    */
   private serialize(input: AnalyzeDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AnalyzeDocumentCommand(input, context);
+    return se_AnalyzeDocumentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AnalyzeDocumentCommandOutput> {
-    return deserializeAws_json1_1AnalyzeDocumentCommand(output, context);
+    return de_AnalyzeDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

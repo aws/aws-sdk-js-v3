@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuthorizeIpRulesRequest, AuthorizeIpRulesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1AuthorizeIpRulesCommand,
-  serializeAws_json1_1AuthorizeIpRulesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AuthorizeIpRulesCommand, se_AuthorizeIpRulesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -143,14 +140,14 @@ export class AuthorizeIpRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: AuthorizeIpRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AuthorizeIpRulesCommand(input, context);
+    return se_AuthorizeIpRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AuthorizeIpRulesCommandOutput> {
-    return deserializeAws_json1_1AuthorizeIpRulesCommand(output, context);
+    return de_AuthorizeIpRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

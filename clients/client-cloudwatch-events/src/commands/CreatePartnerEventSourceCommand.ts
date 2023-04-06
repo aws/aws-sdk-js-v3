@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePartnerEventSourceCommand,
-  serializeAws_json1_1CreatePartnerEventSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePartnerEventSourceCommand, se_CreatePartnerEventSourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class CreatePartnerEventSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreatePartnerEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePartnerEventSourceCommand(input, context);
+    return se_CreatePartnerEventSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePartnerEventSourceCommandOutput> {
-    return deserializeAws_json1_1CreatePartnerEventSourceCommand(output, context);
+    return de_CreatePartnerEventSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

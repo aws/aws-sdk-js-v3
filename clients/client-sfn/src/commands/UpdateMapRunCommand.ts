@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateMapRunInput, UpdateMapRunOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateMapRunCommand,
-  serializeAws_json1_0UpdateMapRunCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateMapRunCommand, se_UpdateMapRunCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -131,14 +128,14 @@ export class UpdateMapRunCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMapRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateMapRunCommand(input, context);
+    return se_UpdateMapRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMapRunCommandOutput> {
-    return deserializeAws_json1_0UpdateMapRunCommand(output, context);
+    return de_UpdateMapRunCommand(output, context);
   }
 
   // Start section: command_body_extra

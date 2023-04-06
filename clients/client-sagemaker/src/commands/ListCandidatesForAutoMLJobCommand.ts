@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListCandidatesForAutoMLJobRequest, ListCandidatesForAutoMLJobResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListCandidatesForAutoMLJobCommand,
-  serializeAws_json1_1ListCandidatesForAutoMLJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCandidatesForAutoMLJobCommand, se_ListCandidatesForAutoMLJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -129,7 +126,7 @@ export class ListCandidatesForAutoMLJobCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCandidatesForAutoMLJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCandidatesForAutoMLJobCommand(input, context);
+    return se_ListCandidatesForAutoMLJobCommand(input, context);
   }
 
   /**
@@ -139,7 +136,7 @@ export class ListCandidatesForAutoMLJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCandidatesForAutoMLJobCommandOutput> {
-    return deserializeAws_json1_1ListCandidatesForAutoMLJobCommand(output, context);
+    return de_ListCandidatesForAutoMLJobCommand(output, context);
   }
 
   // Start section: command_body_extra

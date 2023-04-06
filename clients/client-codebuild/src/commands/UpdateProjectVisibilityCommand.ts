@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { UpdateProjectVisibilityInput, UpdateProjectVisibilityOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProjectVisibilityCommand,
-  serializeAws_json1_1UpdateProjectVisibilityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateProjectVisibilityCommand, se_UpdateProjectVisibilityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class UpdateProjectVisibilityCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateProjectVisibilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProjectVisibilityCommand(input, context);
+    return se_UpdateProjectVisibilityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectVisibilityCommandOutput> {
-    return deserializeAws_json1_1UpdateProjectVisibilityCommand(output, context);
+    return de_UpdateProjectVisibilityCommand(output, context);
   }
 
   // Start section: command_body_extra

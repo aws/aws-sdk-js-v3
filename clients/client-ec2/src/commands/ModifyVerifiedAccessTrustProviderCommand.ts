@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyVerifiedAccessTrustProviderRequest, ModifyVerifiedAccessTrustProviderResult } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVerifiedAccessTrustProviderCommand,
-  serializeAws_ec2ModifyVerifiedAccessTrustProviderCommand,
+  de_ModifyVerifiedAccessTrustProviderCommand,
+  se_ModifyVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -131,7 +131,7 @@ export class ModifyVerifiedAccessTrustProviderCommand extends $Command<
     input: ModifyVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVerifiedAccessTrustProviderCommand(input, context);
+    return se_ModifyVerifiedAccessTrustProviderCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class ModifyVerifiedAccessTrustProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVerifiedAccessTrustProviderCommandOutput> {
-    return deserializeAws_ec2ModifyVerifiedAccessTrustProviderCommand(output, context);
+    return de_ModifyVerifiedAccessTrustProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

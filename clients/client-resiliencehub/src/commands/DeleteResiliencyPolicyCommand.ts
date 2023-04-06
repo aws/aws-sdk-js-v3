@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteResiliencyPolicyRequest, DeleteResiliencyPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResiliencyPolicyCommand,
-  serializeAws_restJson1DeleteResiliencyPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteResiliencyPolicyCommand, se_DeleteResiliencyPolicyCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -145,14 +142,14 @@ export class DeleteResiliencyPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResiliencyPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResiliencyPolicyCommand(input, context);
+    return se_DeleteResiliencyPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResiliencyPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteResiliencyPolicyCommand(output, context);
+    return de_DeleteResiliencyPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

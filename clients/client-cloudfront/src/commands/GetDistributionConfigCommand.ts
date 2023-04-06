@@ -19,10 +19,7 @@ import {
   GetDistributionConfigResult,
   GetDistributionConfigResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlGetDistributionConfigCommand,
-  serializeAws_restXmlGetDistributionConfigCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetDistributionConfigCommand, se_GetDistributionConfigCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetDistributionConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDistributionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetDistributionConfigCommand(input, context);
+    return se_GetDistributionConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDistributionConfigCommandOutput> {
-    return deserializeAws_restXmlGetDistributionConfigCommand(output, context);
+    return de_GetDistributionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

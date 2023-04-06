@@ -16,8 +16,8 @@ import {
 import { DeleteTLSInspectionConfigurationRequest, DeleteTLSInspectionConfigurationResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0DeleteTLSInspectionConfigurationCommand,
-  serializeAws_json1_0DeleteTLSInspectionConfigurationCommand,
+  de_DeleteTLSInspectionConfigurationCommand,
+  se_DeleteTLSInspectionConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -156,7 +156,7 @@ export class DeleteTLSInspectionConfigurationCommand extends $Command<
     input: DeleteTLSInspectionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteTLSInspectionConfigurationCommand(input, context);
+    return se_DeleteTLSInspectionConfigurationCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class DeleteTLSInspectionConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTLSInspectionConfigurationCommandOutput> {
-    return deserializeAws_json1_0DeleteTLSInspectionConfigurationCommand(output, context);
+    return de_DeleteTLSInspectionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

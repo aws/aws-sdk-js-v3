@@ -16,8 +16,8 @@ import {
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { DeleteCostCategoryDefinitionRequest, DeleteCostCategoryDefinitionResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteCostCategoryDefinitionCommand,
-  serializeAws_json1_1DeleteCostCategoryDefinitionCommand,
+  de_DeleteCostCategoryDefinitionCommand,
+  se_DeleteCostCategoryDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -129,7 +129,7 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCostCategoryDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCostCategoryDefinitionCommand(input, context);
+    return se_DeleteCostCategoryDefinitionCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCostCategoryDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteCostCategoryDefinitionCommand(output, context);
+    return de_DeleteCostCategoryDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

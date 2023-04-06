@@ -19,7 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { SignUpRequest, SignUpRequestFilterSensitiveLog, SignUpResponse } from "../models/models_1";
-import { deserializeAws_json1_1SignUpCommand, serializeAws_json1_1SignUpCommand } from "../protocols/Aws_json1_1";
+import { de_SignUpCommand, se_SignUpCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -220,14 +220,14 @@ export class SignUpCommand extends $Command<
    * @internal
    */
   private serialize(input: SignUpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SignUpCommand(input, context);
+    return se_SignUpCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignUpCommandOutput> {
-    return deserializeAws_json1_1SignUpCommand(output, context);
+    return de_SignUpCommand(output, context);
   }
 
   // Start section: command_body_extra

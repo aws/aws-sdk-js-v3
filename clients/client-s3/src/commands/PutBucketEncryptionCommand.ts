@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutBucketEncryptionRequest, PutBucketEncryptionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketEncryptionCommand,
-  serializeAws_restXmlPutBucketEncryptionCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutBucketEncryptionCommand, se_PutBucketEncryptionCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -183,14 +180,14 @@ export class PutBucketEncryptionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBucketEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketEncryptionCommand(input, context);
+    return se_PutBucketEncryptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketEncryptionCommandOutput> {
-    return deserializeAws_restXmlPutBucketEncryptionCommand(output, context);
+    return de_PutBucketEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

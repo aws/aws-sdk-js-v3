@@ -19,8 +19,8 @@ import {
   CreateTransitGatewayMulticastDomainResult,
 } from "../models/models_2";
 import {
-  deserializeAws_ec2CreateTransitGatewayMulticastDomainCommand,
-  serializeAws_ec2CreateTransitGatewayMulticastDomainCommand,
+  de_CreateTransitGatewayMulticastDomainCommand,
+  se_CreateTransitGatewayMulticastDomainCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -146,7 +146,7 @@ export class CreateTransitGatewayMulticastDomainCommand extends $Command<
     input: CreateTransitGatewayMulticastDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateTransitGatewayMulticastDomainCommand(input, context);
+    return se_CreateTransitGatewayMulticastDomainCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class CreateTransitGatewayMulticastDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitGatewayMulticastDomainCommandOutput> {
-    return deserializeAws_ec2CreateTransitGatewayMulticastDomainCommand(output, context);
+    return de_CreateTransitGatewayMulticastDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyAvailabilityZoneGroupRequest, ModifyAvailabilityZoneGroupResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyAvailabilityZoneGroupCommand,
-  serializeAws_ec2ModifyAvailabilityZoneGroupCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyAvailabilityZoneGroupCommand, se_ModifyAvailabilityZoneGroupCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -125,7 +122,7 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyAvailabilityZoneGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyAvailabilityZoneGroupCommand(input, context);
+    return se_ModifyAvailabilityZoneGroupCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyAvailabilityZoneGroupCommandOutput> {
-    return deserializeAws_ec2ModifyAvailabilityZoneGroupCommand(output, context);
+    return de_ModifyAvailabilityZoneGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

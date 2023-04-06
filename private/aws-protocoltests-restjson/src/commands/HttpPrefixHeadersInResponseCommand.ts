@@ -14,8 +14,8 @@ import {
 
 import { HttpPrefixHeadersInResponseInput, HttpPrefixHeadersInResponseOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1HttpPrefixHeadersInResponseCommand,
-  serializeAws_restJson1HttpPrefixHeadersInResponseCommand,
+  de_HttpPrefixHeadersInResponseCommand,
+  se_HttpPrefixHeadersInResponseCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -105,7 +105,7 @@ export class HttpPrefixHeadersInResponseCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpPrefixHeadersInResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpPrefixHeadersInResponseCommand(input, context);
+    return se_HttpPrefixHeadersInResponseCommand(input, context);
   }
 
   /**
@@ -115,7 +115,7 @@ export class HttpPrefixHeadersInResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPrefixHeadersInResponseCommandOutput> {
-    return deserializeAws_restJson1HttpPrefixHeadersInResponseCommand(output, context);
+    return de_HttpPrefixHeadersInResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

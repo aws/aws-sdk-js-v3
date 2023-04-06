@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyInstanceEventWindowRequest, ModifyInstanceEventWindowResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyInstanceEventWindowCommand,
-  serializeAws_ec2ModifyInstanceEventWindowCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyInstanceEventWindowCommand, se_ModifyInstanceEventWindowCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class ModifyInstanceEventWindowCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyInstanceEventWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceEventWindowCommand(input, context);
+    return se_ModifyInstanceEventWindowCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class ModifyInstanceEventWindowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyInstanceEventWindowCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceEventWindowCommand(output, context);
+    return de_ModifyInstanceEventWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

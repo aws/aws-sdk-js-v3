@@ -19,8 +19,8 @@ import {
   GetEffectiveRecommendationPreferencesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetEffectiveRecommendationPreferencesCommand,
-  serializeAws_json1_0GetEffectiveRecommendationPreferencesCommand,
+  de_GetEffectiveRecommendationPreferencesCommand,
+  se_GetEffectiveRecommendationPreferencesCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -159,7 +159,7 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
     input: GetEffectiveRecommendationPreferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEffectiveRecommendationPreferencesCommand(input, context);
+    return se_GetEffectiveRecommendationPreferencesCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEffectiveRecommendationPreferencesCommandOutput> {
-    return deserializeAws_json1_0GetEffectiveRecommendationPreferencesCommand(output, context);
+    return de_GetEffectiveRecommendationPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

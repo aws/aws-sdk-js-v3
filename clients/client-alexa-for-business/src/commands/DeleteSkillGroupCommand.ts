@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { DeleteSkillGroupRequest, DeleteSkillGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSkillGroupCommand,
-  serializeAws_json1_1DeleteSkillGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSkillGroupCommand, se_DeleteSkillGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DeleteSkillGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSkillGroupCommand(input, context);
+    return se_DeleteSkillGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSkillGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteSkillGroupCommand(output, context);
+    return de_DeleteSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

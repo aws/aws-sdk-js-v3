@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SearchProductsAsAdminInput, SearchProductsAsAdminOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchProductsAsAdminCommand,
-  serializeAws_json1_1SearchProductsAsAdminCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchProductsAsAdminCommand, se_SearchProductsAsAdminCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -137,14 +134,14 @@ export class SearchProductsAsAdminCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchProductsAsAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchProductsAsAdminCommand(input, context);
+    return se_SearchProductsAsAdminCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchProductsAsAdminCommandOutput> {
-    return deserializeAws_json1_1SearchProductsAsAdminCommand(output, context);
+    return de_SearchProductsAsAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

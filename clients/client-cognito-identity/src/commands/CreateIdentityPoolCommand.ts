@@ -16,10 +16,7 @@ import {
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { CreateIdentityPoolInput, IdentityPool } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateIdentityPoolCommand,
-  serializeAws_json1_1CreateIdentityPoolCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateIdentityPoolCommand, se_CreateIdentityPoolCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -189,14 +186,14 @@ export class CreateIdentityPoolCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIdentityPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateIdentityPoolCommand(input, context);
+    return se_CreateIdentityPoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIdentityPoolCommandOutput> {
-    return deserializeAws_json1_1CreateIdentityPoolCommand(output, context);
+    return de_CreateIdentityPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

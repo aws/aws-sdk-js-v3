@@ -15,8 +15,8 @@ import {
 
 import { GetRequestedServiceQuotaChangeRequest, GetRequestedServiceQuotaChangeResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand,
-  serializeAws_json1_1GetRequestedServiceQuotaChangeCommand,
+  de_GetRequestedServiceQuotaChangeCommand,
+  se_GetRequestedServiceQuotaChangeCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
@@ -141,7 +141,7 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     input: GetRequestedServiceQuotaChangeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRequestedServiceQuotaChangeCommand(input, context);
+    return se_GetRequestedServiceQuotaChangeCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRequestedServiceQuotaChangeCommandOutput> {
-    return deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand(output, context);
+    return de_GetRequestedServiceQuotaChangeCommand(output, context);
   }
 
   // Start section: command_body_extra

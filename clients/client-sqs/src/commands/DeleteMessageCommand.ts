@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteMessageRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteMessageCommand,
-  serializeAws_queryDeleteMessageCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteMessageCommand, se_DeleteMessageCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -144,14 +141,14 @@ export class DeleteMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteMessageCommand(input, context);
+    return se_DeleteMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMessageCommandOutput> {
-    return deserializeAws_queryDeleteMessageCommand(output, context);
+    return de_DeleteMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

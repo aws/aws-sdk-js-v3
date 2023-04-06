@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { DeleteDetectorRequest, DeleteDetectorResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDetectorCommand,
-  serializeAws_json1_1DeleteDetectorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDetectorCommand, se_DeleteDetectorCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteDetectorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDetectorCommand(input, context);
+    return se_DeleteDetectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDetectorCommandOutput> {
-    return deserializeAws_json1_1DeleteDetectorCommand(output, context);
+    return de_DeleteDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { DeleteProfilingGroupRequest, DeleteProfilingGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteProfilingGroupCommand,
-  serializeAws_restJson1DeleteProfilingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteProfilingGroupCommand, se_DeleteProfilingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteProfilingGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProfilingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProfilingGroupCommand(input, context);
+    return se_DeleteProfilingGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfilingGroupCommandOutput> {
-    return deserializeAws_restJson1DeleteProfilingGroupCommand(output, context);
+    return de_DeleteProfilingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

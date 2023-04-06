@@ -14,8 +14,8 @@ import {
 
 import { HttpPayloadWithXmlNamespaceAndPrefixInputOutput } from "../models/models_0";
 import {
-  deserializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand,
-  serializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand,
+  de_HttpPayloadWithXmlNamespaceAndPrefixCommand,
+  se_HttpPayloadWithXmlNamespaceAndPrefixCommand,
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -115,7 +115,7 @@ export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command<
     input: HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand(input, context);
+    return se_HttpPayloadWithXmlNamespaceAndPrefixCommand(input, context);
   }
 
   /**
@@ -125,7 +125,7 @@ export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadWithXmlNamespaceAndPrefixCommandOutput> {
-    return deserializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand(output, context);
+    return de_HttpPayloadWithXmlNamespaceAndPrefixCommand(output, context);
   }
 
   // Start section: command_body_extra

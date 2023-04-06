@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeleteConfigurationAggregatorRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteConfigurationAggregatorCommand,
-  serializeAws_json1_1DeleteConfigurationAggregatorCommand,
+  de_DeleteConfigurationAggregatorCommand,
+  se_DeleteConfigurationAggregatorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -124,7 +124,7 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConfigurationAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConfigurationAggregatorCommand(input, context);
+    return se_DeleteConfigurationAggregatorCommand(input, context);
   }
 
   /**
@@ -134,7 +134,7 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationAggregatorCommandOutput> {
-    return deserializeAws_json1_1DeleteConfigurationAggregatorCommand(output, context);
+    return de_DeleteConfigurationAggregatorCommand(output, context);
   }
 
   // Start section: command_body_extra

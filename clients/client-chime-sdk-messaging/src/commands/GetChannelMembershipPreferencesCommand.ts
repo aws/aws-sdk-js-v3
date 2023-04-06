@@ -24,8 +24,8 @@ import {
   GetChannelMembershipPreferencesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetChannelMembershipPreferencesCommand,
-  serializeAws_restJson1GetChannelMembershipPreferencesCommand,
+  de_GetChannelMembershipPreferencesCommand,
+  se_GetChannelMembershipPreferencesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -162,7 +162,7 @@ export class GetChannelMembershipPreferencesCommand extends $Command<
     input: GetChannelMembershipPreferencesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetChannelMembershipPreferencesCommand(input, context);
+    return se_GetChannelMembershipPreferencesCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class GetChannelMembershipPreferencesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetChannelMembershipPreferencesCommandOutput> {
-    return deserializeAws_restJson1GetChannelMembershipPreferencesCommand(output, context);
+    return de_GetChannelMembershipPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

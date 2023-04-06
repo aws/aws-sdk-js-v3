@@ -16,8 +16,8 @@ import {
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { DescribeImageReplicationStatusRequest, DescribeImageReplicationStatusResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeImageReplicationStatusCommand,
-  serializeAws_json1_1DescribeImageReplicationStatusCommand,
+  de_DescribeImageReplicationStatusCommand,
+  se_DescribeImageReplicationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -147,7 +147,7 @@ export class DescribeImageReplicationStatusCommand extends $Command<
     input: DescribeImageReplicationStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImageReplicationStatusCommand(input, context);
+    return se_DescribeImageReplicationStatusCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class DescribeImageReplicationStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeImageReplicationStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeImageReplicationStatusCommand(output, context);
+    return de_DescribeImageReplicationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

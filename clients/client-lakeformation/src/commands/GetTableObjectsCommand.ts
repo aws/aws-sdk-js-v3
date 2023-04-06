@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { GetTableObjectsRequest, GetTableObjectsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTableObjectsCommand,
-  serializeAws_restJson1GetTableObjectsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTableObjectsCommand, se_GetTableObjectsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class GetTableObjectsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTableObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTableObjectsCommand(input, context);
+    return se_GetTableObjectsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableObjectsCommandOutput> {
-    return deserializeAws_restJson1GetTableObjectsCommand(output, context);
+    return de_GetTableObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

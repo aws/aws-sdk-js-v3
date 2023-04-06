@@ -16,8 +16,8 @@ import {
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { AssociateEnvironmentOperationsRoleMessage } from "../models/models_0";
 import {
-  deserializeAws_queryAssociateEnvironmentOperationsRoleCommand,
-  serializeAws_queryAssociateEnvironmentOperationsRoleCommand,
+  de_AssociateEnvironmentOperationsRoleCommand,
+  se_AssociateEnvironmentOperationsRoleCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -131,7 +131,7 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
     input: AssociateEnvironmentOperationsRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAssociateEnvironmentOperationsRoleCommand(input, context);
+    return se_AssociateEnvironmentOperationsRoleCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateEnvironmentOperationsRoleCommandOutput> {
-    return deserializeAws_queryAssociateEnvironmentOperationsRoleCommand(output, context);
+    return de_AssociateEnvironmentOperationsRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

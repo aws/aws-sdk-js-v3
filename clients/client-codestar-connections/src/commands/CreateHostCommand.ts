@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
 import { CreateHostInput, CreateHostOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateHostCommand,
-  serializeAws_json1_0CreateHostCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateHostCommand, se_CreateHostCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class CreateHostCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateHostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateHostCommand(input, context);
+    return se_CreateHostCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHostCommandOutput> {
-    return deserializeAws_json1_0CreateHostCommand(output, context);
+    return de_CreateHostCommand(output, context);
   }
 
   // Start section: command_body_extra

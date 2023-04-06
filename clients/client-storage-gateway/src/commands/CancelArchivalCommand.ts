@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelArchivalInput, CancelArchivalOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelArchivalCommand,
-  serializeAws_json1_1CancelArchivalCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelArchivalCommand, se_CancelArchivalCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -147,14 +144,14 @@ export class CancelArchivalCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelArchivalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelArchivalCommand(input, context);
+    return se_CancelArchivalCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelArchivalCommandOutput> {
-    return deserializeAws_json1_1CancelArchivalCommand(output, context);
+    return de_CancelArchivalCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ApplyEnvironmentManagedActionRequest, ApplyEnvironmentManagedActionResult } from "../models/models_0";
 import {
-  deserializeAws_queryApplyEnvironmentManagedActionCommand,
-  serializeAws_queryApplyEnvironmentManagedActionCommand,
+  de_ApplyEnvironmentManagedActionCommand,
+  se_ApplyEnvironmentManagedActionCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -132,7 +132,7 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
    * @internal
    */
   private serialize(input: ApplyEnvironmentManagedActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryApplyEnvironmentManagedActionCommand(input, context);
+    return se_ApplyEnvironmentManagedActionCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplyEnvironmentManagedActionCommandOutput> {
-    return deserializeAws_queryApplyEnvironmentManagedActionCommand(output, context);
+    return de_ApplyEnvironmentManagedActionCommand(output, context);
   }
 
   // Start section: command_body_extra

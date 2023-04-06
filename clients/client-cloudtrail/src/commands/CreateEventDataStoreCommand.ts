@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { CreateEventDataStoreRequest, CreateEventDataStoreResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEventDataStoreCommand,
-  serializeAws_json1_1CreateEventDataStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateEventDataStoreCommand, se_CreateEventDataStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -255,14 +252,14 @@ export class CreateEventDataStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEventDataStoreCommand(input, context);
+    return se_CreateEventDataStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventDataStoreCommandOutput> {
-    return deserializeAws_json1_1CreateEventDataStoreCommand(output, context);
+    return de_CreateEventDataStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

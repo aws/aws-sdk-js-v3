@@ -15,10 +15,7 @@ import {
 
 import { ListSinksInput, ListSinksOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1ListSinksCommand,
-  serializeAws_restJson1ListSinksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSinksCommand, se_ListSinksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class ListSinksCommand extends $Command<ListSinksCommandInput, ListSinksC
    * @internal
    */
   private serialize(input: ListSinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSinksCommand(input, context);
+    return se_ListSinksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSinksCommandOutput> {
-    return deserializeAws_restJson1ListSinksCommand(output, context);
+    return de_ListSinksCommand(output, context);
   }
 
   // Start section: command_body_extra

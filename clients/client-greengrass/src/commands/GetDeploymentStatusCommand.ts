@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { GetDeploymentStatusRequest, GetDeploymentStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeploymentStatusCommand,
-  serializeAws_restJson1GetDeploymentStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDeploymentStatusCommand, se_GetDeploymentStatusCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class GetDeploymentStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDeploymentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeploymentStatusCommand(input, context);
+    return se_GetDeploymentStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentStatusCommandOutput> {
-    return deserializeAws_restJson1GetDeploymentStatusCommand(output, context);
+    return de_GetDeploymentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

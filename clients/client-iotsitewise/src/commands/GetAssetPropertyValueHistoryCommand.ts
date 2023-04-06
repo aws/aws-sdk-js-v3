@@ -16,8 +16,8 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { GetAssetPropertyValueHistoryRequest, GetAssetPropertyValueHistoryResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetAssetPropertyValueHistoryCommand,
-  serializeAws_restJson1GetAssetPropertyValueHistoryCommand,
+  de_GetAssetPropertyValueHistoryCommand,
+  se_GetAssetPropertyValueHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -162,7 +162,7 @@ export class GetAssetPropertyValueHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAssetPropertyValueHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssetPropertyValueHistoryCommand(input, context);
+    return se_GetAssetPropertyValueHistoryCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class GetAssetPropertyValueHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAssetPropertyValueHistoryCommandOutput> {
-    return deserializeAws_restJson1GetAssetPropertyValueHistoryCommand(output, context);
+    return de_GetAssetPropertyValueHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

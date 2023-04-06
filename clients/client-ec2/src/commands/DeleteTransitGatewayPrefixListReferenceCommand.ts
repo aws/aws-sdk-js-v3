@@ -19,8 +19,8 @@ import {
   DeleteTransitGatewayPrefixListReferenceResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand,
-  serializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand,
+  de_DeleteTransitGatewayPrefixListReferenceCommand,
+  se_DeleteTransitGatewayPrefixListReferenceCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -137,7 +137,7 @@ export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command<
     input: DeleteTransitGatewayPrefixListReferenceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand(input, context);
+    return se_DeleteTransitGatewayPrefixListReferenceCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayPrefixListReferenceCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand(output, context);
+    return de_DeleteTransitGatewayPrefixListReferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

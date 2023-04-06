@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { GetTableMetadataInput, GetTableMetadataOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTableMetadataCommand,
-  serializeAws_json1_1GetTableMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetTableMetadataCommand, se_GetTableMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetTableMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTableMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTableMetadataCommand(input, context);
+    return se_GetTableMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableMetadataCommandOutput> {
-    return deserializeAws_json1_1GetTableMetadataCommand(output, context);
+    return de_GetTableMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

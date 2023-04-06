@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteAuditSuppressionRequest, DeleteAuditSuppressionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAuditSuppressionCommand,
-  serializeAws_restJson1DeleteAuditSuppressionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAuditSuppressionCommand, se_DeleteAuditSuppressionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class DeleteAuditSuppressionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAuditSuppressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAuditSuppressionCommand(input, context);
+    return se_DeleteAuditSuppressionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAuditSuppressionCommandOutput> {
-    return deserializeAws_restJson1DeleteAuditSuppressionCommand(output, context);
+    return de_DeleteAuditSuppressionCommand(output, context);
   }
 
   // Start section: command_body_extra

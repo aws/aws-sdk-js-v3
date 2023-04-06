@@ -15,7 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { PublishTypeInput, PublishTypeOutput } from "../models/models_0";
-import { deserializeAws_queryPublishTypeCommand, serializeAws_queryPublishTypeCommand } from "../protocols/Aws_query";
+import { de_PublishTypeCommand, se_PublishTypeCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -127,14 +127,14 @@ export class PublishTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: PublishTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPublishTypeCommand(input, context);
+    return se_PublishTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishTypeCommandOutput> {
-    return deserializeAws_queryPublishTypeCommand(output, context);
+    return de_PublishTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

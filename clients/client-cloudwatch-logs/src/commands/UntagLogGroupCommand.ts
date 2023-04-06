@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { UntagLogGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagLogGroupCommand,
-  serializeAws_json1_1UntagLogGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UntagLogGroupCommand, se_UntagLogGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class UntagLogGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagLogGroupCommand(input, context);
+    return se_UntagLogGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagLogGroupCommandOutput> {
-    return deserializeAws_json1_1UntagLogGroupCommand(output, context);
+    return de_UntagLogGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

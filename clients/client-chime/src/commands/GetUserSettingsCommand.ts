@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetUserSettingsRequest, GetUserSettingsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetUserSettingsCommand,
-  serializeAws_restJson1GetUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUserSettingsCommand, se_GetUserSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetUserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUserSettingsCommand(input, context);
+    return se_GetUserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserSettingsCommandOutput> {
-    return deserializeAws_restJson1GetUserSettingsCommand(output, context);
+    return de_GetUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

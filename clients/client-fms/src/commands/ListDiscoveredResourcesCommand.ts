@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDiscoveredResourcesCommand,
-  serializeAws_json1_1ListDiscoveredResourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDiscoveredResourcesCommand, se_ListDiscoveredResourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListDiscoveredResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDiscoveredResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDiscoveredResourcesCommand(input, context);
+    return se_ListDiscoveredResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDiscoveredResourcesCommandOutput> {
-    return deserializeAws_json1_1ListDiscoveredResourcesCommand(output, context);
+    return de_ListDiscoveredResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

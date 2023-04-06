@@ -15,10 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagResourceCommand,
-  serializeAws_json1_1UntagResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class UntagResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagResourceCommand(input, context);
+    return se_UntagResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
-    return deserializeAws_json1_1UntagResourceCommand(output, context);
+    return de_UntagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

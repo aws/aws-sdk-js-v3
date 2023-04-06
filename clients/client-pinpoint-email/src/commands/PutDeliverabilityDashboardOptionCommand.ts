@@ -16,8 +16,8 @@ import {
 import { PutDeliverabilityDashboardOptionRequest, PutDeliverabilityDashboardOptionResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
-  deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand,
-  serializeAws_restJson1PutDeliverabilityDashboardOptionCommand,
+  de_PutDeliverabilityDashboardOptionCommand,
+  se_PutDeliverabilityDashboardOptionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -158,7 +158,7 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
     input: PutDeliverabilityDashboardOptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDeliverabilityDashboardOptionCommand(input, context);
+    return se_PutDeliverabilityDashboardOptionCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDeliverabilityDashboardOptionCommandOutput> {
-    return deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand(output, context);
+    return de_PutDeliverabilityDashboardOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

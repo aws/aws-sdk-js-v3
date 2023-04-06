@@ -15,10 +15,7 @@ import {
 
 import { CreateInAppTemplateRequest, CreateInAppTemplateResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1CreateInAppTemplateCommand,
-  serializeAws_restJson1CreateInAppTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateInAppTemplateCommand, se_CreateInAppTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -202,14 +199,14 @@ export class CreateInAppTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateInAppTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateInAppTemplateCommand(input, context);
+    return se_CreateInAppTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInAppTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateInAppTemplateCommand(output, context);
+    return de_CreateInAppTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

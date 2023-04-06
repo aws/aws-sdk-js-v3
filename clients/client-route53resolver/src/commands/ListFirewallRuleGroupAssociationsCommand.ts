@@ -18,8 +18,8 @@ import {
   ListFirewallRuleGroupAssociationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommand,
-  serializeAws_json1_1ListFirewallRuleGroupAssociationsCommand,
+  de_ListFirewallRuleGroupAssociationsCommand,
+  se_ListFirewallRuleGroupAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -147,7 +147,7 @@ export class ListFirewallRuleGroupAssociationsCommand extends $Command<
     input: ListFirewallRuleGroupAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFirewallRuleGroupAssociationsCommand(input, context);
+    return se_ListFirewallRuleGroupAssociationsCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class ListFirewallRuleGroupAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListFirewallRuleGroupAssociationsCommandOutput> {
-    return deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommand(output, context);
+    return de_ListFirewallRuleGroupAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

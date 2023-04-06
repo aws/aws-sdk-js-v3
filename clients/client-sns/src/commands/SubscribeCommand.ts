@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SubscribeInput, SubscribeResponse } from "../models/models_0";
-import { deserializeAws_querySubscribeCommand, serializeAws_querySubscribeCommand } from "../protocols/Aws_query";
+import { de_SubscribeCommand, se_SubscribeCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -148,14 +148,14 @@ export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeC
    * @internal
    */
   private serialize(input: SubscribeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySubscribeCommand(input, context);
+    return se_SubscribeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeCommandOutput> {
-    return deserializeAws_querySubscribeCommand(output, context);
+    return de_SubscribeCommand(output, context);
   }
 
   // Start section: command_body_extra

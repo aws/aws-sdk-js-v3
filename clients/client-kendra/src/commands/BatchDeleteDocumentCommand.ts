@@ -15,10 +15,7 @@ import {
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { BatchDeleteDocumentRequest, BatchDeleteDocumentResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchDeleteDocumentCommand,
-  serializeAws_json1_1BatchDeleteDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchDeleteDocumentCommand, se_BatchDeleteDocumentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class BatchDeleteDocumentCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDeleteDocumentCommand(input, context);
+    return se_BatchDeleteDocumentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteDocumentCommandOutput> {
-    return deserializeAws_json1_1BatchDeleteDocumentCommand(output, context);
+    return de_BatchDeleteDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

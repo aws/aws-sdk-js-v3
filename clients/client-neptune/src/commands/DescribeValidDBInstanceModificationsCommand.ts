@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryDescribeValidDBInstanceModificationsCommand,
-  serializeAws_queryDescribeValidDBInstanceModificationsCommand,
+  de_DescribeValidDBInstanceModificationsCommand,
+  se_DescribeValidDBInstanceModificationsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -137,7 +137,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     input: DescribeValidDBInstanceModificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeValidDBInstanceModificationsCommand(input, context);
+    return se_DescribeValidDBInstanceModificationsCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput> {
-    return deserializeAws_queryDescribeValidDBInstanceModificationsCommand(output, context);
+    return de_DescribeValidDBInstanceModificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

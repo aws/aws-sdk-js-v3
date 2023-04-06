@@ -20,8 +20,8 @@ import {
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
-  deserializeAws_restJson1StartStudioSSOConfigurationRepairCommand,
-  serializeAws_restJson1StartStudioSSOConfigurationRepairCommand,
+  de_StartStudioSSOConfigurationRepairCommand,
+  se_StartStudioSSOConfigurationRepairCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -160,7 +160,7 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
     input: StartStudioSSOConfigurationRepairCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartStudioSSOConfigurationRepairCommand(input, context);
+    return se_StartStudioSSOConfigurationRepairCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartStudioSSOConfigurationRepairCommandOutput> {
-    return deserializeAws_restJson1StartStudioSSOConfigurationRepairCommand(output, context);
+    return de_StartStudioSSOConfigurationRepairCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   GetObjectAttributesRequest,
   GetObjectAttributesRequestFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectAttributesCommand,
-  serializeAws_restXmlGetObjectAttributesCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetObjectAttributesCommand, se_GetObjectAttributesCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -291,14 +288,14 @@ export class GetObjectAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectAttributesCommand(input, context);
+    return se_GetObjectAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectAttributesCommandOutput> {
-    return deserializeAws_restXmlGetObjectAttributesCommand(output, context);
+    return de_GetObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

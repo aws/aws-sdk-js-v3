@@ -18,8 +18,8 @@ import {
   ListServiceNetworkServiceAssociationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListServiceNetworkServiceAssociationsCommand,
-  serializeAws_restJson1ListServiceNetworkServiceAssociationsCommand,
+  de_ListServiceNetworkServiceAssociationsCommand,
+  se_ListServiceNetworkServiceAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
@@ -152,7 +152,7 @@ export class ListServiceNetworkServiceAssociationsCommand extends $Command<
     input: ListServiceNetworkServiceAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListServiceNetworkServiceAssociationsCommand(input, context);
+    return se_ListServiceNetworkServiceAssociationsCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class ListServiceNetworkServiceAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServiceNetworkServiceAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListServiceNetworkServiceAssociationsCommand(output, context);
+    return de_ListServiceNetworkServiceAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

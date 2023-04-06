@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SearchGroupsRequest, SearchGroupsResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1SearchGroupsCommand,
-  serializeAws_restJson1SearchGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchGroupsCommand, se_SearchGroupsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -155,14 +152,14 @@ export class SearchGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchGroupsCommand(input, context);
+    return se_SearchGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchGroupsCommandOutput> {
-    return deserializeAws_restJson1SearchGroupsCommand(output, context);
+    return de_SearchGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

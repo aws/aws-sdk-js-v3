@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RemoveTagsFromResourceMessage } from "../models/models_1";
-import {
-  deserializeAws_queryRemoveTagsFromResourceCommand,
-  serializeAws_queryRemoveTagsFromResourceCommand,
-} from "../protocols/Aws_query";
+import { de_RemoveTagsFromResourceCommand, se_RemoveTagsFromResourceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -87,16 +84,17 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  *
  * @example To remove tags from a resource
  * ```javascript
- * // This example removes the specified tag associated with the specified DB option group.
+ * // The following example removes tags from a resource.
  * const input = {
- *   "ResourceName": "arn:aws:rds:us-east-1:992648334831:og:mydboptiongroup",
+ *   "ResourceName": "arn:aws:rds:us-east-1:123456789012:db:mydbinstance",
  *   "TagKeys": [
- *     "MyKey"
+ *     "Name",
+ *     "Environment"
  *   ]
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * await client.send(command);
- * // example id: remove-tags-from-resource-49f00574-38f6-4d01-ac89-d3c668449ce3
+ * // example id: to-remove-tags-from-a-resource-1680070522922
  * ```
  *
  */
@@ -163,14 +161,14 @@ export class RemoveTagsFromResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveTagsFromResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveTagsFromResourceCommand(input, context);
+    return se_RemoveTagsFromResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTagsFromResourceCommandOutput> {
-    return deserializeAws_queryRemoveTagsFromResourceCommand(output, context);
+    return de_RemoveTagsFromResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { ListControlsRequest, ListControlsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListControlsCommand,
-  serializeAws_restJson1ListControlsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListControlsCommand, se_ListControlsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListControlsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListControlsCommand(input, context);
+    return se_ListControlsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListControlsCommandOutput> {
-    return deserializeAws_restJson1ListControlsCommand(output, context);
+    return de_ListControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

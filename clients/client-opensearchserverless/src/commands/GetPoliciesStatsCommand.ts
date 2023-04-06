@@ -19,10 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import {
-  deserializeAws_json1_0GetPoliciesStatsCommand,
-  serializeAws_json1_0GetPoliciesStatsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetPoliciesStatsCommand, se_GetPoliciesStatsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class GetPoliciesStatsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPoliciesStatsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetPoliciesStatsCommand(input, context);
+    return se_GetPoliciesStatsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPoliciesStatsCommandOutput> {
-    return deserializeAws_json1_0GetPoliciesStatsCommand(output, context);
+    return de_GetPoliciesStatsCommand(output, context);
   }
 
   // Start section: command_body_extra

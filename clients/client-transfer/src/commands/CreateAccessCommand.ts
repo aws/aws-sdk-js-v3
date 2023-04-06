@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAccessRequest, CreateAccessResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAccessCommand,
-  serializeAws_json1_1CreateAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAccessCommand, se_CreateAccessCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -157,14 +154,14 @@ export class CreateAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAccessCommand(input, context);
+    return se_CreateAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessCommandOutput> {
-    return deserializeAws_json1_1CreateAccessCommand(output, context);
+    return de_CreateAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

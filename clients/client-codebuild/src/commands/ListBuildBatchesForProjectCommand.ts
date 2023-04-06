@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { ListBuildBatchesForProjectInput, ListBuildBatchesForProjectOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListBuildBatchesForProjectCommand,
-  serializeAws_json1_1ListBuildBatchesForProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListBuildBatchesForProjectCommand, se_ListBuildBatchesForProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,7 +129,7 @@ export class ListBuildBatchesForProjectCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBuildBatchesForProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBuildBatchesForProjectCommand(input, context);
+    return se_ListBuildBatchesForProjectCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class ListBuildBatchesForProjectCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListBuildBatchesForProjectCommandOutput> {
-    return deserializeAws_json1_1ListBuildBatchesForProjectCommand(output, context);
+    return de_ListBuildBatchesForProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

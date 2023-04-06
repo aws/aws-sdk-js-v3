@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateLensesInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateLensesCommand,
-  serializeAws_restJson1AssociateLensesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateLensesCommand, se_AssociateLensesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -151,14 +148,14 @@ export class AssociateLensesCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateLensesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateLensesCommand(input, context);
+    return se_AssociateLensesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLensesCommandOutput> {
-    return deserializeAws_restJson1AssociateLensesCommand(output, context);
+    return de_AssociateLensesCommand(output, context);
   }
 
   // Start section: command_body_extra

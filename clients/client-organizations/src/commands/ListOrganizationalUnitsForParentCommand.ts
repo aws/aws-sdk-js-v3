@@ -16,8 +16,8 @@ import {
 import { ListOrganizationalUnitsForParentRequest, ListOrganizationalUnitsForParentResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1ListOrganizationalUnitsForParentCommand,
-  serializeAws_json1_1ListOrganizationalUnitsForParentCommand,
+  de_ListOrganizationalUnitsForParentCommand,
+  se_ListOrganizationalUnitsForParentCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -293,7 +293,7 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
     input: ListOrganizationalUnitsForParentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOrganizationalUnitsForParentCommand(input, context);
+    return se_ListOrganizationalUnitsForParentCommand(input, context);
   }
 
   /**
@@ -303,7 +303,7 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOrganizationalUnitsForParentCommandOutput> {
-    return deserializeAws_json1_1ListOrganizationalUnitsForParentCommand(output, context);
+    return de_ListOrganizationalUnitsForParentCommand(output, context);
   }
 
   // Start section: command_body_extra

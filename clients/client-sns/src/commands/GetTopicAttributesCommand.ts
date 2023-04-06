@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetTopicAttributesInput, GetTopicAttributesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetTopicAttributesCommand,
-  serializeAws_queryGetTopicAttributesCommand,
-} from "../protocols/Aws_query";
+import { de_GetTopicAttributesCommand, se_GetTopicAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -138,14 +135,14 @@ export class GetTopicAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTopicAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetTopicAttributesCommand(input, context);
+    return se_GetTopicAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTopicAttributesCommandOutput> {
-    return deserializeAws_queryGetTopicAttributesCommand(output, context);
+    return de_GetTopicAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

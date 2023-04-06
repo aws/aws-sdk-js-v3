@@ -15,8 +15,8 @@ import {
 
 import { GetContactReachabilityStatusRequest, GetContactReachabilityStatusResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetContactReachabilityStatusCommand,
-  serializeAws_json1_1GetContactReachabilityStatusCommand,
+  de_GetContactReachabilityStatusCommand,
+  se_GetContactReachabilityStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
@@ -139,7 +139,7 @@ export class GetContactReachabilityStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetContactReachabilityStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContactReachabilityStatusCommand(input, context);
+    return se_GetContactReachabilityStatusCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class GetContactReachabilityStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContactReachabilityStatusCommandOutput> {
-    return deserializeAws_json1_1GetContactReachabilityStatusCommand(output, context);
+    return de_GetContactReachabilityStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

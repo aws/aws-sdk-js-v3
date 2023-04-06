@@ -15,8 +15,8 @@ import {
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import {
-  deserializeAws_restJson1DisableOrganizationAdminAccountCommand,
-  serializeAws_restJson1DisableOrganizationAdminAccountCommand,
+  de_DisableOrganizationAdminAccountCommand,
+  se_DisableOrganizationAdminAccountCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -139,7 +139,7 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     input: DisableOrganizationAdminAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableOrganizationAdminAccountCommand(input, context);
+    return se_DisableOrganizationAdminAccountCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableOrganizationAdminAccountCommandOutput> {
-    return deserializeAws_restJson1DisableOrganizationAdminAccountCommand(output, context);
+    return de_DisableOrganizationAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

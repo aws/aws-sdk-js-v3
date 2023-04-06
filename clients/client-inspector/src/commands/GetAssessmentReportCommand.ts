@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { GetAssessmentReportRequest, GetAssessmentReportResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAssessmentReportCommand,
-  serializeAws_json1_1GetAssessmentReportCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAssessmentReportCommand, se_GetAssessmentReportCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class GetAssessmentReportCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAssessmentReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAssessmentReportCommand(input, context);
+    return se_GetAssessmentReportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssessmentReportCommandOutput> {
-    return deserializeAws_json1_1GetAssessmentReportCommand(output, context);
+    return de_GetAssessmentReportCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { DescribeWorkspaceDirectoriesRequest, DescribeWorkspaceDirectoriesResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand,
-  serializeAws_json1_1DescribeWorkspaceDirectoriesCommand,
+  de_DescribeWorkspaceDirectoriesCommand,
+  se_DescribeWorkspaceDirectoriesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -129,7 +129,7 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWorkspaceDirectoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspaceDirectoriesCommand(input, context);
+    return se_DescribeWorkspaceDirectoriesCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceDirectoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand(output, context);
+    return de_DescribeWorkspaceDirectoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

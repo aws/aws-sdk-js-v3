@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteImpersonationRoleRequest, DeleteImpersonationRoleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteImpersonationRoleCommand,
-  serializeAws_json1_1DeleteImpersonationRoleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteImpersonationRoleCommand, se_DeleteImpersonationRoleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -132,14 +129,14 @@ export class DeleteImpersonationRoleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteImpersonationRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteImpersonationRoleCommand(input, context);
+    return se_DeleteImpersonationRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteImpersonationRoleCommandOutput> {
-    return deserializeAws_json1_1DeleteImpersonationRoleCommand(output, context);
+    return de_DeleteImpersonationRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

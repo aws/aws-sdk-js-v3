@@ -15,10 +15,7 @@ import {
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { DeactivateEventSourceRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeactivateEventSourceCommand,
-  serializeAws_json1_1DeactivateEventSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeactivateEventSourceCommand, se_DeactivateEventSourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeactivateEventSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeactivateEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeactivateEventSourceCommand(input, context);
+    return se_DeactivateEventSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeactivateEventSourceCommandOutput> {
-    return deserializeAws_json1_1DeactivateEventSourceCommand(output, context);
+    return de_DeactivateEventSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
 import { ListTagsForCertificateRequest, ListTagsForCertificateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTagsForCertificateCommand,
-  serializeAws_json1_1ListTagsForCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTagsForCertificateCommand, se_ListTagsForCertificateCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListTagsForCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTagsForCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTagsForCertificateCommand(input, context);
+    return se_ListTagsForCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForCertificateCommandOutput> {
-    return deserializeAws_json1_1ListTagsForCertificateCommand(output, context);
+    return de_ListTagsForCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

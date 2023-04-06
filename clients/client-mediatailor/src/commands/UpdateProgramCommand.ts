@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { UpdateProgramRequest, UpdateProgramResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateProgramCommand,
-  serializeAws_restJson1UpdateProgramCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateProgramCommand, se_UpdateProgramCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class UpdateProgramCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateProgramCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProgramCommand(input, context);
+    return se_UpdateProgramCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProgramCommandOutput> {
-    return deserializeAws_restJson1UpdateProgramCommand(output, context);
+    return de_UpdateProgramCommand(output, context);
   }
 
   // Start section: command_body_extra

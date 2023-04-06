@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { RestoreVolumeFromSnapshotRequest, RestoreVolumeFromSnapshotResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreVolumeFromSnapshotCommand,
-  serializeAws_json1_1RestoreVolumeFromSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RestoreVolumeFromSnapshotCommand, se_RestoreVolumeFromSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class RestoreVolumeFromSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreVolumeFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreVolumeFromSnapshotCommand(input, context);
+    return se_RestoreVolumeFromSnapshotCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class RestoreVolumeFromSnapshotCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreVolumeFromSnapshotCommandOutput> {
-    return deserializeAws_json1_1RestoreVolumeFromSnapshotCommand(output, context);
+    return de_RestoreVolumeFromSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

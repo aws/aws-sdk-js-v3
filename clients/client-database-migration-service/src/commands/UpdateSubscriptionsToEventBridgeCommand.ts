@@ -20,8 +20,8 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { UpdateSubscriptionsToEventBridgeMessage, UpdateSubscriptionsToEventBridgeResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand,
-  serializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand,
+  de_UpdateSubscriptionsToEventBridgeCommand,
+  se_UpdateSubscriptionsToEventBridgeCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -144,7 +144,7 @@ export class UpdateSubscriptionsToEventBridgeCommand extends $Command<
     input: UpdateSubscriptionsToEventBridgeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand(input, context);
+    return se_UpdateSubscriptionsToEventBridgeCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class UpdateSubscriptionsToEventBridgeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSubscriptionsToEventBridgeCommandOutput> {
-    return deserializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand(output, context);
+    return de_UpdateSubscriptionsToEventBridgeCommand(output, context);
   }
 
   // Start section: command_body_extra

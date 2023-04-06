@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DescribeRetentionConfigurationsRequest, DescribeRetentionConfigurationsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeRetentionConfigurationsCommand,
-  serializeAws_json1_1DescribeRetentionConfigurationsCommand,
+  de_DescribeRetentionConfigurationsCommand,
+  se_DescribeRetentionConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -147,7 +147,7 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
     input: DescribeRetentionConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRetentionConfigurationsCommand(input, context);
+    return se_DescribeRetentionConfigurationsCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRetentionConfigurationsCommandOutput> {
-    return deserializeAws_json1_1DescribeRetentionConfigurationsCommand(output, context);
+    return de_DescribeRetentionConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

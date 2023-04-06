@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { AssociateAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlAssociateAliasCommand,
-  serializeAws_restXmlAssociateAliasCommand,
-} from "../protocols/Aws_restXml";
+import { de_AssociateAliasCommand, se_AssociateAliasCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class AssociateAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlAssociateAliasCommand(input, context);
+    return se_AssociateAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAliasCommandOutput> {
-    return deserializeAws_restXmlAssociateAliasCommand(output, context);
+    return de_AssociateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

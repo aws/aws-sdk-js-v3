@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { RunJobFlowInput, RunJobFlowOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RunJobFlowCommand,
-  serializeAws_json1_1RunJobFlowCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RunJobFlowCommand, se_RunJobFlowCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -406,14 +403,14 @@ export class RunJobFlowCommand extends $Command<
    * @internal
    */
   private serialize(input: RunJobFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RunJobFlowCommand(input, context);
+    return se_RunJobFlowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunJobFlowCommandOutput> {
-    return deserializeAws_json1_1RunJobFlowCommand(output, context);
+    return de_RunJobFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

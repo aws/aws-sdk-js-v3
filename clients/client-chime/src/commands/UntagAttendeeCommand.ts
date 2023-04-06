@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { UntagAttendeeRequest, UntagAttendeeRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1UntagAttendeeCommand,
-  serializeAws_restJson1UntagAttendeeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UntagAttendeeCommand, se_UntagAttendeeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class UntagAttendeeCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagAttendeeCommand(input, context);
+    return se_UntagAttendeeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagAttendeeCommandOutput> {
-    return deserializeAws_restJson1UntagAttendeeCommand(output, context);
+    return de_UntagAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

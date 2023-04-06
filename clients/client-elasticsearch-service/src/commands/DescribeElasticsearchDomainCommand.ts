@@ -20,8 +20,8 @@ import {
 } from "../ElasticsearchServiceClient";
 import { DescribeElasticsearchDomainRequest, DescribeElasticsearchDomainResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeElasticsearchDomainCommand,
-  serializeAws_restJson1DescribeElasticsearchDomainCommand,
+  de_DescribeElasticsearchDomainCommand,
+  se_DescribeElasticsearchDomainCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -138,7 +138,7 @@ export class DescribeElasticsearchDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeElasticsearchDomainCommand(input, context);
+    return se_DescribeElasticsearchDomainCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class DescribeElasticsearchDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeElasticsearchDomainCommandOutput> {
-    return deserializeAws_restJson1DescribeElasticsearchDomainCommand(output, context);
+    return de_DescribeElasticsearchDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

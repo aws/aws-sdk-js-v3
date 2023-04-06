@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import { DeleteLogPatternRequest, DeleteLogPatternResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLogPatternCommand,
-  serializeAws_json1_1DeleteLogPatternCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteLogPatternCommand, se_DeleteLogPatternCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteLogPatternCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLogPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLogPatternCommand(input, context);
+    return se_DeleteLogPatternCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLogPatternCommandOutput> {
-    return deserializeAws_json1_1DeleteLogPatternCommand(output, context);
+    return de_DeleteLogPatternCommand(output, context);
   }
 
   // Start section: command_body_extra

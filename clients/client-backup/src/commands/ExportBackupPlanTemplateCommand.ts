@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { ExportBackupPlanTemplateInput, ExportBackupPlanTemplateOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportBackupPlanTemplateCommand,
-  serializeAws_restJson1ExportBackupPlanTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExportBackupPlanTemplateCommand, se_ExportBackupPlanTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ExportBackupPlanTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: ExportBackupPlanTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportBackupPlanTemplateCommand(input, context);
+    return se_ExportBackupPlanTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportBackupPlanTemplateCommandOutput> {
-    return deserializeAws_restJson1ExportBackupPlanTemplateCommand(output, context);
+    return de_ExportBackupPlanTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { BatchGetImageRequest, BatchGetImageResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetImageCommand,
-  serializeAws_json1_1BatchGetImageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetImageCommand, se_BatchGetImageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -174,14 +171,14 @@ export class BatchGetImageCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetImageCommand(input, context);
+    return se_BatchGetImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetImageCommandOutput> {
-    return deserializeAws_json1_1BatchGetImageCommand(output, context);
+    return de_BatchGetImageCommand(output, context);
   }
 
   // Start section: command_body_extra

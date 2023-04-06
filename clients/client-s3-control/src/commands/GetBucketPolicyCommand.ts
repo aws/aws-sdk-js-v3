@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetBucketPolicyRequest, GetBucketPolicyResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketPolicyCommand,
-  serializeAws_restXmlGetBucketPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketPolicyCommand, se_GetBucketPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -167,14 +164,14 @@ export class GetBucketPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketPolicyCommand(input, context);
+    return se_GetBucketPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketPolicyCommandOutput> {
-    return deserializeAws_restXmlGetBucketPolicyCommand(output, context);
+    return de_GetBucketPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

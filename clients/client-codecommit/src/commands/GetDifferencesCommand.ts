@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetDifferencesInput, GetDifferencesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDifferencesCommand,
-  serializeAws_json1_1GetDifferencesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDifferencesCommand, se_GetDifferencesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class GetDifferencesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDifferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDifferencesCommand(input, context);
+    return se_GetDifferencesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDifferencesCommandOutput> {
-    return deserializeAws_json1_1GetDifferencesCommand(output, context);
+    return de_GetDifferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

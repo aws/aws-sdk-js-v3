@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { ListUserPoolsRequest, ListUserPoolsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListUserPoolsCommand,
-  serializeAws_json1_1ListUserPoolsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListUserPoolsCommand, se_ListUserPoolsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListUserPoolsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUserPoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUserPoolsCommand(input, context);
+    return se_ListUserPoolsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserPoolsCommandOutput> {
-    return deserializeAws_json1_1ListUserPoolsCommand(output, context);
+    return de_ListUserPoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

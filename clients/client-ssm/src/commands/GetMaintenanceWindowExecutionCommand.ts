@@ -15,8 +15,8 @@ import {
 
 import { GetMaintenanceWindowExecutionRequest, GetMaintenanceWindowExecutionResult } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetMaintenanceWindowExecutionCommand,
-  serializeAws_json1_1GetMaintenanceWindowExecutionCommand,
+  de_GetMaintenanceWindowExecutionCommand,
+  se_GetMaintenanceWindowExecutionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -131,7 +131,7 @@ export class GetMaintenanceWindowExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMaintenanceWindowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMaintenanceWindowExecutionCommand(input, context);
+    return se_GetMaintenanceWindowExecutionCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class GetMaintenanceWindowExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMaintenanceWindowExecutionCommandOutput> {
-    return deserializeAws_json1_1GetMaintenanceWindowExecutionCommand(output, context);
+    return de_GetMaintenanceWindowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

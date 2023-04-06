@@ -15,10 +15,7 @@ import {
 
 import { UpdateVpcAttachmentRequest, UpdateVpcAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1UpdateVpcAttachmentCommand,
-  serializeAws_restJson1UpdateVpcAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateVpcAttachmentCommand, se_UpdateVpcAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class UpdateVpcAttachmentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVpcAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVpcAttachmentCommand(input, context);
+    return se_UpdateVpcAttachmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVpcAttachmentCommandOutput> {
-    return deserializeAws_restJson1UpdateVpcAttachmentCommand(output, context);
+    return de_UpdateVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

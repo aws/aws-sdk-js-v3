@@ -116,7 +116,10 @@ import {
   ValidationException,
 } from "../models/models_0";
 
-export const serializeAws_json1_1CreateGroupCommand = async (
+/**
+ * serializeAws_json1_1CreateGroupCommand
+ */
+export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -125,11 +128,14 @@ export const serializeAws_json1_1CreateGroupCommand = async (
     "x-amz-target": "AWSIdentityStore.CreateGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateGroupRequest(input, context));
+  body = JSON.stringify(se_CreateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateGroupMembershipCommand = async (
+/**
+ * serializeAws_json1_1CreateGroupMembershipCommand
+ */
+export const se_CreateGroupMembershipCommand = async (
   input: CreateGroupMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -138,11 +144,14 @@ export const serializeAws_json1_1CreateGroupMembershipCommand = async (
     "x-amz-target": "AWSIdentityStore.CreateGroupMembership",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateGroupMembershipRequest(input, context));
+  body = JSON.stringify(se_CreateGroupMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUserCommand = async (
+/**
+ * serializeAws_json1_1CreateUserCommand
+ */
+export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -151,11 +160,14 @@ export const serializeAws_json1_1CreateUserCommand = async (
     "x-amz-target": "AWSIdentityStore.CreateUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
+  body = JSON.stringify(se_CreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteGroupCommand = async (
+/**
+ * serializeAws_json1_1DeleteGroupCommand
+ */
+export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -164,11 +176,14 @@ export const serializeAws_json1_1DeleteGroupCommand = async (
     "x-amz-target": "AWSIdentityStore.DeleteGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteGroupRequest(input, context));
+  body = JSON.stringify(se_DeleteGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteGroupMembershipCommand = async (
+/**
+ * serializeAws_json1_1DeleteGroupMembershipCommand
+ */
+export const se_DeleteGroupMembershipCommand = async (
   input: DeleteGroupMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -177,11 +192,14 @@ export const serializeAws_json1_1DeleteGroupMembershipCommand = async (
     "x-amz-target": "AWSIdentityStore.DeleteGroupMembership",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteGroupMembershipRequest(input, context));
+  body = JSON.stringify(se_DeleteGroupMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUserCommand = async (
+/**
+ * serializeAws_json1_1DeleteUserCommand
+ */
+export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -190,11 +208,14 @@ export const serializeAws_json1_1DeleteUserCommand = async (
     "x-amz-target": "AWSIdentityStore.DeleteUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
+  body = JSON.stringify(se_DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeGroupCommand = async (
+/**
+ * serializeAws_json1_1DescribeGroupCommand
+ */
+export const se_DescribeGroupCommand = async (
   input: DescribeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -203,11 +224,14 @@ export const serializeAws_json1_1DescribeGroupCommand = async (
     "x-amz-target": "AWSIdentityStore.DescribeGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeGroupRequest(input, context));
+  body = JSON.stringify(se_DescribeGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeGroupMembershipCommand = async (
+/**
+ * serializeAws_json1_1DescribeGroupMembershipCommand
+ */
+export const se_DescribeGroupMembershipCommand = async (
   input: DescribeGroupMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -216,11 +240,14 @@ export const serializeAws_json1_1DescribeGroupMembershipCommand = async (
     "x-amz-target": "AWSIdentityStore.DescribeGroupMembership",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeGroupMembershipRequest(input, context));
+  body = JSON.stringify(se_DescribeGroupMembershipRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUserCommand = async (
+/**
+ * serializeAws_json1_1DescribeUserCommand
+ */
+export const se_DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -229,11 +256,14 @@ export const serializeAws_json1_1DescribeUserCommand = async (
     "x-amz-target": "AWSIdentityStore.DescribeUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUserRequest(input, context));
+  body = JSON.stringify(se_DescribeUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetGroupIdCommand = async (
+/**
+ * serializeAws_json1_1GetGroupIdCommand
+ */
+export const se_GetGroupIdCommand = async (
   input: GetGroupIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -242,11 +272,14 @@ export const serializeAws_json1_1GetGroupIdCommand = async (
     "x-amz-target": "AWSIdentityStore.GetGroupId",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetGroupIdRequest(input, context));
+  body = JSON.stringify(se_GetGroupIdRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetGroupMembershipIdCommand = async (
+/**
+ * serializeAws_json1_1GetGroupMembershipIdCommand
+ */
+export const se_GetGroupMembershipIdCommand = async (
   input: GetGroupMembershipIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -255,11 +288,14 @@ export const serializeAws_json1_1GetGroupMembershipIdCommand = async (
     "x-amz-target": "AWSIdentityStore.GetGroupMembershipId",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetGroupMembershipIdRequest(input, context));
+  body = JSON.stringify(se_GetGroupMembershipIdRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetUserIdCommand = async (
+/**
+ * serializeAws_json1_1GetUserIdCommand
+ */
+export const se_GetUserIdCommand = async (
   input: GetUserIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -268,11 +304,14 @@ export const serializeAws_json1_1GetUserIdCommand = async (
     "x-amz-target": "AWSIdentityStore.GetUserId",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetUserIdRequest(input, context));
+  body = JSON.stringify(se_GetUserIdRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1IsMemberInGroupsCommand = async (
+/**
+ * serializeAws_json1_1IsMemberInGroupsCommand
+ */
+export const se_IsMemberInGroupsCommand = async (
   input: IsMemberInGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -281,11 +320,14 @@ export const serializeAws_json1_1IsMemberInGroupsCommand = async (
     "x-amz-target": "AWSIdentityStore.IsMemberInGroups",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1IsMemberInGroupsRequest(input, context));
+  body = JSON.stringify(se_IsMemberInGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListGroupMembershipsCommand = async (
+/**
+ * serializeAws_json1_1ListGroupMembershipsCommand
+ */
+export const se_ListGroupMembershipsCommand = async (
   input: ListGroupMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -294,11 +336,14 @@ export const serializeAws_json1_1ListGroupMembershipsCommand = async (
     "x-amz-target": "AWSIdentityStore.ListGroupMemberships",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListGroupMembershipsRequest(input, context));
+  body = JSON.stringify(se_ListGroupMembershipsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListGroupMembershipsForMemberCommand = async (
+/**
+ * serializeAws_json1_1ListGroupMembershipsForMemberCommand
+ */
+export const se_ListGroupMembershipsForMemberCommand = async (
   input: ListGroupMembershipsForMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -307,11 +352,14 @@ export const serializeAws_json1_1ListGroupMembershipsForMemberCommand = async (
     "x-amz-target": "AWSIdentityStore.ListGroupMembershipsForMember",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListGroupMembershipsForMemberRequest(input, context));
+  body = JSON.stringify(se_ListGroupMembershipsForMemberRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListGroupsCommand = async (
+/**
+ * serializeAws_json1_1ListGroupsCommand
+ */
+export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -320,11 +368,14 @@ export const serializeAws_json1_1ListGroupsCommand = async (
     "x-amz-target": "AWSIdentityStore.ListGroups",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListGroupsRequest(input, context));
+  body = JSON.stringify(se_ListGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListUsersCommand = async (
+/**
+ * serializeAws_json1_1ListUsersCommand
+ */
+export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -333,11 +384,14 @@ export const serializeAws_json1_1ListUsersCommand = async (
     "x-amz-target": "AWSIdentityStore.ListUsers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
+  body = JSON.stringify(se_ListUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateGroupCommand = async (
+/**
+ * serializeAws_json1_1UpdateGroupCommand
+ */
+export const se_UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -346,11 +400,14 @@ export const serializeAws_json1_1UpdateGroupCommand = async (
     "x-amz-target": "AWSIdentityStore.UpdateGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateGroupRequest(input, context));
+  body = JSON.stringify(se_UpdateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateUserCommand = async (
+/**
+ * serializeAws_json1_1UpdateUserCommand
+ */
+export const se_UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -359,20 +416,23 @@ export const serializeAws_json1_1UpdateUserCommand = async (
     "x-amz-target": "AWSIdentityStore.UpdateUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateUserRequest(input, context));
+  body = JSON.stringify(se_UpdateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateGroupCommand = async (
+/**
+ * deserializeAws_json1_1CreateGroupCommand
+ */
+export const de_CreateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateGroupCommandError(output, context);
+    return de_CreateGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGroupResponse(data, context);
+  contents = de_CreateGroupResponse(data, context);
   const response: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -380,7 +440,10 @@ export const deserializeAws_json1_1CreateGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateGroupCommandError = async (
+/**
+ * deserializeAws_json1_1CreateGroupCommandError
+ */
+const de_CreateGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
@@ -392,25 +455,25 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.identitystore#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.identitystore#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -422,16 +485,19 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateGroupMembershipCommand = async (
+/**
+ * deserializeAws_json1_1CreateGroupMembershipCommand
+ */
+export const de_CreateGroupMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupMembershipCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateGroupMembershipCommandError(output, context);
+    return de_CreateGroupMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGroupMembershipResponse(data, context);
+  contents = de_CreateGroupMembershipResponse(data, context);
   const response: CreateGroupMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -439,7 +505,10 @@ export const deserializeAws_json1_1CreateGroupMembershipCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateGroupMembershipCommandError = async (
+/**
+ * deserializeAws_json1_1CreateGroupMembershipCommandError
+ */
+const de_CreateGroupMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupMembershipCommandOutput> => {
@@ -451,25 +520,25 @@ const deserializeAws_json1_1CreateGroupMembershipCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.identitystore#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.identitystore#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -481,16 +550,19 @@ const deserializeAws_json1_1CreateGroupMembershipCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateUserCommand = async (
+/**
+ * deserializeAws_json1_1CreateUserCommand
+ */
+export const de_CreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUserCommandError(output, context);
+    return de_CreateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserResponse(data, context);
+  contents = de_CreateUserResponse(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -498,7 +570,10 @@ export const deserializeAws_json1_1CreateUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateUserCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUserCommandError
+ */
+const de_CreateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
@@ -510,25 +585,25 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.identitystore#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.identitystore#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -540,16 +615,19 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteGroupCommand = async (
+/**
+ * deserializeAws_json1_1DeleteGroupCommand
+ */
+export const de_DeleteGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteGroupCommandError(output, context);
+    return de_DeleteGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteGroupResponse(data, context);
+  contents = de_DeleteGroupResponse(data, context);
   const response: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -557,7 +635,10 @@ export const deserializeAws_json1_1DeleteGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteGroupCommandError
+ */
+const de_DeleteGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
@@ -569,22 +650,22 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.identitystore#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -596,16 +677,19 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteGroupMembershipCommand = async (
+/**
+ * deserializeAws_json1_1DeleteGroupMembershipCommand
+ */
+export const de_DeleteGroupMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupMembershipCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteGroupMembershipCommandError(output, context);
+    return de_DeleteGroupMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteGroupMembershipResponse(data, context);
+  contents = de_DeleteGroupMembershipResponse(data, context);
   const response: DeleteGroupMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -613,7 +697,10 @@ export const deserializeAws_json1_1DeleteGroupMembershipCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteGroupMembershipCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteGroupMembershipCommandError
+ */
+const de_DeleteGroupMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupMembershipCommandOutput> => {
@@ -625,22 +712,22 @@ const deserializeAws_json1_1DeleteGroupMembershipCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.identitystore#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -652,16 +739,19 @@ const deserializeAws_json1_1DeleteGroupMembershipCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteUserCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUserCommand
+ */
+export const de_DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUserCommandError(output, context);
+    return de_DeleteUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserResponse(data, context);
+  contents = de_DeleteUserResponse(data, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -669,7 +759,10 @@ export const deserializeAws_json1_1DeleteUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteUserCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUserCommandError
+ */
+const de_DeleteUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
@@ -681,22 +774,22 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.identitystore#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -708,16 +801,19 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeGroupCommand = async (
+/**
+ * deserializeAws_json1_1DescribeGroupCommand
+ */
+export const de_DescribeGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeGroupCommandError(output, context);
+    return de_DescribeGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeGroupResponse(data, context);
+  contents = de_DescribeGroupResponse(data, context);
   const response: DescribeGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -725,7 +821,10 @@ export const deserializeAws_json1_1DescribeGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeGroupCommandError
+ */
+const de_DescribeGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGroupCommandOutput> => {
@@ -737,19 +836,19 @@ const deserializeAws_json1_1DescribeGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -761,16 +860,19 @@ const deserializeAws_json1_1DescribeGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeGroupMembershipCommand = async (
+/**
+ * deserializeAws_json1_1DescribeGroupMembershipCommand
+ */
+export const de_DescribeGroupMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGroupMembershipCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeGroupMembershipCommandError(output, context);
+    return de_DescribeGroupMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeGroupMembershipResponse(data, context);
+  contents = de_DescribeGroupMembershipResponse(data, context);
   const response: DescribeGroupMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -778,7 +880,10 @@ export const deserializeAws_json1_1DescribeGroupMembershipCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeGroupMembershipCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeGroupMembershipCommandError
+ */
+const de_DescribeGroupMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGroupMembershipCommandOutput> => {
@@ -790,19 +895,19 @@ const deserializeAws_json1_1DescribeGroupMembershipCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -814,16 +919,19 @@ const deserializeAws_json1_1DescribeGroupMembershipCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeUserCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUserCommand
+ */
+export const de_DescribeUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUserCommandError(output, context);
+    return de_DescribeUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserResponse(data, context);
+  contents = de_DescribeUserResponse(data, context);
   const response: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -831,7 +939,10 @@ export const deserializeAws_json1_1DescribeUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeUserCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUserCommandError
+ */
+const de_DescribeUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> => {
@@ -843,19 +954,19 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -867,16 +978,19 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetGroupIdCommand = async (
+/**
+ * deserializeAws_json1_1GetGroupIdCommand
+ */
+export const de_GetGroupIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetGroupIdCommandError(output, context);
+    return de_GetGroupIdCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetGroupIdResponse(data, context);
+  contents = de_GetGroupIdResponse(data, context);
   const response: GetGroupIdCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -884,7 +998,10 @@ export const deserializeAws_json1_1GetGroupIdCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetGroupIdCommandError = async (
+/**
+ * deserializeAws_json1_1GetGroupIdCommandError
+ */
+const de_GetGroupIdCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupIdCommandOutput> => {
@@ -896,19 +1013,19 @@ const deserializeAws_json1_1GetGroupIdCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -920,16 +1037,19 @@ const deserializeAws_json1_1GetGroupIdCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetGroupMembershipIdCommand = async (
+/**
+ * deserializeAws_json1_1GetGroupMembershipIdCommand
+ */
+export const de_GetGroupMembershipIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupMembershipIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetGroupMembershipIdCommandError(output, context);
+    return de_GetGroupMembershipIdCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetGroupMembershipIdResponse(data, context);
+  contents = de_GetGroupMembershipIdResponse(data, context);
   const response: GetGroupMembershipIdCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -937,7 +1057,10 @@ export const deserializeAws_json1_1GetGroupMembershipIdCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetGroupMembershipIdCommandError = async (
+/**
+ * deserializeAws_json1_1GetGroupMembershipIdCommandError
+ */
+const de_GetGroupMembershipIdCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupMembershipIdCommandOutput> => {
@@ -949,19 +1072,19 @@ const deserializeAws_json1_1GetGroupMembershipIdCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -973,16 +1096,19 @@ const deserializeAws_json1_1GetGroupMembershipIdCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetUserIdCommand = async (
+/**
+ * deserializeAws_json1_1GetUserIdCommand
+ */
+export const de_GetUserIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetUserIdCommandError(output, context);
+    return de_GetUserIdCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUserIdResponse(data, context);
+  contents = de_GetUserIdResponse(data, context);
   const response: GetUserIdCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -990,7 +1116,10 @@ export const deserializeAws_json1_1GetUserIdCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetUserIdCommandError = async (
+/**
+ * deserializeAws_json1_1GetUserIdCommandError
+ */
+const de_GetUserIdCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserIdCommandOutput> => {
@@ -1002,19 +1131,19 @@ const deserializeAws_json1_1GetUserIdCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1026,16 +1155,19 @@ const deserializeAws_json1_1GetUserIdCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1IsMemberInGroupsCommand = async (
+/**
+ * deserializeAws_json1_1IsMemberInGroupsCommand
+ */
+export const de_IsMemberInGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IsMemberInGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1IsMemberInGroupsCommandError(output, context);
+    return de_IsMemberInGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1IsMemberInGroupsResponse(data, context);
+  contents = de_IsMemberInGroupsResponse(data, context);
   const response: IsMemberInGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1043,7 +1175,10 @@ export const deserializeAws_json1_1IsMemberInGroupsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1IsMemberInGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1IsMemberInGroupsCommandError
+ */
+const de_IsMemberInGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IsMemberInGroupsCommandOutput> => {
@@ -1055,19 +1190,19 @@ const deserializeAws_json1_1IsMemberInGroupsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1079,16 +1214,19 @@ const deserializeAws_json1_1IsMemberInGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListGroupMembershipsCommand = async (
+/**
+ * deserializeAws_json1_1ListGroupMembershipsCommand
+ */
+export const de_ListGroupMembershipsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupMembershipsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListGroupMembershipsCommandError(output, context);
+    return de_ListGroupMembershipsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGroupMembershipsResponse(data, context);
+  contents = de_ListGroupMembershipsResponse(data, context);
   const response: ListGroupMembershipsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1096,7 +1234,10 @@ export const deserializeAws_json1_1ListGroupMembershipsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListGroupMembershipsCommandError = async (
+/**
+ * deserializeAws_json1_1ListGroupMembershipsCommandError
+ */
+const de_ListGroupMembershipsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupMembershipsCommandOutput> => {
@@ -1108,19 +1249,19 @@ const deserializeAws_json1_1ListGroupMembershipsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1132,16 +1273,19 @@ const deserializeAws_json1_1ListGroupMembershipsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListGroupMembershipsForMemberCommand = async (
+/**
+ * deserializeAws_json1_1ListGroupMembershipsForMemberCommand
+ */
+export const de_ListGroupMembershipsForMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupMembershipsForMemberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListGroupMembershipsForMemberCommandError(output, context);
+    return de_ListGroupMembershipsForMemberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGroupMembershipsForMemberResponse(data, context);
+  contents = de_ListGroupMembershipsForMemberResponse(data, context);
   const response: ListGroupMembershipsForMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1149,7 +1293,10 @@ export const deserializeAws_json1_1ListGroupMembershipsForMemberCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListGroupMembershipsForMemberCommandError = async (
+/**
+ * deserializeAws_json1_1ListGroupMembershipsForMemberCommandError
+ */
+const de_ListGroupMembershipsForMemberCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupMembershipsForMemberCommandOutput> => {
@@ -1161,19 +1308,19 @@ const deserializeAws_json1_1ListGroupMembershipsForMemberCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1185,16 +1332,19 @@ const deserializeAws_json1_1ListGroupMembershipsForMemberCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListGroupsCommand = async (
+/**
+ * deserializeAws_json1_1ListGroupsCommand
+ */
+export const de_ListGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListGroupsCommandError(output, context);
+    return de_ListGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGroupsResponse(data, context);
+  contents = de_ListGroupsResponse(data, context);
   const response: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1202,7 +1352,10 @@ export const deserializeAws_json1_1ListGroupsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ListGroupsCommandError
+ */
+const de_ListGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
@@ -1214,19 +1367,19 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1238,16 +1391,19 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListUsersCommand = async (
+/**
+ * deserializeAws_json1_1ListUsersCommand
+ */
+export const de_ListUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListUsersCommandError(output, context);
+    return de_ListUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUsersResponse(data, context);
+  contents = de_ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1255,7 +1411,10 @@ export const deserializeAws_json1_1ListUsersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListUsersCommandError = async (
+/**
+ * deserializeAws_json1_1ListUsersCommandError
+ */
+const de_ListUsersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
@@ -1267,19 +1426,19 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1291,16 +1450,19 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateGroupCommand = async (
+/**
+ * deserializeAws_json1_1UpdateGroupCommand
+ */
+export const de_UpdateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateGroupCommandError(output, context);
+    return de_UpdateGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGroupResponse(data, context);
+  contents = de_UpdateGroupResponse(data, context);
   const response: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1308,7 +1470,10 @@ export const deserializeAws_json1_1UpdateGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateGroupCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateGroupCommandError
+ */
+const de_UpdateGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
@@ -1320,25 +1485,25 @@ const deserializeAws_json1_1UpdateGroupCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.identitystore#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.identitystore#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1350,16 +1515,19 @@ const deserializeAws_json1_1UpdateGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateUserCommand = async (
+/**
+ * deserializeAws_json1_1UpdateUserCommand
+ */
+export const de_UpdateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateUserCommandError(output, context);
+    return de_UpdateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserResponse(data, context);
+  contents = de_UpdateUserResponse(data, context);
   const response: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1367,7 +1535,10 @@ export const deserializeAws_json1_1UpdateUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateUserCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateUserCommandError
+ */
+const de_UpdateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
@@ -1379,25 +1550,25 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
-      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.identitystore#ConflictException":
-      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.identitystore#InternalServerException":
-      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.identitystore#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.identitystore#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.identitystore#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.identitystore#ValidationException":
-      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1409,12 +1580,15 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
   }
 };
 
-const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const deserialized: any = de_AccessDeniedException(body, context);
   const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1422,12 +1596,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const deserialized: any = de_ConflictException(body, context);
   const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1435,12 +1609,15 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
+  const deserialized: any = de_InternalServerException(body, context);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1448,12 +1625,15 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1461,12 +1641,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceQuotaExceededException(body, context);
+  const deserialized: any = de_ServiceQuotaExceededException(body, context);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1474,12 +1657,12 @@ const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const deserialized: any = de_ThrottlingException(body, context);
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1487,12 +1670,12 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const deserialized: any = de_ValidationException(body, context);
   const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1500,7 +1683,10 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1Address = (input: Address, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Address
+ */
+const se_Address = (input: Address, context: __SerdeContext): any => {
   return {
     ...(input.Country != null && { Country: input.Country }),
     ...(input.Formatted != null && { Formatted: input.Formatted }),
@@ -1513,55 +1699,71 @@ const serializeAws_json1_1Address = (input: Address, context: __SerdeContext): a
   };
 };
 
-const serializeAws_json1_1Addresses = (input: Address[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Addresses
+ */
+const se_Addresses = (input: Address[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Address(entry, context);
+      return se_Address(entry, context);
     });
 };
 
-const serializeAws_json1_1AlternateIdentifier = (input: AlternateIdentifier, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AlternateIdentifier
+ */
+const se_AlternateIdentifier = (input: AlternateIdentifier, context: __SerdeContext): any => {
   return AlternateIdentifier.visit(input, {
-    ExternalId: (value) => ({ ExternalId: serializeAws_json1_1ExternalId(value, context) }),
-    UniqueAttribute: (value) => ({ UniqueAttribute: serializeAws_json1_1UniqueAttribute(value, context) }),
+    ExternalId: (value) => ({ ExternalId: se_ExternalId(value, context) }),
+    UniqueAttribute: (value) => ({ UniqueAttribute: se_UniqueAttribute(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_json1_1AttributeOperation = (input: AttributeOperation, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AttributeOperation
+ */
+const se_AttributeOperation = (input: AttributeOperation, context: __SerdeContext): any => {
   return {
     ...(input.AttributePath != null && { AttributePath: input.AttributePath }),
-    ...(input.AttributeValue != null && {
-      AttributeValue: serializeAws_json1_1AttributeValue(input.AttributeValue, context),
-    }),
+    ...(input.AttributeValue != null && { AttributeValue: se_AttributeValue(input.AttributeValue, context) }),
   };
 };
 
-const serializeAws_json1_1AttributeOperations = (input: AttributeOperation[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AttributeOperations
+ */
+const se_AttributeOperations = (input: AttributeOperation[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1AttributeOperation(entry, context);
+      return se_AttributeOperation(entry, context);
     });
 };
 
-const serializeAws_json1_1AttributeValue = (input: __DocumentType, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1AttributeValue
+ */
+const se_AttributeValue = (input: __DocumentType, context: __SerdeContext): any => {
   return input;
 };
 
-const serializeAws_json1_1CreateGroupMembershipRequest = (
-  input: CreateGroupMembershipRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateGroupMembershipRequest
+ */
+const se_CreateGroupMembershipRequest = (input: CreateGroupMembershipRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId != null && { GroupId: input.GroupId }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
-    ...(input.MemberId != null && { MemberId: serializeAws_json1_1MemberId(input.MemberId, context) }),
+    ...(input.MemberId != null && { MemberId: se_MemberId(input.MemberId, context) }),
   };
 };
 
-const serializeAws_json1_1CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateGroupRequest
+ */
+const se_CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
@@ -1569,16 +1771,19 @@ const serializeAws_json1_1CreateGroupRequest = (input: CreateGroupRequest, conte
   };
 };
 
-const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateUserRequest
+ */
+const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Addresses != null && { Addresses: serializeAws_json1_1Addresses(input.Addresses, context) }),
+    ...(input.Addresses != null && { Addresses: se_Addresses(input.Addresses, context) }),
     ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
-    ...(input.Emails != null && { Emails: serializeAws_json1_1Emails(input.Emails, context) }),
+    ...(input.Emails != null && { Emails: se_Emails(input.Emails, context) }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
     ...(input.Locale != null && { Locale: input.Locale }),
-    ...(input.Name != null && { Name: serializeAws_json1_1Name(input.Name, context) }),
+    ...(input.Name != null && { Name: se_Name(input.Name, context) }),
     ...(input.NickName != null && { NickName: input.NickName }),
-    ...(input.PhoneNumbers != null && { PhoneNumbers: serializeAws_json1_1PhoneNumbers(input.PhoneNumbers, context) }),
+    ...(input.PhoneNumbers != null && { PhoneNumbers: se_PhoneNumbers(input.PhoneNumbers, context) }),
     ...(input.PreferredLanguage != null && { PreferredLanguage: input.PreferredLanguage }),
     ...(input.ProfileUrl != null && { ProfileUrl: input.ProfileUrl }),
     ...(input.Timezone != null && { Timezone: input.Timezone }),
@@ -1588,55 +1793,70 @@ const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context
   };
 };
 
-const serializeAws_json1_1DeleteGroupMembershipRequest = (
-  input: DeleteGroupMembershipRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteGroupMembershipRequest
+ */
+const se_DeleteGroupMembershipRequest = (input: DeleteGroupMembershipRequest, context: __SerdeContext): any => {
   return {
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
     ...(input.MembershipId != null && { MembershipId: input.MembershipId }),
   };
 };
 
-const serializeAws_json1_1DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteGroupRequest
+ */
+const se_DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId != null && { GroupId: input.GroupId }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
   };
 };
 
-const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteUserRequest
+ */
+const se_DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
     ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
-const serializeAws_json1_1DescribeGroupMembershipRequest = (
-  input: DescribeGroupMembershipRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeGroupMembershipRequest
+ */
+const se_DescribeGroupMembershipRequest = (input: DescribeGroupMembershipRequest, context: __SerdeContext): any => {
   return {
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
     ...(input.MembershipId != null && { MembershipId: input.MembershipId }),
   };
 };
 
-const serializeAws_json1_1DescribeGroupRequest = (input: DescribeGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeGroupRequest
+ */
+const se_DescribeGroupRequest = (input: DescribeGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId != null && { GroupId: input.GroupId }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
   };
 };
 
-const serializeAws_json1_1DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeUserRequest
+ */
+const se_DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
     ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
-const serializeAws_json1_1Email = (input: Email, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Email
+ */
+const se_Email = (input: Email, context: __SerdeContext): any => {
   return {
     ...(input.Primary != null && { Primary: input.Primary }),
     ...(input.Type != null && { Type: input.Type }),
@@ -1644,66 +1864,87 @@ const serializeAws_json1_1Email = (input: Email, context: __SerdeContext): any =
   };
 };
 
-const serializeAws_json1_1Emails = (input: Email[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Emails
+ */
+const se_Emails = (input: Email[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Email(entry, context);
+      return se_Email(entry, context);
     });
 };
 
-const serializeAws_json1_1ExternalId = (input: ExternalId, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ExternalId
+ */
+const se_ExternalId = (input: ExternalId, context: __SerdeContext): any => {
   return {
     ...(input.Id != null && { Id: input.Id }),
     ...(input.Issuer != null && { Issuer: input.Issuer }),
   };
 };
 
-const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Filter
+ */
+const se_Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.AttributePath != null && { AttributePath: input.AttributePath }),
     ...(input.AttributeValue != null && { AttributeValue: input.AttributeValue }),
   };
 };
 
-const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Filters
+ */
+const se_Filters = (input: Filter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Filter(entry, context);
+      return se_Filter(entry, context);
     });
 };
 
-const serializeAws_json1_1GetGroupIdRequest = (input: GetGroupIdRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetGroupIdRequest
+ */
+const se_GetGroupIdRequest = (input: GetGroupIdRequest, context: __SerdeContext): any => {
   return {
     ...(input.AlternateIdentifier != null && {
-      AlternateIdentifier: serializeAws_json1_1AlternateIdentifier(input.AlternateIdentifier, context),
+      AlternateIdentifier: se_AlternateIdentifier(input.AlternateIdentifier, context),
     }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
   };
 };
 
-const serializeAws_json1_1GetGroupMembershipIdRequest = (
-  input: GetGroupMembershipIdRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetGroupMembershipIdRequest
+ */
+const se_GetGroupMembershipIdRequest = (input: GetGroupMembershipIdRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId != null && { GroupId: input.GroupId }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
-    ...(input.MemberId != null && { MemberId: serializeAws_json1_1MemberId(input.MemberId, context) }),
+    ...(input.MemberId != null && { MemberId: se_MemberId(input.MemberId, context) }),
   };
 };
 
-const serializeAws_json1_1GetUserIdRequest = (input: GetUserIdRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetUserIdRequest
+ */
+const se_GetUserIdRequest = (input: GetUserIdRequest, context: __SerdeContext): any => {
   return {
     ...(input.AlternateIdentifier != null && {
-      AlternateIdentifier: serializeAws_json1_1AlternateIdentifier(input.AlternateIdentifier, context),
+      AlternateIdentifier: se_AlternateIdentifier(input.AlternateIdentifier, context),
     }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
   };
 };
 
-const serializeAws_json1_1GroupIds = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GroupIds
+ */
+const se_GroupIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1711,30 +1952,36 @@ const serializeAws_json1_1GroupIds = (input: string[], context: __SerdeContext):
     });
 };
 
-const serializeAws_json1_1IsMemberInGroupsRequest = (input: IsMemberInGroupsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1IsMemberInGroupsRequest
+ */
+const se_IsMemberInGroupsRequest = (input: IsMemberInGroupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupIds != null && { GroupIds: serializeAws_json1_1GroupIds(input.GroupIds, context) }),
+    ...(input.GroupIds != null && { GroupIds: se_GroupIds(input.GroupIds, context) }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
-    ...(input.MemberId != null && { MemberId: serializeAws_json1_1MemberId(input.MemberId, context) }),
+    ...(input.MemberId != null && { MemberId: se_MemberId(input.MemberId, context) }),
   };
 };
 
-const serializeAws_json1_1ListGroupMembershipsForMemberRequest = (
+/**
+ * serializeAws_json1_1ListGroupMembershipsForMemberRequest
+ */
+const se_ListGroupMembershipsForMemberRequest = (
   input: ListGroupMembershipsForMemberRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
-    ...(input.MemberId != null && { MemberId: serializeAws_json1_1MemberId(input.MemberId, context) }),
+    ...(input.MemberId != null && { MemberId: se_MemberId(input.MemberId, context) }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListGroupMembershipsRequest = (
-  input: ListGroupMembershipsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListGroupMembershipsRequest
+ */
+const se_ListGroupMembershipsRequest = (input: ListGroupMembershipsRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId != null && { GroupId: input.GroupId }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
@@ -1743,32 +1990,44 @@ const serializeAws_json1_1ListGroupMembershipsRequest = (
   };
 };
 
-const serializeAws_json1_1ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListGroupsRequest
+ */
+const se_ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListUsersRequest
+ */
+const se_ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters != null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.Filters != null && { Filters: se_Filters(input.Filters, context) }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1MemberId = (input: MemberId, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1MemberId
+ */
+const se_MemberId = (input: MemberId, context: __SerdeContext): any => {
   return MemberId.visit(input, {
     UserId: (value) => ({ UserId: value }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_json1_1Name = (input: Name, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Name
+ */
+const se_Name = (input: Name, context: __SerdeContext): any => {
   return {
     ...(input.FamilyName != null && { FamilyName: input.FamilyName }),
     ...(input.Formatted != null && { Formatted: input.Formatted }),
@@ -1779,7 +2038,10 @@ const serializeAws_json1_1Name = (input: Name, context: __SerdeContext): any => 
   };
 };
 
-const serializeAws_json1_1PhoneNumber = (input: PhoneNumber, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PhoneNumber
+ */
+const se_PhoneNumber = (input: PhoneNumber, context: __SerdeContext): any => {
   return {
     ...(input.Primary != null && { Primary: input.Primary }),
     ...(input.Type != null && { Type: input.Type }),
@@ -1787,47 +2049,63 @@ const serializeAws_json1_1PhoneNumber = (input: PhoneNumber, context: __SerdeCon
   };
 };
 
-const serializeAws_json1_1PhoneNumbers = (input: PhoneNumber[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PhoneNumbers
+ */
+const se_PhoneNumbers = (input: PhoneNumber[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1PhoneNumber(entry, context);
+      return se_PhoneNumber(entry, context);
     });
 };
 
-const serializeAws_json1_1UniqueAttribute = (input: UniqueAttribute, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UniqueAttribute
+ */
+const se_UniqueAttribute = (input: UniqueAttribute, context: __SerdeContext): any => {
   return {
     ...(input.AttributePath != null && { AttributePath: input.AttributePath }),
-    ...(input.AttributeValue != null && {
-      AttributeValue: serializeAws_json1_1AttributeValue(input.AttributeValue, context),
-    }),
+    ...(input.AttributeValue != null && { AttributeValue: se_AttributeValue(input.AttributeValue, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateGroupRequest
+ */
+const se_UpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId != null && { GroupId: input.GroupId }),
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
-    ...(input.Operations != null && { Operations: serializeAws_json1_1AttributeOperations(input.Operations, context) }),
+    ...(input.Operations != null && { Operations: se_AttributeOperations(input.Operations, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateUserRequest
+ */
+const se_UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.IdentityStoreId != null && { IdentityStoreId: input.IdentityStoreId }),
-    ...(input.Operations != null && { Operations: serializeAws_json1_1AttributeOperations(input.Operations, context) }),
+    ...(input.Operations != null && { Operations: se_AttributeOperations(input.Operations, context) }),
     ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
-const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+/**
+ * deserializeAws_json1_1AccessDeniedException
+ */
+const de_AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: __expectString(output.Message),
     RequestId: __expectString(output.RequestId),
   } as any;
 };
 
-const deserializeAws_json1_1Address = (output: any, context: __SerdeContext): Address => {
+/**
+ * deserializeAws_json1_1Address
+ */
+const de_Address = (output: any, context: __SerdeContext): Address => {
   return {
     Country: __expectString(output.Country),
     Formatted: __expectString(output.Formatted),
@@ -1840,19 +2118,25 @@ const deserializeAws_json1_1Address = (output: any, context: __SerdeContext): Ad
   } as any;
 };
 
-const deserializeAws_json1_1Addresses = (output: any, context: __SerdeContext): Address[] => {
+/**
+ * deserializeAws_json1_1Addresses
+ */
+const de_Addresses = (output: any, context: __SerdeContext): Address[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Address(entry, context);
+      return de_Address(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+/**
+ * deserializeAws_json1_1ConflictException
+ */
+const de_ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
     Reason: __expectString(output.Reason),
@@ -1860,82 +2144,96 @@ const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1CreateGroupMembershipResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateGroupMembershipResponse => {
+/**
+ * deserializeAws_json1_1CreateGroupMembershipResponse
+ */
+const de_CreateGroupMembershipResponse = (output: any, context: __SerdeContext): CreateGroupMembershipResponse => {
   return {
     IdentityStoreId: __expectString(output.IdentityStoreId),
     MembershipId: __expectString(output.MembershipId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
+/**
+ * deserializeAws_json1_1CreateGroupResponse
+ */
+const de_CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
   return {
     GroupId: __expectString(output.GroupId),
     IdentityStoreId: __expectString(output.IdentityStoreId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
+/**
+ * deserializeAws_json1_1CreateUserResponse
+ */
+const de_CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
   return {
     IdentityStoreId: __expectString(output.IdentityStoreId),
     UserId: __expectString(output.UserId),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteGroupMembershipResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteGroupMembershipResponse => {
+/**
+ * deserializeAws_json1_1DeleteGroupMembershipResponse
+ */
+const de_DeleteGroupMembershipResponse = (output: any, context: __SerdeContext): DeleteGroupMembershipResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteGroupResponse = (output: any, context: __SerdeContext): DeleteGroupResponse => {
+/**
+ * deserializeAws_json1_1DeleteGroupResponse
+ */
+const de_DeleteGroupResponse = (output: any, context: __SerdeContext): DeleteGroupResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteUserResponse = (output: any, context: __SerdeContext): DeleteUserResponse => {
+/**
+ * deserializeAws_json1_1DeleteUserResponse
+ */
+const de_DeleteUserResponse = (output: any, context: __SerdeContext): DeleteUserResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DescribeGroupMembershipResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeGroupMembershipResponse => {
+/**
+ * deserializeAws_json1_1DescribeGroupMembershipResponse
+ */
+const de_DescribeGroupMembershipResponse = (output: any, context: __SerdeContext): DescribeGroupMembershipResponse => {
   return {
     GroupId: __expectString(output.GroupId),
     IdentityStoreId: __expectString(output.IdentityStoreId),
-    MemberId:
-      output.MemberId != null ? deserializeAws_json1_1MemberId(__expectUnion(output.MemberId), context) : undefined,
+    MemberId: output.MemberId != null ? de_MemberId(__expectUnion(output.MemberId), context) : undefined,
     MembershipId: __expectString(output.MembershipId),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeGroupResponse = (output: any, context: __SerdeContext): DescribeGroupResponse => {
+/**
+ * deserializeAws_json1_1DescribeGroupResponse
+ */
+const de_DescribeGroupResponse = (output: any, context: __SerdeContext): DescribeGroupResponse => {
   return {
     Description: __expectString(output.Description),
     DisplayName: __expectString(output.DisplayName),
-    ExternalIds:
-      output.ExternalIds != null ? deserializeAws_json1_1ExternalIds(output.ExternalIds, context) : undefined,
+    ExternalIds: output.ExternalIds != null ? de_ExternalIds(output.ExternalIds, context) : undefined,
     GroupId: __expectString(output.GroupId),
     IdentityStoreId: __expectString(output.IdentityStoreId),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
+/**
+ * deserializeAws_json1_1DescribeUserResponse
+ */
+const de_DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
   return {
-    Addresses: output.Addresses != null ? deserializeAws_json1_1Addresses(output.Addresses, context) : undefined,
+    Addresses: output.Addresses != null ? de_Addresses(output.Addresses, context) : undefined,
     DisplayName: __expectString(output.DisplayName),
-    Emails: output.Emails != null ? deserializeAws_json1_1Emails(output.Emails, context) : undefined,
-    ExternalIds:
-      output.ExternalIds != null ? deserializeAws_json1_1ExternalIds(output.ExternalIds, context) : undefined,
+    Emails: output.Emails != null ? de_Emails(output.Emails, context) : undefined,
+    ExternalIds: output.ExternalIds != null ? de_ExternalIds(output.ExternalIds, context) : undefined,
     IdentityStoreId: __expectString(output.IdentityStoreId),
     Locale: __expectString(output.Locale),
-    Name: output.Name != null ? deserializeAws_json1_1Name(output.Name, context) : undefined,
+    Name: output.Name != null ? de_Name(output.Name, context) : undefined,
     NickName: __expectString(output.NickName),
-    PhoneNumbers:
-      output.PhoneNumbers != null ? deserializeAws_json1_1PhoneNumbers(output.PhoneNumbers, context) : undefined,
+    PhoneNumbers: output.PhoneNumbers != null ? de_PhoneNumbers(output.PhoneNumbers, context) : undefined,
     PreferredLanguage: __expectString(output.PreferredLanguage),
     ProfileUrl: __expectString(output.ProfileUrl),
     Timezone: __expectString(output.Timezone),
@@ -1946,7 +2244,10 @@ const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1Email = (output: any, context: __SerdeContext): Email => {
+/**
+ * deserializeAws_json1_1Email
+ */
+const de_Email = (output: any, context: __SerdeContext): Email => {
   return {
     Primary: __expectBoolean(output.Primary),
     Type: __expectString(output.Type),
@@ -1954,137 +2255,161 @@ const deserializeAws_json1_1Email = (output: any, context: __SerdeContext): Emai
   } as any;
 };
 
-const deserializeAws_json1_1Emails = (output: any, context: __SerdeContext): Email[] => {
+/**
+ * deserializeAws_json1_1Emails
+ */
+const de_Emails = (output: any, context: __SerdeContext): Email[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Email(entry, context);
+      return de_Email(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ExternalId = (output: any, context: __SerdeContext): ExternalId => {
+/**
+ * deserializeAws_json1_1ExternalId
+ */
+const de_ExternalId = (output: any, context: __SerdeContext): ExternalId => {
   return {
     Id: __expectString(output.Id),
     Issuer: __expectString(output.Issuer),
   } as any;
 };
 
-const deserializeAws_json1_1ExternalIds = (output: any, context: __SerdeContext): ExternalId[] => {
+/**
+ * deserializeAws_json1_1ExternalIds
+ */
+const de_ExternalIds = (output: any, context: __SerdeContext): ExternalId[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ExternalId(entry, context);
+      return de_ExternalId(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GetGroupIdResponse = (output: any, context: __SerdeContext): GetGroupIdResponse => {
+/**
+ * deserializeAws_json1_1GetGroupIdResponse
+ */
+const de_GetGroupIdResponse = (output: any, context: __SerdeContext): GetGroupIdResponse => {
   return {
     GroupId: __expectString(output.GroupId),
     IdentityStoreId: __expectString(output.IdentityStoreId),
   } as any;
 };
 
-const deserializeAws_json1_1GetGroupMembershipIdResponse = (
-  output: any,
-  context: __SerdeContext
-): GetGroupMembershipIdResponse => {
+/**
+ * deserializeAws_json1_1GetGroupMembershipIdResponse
+ */
+const de_GetGroupMembershipIdResponse = (output: any, context: __SerdeContext): GetGroupMembershipIdResponse => {
   return {
     IdentityStoreId: __expectString(output.IdentityStoreId),
     MembershipId: __expectString(output.MembershipId),
   } as any;
 };
 
-const deserializeAws_json1_1GetUserIdResponse = (output: any, context: __SerdeContext): GetUserIdResponse => {
+/**
+ * deserializeAws_json1_1GetUserIdResponse
+ */
+const de_GetUserIdResponse = (output: any, context: __SerdeContext): GetUserIdResponse => {
   return {
     IdentityStoreId: __expectString(output.IdentityStoreId),
     UserId: __expectString(output.UserId),
   } as any;
 };
 
-const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Group => {
+/**
+ * deserializeAws_json1_1Group
+ */
+const de_Group = (output: any, context: __SerdeContext): Group => {
   return {
     Description: __expectString(output.Description),
     DisplayName: __expectString(output.DisplayName),
-    ExternalIds:
-      output.ExternalIds != null ? deserializeAws_json1_1ExternalIds(output.ExternalIds, context) : undefined,
+    ExternalIds: output.ExternalIds != null ? de_ExternalIds(output.ExternalIds, context) : undefined,
     GroupId: __expectString(output.GroupId),
     IdentityStoreId: __expectString(output.IdentityStoreId),
   } as any;
 };
 
-const deserializeAws_json1_1GroupMembership = (output: any, context: __SerdeContext): GroupMembership => {
+/**
+ * deserializeAws_json1_1GroupMembership
+ */
+const de_GroupMembership = (output: any, context: __SerdeContext): GroupMembership => {
   return {
     GroupId: __expectString(output.GroupId),
     IdentityStoreId: __expectString(output.IdentityStoreId),
-    MemberId:
-      output.MemberId != null ? deserializeAws_json1_1MemberId(__expectUnion(output.MemberId), context) : undefined,
+    MemberId: output.MemberId != null ? de_MemberId(__expectUnion(output.MemberId), context) : undefined,
     MembershipId: __expectString(output.MembershipId),
   } as any;
 };
 
-const deserializeAws_json1_1GroupMembershipExistenceResult = (
-  output: any,
-  context: __SerdeContext
-): GroupMembershipExistenceResult => {
+/**
+ * deserializeAws_json1_1GroupMembershipExistenceResult
+ */
+const de_GroupMembershipExistenceResult = (output: any, context: __SerdeContext): GroupMembershipExistenceResult => {
   return {
     GroupId: __expectString(output.GroupId),
-    MemberId:
-      output.MemberId != null ? deserializeAws_json1_1MemberId(__expectUnion(output.MemberId), context) : undefined,
+    MemberId: output.MemberId != null ? de_MemberId(__expectUnion(output.MemberId), context) : undefined,
     MembershipExists: __expectBoolean(output.MembershipExists),
   } as any;
 };
 
-const deserializeAws_json1_1GroupMembershipExistenceResults = (
-  output: any,
-  context: __SerdeContext
-): GroupMembershipExistenceResult[] => {
+/**
+ * deserializeAws_json1_1GroupMembershipExistenceResults
+ */
+const de_GroupMembershipExistenceResults = (output: any, context: __SerdeContext): GroupMembershipExistenceResult[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1GroupMembershipExistenceResult(entry, context);
+      return de_GroupMembershipExistenceResult(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GroupMemberships = (output: any, context: __SerdeContext): GroupMembership[] => {
+/**
+ * deserializeAws_json1_1GroupMemberships
+ */
+const de_GroupMemberships = (output: any, context: __SerdeContext): GroupMembership[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1GroupMembership(entry, context);
+      return de_GroupMembership(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Group[] => {
+/**
+ * deserializeAws_json1_1Groups
+ */
+const de_Groups = (output: any, context: __SerdeContext): Group[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Group(entry, context);
+      return de_Group(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InternalServerException = (
-  output: any,
-  context: __SerdeContext
-): InternalServerException => {
+/**
+ * deserializeAws_json1_1InternalServerException
+ */
+const de_InternalServerException = (output: any, context: __SerdeContext): InternalServerException => {
   return {
     Message: __expectString(output.Message),
     RequestId: __expectString(output.RequestId),
@@ -2092,66 +2417,74 @@ const deserializeAws_json1_1InternalServerException = (
   } as any;
 };
 
-const deserializeAws_json1_1IsMemberInGroupsResponse = (
-  output: any,
-  context: __SerdeContext
-): IsMemberInGroupsResponse => {
+/**
+ * deserializeAws_json1_1IsMemberInGroupsResponse
+ */
+const de_IsMemberInGroupsResponse = (output: any, context: __SerdeContext): IsMemberInGroupsResponse => {
   return {
-    Results:
-      output.Results != null
-        ? deserializeAws_json1_1GroupMembershipExistenceResults(output.Results, context)
-        : undefined,
+    Results: output.Results != null ? de_GroupMembershipExistenceResults(output.Results, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListGroupMembershipsForMemberResponse = (
+/**
+ * deserializeAws_json1_1ListGroupMembershipsForMemberResponse
+ */
+const de_ListGroupMembershipsForMemberResponse = (
   output: any,
   context: __SerdeContext
 ): ListGroupMembershipsForMemberResponse => {
   return {
     GroupMemberships:
-      output.GroupMemberships != null
-        ? deserializeAws_json1_1GroupMemberships(output.GroupMemberships, context)
-        : undefined,
+      output.GroupMemberships != null ? de_GroupMemberships(output.GroupMemberships, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListGroupMembershipsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListGroupMembershipsResponse => {
+/**
+ * deserializeAws_json1_1ListGroupMembershipsResponse
+ */
+const de_ListGroupMembershipsResponse = (output: any, context: __SerdeContext): ListGroupMembershipsResponse => {
   return {
     GroupMemberships:
-      output.GroupMemberships != null
-        ? deserializeAws_json1_1GroupMemberships(output.GroupMemberships, context)
-        : undefined,
+      output.GroupMemberships != null ? de_GroupMemberships(output.GroupMemberships, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
+/**
+ * deserializeAws_json1_1ListGroupsResponse
+ */
+const de_ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
   return {
-    Groups: output.Groups != null ? deserializeAws_json1_1Groups(output.Groups, context) : undefined,
+    Groups: output.Groups != null ? de_Groups(output.Groups, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
+/**
+ * deserializeAws_json1_1ListUsersResponse
+ */
+const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Users: output.Users != null ? deserializeAws_json1_1Users(output.Users, context) : undefined,
+    Users: output.Users != null ? de_Users(output.Users, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MemberId = (output: any, context: __SerdeContext): MemberId => {
+/**
+ * deserializeAws_json1_1MemberId
+ */
+const de_MemberId = (output: any, context: __SerdeContext): MemberId => {
   if (__expectString(output.UserId) !== undefined) {
     return { UserId: __expectString(output.UserId) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_json1_1Name = (output: any, context: __SerdeContext): Name => {
+/**
+ * deserializeAws_json1_1Name
+ */
+const de_Name = (output: any, context: __SerdeContext): Name => {
   return {
     FamilyName: __expectString(output.FamilyName),
     Formatted: __expectString(output.Formatted),
@@ -2162,7 +2495,10 @@ const deserializeAws_json1_1Name = (output: any, context: __SerdeContext): Name 
   } as any;
 };
 
-const deserializeAws_json1_1PhoneNumber = (output: any, context: __SerdeContext): PhoneNumber => {
+/**
+ * deserializeAws_json1_1PhoneNumber
+ */
+const de_PhoneNumber = (output: any, context: __SerdeContext): PhoneNumber => {
   return {
     Primary: __expectBoolean(output.Primary),
     Type: __expectString(output.Type),
@@ -2170,22 +2506,25 @@ const deserializeAws_json1_1PhoneNumber = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1PhoneNumbers = (output: any, context: __SerdeContext): PhoneNumber[] => {
+/**
+ * deserializeAws_json1_1PhoneNumbers
+ */
+const de_PhoneNumbers = (output: any, context: __SerdeContext): PhoneNumber[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PhoneNumber(entry, context);
+      return de_PhoneNumber(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
     RequestId: __expectString(output.RequestId),
@@ -2194,17 +2533,20 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_1ServiceQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaExceededException => {
+/**
+ * deserializeAws_json1_1ServiceQuotaExceededException
+ */
+const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
   return {
     Message: __expectString(output.Message),
     RequestId: __expectString(output.RequestId),
   } as any;
 };
 
-const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+/**
+ * deserializeAws_json1_1ThrottlingException
+ */
+const de_ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     Message: __expectString(output.Message),
     RequestId: __expectString(output.RequestId),
@@ -2212,27 +2554,34 @@ const deserializeAws_json1_1ThrottlingException = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1UpdateGroupResponse = (output: any, context: __SerdeContext): UpdateGroupResponse => {
+/**
+ * deserializeAws_json1_1UpdateGroupResponse
+ */
+const de_UpdateGroupResponse = (output: any, context: __SerdeContext): UpdateGroupResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateUserResponse = (output: any, context: __SerdeContext): UpdateUserResponse => {
+/**
+ * deserializeAws_json1_1UpdateUserResponse
+ */
+const de_UpdateUserResponse = (output: any, context: __SerdeContext): UpdateUserResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User => {
+/**
+ * deserializeAws_json1_1User
+ */
+const de_User = (output: any, context: __SerdeContext): User => {
   return {
-    Addresses: output.Addresses != null ? deserializeAws_json1_1Addresses(output.Addresses, context) : undefined,
+    Addresses: output.Addresses != null ? de_Addresses(output.Addresses, context) : undefined,
     DisplayName: __expectString(output.DisplayName),
-    Emails: output.Emails != null ? deserializeAws_json1_1Emails(output.Emails, context) : undefined,
-    ExternalIds:
-      output.ExternalIds != null ? deserializeAws_json1_1ExternalIds(output.ExternalIds, context) : undefined,
+    Emails: output.Emails != null ? de_Emails(output.Emails, context) : undefined,
+    ExternalIds: output.ExternalIds != null ? de_ExternalIds(output.ExternalIds, context) : undefined,
     IdentityStoreId: __expectString(output.IdentityStoreId),
     Locale: __expectString(output.Locale),
-    Name: output.Name != null ? deserializeAws_json1_1Name(output.Name, context) : undefined,
+    Name: output.Name != null ? de_Name(output.Name, context) : undefined,
     NickName: __expectString(output.NickName),
-    PhoneNumbers:
-      output.PhoneNumbers != null ? deserializeAws_json1_1PhoneNumbers(output.PhoneNumbers, context) : undefined,
+    PhoneNumbers: output.PhoneNumbers != null ? de_PhoneNumbers(output.PhoneNumbers, context) : undefined,
     PreferredLanguage: __expectString(output.PreferredLanguage),
     ProfileUrl: __expectString(output.ProfileUrl),
     Timezone: __expectString(output.Timezone),
@@ -2243,19 +2592,25 @@ const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User 
   } as any;
 };
 
-const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): User[] => {
+/**
+ * deserializeAws_json1_1Users
+ */
+const de_Users = (output: any, context: __SerdeContext): User[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1User(entry, context);
+      return de_User(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+/**
+ * deserializeAws_json1_1ValidationException
+ */
+const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     Message: __expectString(output.Message),
     RequestId: __expectString(output.RequestId),

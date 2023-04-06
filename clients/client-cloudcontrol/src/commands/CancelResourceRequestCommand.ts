@@ -19,10 +19,7 @@ import {
   CancelResourceRequestOutput,
   CancelResourceRequestOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CancelResourceRequestCommand,
-  serializeAws_json1_0CancelResourceRequestCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CancelResourceRequestCommand, se_CancelResourceRequestCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class CancelResourceRequestCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelResourceRequestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CancelResourceRequestCommand(input, context);
+    return se_CancelResourceRequestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelResourceRequestCommandOutput> {
-    return deserializeAws_json1_0CancelResourceRequestCommand(output, context);
+    return de_CancelResourceRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

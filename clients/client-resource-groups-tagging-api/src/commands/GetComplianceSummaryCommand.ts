@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetComplianceSummaryInput, GetComplianceSummaryOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetComplianceSummaryCommand,
-  serializeAws_json1_1GetComplianceSummaryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetComplianceSummaryCommand, se_GetComplianceSummaryCommand } from "../protocols/Aws_json1_1";
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
@@ -204,14 +201,14 @@ export class GetComplianceSummaryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetComplianceSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceSummaryCommand(input, context);
+    return se_GetComplianceSummaryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComplianceSummaryCommandOutput> {
-    return deserializeAws_json1_1GetComplianceSummaryCommand(output, context);
+    return de_GetComplianceSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

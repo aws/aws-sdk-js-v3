@@ -20,8 +20,8 @@ import {
   ListVoiceConnectorTerminationCredentialsResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand,
-  serializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand,
+  de_ListVoiceConnectorTerminationCredentialsCommand,
+  se_ListVoiceConnectorTerminationCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -157,7 +157,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
     input: ListVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand(input, context);
+    return se_ListVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput> {
-    return deserializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand(output, context);
+    return de_ListVoiceConnectorTerminationCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

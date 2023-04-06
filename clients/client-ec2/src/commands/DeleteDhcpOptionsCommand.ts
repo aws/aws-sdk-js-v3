@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteDhcpOptionsRequest } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteDhcpOptionsCommand,
-  serializeAws_ec2DeleteDhcpOptionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteDhcpOptionsCommand, se_DeleteDhcpOptionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteDhcpOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDhcpOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteDhcpOptionsCommand(input, context);
+    return se_DeleteDhcpOptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDhcpOptionsCommandOutput> {
-    return deserializeAws_ec2DeleteDhcpOptionsCommand(output, context);
+    return de_DeleteDhcpOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

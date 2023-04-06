@@ -15,10 +15,7 @@ import {
 
 import { ResumeClusterMessage } from "../models/models_0";
 import { ResumeClusterResult } from "../models/models_1";
-import {
-  deserializeAws_queryResumeClusterCommand,
-  serializeAws_queryResumeClusterCommand,
-} from "../protocols/Aws_query";
+import { de_ResumeClusterCommand, se_ResumeClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -130,14 +127,14 @@ export class ResumeClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: ResumeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResumeClusterCommand(input, context);
+    return se_ResumeClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeClusterCommandOutput> {
-    return deserializeAws_queryResumeClusterCommand(output, context);
+    return de_ResumeClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1PutDedicatedIpInPoolCommand,
-  serializeAws_restJson1PutDedicatedIpInPoolCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutDedicatedIpInPoolCommand, se_PutDedicatedIpInPoolCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class PutDedicatedIpInPoolCommand extends $Command<
    * @internal
    */
   private serialize(input: PutDedicatedIpInPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutDedicatedIpInPoolCommand(input, context);
+    return se_PutDedicatedIpInPoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDedicatedIpInPoolCommandOutput> {
-    return deserializeAws_restJson1PutDedicatedIpInPoolCommand(output, context);
+    return de_PutDedicatedIpInPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

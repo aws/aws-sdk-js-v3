@@ -15,8 +15,8 @@ import {
 
 import { AuthorizeDBSecurityGroupIngressMessage, AuthorizeDBSecurityGroupIngressResult } from "../models/models_0";
 import {
-  deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand,
-  serializeAws_queryAuthorizeDBSecurityGroupIngressCommand,
+  de_AuthorizeDBSecurityGroupIngressCommand,
+  se_AuthorizeDBSecurityGroupIngressCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -175,7 +175,7 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     input: AuthorizeDBSecurityGroupIngressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAuthorizeDBSecurityGroupIngressCommand(input, context);
+    return se_AuthorizeDBSecurityGroupIngressCommand(input, context);
   }
 
   /**
@@ -185,7 +185,7 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AuthorizeDBSecurityGroupIngressCommandOutput> {
-    return deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand(output, context);
+    return de_AuthorizeDBSecurityGroupIngressCommand(output, context);
   }
 
   // Start section: command_body_extra

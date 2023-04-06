@@ -16,8 +16,8 @@ import {
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { GetProgrammaticAccessCredentialsRequest, GetProgrammaticAccessCredentialsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetProgrammaticAccessCredentialsCommand,
-  serializeAws_restJson1GetProgrammaticAccessCredentialsCommand,
+  de_GetProgrammaticAccessCredentialsCommand,
+  se_GetProgrammaticAccessCredentialsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -139,7 +139,7 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command<
     input: GetProgrammaticAccessCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetProgrammaticAccessCredentialsCommand(input, context);
+    return se_GetProgrammaticAccessCredentialsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetProgrammaticAccessCredentialsCommandOutput> {
-    return deserializeAws_restJson1GetProgrammaticAccessCredentialsCommand(output, context);
+    return de_GetProgrammaticAccessCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

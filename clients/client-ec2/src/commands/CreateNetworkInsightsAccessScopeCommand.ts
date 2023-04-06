@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateNetworkInsightsAccessScopeRequest, CreateNetworkInsightsAccessScopeResult } from "../models/models_1";
 import {
-  deserializeAws_ec2CreateNetworkInsightsAccessScopeCommand,
-  serializeAws_ec2CreateNetworkInsightsAccessScopeCommand,
+  de_CreateNetworkInsightsAccessScopeCommand,
+  se_CreateNetworkInsightsAccessScopeCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -239,7 +239,7 @@ export class CreateNetworkInsightsAccessScopeCommand extends $Command<
     input: CreateNetworkInsightsAccessScopeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateNetworkInsightsAccessScopeCommand(input, context);
+    return se_CreateNetworkInsightsAccessScopeCommand(input, context);
   }
 
   /**
@@ -249,7 +249,7 @@ export class CreateNetworkInsightsAccessScopeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateNetworkInsightsAccessScopeCommandOutput> {
-    return deserializeAws_ec2CreateNetworkInsightsAccessScopeCommand(output, context);
+    return de_CreateNetworkInsightsAccessScopeCommand(output, context);
   }
 
   // Start section: command_body_extra

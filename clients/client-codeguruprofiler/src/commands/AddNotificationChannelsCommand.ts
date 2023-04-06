@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { AddNotificationChannelsRequest, AddNotificationChannelsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddNotificationChannelsCommand,
-  serializeAws_restJson1AddNotificationChannelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AddNotificationChannelsCommand, se_AddNotificationChannelsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class AddNotificationChannelsCommand extends $Command<
    * @internal
    */
   private serialize(input: AddNotificationChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddNotificationChannelsCommand(input, context);
+    return se_AddNotificationChannelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddNotificationChannelsCommandOutput> {
-    return deserializeAws_restJson1AddNotificationChannelsCommand(output, context);
+    return de_AddNotificationChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

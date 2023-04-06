@@ -15,10 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { DescribeACLsRequest, DescribeACLsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeACLsCommand,
-  serializeAws_json1_1DescribeACLsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeACLsCommand, se_DescribeACLsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DescribeACLsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeACLsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeACLsCommand(input, context);
+    return se_DescribeACLsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeACLsCommandOutput> {
-    return deserializeAws_json1_1DescribeACLsCommand(output, context);
+    return de_DescribeACLsCommand(output, context);
   }
 
   // Start section: command_body_extra

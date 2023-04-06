@@ -16,8 +16,8 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { CreateTransitVirtualInterfaceRequest, CreateTransitVirtualInterfaceResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateTransitVirtualInterfaceCommand,
-  serializeAws_json1_1CreateTransitVirtualInterfaceCommand,
+  de_CreateTransitVirtualInterfaceCommand,
+  se_CreateTransitVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -161,7 +161,7 @@ export class CreateTransitVirtualInterfaceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTransitVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTransitVirtualInterfaceCommand(input, context);
+    return se_CreateTransitVirtualInterfaceCommand(input, context);
   }
 
   /**
@@ -171,7 +171,7 @@ export class CreateTransitVirtualInterfaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1CreateTransitVirtualInterfaceCommand(output, context);
+    return de_CreateTransitVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

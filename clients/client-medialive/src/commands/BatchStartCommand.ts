@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { BatchStartRequest, BatchStartResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchStartCommand,
-  serializeAws_restJson1BatchStartCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchStartCommand, se_BatchStartCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class BatchStartCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchStartCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchStartCommand(input, context);
+    return se_BatchStartCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchStartCommandOutput> {
-    return deserializeAws_restJson1BatchStartCommand(output, context);
+    return de_BatchStartCommand(output, context);
   }
 
   // Start section: command_body_extra

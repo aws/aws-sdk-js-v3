@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { ListTemplateActionsRequest, ListTemplateActionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTemplateActionsCommand,
-  serializeAws_restJson1ListTemplateActionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTemplateActionsCommand, se_ListTemplateActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListTemplateActionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTemplateActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTemplateActionsCommand(input, context);
+    return se_ListTemplateActionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplateActionsCommandOutput> {
-    return deserializeAws_restJson1ListTemplateActionsCommand(output, context);
+    return de_ListTemplateActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

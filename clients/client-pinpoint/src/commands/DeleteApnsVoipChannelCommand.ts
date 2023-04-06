@@ -15,10 +15,7 @@ import {
 
 import { DeleteApnsVoipChannelRequest, DeleteApnsVoipChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1DeleteApnsVoipChannelCommand,
-  serializeAws_restJson1DeleteApnsVoipChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteApnsVoipChannelCommand, se_DeleteApnsVoipChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteApnsVoipChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteApnsVoipChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteApnsVoipChannelCommand(input, context);
+    return se_DeleteApnsVoipChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApnsVoipChannelCommandOutput> {
-    return deserializeAws_restJson1DeleteApnsVoipChannelCommand(output, context);
+    return de_DeleteApnsVoipChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

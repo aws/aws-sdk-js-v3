@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartClockInput, StartClockOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartClockCommand,
-  serializeAws_restJson1StartClockCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartClockCommand, se_StartClockCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -133,14 +130,14 @@ export class StartClockCommand extends $Command<
    * @internal
    */
   private serialize(input: StartClockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartClockCommand(input, context);
+    return se_StartClockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartClockCommandOutput> {
-    return deserializeAws_restJson1StartClockCommand(output, context);
+    return de_StartClockCommand(output, context);
   }
 
   // Start section: command_body_extra

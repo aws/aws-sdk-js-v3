@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { CreateOrUpdateTagsType } from "../models/models_0";
-import {
-  deserializeAws_queryCreateOrUpdateTagsCommand,
-  serializeAws_queryCreateOrUpdateTagsCommand,
-} from "../protocols/Aws_query";
+import { de_CreateOrUpdateTagsCommand, se_CreateOrUpdateTagsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -174,14 +171,14 @@ export class CreateOrUpdateTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateOrUpdateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateOrUpdateTagsCommand(input, context);
+    return se_CreateOrUpdateTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrUpdateTagsCommandOutput> {
-    return deserializeAws_queryCreateOrUpdateTagsCommand(output, context);
+    return de_CreateOrUpdateTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

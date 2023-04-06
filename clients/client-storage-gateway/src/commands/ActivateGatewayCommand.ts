@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ActivateGatewayInput, ActivateGatewayOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ActivateGatewayCommand,
-  serializeAws_json1_1ActivateGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ActivateGatewayCommand, se_ActivateGatewayCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -169,14 +166,14 @@ export class ActivateGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: ActivateGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ActivateGatewayCommand(input, context);
+    return se_ActivateGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateGatewayCommandOutput> {
-    return deserializeAws_json1_1ActivateGatewayCommand(output, context);
+    return de_ActivateGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

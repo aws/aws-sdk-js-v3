@@ -18,10 +18,7 @@ import {
   TransferDomainRequestFilterSensitiveLog,
   TransferDomainResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1TransferDomainCommand,
-  serializeAws_json1_1TransferDomainCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TransferDomainCommand, se_TransferDomainCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -256,14 +253,14 @@ export class TransferDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: TransferDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TransferDomainCommand(input, context);
+    return se_TransferDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransferDomainCommandOutput> {
-    return deserializeAws_json1_1TransferDomainCommand(output, context);
+    return de_TransferDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloseAccountRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1CloseAccountCommand,
-  serializeAws_json1_1CloseAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CloseAccountCommand, se_CloseAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -510,14 +507,14 @@ export class CloseAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: CloseAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CloseAccountCommand(input, context);
+    return se_CloseAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseAccountCommandOutput> {
-    return deserializeAws_json1_1CloseAccountCommand(output, context);
+    return de_CloseAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

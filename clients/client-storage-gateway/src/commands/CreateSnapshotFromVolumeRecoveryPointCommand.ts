@@ -18,8 +18,8 @@ import {
   CreateSnapshotFromVolumeRecoveryPointOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand,
-  serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand,
+  de_CreateSnapshotFromVolumeRecoveryPointCommand,
+  se_CreateSnapshotFromVolumeRecoveryPointCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
@@ -186,7 +186,7 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
     input: CreateSnapshotFromVolumeRecoveryPointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand(input, context);
+    return se_CreateSnapshotFromVolumeRecoveryPointCommand(input, context);
   }
 
   /**
@@ -196,7 +196,7 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput> {
-    return deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand(output, context);
+    return de_CreateSnapshotFromVolumeRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { InitializeServiceRequest, InitializeServiceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1InitializeServiceCommand,
-  serializeAws_restJson1InitializeServiceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InitializeServiceCommand, se_InitializeServiceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class InitializeServiceCommand extends $Command<
    * @internal
    */
   private serialize(input: InitializeServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InitializeServiceCommand(input, context);
+    return se_InitializeServiceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitializeServiceCommandOutput> {
-    return deserializeAws_restJson1InitializeServiceCommand(output, context);
+    return de_InitializeServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeletePortfolioShareInput, DeletePortfolioShareOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePortfolioShareCommand,
-  serializeAws_json1_1DeletePortfolioShareCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePortfolioShareCommand, se_DeletePortfolioShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -142,14 +139,14 @@ export class DeletePortfolioShareCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePortfolioShareCommand(input, context);
+    return se_DeletePortfolioShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePortfolioShareCommandOutput> {
-    return deserializeAws_json1_1DeletePortfolioShareCommand(output, context);
+    return de_DeletePortfolioShareCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { GetCollaborationInput, GetCollaborationOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCollaborationCommand,
-  serializeAws_restJson1GetCollaborationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCollaborationCommand, se_GetCollaborationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetCollaborationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCollaborationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCollaborationCommand(input, context);
+    return se_GetCollaborationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCollaborationCommandOutput> {
-    return deserializeAws_restJson1GetCollaborationCommand(output, context);
+    return de_GetCollaborationCommand(output, context);
   }
 
   // Start section: command_body_extra

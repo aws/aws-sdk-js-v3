@@ -16,8 +16,8 @@ import {
 import { ListHITsForQualificationTypeRequest, ListHITsForQualificationTypeResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
-  deserializeAws_json1_1ListHITsForQualificationTypeCommand,
-  serializeAws_json1_1ListHITsForQualificationTypeCommand,
+  de_ListHITsForQualificationTypeCommand,
+  se_ListHITsForQualificationTypeCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -135,7 +135,7 @@ export class ListHITsForQualificationTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHITsForQualificationTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHITsForQualificationTypeCommand(input, context);
+    return se_ListHITsForQualificationTypeCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class ListHITsForQualificationTypeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHITsForQualificationTypeCommandOutput> {
-    return deserializeAws_json1_1ListHITsForQualificationTypeCommand(output, context);
+    return de_ListHITsForQualificationTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

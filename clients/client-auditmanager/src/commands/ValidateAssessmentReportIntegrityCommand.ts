@@ -19,8 +19,8 @@ import {
   ValidateAssessmentReportIntegrityResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ValidateAssessmentReportIntegrityCommand,
-  serializeAws_restJson1ValidateAssessmentReportIntegrityCommand,
+  de_ValidateAssessmentReportIntegrityCommand,
+  se_ValidateAssessmentReportIntegrityCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class ValidateAssessmentReportIntegrityCommand extends $Command<
     input: ValidateAssessmentReportIntegrityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ValidateAssessmentReportIntegrityCommand(input, context);
+    return se_ValidateAssessmentReportIntegrityCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ValidateAssessmentReportIntegrityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateAssessmentReportIntegrityCommandOutput> {
-    return deserializeAws_restJson1ValidateAssessmentReportIntegrityCommand(output, context);
+    return de_ValidateAssessmentReportIntegrityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateRateBasedRuleRequest, UpdateRateBasedRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRateBasedRuleCommand,
-  serializeAws_json1_1UpdateRateBasedRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRateBasedRuleCommand, se_UpdateRateBasedRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -295,14 +292,14 @@ export class UpdateRateBasedRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRateBasedRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRateBasedRuleCommand(input, context);
+    return se_UpdateRateBasedRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRateBasedRuleCommandOutput> {
-    return deserializeAws_json1_1UpdateRateBasedRuleCommand(output, context);
+    return de_UpdateRateBasedRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

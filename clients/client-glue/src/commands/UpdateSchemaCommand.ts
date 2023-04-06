@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { UpdateSchemaInput, UpdateSchemaResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateSchemaCommand,
-  serializeAws_json1_1UpdateSchemaCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSchemaCommand, se_UpdateSchemaCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class UpdateSchemaCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSchemaCommand(input, context);
+    return se_UpdateSchemaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSchemaCommandOutput> {
-    return deserializeAws_json1_1UpdateSchemaCommand(output, context);
+    return de_UpdateSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,8 +20,8 @@ import {
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
 import {
-  deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommand,
-  serializeAws_json1_0SetTextMessageSpendLimitOverrideCommand,
+  de_SetTextMessageSpendLimitOverrideCommand,
+  se_SetTextMessageSpendLimitOverrideCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -146,7 +146,7 @@ export class SetTextMessageSpendLimitOverrideCommand extends $Command<
     input: SetTextMessageSpendLimitOverrideCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0SetTextMessageSpendLimitOverrideCommand(input, context);
+    return se_SetTextMessageSpendLimitOverrideCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class SetTextMessageSpendLimitOverrideCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetTextMessageSpendLimitOverrideCommandOutput> {
-    return deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommand(output, context);
+    return de_SetTextMessageSpendLimitOverrideCommand(output, context);
   }
 
   // Start section: command_body_extra

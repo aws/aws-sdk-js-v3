@@ -24,10 +24,7 @@ import {
   AdminDisableUserRequestFilterSensitiveLog,
   AdminDisableUserResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminDisableUserCommand,
-  serializeAws_json1_1AdminDisableUserCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminDisableUserCommand, se_AdminDisableUserCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class AdminDisableUserCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminDisableUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminDisableUserCommand(input, context);
+    return se_AdminDisableUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminDisableUserCommandOutput> {
-    return deserializeAws_json1_1AdminDisableUserCommand(output, context);
+    return de_AdminDisableUserCommand(output, context);
   }
 
   // Start section: command_body_extra

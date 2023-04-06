@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateRateBasedRuleRequest, CreateRateBasedRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateRateBasedRuleCommand,
-  serializeAws_json1_1CreateRateBasedRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateRateBasedRuleCommand, se_CreateRateBasedRuleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -286,14 +283,14 @@ export class CreateRateBasedRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRateBasedRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateRateBasedRuleCommand(input, context);
+    return se_CreateRateBasedRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRateBasedRuleCommandOutput> {
-    return deserializeAws_json1_1CreateRateBasedRuleCommand(output, context);
+    return de_CreateRateBasedRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

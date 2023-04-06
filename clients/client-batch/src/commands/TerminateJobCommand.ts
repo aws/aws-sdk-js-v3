@@ -15,10 +15,7 @@ import {
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { TerminateJobRequest, TerminateJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1TerminateJobCommand,
-  serializeAws_restJson1TerminateJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TerminateJobCommand, se_TerminateJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class TerminateJobCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TerminateJobCommand(input, context);
+    return se_TerminateJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateJobCommandOutput> {
-    return deserializeAws_restJson1TerminateJobCommand(output, context);
+    return de_TerminateJobCommand(output, context);
   }
 
   // Start section: command_body_extra

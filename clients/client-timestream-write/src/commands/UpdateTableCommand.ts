@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateTableRequest, UpdateTableResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateTableCommand,
-  serializeAws_json1_0UpdateTableCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateTableCommand, se_UpdateTableCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -165,14 +162,14 @@ export class UpdateTableCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateTableCommand(input, context);
+    return se_UpdateTableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTableCommandOutput> {
-    return deserializeAws_json1_0UpdateTableCommand(output, context);
+    return de_UpdateTableCommand(output, context);
   }
 
   // Start section: command_body_extra

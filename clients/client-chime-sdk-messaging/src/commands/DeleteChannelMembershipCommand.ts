@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { DeleteChannelMembershipRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteChannelMembershipCommand,
-  serializeAws_restJson1DeleteChannelMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteChannelMembershipCommand, se_DeleteChannelMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class DeleteChannelMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteChannelMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteChannelMembershipCommand(input, context);
+    return se_DeleteChannelMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelMembershipCommandOutput> {
-    return deserializeAws_restJson1DeleteChannelMembershipCommand(output, context);
+    return de_DeleteChannelMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

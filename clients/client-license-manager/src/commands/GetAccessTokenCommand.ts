@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { GetAccessTokenRequest, GetAccessTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAccessTokenCommand,
-  serializeAws_json1_1GetAccessTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAccessTokenCommand, se_GetAccessTokenCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetAccessTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccessTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAccessTokenCommand(input, context);
+    return se_GetAccessTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessTokenCommandOutput> {
-    return deserializeAws_json1_1GetAccessTokenCommand(output, context);
+    return de_GetAccessTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

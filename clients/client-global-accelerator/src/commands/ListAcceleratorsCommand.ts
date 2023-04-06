@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { ListAcceleratorsRequest, ListAcceleratorsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAcceleratorsCommand,
-  serializeAws_json1_1ListAcceleratorsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAcceleratorsCommand, se_ListAcceleratorsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListAcceleratorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAcceleratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAcceleratorsCommand(input, context);
+    return se_ListAcceleratorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAcceleratorsCommandOutput> {
-    return deserializeAws_json1_1ListAcceleratorsCommand(output, context);
+    return de_ListAcceleratorsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DescribeRecipeRequest, DescribeRecipeResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeRecipeCommand,
-  serializeAws_json1_1DescribeRecipeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRecipeCommand, se_DescribeRecipeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DescribeRecipeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRecipeCommand(input, context);
+    return se_DescribeRecipeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecipeCommandOutput> {
-    return deserializeAws_json1_1DescribeRecipeCommand(output, context);
+    return de_DescribeRecipeCommand(output, context);
   }
 
   // Start section: command_body_extra

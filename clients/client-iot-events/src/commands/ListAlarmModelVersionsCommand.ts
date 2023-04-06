@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { ListAlarmModelVersionsRequest, ListAlarmModelVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAlarmModelVersionsCommand,
-  serializeAws_restJson1ListAlarmModelVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAlarmModelVersionsCommand, se_ListAlarmModelVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListAlarmModelVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAlarmModelVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAlarmModelVersionsCommand(input, context);
+    return se_ListAlarmModelVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlarmModelVersionsCommandOutput> {
-    return deserializeAws_restJson1ListAlarmModelVersionsCommand(output, context);
+    return de_ListAlarmModelVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

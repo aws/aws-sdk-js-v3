@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteCollectionRequest, DeleteCollectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCollectionCommand,
-  serializeAws_json1_1DeleteCollectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCollectionCommand, se_DeleteCollectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -160,14 +157,14 @@ export class DeleteCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCollectionCommand(input, context);
+    return se_DeleteCollectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCollectionCommandOutput> {
-    return deserializeAws_json1_1DeleteCollectionCommand(output, context);
+    return de_DeleteCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

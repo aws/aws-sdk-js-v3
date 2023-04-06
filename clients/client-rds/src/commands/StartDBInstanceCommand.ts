@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartDBInstanceMessage, StartDBInstanceResult } from "../models/models_1";
-import {
-  deserializeAws_queryStartDBInstanceCommand,
-  serializeAws_queryStartDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_StartDBInstanceCommand, se_StartDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -106,6 +103,24 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  *
+ * @example To start a DB instance
+ * ```javascript
+ * // The following example starts the specified DB instance.
+ * const input = {
+ *   "DBInstanceIdentifier": "test-instance"
+ * };
+ * const command = new StartDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {
+ *     "DBInstanceStatus": "starting"
+ *   }
+ * }
+ * *\/
+ * // example id: to-start-a-db-instance-1679951967681
+ * ```
+ *
  */
 export class StartDBInstanceCommand extends $Command<
   StartDBInstanceCommandInput,
@@ -170,14 +185,14 @@ export class StartDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: StartDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartDBInstanceCommand(input, context);
+    return se_StartDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDBInstanceCommandOutput> {
-    return deserializeAws_queryStartDBInstanceCommand(output, context);
+    return de_StartDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

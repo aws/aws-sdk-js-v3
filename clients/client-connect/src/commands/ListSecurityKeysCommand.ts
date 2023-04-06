@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListSecurityKeysRequest, ListSecurityKeysResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListSecurityKeysCommand,
-  serializeAws_restJson1ListSecurityKeysCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSecurityKeysCommand, se_ListSecurityKeysCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListSecurityKeysCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSecurityKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSecurityKeysCommand(input, context);
+    return se_ListSecurityKeysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityKeysCommandOutput> {
-    return deserializeAws_restJson1ListSecurityKeysCommand(output, context);
+    return de_ListSecurityKeysCommand(output, context);
   }
 
   // Start section: command_body_extra

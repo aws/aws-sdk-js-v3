@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGeoMatchSetCommand,
-  serializeAws_json1_1DeleteGeoMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteGeoMatchSetCommand, se_DeleteGeoMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -185,14 +182,14 @@ export class DeleteGeoMatchSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGeoMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGeoMatchSetCommand(input, context);
+    return se_DeleteGeoMatchSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGeoMatchSetCommandOutput> {
-    return deserializeAws_json1_1DeleteGeoMatchSetCommand(output, context);
+    return de_DeleteGeoMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

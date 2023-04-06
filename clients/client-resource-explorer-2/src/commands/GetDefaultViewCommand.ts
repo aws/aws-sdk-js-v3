@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDefaultViewOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDefaultViewCommand,
-  serializeAws_restJson1GetDefaultViewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDefaultViewCommand, se_GetDefaultViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -143,14 +140,14 @@ export class GetDefaultViewCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDefaultViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDefaultViewCommand(input, context);
+    return se_GetDefaultViewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDefaultViewCommandOutput> {
-    return deserializeAws_restJson1GetDefaultViewCommand(output, context);
+    return de_GetDefaultViewCommand(output, context);
   }
 
   // Start section: command_body_extra

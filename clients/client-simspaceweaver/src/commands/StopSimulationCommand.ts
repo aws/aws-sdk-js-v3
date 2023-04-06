@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopSimulationInput, StopSimulationOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopSimulationCommand,
-  serializeAws_restJson1StopSimulationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopSimulationCommand, se_StopSimulationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -140,14 +137,14 @@ export class StopSimulationCommand extends $Command<
    * @internal
    */
   private serialize(input: StopSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopSimulationCommand(input, context);
+    return se_StopSimulationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSimulationCommandOutput> {
-    return deserializeAws_restJson1StopSimulationCommand(output, context);
+    return de_StopSimulationCommand(output, context);
   }
 
   // Start section: command_body_extra

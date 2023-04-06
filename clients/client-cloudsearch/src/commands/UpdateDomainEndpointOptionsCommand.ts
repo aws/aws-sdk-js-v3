@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { UpdateDomainEndpointOptionsRequest, UpdateDomainEndpointOptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateDomainEndpointOptionsCommand,
-  serializeAws_queryUpdateDomainEndpointOptionsCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateDomainEndpointOptionsCommand, se_UpdateDomainEndpointOptionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -148,7 +145,7 @@ export class UpdateDomainEndpointOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDomainEndpointOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateDomainEndpointOptionsCommand(input, context);
+    return se_UpdateDomainEndpointOptionsCommand(input, context);
   }
 
   /**
@@ -158,7 +155,7 @@ export class UpdateDomainEndpointOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDomainEndpointOptionsCommandOutput> {
-    return deserializeAws_queryUpdateDomainEndpointOptionsCommand(output, context);
+    return de_UpdateDomainEndpointOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

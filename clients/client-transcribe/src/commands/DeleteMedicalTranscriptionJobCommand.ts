@@ -15,8 +15,8 @@ import {
 
 import { DeleteMedicalTranscriptionJobRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteMedicalTranscriptionJobCommand,
-  serializeAws_json1_1DeleteMedicalTranscriptionJobCommand,
+  de_DeleteMedicalTranscriptionJobCommand,
+  se_DeleteMedicalTranscriptionJobCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
@@ -136,7 +136,7 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMedicalTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMedicalTranscriptionJobCommand(input, context);
+    return se_DeleteMedicalTranscriptionJobCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteMedicalTranscriptionJobCommandOutput> {
-    return deserializeAws_json1_1DeleteMedicalTranscriptionJobCommand(output, context);
+    return de_DeleteMedicalTranscriptionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

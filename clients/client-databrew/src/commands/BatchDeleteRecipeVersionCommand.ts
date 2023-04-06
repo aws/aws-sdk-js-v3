@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { BatchDeleteRecipeVersionRequest, BatchDeleteRecipeVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchDeleteRecipeVersionCommand,
-  serializeAws_restJson1BatchDeleteRecipeVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchDeleteRecipeVersionCommand, se_BatchDeleteRecipeVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class BatchDeleteRecipeVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDeleteRecipeVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteRecipeVersionCommand(input, context);
+    return se_BatchDeleteRecipeVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteRecipeVersionCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteRecipeVersionCommand(output, context);
+    return de_BatchDeleteRecipeVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

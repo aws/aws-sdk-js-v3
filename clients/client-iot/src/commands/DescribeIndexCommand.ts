@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeIndexRequest, DescribeIndexResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeIndexCommand,
-  serializeAws_restJson1DescribeIndexCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeIndexCommand, se_DescribeIndexCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeIndexCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeIndexCommand(input, context);
+    return se_DescribeIndexCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeIndexCommandOutput> {
-    return deserializeAws_restJson1DescribeIndexCommand(output, context);
+    return de_DescribeIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

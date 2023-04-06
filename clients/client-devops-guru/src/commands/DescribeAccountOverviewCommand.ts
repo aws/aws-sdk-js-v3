@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { DescribeAccountOverviewRequest, DescribeAccountOverviewResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAccountOverviewCommand,
-  serializeAws_restJson1DescribeAccountOverviewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAccountOverviewCommand, se_DescribeAccountOverviewCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DescribeAccountOverviewCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAccountOverviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccountOverviewCommand(input, context);
+    return se_DescribeAccountOverviewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountOverviewCommandOutput> {
-    return deserializeAws_restJson1DescribeAccountOverviewCommand(output, context);
+    return de_DescribeAccountOverviewCommand(output, context);
   }
 
   // Start section: command_body_extra

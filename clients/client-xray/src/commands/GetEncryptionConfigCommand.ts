@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetEncryptionConfigRequest, GetEncryptionConfigResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetEncryptionConfigCommand,
-  serializeAws_restJson1GetEncryptionConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEncryptionConfigCommand, se_GetEncryptionConfigCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -124,14 +121,14 @@ export class GetEncryptionConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEncryptionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEncryptionConfigCommand(input, context);
+    return se_GetEncryptionConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEncryptionConfigCommandOutput> {
-    return deserializeAws_restJson1GetEncryptionConfigCommand(output, context);
+    return de_GetEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

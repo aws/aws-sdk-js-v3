@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListFirewallDomainsRequest, ListFirewallDomainsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFirewallDomainsCommand,
-  serializeAws_json1_1ListFirewallDomainsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListFirewallDomainsCommand, se_ListFirewallDomainsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -139,14 +136,14 @@ export class ListFirewallDomainsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFirewallDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFirewallDomainsCommand(input, context);
+    return se_ListFirewallDomainsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallDomainsCommandOutput> {
-    return deserializeAws_json1_1ListFirewallDomainsCommand(output, context);
+    return de_ListFirewallDomainsCommand(output, context);
   }
 
   // Start section: command_body_extra

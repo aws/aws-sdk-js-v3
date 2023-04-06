@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateRobotApplicationRequest, CreateRobotApplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRobotApplicationCommand,
-  serializeAws_restJson1CreateRobotApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRobotApplicationCommand, se_CreateRobotApplicationCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
 /**
@@ -158,14 +155,14 @@ export class CreateRobotApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRobotApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRobotApplicationCommand(input, context);
+    return se_CreateRobotApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateRobotApplicationCommand(output, context);
+    return de_CreateRobotApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

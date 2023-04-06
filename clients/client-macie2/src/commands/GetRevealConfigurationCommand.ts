@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { GetRevealConfigurationRequest, GetRevealConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRevealConfigurationCommand,
-  serializeAws_restJson1GetRevealConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRevealConfigurationCommand, se_GetRevealConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetRevealConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRevealConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRevealConfigurationCommand(input, context);
+    return se_GetRevealConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRevealConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetRevealConfigurationCommand(output, context);
+    return de_GetRevealConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

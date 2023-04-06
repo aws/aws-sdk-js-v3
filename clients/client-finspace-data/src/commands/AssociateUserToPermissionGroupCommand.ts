@@ -16,8 +16,8 @@ import {
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { AssociateUserToPermissionGroupRequest, AssociateUserToPermissionGroupResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateUserToPermissionGroupCommand,
-  serializeAws_restJson1AssociateUserToPermissionGroupCommand,
+  de_AssociateUserToPermissionGroupCommand,
+  se_AssociateUserToPermissionGroupCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class AssociateUserToPermissionGroupCommand extends $Command<
     input: AssociateUserToPermissionGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateUserToPermissionGroupCommand(input, context);
+    return se_AssociateUserToPermissionGroupCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class AssociateUserToPermissionGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateUserToPermissionGroupCommandOutput> {
-    return deserializeAws_restJson1AssociateUserToPermissionGroupCommand(output, context);
+    return de_AssociateUserToPermissionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

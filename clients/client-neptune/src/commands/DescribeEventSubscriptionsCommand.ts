@@ -15,10 +15,7 @@ import {
 
 import { DescribeEventSubscriptionsMessage, EventSubscriptionsMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeEventSubscriptionsCommand,
-  serializeAws_queryDescribeEventSubscriptionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeEventSubscriptionsCommand, se_DescribeEventSubscriptionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -136,7 +133,7 @@ export class DescribeEventSubscriptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventSubscriptionsCommand(input, context);
+    return se_DescribeEventSubscriptionsCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class DescribeEventSubscriptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventSubscriptionsCommandOutput> {
-    return deserializeAws_queryDescribeEventSubscriptionsCommand(output, context);
+    return de_DescribeEventSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

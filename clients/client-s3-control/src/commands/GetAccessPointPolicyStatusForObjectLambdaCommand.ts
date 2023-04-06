@@ -19,8 +19,8 @@ import {
   GetAccessPointPolicyStatusForObjectLambdaResult,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand,
-  serializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand,
+  de_GetAccessPointPolicyStatusForObjectLambdaCommand,
+  se_GetAccessPointPolicyStatusForObjectLambdaCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -141,7 +141,7 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command<
     input: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand(input, context);
+    return se_GetAccessPointPolicyStatusForObjectLambdaCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAccessPointPolicyStatusForObjectLambdaCommandOutput> {
-    return deserializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand(output, context);
+    return de_GetAccessPointPolicyStatusForObjectLambdaCommand(output, context);
   }
 
   // Start section: command_body_extra

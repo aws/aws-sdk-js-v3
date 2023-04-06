@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import { UpdateLogPatternRequest, UpdateLogPatternResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateLogPatternCommand,
-  serializeAws_json1_1UpdateLogPatternCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateLogPatternCommand, se_UpdateLogPatternCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class UpdateLogPatternCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLogPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLogPatternCommand(input, context);
+    return se_UpdateLogPatternCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLogPatternCommandOutput> {
-    return deserializeAws_json1_1UpdateLogPatternCommand(output, context);
+    return de_UpdateLogPatternCommand(output, context);
   }
 
   // Start section: command_body_extra

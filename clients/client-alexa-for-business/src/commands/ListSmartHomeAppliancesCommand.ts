@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { ListSmartHomeAppliancesRequest, ListSmartHomeAppliancesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSmartHomeAppliancesCommand,
-  serializeAws_json1_1ListSmartHomeAppliancesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSmartHomeAppliancesCommand, se_ListSmartHomeAppliancesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class ListSmartHomeAppliancesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSmartHomeAppliancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSmartHomeAppliancesCommand(input, context);
+    return se_ListSmartHomeAppliancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSmartHomeAppliancesCommandOutput> {
-    return deserializeAws_json1_1ListSmartHomeAppliancesCommand(output, context);
+    return de_ListSmartHomeAppliancesCommand(output, context);
   }
 
   // Start section: command_body_extra

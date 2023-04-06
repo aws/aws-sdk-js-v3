@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DescribeOrganizationConfigRulesRequest, DescribeOrganizationConfigRulesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeOrganizationConfigRulesCommand,
-  serializeAws_json1_1DescribeOrganizationConfigRulesCommand,
+  de_DescribeOrganizationConfigRulesCommand,
+  se_DescribeOrganizationConfigRulesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -179,7 +179,7 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
     input: DescribeOrganizationConfigRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationConfigRulesCommand(input, context);
+    return se_DescribeOrganizationConfigRulesCommand(input, context);
   }
 
   /**
@@ -189,7 +189,7 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationConfigRulesCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationConfigRulesCommand(output, context);
+    return de_DescribeOrganizationConfigRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

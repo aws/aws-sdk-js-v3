@@ -16,8 +16,8 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { AddClientIDToOpenIDConnectProviderRequest } from "../models/models_0";
 import {
-  deserializeAws_queryAddClientIDToOpenIDConnectProviderCommand,
-  serializeAws_queryAddClientIDToOpenIDConnectProviderCommand,
+  de_AddClientIDToOpenIDConnectProviderCommand,
+  se_AddClientIDToOpenIDConnectProviderCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -155,7 +155,7 @@ export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
     input: AddClientIDToOpenIDConnectProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAddClientIDToOpenIDConnectProviderCommand(input, context);
+    return se_AddClientIDToOpenIDConnectProviderCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryAddClientIDToOpenIDConnectProviderCommand(output, context);
+    return de_AddClientIDToOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

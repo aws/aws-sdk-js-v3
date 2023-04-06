@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutAccountVdmAttributesRequest, PutAccountVdmAttributesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutAccountVdmAttributesCommand,
-  serializeAws_restJson1PutAccountVdmAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutAccountVdmAttributesCommand, se_PutAccountVdmAttributesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -135,14 +132,14 @@ export class PutAccountVdmAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAccountVdmAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAccountVdmAttributesCommand(input, context);
+    return se_PutAccountVdmAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccountVdmAttributesCommandOutput> {
-    return deserializeAws_restJson1PutAccountVdmAttributesCommand(output, context);
+    return de_PutAccountVdmAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

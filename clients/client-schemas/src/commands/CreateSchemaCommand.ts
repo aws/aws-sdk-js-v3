@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateSchemaRequest, CreateSchemaResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSchemaCommand,
-  serializeAws_restJson1CreateSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSchemaCommand, se_CreateSchemaCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -133,14 +130,14 @@ export class CreateSchemaCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSchemaCommand(input, context);
+    return se_CreateSchemaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSchemaCommandOutput> {
-    return deserializeAws_restJson1CreateSchemaCommand(output, context);
+    return de_CreateSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

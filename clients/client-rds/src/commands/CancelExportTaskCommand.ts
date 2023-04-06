@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelExportTaskMessage, ExportTask } from "../models/models_0";
-import {
-  deserializeAws_queryCancelExportTaskCommand,
-  serializeAws_queryCancelExportTaskCommand,
-} from "../protocols/Aws_query";
+import { de_CancelExportTaskCommand, se_CancelExportTaskCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -62,6 +59,31 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * @throws {@link InvalidExportTaskStateFault} (client fault)
  *  <p>You can't cancel an export task that has completed.</p>
  *
+ *
+ * @example To cancel a snapshot export to Amazon S3
+ * ```javascript
+ * // The following example cancels an export task in progress that is exporting a snapshot to Amazon S3.
+ * const input = {
+ *   "ExportTaskIdentifier": "my-s3-export-1"
+ * };
+ * const command = new CancelExportTaskCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ExportTaskIdentifier": "my-s3-export-1",
+ *   "IamRoleArn": "arn:aws:iam::123456789012:role/service-role/export-snap-S3-role",
+ *   "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/abcd0000-7bfd-4594-af38-aabbccddeeff",
+ *   "PercentProgress": 0,
+ *   "S3Bucket": "mybucket",
+ *   "S3Prefix": "",
+ *   "SnapshotTime": "2019-03-24T20:01:09.815Z",
+ *   "SourceArn": "arn:aws:rds:us-east-1:123456789012:snapshot:publisher-final-snapshot",
+ *   "Status": "CANCELING",
+ *   "TotalExtractedDataInGB": 0
+ * }
+ * *\/
+ * // example id: to-cancel-a-snapshot-export-to-amazon-s3-1679694286587
+ * ```
  *
  */
 export class CancelExportTaskCommand extends $Command<
@@ -127,14 +149,14 @@ export class CancelExportTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCancelExportTaskCommand(input, context);
+    return se_CancelExportTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelExportTaskCommandOutput> {
-    return deserializeAws_queryCancelExportTaskCommand(output, context);
+    return de_CancelExportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

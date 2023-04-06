@@ -15,10 +15,7 @@ import {
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { CreateContainerInput, CreateContainerOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateContainerCommand,
-  serializeAws_json1_1CreateContainerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateContainerCommand, se_CreateContainerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class CreateContainerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateContainerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContainerCommand(input, context);
+    return se_CreateContainerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateContainerCommandOutput> {
-    return deserializeAws_json1_1CreateContainerCommand(output, context);
+    return de_CreateContainerCommand(output, context);
   }
 
   // Start section: command_body_extra

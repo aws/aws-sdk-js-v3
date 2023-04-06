@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeVpcEndpointConnectionsRequest, DescribeVpcEndpointConnectionsResult } from "../models/models_5";
 import {
-  deserializeAws_ec2DescribeVpcEndpointConnectionsCommand,
-  serializeAws_ec2DescribeVpcEndpointConnectionsCommand,
+  de_DescribeVpcEndpointConnectionsCommand,
+  se_DescribeVpcEndpointConnectionsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -136,7 +136,7 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
     input: DescribeVpcEndpointConnectionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointConnectionsCommand(input, context);
+    return se_DescribeVpcEndpointConnectionsCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcEndpointConnectionsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointConnectionsCommand(output, context);
+    return de_DescribeVpcEndpointConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

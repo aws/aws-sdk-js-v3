@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { CreateServiceRequest, CreateServiceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateServiceCommand,
-  serializeAws_json1_1CreateServiceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -456,14 +453,14 @@ export class CreateServiceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateServiceCommand(input, context);
+    return se_CreateServiceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceCommandOutput> {
-    return deserializeAws_json1_1CreateServiceCommand(output, context);
+    return de_CreateServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

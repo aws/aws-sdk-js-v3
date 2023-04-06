@@ -15,10 +15,7 @@ import {
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { CreateBudgetRequest, CreateBudgetRequestFilterSensitiveLog, CreateBudgetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBudgetCommand,
-  serializeAws_json1_1CreateBudgetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateBudgetCommand, se_CreateBudgetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -214,14 +211,14 @@ export class CreateBudgetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBudgetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBudgetCommand(input, context);
+    return se_CreateBudgetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBudgetCommandOutput> {
-    return deserializeAws_json1_1CreateBudgetCommand(output, context);
+    return de_CreateBudgetCommand(output, context);
   }
 
   // Start section: command_body_extra

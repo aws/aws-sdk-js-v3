@@ -15,10 +15,7 @@ import {
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { UpdateTemplateRequest, UpdateTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateTemplateCommand,
-  serializeAws_restJson1UpdateTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateTemplateCommand, se_UpdateTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class UpdateTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTemplateCommand(input, context);
+    return se_UpdateTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateTemplateCommand(output, context);
+    return de_UpdateTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

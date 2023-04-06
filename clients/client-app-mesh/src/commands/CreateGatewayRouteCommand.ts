@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { CreateGatewayRouteInput, CreateGatewayRouteOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateGatewayRouteCommand,
-  serializeAws_restJson1CreateGatewayRouteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateGatewayRouteCommand, se_CreateGatewayRouteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -323,14 +320,14 @@ export class CreateGatewayRouteCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateGatewayRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateGatewayRouteCommand(input, context);
+    return se_CreateGatewayRouteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGatewayRouteCommandOutput> {
-    return deserializeAws_restJson1CreateGatewayRouteCommand(output, context);
+    return de_CreateGatewayRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

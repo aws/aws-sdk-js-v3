@@ -19,8 +19,8 @@ import {
   CancelServicePipelineDeploymentOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0CancelServicePipelineDeploymentCommand,
-  serializeAws_json1_0CancelServicePipelineDeploymentCommand,
+  de_CancelServicePipelineDeploymentCommand,
+  se_CancelServicePipelineDeploymentCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -165,7 +165,7 @@ export class CancelServicePipelineDeploymentCommand extends $Command<
     input: CancelServicePipelineDeploymentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0CancelServicePipelineDeploymentCommand(input, context);
+    return se_CancelServicePipelineDeploymentCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class CancelServicePipelineDeploymentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelServicePipelineDeploymentCommandOutput> {
-    return deserializeAws_json1_0CancelServicePipelineDeploymentCommand(output, context);
+    return de_CancelServicePipelineDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

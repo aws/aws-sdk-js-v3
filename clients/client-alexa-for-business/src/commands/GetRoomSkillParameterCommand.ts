@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { GetRoomSkillParameterRequest, GetRoomSkillParameterResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRoomSkillParameterCommand,
-  serializeAws_json1_1GetRoomSkillParameterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRoomSkillParameterCommand, se_GetRoomSkillParameterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -125,14 +122,14 @@ export class GetRoomSkillParameterCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRoomSkillParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRoomSkillParameterCommand(input, context);
+    return se_GetRoomSkillParameterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoomSkillParameterCommandOutput> {
-    return deserializeAws_json1_1GetRoomSkillParameterCommand(output, context);
+    return de_GetRoomSkillParameterCommand(output, context);
   }
 
   // Start section: command_body_extra

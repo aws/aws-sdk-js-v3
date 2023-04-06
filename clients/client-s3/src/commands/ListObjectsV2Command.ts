@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListObjectsV2Output, ListObjectsV2Request } from "../models/models_0";
-import {
-  deserializeAws_restXmlListObjectsV2Command,
-  serializeAws_restXmlListObjectsV2Command,
-} from "../protocols/Aws_restXml";
+import { de_ListObjectsV2Command, se_ListObjectsV2Command } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -108,7 +105,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * ```javascript
  * // The following example retrieves object list. The request specifies max keys to limit response to include only 2 object keys.
  * const input = {
- *   "Bucket": "examplebucket",
+ *   "Bucket": "DOC-EXAMPLE-BUCKET",
  *   "MaxKeys": "2"
  * };
  * const command = new ListObjectsV2Command(input);
@@ -134,7 +131,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *   "IsTruncated": true,
  *   "KeyCount": "2",
  *   "MaxKeys": "2",
- *   "Name": "examplebucket",
+ *   "Name": "DOC-EXAMPLE-BUCKET",
  *   "NextContinuationToken": "1w41l63U0xa8q7smH50vCxyTQqdxo69O3EmK28Bi5PcROI4wI/EyIJg==",
  *   "Prefix": ""
  * }
@@ -210,14 +207,14 @@ export class ListObjectsV2Command extends $Command<
    * @internal
    */
   private serialize(input: ListObjectsV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListObjectsV2Command(input, context);
+    return se_ListObjectsV2Command(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectsV2CommandOutput> {
-    return deserializeAws_restXmlListObjectsV2Command(output, context);
+    return de_ListObjectsV2Command(output, context);
   }
 
   // Start section: command_body_extra

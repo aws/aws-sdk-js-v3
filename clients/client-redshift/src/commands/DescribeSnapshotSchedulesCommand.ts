@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSnapshotSchedulesMessage, DescribeSnapshotSchedulesOutputMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeSnapshotSchedulesCommand,
-  serializeAws_queryDescribeSnapshotSchedulesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeSnapshotSchedulesCommand, se_DescribeSnapshotSchedulesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -131,7 +128,7 @@ export class DescribeSnapshotSchedulesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSnapshotSchedulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeSnapshotSchedulesCommand(input, context);
+    return se_DescribeSnapshotSchedulesCommand(input, context);
   }
 
   /**
@@ -141,7 +138,7 @@ export class DescribeSnapshotSchedulesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSnapshotSchedulesCommandOutput> {
-    return deserializeAws_queryDescribeSnapshotSchedulesCommand(output, context);
+    return de_DescribeSnapshotSchedulesCommand(output, context);
   }
 
   // Start section: command_body_extra

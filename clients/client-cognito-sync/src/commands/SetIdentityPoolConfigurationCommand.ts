@@ -16,8 +16,8 @@ import {
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { SetIdentityPoolConfigurationRequest, SetIdentityPoolConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1SetIdentityPoolConfigurationCommand,
-  serializeAws_restJson1SetIdentityPoolConfigurationCommand,
+  de_SetIdentityPoolConfigurationCommand,
+  se_SetIdentityPoolConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -206,7 +206,7 @@ export class SetIdentityPoolConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: SetIdentityPoolConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SetIdentityPoolConfigurationCommand(input, context);
+    return se_SetIdentityPoolConfigurationCommand(input, context);
   }
 
   /**
@@ -216,7 +216,7 @@ export class SetIdentityPoolConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityPoolConfigurationCommandOutput> {
-    return deserializeAws_restJson1SetIdentityPoolConfigurationCommand(output, context);
+    return de_SetIdentityPoolConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

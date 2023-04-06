@@ -19,8 +19,8 @@ import {
   DescribeAccessControlConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAccessControlConfigurationCommand,
-  serializeAws_json1_1DescribeAccessControlConfigurationCommand,
+  de_DescribeAccessControlConfigurationCommand,
+  se_DescribeAccessControlConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -152,7 +152,7 @@ export class DescribeAccessControlConfigurationCommand extends $Command<
     input: DescribeAccessControlConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAccessControlConfigurationCommand(input, context);
+    return se_DescribeAccessControlConfigurationCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class DescribeAccessControlConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccessControlConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeAccessControlConfigurationCommand(output, context);
+    return de_DescribeAccessControlConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

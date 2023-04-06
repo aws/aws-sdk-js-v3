@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { GetEntityTypesRequest, GetEntityTypesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetEntityTypesCommand,
-  serializeAws_json1_1GetEntityTypesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetEntityTypesCommand, se_GetEntityTypesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetEntityTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEntityTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEntityTypesCommand(input, context);
+    return se_GetEntityTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEntityTypesCommandOutput> {
-    return deserializeAws_json1_1GetEntityTypesCommand(output, context);
+    return de_GetEntityTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

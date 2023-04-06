@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { EnableVolumeIORequest } from "../models/models_5";
-import { deserializeAws_ec2EnableVolumeIOCommand, serializeAws_ec2EnableVolumeIOCommand } from "../protocols/Aws_ec2";
+import { de_EnableVolumeIOCommand, se_EnableVolumeIOCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -130,14 +130,14 @@ export class EnableVolumeIOCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableVolumeIOCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableVolumeIOCommand(input, context);
+    return se_EnableVolumeIOCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableVolumeIOCommandOutput> {
-    return deserializeAws_ec2EnableVolumeIOCommand(output, context);
+    return de_EnableVolumeIOCommand(output, context);
   }
 
   // Start section: command_body_extra

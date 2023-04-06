@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutInboundDmarcSettingsRequest, PutInboundDmarcSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutInboundDmarcSettingsCommand,
-  serializeAws_json1_1PutInboundDmarcSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutInboundDmarcSettingsCommand, se_PutInboundDmarcSettingsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -129,14 +126,14 @@ export class PutInboundDmarcSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutInboundDmarcSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutInboundDmarcSettingsCommand(input, context);
+    return se_PutInboundDmarcSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutInboundDmarcSettingsCommandOutput> {
-    return deserializeAws_json1_1PutInboundDmarcSettingsCommand(output, context);
+    return de_PutInboundDmarcSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

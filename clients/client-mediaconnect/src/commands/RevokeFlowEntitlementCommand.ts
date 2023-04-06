@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { RevokeFlowEntitlementRequest, RevokeFlowEntitlementResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RevokeFlowEntitlementCommand,
-  serializeAws_restJson1RevokeFlowEntitlementCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RevokeFlowEntitlementCommand, se_RevokeFlowEntitlementCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class RevokeFlowEntitlementCommand extends $Command<
    * @internal
    */
   private serialize(input: RevokeFlowEntitlementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RevokeFlowEntitlementCommand(input, context);
+    return se_RevokeFlowEntitlementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeFlowEntitlementCommandOutput> {
-    return deserializeAws_restJson1RevokeFlowEntitlementCommand(output, context);
+    return de_RevokeFlowEntitlementCommand(output, context);
   }
 
   // Start section: command_body_extra

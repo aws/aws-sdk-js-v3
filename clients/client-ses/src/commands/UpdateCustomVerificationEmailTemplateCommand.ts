@@ -15,8 +15,8 @@ import {
 
 import { UpdateCustomVerificationEmailTemplateRequest } from "../models/models_0";
 import {
-  deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand,
-  serializeAws_queryUpdateCustomVerificationEmailTemplateCommand,
+  de_UpdateCustomVerificationEmailTemplateCommand,
+  se_UpdateCustomVerificationEmailTemplateCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -143,7 +143,7 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     input: UpdateCustomVerificationEmailTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateCustomVerificationEmailTemplateCommand(input, context);
+    return se_UpdateCustomVerificationEmailTemplateCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> {
-    return deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand(output, context);
+    return de_UpdateCustomVerificationEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

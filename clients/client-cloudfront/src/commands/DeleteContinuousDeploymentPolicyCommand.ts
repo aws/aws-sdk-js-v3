@@ -16,8 +16,8 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeleteContinuousDeploymentPolicyRequest } from "../models/models_1";
 import {
-  deserializeAws_restXmlDeleteContinuousDeploymentPolicyCommand,
-  serializeAws_restXmlDeleteContinuousDeploymentPolicyCommand,
+  de_DeleteContinuousDeploymentPolicyCommand,
+  se_DeleteContinuousDeploymentPolicyCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -147,7 +147,7 @@ export class DeleteContinuousDeploymentPolicyCommand extends $Command<
     input: DeleteContinuousDeploymentPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteContinuousDeploymentPolicyCommand(input, context);
+    return se_DeleteContinuousDeploymentPolicyCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class DeleteContinuousDeploymentPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteContinuousDeploymentPolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteContinuousDeploymentPolicyCommand(output, context);
+    return de_DeleteContinuousDeploymentPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

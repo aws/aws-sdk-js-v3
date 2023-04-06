@@ -18,8 +18,8 @@ import {
   DeletePermissionsBoundaryFromPermissionSetResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand,
-  serializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand,
+  de_DeletePermissionsBoundaryFromPermissionSetCommand,
+  se_DeletePermissionsBoundaryFromPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -153,7 +153,7 @@ export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command<
     input: DeletePermissionsBoundaryFromPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand(input, context);
+    return se_DeletePermissionsBoundaryFromPermissionSetCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DeletePermissionsBoundaryFromPermissionSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePermissionsBoundaryFromPermissionSetCommandOutput> {
-    return deserializeAws_json1_1DeletePermissionsBoundaryFromPermissionSetCommand(output, context);
+    return de_DeletePermissionsBoundaryFromPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

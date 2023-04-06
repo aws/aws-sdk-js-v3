@@ -19,10 +19,7 @@ import {
   CreateAssociationResult,
   CreateAssociationResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAssociationCommand,
-  serializeAws_json1_1CreateAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAssociationCommand, se_CreateAssociationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -269,14 +266,14 @@ export class CreateAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAssociationCommand(input, context);
+    return se_CreateAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssociationCommandOutput> {
-    return deserializeAws_json1_1CreateAssociationCommand(output, context);
+    return de_CreateAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

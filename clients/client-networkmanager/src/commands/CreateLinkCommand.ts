@@ -15,10 +15,7 @@ import {
 
 import { CreateLinkRequest, CreateLinkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1CreateLinkCommand,
-  serializeAws_restJson1CreateLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateLinkCommand, se_CreateLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class CreateLinkCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLinkCommand(input, context);
+    return se_CreateLinkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLinkCommandOutput> {
-    return deserializeAws_restJson1CreateLinkCommand(output, context);
+    return de_CreateLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

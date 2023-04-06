@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DBClusterMessage, DescribeDBClustersMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBClustersCommand,
-  serializeAws_queryDescribeDBClustersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBClustersCommand, se_DescribeDBClustersCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -78,15 +75,102 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  *
- * @example To list DB clusters
+ * @example To describe a DB cluster
  * ```javascript
- * // This example lists settings for the specified DB cluster.
+ * // The following example retrieves the details of the specified DB cluster.
  * const input = {
- *   "DBClusterIdentifier": "mynewdbcluster"
+ *   "DBClusterIdentifier": "mydbcluster"
  * };
  * const command = new DescribeDBClustersCommand(input);
- * await client.send(command);
- * // example id: describe-db-clusters-7aae8861-cb95-4b3b-9042-f62df7698635
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusters": [
+ *     {
+ *       "AllocatedStorage": 1,
+ *       "AssociatedRoles": [],
+ *       "AvailabilityZones": [
+ *         "us-east-1a",
+ *         "us-east-1b",
+ *         "us-east-1e"
+ *       ],
+ *       "BackupRetentionPeriod": 1,
+ *       "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
+ *       "DBClusterArn": "arn:aws:rds:us-east-1:123456789012:cluster:mydbcluster",
+ *       "DBClusterIdentifier": "mydbcluster",
+ *       "DBClusterMembers": [
+ *         {
+ *           "DBClusterParameterGroupStatus": "in-sync",
+ *           "DBInstanceIdentifier": "dbinstance3",
+ *           "IsClusterWriter": false,
+ *           "PromotionTier": 1
+ *         },
+ *         {
+ *           "DBClusterParameterGroupStatus": "in-sync",
+ *           "DBInstanceIdentifier": "dbinstance1",
+ *           "IsClusterWriter": false,
+ *           "PromotionTier": 1
+ *         },
+ *         {
+ *           "DBClusterParameterGroupStatus": "in-sync",
+ *           "DBInstanceIdentifier": "dbinstance2",
+ *           "IsClusterWriter": false,
+ *           "PromotionTier": 1
+ *         },
+ *         {
+ *           "DBClusterParameterGroupStatus": "in-sync",
+ *           "DBInstanceIdentifier": "mydbcluster",
+ *           "IsClusterWriter": false,
+ *           "PromotionTier": 1
+ *         },
+ *         {
+ *           "DBClusterParameterGroupStatus": "in-sync",
+ *           "DBInstanceIdentifier": "mydbcluster-us-east-1b",
+ *           "IsClusterWriter": false,
+ *           "PromotionTier": 1
+ *         },
+ *         {
+ *           "DBClusterParameterGroupStatus": "in-sync",
+ *           "DBInstanceIdentifier": "mydbcluster",
+ *           "IsClusterWriter": true,
+ *           "PromotionTier": 1
+ *         }
+ *       ],
+ *       "DBClusterParameterGroup": "default.aurora-mysql5.7",
+ *       "DBSubnetGroup": "default",
+ *       "DatabaseName": "mydbcluster",
+ *       "DbClusterResourceId": "cluster-AKIAIOSFODNN7EXAMPLE",
+ *       "DeletionProtection": false,
+ *       "EarliestRestorableTime": "2019-06-19T09:16:28.210Z",
+ *       "Endpoint": "mydbcluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
+ *       "Engine": "aurora-mysql",
+ *       "EngineMode": "provisioned",
+ *       "EngineVersion": "5.7.mysql_aurora.2.04.2",
+ *       "HostedZoneId": "Z2R2ITUGPM61AM",
+ *       "HttpEndpointEnabled": false,
+ *       "IAMDatabaseAuthenticationEnabled": false,
+ *       "KmsKeyId": "arn:aws:kms:us-east-1:814387698303:key/AKIAIOSFODNN7EXAMPLE",
+ *       "LatestRestorableTime": "2019-06-20T22:38:14.908Z",
+ *       "MasterUsername": "myadmin",
+ *       "MultiAZ": true,
+ *       "Port": 3306,
+ *       "PreferredBackupWindow": "09:09-09:39",
+ *       "PreferredMaintenanceWindow": "sat:04:09-sat:04:39",
+ *       "ReadReplicaIdentifiers": [],
+ *       "ReaderEndpoint": "mydbcluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
+ *       "Status": "available",
+ *       "StorageEncrypted": true,
+ *       "VpcSecurityGroups": [
+ *         {
+ *           "Status": "active",
+ *           "VpcSecurityGroupId": "sg-0b9130572daf3dc16"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-a-db-cluster-1680215000529
  * ```
  *
  */
@@ -153,14 +237,14 @@ export class DescribeDBClustersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClustersCommand(input, context);
+    return se_DescribeDBClustersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDBClustersCommandOutput> {
-    return deserializeAws_queryDescribeDBClustersCommand(output, context);
+    return de_DescribeDBClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

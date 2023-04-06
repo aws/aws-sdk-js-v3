@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeTableRestoreStatusMessage, TableRestoreStatusMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeTableRestoreStatusCommand,
-  serializeAws_queryDescribeTableRestoreStatusCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeTableRestoreStatusCommand, se_DescribeTableRestoreStatusCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -135,7 +132,7 @@ export class DescribeTableRestoreStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTableRestoreStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTableRestoreStatusCommand(input, context);
+    return se_DescribeTableRestoreStatusCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DescribeTableRestoreStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTableRestoreStatusCommandOutput> {
-    return deserializeAws_queryDescribeTableRestoreStatusCommand(output, context);
+    return de_DescribeTableRestoreStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

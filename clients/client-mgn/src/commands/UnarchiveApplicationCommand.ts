@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { Application, ApplicationFilterSensitiveLog, UnarchiveApplicationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UnarchiveApplicationCommand,
-  serializeAws_restJson1UnarchiveApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UnarchiveApplicationCommand, se_UnarchiveApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class UnarchiveApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: UnarchiveApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnarchiveApplicationCommand(input, context);
+    return se_UnarchiveApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnarchiveApplicationCommandOutput> {
-    return deserializeAws_restJson1UnarchiveApplicationCommand(output, context);
+    return de_UnarchiveApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

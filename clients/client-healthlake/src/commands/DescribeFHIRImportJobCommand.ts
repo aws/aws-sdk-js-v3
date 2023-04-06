@@ -15,10 +15,7 @@ import {
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
 import { DescribeFHIRImportJobRequest, DescribeFHIRImportJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeFHIRImportJobCommand,
-  serializeAws_json1_0DescribeFHIRImportJobCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeFHIRImportJobCommand, se_DescribeFHIRImportJobCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeFHIRImportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFHIRImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeFHIRImportJobCommand(input, context);
+    return se_DescribeFHIRImportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFHIRImportJobCommandOutput> {
-    return deserializeAws_json1_0DescribeFHIRImportJobCommand(output, context);
+    return de_DescribeFHIRImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

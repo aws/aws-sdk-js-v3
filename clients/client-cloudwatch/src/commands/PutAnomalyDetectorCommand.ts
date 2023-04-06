@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { PutAnomalyDetectorInput, PutAnomalyDetectorOutput } from "../models/models_0";
-import {
-  deserializeAws_queryPutAnomalyDetectorCommand,
-  serializeAws_queryPutAnomalyDetectorCommand,
-} from "../protocols/Aws_query";
+import { de_PutAnomalyDetectorCommand, se_PutAnomalyDetectorCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -187,14 +184,14 @@ export class PutAnomalyDetectorCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutAnomalyDetectorCommand(input, context);
+    return se_PutAnomalyDetectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAnomalyDetectorCommandOutput> {
-    return deserializeAws_queryPutAnomalyDetectorCommand(output, context);
+    return de_PutAnomalyDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

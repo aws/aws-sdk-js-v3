@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { RemoveFlowMediaStreamRequest, RemoveFlowMediaStreamResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveFlowMediaStreamCommand,
-  serializeAws_restJson1RemoveFlowMediaStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveFlowMediaStreamCommand, se_RemoveFlowMediaStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class RemoveFlowMediaStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveFlowMediaStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveFlowMediaStreamCommand(input, context);
+    return se_RemoveFlowMediaStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveFlowMediaStreamCommandOutput> {
-    return deserializeAws_restJson1RemoveFlowMediaStreamCommand(output, context);
+    return de_RemoveFlowMediaStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

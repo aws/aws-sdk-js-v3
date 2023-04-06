@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { DeleteAssessmentRequest, DeleteAssessmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAssessmentCommand,
-  serializeAws_restJson1DeleteAssessmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAssessmentCommand, se_DeleteAssessmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteAssessmentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAssessmentCommand(input, context);
+    return se_DeleteAssessmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssessmentCommandOutput> {
-    return deserializeAws_restJson1DeleteAssessmentCommand(output, context);
+    return de_DeleteAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

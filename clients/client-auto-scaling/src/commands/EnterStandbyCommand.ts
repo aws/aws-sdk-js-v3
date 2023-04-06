@@ -15,7 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { EnterStandbyAnswer, EnterStandbyQuery } from "../models/models_0";
-import { deserializeAws_queryEnterStandbyCommand, serializeAws_queryEnterStandbyCommand } from "../protocols/Aws_query";
+import { de_EnterStandbyCommand, se_EnterStandbyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -163,14 +163,14 @@ export class EnterStandbyCommand extends $Command<
    * @internal
    */
   private serialize(input: EnterStandbyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnterStandbyCommand(input, context);
+    return se_EnterStandbyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnterStandbyCommandOutput> {
-    return deserializeAws_queryEnterStandbyCommand(output, context);
+    return de_EnterStandbyCommand(output, context);
   }
 
   // Start section: command_body_extra

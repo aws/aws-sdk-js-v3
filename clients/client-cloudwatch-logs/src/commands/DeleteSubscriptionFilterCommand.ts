@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DeleteSubscriptionFilterRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSubscriptionFilterCommand,
-  serializeAws_json1_1DeleteSubscriptionFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSubscriptionFilterCommand, se_DeleteSubscriptionFilterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteSubscriptionFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSubscriptionFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSubscriptionFilterCommand(input, context);
+    return se_DeleteSubscriptionFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubscriptionFilterCommandOutput> {
-    return deserializeAws_json1_1DeleteSubscriptionFilterCommand(output, context);
+    return de_DeleteSubscriptionFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

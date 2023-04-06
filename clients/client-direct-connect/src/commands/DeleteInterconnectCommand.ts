@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DeleteInterconnectRequest, DeleteInterconnectResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteInterconnectCommand,
-  serializeAws_json1_1DeleteInterconnectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteInterconnectCommand, se_DeleteInterconnectCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DeleteInterconnectCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInterconnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteInterconnectCommand(input, context);
+    return se_DeleteInterconnectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInterconnectCommandOutput> {
-    return deserializeAws_json1_1DeleteInterconnectCommand(output, context);
+    return de_DeleteInterconnectCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteServiceSyncConfigInput, DeleteServiceSyncConfigOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteServiceSyncConfigCommand,
-  serializeAws_json1_0DeleteServiceSyncConfigCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteServiceSyncConfigCommand, se_DeleteServiceSyncConfigCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -138,14 +135,14 @@ export class DeleteServiceSyncConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteServiceSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteServiceSyncConfigCommand(input, context);
+    return se_DeleteServiceSyncConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceSyncConfigCommandOutput> {
-    return deserializeAws_json1_0DeleteServiceSyncConfigCommand(output, context);
+    return de_DeleteServiceSyncConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

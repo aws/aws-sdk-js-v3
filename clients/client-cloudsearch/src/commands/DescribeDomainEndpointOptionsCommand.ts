@@ -16,8 +16,8 @@ import {
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DescribeDomainEndpointOptionsRequest, DescribeDomainEndpointOptionsResponse } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeDomainEndpointOptionsCommand,
-  serializeAws_queryDescribeDomainEndpointOptionsCommand,
+  de_DescribeDomainEndpointOptionsCommand,
+  se_DescribeDomainEndpointOptionsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -139,7 +139,7 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDomainEndpointOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDomainEndpointOptionsCommand(input, context);
+    return se_DescribeDomainEndpointOptionsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainEndpointOptionsCommandOutput> {
-    return deserializeAws_queryDescribeDomainEndpointOptionsCommand(output, context);
+    return de_DescribeDomainEndpointOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

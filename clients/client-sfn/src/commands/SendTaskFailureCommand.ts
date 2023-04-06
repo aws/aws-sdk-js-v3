@@ -18,10 +18,7 @@ import {
   SendTaskFailureInputFilterSensitiveLog,
   SendTaskFailureOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0SendTaskFailureCommand,
-  serializeAws_json1_0SendTaskFailureCommand,
-} from "../protocols/Aws_json1_0";
+import { de_SendTaskFailureCommand, se_SendTaskFailureCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -134,14 +131,14 @@ export class SendTaskFailureCommand extends $Command<
    * @internal
    */
   private serialize(input: SendTaskFailureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0SendTaskFailureCommand(input, context);
+    return se_SendTaskFailureCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTaskFailureCommandOutput> {
-    return deserializeAws_json1_0SendTaskFailureCommand(output, context);
+    return de_SendTaskFailureCommand(output, context);
   }
 
   // Start section: command_body_extra

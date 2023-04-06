@@ -15,10 +15,7 @@ import {
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { GetApplicationVersionRequest, GetApplicationVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApplicationVersionCommand,
-  serializeAws_restJson1GetApplicationVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetApplicationVersionCommand, se_GetApplicationVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetApplicationVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationVersionCommand(input, context);
+    return se_GetApplicationVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1GetApplicationVersionCommand(output, context);
+    return de_GetApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

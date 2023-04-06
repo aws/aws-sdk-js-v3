@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/models_0";
-import {
-  deserializeAws_queryAssumeRoleWithSAMLCommand,
-  serializeAws_queryAssumeRoleWithSAMLCommand,
-} from "../protocols/Aws_query";
+import { de_AssumeRoleWithSAMLCommand, se_AssumeRoleWithSAMLCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -328,14 +325,14 @@ export class AssumeRoleWithSAMLCommand extends $Command<
    * @internal
    */
   private serialize(input: AssumeRoleWithSAMLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAssumeRoleWithSAMLCommand(input, context);
+    return se_AssumeRoleWithSAMLCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeRoleWithSAMLCommandOutput> {
-    return deserializeAws_queryAssumeRoleWithSAMLCommand(output, context);
+    return de_AssumeRoleWithSAMLCommand(output, context);
   }
 
   // Start section: command_body_extra

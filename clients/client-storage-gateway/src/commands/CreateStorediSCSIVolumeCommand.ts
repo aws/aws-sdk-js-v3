@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateStorediSCSIVolumeInput, CreateStorediSCSIVolumeOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStorediSCSIVolumeCommand,
-  serializeAws_json1_1CreateStorediSCSIVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateStorediSCSIVolumeCommand, se_CreateStorediSCSIVolumeCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -175,14 +172,14 @@ export class CreateStorediSCSIVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStorediSCSIVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStorediSCSIVolumeCommand(input, context);
+    return se_CreateStorediSCSIVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStorediSCSIVolumeCommandOutput> {
-    return deserializeAws_json1_1CreateStorediSCSIVolumeCommand(output, context);
+    return de_CreateStorediSCSIVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

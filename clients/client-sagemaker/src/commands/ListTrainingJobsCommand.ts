@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTrainingJobsRequest, ListTrainingJobsResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListTrainingJobsCommand,
-  serializeAws_json1_1ListTrainingJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTrainingJobsCommand, se_ListTrainingJobsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -151,14 +148,14 @@ export class ListTrainingJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTrainingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTrainingJobsCommand(input, context);
+    return se_ListTrainingJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrainingJobsCommandOutput> {
-    return deserializeAws_json1_1ListTrainingJobsCommand(output, context);
+    return de_ListTrainingJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

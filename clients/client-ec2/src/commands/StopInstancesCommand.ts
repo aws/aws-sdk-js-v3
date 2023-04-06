@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { StopInstancesRequest, StopInstancesResult } from "../models/models_7";
-import { deserializeAws_ec2StopInstancesCommand, serializeAws_ec2StopInstancesCommand } from "../protocols/Aws_ec2";
+import { de_StopInstancesCommand, se_StopInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -180,14 +180,14 @@ export class StopInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: StopInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2StopInstancesCommand(input, context);
+    return se_StopInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInstancesCommandOutput> {
-    return deserializeAws_ec2StopInstancesCommand(output, context);
+    return de_StopInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

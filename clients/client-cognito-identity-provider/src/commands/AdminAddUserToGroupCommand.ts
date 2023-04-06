@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { AdminAddUserToGroupRequest, AdminAddUserToGroupRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1AdminAddUserToGroupCommand,
-  serializeAws_json1_1AdminAddUserToGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AdminAddUserToGroupCommand, se_AdminAddUserToGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class AdminAddUserToGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: AdminAddUserToGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AdminAddUserToGroupCommand(input, context);
+    return se_AdminAddUserToGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminAddUserToGroupCommandOutput> {
-    return deserializeAws_json1_1AdminAddUserToGroupCommand(output, context);
+    return de_AdminAddUserToGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

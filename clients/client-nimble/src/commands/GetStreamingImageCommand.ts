@@ -19,10 +19,7 @@ import {
   GetStreamingImageResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1GetStreamingImageCommand,
-  serializeAws_restJson1GetStreamingImageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetStreamingImageCommand, se_GetStreamingImageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class GetStreamingImageCommand extends $Command<
    * @internal
    */
   private serialize(input: GetStreamingImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStreamingImageCommand(input, context);
+    return se_GetStreamingImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamingImageCommandOutput> {
-    return deserializeAws_restJson1GetStreamingImageCommand(output, context);
+    return de_GetStreamingImageCommand(output, context);
   }
 
   // Start section: command_body_extra

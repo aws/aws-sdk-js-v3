@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { Resource, UpdateResourceRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateResourceCommand,
-  serializeAws_restJson1UpdateResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateResourceCommand, se_UpdateResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class UpdateResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateResourceCommand(input, context);
+    return se_UpdateResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceCommandOutput> {
-    return deserializeAws_restJson1UpdateResourceCommand(output, context);
+    return de_UpdateResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

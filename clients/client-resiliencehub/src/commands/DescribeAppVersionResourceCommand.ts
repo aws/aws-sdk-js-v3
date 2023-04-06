@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeAppVersionResourceRequest, DescribeAppVersionResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAppVersionResourceCommand,
-  serializeAws_restJson1DescribeAppVersionResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAppVersionResourceCommand, se_DescribeAppVersionResourceCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -176,7 +173,7 @@ export class DescribeAppVersionResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAppVersionResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppVersionResourceCommand(input, context);
+    return se_DescribeAppVersionResourceCommand(input, context);
   }
 
   /**
@@ -186,7 +183,7 @@ export class DescribeAppVersionResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAppVersionResourceCommandOutput> {
-    return deserializeAws_restJson1DescribeAppVersionResourceCommand(output, context);
+    return de_DescribeAppVersionResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

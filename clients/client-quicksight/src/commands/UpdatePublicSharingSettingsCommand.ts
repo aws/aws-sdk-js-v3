@@ -15,8 +15,8 @@ import {
 
 import { UpdatePublicSharingSettingsRequest, UpdatePublicSharingSettingsResponse } from "../models/models_3";
 import {
-  deserializeAws_restJson1UpdatePublicSharingSettingsCommand,
-  serializeAws_restJson1UpdatePublicSharingSettingsCommand,
+  de_UpdatePublicSharingSettingsCommand,
+  se_UpdatePublicSharingSettingsCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -160,7 +160,7 @@ export class UpdatePublicSharingSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePublicSharingSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePublicSharingSettingsCommand(input, context);
+    return se_UpdatePublicSharingSettingsCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class UpdatePublicSharingSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePublicSharingSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdatePublicSharingSettingsCommand(output, context);
+    return de_UpdatePublicSharingSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

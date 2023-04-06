@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { PutPermissionRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutPermissionCommand,
-  serializeAws_json1_1PutPermissionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutPermissionCommand, se_PutPermissionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class PutPermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: PutPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutPermissionCommand(input, context);
+    return se_PutPermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPermissionCommandOutput> {
-    return deserializeAws_json1_1PutPermissionCommand(output, context);
+    return de_PutPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AbortMultipartUploadOutput, AbortMultipartUploadRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlAbortMultipartUploadCommand,
-  serializeAws_restXmlAbortMultipartUploadCommand,
-} from "../protocols/Aws_restXml";
+import { de_AbortMultipartUploadCommand, se_AbortMultipartUploadCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -184,14 +181,14 @@ export class AbortMultipartUploadCommand extends $Command<
    * @internal
    */
   private serialize(input: AbortMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlAbortMultipartUploadCommand(input, context);
+    return se_AbortMultipartUploadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortMultipartUploadCommandOutput> {
-    return deserializeAws_restXmlAbortMultipartUploadCommand(output, context);
+    return de_AbortMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

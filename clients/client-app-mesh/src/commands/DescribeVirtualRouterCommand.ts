@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { DescribeVirtualRouterInput, DescribeVirtualRouterOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeVirtualRouterCommand,
-  serializeAws_restJson1DescribeVirtualRouterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeVirtualRouterCommand, se_DescribeVirtualRouterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DescribeVirtualRouterCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVirtualRouterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVirtualRouterCommand(input, context);
+    return se_DescribeVirtualRouterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1DescribeVirtualRouterCommand(output, context);
+    return de_DescribeVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

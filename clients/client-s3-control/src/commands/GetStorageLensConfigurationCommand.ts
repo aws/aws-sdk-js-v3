@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetStorageLensConfigurationRequest, GetStorageLensConfigurationResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetStorageLensConfigurationCommand,
-  serializeAws_restXmlGetStorageLensConfigurationCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetStorageLensConfigurationCommand, se_GetStorageLensConfigurationCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -133,7 +130,7 @@ export class GetStorageLensConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetStorageLensConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetStorageLensConfigurationCommand(input, context);
+    return se_GetStorageLensConfigurationCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class GetStorageLensConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetStorageLensConfigurationCommandOutput> {
-    return deserializeAws_restXmlGetStorageLensConfigurationCommand(output, context);
+    return de_GetStorageLensConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

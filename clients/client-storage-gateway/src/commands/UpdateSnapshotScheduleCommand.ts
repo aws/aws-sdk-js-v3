@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateSnapshotScheduleInput, UpdateSnapshotScheduleOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSnapshotScheduleCommand,
-  serializeAws_json1_1UpdateSnapshotScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSnapshotScheduleCommand, se_UpdateSnapshotScheduleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -165,14 +162,14 @@ export class UpdateSnapshotScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSnapshotScheduleCommand(input, context);
+    return se_UpdateSnapshotScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSnapshotScheduleCommandOutput> {
-    return deserializeAws_json1_1UpdateSnapshotScheduleCommand(output, context);
+    return de_UpdateSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

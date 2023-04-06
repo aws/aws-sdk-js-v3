@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { StartGUISessionRequest, StartGUISessionResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1StartGUISessionCommand,
-  serializeAws_json1_1StartGUISessionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartGUISessionCommand, se_StartGUISessionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class StartGUISessionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartGUISessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartGUISessionCommand(input, context);
+    return se_StartGUISessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartGUISessionCommandOutput> {
-    return deserializeAws_json1_1StartGUISessionCommand(output, context);
+    return de_StartGUISessionCommand(output, context);
   }
 
   // Start section: command_body_extra

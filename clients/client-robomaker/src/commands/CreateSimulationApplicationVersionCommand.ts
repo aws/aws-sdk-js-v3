@@ -18,8 +18,8 @@ import {
   CreateSimulationApplicationVersionResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateSimulationApplicationVersionCommand,
-  serializeAws_restJson1CreateSimulationApplicationVersionCommand,
+  de_CreateSimulationApplicationVersionCommand,
+  se_CreateSimulationApplicationVersionCommand,
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
@@ -151,7 +151,7 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
     input: CreateSimulationApplicationVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSimulationApplicationVersionCommand(input, context);
+    return se_CreateSimulationApplicationVersionCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class CreateSimulationApplicationVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSimulationApplicationVersionCommandOutput> {
-    return deserializeAws_restJson1CreateSimulationApplicationVersionCommand(output, context);
+    return de_CreateSimulationApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

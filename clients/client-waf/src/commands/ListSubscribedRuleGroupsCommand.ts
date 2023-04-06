@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSubscribedRuleGroupsRequest, ListSubscribedRuleGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSubscribedRuleGroupsCommand,
-  serializeAws_json1_1ListSubscribedRuleGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSubscribedRuleGroupsCommand, se_ListSubscribedRuleGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -135,14 +132,14 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSubscribedRuleGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSubscribedRuleGroupsCommand(input, context);
+    return se_ListSubscribedRuleGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscribedRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1ListSubscribedRuleGroupsCommand(output, context);
+    return de_ListSubscribedRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

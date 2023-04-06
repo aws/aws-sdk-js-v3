@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdatePrivateDnsNamespaceRequest, UpdatePrivateDnsNamespaceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdatePrivateDnsNamespaceCommand,
-  serializeAws_json1_1UpdatePrivateDnsNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdatePrivateDnsNamespaceCommand, se_UpdatePrivateDnsNamespaceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -147,7 +144,7 @@ export class UpdatePrivateDnsNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePrivateDnsNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePrivateDnsNamespaceCommand(input, context);
+    return se_UpdatePrivateDnsNamespaceCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class UpdatePrivateDnsNamespaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePrivateDnsNamespaceCommandOutput> {
-    return deserializeAws_json1_1UpdatePrivateDnsNamespaceCommand(output, context);
+    return de_UpdatePrivateDnsNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

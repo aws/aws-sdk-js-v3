@@ -15,10 +15,7 @@ import {
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import { RunPipelineActivityRequest, RunPipelineActivityResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RunPipelineActivityCommand,
-  serializeAws_restJson1RunPipelineActivityCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RunPipelineActivityCommand, se_RunPipelineActivityCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -197,14 +194,14 @@ export class RunPipelineActivityCommand extends $Command<
    * @internal
    */
   private serialize(input: RunPipelineActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RunPipelineActivityCommand(input, context);
+    return se_RunPipelineActivityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunPipelineActivityCommandOutput> {
-    return deserializeAws_restJson1RunPipelineActivityCommand(output, context);
+    return de_RunPipelineActivityCommand(output, context);
   }
 
   // Start section: command_body_extra

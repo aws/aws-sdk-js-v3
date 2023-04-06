@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ActivateKeySigningKeyRequest, ActivateKeySigningKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlActivateKeySigningKeyCommand,
-  serializeAws_restXmlActivateKeySigningKeyCommand,
-} from "../protocols/Aws_restXml";
+import { de_ActivateKeySigningKeyCommand, se_ActivateKeySigningKeyCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -146,14 +143,14 @@ export class ActivateKeySigningKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: ActivateKeySigningKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlActivateKeySigningKeyCommand(input, context);
+    return se_ActivateKeySigningKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateKeySigningKeyCommandOutput> {
-    return deserializeAws_restXmlActivateKeySigningKeyCommand(output, context);
+    return de_ActivateKeySigningKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

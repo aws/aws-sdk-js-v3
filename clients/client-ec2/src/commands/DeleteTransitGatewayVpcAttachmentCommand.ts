@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteTransitGatewayVpcAttachmentRequest, DeleteTransitGatewayVpcAttachmentResult } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand,
-  serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand,
+  de_DeleteTransitGatewayVpcAttachmentCommand,
+  se_DeleteTransitGatewayVpcAttachmentCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -126,7 +126,7 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
     input: DeleteTransitGatewayVpcAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(input, context);
+    return se_DeleteTransitGatewayVpcAttachmentCommand(input, context);
   }
 
   /**
@@ -136,7 +136,7 @@ export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand(output, context);
+    return de_DeleteTransitGatewayVpcAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

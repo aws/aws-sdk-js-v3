@@ -19,10 +19,7 @@ import {
   CreateWatchlistResponse,
   CreateWatchlistResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateWatchlistCommand,
-  serializeAws_json1_0CreateWatchlistCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateWatchlistCommand, se_CreateWatchlistCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -156,14 +153,14 @@ export class CreateWatchlistCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWatchlistCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateWatchlistCommand(input, context);
+    return se_CreateWatchlistCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWatchlistCommandOutput> {
-    return deserializeAws_json1_0CreateWatchlistCommand(output, context);
+    return de_CreateWatchlistCommand(output, context);
   }
 
   // Start section: command_body_extra

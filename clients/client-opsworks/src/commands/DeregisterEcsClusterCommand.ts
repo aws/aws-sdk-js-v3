@@ -15,10 +15,7 @@ import {
 
 import { DeregisterEcsClusterRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DeregisterEcsClusterCommand,
-  serializeAws_json1_1DeregisterEcsClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterEcsClusterCommand, se_DeregisterEcsClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeregisterEcsClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterEcsClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterEcsClusterCommand(input, context);
+    return se_DeregisterEcsClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterEcsClusterCommandOutput> {
-    return deserializeAws_json1_1DeregisterEcsClusterCommand(output, context);
+    return de_DeregisterEcsClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

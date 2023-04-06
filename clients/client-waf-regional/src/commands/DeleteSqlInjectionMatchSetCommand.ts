@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSqlInjectionMatchSetRequest, DeleteSqlInjectionMatchSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSqlInjectionMatchSetCommand,
-  serializeAws_json1_1DeleteSqlInjectionMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSqlInjectionMatchSetCommand, se_DeleteSqlInjectionMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -203,7 +200,7 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSqlInjectionMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSqlInjectionMatchSetCommand(input, context);
+    return se_DeleteSqlInjectionMatchSetCommand(input, context);
   }
 
   /**
@@ -213,7 +210,7 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSqlInjectionMatchSetCommandOutput> {
-    return deserializeAws_json1_1DeleteSqlInjectionMatchSetCommand(output, context);
+    return de_DeleteSqlInjectionMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

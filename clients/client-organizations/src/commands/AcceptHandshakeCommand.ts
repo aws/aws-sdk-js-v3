@@ -19,10 +19,7 @@ import {
   AcceptHandshakeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1AcceptHandshakeCommand,
-  serializeAws_json1_1AcceptHandshakeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AcceptHandshakeCommand, se_AcceptHandshakeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -418,14 +415,14 @@ export class AcceptHandshakeCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptHandshakeCommand(input, context);
+    return se_AcceptHandshakeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptHandshakeCommandOutput> {
-    return deserializeAws_json1_1AcceptHandshakeCommand(output, context);
+    return de_AcceptHandshakeCommand(output, context);
   }
 
   // Start section: command_body_extra

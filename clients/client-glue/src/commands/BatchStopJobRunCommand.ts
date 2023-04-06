@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchStopJobRunRequest, BatchStopJobRunResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchStopJobRunCommand,
-  serializeAws_json1_1BatchStopJobRunCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchStopJobRunCommand, se_BatchStopJobRunCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class BatchStopJobRunCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchStopJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchStopJobRunCommand(input, context);
+    return se_BatchStopJobRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchStopJobRunCommandOutput> {
-    return deserializeAws_json1_1BatchStopJobRunCommand(output, context);
+    return de_BatchStopJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

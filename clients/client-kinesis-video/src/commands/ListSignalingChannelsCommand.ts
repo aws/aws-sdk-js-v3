@@ -15,10 +15,7 @@ import {
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { ListSignalingChannelsInput, ListSignalingChannelsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSignalingChannelsCommand,
-  serializeAws_restJson1ListSignalingChannelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSignalingChannelsCommand, se_ListSignalingChannelsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListSignalingChannelsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSignalingChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSignalingChannelsCommand(input, context);
+    return se_ListSignalingChannelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSignalingChannelsCommandOutput> {
-    return deserializeAws_restJson1ListSignalingChannelsCommand(output, context);
+    return de_ListSignalingChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

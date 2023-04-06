@@ -19,10 +19,7 @@ import {
   ConfigurationProfileFilterSensitiveLog,
   GetConfigurationProfileRequest,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetConfigurationProfileCommand,
-  serializeAws_restJson1GetConfigurationProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetConfigurationProfileCommand, se_GetConfigurationProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class GetConfigurationProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConfigurationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConfigurationProfileCommand(input, context);
+    return se_GetConfigurationProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationProfileCommandOutput> {
-    return deserializeAws_restJson1GetConfigurationProfileCommand(output, context);
+    return de_GetConfigurationProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

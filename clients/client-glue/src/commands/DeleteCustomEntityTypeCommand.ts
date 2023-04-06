@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteCustomEntityTypeRequest, DeleteCustomEntityTypeResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteCustomEntityTypeCommand,
-  serializeAws_json1_1DeleteCustomEntityTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCustomEntityTypeCommand, se_DeleteCustomEntityTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteCustomEntityTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCustomEntityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCustomEntityTypeCommand(input, context);
+    return se_DeleteCustomEntityTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomEntityTypeCommandOutput> {
-    return deserializeAws_json1_1DeleteCustomEntityTypeCommand(output, context);
+    return de_DeleteCustomEntityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

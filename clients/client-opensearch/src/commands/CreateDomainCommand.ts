@@ -15,10 +15,7 @@ import {
 
 import { CreateDomainRequest, CreateDomainRequestFilterSensitiveLog, CreateDomainResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1CreateDomainCommand,
-  serializeAws_restJson1CreateDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDomainCommand, se_CreateDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -259,14 +256,14 @@ export class CreateDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDomainCommand(input, context);
+    return se_CreateDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainCommandOutput> {
-    return deserializeAws_restJson1CreateDomainCommand(output, context);
+    return de_CreateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

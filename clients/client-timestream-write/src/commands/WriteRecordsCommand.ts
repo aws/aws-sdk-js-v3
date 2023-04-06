@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { WriteRecordsRequest, WriteRecordsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0WriteRecordsCommand,
-  serializeAws_json1_0WriteRecordsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_WriteRecordsCommand, se_WriteRecordsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedConfig } from "../TimestreamWriteClient";
 
 /**
@@ -261,14 +258,14 @@ export class WriteRecordsCommand extends $Command<
    * @internal
    */
   private serialize(input: WriteRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0WriteRecordsCommand(input, context);
+    return se_WriteRecordsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WriteRecordsCommandOutput> {
-    return deserializeAws_json1_0WriteRecordsCommand(output, context);
+    return de_WriteRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

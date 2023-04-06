@@ -21,8 +21,8 @@ import {
   PutAppInstanceStreamingConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand,
-  serializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand,
+  de_PutAppInstanceStreamingConfigurationsCommand,
+  se_PutAppInstanceStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -158,7 +158,7 @@ export class PutAppInstanceStreamingConfigurationsCommand extends $Command<
     input: PutAppInstanceStreamingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand(input, context);
+    return se_PutAppInstanceStreamingConfigurationsCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class PutAppInstanceStreamingConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAppInstanceStreamingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1PutAppInstanceStreamingConfigurationsCommand(output, context);
+    return de_PutAppInstanceStreamingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteRegistrationCodeRequest, DeleteRegistrationCodeResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteRegistrationCodeCommand,
-  serializeAws_restJson1DeleteRegistrationCodeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRegistrationCodeCommand, se_DeleteRegistrationCodeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteRegistrationCodeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRegistrationCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRegistrationCodeCommand(input, context);
+    return se_DeleteRegistrationCodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRegistrationCodeCommandOutput> {
-    return deserializeAws_restJson1DeleteRegistrationCodeCommand(output, context);
+    return de_DeleteRegistrationCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   UpdateCloudFrontOriginAccessIdentityResult,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand,
-  serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand,
+  de_UpdateCloudFrontOriginAccessIdentityCommand,
+  se_UpdateCloudFrontOriginAccessIdentityCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -160,7 +160,7 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     input: UpdateCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(input, context);
+    return se_UpdateCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand(output, context);
+    return de_UpdateCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

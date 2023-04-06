@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { CreateDomainAssociationRequest, CreateDomainAssociationResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDomainAssociationCommand,
-  serializeAws_restJson1CreateDomainAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDomainAssociationCommand, se_CreateDomainAssociationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CreateDomainAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDomainAssociationCommand(input, context);
+    return se_CreateDomainAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1CreateDomainAssociationCommand(output, context);
+    return de_CreateDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

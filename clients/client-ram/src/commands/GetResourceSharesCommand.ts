@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetResourceSharesRequest, GetResourceSharesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetResourceSharesCommand,
-  serializeAws_restJson1GetResourceSharesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetResourceSharesCommand, se_GetResourceSharesCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
@@ -154,14 +151,14 @@ export class GetResourceSharesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourceSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetResourceSharesCommand(input, context);
+    return se_GetResourceSharesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceSharesCommandOutput> {
-    return deserializeAws_restJson1GetResourceSharesCommand(output, context);
+    return de_GetResourceSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

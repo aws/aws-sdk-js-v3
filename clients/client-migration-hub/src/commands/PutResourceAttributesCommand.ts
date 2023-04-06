@@ -15,10 +15,7 @@ import {
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { PutResourceAttributesRequest, PutResourceAttributesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutResourceAttributesCommand,
-  serializeAws_json1_1PutResourceAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutResourceAttributesCommand, se_PutResourceAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -187,14 +184,14 @@ export class PutResourceAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: PutResourceAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutResourceAttributesCommand(input, context);
+    return se_PutResourceAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourceAttributesCommandOutput> {
-    return deserializeAws_json1_1PutResourceAttributesCommand(output, context);
+    return de_PutResourceAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

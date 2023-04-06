@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeLaunchTemplatesRequest, DescribeLaunchTemplatesResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeLaunchTemplatesCommand,
-  serializeAws_ec2DescribeLaunchTemplatesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeLaunchTemplatesCommand, se_DescribeLaunchTemplatesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -163,14 +160,14 @@ export class DescribeLaunchTemplatesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLaunchTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLaunchTemplatesCommand(input, context);
+    return se_DescribeLaunchTemplatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLaunchTemplatesCommandOutput> {
-    return deserializeAws_ec2DescribeLaunchTemplatesCommand(output, context);
+    return de_DescribeLaunchTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

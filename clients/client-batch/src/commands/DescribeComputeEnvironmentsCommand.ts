@@ -16,8 +16,8 @@ import {
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { DescribeComputeEnvironmentsRequest, DescribeComputeEnvironmentsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeComputeEnvironmentsCommand,
-  serializeAws_restJson1DescribeComputeEnvironmentsCommand,
+  de_DescribeComputeEnvironmentsCommand,
+  se_DescribeComputeEnvironmentsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -188,7 +188,7 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeComputeEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeComputeEnvironmentsCommand(input, context);
+    return se_DescribeComputeEnvironmentsCommand(input, context);
   }
 
   /**
@@ -198,7 +198,7 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeComputeEnvironmentsCommandOutput> {
-    return deserializeAws_restJson1DescribeComputeEnvironmentsCommand(output, context);
+    return de_DescribeComputeEnvironmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

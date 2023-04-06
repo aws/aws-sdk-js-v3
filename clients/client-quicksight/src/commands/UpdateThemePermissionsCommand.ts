@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateThemePermissionsRequest, UpdateThemePermissionsResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1UpdateThemePermissionsCommand,
-  serializeAws_restJson1UpdateThemePermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateThemePermissionsCommand, se_UpdateThemePermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -257,14 +254,14 @@ export class UpdateThemePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateThemePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateThemePermissionsCommand(input, context);
+    return se_UpdateThemePermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThemePermissionsCommandOutput> {
-    return deserializeAws_restJson1UpdateThemePermissionsCommand(output, context);
+    return de_UpdateThemePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

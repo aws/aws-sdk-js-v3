@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListUseCasesRequest, ListUseCasesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListUseCasesCommand,
-  serializeAws_restJson1ListUseCasesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListUseCasesCommand, se_ListUseCasesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListUseCasesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUseCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListUseCasesCommand(input, context);
+    return se_ListUseCasesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUseCasesCommandOutput> {
-    return deserializeAws_restJson1ListUseCasesCommand(output, context);
+    return de_ListUseCasesCommand(output, context);
   }
 
   // Start section: command_body_extra

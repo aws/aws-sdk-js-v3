@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { RemoveThingFromBillingGroupRequest, RemoveThingFromBillingGroupResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1RemoveThingFromBillingGroupCommand,
-  serializeAws_restJson1RemoveThingFromBillingGroupCommand,
+  de_RemoveThingFromBillingGroupCommand,
+  se_RemoveThingFromBillingGroupCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveThingFromBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveThingFromBillingGroupCommand(input, context);
+    return se_RemoveThingFromBillingGroupCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveThingFromBillingGroupCommandOutput> {
-    return deserializeAws_restJson1RemoveThingFromBillingGroupCommand(output, context);
+    return de_RemoveThingFromBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

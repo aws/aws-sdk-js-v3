@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAwsLogSourceRequest, CreateAwsLogSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAwsLogSourceCommand,
-  serializeAws_restJson1CreateAwsLogSourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAwsLogSourceCommand, se_CreateAwsLogSourceCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -178,14 +175,14 @@ export class CreateAwsLogSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAwsLogSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAwsLogSourceCommand(input, context);
+    return se_CreateAwsLogSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAwsLogSourceCommandOutput> {
-    return deserializeAws_restJson1CreateAwsLogSourceCommand(output, context);
+    return de_CreateAwsLogSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

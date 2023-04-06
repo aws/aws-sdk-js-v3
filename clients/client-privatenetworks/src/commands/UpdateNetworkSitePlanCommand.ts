@@ -19,10 +19,7 @@ import {
   UpdateNetworkSiteResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1UpdateNetworkSitePlanCommand,
-  serializeAws_restJson1UpdateNetworkSitePlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateNetworkSitePlanCommand, se_UpdateNetworkSitePlanCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class UpdateNetworkSitePlanCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNetworkSitePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateNetworkSitePlanCommand(input, context);
+    return se_UpdateNetworkSitePlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNetworkSitePlanCommandOutput> {
-    return deserializeAws_restJson1UpdateNetworkSitePlanCommand(output, context);
+    return de_UpdateNetworkSitePlanCommand(output, context);
   }
 
   // Start section: command_body_extra

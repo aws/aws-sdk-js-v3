@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { DeleteLoggerDefinitionRequest, DeleteLoggerDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLoggerDefinitionCommand,
-  serializeAws_restJson1DeleteLoggerDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLoggerDefinitionCommand, se_DeleteLoggerDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -123,14 +120,14 @@ export class DeleteLoggerDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLoggerDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLoggerDefinitionCommand(input, context);
+    return se_DeleteLoggerDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoggerDefinitionCommandOutput> {
-    return deserializeAws_restJson1DeleteLoggerDefinitionCommand(output, context);
+    return de_DeleteLoggerDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

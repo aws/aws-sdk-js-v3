@@ -15,10 +15,7 @@ import {
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { DescribeConnectorsRequest, DescribeConnectorsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeConnectorsCommand,
-  serializeAws_restJson1DescribeConnectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeConnectorsCommand, se_DescribeConnectorsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeConnectorsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConnectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeConnectorsCommand(input, context);
+    return se_DescribeConnectorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectorsCommandOutput> {
-    return deserializeAws_restJson1DescribeConnectorsCommand(output, context);
+    return de_DescribeConnectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

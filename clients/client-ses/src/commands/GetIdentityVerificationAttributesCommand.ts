@@ -18,8 +18,8 @@ import {
   GetIdentityVerificationAttributesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGetIdentityVerificationAttributesCommand,
-  serializeAws_queryGetIdentityVerificationAttributesCommand,
+  de_GetIdentityVerificationAttributesCommand,
+  se_GetIdentityVerificationAttributesCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -168,7 +168,7 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     input: GetIdentityVerificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityVerificationAttributesCommand(input, context);
+    return se_GetIdentityVerificationAttributesCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityVerificationAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityVerificationAttributesCommand(output, context);
+    return de_GetIdentityVerificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

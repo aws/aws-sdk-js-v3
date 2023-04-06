@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetChangeTokenStatusRequest, GetChangeTokenStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetChangeTokenStatusCommand,
-  serializeAws_json1_1GetChangeTokenStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetChangeTokenStatusCommand, se_GetChangeTokenStatusCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -166,14 +163,14 @@ export class GetChangeTokenStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetChangeTokenStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetChangeTokenStatusCommand(input, context);
+    return se_GetChangeTokenStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeTokenStatusCommandOutput> {
-    return deserializeAws_json1_1GetChangeTokenStatusCommand(output, context);
+    return de_GetChangeTokenStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

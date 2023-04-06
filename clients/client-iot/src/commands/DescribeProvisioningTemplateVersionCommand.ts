@@ -19,8 +19,8 @@ import {
   DescribeProvisioningTemplateVersionResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1DescribeProvisioningTemplateVersionCommand,
-  serializeAws_restJson1DescribeProvisioningTemplateVersionCommand,
+  de_DescribeProvisioningTemplateVersionCommand,
+  se_DescribeProvisioningTemplateVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command<
     input: DescribeProvisioningTemplateVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeProvisioningTemplateVersionCommand(input, context);
+    return se_DescribeProvisioningTemplateVersionCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisioningTemplateVersionCommandOutput> {
-    return deserializeAws_restJson1DescribeProvisioningTemplateVersionCommand(output, context);
+    return de_DescribeProvisioningTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { BatchStopRequest, BatchStopResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1BatchStopCommand,
-  serializeAws_restJson1BatchStopCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchStopCommand, se_BatchStopCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class BatchStopCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchStopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchStopCommand(input, context);
+    return se_BatchStopCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchStopCommandOutput> {
-    return deserializeAws_restJson1BatchStopCommand(output, context);
+    return de_BatchStopCommand(output, context);
   }
 
   // Start section: command_body_extra

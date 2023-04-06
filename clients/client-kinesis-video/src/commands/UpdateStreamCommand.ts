@@ -15,10 +15,7 @@ import {
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { UpdateStreamInput, UpdateStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateStreamCommand,
-  serializeAws_restJson1UpdateStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateStreamCommand, se_UpdateStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class UpdateStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateStreamCommand(input, context);
+    return se_UpdateStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStreamCommandOutput> {
-    return deserializeAws_restJson1UpdateStreamCommand(output, context);
+    return de_UpdateStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

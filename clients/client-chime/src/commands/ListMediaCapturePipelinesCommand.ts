@@ -19,10 +19,7 @@ import {
   ListMediaCapturePipelinesResponse,
   ListMediaCapturePipelinesResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListMediaCapturePipelinesCommand,
-  serializeAws_restJson1ListMediaCapturePipelinesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListMediaCapturePipelinesCommand, se_ListMediaCapturePipelinesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class ListMediaCapturePipelinesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMediaCapturePipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMediaCapturePipelinesCommand(input, context);
+    return se_ListMediaCapturePipelinesCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class ListMediaCapturePipelinesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListMediaCapturePipelinesCommandOutput> {
-    return deserializeAws_restJson1ListMediaCapturePipelinesCommand(output, context);
+    return de_ListMediaCapturePipelinesCommand(output, context);
   }
 
   // Start section: command_body_extra

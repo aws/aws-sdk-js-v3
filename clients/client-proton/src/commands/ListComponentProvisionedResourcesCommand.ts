@@ -15,8 +15,8 @@ import {
 
 import { ListComponentProvisionedResourcesInput, ListComponentProvisionedResourcesOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0ListComponentProvisionedResourcesCommand,
-  serializeAws_json1_0ListComponentProvisionedResourcesCommand,
+  de_ListComponentProvisionedResourcesCommand,
+  se_ListComponentProvisionedResourcesCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -144,7 +144,7 @@ export class ListComponentProvisionedResourcesCommand extends $Command<
     input: ListComponentProvisionedResourcesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListComponentProvisionedResourcesCommand(input, context);
+    return se_ListComponentProvisionedResourcesCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class ListComponentProvisionedResourcesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListComponentProvisionedResourcesCommandOutput> {
-    return deserializeAws_json1_0ListComponentProvisionedResourcesCommand(output, context);
+    return de_ListComponentProvisionedResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

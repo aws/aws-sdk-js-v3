@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
 import { ListFragmentsInput, ListFragmentsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFragmentsCommand,
-  serializeAws_restJson1ListFragmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFragmentsCommand, se_ListFragmentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -191,14 +188,14 @@ export class ListFragmentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFragmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFragmentsCommand(input, context);
+    return se_ListFragmentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFragmentsCommandOutput> {
-    return deserializeAws_restJson1ListFragmentsCommand(output, context);
+    return de_ListFragmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

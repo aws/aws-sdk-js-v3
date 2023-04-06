@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { TransactWriteItemsInput, TransactWriteItemsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0TransactWriteItemsCommand,
-  serializeAws_json1_0TransactWriteItemsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_TransactWriteItemsCommand, se_TransactWriteItemsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -619,14 +616,14 @@ export class TransactWriteItemsCommand extends $Command<
    * @internal
    */
   private serialize(input: TransactWriteItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0TransactWriteItemsCommand(input, context);
+    return se_TransactWriteItemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransactWriteItemsCommandOutput> {
-    return deserializeAws_json1_0TransactWriteItemsCommand(output, context);
+    return de_TransactWriteItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

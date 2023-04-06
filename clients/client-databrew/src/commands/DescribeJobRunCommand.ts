@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { DescribeJobRunRequest, DescribeJobRunResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobRunCommand,
-  serializeAws_restJson1DescribeJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeJobRunCommand, se_DescribeJobRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DescribeJobRunCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobRunCommand(input, context);
+    return se_DescribeJobRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobRunCommandOutput> {
-    return deserializeAws_restJson1DescribeJobRunCommand(output, context);
+    return de_DescribeJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

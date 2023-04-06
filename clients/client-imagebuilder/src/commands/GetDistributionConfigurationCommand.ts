@@ -16,8 +16,8 @@ import {
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { GetDistributionConfigurationRequest, GetDistributionConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetDistributionConfigurationCommand,
-  serializeAws_restJson1GetDistributionConfigurationCommand,
+  de_GetDistributionConfigurationCommand,
+  se_GetDistributionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class GetDistributionConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDistributionConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDistributionConfigurationCommand(input, context);
+    return se_GetDistributionConfigurationCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class GetDistributionConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDistributionConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetDistributionConfigurationCommand(output, context);
+    return de_GetDistributionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

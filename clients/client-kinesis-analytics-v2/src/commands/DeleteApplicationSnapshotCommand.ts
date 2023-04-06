@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import { DeleteApplicationSnapshotRequest, DeleteApplicationSnapshotResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteApplicationSnapshotCommand,
-  serializeAws_json1_1DeleteApplicationSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteApplicationSnapshotCommand, se_DeleteApplicationSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class DeleteApplicationSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteApplicationSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationSnapshotCommand(input, context);
+    return se_DeleteApplicationSnapshotCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class DeleteApplicationSnapshotCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationSnapshotCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationSnapshotCommand(output, context);
+    return de_DeleteApplicationSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

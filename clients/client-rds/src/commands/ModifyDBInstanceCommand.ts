@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyDBInstanceCommand,
-  serializeAws_queryModifyDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyDBInstanceCommand, se_ModifyDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -201,27 +198,53 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *             with the DB instance.</p>
  *
  *
- * @example To change DB instance settings
+ * @example To modify parameters in a DB cluster parameter group
  * ```javascript
- * // This example immediately changes the specified settings for the specified DB instance.
+ * // The following example associates an option group and a parameter group with a compatible Microsoft SQL Server DB instance. The ApplyImmediately parameter causes the option and parameter groups to be associated immediately, instead of waiting until the next maintenance window.
  * const input = {
- *   "AllocatedStorage": 10,
  *   "ApplyImmediately": true,
- *   "BackupRetentionPeriod": 1,
- *   "DBInstanceClass": "db.t2.small",
- *   "DBInstanceIdentifier": "mymysqlinstance",
- *   "MasterUserPassword": "mynewpassword",
- *   "PreferredBackupWindow": "04:00-04:30",
- *   "PreferredMaintenanceWindow": "Tue:05:00-Tue:05:30"
+ *   "DBInstanceIdentifier": "database-2",
+ *   "DBParameterGroupName": "test-sqlserver-se-2017",
+ *   "OptionGroupName": "test-se-2017"
  * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBInstance": {}
+ *   "DBInstance": {
+ *     "AssociatedRoles": [],
+ *     "AutoMinorVersionUpgrade": false,
+ *     "AvailabilityZone": "us-west-2d",
+ *     "CharacterSetName": "SQL_Latin1_General_CP1_CI_AS",
+ *     "DBInstanceClass": "db.r4.large",
+ *     "DBInstanceIdentifier": "database-2",
+ *     "DBInstanceStatus": "available",
+ *     "DBParameterGroups": [
+ *       {
+ *         "DBParameterGroupName": "test-sqlserver-se-2017",
+ *         "ParameterApplyStatus": "applying"
+ *       }
+ *     ],
+ *     "DeletionProtection": false,
+ *     "Engine": "sqlserver-se",
+ *     "EngineVersion": "14.00.3281.6.v1",
+ *     "LicenseModel": "license-included",
+ *     "MaxAllocatedStorage": 1000,
+ *     "MultiAZ": true,
+ *     "OptionGroupMemberships": [
+ *       {
+ *         "OptionGroupName": "test-se-2017",
+ *         "Status": "pending-apply"
+ *       }
+ *     ],
+ *     "PubliclyAccessible": true,
+ *     "ReadReplicaDBInstanceIdentifiers": [],
+ *     "SecondaryAvailabilityZone": "us-west-2c",
+ *     "StorageType": "gp2"
+ *   }
  * }
  * *\/
- * // example id: modify-db-instance-6979a368-6254-467b-8a8d-61103f4fcde9
+ * // example id: to-modify-parameters-in-a-db-cluster-parameter-group-1680377584537
  * ```
  *
  */
@@ -288,14 +311,14 @@ export class ModifyDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyDBInstanceCommand(input, context);
+    return se_ModifyDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBInstanceCommandOutput> {
-    return deserializeAws_queryModifyDBInstanceCommand(output, context);
+    return de_ModifyDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

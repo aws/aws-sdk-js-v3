@@ -20,10 +20,7 @@ import {
   CreateSipMediaApplicationResponse,
   CreateSipMediaApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSipMediaApplicationCommand,
-  serializeAws_restJson1CreateSipMediaApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSipMediaApplicationCommand, se_CreateSipMediaApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -159,7 +156,7 @@ export class CreateSipMediaApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSipMediaApplicationCommand(input, context);
+    return se_CreateSipMediaApplicationCommand(input, context);
   }
 
   /**
@@ -169,7 +166,7 @@ export class CreateSipMediaApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSipMediaApplicationCommandOutput> {
-    return deserializeAws_restJson1CreateSipMediaApplicationCommand(output, context);
+    return de_CreateSipMediaApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

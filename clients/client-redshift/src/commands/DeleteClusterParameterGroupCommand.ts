@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteClusterParameterGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteClusterParameterGroupCommand,
-  serializeAws_queryDeleteClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteClusterParameterGroupCommand, se_DeleteClusterParameterGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -132,7 +129,7 @@ export class DeleteClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteClusterParameterGroupCommand(input, context);
+    return se_DeleteClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class DeleteClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryDeleteClusterParameterGroupCommand(output, context);
+    return de_DeleteClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

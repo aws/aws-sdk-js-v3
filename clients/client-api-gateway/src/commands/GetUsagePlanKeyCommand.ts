@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GetUsagePlanKeyRequest, UsagePlanKey } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUsagePlanKeyCommand,
-  serializeAws_restJson1GetUsagePlanKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUsagePlanKeyCommand, se_GetUsagePlanKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetUsagePlanKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUsagePlanKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUsagePlanKeyCommand(input, context);
+    return se_GetUsagePlanKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsagePlanKeyCommandOutput> {
-    return deserializeAws_restJson1GetUsagePlanKeyCommand(output, context);
+    return de_GetUsagePlanKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

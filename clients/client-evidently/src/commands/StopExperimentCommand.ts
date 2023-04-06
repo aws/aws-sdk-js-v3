@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { StopExperimentRequest, StopExperimentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopExperimentCommand,
-  serializeAws_restJson1StopExperimentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopExperimentCommand, se_StopExperimentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class StopExperimentCommand extends $Command<
    * @internal
    */
   private serialize(input: StopExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopExperimentCommand(input, context);
+    return se_StopExperimentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopExperimentCommandOutput> {
-    return deserializeAws_restJson1StopExperimentCommand(output, context);
+    return de_StopExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

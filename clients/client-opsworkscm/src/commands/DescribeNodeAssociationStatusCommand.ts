@@ -20,8 +20,8 @@ import {
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
-  deserializeAws_json1_1DescribeNodeAssociationStatusCommand,
-  serializeAws_json1_1DescribeNodeAssociationStatusCommand,
+  de_DescribeNodeAssociationStatusCommand,
+  se_DescribeNodeAssociationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -141,7 +141,7 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeNodeAssociationStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNodeAssociationStatusCommand(input, context);
+    return se_DescribeNodeAssociationStatusCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNodeAssociationStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeNodeAssociationStatusCommand(output, context);
+    return de_DescribeNodeAssociationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

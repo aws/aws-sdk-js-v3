@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateAccountPasswordPolicyRequest } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateAccountPasswordPolicyCommand,
-  serializeAws_queryUpdateAccountPasswordPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateAccountPasswordPolicyCommand, se_UpdateAccountPasswordPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -166,7 +163,7 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAccountPasswordPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateAccountPasswordPolicyCommand(input, context);
+    return se_UpdateAccountPasswordPolicyCommand(input, context);
   }
 
   /**
@@ -176,7 +173,7 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccountPasswordPolicyCommandOutput> {
-    return deserializeAws_queryUpdateAccountPasswordPolicyCommand(output, context);
+    return de_UpdateAccountPasswordPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DeleteSuggesterRequest, DeleteSuggesterResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSuggesterCommand,
-  serializeAws_queryDeleteSuggesterCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteSuggesterCommand, se_DeleteSuggesterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteSuggesterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSuggesterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSuggesterCommand(input, context);
+    return se_DeleteSuggesterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSuggesterCommandOutput> {
-    return deserializeAws_queryDeleteSuggesterCommand(output, context);
+    return de_DeleteSuggesterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
 import { ListSuiteRunsRequest, ListSuiteRunsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSuiteRunsCommand,
-  serializeAws_restJson1ListSuiteRunsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSuiteRunsCommand, se_ListSuiteRunsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListSuiteRunsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSuiteRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSuiteRunsCommand(input, context);
+    return se_ListSuiteRunsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSuiteRunsCommandOutput> {
-    return deserializeAws_restJson1ListSuiteRunsCommand(output, context);
+    return de_ListSuiteRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

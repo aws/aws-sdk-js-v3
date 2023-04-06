@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { BatchGetCustomEntityTypesRequest, BatchGetCustomEntityTypesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1BatchGetCustomEntityTypesCommand,
-  serializeAws_json1_1BatchGetCustomEntityTypesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_BatchGetCustomEntityTypesCommand, se_BatchGetCustomEntityTypesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,7 +128,7 @@ export class BatchGetCustomEntityTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetCustomEntityTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetCustomEntityTypesCommand(input, context);
+    return se_BatchGetCustomEntityTypesCommand(input, context);
   }
 
   /**
@@ -141,7 +138,7 @@ export class BatchGetCustomEntityTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchGetCustomEntityTypesCommandOutput> {
-    return deserializeAws_json1_1BatchGetCustomEntityTypesCommand(output, context);
+    return de_BatchGetCustomEntityTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

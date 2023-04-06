@@ -19,7 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { PutBotRequest, PutBotResponse } from "../models/models_0";
-import { deserializeAws_restJson1PutBotCommand, serializeAws_restJson1PutBotCommand } from "../protocols/Aws_restJson1";
+import { de_PutBotCommand, se_PutBotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -292,14 +292,14 @@ export class PutBotCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutBotCommand(input, context);
+    return se_PutBotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBotCommandOutput> {
-    return deserializeAws_restJson1PutBotCommand(output, context);
+    return de_PutBotCommand(output, context);
   }
 
   // Start section: command_body_extra

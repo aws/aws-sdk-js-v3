@@ -21,8 +21,8 @@ import {
   LaunchConfigurationTemplateFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateLaunchConfigurationTemplateCommand,
-  serializeAws_restJson1CreateLaunchConfigurationTemplateCommand,
+  de_CreateLaunchConfigurationTemplateCommand,
+  se_CreateLaunchConfigurationTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -188,7 +188,7 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command<
     input: CreateLaunchConfigurationTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLaunchConfigurationTemplateCommand(input, context);
+    return se_CreateLaunchConfigurationTemplateCommand(input, context);
   }
 
   /**
@@ -198,7 +198,7 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLaunchConfigurationTemplateCommandOutput> {
-    return deserializeAws_restJson1CreateLaunchConfigurationTemplateCommand(output, context);
+    return de_CreateLaunchConfigurationTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteAttendeeRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAttendeeCommand,
-  serializeAws_restJson1DeleteAttendeeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAttendeeCommand, se_DeleteAttendeeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteAttendeeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAttendeeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAttendeeCommand(input, context);
+    return se_DeleteAttendeeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAttendeeCommandOutput> {
-    return deserializeAws_restJson1DeleteAttendeeCommand(output, context);
+    return de_DeleteAttendeeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { GetSavingsPlansCoverageRequest, GetSavingsPlansCoverageResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSavingsPlansCoverageCommand,
-  serializeAws_json1_1GetSavingsPlansCoverageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSavingsPlansCoverageCommand, se_GetSavingsPlansCoverageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -243,14 +240,14 @@ export class GetSavingsPlansCoverageCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSavingsPlansCoverageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSavingsPlansCoverageCommand(input, context);
+    return se_GetSavingsPlansCoverageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSavingsPlansCoverageCommandOutput> {
-    return deserializeAws_json1_1GetSavingsPlansCoverageCommand(output, context);
+    return de_GetSavingsPlansCoverageCommand(output, context);
   }
 
   // Start section: command_body_extra

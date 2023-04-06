@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SendTaskHeartbeatInput, SendTaskHeartbeatOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0SendTaskHeartbeatCommand,
-  serializeAws_json1_0SendTaskHeartbeatCommand,
-} from "../protocols/Aws_json1_0";
+import { de_SendTaskHeartbeatCommand, se_SendTaskHeartbeatCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -141,14 +138,14 @@ export class SendTaskHeartbeatCommand extends $Command<
    * @internal
    */
   private serialize(input: SendTaskHeartbeatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0SendTaskHeartbeatCommand(input, context);
+    return se_SendTaskHeartbeatCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendTaskHeartbeatCommandOutput> {
-    return deserializeAws_json1_0SendTaskHeartbeatCommand(output, context);
+    return de_SendTaskHeartbeatCommand(output, context);
   }
 
   // Start section: command_body_extra

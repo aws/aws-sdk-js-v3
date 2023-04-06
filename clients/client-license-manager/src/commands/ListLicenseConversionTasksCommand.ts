@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { ListLicenseConversionTasksRequest, ListLicenseConversionTasksResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLicenseConversionTasksCommand,
-  serializeAws_json1_1ListLicenseConversionTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLicenseConversionTasksCommand, se_ListLicenseConversionTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class ListLicenseConversionTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLicenseConversionTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLicenseConversionTasksCommand(input, context);
+    return se_ListLicenseConversionTasksCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class ListLicenseConversionTasksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLicenseConversionTasksCommandOutput> {
-    return deserializeAws_json1_1ListLicenseConversionTasksCommand(output, context);
+    return de_ListLicenseConversionTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

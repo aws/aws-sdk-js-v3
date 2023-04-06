@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateReplicationSetInput, CreateReplicationSetOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateReplicationSetCommand,
-  serializeAws_restJson1CreateReplicationSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateReplicationSetCommand, se_CreateReplicationSetCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -149,14 +146,14 @@ export class CreateReplicationSetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateReplicationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateReplicationSetCommand(input, context);
+    return se_CreateReplicationSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateReplicationSetCommandOutput> {
-    return deserializeAws_restJson1CreateReplicationSetCommand(output, context);
+    return de_CreateReplicationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

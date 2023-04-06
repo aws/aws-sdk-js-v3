@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DeleteBucketAccessKeyRequest, DeleteBucketAccessKeyResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBucketAccessKeyCommand,
-  serializeAws_json1_1DeleteBucketAccessKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteBucketAccessKeyCommand, se_DeleteBucketAccessKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeleteBucketAccessKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBucketAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBucketAccessKeyCommand(input, context);
+    return se_DeleteBucketAccessKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketAccessKeyCommandOutput> {
-    return deserializeAws_json1_1DeleteBucketAccessKeyCommand(output, context);
+    return de_DeleteBucketAccessKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

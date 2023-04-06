@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { StopQueryExecutionInput, StopQueryExecutionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopQueryExecutionCommand,
-  serializeAws_json1_1StopQueryExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopQueryExecutionCommand, se_StopQueryExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class StopQueryExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StopQueryExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopQueryExecutionCommand(input, context);
+    return se_StopQueryExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopQueryExecutionCommandOutput> {
-    return deserializeAws_json1_1StopQueryExecutionCommand(output, context);
+    return de_StopQueryExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

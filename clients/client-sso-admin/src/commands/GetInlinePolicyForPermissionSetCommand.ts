@@ -15,8 +15,8 @@ import {
 
 import { GetInlinePolicyForPermissionSetRequest, GetInlinePolicyForPermissionSetResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetInlinePolicyForPermissionSetCommand,
-  serializeAws_json1_1GetInlinePolicyForPermissionSetCommand,
+  de_GetInlinePolicyForPermissionSetCommand,
+  se_GetInlinePolicyForPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -143,7 +143,7 @@ export class GetInlinePolicyForPermissionSetCommand extends $Command<
     input: GetInlinePolicyForPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInlinePolicyForPermissionSetCommand(input, context);
+    return se_GetInlinePolicyForPermissionSetCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class GetInlinePolicyForPermissionSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetInlinePolicyForPermissionSetCommandOutput> {
-    return deserializeAws_json1_1GetInlinePolicyForPermissionSetCommand(output, context);
+    return de_GetInlinePolicyForPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

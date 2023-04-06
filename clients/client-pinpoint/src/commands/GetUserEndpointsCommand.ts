@@ -15,10 +15,7 @@ import {
 
 import { GetUserEndpointsRequest, GetUserEndpointsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetUserEndpointsCommand,
-  serializeAws_restJson1GetUserEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUserEndpointsCommand, se_GetUserEndpointsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetUserEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUserEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUserEndpointsCommand(input, context);
+    return se_GetUserEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserEndpointsCommandOutput> {
-    return deserializeAws_restJson1GetUserEndpointsCommand(output, context);
+    return de_GetUserEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

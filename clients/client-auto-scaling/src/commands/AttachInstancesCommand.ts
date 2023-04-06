@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { AttachInstancesQuery } from "../models/models_0";
-import {
-  deserializeAws_queryAttachInstancesCommand,
-  serializeAws_queryAttachInstancesCommand,
-} from "../protocols/Aws_query";
+import { de_AttachInstancesCommand, se_AttachInstancesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class AttachInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAttachInstancesCommand(input, context);
+    return se_AttachInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachInstancesCommandOutput> {
-    return deserializeAws_queryAttachInstancesCommand(output, context);
+    return de_AttachInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

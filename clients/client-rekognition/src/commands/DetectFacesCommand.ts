@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectFacesRequest, DetectFacesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectFacesCommand,
-  serializeAws_json1_1DetectFacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectFacesCommand, se_DetectFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -243,14 +240,14 @@ export class DetectFacesCommand extends $Command<
    * @internal
    */
   private serialize(input: DetectFacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectFacesCommand(input, context);
+    return se_DetectFacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectFacesCommandOutput> {
-    return deserializeAws_json1_1DetectFacesCommand(output, context);
+    return de_DetectFacesCommand(output, context);
   }
 
   // Start section: command_body_extra

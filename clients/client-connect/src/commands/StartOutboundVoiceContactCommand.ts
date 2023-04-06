@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { StartOutboundVoiceContactRequest, StartOutboundVoiceContactResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1StartOutboundVoiceContactCommand,
-  serializeAws_restJson1StartOutboundVoiceContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartOutboundVoiceContactCommand, se_StartOutboundVoiceContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -172,7 +169,7 @@ export class StartOutboundVoiceContactCommand extends $Command<
    * @internal
    */
   private serialize(input: StartOutboundVoiceContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartOutboundVoiceContactCommand(input, context);
+    return se_StartOutboundVoiceContactCommand(input, context);
   }
 
   /**
@@ -182,7 +179,7 @@ export class StartOutboundVoiceContactCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartOutboundVoiceContactCommandOutput> {
-    return deserializeAws_restJson1StartOutboundVoiceContactCommand(output, context);
+    return de_StartOutboundVoiceContactCommand(output, context);
   }
 
   // Start section: command_body_extra

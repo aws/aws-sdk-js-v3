@@ -15,10 +15,7 @@ import {
 
 import { ListAnnotationStoresRequest, ListAnnotationStoresResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListAnnotationStoresCommand,
-  serializeAws_restJson1ListAnnotationStoresCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAnnotationStoresCommand, se_ListAnnotationStoresCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListAnnotationStoresCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAnnotationStoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnnotationStoresCommand(input, context);
+    return se_ListAnnotationStoresCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnnotationStoresCommandOutput> {
-    return deserializeAws_restJson1ListAnnotationStoresCommand(output, context);
+    return de_ListAnnotationStoresCommand(output, context);
   }
 
   // Start section: command_body_extra

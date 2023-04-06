@@ -15,8 +15,8 @@ import {
 
 import { UpdateSMBFileShareVisibilityInput, UpdateSMBFileShareVisibilityOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateSMBFileShareVisibilityCommand,
-  serializeAws_json1_1UpdateSMBFileShareVisibilityCommand,
+  de_UpdateSMBFileShareVisibilityCommand,
+  se_UpdateSMBFileShareVisibilityCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
@@ -132,7 +132,7 @@ export class UpdateSMBFileShareVisibilityCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSMBFileShareVisibilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSMBFileShareVisibilityCommand(input, context);
+    return se_UpdateSMBFileShareVisibilityCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class UpdateSMBFileShareVisibilityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSMBFileShareVisibilityCommandOutput> {
-    return deserializeAws_json1_1UpdateSMBFileShareVisibilityCommand(output, context);
+    return de_UpdateSMBFileShareVisibilityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { UpdateClassificationJobRequest, UpdateClassificationJobResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateClassificationJobCommand,
-  serializeAws_restJson1UpdateClassificationJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateClassificationJobCommand, se_UpdateClassificationJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UpdateClassificationJobCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateClassificationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateClassificationJobCommand(input, context);
+    return se_UpdateClassificationJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClassificationJobCommandOutput> {
-    return deserializeAws_restJson1UpdateClassificationJobCommand(output, context);
+    return de_UpdateClassificationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

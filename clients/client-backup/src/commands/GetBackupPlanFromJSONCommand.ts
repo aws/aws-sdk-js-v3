@@ -19,10 +19,7 @@ import {
   GetBackupPlanFromJSONOutput,
   GetBackupPlanFromJSONOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBackupPlanFromJSONCommand,
-  serializeAws_restJson1GetBackupPlanFromJSONCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBackupPlanFromJSONCommand, se_GetBackupPlanFromJSONCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetBackupPlanFromJSONCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBackupPlanFromJSONCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackupPlanFromJSONCommand(input, context);
+    return se_GetBackupPlanFromJSONCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackupPlanFromJSONCommandOutput> {
-    return deserializeAws_restJson1GetBackupPlanFromJSONCommand(output, context);
+    return de_GetBackupPlanFromJSONCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { StartRouteAnalysisRequest, StartRouteAnalysisResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1StartRouteAnalysisCommand,
-  serializeAws_restJson1StartRouteAnalysisCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartRouteAnalysisCommand, se_StartRouteAnalysisCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class StartRouteAnalysisCommand extends $Command<
    * @internal
    */
   private serialize(input: StartRouteAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartRouteAnalysisCommand(input, context);
+    return se_StartRouteAnalysisCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRouteAnalysisCommandOutput> {
-    return deserializeAws_restJson1StartRouteAnalysisCommand(output, context);
+    return de_StartRouteAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

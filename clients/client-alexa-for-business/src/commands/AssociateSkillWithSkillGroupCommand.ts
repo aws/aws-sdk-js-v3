@@ -16,8 +16,8 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { AssociateSkillWithSkillGroupRequest, AssociateSkillWithSkillGroupResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateSkillWithSkillGroupCommand,
-  serializeAws_json1_1AssociateSkillWithSkillGroupCommand,
+  de_AssociateSkillWithSkillGroupCommand,
+  se_AssociateSkillWithSkillGroupCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -132,7 +132,7 @@ export class AssociateSkillWithSkillGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateSkillWithSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateSkillWithSkillGroupCommand(input, context);
+    return se_AssociateSkillWithSkillGroupCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class AssociateSkillWithSkillGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateSkillWithSkillGroupCommandOutput> {
-    return deserializeAws_json1_1AssociateSkillWithSkillGroupCommand(output, context);
+    return de_AssociateSkillWithSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

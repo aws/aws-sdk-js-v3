@@ -16,8 +16,8 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { DisassociateApprovalRuleTemplateFromRepositoryInput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand,
-  serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand,
+  de_DisassociateApprovalRuleTemplateFromRepositoryCommand,
+  se_DisassociateApprovalRuleTemplateFromRepositoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -177,7 +177,7 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
     input: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand(input, context);
+    return se_DisassociateApprovalRuleTemplateFromRepositoryCommand(input, context);
   }
 
   /**
@@ -187,7 +187,7 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> {
-    return deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand(output, context);
+    return de_DisassociateApprovalRuleTemplateFromRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

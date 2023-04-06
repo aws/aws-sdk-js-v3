@@ -19,8 +19,8 @@ import {
   GetStorageLensConfigurationTaggingResult,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetStorageLensConfigurationTaggingCommand,
-  serializeAws_restXmlGetStorageLensConfigurationTaggingCommand,
+  de_GetStorageLensConfigurationTaggingCommand,
+  se_GetStorageLensConfigurationTaggingCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -143,7 +143,7 @@ export class GetStorageLensConfigurationTaggingCommand extends $Command<
     input: GetStorageLensConfigurationTaggingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetStorageLensConfigurationTaggingCommand(input, context);
+    return se_GetStorageLensConfigurationTaggingCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class GetStorageLensConfigurationTaggingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetStorageLensConfigurationTaggingCommandOutput> {
-    return deserializeAws_restXmlGetStorageLensConfigurationTaggingCommand(output, context);
+    return de_GetStorageLensConfigurationTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -219,7 +219,10 @@ import {
   VpcIngressConnectionSummary,
 } from "../models/models_0";
 
-export const serializeAws_json1_0AssociateCustomDomainCommand = async (
+/**
+ * serializeAws_json1_0AssociateCustomDomainCommand
+ */
+export const se_AssociateCustomDomainCommand = async (
   input: AssociateCustomDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -228,11 +231,14 @@ export const serializeAws_json1_0AssociateCustomDomainCommand = async (
     "x-amz-target": "AppRunner.AssociateCustomDomain",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0AssociateCustomDomainRequest(input, context));
+  body = JSON.stringify(se_AssociateCustomDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateAutoScalingConfigurationCommand = async (
+/**
+ * serializeAws_json1_0CreateAutoScalingConfigurationCommand
+ */
+export const se_CreateAutoScalingConfigurationCommand = async (
   input: CreateAutoScalingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -241,11 +247,14 @@ export const serializeAws_json1_0CreateAutoScalingConfigurationCommand = async (
     "x-amz-target": "AppRunner.CreateAutoScalingConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateAutoScalingConfigurationRequest(input, context));
+  body = JSON.stringify(se_CreateAutoScalingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateConnectionCommand = async (
+/**
+ * serializeAws_json1_0CreateConnectionCommand
+ */
+export const se_CreateConnectionCommand = async (
   input: CreateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -254,11 +263,14 @@ export const serializeAws_json1_0CreateConnectionCommand = async (
     "x-amz-target": "AppRunner.CreateConnection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateConnectionRequest(input, context));
+  body = JSON.stringify(se_CreateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateObservabilityConfigurationCommand = async (
+/**
+ * serializeAws_json1_0CreateObservabilityConfigurationCommand
+ */
+export const se_CreateObservabilityConfigurationCommand = async (
   input: CreateObservabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -267,11 +279,14 @@ export const serializeAws_json1_0CreateObservabilityConfigurationCommand = async
     "x-amz-target": "AppRunner.CreateObservabilityConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateObservabilityConfigurationRequest(input, context));
+  body = JSON.stringify(se_CreateObservabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateServiceCommand = async (
+/**
+ * serializeAws_json1_0CreateServiceCommand
+ */
+export const se_CreateServiceCommand = async (
   input: CreateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -280,11 +295,14 @@ export const serializeAws_json1_0CreateServiceCommand = async (
     "x-amz-target": "AppRunner.CreateService",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateServiceRequest(input, context));
+  body = JSON.stringify(se_CreateServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateVpcConnectorCommand = async (
+/**
+ * serializeAws_json1_0CreateVpcConnectorCommand
+ */
+export const se_CreateVpcConnectorCommand = async (
   input: CreateVpcConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -293,11 +311,14 @@ export const serializeAws_json1_0CreateVpcConnectorCommand = async (
     "x-amz-target": "AppRunner.CreateVpcConnector",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateVpcConnectorRequest(input, context));
+  body = JSON.stringify(se_CreateVpcConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0CreateVpcIngressConnectionCommand = async (
+/**
+ * serializeAws_json1_0CreateVpcIngressConnectionCommand
+ */
+export const se_CreateVpcIngressConnectionCommand = async (
   input: CreateVpcIngressConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -306,11 +327,14 @@ export const serializeAws_json1_0CreateVpcIngressConnectionCommand = async (
     "x-amz-target": "AppRunner.CreateVpcIngressConnection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0CreateVpcIngressConnectionRequest(input, context));
+  body = JSON.stringify(se_CreateVpcIngressConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteAutoScalingConfigurationCommand = async (
+/**
+ * serializeAws_json1_0DeleteAutoScalingConfigurationCommand
+ */
+export const se_DeleteAutoScalingConfigurationCommand = async (
   input: DeleteAutoScalingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -319,11 +343,14 @@ export const serializeAws_json1_0DeleteAutoScalingConfigurationCommand = async (
     "x-amz-target": "AppRunner.DeleteAutoScalingConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteAutoScalingConfigurationRequest(input, context));
+  body = JSON.stringify(se_DeleteAutoScalingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteConnectionCommand = async (
+/**
+ * serializeAws_json1_0DeleteConnectionCommand
+ */
+export const se_DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -332,11 +359,14 @@ export const serializeAws_json1_0DeleteConnectionCommand = async (
     "x-amz-target": "AppRunner.DeleteConnection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteConnectionRequest(input, context));
+  body = JSON.stringify(se_DeleteConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteObservabilityConfigurationCommand = async (
+/**
+ * serializeAws_json1_0DeleteObservabilityConfigurationCommand
+ */
+export const se_DeleteObservabilityConfigurationCommand = async (
   input: DeleteObservabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -345,11 +375,14 @@ export const serializeAws_json1_0DeleteObservabilityConfigurationCommand = async
     "x-amz-target": "AppRunner.DeleteObservabilityConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteObservabilityConfigurationRequest(input, context));
+  body = JSON.stringify(se_DeleteObservabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteServiceCommand = async (
+/**
+ * serializeAws_json1_0DeleteServiceCommand
+ */
+export const se_DeleteServiceCommand = async (
   input: DeleteServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -358,11 +391,14 @@ export const serializeAws_json1_0DeleteServiceCommand = async (
     "x-amz-target": "AppRunner.DeleteService",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteServiceRequest(input, context));
+  body = JSON.stringify(se_DeleteServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteVpcConnectorCommand = async (
+/**
+ * serializeAws_json1_0DeleteVpcConnectorCommand
+ */
+export const se_DeleteVpcConnectorCommand = async (
   input: DeleteVpcConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -371,11 +407,14 @@ export const serializeAws_json1_0DeleteVpcConnectorCommand = async (
     "x-amz-target": "AppRunner.DeleteVpcConnector",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteVpcConnectorRequest(input, context));
+  body = JSON.stringify(se_DeleteVpcConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DeleteVpcIngressConnectionCommand = async (
+/**
+ * serializeAws_json1_0DeleteVpcIngressConnectionCommand
+ */
+export const se_DeleteVpcIngressConnectionCommand = async (
   input: DeleteVpcIngressConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -384,11 +423,14 @@ export const serializeAws_json1_0DeleteVpcIngressConnectionCommand = async (
     "x-amz-target": "AppRunner.DeleteVpcIngressConnection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DeleteVpcIngressConnectionRequest(input, context));
+  body = JSON.stringify(se_DeleteVpcIngressConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeAutoScalingConfigurationCommand = async (
+/**
+ * serializeAws_json1_0DescribeAutoScalingConfigurationCommand
+ */
+export const se_DescribeAutoScalingConfigurationCommand = async (
   input: DescribeAutoScalingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -397,11 +439,14 @@ export const serializeAws_json1_0DescribeAutoScalingConfigurationCommand = async
     "x-amz-target": "AppRunner.DescribeAutoScalingConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeAutoScalingConfigurationRequest(input, context));
+  body = JSON.stringify(se_DescribeAutoScalingConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeCustomDomainsCommand = async (
+/**
+ * serializeAws_json1_0DescribeCustomDomainsCommand
+ */
+export const se_DescribeCustomDomainsCommand = async (
   input: DescribeCustomDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -410,11 +455,14 @@ export const serializeAws_json1_0DescribeCustomDomainsCommand = async (
     "x-amz-target": "AppRunner.DescribeCustomDomains",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeCustomDomainsRequest(input, context));
+  body = JSON.stringify(se_DescribeCustomDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeObservabilityConfigurationCommand = async (
+/**
+ * serializeAws_json1_0DescribeObservabilityConfigurationCommand
+ */
+export const se_DescribeObservabilityConfigurationCommand = async (
   input: DescribeObservabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -423,11 +471,14 @@ export const serializeAws_json1_0DescribeObservabilityConfigurationCommand = asy
     "x-amz-target": "AppRunner.DescribeObservabilityConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeObservabilityConfigurationRequest(input, context));
+  body = JSON.stringify(se_DescribeObservabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeServiceCommand = async (
+/**
+ * serializeAws_json1_0DescribeServiceCommand
+ */
+export const se_DescribeServiceCommand = async (
   input: DescribeServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -436,11 +487,14 @@ export const serializeAws_json1_0DescribeServiceCommand = async (
     "x-amz-target": "AppRunner.DescribeService",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeServiceRequest(input, context));
+  body = JSON.stringify(se_DescribeServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeVpcConnectorCommand = async (
+/**
+ * serializeAws_json1_0DescribeVpcConnectorCommand
+ */
+export const se_DescribeVpcConnectorCommand = async (
   input: DescribeVpcConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -449,11 +503,14 @@ export const serializeAws_json1_0DescribeVpcConnectorCommand = async (
     "x-amz-target": "AppRunner.DescribeVpcConnector",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeVpcConnectorRequest(input, context));
+  body = JSON.stringify(se_DescribeVpcConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DescribeVpcIngressConnectionCommand = async (
+/**
+ * serializeAws_json1_0DescribeVpcIngressConnectionCommand
+ */
+export const se_DescribeVpcIngressConnectionCommand = async (
   input: DescribeVpcIngressConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -462,11 +519,14 @@ export const serializeAws_json1_0DescribeVpcIngressConnectionCommand = async (
     "x-amz-target": "AppRunner.DescribeVpcIngressConnection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DescribeVpcIngressConnectionRequest(input, context));
+  body = JSON.stringify(se_DescribeVpcIngressConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0DisassociateCustomDomainCommand = async (
+/**
+ * serializeAws_json1_0DisassociateCustomDomainCommand
+ */
+export const se_DisassociateCustomDomainCommand = async (
   input: DisassociateCustomDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -475,11 +535,14 @@ export const serializeAws_json1_0DisassociateCustomDomainCommand = async (
     "x-amz-target": "AppRunner.DisassociateCustomDomain",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0DisassociateCustomDomainRequest(input, context));
+  body = JSON.stringify(se_DisassociateCustomDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListAutoScalingConfigurationsCommand = async (
+/**
+ * serializeAws_json1_0ListAutoScalingConfigurationsCommand
+ */
+export const se_ListAutoScalingConfigurationsCommand = async (
   input: ListAutoScalingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -488,11 +551,14 @@ export const serializeAws_json1_0ListAutoScalingConfigurationsCommand = async (
     "x-amz-target": "AppRunner.ListAutoScalingConfigurations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListAutoScalingConfigurationsRequest(input, context));
+  body = JSON.stringify(se_ListAutoScalingConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListConnectionsCommand = async (
+/**
+ * serializeAws_json1_0ListConnectionsCommand
+ */
+export const se_ListConnectionsCommand = async (
   input: ListConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -501,11 +567,14 @@ export const serializeAws_json1_0ListConnectionsCommand = async (
     "x-amz-target": "AppRunner.ListConnections",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListConnectionsRequest(input, context));
+  body = JSON.stringify(se_ListConnectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListObservabilityConfigurationsCommand = async (
+/**
+ * serializeAws_json1_0ListObservabilityConfigurationsCommand
+ */
+export const se_ListObservabilityConfigurationsCommand = async (
   input: ListObservabilityConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -514,11 +583,14 @@ export const serializeAws_json1_0ListObservabilityConfigurationsCommand = async 
     "x-amz-target": "AppRunner.ListObservabilityConfigurations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListObservabilityConfigurationsRequest(input, context));
+  body = JSON.stringify(se_ListObservabilityConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListOperationsCommand = async (
+/**
+ * serializeAws_json1_0ListOperationsCommand
+ */
+export const se_ListOperationsCommand = async (
   input: ListOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -527,11 +599,14 @@ export const serializeAws_json1_0ListOperationsCommand = async (
     "x-amz-target": "AppRunner.ListOperations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListOperationsRequest(input, context));
+  body = JSON.stringify(se_ListOperationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListServicesCommand = async (
+/**
+ * serializeAws_json1_0ListServicesCommand
+ */
+export const se_ListServicesCommand = async (
   input: ListServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -540,11 +615,14 @@ export const serializeAws_json1_0ListServicesCommand = async (
     "x-amz-target": "AppRunner.ListServices",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListServicesRequest(input, context));
+  body = JSON.stringify(se_ListServicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -553,11 +631,14 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
     "x-amz-target": "AppRunner.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListVpcConnectorsCommand = async (
+/**
+ * serializeAws_json1_0ListVpcConnectorsCommand
+ */
+export const se_ListVpcConnectorsCommand = async (
   input: ListVpcConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -566,11 +647,14 @@ export const serializeAws_json1_0ListVpcConnectorsCommand = async (
     "x-amz-target": "AppRunner.ListVpcConnectors",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListVpcConnectorsRequest(input, context));
+  body = JSON.stringify(se_ListVpcConnectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ListVpcIngressConnectionsCommand = async (
+/**
+ * serializeAws_json1_0ListVpcIngressConnectionsCommand
+ */
+export const se_ListVpcIngressConnectionsCommand = async (
   input: ListVpcIngressConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -579,11 +663,14 @@ export const serializeAws_json1_0ListVpcIngressConnectionsCommand = async (
     "x-amz-target": "AppRunner.ListVpcIngressConnections",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ListVpcIngressConnectionsRequest(input, context));
+  body = JSON.stringify(se_ListVpcIngressConnectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0PauseServiceCommand = async (
+/**
+ * serializeAws_json1_0PauseServiceCommand
+ */
+export const se_PauseServiceCommand = async (
   input: PauseServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -592,11 +679,14 @@ export const serializeAws_json1_0PauseServiceCommand = async (
     "x-amz-target": "AppRunner.PauseService",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0PauseServiceRequest(input, context));
+  body = JSON.stringify(se_PauseServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0ResumeServiceCommand = async (
+/**
+ * serializeAws_json1_0ResumeServiceCommand
+ */
+export const se_ResumeServiceCommand = async (
   input: ResumeServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -605,11 +695,14 @@ export const serializeAws_json1_0ResumeServiceCommand = async (
     "x-amz-target": "AppRunner.ResumeService",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0ResumeServiceRequest(input, context));
+  body = JSON.stringify(se_ResumeServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0StartDeploymentCommand = async (
+/**
+ * serializeAws_json1_0StartDeploymentCommand
+ */
+export const se_StartDeploymentCommand = async (
   input: StartDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -618,11 +711,14 @@ export const serializeAws_json1_0StartDeploymentCommand = async (
     "x-amz-target": "AppRunner.StartDeployment",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0StartDeploymentRequest(input, context));
+  body = JSON.stringify(se_StartDeploymentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0TagResourceCommand = async (
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -631,11 +727,14 @@ export const serializeAws_json1_0TagResourceCommand = async (
     "x-amz-target": "AppRunner.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UntagResourceCommand = async (
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -644,11 +743,14 @@ export const serializeAws_json1_0UntagResourceCommand = async (
     "x-amz-target": "AppRunner.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateServiceCommand = async (
+/**
+ * serializeAws_json1_0UpdateServiceCommand
+ */
+export const se_UpdateServiceCommand = async (
   input: UpdateServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -657,11 +759,14 @@ export const serializeAws_json1_0UpdateServiceCommand = async (
     "x-amz-target": "AppRunner.UpdateService",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateServiceRequest(input, context));
+  body = JSON.stringify(se_UpdateServiceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_0UpdateVpcIngressConnectionCommand = async (
+/**
+ * serializeAws_json1_0UpdateVpcIngressConnectionCommand
+ */
+export const se_UpdateVpcIngressConnectionCommand = async (
   input: UpdateVpcIngressConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -670,20 +775,23 @@ export const serializeAws_json1_0UpdateVpcIngressConnectionCommand = async (
     "x-amz-target": "AppRunner.UpdateVpcIngressConnection",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UpdateVpcIngressConnectionRequest(input, context));
+  body = JSON.stringify(se_UpdateVpcIngressConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_0AssociateCustomDomainCommand = async (
+/**
+ * deserializeAws_json1_0AssociateCustomDomainCommand
+ */
+export const de_AssociateCustomDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateCustomDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0AssociateCustomDomainCommandError(output, context);
+    return de_AssociateCustomDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0AssociateCustomDomainResponse(data, context);
+  contents = de_AssociateCustomDomainResponse(data, context);
   const response: AssociateCustomDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -691,7 +799,10 @@ export const deserializeAws_json1_0AssociateCustomDomainCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0AssociateCustomDomainCommandError = async (
+/**
+ * deserializeAws_json1_0AssociateCustomDomainCommandError
+ */
+const de_AssociateCustomDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateCustomDomainCommandOutput> => {
@@ -703,13 +814,13 @@ const deserializeAws_json1_0AssociateCustomDomainCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -721,16 +832,19 @@ const deserializeAws_json1_0AssociateCustomDomainCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateAutoScalingConfigurationCommand = async (
+/**
+ * deserializeAws_json1_0CreateAutoScalingConfigurationCommand
+ */
+export const de_CreateAutoScalingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAutoScalingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateAutoScalingConfigurationCommandError(output, context);
+    return de_CreateAutoScalingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateAutoScalingConfigurationResponse(data, context);
+  contents = de_CreateAutoScalingConfigurationResponse(data, context);
   const response: CreateAutoScalingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -738,7 +852,10 @@ export const deserializeAws_json1_0CreateAutoScalingConfigurationCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateAutoScalingConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_0CreateAutoScalingConfigurationCommandError
+ */
+const de_CreateAutoScalingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAutoScalingConfigurationCommandOutput> => {
@@ -750,13 +867,13 @@ const deserializeAws_json1_0CreateAutoScalingConfigurationCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.apprunner#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -768,16 +885,19 @@ const deserializeAws_json1_0CreateAutoScalingConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateConnectionCommand = async (
+/**
+ * deserializeAws_json1_0CreateConnectionCommand
+ */
+export const de_CreateConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateConnectionCommandError(output, context);
+    return de_CreateConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateConnectionResponse(data, context);
+  contents = de_CreateConnectionResponse(data, context);
   const response: CreateConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -785,7 +905,10 @@ export const deserializeAws_json1_0CreateConnectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateConnectionCommandError = async (
+/**
+ * deserializeAws_json1_0CreateConnectionCommandError
+ */
+const de_CreateConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectionCommandOutput> => {
@@ -797,13 +920,13 @@ const deserializeAws_json1_0CreateConnectionCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.apprunner#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -815,16 +938,19 @@ const deserializeAws_json1_0CreateConnectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateObservabilityConfigurationCommand = async (
+/**
+ * deserializeAws_json1_0CreateObservabilityConfigurationCommand
+ */
+export const de_CreateObservabilityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateObservabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateObservabilityConfigurationCommandError(output, context);
+    return de_CreateObservabilityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateObservabilityConfigurationResponse(data, context);
+  contents = de_CreateObservabilityConfigurationResponse(data, context);
   const response: CreateObservabilityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -832,7 +958,10 @@ export const deserializeAws_json1_0CreateObservabilityConfigurationCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateObservabilityConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_0CreateObservabilityConfigurationCommandError
+ */
+const de_CreateObservabilityConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateObservabilityConfigurationCommandOutput> => {
@@ -844,13 +973,13 @@ const deserializeAws_json1_0CreateObservabilityConfigurationCommandError = async
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.apprunner#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -862,16 +991,19 @@ const deserializeAws_json1_0CreateObservabilityConfigurationCommandError = async
   }
 };
 
-export const deserializeAws_json1_0CreateServiceCommand = async (
+/**
+ * deserializeAws_json1_0CreateServiceCommand
+ */
+export const de_CreateServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateServiceCommandError(output, context);
+    return de_CreateServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateServiceResponse(data, context);
+  contents = de_CreateServiceResponse(data, context);
   const response: CreateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -879,7 +1011,10 @@ export const deserializeAws_json1_0CreateServiceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateServiceCommandError = async (
+/**
+ * deserializeAws_json1_0CreateServiceCommandError
+ */
+const de_CreateServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceCommandOutput> => {
@@ -891,13 +1026,13 @@ const deserializeAws_json1_0CreateServiceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.apprunner#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -909,16 +1044,19 @@ const deserializeAws_json1_0CreateServiceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateVpcConnectorCommand = async (
+/**
+ * deserializeAws_json1_0CreateVpcConnectorCommand
+ */
+export const de_CreateVpcConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateVpcConnectorCommandError(output, context);
+    return de_CreateVpcConnectorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateVpcConnectorResponse(data, context);
+  contents = de_CreateVpcConnectorResponse(data, context);
   const response: CreateVpcConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -926,7 +1064,10 @@ export const deserializeAws_json1_0CreateVpcConnectorCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateVpcConnectorCommandError = async (
+/**
+ * deserializeAws_json1_0CreateVpcConnectorCommandError
+ */
+const de_CreateVpcConnectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcConnectorCommandOutput> => {
@@ -938,13 +1079,13 @@ const deserializeAws_json1_0CreateVpcConnectorCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.apprunner#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -956,16 +1097,19 @@ const deserializeAws_json1_0CreateVpcConnectorCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0CreateVpcIngressConnectionCommand = async (
+/**
+ * deserializeAws_json1_0CreateVpcIngressConnectionCommand
+ */
+export const de_CreateVpcIngressConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcIngressConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0CreateVpcIngressConnectionCommandError(output, context);
+    return de_CreateVpcIngressConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateVpcIngressConnectionResponse(data, context);
+  contents = de_CreateVpcIngressConnectionResponse(data, context);
   const response: CreateVpcIngressConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -973,7 +1117,10 @@ export const deserializeAws_json1_0CreateVpcIngressConnectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0CreateVpcIngressConnectionCommandError = async (
+/**
+ * deserializeAws_json1_0CreateVpcIngressConnectionCommandError
+ */
+const de_CreateVpcIngressConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcIngressConnectionCommandOutput> => {
@@ -985,16 +1132,16 @@ const deserializeAws_json1_0CreateVpcIngressConnectionCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.apprunner#ServiceQuotaExceededException":
-      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1006,16 +1153,19 @@ const deserializeAws_json1_0CreateVpcIngressConnectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteAutoScalingConfigurationCommand = async (
+/**
+ * deserializeAws_json1_0DeleteAutoScalingConfigurationCommand
+ */
+export const de_DeleteAutoScalingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAutoScalingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteAutoScalingConfigurationCommandError(output, context);
+    return de_DeleteAutoScalingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteAutoScalingConfigurationResponse(data, context);
+  contents = de_DeleteAutoScalingConfigurationResponse(data, context);
   const response: DeleteAutoScalingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1023,7 +1173,10 @@ export const deserializeAws_json1_0DeleteAutoScalingConfigurationCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteAutoScalingConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteAutoScalingConfigurationCommandError
+ */
+const de_DeleteAutoScalingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAutoScalingConfigurationCommandOutput> => {
@@ -1035,13 +1188,13 @@ const deserializeAws_json1_0DeleteAutoScalingConfigurationCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1053,16 +1206,19 @@ const deserializeAws_json1_0DeleteAutoScalingConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteConnectionCommand = async (
+/**
+ * deserializeAws_json1_0DeleteConnectionCommand
+ */
+export const de_DeleteConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteConnectionCommandError(output, context);
+    return de_DeleteConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteConnectionResponse(data, context);
+  contents = de_DeleteConnectionResponse(data, context);
   const response: DeleteConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1070,7 +1226,10 @@ export const deserializeAws_json1_0DeleteConnectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteConnectionCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteConnectionCommandError
+ */
+const de_DeleteConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
@@ -1082,13 +1241,13 @@ const deserializeAws_json1_0DeleteConnectionCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1100,16 +1259,19 @@ const deserializeAws_json1_0DeleteConnectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteObservabilityConfigurationCommand = async (
+/**
+ * deserializeAws_json1_0DeleteObservabilityConfigurationCommand
+ */
+export const de_DeleteObservabilityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObservabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteObservabilityConfigurationCommandError(output, context);
+    return de_DeleteObservabilityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteObservabilityConfigurationResponse(data, context);
+  contents = de_DeleteObservabilityConfigurationResponse(data, context);
   const response: DeleteObservabilityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1117,7 +1279,10 @@ export const deserializeAws_json1_0DeleteObservabilityConfigurationCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteObservabilityConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteObservabilityConfigurationCommandError
+ */
+const de_DeleteObservabilityConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObservabilityConfigurationCommandOutput> => {
@@ -1129,13 +1294,13 @@ const deserializeAws_json1_0DeleteObservabilityConfigurationCommandError = async
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1147,16 +1312,19 @@ const deserializeAws_json1_0DeleteObservabilityConfigurationCommandError = async
   }
 };
 
-export const deserializeAws_json1_0DeleteServiceCommand = async (
+/**
+ * deserializeAws_json1_0DeleteServiceCommand
+ */
+export const de_DeleteServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteServiceCommandError(output, context);
+    return de_DeleteServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteServiceResponse(data, context);
+  contents = de_DeleteServiceResponse(data, context);
   const response: DeleteServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1164,7 +1332,10 @@ export const deserializeAws_json1_0DeleteServiceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteServiceCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteServiceCommandError
+ */
+const de_DeleteServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceCommandOutput> => {
@@ -1176,16 +1347,16 @@ const deserializeAws_json1_0DeleteServiceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1197,16 +1368,19 @@ const deserializeAws_json1_0DeleteServiceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteVpcConnectorCommand = async (
+/**
+ * deserializeAws_json1_0DeleteVpcConnectorCommand
+ */
+export const de_DeleteVpcConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteVpcConnectorCommandError(output, context);
+    return de_DeleteVpcConnectorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteVpcConnectorResponse(data, context);
+  contents = de_DeleteVpcConnectorResponse(data, context);
   const response: DeleteVpcConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1214,7 +1388,10 @@ export const deserializeAws_json1_0DeleteVpcConnectorCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteVpcConnectorCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteVpcConnectorCommandError
+ */
+const de_DeleteVpcConnectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcConnectorCommandOutput> => {
@@ -1226,13 +1403,13 @@ const deserializeAws_json1_0DeleteVpcConnectorCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1244,16 +1421,19 @@ const deserializeAws_json1_0DeleteVpcConnectorCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DeleteVpcIngressConnectionCommand = async (
+/**
+ * deserializeAws_json1_0DeleteVpcIngressConnectionCommand
+ */
+export const de_DeleteVpcIngressConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcIngressConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DeleteVpcIngressConnectionCommandError(output, context);
+    return de_DeleteVpcIngressConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteVpcIngressConnectionResponse(data, context);
+  contents = de_DeleteVpcIngressConnectionResponse(data, context);
   const response: DeleteVpcIngressConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1261,7 +1441,10 @@ export const deserializeAws_json1_0DeleteVpcIngressConnectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DeleteVpcIngressConnectionCommandError = async (
+/**
+ * deserializeAws_json1_0DeleteVpcIngressConnectionCommandError
+ */
+const de_DeleteVpcIngressConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcIngressConnectionCommandOutput> => {
@@ -1273,16 +1456,16 @@ const deserializeAws_json1_0DeleteVpcIngressConnectionCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1294,16 +1477,19 @@ const deserializeAws_json1_0DeleteVpcIngressConnectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeAutoScalingConfigurationCommand = async (
+/**
+ * deserializeAws_json1_0DescribeAutoScalingConfigurationCommand
+ */
+export const de_DescribeAutoScalingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAutoScalingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeAutoScalingConfigurationCommandError(output, context);
+    return de_DescribeAutoScalingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeAutoScalingConfigurationResponse(data, context);
+  contents = de_DescribeAutoScalingConfigurationResponse(data, context);
   const response: DescribeAutoScalingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1311,7 +1497,10 @@ export const deserializeAws_json1_0DescribeAutoScalingConfigurationCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeAutoScalingConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeAutoScalingConfigurationCommandError
+ */
+const de_DescribeAutoScalingConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAutoScalingConfigurationCommandOutput> => {
@@ -1323,13 +1512,13 @@ const deserializeAws_json1_0DescribeAutoScalingConfigurationCommandError = async
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1341,16 +1530,19 @@ const deserializeAws_json1_0DescribeAutoScalingConfigurationCommandError = async
   }
 };
 
-export const deserializeAws_json1_0DescribeCustomDomainsCommand = async (
+/**
+ * deserializeAws_json1_0DescribeCustomDomainsCommand
+ */
+export const de_DescribeCustomDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCustomDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeCustomDomainsCommandError(output, context);
+    return de_DescribeCustomDomainsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeCustomDomainsResponse(data, context);
+  contents = de_DescribeCustomDomainsResponse(data, context);
   const response: DescribeCustomDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1358,7 +1550,10 @@ export const deserializeAws_json1_0DescribeCustomDomainsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeCustomDomainsCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeCustomDomainsCommandError
+ */
+const de_DescribeCustomDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCustomDomainsCommandOutput> => {
@@ -1370,13 +1565,13 @@ const deserializeAws_json1_0DescribeCustomDomainsCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1388,16 +1583,19 @@ const deserializeAws_json1_0DescribeCustomDomainsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeObservabilityConfigurationCommand = async (
+/**
+ * deserializeAws_json1_0DescribeObservabilityConfigurationCommand
+ */
+export const de_DescribeObservabilityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeObservabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeObservabilityConfigurationCommandError(output, context);
+    return de_DescribeObservabilityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeObservabilityConfigurationResponse(data, context);
+  contents = de_DescribeObservabilityConfigurationResponse(data, context);
   const response: DescribeObservabilityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1405,7 +1603,10 @@ export const deserializeAws_json1_0DescribeObservabilityConfigurationCommand = a
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeObservabilityConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeObservabilityConfigurationCommandError
+ */
+const de_DescribeObservabilityConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeObservabilityConfigurationCommandOutput> => {
@@ -1417,13 +1618,13 @@ const deserializeAws_json1_0DescribeObservabilityConfigurationCommandError = asy
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1435,16 +1636,19 @@ const deserializeAws_json1_0DescribeObservabilityConfigurationCommandError = asy
   }
 };
 
-export const deserializeAws_json1_0DescribeServiceCommand = async (
+/**
+ * deserializeAws_json1_0DescribeServiceCommand
+ */
+export const de_DescribeServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeServiceCommandError(output, context);
+    return de_DescribeServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeServiceResponse(data, context);
+  contents = de_DescribeServiceResponse(data, context);
   const response: DescribeServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1452,7 +1656,10 @@ export const deserializeAws_json1_0DescribeServiceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeServiceCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeServiceCommandError
+ */
+const de_DescribeServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceCommandOutput> => {
@@ -1464,13 +1671,13 @@ const deserializeAws_json1_0DescribeServiceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1482,16 +1689,19 @@ const deserializeAws_json1_0DescribeServiceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeVpcConnectorCommand = async (
+/**
+ * deserializeAws_json1_0DescribeVpcConnectorCommand
+ */
+export const de_DescribeVpcConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVpcConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeVpcConnectorCommandError(output, context);
+    return de_DescribeVpcConnectorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeVpcConnectorResponse(data, context);
+  contents = de_DescribeVpcConnectorResponse(data, context);
   const response: DescribeVpcConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1499,7 +1709,10 @@ export const deserializeAws_json1_0DescribeVpcConnectorCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeVpcConnectorCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeVpcConnectorCommandError
+ */
+const de_DescribeVpcConnectorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVpcConnectorCommandOutput> => {
@@ -1511,13 +1724,13 @@ const deserializeAws_json1_0DescribeVpcConnectorCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1529,16 +1742,19 @@ const deserializeAws_json1_0DescribeVpcConnectorCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DescribeVpcIngressConnectionCommand = async (
+/**
+ * deserializeAws_json1_0DescribeVpcIngressConnectionCommand
+ */
+export const de_DescribeVpcIngressConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVpcIngressConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DescribeVpcIngressConnectionCommandError(output, context);
+    return de_DescribeVpcIngressConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeVpcIngressConnectionResponse(data, context);
+  contents = de_DescribeVpcIngressConnectionResponse(data, context);
   const response: DescribeVpcIngressConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1546,7 +1762,10 @@ export const deserializeAws_json1_0DescribeVpcIngressConnectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DescribeVpcIngressConnectionCommandError = async (
+/**
+ * deserializeAws_json1_0DescribeVpcIngressConnectionCommandError
+ */
+const de_DescribeVpcIngressConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVpcIngressConnectionCommandOutput> => {
@@ -1558,13 +1777,13 @@ const deserializeAws_json1_0DescribeVpcIngressConnectionCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1576,16 +1795,19 @@ const deserializeAws_json1_0DescribeVpcIngressConnectionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0DisassociateCustomDomainCommand = async (
+/**
+ * deserializeAws_json1_0DisassociateCustomDomainCommand
+ */
+export const de_DisassociateCustomDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateCustomDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0DisassociateCustomDomainCommandError(output, context);
+    return de_DisassociateCustomDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DisassociateCustomDomainResponse(data, context);
+  contents = de_DisassociateCustomDomainResponse(data, context);
   const response: DisassociateCustomDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1593,7 +1815,10 @@ export const deserializeAws_json1_0DisassociateCustomDomainCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0DisassociateCustomDomainCommandError = async (
+/**
+ * deserializeAws_json1_0DisassociateCustomDomainCommandError
+ */
+const de_DisassociateCustomDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateCustomDomainCommandOutput> => {
@@ -1605,16 +1830,16 @@ const deserializeAws_json1_0DisassociateCustomDomainCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1626,16 +1851,19 @@ const deserializeAws_json1_0DisassociateCustomDomainCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListAutoScalingConfigurationsCommand = async (
+/**
+ * deserializeAws_json1_0ListAutoScalingConfigurationsCommand
+ */
+export const de_ListAutoScalingConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAutoScalingConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListAutoScalingConfigurationsCommandError(output, context);
+    return de_ListAutoScalingConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListAutoScalingConfigurationsResponse(data, context);
+  contents = de_ListAutoScalingConfigurationsResponse(data, context);
   const response: ListAutoScalingConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1643,7 +1871,10 @@ export const deserializeAws_json1_0ListAutoScalingConfigurationsCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListAutoScalingConfigurationsCommandError = async (
+/**
+ * deserializeAws_json1_0ListAutoScalingConfigurationsCommandError
+ */
+const de_ListAutoScalingConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAutoScalingConfigurationsCommandOutput> => {
@@ -1655,10 +1886,10 @@ const deserializeAws_json1_0ListAutoScalingConfigurationsCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1670,16 +1901,19 @@ const deserializeAws_json1_0ListAutoScalingConfigurationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListConnectionsCommand = async (
+/**
+ * deserializeAws_json1_0ListConnectionsCommand
+ */
+export const de_ListConnectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListConnectionsCommandError(output, context);
+    return de_ListConnectionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListConnectionsResponse(data, context);
+  contents = de_ListConnectionsResponse(data, context);
   const response: ListConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1687,7 +1921,10 @@ export const deserializeAws_json1_0ListConnectionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListConnectionsCommandError = async (
+/**
+ * deserializeAws_json1_0ListConnectionsCommandError
+ */
+const de_ListConnectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectionsCommandOutput> => {
@@ -1699,10 +1936,10 @@ const deserializeAws_json1_0ListConnectionsCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1714,16 +1951,19 @@ const deserializeAws_json1_0ListConnectionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListObservabilityConfigurationsCommand = async (
+/**
+ * deserializeAws_json1_0ListObservabilityConfigurationsCommand
+ */
+export const de_ListObservabilityConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObservabilityConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListObservabilityConfigurationsCommandError(output, context);
+    return de_ListObservabilityConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListObservabilityConfigurationsResponse(data, context);
+  contents = de_ListObservabilityConfigurationsResponse(data, context);
   const response: ListObservabilityConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1731,7 +1971,10 @@ export const deserializeAws_json1_0ListObservabilityConfigurationsCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListObservabilityConfigurationsCommandError = async (
+/**
+ * deserializeAws_json1_0ListObservabilityConfigurationsCommandError
+ */
+const de_ListObservabilityConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObservabilityConfigurationsCommandOutput> => {
@@ -1743,10 +1986,10 @@ const deserializeAws_json1_0ListObservabilityConfigurationsCommandError = async 
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1758,16 +2001,19 @@ const deserializeAws_json1_0ListObservabilityConfigurationsCommandError = async 
   }
 };
 
-export const deserializeAws_json1_0ListOperationsCommand = async (
+/**
+ * deserializeAws_json1_0ListOperationsCommand
+ */
+export const de_ListOperationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOperationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListOperationsCommandError(output, context);
+    return de_ListOperationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListOperationsResponse(data, context);
+  contents = de_ListOperationsResponse(data, context);
   const response: ListOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1775,7 +2021,10 @@ export const deserializeAws_json1_0ListOperationsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListOperationsCommandError = async (
+/**
+ * deserializeAws_json1_0ListOperationsCommandError
+ */
+const de_ListOperationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOperationsCommandOutput> => {
@@ -1787,13 +2036,13 @@ const deserializeAws_json1_0ListOperationsCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1805,16 +2054,19 @@ const deserializeAws_json1_0ListOperationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListServicesCommand = async (
+/**
+ * deserializeAws_json1_0ListServicesCommand
+ */
+export const de_ListServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListServicesCommandError(output, context);
+    return de_ListServicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListServicesResponse(data, context);
+  contents = de_ListServicesResponse(data, context);
   const response: ListServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1822,7 +2074,10 @@ export const deserializeAws_json1_0ListServicesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListServicesCommandError = async (
+/**
+ * deserializeAws_json1_0ListServicesCommandError
+ */
+const de_ListServicesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServicesCommandOutput> => {
@@ -1834,10 +2089,10 @@ const deserializeAws_json1_0ListServicesCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1849,16 +2104,19 @@ const deserializeAws_json1_0ListServicesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1866,7 +2124,10 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1878,16 +2139,16 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1899,16 +2160,19 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListVpcConnectorsCommand = async (
+/**
+ * deserializeAws_json1_0ListVpcConnectorsCommand
+ */
+export const de_ListVpcConnectorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcConnectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListVpcConnectorsCommandError(output, context);
+    return de_ListVpcConnectorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListVpcConnectorsResponse(data, context);
+  contents = de_ListVpcConnectorsResponse(data, context);
   const response: ListVpcConnectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1916,7 +2180,10 @@ export const deserializeAws_json1_0ListVpcConnectorsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListVpcConnectorsCommandError = async (
+/**
+ * deserializeAws_json1_0ListVpcConnectorsCommandError
+ */
+const de_ListVpcConnectorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcConnectorsCommandOutput> => {
@@ -1928,10 +2195,10 @@ const deserializeAws_json1_0ListVpcConnectorsCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1943,16 +2210,19 @@ const deserializeAws_json1_0ListVpcConnectorsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ListVpcIngressConnectionsCommand = async (
+/**
+ * deserializeAws_json1_0ListVpcIngressConnectionsCommand
+ */
+export const de_ListVpcIngressConnectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcIngressConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ListVpcIngressConnectionsCommandError(output, context);
+    return de_ListVpcIngressConnectionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListVpcIngressConnectionsResponse(data, context);
+  contents = de_ListVpcIngressConnectionsResponse(data, context);
   const response: ListVpcIngressConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1960,7 +2230,10 @@ export const deserializeAws_json1_0ListVpcIngressConnectionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ListVpcIngressConnectionsCommandError = async (
+/**
+ * deserializeAws_json1_0ListVpcIngressConnectionsCommandError
+ */
+const de_ListVpcIngressConnectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVpcIngressConnectionsCommandOutput> => {
@@ -1972,10 +2245,10 @@ const deserializeAws_json1_0ListVpcIngressConnectionsCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1987,16 +2260,19 @@ const deserializeAws_json1_0ListVpcIngressConnectionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0PauseServiceCommand = async (
+/**
+ * deserializeAws_json1_0PauseServiceCommand
+ */
+export const de_PauseServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PauseServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0PauseServiceCommandError(output, context);
+    return de_PauseServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0PauseServiceResponse(data, context);
+  contents = de_PauseServiceResponse(data, context);
   const response: PauseServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2004,7 +2280,10 @@ export const deserializeAws_json1_0PauseServiceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0PauseServiceCommandError = async (
+/**
+ * deserializeAws_json1_0PauseServiceCommandError
+ */
+const de_PauseServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PauseServiceCommandOutput> => {
@@ -2016,16 +2295,16 @@ const deserializeAws_json1_0PauseServiceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2037,16 +2316,19 @@ const deserializeAws_json1_0PauseServiceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0ResumeServiceCommand = async (
+/**
+ * deserializeAws_json1_0ResumeServiceCommand
+ */
+export const de_ResumeServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResumeServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0ResumeServiceCommandError(output, context);
+    return de_ResumeServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ResumeServiceResponse(data, context);
+  contents = de_ResumeServiceResponse(data, context);
   const response: ResumeServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2054,7 +2336,10 @@ export const deserializeAws_json1_0ResumeServiceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0ResumeServiceCommandError = async (
+/**
+ * deserializeAws_json1_0ResumeServiceCommandError
+ */
+const de_ResumeServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResumeServiceCommandOutput> => {
@@ -2066,16 +2351,16 @@ const deserializeAws_json1_0ResumeServiceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2087,16 +2372,19 @@ const deserializeAws_json1_0ResumeServiceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0StartDeploymentCommand = async (
+/**
+ * deserializeAws_json1_0StartDeploymentCommand
+ */
+export const de_StartDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeploymentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0StartDeploymentCommandError(output, context);
+    return de_StartDeploymentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StartDeploymentResponse(data, context);
+  contents = de_StartDeploymentResponse(data, context);
   const response: StartDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2104,7 +2392,10 @@ export const deserializeAws_json1_0StartDeploymentCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0StartDeploymentCommandError = async (
+/**
+ * deserializeAws_json1_0StartDeploymentCommandError
+ */
+const de_StartDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeploymentCommandOutput> => {
@@ -2116,13 +2407,13 @@ const deserializeAws_json1_0StartDeploymentCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2134,16 +2425,19 @@ const deserializeAws_json1_0StartDeploymentCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0TagResourceCommand = async (
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2151,7 +2445,10 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2163,16 +2460,16 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2184,16 +2481,19 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2201,7 +2501,10 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_0UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2213,16 +2516,16 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2234,16 +2537,19 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateServiceCommand = async (
+/**
+ * deserializeAws_json1_0UpdateServiceCommand
+ */
+export const de_UpdateServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateServiceCommandError(output, context);
+    return de_UpdateServiceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateServiceResponse(data, context);
+  contents = de_UpdateServiceResponse(data, context);
   const response: UpdateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2251,7 +2557,10 @@ export const deserializeAws_json1_0UpdateServiceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateServiceCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateServiceCommandError
+ */
+const de_UpdateServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceCommandOutput> => {
@@ -2263,16 +2572,16 @@ const deserializeAws_json1_0UpdateServiceCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2284,16 +2593,19 @@ const deserializeAws_json1_0UpdateServiceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_0UpdateVpcIngressConnectionCommand = async (
+/**
+ * deserializeAws_json1_0UpdateVpcIngressConnectionCommand
+ */
+export const de_UpdateVpcIngressConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVpcIngressConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_0UpdateVpcIngressConnectionCommandError(output, context);
+    return de_UpdateVpcIngressConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateVpcIngressConnectionResponse(data, context);
+  contents = de_UpdateVpcIngressConnectionResponse(data, context);
   const response: UpdateVpcIngressConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2301,7 +2613,10 @@ export const deserializeAws_json1_0UpdateVpcIngressConnectionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_0UpdateVpcIngressConnectionCommandError = async (
+/**
+ * deserializeAws_json1_0UpdateVpcIngressConnectionCommandError
+ */
+const de_UpdateVpcIngressConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVpcIngressConnectionCommandOutput> => {
@@ -2313,16 +2628,16 @@ const deserializeAws_json1_0UpdateVpcIngressConnectionCommandError = async (
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateException":
     case "com.amazonaws.apprunner#InvalidStateException":
-      throw await deserializeAws_json1_0InvalidStateExceptionResponse(parsedOutput, context);
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2334,12 +2649,15 @@ const deserializeAws_json1_0UpdateVpcIngressConnectionCommandError = async (
   }
 };
 
-const deserializeAws_json1_0InternalServiceErrorExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InternalServiceErrorExceptionRes
+ */
+const de_InternalServiceErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServiceErrorException(body, context);
+  const deserialized: any = de_InternalServiceErrorException(body, context);
   const exception = new InternalServiceErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2347,12 +2665,15 @@ const deserializeAws_json1_0InternalServiceErrorExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidRequestException(body, context);
+  const deserialized: any = de_InvalidRequestException(body, context);
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2360,12 +2681,15 @@ const deserializeAws_json1_0InvalidRequestExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0InvalidStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_0InvalidStateExceptionRes
+ */
+const de_InvalidStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidStateException(body, context);
+  const deserialized: any = de_InvalidStateException(body, context);
   const exception = new InvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2373,12 +2697,15 @@ const deserializeAws_json1_0InvalidStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2386,12 +2713,15 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ServiceQuotaExceededException(body, context);
+  const deserialized: any = de_ServiceQuotaExceededException(body, context);
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2399,10 +2729,10 @@ const deserializeAws_json1_0ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_0AssociateCustomDomainRequest = (
-  input: AssociateCustomDomainRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0AssociateCustomDomainRequest
+ */
+const se_AssociateCustomDomainRequest = (input: AssociateCustomDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.DomainName != null && { DomainName: input.DomainName }),
     ...(input.EnableWWWSubdomain != null && { EnableWWWSubdomain: input.EnableWWWSubdomain }),
@@ -2410,59 +2740,65 @@ const serializeAws_json1_0AssociateCustomDomainRequest = (
   };
 };
 
-const serializeAws_json1_0AuthenticationConfiguration = (
-  input: AuthenticationConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0AuthenticationConfiguration
+ */
+const se_AuthenticationConfiguration = (input: AuthenticationConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.AccessRoleArn != null && { AccessRoleArn: input.AccessRoleArn }),
     ...(input.ConnectionArn != null && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
-const serializeAws_json1_0CodeConfiguration = (input: CodeConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CodeConfiguration
+ */
+const se_CodeConfiguration = (input: CodeConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.CodeConfigurationValues != null && {
-      CodeConfigurationValues: serializeAws_json1_0CodeConfigurationValues(input.CodeConfigurationValues, context),
+      CodeConfigurationValues: se_CodeConfigurationValues(input.CodeConfigurationValues, context),
     }),
     ...(input.ConfigurationSource != null && { ConfigurationSource: input.ConfigurationSource }),
   };
 };
 
-const serializeAws_json1_0CodeConfigurationValues = (input: CodeConfigurationValues, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CodeConfigurationValues
+ */
+const se_CodeConfigurationValues = (input: CodeConfigurationValues, context: __SerdeContext): any => {
   return {
     ...(input.BuildCommand != null && { BuildCommand: input.BuildCommand }),
     ...(input.Port != null && { Port: input.Port }),
     ...(input.Runtime != null && { Runtime: input.Runtime }),
     ...(input.RuntimeEnvironmentSecrets != null && {
-      RuntimeEnvironmentSecrets: serializeAws_json1_0RuntimeEnvironmentSecrets(
-        input.RuntimeEnvironmentSecrets,
-        context
-      ),
+      RuntimeEnvironmentSecrets: se_RuntimeEnvironmentSecrets(input.RuntimeEnvironmentSecrets, context),
     }),
     ...(input.RuntimeEnvironmentVariables != null && {
-      RuntimeEnvironmentVariables: serializeAws_json1_0RuntimeEnvironmentVariables(
-        input.RuntimeEnvironmentVariables,
-        context
-      ),
+      RuntimeEnvironmentVariables: se_RuntimeEnvironmentVariables(input.RuntimeEnvironmentVariables, context),
     }),
     ...(input.StartCommand != null && { StartCommand: input.StartCommand }),
   };
 };
 
-const serializeAws_json1_0CodeRepository = (input: CodeRepository, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CodeRepository
+ */
+const se_CodeRepository = (input: CodeRepository, context: __SerdeContext): any => {
   return {
     ...(input.CodeConfiguration != null && {
-      CodeConfiguration: serializeAws_json1_0CodeConfiguration(input.CodeConfiguration, context),
+      CodeConfiguration: se_CodeConfiguration(input.CodeConfiguration, context),
     }),
     ...(input.RepositoryUrl != null && { RepositoryUrl: input.RepositoryUrl }),
     ...(input.SourceCodeVersion != null && {
-      SourceCodeVersion: serializeAws_json1_0SourceCodeVersion(input.SourceCodeVersion, context),
+      SourceCodeVersion: se_SourceCodeVersion(input.SourceCodeVersion, context),
     }),
   };
 };
 
-const serializeAws_json1_0CreateAutoScalingConfigurationRequest = (
+/**
+ * serializeAws_json1_0CreateAutoScalingConfigurationRequest
+ */
+const se_CreateAutoScalingConfigurationRequest = (
   input: CreateAutoScalingConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -2473,19 +2809,25 @@ const serializeAws_json1_0CreateAutoScalingConfigurationRequest = (
     ...(input.MaxConcurrency != null && { MaxConcurrency: input.MaxConcurrency }),
     ...(input.MaxSize != null && { MaxSize: input.MaxSize }),
     ...(input.MinSize != null && { MinSize: input.MinSize }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0CreateConnectionRequest = (input: CreateConnectionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CreateConnectionRequest
+ */
+const se_CreateConnectionRequest = (input: CreateConnectionRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConnectionName != null && { ConnectionName: input.ConnectionName }),
     ...(input.ProviderType != null && { ProviderType: input.ProviderType }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0CreateObservabilityConfigurationRequest = (
+/**
+ * serializeAws_json1_0CreateObservabilityConfigurationRequest
+ */
+const se_CreateObservabilityConfigurationRequest = (
   input: CreateObservabilityConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -2493,73 +2835,77 @@ const serializeAws_json1_0CreateObservabilityConfigurationRequest = (
     ...(input.ObservabilityConfigurationName != null && {
       ObservabilityConfigurationName: input.ObservabilityConfigurationName,
     }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
     ...(input.TraceConfiguration != null && {
-      TraceConfiguration: serializeAws_json1_0TraceConfiguration(input.TraceConfiguration, context),
+      TraceConfiguration: se_TraceConfiguration(input.TraceConfiguration, context),
     }),
   };
 };
 
-const serializeAws_json1_0CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0CreateServiceRequest
+ */
+const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeContext): any => {
   return {
     ...(input.AutoScalingConfigurationArn != null && {
       AutoScalingConfigurationArn: input.AutoScalingConfigurationArn,
     }),
     ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
+      EncryptionConfiguration: se_EncryptionConfiguration(input.EncryptionConfiguration, context),
     }),
     ...(input.HealthCheckConfiguration != null && {
-      HealthCheckConfiguration: serializeAws_json1_0HealthCheckConfiguration(input.HealthCheckConfiguration, context),
+      HealthCheckConfiguration: se_HealthCheckConfiguration(input.HealthCheckConfiguration, context),
     }),
     ...(input.InstanceConfiguration != null && {
-      InstanceConfiguration: serializeAws_json1_0InstanceConfiguration(input.InstanceConfiguration, context),
+      InstanceConfiguration: se_InstanceConfiguration(input.InstanceConfiguration, context),
     }),
     ...(input.NetworkConfiguration != null && {
-      NetworkConfiguration: serializeAws_json1_0NetworkConfiguration(input.NetworkConfiguration, context),
+      NetworkConfiguration: se_NetworkConfiguration(input.NetworkConfiguration, context),
     }),
     ...(input.ObservabilityConfiguration != null && {
-      ObservabilityConfiguration: serializeAws_json1_0ServiceObservabilityConfiguration(
-        input.ObservabilityConfiguration,
-        context
-      ),
+      ObservabilityConfiguration: se_ServiceObservabilityConfiguration(input.ObservabilityConfiguration, context),
     }),
     ...(input.ServiceName != null && { ServiceName: input.ServiceName }),
     ...(input.SourceConfiguration != null && {
-      SourceConfiguration: serializeAws_json1_0SourceConfiguration(input.SourceConfiguration, context),
+      SourceConfiguration: se_SourceConfiguration(input.SourceConfiguration, context),
     }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0CreateVpcConnectorRequest = (
-  input: CreateVpcConnectorRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0CreateVpcConnectorRequest
+ */
+const se_CreateVpcConnectorRequest = (input: CreateVpcConnectorRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SecurityGroups != null && {
-      SecurityGroups: serializeAws_json1_0StringList(input.SecurityGroups, context),
-    }),
-    ...(input.Subnets != null && { Subnets: serializeAws_json1_0StringList(input.Subnets, context) }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.SecurityGroups != null && { SecurityGroups: se_StringList(input.SecurityGroups, context) }),
+    ...(input.Subnets != null && { Subnets: se_StringList(input.Subnets, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
     ...(input.VpcConnectorName != null && { VpcConnectorName: input.VpcConnectorName }),
   };
 };
 
-const serializeAws_json1_0CreateVpcIngressConnectionRequest = (
+/**
+ * serializeAws_json1_0CreateVpcIngressConnectionRequest
+ */
+const se_CreateVpcIngressConnectionRequest = (
   input: CreateVpcIngressConnectionRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.IngressVpcConfiguration != null && {
-      IngressVpcConfiguration: serializeAws_json1_0IngressVpcConfiguration(input.IngressVpcConfiguration, context),
+      IngressVpcConfiguration: se_IngressVpcConfiguration(input.IngressVpcConfiguration, context),
     }),
     ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
     ...(input.VpcIngressConnectionName != null && { VpcIngressConnectionName: input.VpcIngressConnectionName }),
   };
 };
 
-const serializeAws_json1_0DeleteAutoScalingConfigurationRequest = (
+/**
+ * serializeAws_json1_0DeleteAutoScalingConfigurationRequest
+ */
+const se_DeleteAutoScalingConfigurationRequest = (
   input: DeleteAutoScalingConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -2570,13 +2916,19 @@ const serializeAws_json1_0DeleteAutoScalingConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_0DeleteConnectionRequest = (input: DeleteConnectionRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DeleteConnectionRequest
+ */
+const se_DeleteConnectionRequest = (input: DeleteConnectionRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConnectionArn != null && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
-const serializeAws_json1_0DeleteObservabilityConfigurationRequest = (
+/**
+ * serializeAws_json1_0DeleteObservabilityConfigurationRequest
+ */
+const se_DeleteObservabilityConfigurationRequest = (
   input: DeleteObservabilityConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -2587,22 +2939,28 @@ const serializeAws_json1_0DeleteObservabilityConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_0DeleteServiceRequest = (input: DeleteServiceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DeleteServiceRequest
+ */
+const se_DeleteServiceRequest = (input: DeleteServiceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
   };
 };
 
-const serializeAws_json1_0DeleteVpcConnectorRequest = (
-  input: DeleteVpcConnectorRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DeleteVpcConnectorRequest
+ */
+const se_DeleteVpcConnectorRequest = (input: DeleteVpcConnectorRequest, context: __SerdeContext): any => {
   return {
     ...(input.VpcConnectorArn != null && { VpcConnectorArn: input.VpcConnectorArn }),
   };
 };
 
-const serializeAws_json1_0DeleteVpcIngressConnectionRequest = (
+/**
+ * serializeAws_json1_0DeleteVpcIngressConnectionRequest
+ */
+const se_DeleteVpcIngressConnectionRequest = (
   input: DeleteVpcIngressConnectionRequest,
   context: __SerdeContext
 ): any => {
@@ -2611,7 +2969,10 @@ const serializeAws_json1_0DeleteVpcIngressConnectionRequest = (
   };
 };
 
-const serializeAws_json1_0DescribeAutoScalingConfigurationRequest = (
+/**
+ * serializeAws_json1_0DescribeAutoScalingConfigurationRequest
+ */
+const se_DescribeAutoScalingConfigurationRequest = (
   input: DescribeAutoScalingConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -2622,10 +2983,10 @@ const serializeAws_json1_0DescribeAutoScalingConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_0DescribeCustomDomainsRequest = (
-  input: DescribeCustomDomainsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeCustomDomainsRequest
+ */
+const se_DescribeCustomDomainsRequest = (input: DescribeCustomDomainsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -2633,7 +2994,10 @@ const serializeAws_json1_0DescribeCustomDomainsRequest = (
   };
 };
 
-const serializeAws_json1_0DescribeObservabilityConfigurationRequest = (
+/**
+ * serializeAws_json1_0DescribeObservabilityConfigurationRequest
+ */
+const se_DescribeObservabilityConfigurationRequest = (
   input: DescribeObservabilityConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -2644,22 +3008,28 @@ const serializeAws_json1_0DescribeObservabilityConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_0DescribeServiceRequest = (input: DescribeServiceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0DescribeServiceRequest
+ */
+const se_DescribeServiceRequest = (input: DescribeServiceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
   };
 };
 
-const serializeAws_json1_0DescribeVpcConnectorRequest = (
-  input: DescribeVpcConnectorRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DescribeVpcConnectorRequest
+ */
+const se_DescribeVpcConnectorRequest = (input: DescribeVpcConnectorRequest, context: __SerdeContext): any => {
   return {
     ...(input.VpcConnectorArn != null && { VpcConnectorArn: input.VpcConnectorArn }),
   };
 };
 
-const serializeAws_json1_0DescribeVpcIngressConnectionRequest = (
+/**
+ * serializeAws_json1_0DescribeVpcIngressConnectionRequest
+ */
+const se_DescribeVpcIngressConnectionRequest = (
   input: DescribeVpcIngressConnectionRequest,
   context: __SerdeContext
 ): any => {
@@ -2668,33 +3038,39 @@ const serializeAws_json1_0DescribeVpcIngressConnectionRequest = (
   };
 };
 
-const serializeAws_json1_0DisassociateCustomDomainRequest = (
-  input: DisassociateCustomDomainRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0DisassociateCustomDomainRequest
+ */
+const se_DisassociateCustomDomainRequest = (input: DisassociateCustomDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.DomainName != null && { DomainName: input.DomainName }),
     ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
   };
 };
 
-const serializeAws_json1_0EgressConfiguration = (input: EgressConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0EgressConfiguration
+ */
+const se_EgressConfiguration = (input: EgressConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.EgressType != null && { EgressType: input.EgressType }),
     ...(input.VpcConnectorArn != null && { VpcConnectorArn: input.VpcConnectorArn }),
   };
 };
 
-const serializeAws_json1_0EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0EncryptionConfiguration
+ */
+const se_EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
   };
 };
 
-const serializeAws_json1_0HealthCheckConfiguration = (
-  input: HealthCheckConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0HealthCheckConfiguration
+ */
+const se_HealthCheckConfiguration = (input: HealthCheckConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.HealthyThreshold != null && { HealthyThreshold: input.HealthyThreshold }),
     ...(input.Interval != null && { Interval: input.Interval }),
@@ -2705,49 +3081,58 @@ const serializeAws_json1_0HealthCheckConfiguration = (
   };
 };
 
-const serializeAws_json1_0ImageConfiguration = (input: ImageConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ImageConfiguration
+ */
+const se_ImageConfiguration = (input: ImageConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Port != null && { Port: input.Port }),
     ...(input.RuntimeEnvironmentSecrets != null && {
-      RuntimeEnvironmentSecrets: serializeAws_json1_0RuntimeEnvironmentSecrets(
-        input.RuntimeEnvironmentSecrets,
-        context
-      ),
+      RuntimeEnvironmentSecrets: se_RuntimeEnvironmentSecrets(input.RuntimeEnvironmentSecrets, context),
     }),
     ...(input.RuntimeEnvironmentVariables != null && {
-      RuntimeEnvironmentVariables: serializeAws_json1_0RuntimeEnvironmentVariables(
-        input.RuntimeEnvironmentVariables,
-        context
-      ),
+      RuntimeEnvironmentVariables: se_RuntimeEnvironmentVariables(input.RuntimeEnvironmentVariables, context),
     }),
     ...(input.StartCommand != null && { StartCommand: input.StartCommand }),
   };
 };
 
-const serializeAws_json1_0ImageRepository = (input: ImageRepository, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ImageRepository
+ */
+const se_ImageRepository = (input: ImageRepository, context: __SerdeContext): any => {
   return {
     ...(input.ImageConfiguration != null && {
-      ImageConfiguration: serializeAws_json1_0ImageConfiguration(input.ImageConfiguration, context),
+      ImageConfiguration: se_ImageConfiguration(input.ImageConfiguration, context),
     }),
     ...(input.ImageIdentifier != null && { ImageIdentifier: input.ImageIdentifier }),
     ...(input.ImageRepositoryType != null && { ImageRepositoryType: input.ImageRepositoryType }),
   };
 };
 
-const serializeAws_json1_0IngressConfiguration = (input: IngressConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0IngressConfiguration
+ */
+const se_IngressConfiguration = (input: IngressConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.IsPubliclyAccessible != null && { IsPubliclyAccessible: input.IsPubliclyAccessible }),
   };
 };
 
-const serializeAws_json1_0IngressVpcConfiguration = (input: IngressVpcConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0IngressVpcConfiguration
+ */
+const se_IngressVpcConfiguration = (input: IngressVpcConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.VpcEndpointId != null && { VpcEndpointId: input.VpcEndpointId }),
     ...(input.VpcId != null && { VpcId: input.VpcId }),
   };
 };
 
-const serializeAws_json1_0InstanceConfiguration = (input: InstanceConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0InstanceConfiguration
+ */
+const se_InstanceConfiguration = (input: InstanceConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Cpu != null && { Cpu: input.Cpu }),
     ...(input.InstanceRoleArn != null && { InstanceRoleArn: input.InstanceRoleArn }),
@@ -2755,7 +3140,10 @@ const serializeAws_json1_0InstanceConfiguration = (input: InstanceConfiguration,
   };
 };
 
-const serializeAws_json1_0ListAutoScalingConfigurationsRequest = (
+/**
+ * serializeAws_json1_0ListAutoScalingConfigurationsRequest
+ */
+const se_ListAutoScalingConfigurationsRequest = (
   input: ListAutoScalingConfigurationsRequest,
   context: __SerdeContext
 ): any => {
@@ -2769,7 +3157,10 @@ const serializeAws_json1_0ListAutoScalingConfigurationsRequest = (
   };
 };
 
-const serializeAws_json1_0ListConnectionsRequest = (input: ListConnectionsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListConnectionsRequest
+ */
+const se_ListConnectionsRequest = (input: ListConnectionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.ConnectionName != null && { ConnectionName: input.ConnectionName }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -2777,7 +3168,10 @@ const serializeAws_json1_0ListConnectionsRequest = (input: ListConnectionsReques
   };
 };
 
-const serializeAws_json1_0ListObservabilityConfigurationsRequest = (
+/**
+ * serializeAws_json1_0ListObservabilityConfigurationsRequest
+ */
+const se_ListObservabilityConfigurationsRequest = (
   input: ListObservabilityConfigurationsRequest,
   context: __SerdeContext
 ): any => {
@@ -2791,7 +3185,10 @@ const serializeAws_json1_0ListObservabilityConfigurationsRequest = (
   };
 };
 
-const serializeAws_json1_0ListOperationsRequest = (input: ListOperationsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListOperationsRequest
+ */
+const se_ListOperationsRequest = (input: ListOperationsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -2799,77 +3196,92 @@ const serializeAws_json1_0ListOperationsRequest = (input: ListOperationsRequest,
   };
 };
 
-const serializeAws_json1_0ListServicesRequest = (input: ListServicesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ListServicesRequest
+ */
+const se_ListServicesRequest = (input: ListServicesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_0ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
-const serializeAws_json1_0ListVpcConnectorsRequest = (
-  input: ListVpcConnectorsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListVpcConnectorsRequest
+ */
+const se_ListVpcConnectorsRequest = (input: ListVpcConnectorsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_0ListVpcIngressConnectionsFilter = (
-  input: ListVpcIngressConnectionsFilter,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListVpcIngressConnectionsFilter
+ */
+const se_ListVpcIngressConnectionsFilter = (input: ListVpcIngressConnectionsFilter, context: __SerdeContext): any => {
   return {
     ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
     ...(input.VpcEndpointId != null && { VpcEndpointId: input.VpcEndpointId }),
   };
 };
 
-const serializeAws_json1_0ListVpcIngressConnectionsRequest = (
-  input: ListVpcIngressConnectionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0ListVpcIngressConnectionsRequest
+ */
+const se_ListVpcIngressConnectionsRequest = (input: ListVpcIngressConnectionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filter != null && { Filter: serializeAws_json1_0ListVpcIngressConnectionsFilter(input.Filter, context) }),
+    ...(input.Filter != null && { Filter: se_ListVpcIngressConnectionsFilter(input.Filter, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_0NetworkConfiguration = (input: NetworkConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0NetworkConfiguration
+ */
+const se_NetworkConfiguration = (input: NetworkConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.EgressConfiguration != null && {
-      EgressConfiguration: serializeAws_json1_0EgressConfiguration(input.EgressConfiguration, context),
+      EgressConfiguration: se_EgressConfiguration(input.EgressConfiguration, context),
     }),
     ...(input.IngressConfiguration != null && {
-      IngressConfiguration: serializeAws_json1_0IngressConfiguration(input.IngressConfiguration, context),
+      IngressConfiguration: se_IngressConfiguration(input.IngressConfiguration, context),
     }),
   };
 };
 
-const serializeAws_json1_0PauseServiceRequest = (input: PauseServiceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0PauseServiceRequest
+ */
+const se_PauseServiceRequest = (input: PauseServiceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
   };
 };
 
-const serializeAws_json1_0ResumeServiceRequest = (input: ResumeServiceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0ResumeServiceRequest
+ */
+const se_ResumeServiceRequest = (input: ResumeServiceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
   };
 };
 
-const serializeAws_json1_0RuntimeEnvironmentSecrets = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0RuntimeEnvironmentSecrets
+ */
+const se_RuntimeEnvironmentSecrets = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2879,10 +3291,10 @@ const serializeAws_json1_0RuntimeEnvironmentSecrets = (input: Record<string, str
   }, {});
 };
 
-const serializeAws_json1_0RuntimeEnvironmentVariables = (
-  input: Record<string, string>,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_0RuntimeEnvironmentVariables
+ */
+const se_RuntimeEnvironmentVariables = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2892,7 +3304,10 @@ const serializeAws_json1_0RuntimeEnvironmentVariables = (
   }, {});
 };
 
-const serializeAws_json1_0ServiceObservabilityConfiguration = (
+/**
+ * serializeAws_json1_0ServiceObservabilityConfiguration
+ */
+const se_ServiceObservabilityConfiguration = (
   input: ServiceObservabilityConfiguration,
   context: __SerdeContext
 ): any => {
@@ -2904,38 +3319,43 @@ const serializeAws_json1_0ServiceObservabilityConfiguration = (
   };
 };
 
-const serializeAws_json1_0SourceCodeVersion = (input: SourceCodeVersion, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SourceCodeVersion
+ */
+const se_SourceCodeVersion = (input: SourceCodeVersion, context: __SerdeContext): any => {
   return {
     ...(input.Type != null && { Type: input.Type }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_0SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0SourceConfiguration
+ */
+const se_SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.AuthenticationConfiguration != null && {
-      AuthenticationConfiguration: serializeAws_json1_0AuthenticationConfiguration(
-        input.AuthenticationConfiguration,
-        context
-      ),
+      AuthenticationConfiguration: se_AuthenticationConfiguration(input.AuthenticationConfiguration, context),
     }),
     ...(input.AutoDeploymentsEnabled != null && { AutoDeploymentsEnabled: input.AutoDeploymentsEnabled }),
-    ...(input.CodeRepository != null && {
-      CodeRepository: serializeAws_json1_0CodeRepository(input.CodeRepository, context),
-    }),
-    ...(input.ImageRepository != null && {
-      ImageRepository: serializeAws_json1_0ImageRepository(input.ImageRepository, context),
-    }),
+    ...(input.CodeRepository != null && { CodeRepository: se_CodeRepository(input.CodeRepository, context) }),
+    ...(input.ImageRepository != null && { ImageRepository: se_ImageRepository(input.ImageRepository, context) }),
   };
 };
 
-const serializeAws_json1_0StartDeploymentRequest = (input: StartDeploymentRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0StartDeploymentRequest
+ */
+const se_StartDeploymentRequest = (input: StartDeploymentRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
   };
 };
 
-const serializeAws_json1_0StringList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0StringList
+ */
+const se_StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2943,14 +3363,20 @@ const serializeAws_json1_0StringList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2958,101 +3384,114 @@ const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_0Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_0TraceConfiguration = (input: TraceConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0TraceConfiguration
+ */
+const se_TraceConfiguration = (input: TraceConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Vendor != null && { Vendor: input.Vendor }),
   };
 };
 
-const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_0UpdateServiceRequest = (input: UpdateServiceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_0UpdateServiceRequest
+ */
+const se_UpdateServiceRequest = (input: UpdateServiceRequest, context: __SerdeContext): any => {
   return {
     ...(input.AutoScalingConfigurationArn != null && {
       AutoScalingConfigurationArn: input.AutoScalingConfigurationArn,
     }),
     ...(input.HealthCheckConfiguration != null && {
-      HealthCheckConfiguration: serializeAws_json1_0HealthCheckConfiguration(input.HealthCheckConfiguration, context),
+      HealthCheckConfiguration: se_HealthCheckConfiguration(input.HealthCheckConfiguration, context),
     }),
     ...(input.InstanceConfiguration != null && {
-      InstanceConfiguration: serializeAws_json1_0InstanceConfiguration(input.InstanceConfiguration, context),
+      InstanceConfiguration: se_InstanceConfiguration(input.InstanceConfiguration, context),
     }),
     ...(input.NetworkConfiguration != null && {
-      NetworkConfiguration: serializeAws_json1_0NetworkConfiguration(input.NetworkConfiguration, context),
+      NetworkConfiguration: se_NetworkConfiguration(input.NetworkConfiguration, context),
     }),
     ...(input.ObservabilityConfiguration != null && {
-      ObservabilityConfiguration: serializeAws_json1_0ServiceObservabilityConfiguration(
-        input.ObservabilityConfiguration,
-        context
-      ),
+      ObservabilityConfiguration: se_ServiceObservabilityConfiguration(input.ObservabilityConfiguration, context),
     }),
     ...(input.ServiceArn != null && { ServiceArn: input.ServiceArn }),
     ...(input.SourceConfiguration != null && {
-      SourceConfiguration: serializeAws_json1_0SourceConfiguration(input.SourceConfiguration, context),
+      SourceConfiguration: se_SourceConfiguration(input.SourceConfiguration, context),
     }),
   };
 };
 
-const serializeAws_json1_0UpdateVpcIngressConnectionRequest = (
+/**
+ * serializeAws_json1_0UpdateVpcIngressConnectionRequest
+ */
+const se_UpdateVpcIngressConnectionRequest = (
   input: UpdateVpcIngressConnectionRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.IngressVpcConfiguration != null && {
-      IngressVpcConfiguration: serializeAws_json1_0IngressVpcConfiguration(input.IngressVpcConfiguration, context),
+      IngressVpcConfiguration: se_IngressVpcConfiguration(input.IngressVpcConfiguration, context),
     }),
     ...(input.VpcIngressConnectionArn != null && { VpcIngressConnectionArn: input.VpcIngressConnectionArn }),
   };
 };
 
-const deserializeAws_json1_0AssociateCustomDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): AssociateCustomDomainResponse => {
+/**
+ * deserializeAws_json1_0AssociateCustomDomainResponse
+ */
+const de_AssociateCustomDomainResponse = (output: any, context: __SerdeContext): AssociateCustomDomainResponse => {
   return {
-    CustomDomain:
-      output.CustomDomain != null ? deserializeAws_json1_0CustomDomain(output.CustomDomain, context) : undefined,
+    CustomDomain: output.CustomDomain != null ? de_CustomDomain(output.CustomDomain, context) : undefined,
     DNSTarget: __expectString(output.DNSTarget),
     ServiceArn: __expectString(output.ServiceArn),
-    VpcDNSTargets:
-      output.VpcDNSTargets != null ? deserializeAws_json1_0VpcDNSTargetList(output.VpcDNSTargets, context) : undefined,
+    VpcDNSTargets: output.VpcDNSTargets != null ? de_VpcDNSTargetList(output.VpcDNSTargets, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0AuthenticationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AuthenticationConfiguration => {
+/**
+ * deserializeAws_json1_0AuthenticationConfiguration
+ */
+const de_AuthenticationConfiguration = (output: any, context: __SerdeContext): AuthenticationConfiguration => {
   return {
     AccessRoleArn: __expectString(output.AccessRoleArn),
     ConnectionArn: __expectString(output.ConnectionArn),
   } as any;
 };
 
-const deserializeAws_json1_0AutoScalingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AutoScalingConfiguration => {
+/**
+ * deserializeAws_json1_0AutoScalingConfiguration
+ */
+const de_AutoScalingConfiguration = (output: any, context: __SerdeContext): AutoScalingConfiguration => {
   return {
     AutoScalingConfigurationArn: __expectString(output.AutoScalingConfigurationArn),
     AutoScalingConfigurationName: __expectString(output.AutoScalingConfigurationName),
@@ -3069,10 +3508,10 @@ const deserializeAws_json1_0AutoScalingConfiguration = (
   } as any;
 };
 
-const deserializeAws_json1_0AutoScalingConfigurationSummary = (
-  output: any,
-  context: __SerdeContext
-): AutoScalingConfigurationSummary => {
+/**
+ * deserializeAws_json1_0AutoScalingConfigurationSummary
+ */
+const de_AutoScalingConfigurationSummary = (output: any, context: __SerdeContext): AutoScalingConfigurationSummary => {
   return {
     AutoScalingConfigurationArn: __expectString(output.AutoScalingConfigurationArn),
     AutoScalingConfigurationName: __expectString(output.AutoScalingConfigurationName),
@@ -3080,7 +3519,10 @@ const deserializeAws_json1_0AutoScalingConfigurationSummary = (
   } as any;
 };
 
-const deserializeAws_json1_0AutoScalingConfigurationSummaryList = (
+/**
+ * deserializeAws_json1_0AutoScalingConfigurationSummaryList
+ */
+const de_AutoScalingConfigurationSummaryList = (
   output: any,
   context: __SerdeContext
 ): AutoScalingConfigurationSummary[] => {
@@ -3090,15 +3532,15 @@ const deserializeAws_json1_0AutoScalingConfigurationSummaryList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0AutoScalingConfigurationSummary(entry, context);
+      return de_AutoScalingConfigurationSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0CertificateValidationRecord = (
-  output: any,
-  context: __SerdeContext
-): CertificateValidationRecord => {
+/**
+ * deserializeAws_json1_0CertificateValidationRecord
+ */
+const de_CertificateValidationRecord = (output: any, context: __SerdeContext): CertificateValidationRecord => {
   return {
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
@@ -3107,66 +3549,71 @@ const deserializeAws_json1_0CertificateValidationRecord = (
   } as any;
 };
 
-const deserializeAws_json1_0CertificateValidationRecordList = (
-  output: any,
-  context: __SerdeContext
-): CertificateValidationRecord[] => {
+/**
+ * deserializeAws_json1_0CertificateValidationRecordList
+ */
+const de_CertificateValidationRecordList = (output: any, context: __SerdeContext): CertificateValidationRecord[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0CertificateValidationRecord(entry, context);
+      return de_CertificateValidationRecord(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0CodeConfiguration = (output: any, context: __SerdeContext): CodeConfiguration => {
+/**
+ * deserializeAws_json1_0CodeConfiguration
+ */
+const de_CodeConfiguration = (output: any, context: __SerdeContext): CodeConfiguration => {
   return {
     CodeConfigurationValues:
       output.CodeConfigurationValues != null
-        ? deserializeAws_json1_0CodeConfigurationValues(output.CodeConfigurationValues, context)
+        ? de_CodeConfigurationValues(output.CodeConfigurationValues, context)
         : undefined,
     ConfigurationSource: __expectString(output.ConfigurationSource),
   } as any;
 };
 
-const deserializeAws_json1_0CodeConfigurationValues = (
-  output: any,
-  context: __SerdeContext
-): CodeConfigurationValues => {
+/**
+ * deserializeAws_json1_0CodeConfigurationValues
+ */
+const de_CodeConfigurationValues = (output: any, context: __SerdeContext): CodeConfigurationValues => {
   return {
     BuildCommand: __expectString(output.BuildCommand),
     Port: __expectString(output.Port),
     Runtime: __expectString(output.Runtime),
     RuntimeEnvironmentSecrets:
       output.RuntimeEnvironmentSecrets != null
-        ? deserializeAws_json1_0RuntimeEnvironmentSecrets(output.RuntimeEnvironmentSecrets, context)
+        ? de_RuntimeEnvironmentSecrets(output.RuntimeEnvironmentSecrets, context)
         : undefined,
     RuntimeEnvironmentVariables:
       output.RuntimeEnvironmentVariables != null
-        ? deserializeAws_json1_0RuntimeEnvironmentVariables(output.RuntimeEnvironmentVariables, context)
+        ? de_RuntimeEnvironmentVariables(output.RuntimeEnvironmentVariables, context)
         : undefined,
     StartCommand: __expectString(output.StartCommand),
   } as any;
 };
 
-const deserializeAws_json1_0CodeRepository = (output: any, context: __SerdeContext): CodeRepository => {
+/**
+ * deserializeAws_json1_0CodeRepository
+ */
+const de_CodeRepository = (output: any, context: __SerdeContext): CodeRepository => {
   return {
     CodeConfiguration:
-      output.CodeConfiguration != null
-        ? deserializeAws_json1_0CodeConfiguration(output.CodeConfiguration, context)
-        : undefined,
+      output.CodeConfiguration != null ? de_CodeConfiguration(output.CodeConfiguration, context) : undefined,
     RepositoryUrl: __expectString(output.RepositoryUrl),
     SourceCodeVersion:
-      output.SourceCodeVersion != null
-        ? deserializeAws_json1_0SourceCodeVersion(output.SourceCodeVersion, context)
-        : undefined,
+      output.SourceCodeVersion != null ? de_SourceCodeVersion(output.SourceCodeVersion, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0Connection = (output: any, context: __SerdeContext): Connection => {
+/**
+ * deserializeAws_json1_0Connection
+ */
+const de_Connection = (output: any, context: __SerdeContext): Connection => {
   return {
     ConnectionArn: __expectString(output.ConnectionArn),
     ConnectionName: __expectString(output.ConnectionName),
@@ -3177,7 +3624,10 @@ const deserializeAws_json1_0Connection = (output: any, context: __SerdeContext):
   } as any;
 };
 
-const deserializeAws_json1_0ConnectionSummary = (output: any, context: __SerdeContext): ConnectionSummary => {
+/**
+ * deserializeAws_json1_0ConnectionSummary
+ */
+const de_ConnectionSummary = (output: any, context: __SerdeContext): ConnectionSummary => {
   return {
     ConnectionArn: __expectString(output.ConnectionArn),
     ConnectionName: __expectString(output.ConnectionName),
@@ -3188,85 +3638,100 @@ const deserializeAws_json1_0ConnectionSummary = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_0ConnectionSummaryList = (output: any, context: __SerdeContext): ConnectionSummary[] => {
+/**
+ * deserializeAws_json1_0ConnectionSummaryList
+ */
+const de_ConnectionSummaryList = (output: any, context: __SerdeContext): ConnectionSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ConnectionSummary(entry, context);
+      return de_ConnectionSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0CreateAutoScalingConfigurationResponse = (
+/**
+ * deserializeAws_json1_0CreateAutoScalingConfigurationResponse
+ */
+const de_CreateAutoScalingConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): CreateAutoScalingConfigurationResponse => {
   return {
     AutoScalingConfiguration:
       output.AutoScalingConfiguration != null
-        ? deserializeAws_json1_0AutoScalingConfiguration(output.AutoScalingConfiguration, context)
+        ? de_AutoScalingConfiguration(output.AutoScalingConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreateConnectionResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateConnectionResponse => {
+/**
+ * deserializeAws_json1_0CreateConnectionResponse
+ */
+const de_CreateConnectionResponse = (output: any, context: __SerdeContext): CreateConnectionResponse => {
   return {
-    Connection: output.Connection != null ? deserializeAws_json1_0Connection(output.Connection, context) : undefined,
+    Connection: output.Connection != null ? de_Connection(output.Connection, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreateObservabilityConfigurationResponse = (
+/**
+ * deserializeAws_json1_0CreateObservabilityConfigurationResponse
+ */
+const de_CreateObservabilityConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): CreateObservabilityConfigurationResponse => {
   return {
     ObservabilityConfiguration:
       output.ObservabilityConfiguration != null
-        ? deserializeAws_json1_0ObservabilityConfiguration(output.ObservabilityConfiguration, context)
+        ? de_ObservabilityConfiguration(output.ObservabilityConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreateServiceResponse = (output: any, context: __SerdeContext): CreateServiceResponse => {
+/**
+ * deserializeAws_json1_0CreateServiceResponse
+ */
+const de_CreateServiceResponse = (output: any, context: __SerdeContext): CreateServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
-    Service: output.Service != null ? deserializeAws_json1_0Service(output.Service, context) : undefined,
+    Service: output.Service != null ? de_Service(output.Service, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreateVpcConnectorResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateVpcConnectorResponse => {
+/**
+ * deserializeAws_json1_0CreateVpcConnectorResponse
+ */
+const de_CreateVpcConnectorResponse = (output: any, context: __SerdeContext): CreateVpcConnectorResponse => {
   return {
-    VpcConnector:
-      output.VpcConnector != null ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context) : undefined,
+    VpcConnector: output.VpcConnector != null ? de_VpcConnector(output.VpcConnector, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CreateVpcIngressConnectionResponse = (
+/**
+ * deserializeAws_json1_0CreateVpcIngressConnectionResponse
+ */
+const de_CreateVpcIngressConnectionResponse = (
   output: any,
   context: __SerdeContext
 ): CreateVpcIngressConnectionResponse => {
   return {
     VpcIngressConnection:
-      output.VpcIngressConnection != null
-        ? deserializeAws_json1_0VpcIngressConnection(output.VpcIngressConnection, context)
-        : undefined,
+      output.VpcIngressConnection != null ? de_VpcIngressConnection(output.VpcIngressConnection, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0CustomDomain = (output: any, context: __SerdeContext): CustomDomain => {
+/**
+ * deserializeAws_json1_0CustomDomain
+ */
+const de_CustomDomain = (output: any, context: __SerdeContext): CustomDomain => {
   return {
     CertificateValidationRecords:
       output.CertificateValidationRecords != null
-        ? deserializeAws_json1_0CertificateValidationRecordList(output.CertificateValidationRecords, context)
+        ? de_CertificateValidationRecordList(output.CertificateValidationRecords, context)
         : undefined,
     DomainName: __expectString(output.DomainName),
     EnableWWWSubdomain: __expectBoolean(output.EnableWWWSubdomain),
@@ -3274,184 +3739,204 @@ const deserializeAws_json1_0CustomDomain = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_0CustomDomainList = (output: any, context: __SerdeContext): CustomDomain[] => {
+/**
+ * deserializeAws_json1_0CustomDomainList
+ */
+const de_CustomDomainList = (output: any, context: __SerdeContext): CustomDomain[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0CustomDomain(entry, context);
+      return de_CustomDomain(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0DeleteAutoScalingConfigurationResponse = (
+/**
+ * deserializeAws_json1_0DeleteAutoScalingConfigurationResponse
+ */
+const de_DeleteAutoScalingConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteAutoScalingConfigurationResponse => {
   return {
     AutoScalingConfiguration:
       output.AutoScalingConfiguration != null
-        ? deserializeAws_json1_0AutoScalingConfiguration(output.AutoScalingConfiguration, context)
+        ? de_AutoScalingConfiguration(output.AutoScalingConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DeleteConnectionResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteConnectionResponse => {
+/**
+ * deserializeAws_json1_0DeleteConnectionResponse
+ */
+const de_DeleteConnectionResponse = (output: any, context: __SerdeContext): DeleteConnectionResponse => {
   return {
-    Connection: output.Connection != null ? deserializeAws_json1_0Connection(output.Connection, context) : undefined,
+    Connection: output.Connection != null ? de_Connection(output.Connection, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DeleteObservabilityConfigurationResponse = (
+/**
+ * deserializeAws_json1_0DeleteObservabilityConfigurationResponse
+ */
+const de_DeleteObservabilityConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteObservabilityConfigurationResponse => {
   return {
     ObservabilityConfiguration:
       output.ObservabilityConfiguration != null
-        ? deserializeAws_json1_0ObservabilityConfiguration(output.ObservabilityConfiguration, context)
+        ? de_ObservabilityConfiguration(output.ObservabilityConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DeleteServiceResponse = (output: any, context: __SerdeContext): DeleteServiceResponse => {
+/**
+ * deserializeAws_json1_0DeleteServiceResponse
+ */
+const de_DeleteServiceResponse = (output: any, context: __SerdeContext): DeleteServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
-    Service: output.Service != null ? deserializeAws_json1_0Service(output.Service, context) : undefined,
+    Service: output.Service != null ? de_Service(output.Service, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DeleteVpcConnectorResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteVpcConnectorResponse => {
+/**
+ * deserializeAws_json1_0DeleteVpcConnectorResponse
+ */
+const de_DeleteVpcConnectorResponse = (output: any, context: __SerdeContext): DeleteVpcConnectorResponse => {
   return {
-    VpcConnector:
-      output.VpcConnector != null ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context) : undefined,
+    VpcConnector: output.VpcConnector != null ? de_VpcConnector(output.VpcConnector, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DeleteVpcIngressConnectionResponse = (
+/**
+ * deserializeAws_json1_0DeleteVpcIngressConnectionResponse
+ */
+const de_DeleteVpcIngressConnectionResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteVpcIngressConnectionResponse => {
   return {
     VpcIngressConnection:
-      output.VpcIngressConnection != null
-        ? deserializeAws_json1_0VpcIngressConnection(output.VpcIngressConnection, context)
-        : undefined,
+      output.VpcIngressConnection != null ? de_VpcIngressConnection(output.VpcIngressConnection, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeAutoScalingConfigurationResponse = (
+/**
+ * deserializeAws_json1_0DescribeAutoScalingConfigurationResponse
+ */
+const de_DescribeAutoScalingConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAutoScalingConfigurationResponse => {
   return {
     AutoScalingConfiguration:
       output.AutoScalingConfiguration != null
-        ? deserializeAws_json1_0AutoScalingConfiguration(output.AutoScalingConfiguration, context)
+        ? de_AutoScalingConfiguration(output.AutoScalingConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeCustomDomainsResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeCustomDomainsResponse => {
+/**
+ * deserializeAws_json1_0DescribeCustomDomainsResponse
+ */
+const de_DescribeCustomDomainsResponse = (output: any, context: __SerdeContext): DescribeCustomDomainsResponse => {
   return {
-    CustomDomains:
-      output.CustomDomains != null ? deserializeAws_json1_0CustomDomainList(output.CustomDomains, context) : undefined,
+    CustomDomains: output.CustomDomains != null ? de_CustomDomainList(output.CustomDomains, context) : undefined,
     DNSTarget: __expectString(output.DNSTarget),
     NextToken: __expectString(output.NextToken),
     ServiceArn: __expectString(output.ServiceArn),
-    VpcDNSTargets:
-      output.VpcDNSTargets != null ? deserializeAws_json1_0VpcDNSTargetList(output.VpcDNSTargets, context) : undefined,
+    VpcDNSTargets: output.VpcDNSTargets != null ? de_VpcDNSTargetList(output.VpcDNSTargets, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeObservabilityConfigurationResponse = (
+/**
+ * deserializeAws_json1_0DescribeObservabilityConfigurationResponse
+ */
+const de_DescribeObservabilityConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeObservabilityConfigurationResponse => {
   return {
     ObservabilityConfiguration:
       output.ObservabilityConfiguration != null
-        ? deserializeAws_json1_0ObservabilityConfiguration(output.ObservabilityConfiguration, context)
+        ? de_ObservabilityConfiguration(output.ObservabilityConfiguration, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeServiceResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeServiceResponse => {
+/**
+ * deserializeAws_json1_0DescribeServiceResponse
+ */
+const de_DescribeServiceResponse = (output: any, context: __SerdeContext): DescribeServiceResponse => {
   return {
-    Service: output.Service != null ? deserializeAws_json1_0Service(output.Service, context) : undefined,
+    Service: output.Service != null ? de_Service(output.Service, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeVpcConnectorResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeVpcConnectorResponse => {
+/**
+ * deserializeAws_json1_0DescribeVpcConnectorResponse
+ */
+const de_DescribeVpcConnectorResponse = (output: any, context: __SerdeContext): DescribeVpcConnectorResponse => {
   return {
-    VpcConnector:
-      output.VpcConnector != null ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context) : undefined,
+    VpcConnector: output.VpcConnector != null ? de_VpcConnector(output.VpcConnector, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DescribeVpcIngressConnectionResponse = (
+/**
+ * deserializeAws_json1_0DescribeVpcIngressConnectionResponse
+ */
+const de_DescribeVpcIngressConnectionResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcIngressConnectionResponse => {
   return {
     VpcIngressConnection:
-      output.VpcIngressConnection != null
-        ? deserializeAws_json1_0VpcIngressConnection(output.VpcIngressConnection, context)
-        : undefined,
+      output.VpcIngressConnection != null ? de_VpcIngressConnection(output.VpcIngressConnection, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0DisassociateCustomDomainResponse = (
+/**
+ * deserializeAws_json1_0DisassociateCustomDomainResponse
+ */
+const de_DisassociateCustomDomainResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateCustomDomainResponse => {
   return {
-    CustomDomain:
-      output.CustomDomain != null ? deserializeAws_json1_0CustomDomain(output.CustomDomain, context) : undefined,
+    CustomDomain: output.CustomDomain != null ? de_CustomDomain(output.CustomDomain, context) : undefined,
     DNSTarget: __expectString(output.DNSTarget),
     ServiceArn: __expectString(output.ServiceArn),
-    VpcDNSTargets:
-      output.VpcDNSTargets != null ? deserializeAws_json1_0VpcDNSTargetList(output.VpcDNSTargets, context) : undefined,
+    VpcDNSTargets: output.VpcDNSTargets != null ? de_VpcDNSTargetList(output.VpcDNSTargets, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0EgressConfiguration = (output: any, context: __SerdeContext): EgressConfiguration => {
+/**
+ * deserializeAws_json1_0EgressConfiguration
+ */
+const de_EgressConfiguration = (output: any, context: __SerdeContext): EgressConfiguration => {
   return {
     EgressType: __expectString(output.EgressType),
     VpcConnectorArn: __expectString(output.VpcConnectorArn),
   } as any;
 };
 
-const deserializeAws_json1_0EncryptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): EncryptionConfiguration => {
+/**
+ * deserializeAws_json1_0EncryptionConfiguration
+ */
+const de_EncryptionConfiguration = (output: any, context: __SerdeContext): EncryptionConfiguration => {
   return {
     KmsKey: __expectString(output.KmsKey),
   } as any;
 };
 
-const deserializeAws_json1_0HealthCheckConfiguration = (
-  output: any,
-  context: __SerdeContext
-): HealthCheckConfiguration => {
+/**
+ * deserializeAws_json1_0HealthCheckConfiguration
+ */
+const de_HealthCheckConfiguration = (output: any, context: __SerdeContext): HealthCheckConfiguration => {
   return {
     HealthyThreshold: __expectInt32(output.HealthyThreshold),
     Interval: __expectInt32(output.Interval),
@@ -3462,49 +3947,59 @@ const deserializeAws_json1_0HealthCheckConfiguration = (
   } as any;
 };
 
-const deserializeAws_json1_0ImageConfiguration = (output: any, context: __SerdeContext): ImageConfiguration => {
+/**
+ * deserializeAws_json1_0ImageConfiguration
+ */
+const de_ImageConfiguration = (output: any, context: __SerdeContext): ImageConfiguration => {
   return {
     Port: __expectString(output.Port),
     RuntimeEnvironmentSecrets:
       output.RuntimeEnvironmentSecrets != null
-        ? deserializeAws_json1_0RuntimeEnvironmentSecrets(output.RuntimeEnvironmentSecrets, context)
+        ? de_RuntimeEnvironmentSecrets(output.RuntimeEnvironmentSecrets, context)
         : undefined,
     RuntimeEnvironmentVariables:
       output.RuntimeEnvironmentVariables != null
-        ? deserializeAws_json1_0RuntimeEnvironmentVariables(output.RuntimeEnvironmentVariables, context)
+        ? de_RuntimeEnvironmentVariables(output.RuntimeEnvironmentVariables, context)
         : undefined,
     StartCommand: __expectString(output.StartCommand),
   } as any;
 };
 
-const deserializeAws_json1_0ImageRepository = (output: any, context: __SerdeContext): ImageRepository => {
+/**
+ * deserializeAws_json1_0ImageRepository
+ */
+const de_ImageRepository = (output: any, context: __SerdeContext): ImageRepository => {
   return {
     ImageConfiguration:
-      output.ImageConfiguration != null
-        ? deserializeAws_json1_0ImageConfiguration(output.ImageConfiguration, context)
-        : undefined,
+      output.ImageConfiguration != null ? de_ImageConfiguration(output.ImageConfiguration, context) : undefined,
     ImageIdentifier: __expectString(output.ImageIdentifier),
     ImageRepositoryType: __expectString(output.ImageRepositoryType),
   } as any;
 };
 
-const deserializeAws_json1_0IngressConfiguration = (output: any, context: __SerdeContext): IngressConfiguration => {
+/**
+ * deserializeAws_json1_0IngressConfiguration
+ */
+const de_IngressConfiguration = (output: any, context: __SerdeContext): IngressConfiguration => {
   return {
     IsPubliclyAccessible: __expectBoolean(output.IsPubliclyAccessible),
   } as any;
 };
 
-const deserializeAws_json1_0IngressVpcConfiguration = (
-  output: any,
-  context: __SerdeContext
-): IngressVpcConfiguration => {
+/**
+ * deserializeAws_json1_0IngressVpcConfiguration
+ */
+const de_IngressVpcConfiguration = (output: any, context: __SerdeContext): IngressVpcConfiguration => {
   return {
     VpcEndpointId: __expectString(output.VpcEndpointId),
     VpcId: __expectString(output.VpcId),
   } as any;
 };
 
-const deserializeAws_json1_0InstanceConfiguration = (output: any, context: __SerdeContext): InstanceConfiguration => {
+/**
+ * deserializeAws_json1_0InstanceConfiguration
+ */
+const de_InstanceConfiguration = (output: any, context: __SerdeContext): InstanceConfiguration => {
   return {
     Cpu: __expectString(output.Cpu),
     InstanceRoleArn: __expectString(output.InstanceRoleArn),
@@ -3512,57 +4007,66 @@ const deserializeAws_json1_0InstanceConfiguration = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_0InternalServiceErrorException = (
-  output: any,
-  context: __SerdeContext
-): InternalServiceErrorException => {
+/**
+ * deserializeAws_json1_0InternalServiceErrorException
+ */
+const de_InternalServiceErrorException = (output: any, context: __SerdeContext): InternalServiceErrorException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidRequestException = (
-  output: any,
-  context: __SerdeContext
-): InvalidRequestException => {
+/**
+ * deserializeAws_json1_0InvalidRequestException
+ */
+const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
+/**
+ * deserializeAws_json1_0InvalidStateException
+ */
+const de_InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0ListAutoScalingConfigurationsResponse = (
+/**
+ * deserializeAws_json1_0ListAutoScalingConfigurationsResponse
+ */
+const de_ListAutoScalingConfigurationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListAutoScalingConfigurationsResponse => {
   return {
     AutoScalingConfigurationSummaryList:
       output.AutoScalingConfigurationSummaryList != null
-        ? deserializeAws_json1_0AutoScalingConfigurationSummaryList(output.AutoScalingConfigurationSummaryList, context)
+        ? de_AutoScalingConfigurationSummaryList(output.AutoScalingConfigurationSummaryList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListConnectionsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListConnectionsResponse => {
+/**
+ * deserializeAws_json1_0ListConnectionsResponse
+ */
+const de_ListConnectionsResponse = (output: any, context: __SerdeContext): ListConnectionsResponse => {
   return {
     ConnectionSummaryList:
       output.ConnectionSummaryList != null
-        ? deserializeAws_json1_0ConnectionSummaryList(output.ConnectionSummaryList, context)
+        ? de_ConnectionSummaryList(output.ConnectionSummaryList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_0ListObservabilityConfigurationsResponse = (
+/**
+ * deserializeAws_json1_0ListObservabilityConfigurationsResponse
+ */
+const de_ListObservabilityConfigurationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListObservabilityConfigurationsResponse => {
@@ -3570,55 +4074,56 @@ const deserializeAws_json1_0ListObservabilityConfigurationsResponse = (
     NextToken: __expectString(output.NextToken),
     ObservabilityConfigurationSummaryList:
       output.ObservabilityConfigurationSummaryList != null
-        ? deserializeAws_json1_0ObservabilityConfigurationSummaryList(
-            output.ObservabilityConfigurationSummaryList,
-            context
-          )
+        ? de_ObservabilityConfigurationSummaryList(output.ObservabilityConfigurationSummaryList, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListOperationsResponse = (output: any, context: __SerdeContext): ListOperationsResponse => {
+/**
+ * deserializeAws_json1_0ListOperationsResponse
+ */
+const de_ListOperationsResponse = (output: any, context: __SerdeContext): ListOperationsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     OperationSummaryList:
-      output.OperationSummaryList != null
-        ? deserializeAws_json1_0OperationSummaryList(output.OperationSummaryList, context)
-        : undefined,
+      output.OperationSummaryList != null ? de_OperationSummaryList(output.OperationSummaryList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListServicesResponse = (output: any, context: __SerdeContext): ListServicesResponse => {
+/**
+ * deserializeAws_json1_0ListServicesResponse
+ */
+const de_ListServicesResponse = (output: any, context: __SerdeContext): ListServicesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     ServiceSummaryList:
-      output.ServiceSummaryList != null
-        ? deserializeAws_json1_0ServiceSummaryList(output.ServiceSummaryList, context)
-        : undefined,
+      output.ServiceSummaryList != null ? de_ServiceSummaryList(output.ServiceSummaryList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_0ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListVpcConnectorsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListVpcConnectorsResponse => {
+/**
+ * deserializeAws_json1_0ListVpcConnectorsResponse
+ */
+const de_ListVpcConnectorsResponse = (output: any, context: __SerdeContext): ListVpcConnectorsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    VpcConnectors:
-      output.VpcConnectors != null ? deserializeAws_json1_0VpcConnectors(output.VpcConnectors, context) : undefined,
+    VpcConnectors: output.VpcConnectors != null ? de_VpcConnectors(output.VpcConnectors, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ListVpcIngressConnectionsResponse = (
+/**
+ * deserializeAws_json1_0ListVpcIngressConnectionsResponse
+ */
+const de_ListVpcIngressConnectionsResponse = (
   output: any,
   context: __SerdeContext
 ): ListVpcIngressConnectionsResponse => {
@@ -3626,28 +4131,27 @@ const deserializeAws_json1_0ListVpcIngressConnectionsResponse = (
     NextToken: __expectString(output.NextToken),
     VpcIngressConnectionSummaryList:
       output.VpcIngressConnectionSummaryList != null
-        ? deserializeAws_json1_0VpcIngressConnectionSummaryList(output.VpcIngressConnectionSummaryList, context)
+        ? de_VpcIngressConnectionSummaryList(output.VpcIngressConnectionSummaryList, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0NetworkConfiguration = (output: any, context: __SerdeContext): NetworkConfiguration => {
+/**
+ * deserializeAws_json1_0NetworkConfiguration
+ */
+const de_NetworkConfiguration = (output: any, context: __SerdeContext): NetworkConfiguration => {
   return {
     EgressConfiguration:
-      output.EgressConfiguration != null
-        ? deserializeAws_json1_0EgressConfiguration(output.EgressConfiguration, context)
-        : undefined,
+      output.EgressConfiguration != null ? de_EgressConfiguration(output.EgressConfiguration, context) : undefined,
     IngressConfiguration:
-      output.IngressConfiguration != null
-        ? deserializeAws_json1_0IngressConfiguration(output.IngressConfiguration, context)
-        : undefined,
+      output.IngressConfiguration != null ? de_IngressConfiguration(output.IngressConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ObservabilityConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ObservabilityConfiguration => {
+/**
+ * deserializeAws_json1_0ObservabilityConfiguration
+ */
+const de_ObservabilityConfiguration = (output: any, context: __SerdeContext): ObservabilityConfiguration => {
   return {
     CreatedAt:
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
@@ -3659,13 +4163,14 @@ const deserializeAws_json1_0ObservabilityConfiguration = (
     ObservabilityConfigurationRevision: __expectInt32(output.ObservabilityConfigurationRevision),
     Status: __expectString(output.Status),
     TraceConfiguration:
-      output.TraceConfiguration != null
-        ? deserializeAws_json1_0TraceConfiguration(output.TraceConfiguration, context)
-        : undefined,
+      output.TraceConfiguration != null ? de_TraceConfiguration(output.TraceConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ObservabilityConfigurationSummary = (
+/**
+ * deserializeAws_json1_0ObservabilityConfigurationSummary
+ */
+const de_ObservabilityConfigurationSummary = (
   output: any,
   context: __SerdeContext
 ): ObservabilityConfigurationSummary => {
@@ -3676,7 +4181,10 @@ const deserializeAws_json1_0ObservabilityConfigurationSummary = (
   } as any;
 };
 
-const deserializeAws_json1_0ObservabilityConfigurationSummaryList = (
+/**
+ * deserializeAws_json1_0ObservabilityConfigurationSummaryList
+ */
+const de_ObservabilityConfigurationSummaryList = (
   output: any,
   context: __SerdeContext
 ): ObservabilityConfigurationSummary[] => {
@@ -3686,12 +4194,15 @@ const deserializeAws_json1_0ObservabilityConfigurationSummaryList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ObservabilityConfigurationSummary(entry, context);
+      return de_ObservabilityConfigurationSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
+/**
+ * deserializeAws_json1_0OperationSummary
+ */
+const de_OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
   return {
     EndedAt:
       output.EndedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndedAt))) : undefined,
@@ -3706,45 +4217,54 @@ const deserializeAws_json1_0OperationSummary = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_0OperationSummaryList = (output: any, context: __SerdeContext): OperationSummary[] => {
+/**
+ * deserializeAws_json1_0OperationSummaryList
+ */
+const de_OperationSummaryList = (output: any, context: __SerdeContext): OperationSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0OperationSummary(entry, context);
+      return de_OperationSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0PauseServiceResponse = (output: any, context: __SerdeContext): PauseServiceResponse => {
+/**
+ * deserializeAws_json1_0PauseServiceResponse
+ */
+const de_PauseServiceResponse = (output: any, context: __SerdeContext): PauseServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
-    Service: output.Service != null ? deserializeAws_json1_0Service(output.Service, context) : undefined,
+    Service: output.Service != null ? de_Service(output.Service, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_0ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0ResumeServiceResponse = (output: any, context: __SerdeContext): ResumeServiceResponse => {
+/**
+ * deserializeAws_json1_0ResumeServiceResponse
+ */
+const de_ResumeServiceResponse = (output: any, context: __SerdeContext): ResumeServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
-    Service: output.Service != null ? deserializeAws_json1_0Service(output.Service, context) : undefined,
+    Service: output.Service != null ? de_Service(output.Service, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0RuntimeEnvironmentSecrets = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_json1_0RuntimeEnvironmentSecrets
+ */
+const de_RuntimeEnvironmentSecrets = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3754,10 +4274,10 @@ const deserializeAws_json1_0RuntimeEnvironmentSecrets = (
   }, {});
 };
 
-const deserializeAws_json1_0RuntimeEnvironmentVariables = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_json1_0RuntimeEnvironmentVariables
+ */
+const de_RuntimeEnvironmentVariables = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3767,11 +4287,14 @@ const deserializeAws_json1_0RuntimeEnvironmentVariables = (
   }, {});
 };
 
-const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Service => {
+/**
+ * deserializeAws_json1_0Service
+ */
+const de_Service = (output: any, context: __SerdeContext): Service => {
   return {
     AutoScalingConfigurationSummary:
       output.AutoScalingConfigurationSummary != null
-        ? deserializeAws_json1_0AutoScalingConfigurationSummary(output.AutoScalingConfigurationSummary, context)
+        ? de_AutoScalingConfigurationSummary(output.AutoScalingConfigurationSummary, context)
         : undefined,
     CreatedAt:
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
@@ -3779,39 +4302,38 @@ const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Se
       output.DeletedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedAt))) : undefined,
     EncryptionConfiguration:
       output.EncryptionConfiguration != null
-        ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
+        ? de_EncryptionConfiguration(output.EncryptionConfiguration, context)
         : undefined,
     HealthCheckConfiguration:
       output.HealthCheckConfiguration != null
-        ? deserializeAws_json1_0HealthCheckConfiguration(output.HealthCheckConfiguration, context)
+        ? de_HealthCheckConfiguration(output.HealthCheckConfiguration, context)
         : undefined,
     InstanceConfiguration:
       output.InstanceConfiguration != null
-        ? deserializeAws_json1_0InstanceConfiguration(output.InstanceConfiguration, context)
+        ? de_InstanceConfiguration(output.InstanceConfiguration, context)
         : undefined,
     NetworkConfiguration:
-      output.NetworkConfiguration != null
-        ? deserializeAws_json1_0NetworkConfiguration(output.NetworkConfiguration, context)
-        : undefined,
+      output.NetworkConfiguration != null ? de_NetworkConfiguration(output.NetworkConfiguration, context) : undefined,
     ObservabilityConfiguration:
       output.ObservabilityConfiguration != null
-        ? deserializeAws_json1_0ServiceObservabilityConfiguration(output.ObservabilityConfiguration, context)
+        ? de_ServiceObservabilityConfiguration(output.ObservabilityConfiguration, context)
         : undefined,
     ServiceArn: __expectString(output.ServiceArn),
     ServiceId: __expectString(output.ServiceId),
     ServiceName: __expectString(output.ServiceName),
     ServiceUrl: __expectString(output.ServiceUrl),
     SourceConfiguration:
-      output.SourceConfiguration != null
-        ? deserializeAws_json1_0SourceConfiguration(output.SourceConfiguration, context)
-        : undefined,
+      output.SourceConfiguration != null ? de_SourceConfiguration(output.SourceConfiguration, context) : undefined,
     Status: __expectString(output.Status),
     UpdatedAt:
       output.UpdatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt))) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0ServiceObservabilityConfiguration = (
+/**
+ * deserializeAws_json1_0ServiceObservabilityConfiguration
+ */
+const de_ServiceObservabilityConfiguration = (
   output: any,
   context: __SerdeContext
 ): ServiceObservabilityConfiguration => {
@@ -3821,16 +4343,19 @@ const deserializeAws_json1_0ServiceObservabilityConfiguration = (
   } as any;
 };
 
-const deserializeAws_json1_0ServiceQuotaExceededException = (
-  output: any,
-  context: __SerdeContext
-): ServiceQuotaExceededException => {
+/**
+ * deserializeAws_json1_0ServiceQuotaExceededException
+ */
+const de_ServiceQuotaExceededException = (output: any, context: __SerdeContext): ServiceQuotaExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_0ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
+/**
+ * deserializeAws_json1_0ServiceSummary
+ */
+const de_ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
   return {
     CreatedAt:
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
@@ -3844,51 +4369,59 @@ const deserializeAws_json1_0ServiceSummary = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_0ServiceSummaryList = (output: any, context: __SerdeContext): ServiceSummary[] => {
+/**
+ * deserializeAws_json1_0ServiceSummaryList
+ */
+const de_ServiceSummaryList = (output: any, context: __SerdeContext): ServiceSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0ServiceSummary(entry, context);
+      return de_ServiceSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0SourceCodeVersion = (output: any, context: __SerdeContext): SourceCodeVersion => {
+/**
+ * deserializeAws_json1_0SourceCodeVersion
+ */
+const de_SourceCodeVersion = (output: any, context: __SerdeContext): SourceCodeVersion => {
   return {
     Type: __expectString(output.Type),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_0SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
+/**
+ * deserializeAws_json1_0SourceConfiguration
+ */
+const de_SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
   return {
     AuthenticationConfiguration:
       output.AuthenticationConfiguration != null
-        ? deserializeAws_json1_0AuthenticationConfiguration(output.AuthenticationConfiguration, context)
+        ? de_AuthenticationConfiguration(output.AuthenticationConfiguration, context)
         : undefined,
     AutoDeploymentsEnabled: __expectBoolean(output.AutoDeploymentsEnabled),
-    CodeRepository:
-      output.CodeRepository != null ? deserializeAws_json1_0CodeRepository(output.CodeRepository, context) : undefined,
-    ImageRepository:
-      output.ImageRepository != null
-        ? deserializeAws_json1_0ImageRepository(output.ImageRepository, context)
-        : undefined,
+    CodeRepository: output.CodeRepository != null ? de_CodeRepository(output.CodeRepository, context) : undefined,
+    ImageRepository: output.ImageRepository != null ? de_ImageRepository(output.ImageRepository, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0StartDeploymentResponse = (
-  output: any,
-  context: __SerdeContext
-): StartDeploymentResponse => {
+/**
+ * deserializeAws_json1_0StartDeploymentResponse
+ */
+const de_StartDeploymentResponse = (output: any, context: __SerdeContext): StartDeploymentResponse => {
   return {
     OperationId: __expectString(output.OperationId),
   } as any;
 };
 
-const deserializeAws_json1_0StringList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_0StringList
+ */
+const de_StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3900,87 +4433,114 @@ const deserializeAws_json1_0StringList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_0Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_0TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_0TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0TraceConfiguration = (output: any, context: __SerdeContext): TraceConfiguration => {
+/**
+ * deserializeAws_json1_0TraceConfiguration
+ */
+const de_TraceConfiguration = (output: any, context: __SerdeContext): TraceConfiguration => {
   return {
     Vendor: __expectString(output.Vendor),
   } as any;
 };
 
-const deserializeAws_json1_0UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_0UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_0UpdateServiceResponse = (output: any, context: __SerdeContext): UpdateServiceResponse => {
+/**
+ * deserializeAws_json1_0UpdateServiceResponse
+ */
+const de_UpdateServiceResponse = (output: any, context: __SerdeContext): UpdateServiceResponse => {
   return {
     OperationId: __expectString(output.OperationId),
-    Service: output.Service != null ? deserializeAws_json1_0Service(output.Service, context) : undefined,
+    Service: output.Service != null ? de_Service(output.Service, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0UpdateVpcIngressConnectionResponse = (
+/**
+ * deserializeAws_json1_0UpdateVpcIngressConnectionResponse
+ */
+const de_UpdateVpcIngressConnectionResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateVpcIngressConnectionResponse => {
   return {
     VpcIngressConnection:
-      output.VpcIngressConnection != null
-        ? deserializeAws_json1_0VpcIngressConnection(output.VpcIngressConnection, context)
-        : undefined,
+      output.VpcIngressConnection != null ? de_VpcIngressConnection(output.VpcIngressConnection, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_0VpcConnector = (output: any, context: __SerdeContext): VpcConnector => {
+/**
+ * deserializeAws_json1_0VpcConnector
+ */
+const de_VpcConnector = (output: any, context: __SerdeContext): VpcConnector => {
   return {
     CreatedAt:
       output.CreatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt))) : undefined,
     DeletedAt:
       output.DeletedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedAt))) : undefined,
-    SecurityGroups:
-      output.SecurityGroups != null ? deserializeAws_json1_0StringList(output.SecurityGroups, context) : undefined,
+    SecurityGroups: output.SecurityGroups != null ? de_StringList(output.SecurityGroups, context) : undefined,
     Status: __expectString(output.Status),
-    Subnets: output.Subnets != null ? deserializeAws_json1_0StringList(output.Subnets, context) : undefined,
+    Subnets: output.Subnets != null ? de_StringList(output.Subnets, context) : undefined,
     VpcConnectorArn: __expectString(output.VpcConnectorArn),
     VpcConnectorName: __expectString(output.VpcConnectorName),
     VpcConnectorRevision: __expectInt32(output.VpcConnectorRevision),
   } as any;
 };
 
-const deserializeAws_json1_0VpcConnectors = (output: any, context: __SerdeContext): VpcConnector[] => {
+/**
+ * deserializeAws_json1_0VpcConnectors
+ */
+const de_VpcConnectors = (output: any, context: __SerdeContext): VpcConnector[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0VpcConnector(entry, context);
+      return de_VpcConnector(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0VpcDNSTarget = (output: any, context: __SerdeContext): VpcDNSTarget => {
+/**
+ * deserializeAws_json1_0VpcDNSTarget
+ */
+const de_VpcDNSTarget = (output: any, context: __SerdeContext): VpcDNSTarget => {
   return {
     DomainName: __expectString(output.DomainName),
     VpcId: __expectString(output.VpcId),
@@ -3988,19 +4548,25 @@ const deserializeAws_json1_0VpcDNSTarget = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_0VpcDNSTargetList = (output: any, context: __SerdeContext): VpcDNSTarget[] => {
+/**
+ * deserializeAws_json1_0VpcDNSTargetList
+ */
+const de_VpcDNSTargetList = (output: any, context: __SerdeContext): VpcDNSTarget[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0VpcDNSTarget(entry, context);
+      return de_VpcDNSTarget(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_0VpcIngressConnection = (output: any, context: __SerdeContext): VpcIngressConnection => {
+/**
+ * deserializeAws_json1_0VpcIngressConnection
+ */
+const de_VpcIngressConnection = (output: any, context: __SerdeContext): VpcIngressConnection => {
   return {
     AccountId: __expectString(output.AccountId),
     CreatedAt:
@@ -4010,7 +4576,7 @@ const deserializeAws_json1_0VpcIngressConnection = (output: any, context: __Serd
     DomainName: __expectString(output.DomainName),
     IngressVpcConfiguration:
       output.IngressVpcConfiguration != null
-        ? deserializeAws_json1_0IngressVpcConfiguration(output.IngressVpcConfiguration, context)
+        ? de_IngressVpcConfiguration(output.IngressVpcConfiguration, context)
         : undefined,
     ServiceArn: __expectString(output.ServiceArn),
     Status: __expectString(output.Status),
@@ -4019,27 +4585,27 @@ const deserializeAws_json1_0VpcIngressConnection = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_0VpcIngressConnectionSummary = (
-  output: any,
-  context: __SerdeContext
-): VpcIngressConnectionSummary => {
+/**
+ * deserializeAws_json1_0VpcIngressConnectionSummary
+ */
+const de_VpcIngressConnectionSummary = (output: any, context: __SerdeContext): VpcIngressConnectionSummary => {
   return {
     ServiceArn: __expectString(output.ServiceArn),
     VpcIngressConnectionArn: __expectString(output.VpcIngressConnectionArn),
   } as any;
 };
 
-const deserializeAws_json1_0VpcIngressConnectionSummaryList = (
-  output: any,
-  context: __SerdeContext
-): VpcIngressConnectionSummary[] => {
+/**
+ * deserializeAws_json1_0VpcIngressConnectionSummaryList
+ */
+const de_VpcIngressConnectionSummaryList = (output: any, context: __SerdeContext): VpcIngressConnectionSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_0VpcIngressConnectionSummary(entry, context);
+      return de_VpcIngressConnectionSummary(entry, context);
     });
   return retVal;
 };

@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateAccessKeyRequest } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateAccessKeyCommand,
-  serializeAws_queryUpdateAccessKeyCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateAccessKeyCommand, se_UpdateAccessKeyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class UpdateAccessKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateAccessKeyCommand(input, context);
+    return se_UpdateAccessKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccessKeyCommandOutput> {
-    return deserializeAws_queryUpdateAccessKeyCommand(output, context);
+    return de_UpdateAccessKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

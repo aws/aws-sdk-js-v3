@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryResetDBClusterParameterGroupCommand,
-  serializeAws_queryResetDBClusterParameterGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ResetDBClusterParameterGroupCommand, se_ResetDBClusterParameterGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -151,7 +148,7 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryResetDBClusterParameterGroupCommand(input, context);
+    return se_ResetDBClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -161,7 +158,7 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ResetDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryResetDBClusterParameterGroupCommand(output, context);
+    return de_ResetDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

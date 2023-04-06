@@ -15,10 +15,7 @@ import {
 
 import { RejectAttachmentRequest, RejectAttachmentResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1RejectAttachmentCommand,
-  serializeAws_restJson1RejectAttachmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RejectAttachmentCommand, se_RejectAttachmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class RejectAttachmentCommand extends $Command<
    * @internal
    */
   private serialize(input: RejectAttachmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RejectAttachmentCommand(input, context);
+    return se_RejectAttachmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectAttachmentCommandOutput> {
-    return deserializeAws_restJson1RejectAttachmentCommand(output, context);
+    return de_RejectAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

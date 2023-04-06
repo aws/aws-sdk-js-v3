@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { DeleteGrantRequest, DeleteGrantResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteGrantCommand,
-  serializeAws_json1_1DeleteGrantCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteGrantCommand, se_DeleteGrantCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteGrantCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGrantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteGrantCommand(input, context);
+    return se_DeleteGrantCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGrantCommandOutput> {
-    return deserializeAws_json1_1DeleteGrantCommand(output, context);
+    return de_DeleteGrantCommand(output, context);
   }
 
   // Start section: command_body_extra

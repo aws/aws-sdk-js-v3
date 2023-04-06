@@ -15,8 +15,8 @@ import {
 
 import { DescribeOrderableClusterOptionsMessage, OrderableClusterOptionsMessage } from "../models/models_1";
 import {
-  deserializeAws_queryDescribeOrderableClusterOptionsCommand,
-  serializeAws_queryDescribeOrderableClusterOptionsCommand,
+  de_DescribeOrderableClusterOptionsCommand,
+  se_DescribeOrderableClusterOptionsCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -136,7 +136,7 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
     input: DescribeOrderableClusterOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeOrderableClusterOptionsCommand(input, context);
+    return se_DescribeOrderableClusterOptionsCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrderableClusterOptionsCommandOutput> {
-    return deserializeAws_queryDescribeOrderableClusterOptionsCommand(output, context);
+    return de_DescribeOrderableClusterOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

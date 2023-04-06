@@ -16,8 +16,8 @@ import {
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { GetRepositoryPermissionsPolicyRequest, GetRepositoryPermissionsPolicyResult } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetRepositoryPermissionsPolicyCommand,
-  serializeAws_restJson1GetRepositoryPermissionsPolicyCommand,
+  de_GetRepositoryPermissionsPolicyCommand,
+  se_GetRepositoryPermissionsPolicyCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -152,7 +152,7 @@ export class GetRepositoryPermissionsPolicyCommand extends $Command<
     input: GetRepositoryPermissionsPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRepositoryPermissionsPolicyCommand(input, context);
+    return se_GetRepositoryPermissionsPolicyCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class GetRepositoryPermissionsPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRepositoryPermissionsPolicyCommandOutput> {
-    return deserializeAws_restJson1GetRepositoryPermissionsPolicyCommand(output, context);
+    return de_GetRepositoryPermissionsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

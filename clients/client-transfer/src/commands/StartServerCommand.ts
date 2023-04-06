@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartServerRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartServerCommand,
-  serializeAws_json1_1StartServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartServerCommand, se_StartServerCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -140,14 +137,14 @@ export class StartServerCommand extends $Command<
    * @internal
    */
   private serialize(input: StartServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartServerCommand(input, context);
+    return se_StartServerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartServerCommandOutput> {
-    return deserializeAws_json1_1StartServerCommand(output, context);
+    return de_StartServerCommand(output, context);
   }
 
   // Start section: command_body_extra

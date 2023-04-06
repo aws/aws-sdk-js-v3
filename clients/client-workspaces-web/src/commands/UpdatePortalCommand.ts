@@ -19,10 +19,7 @@ import {
   UpdatePortalResponse,
   UpdatePortalResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePortalCommand,
-  serializeAws_restJson1UpdatePortalCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePortalCommand, se_UpdatePortalCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -140,14 +137,14 @@ export class UpdatePortalCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePortalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePortalCommand(input, context);
+    return se_UpdatePortalCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePortalCommandOutput> {
-    return deserializeAws_restJson1UpdatePortalCommand(output, context);
+    return de_UpdatePortalCommand(output, context);
   }
 
   // Start section: command_body_extra

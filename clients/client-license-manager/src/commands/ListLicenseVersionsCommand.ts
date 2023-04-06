@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { ListLicenseVersionsRequest, ListLicenseVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLicenseVersionsCommand,
-  serializeAws_json1_1ListLicenseVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLicenseVersionsCommand, se_ListLicenseVersionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListLicenseVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLicenseVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLicenseVersionsCommand(input, context);
+    return se_ListLicenseVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLicenseVersionsCommandOutput> {
-    return deserializeAws_json1_1ListLicenseVersionsCommand(output, context);
+    return de_ListLicenseVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

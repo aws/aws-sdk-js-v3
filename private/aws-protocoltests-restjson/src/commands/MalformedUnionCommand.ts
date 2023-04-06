@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MalformedUnionInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedUnionCommand,
-  serializeAws_restJson1MalformedUnionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedUnionCommand, se_MalformedUnionCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class MalformedUnionCommand extends $Command<
    * @internal
    */
   private serialize(input: MalformedUnionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedUnionCommand(input, context);
+    return se_MalformedUnionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedUnionCommandOutput> {
-    return deserializeAws_restJson1MalformedUnionCommand(output, context);
+    return de_MalformedUnionCommand(output, context);
   }
 
   // Start section: command_body_extra

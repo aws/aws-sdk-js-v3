@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { ListBuiltInIntentsRequest, ListBuiltInIntentsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBuiltInIntentsCommand,
-  serializeAws_restJson1ListBuiltInIntentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBuiltInIntentsCommand, se_ListBuiltInIntentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class ListBuiltInIntentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBuiltInIntentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBuiltInIntentsCommand(input, context);
+    return se_ListBuiltInIntentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBuiltInIntentsCommandOutput> {
-    return deserializeAws_restJson1ListBuiltInIntentsCommand(output, context);
+    return de_ListBuiltInIntentsCommand(output, context);
   }
 
   // Start section: command_body_extra

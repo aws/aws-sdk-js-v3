@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { DeleteFormRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFormCommand,
-  serializeAws_restJson1DeleteFormCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFormCommand, se_DeleteFormCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteFormCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFormCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFormCommand(input, context);
+    return se_DeleteFormCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFormCommandOutput> {
-    return deserializeAws_restJson1DeleteFormCommand(output, context);
+    return de_DeleteFormCommand(output, context);
   }
 
   // Start section: command_body_extra

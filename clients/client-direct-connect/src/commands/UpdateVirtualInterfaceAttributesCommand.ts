@@ -16,8 +16,8 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { UpdateVirtualInterfaceAttributesRequest, VirtualInterface } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand,
-  serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand,
+  de_UpdateVirtualInterfaceAttributesCommand,
+  se_UpdateVirtualInterfaceAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -138,7 +138,7 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     input: UpdateVirtualInterfaceAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand(input, context);
+    return se_UpdateVirtualInterfaceAttributesCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateVirtualInterfaceAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand(output, context);
+    return de_UpdateVirtualInterfaceAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

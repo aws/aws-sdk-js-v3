@@ -15,10 +15,7 @@ import {
 
 import { AcceptInboundConnectionRequest, AcceptInboundConnectionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1AcceptInboundConnectionCommand,
-  serializeAws_restJson1AcceptInboundConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AcceptInboundConnectionCommand, se_AcceptInboundConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class AcceptInboundConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptInboundConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptInboundConnectionCommand(input, context);
+    return se_AcceptInboundConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptInboundConnectionCommandOutput> {
-    return deserializeAws_restJson1AcceptInboundConnectionCommand(output, context);
+    return de_AcceptInboundConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

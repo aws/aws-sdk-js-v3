@@ -18,10 +18,7 @@ import {
   GetServiceTemplateOutput,
   GetServiceTemplateOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetServiceTemplateCommand,
-  serializeAws_json1_0GetServiceTemplateCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetServiceTemplateCommand, se_GetServiceTemplateCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -139,14 +136,14 @@ export class GetServiceTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetServiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetServiceTemplateCommand(input, context);
+    return se_GetServiceTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceTemplateCommandOutput> {
-    return deserializeAws_json1_0GetServiceTemplateCommand(output, context);
+    return de_GetServiceTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { CreateACLRequest, CreateACLResponse } from "../models/models_0";
-import { deserializeAws_json1_1CreateACLCommand, serializeAws_json1_1CreateACLCommand } from "../protocols/Aws_json1_1";
+import { de_CreateACLCommand, se_CreateACLCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +145,14 @@ export class CreateACLCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateACLCommand(input, context);
+    return se_CreateACLCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateACLCommandOutput> {
-    return deserializeAws_json1_1CreateACLCommand(output, context);
+    return de_CreateACLCommand(output, context);
   }
 
   // Start section: command_body_extra

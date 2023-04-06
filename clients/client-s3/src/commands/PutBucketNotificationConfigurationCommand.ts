@@ -15,8 +15,8 @@ import {
 
 import { PutBucketNotificationConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlPutBucketNotificationConfigurationCommand,
-  serializeAws_restXmlPutBucketNotificationConfigurationCommand,
+  de_PutBucketNotificationConfigurationCommand,
+  se_PutBucketNotificationConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -266,7 +266,7 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
     input: PutBucketNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketNotificationConfigurationCommand(input, context);
+    return se_PutBucketNotificationConfigurationCommand(input, context);
   }
 
   /**
@@ -276,7 +276,7 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketNotificationConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketNotificationConfigurationCommand(output, context);
+    return de_PutBucketNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GetSdkRequest, SdkResponse } from "../models/models_0";
-import { deserializeAws_restJson1GetSdkCommand, serializeAws_restJson1GetSdkCommand } from "../protocols/Aws_restJson1";
+import { de_GetSdkCommand, se_GetSdkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +134,14 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
    * @internal
    */
   private serialize(input: GetSdkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSdkCommand(input, context);
+    return se_GetSdkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSdkCommandOutput> {
-    return deserializeAws_restJson1GetSdkCommand(output, context);
+    return de_GetSdkCommand(output, context);
   }
 
   // Start section: command_body_extra

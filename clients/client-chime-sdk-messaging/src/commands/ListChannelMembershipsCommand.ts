@@ -24,10 +24,7 @@ import {
   ListChannelMembershipsResponse,
   ListChannelMembershipsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChannelMembershipsCommand,
-  serializeAws_restJson1ListChannelMembershipsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChannelMembershipsCommand, se_ListChannelMembershipsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class ListChannelMembershipsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListChannelMembershipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelMembershipsCommand(input, context);
+    return se_ListChannelMembershipsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelMembershipsCommandOutput> {
-    return deserializeAws_restJson1ListChannelMembershipsCommand(output, context);
+    return de_ListChannelMembershipsCommand(output, context);
   }
 
   // Start section: command_body_extra

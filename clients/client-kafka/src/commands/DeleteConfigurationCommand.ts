@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { DeleteConfigurationRequest, DeleteConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteConfigurationCommand,
-  serializeAws_restJson1DeleteConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteConfigurationCommand, se_DeleteConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfigurationCommand(input, context);
+    return se_DeleteConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteConfigurationCommand(output, context);
+    return de_DeleteConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

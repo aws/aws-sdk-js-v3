@@ -15,10 +15,7 @@ import {
 
 import { DeleteCoreNetworkRequest, DeleteCoreNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DeleteCoreNetworkCommand,
-  serializeAws_restJson1DeleteCoreNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCoreNetworkCommand, se_DeleteCoreNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteCoreNetworkCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteCoreNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCoreNetworkCommand(input, context);
+    return se_DeleteCoreNetworkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCoreNetworkCommandOutput> {
-    return deserializeAws_restJson1DeleteCoreNetworkCommand(output, context);
+    return de_DeleteCoreNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

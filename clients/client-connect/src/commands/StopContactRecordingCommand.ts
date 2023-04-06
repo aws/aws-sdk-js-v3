@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { StopContactRecordingRequest, StopContactRecordingResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1StopContactRecordingCommand,
-  serializeAws_restJson1StopContactRecordingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopContactRecordingCommand, se_StopContactRecordingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class StopContactRecordingCommand extends $Command<
    * @internal
    */
   private serialize(input: StopContactRecordingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopContactRecordingCommand(input, context);
+    return se_StopContactRecordingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopContactRecordingCommandOutput> {
-    return deserializeAws_restJson1StopContactRecordingCommand(output, context);
+    return de_StopContactRecordingCommand(output, context);
   }
 
   // Start section: command_body_extra

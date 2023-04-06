@@ -15,10 +15,7 @@ import {
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { FailoverShardRequest, FailoverShardResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1FailoverShardCommand,
-  serializeAws_json1_1FailoverShardCommand,
-} from "../protocols/Aws_json1_1";
+import { de_FailoverShardCommand, se_FailoverShardCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class FailoverShardCommand extends $Command<
    * @internal
    */
   private serialize(input: FailoverShardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1FailoverShardCommand(input, context);
+    return se_FailoverShardCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FailoverShardCommandOutput> {
-    return deserializeAws_json1_1FailoverShardCommand(output, context);
+    return de_FailoverShardCommand(output, context);
   }
 
   // Start section: command_body_extra

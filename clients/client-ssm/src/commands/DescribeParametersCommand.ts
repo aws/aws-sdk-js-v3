@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeParametersRequest, DescribeParametersResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribeParametersCommand,
-  serializeAws_json1_1DescribeParametersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeParametersCommand, se_DescribeParametersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -166,14 +163,14 @@ export class DescribeParametersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeParametersCommand(input, context);
+    return se_DescribeParametersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeParametersCommand(output, context);
+    return de_DescribeParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

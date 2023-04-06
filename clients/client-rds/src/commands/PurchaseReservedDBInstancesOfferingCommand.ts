@@ -18,8 +18,8 @@ import {
   PurchaseReservedDBInstancesOfferingResult,
 } from "../models/models_1";
 import {
-  deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand,
-  serializeAws_queryPurchaseReservedDBInstancesOfferingCommand,
+  de_PurchaseReservedDBInstancesOfferingCommand,
+  se_PurchaseReservedDBInstancesOfferingCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -78,21 +78,42 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  *  <p>Specified offering does not exist.</p>
  *
  *
- * @example To purchase a reserved DB instance offering
+ * @example To purchase a reserved DB instance
  * ```javascript
- * // This example purchases a reserved DB instance offering that matches the specified settings.
+ * // The following example shows how to buy the reserved DB instance offering from the previous example.
  * const input = {
- *   "ReservedDBInstanceId": "myreservationid",
- *   "ReservedDBInstancesOfferingId": "fb29428a-646d-4390-850e-5fe89926e727"
+ *   "ReservedDBInstanceId": "8ba30be1-b9ec-447f-8f23-6114e3f4c7b4",
+ *   "ReservedDBInstancesOfferingId": ""
  * };
  * const command = new PurchaseReservedDBInstancesOfferingCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "ReservedDBInstance": {}
+ *   "ReservedDBInstance": {
+ *     "CurrencyCode": "USD",
+ *     "DBInstanceClass": "db.t2.micro",
+ *     "DBInstanceCount": 1,
+ *     "Duration": 31536000,
+ *     "FixedPrice": 51,
+ *     "MultiAZ": false,
+ *     "OfferingType": "Partial Upfront",
+ *     "ProductDescription": "mysql",
+ *     "RecurringCharges": [
+ *       {
+ *         "RecurringChargeAmount": 0.006,
+ *         "RecurringChargeFrequency": "Hourly"
+ *       }
+ *     ],
+ *     "ReservedDBInstanceArn": "arn:aws:rds:us-west-2:123456789012:ri:ri-2020-06-29-16-54-57-670",
+ *     "ReservedDBInstanceId": "ri-2020-06-29-16-54-57-670",
+ *     "ReservedDBInstancesOfferingId": "8ba30be1-b9ec-447f-8f23-6114e3f4c7b4",
+ *     "StartTime": "2020-06-29T16:54:57.670Z",
+ *     "State": "payment-pending",
+ *     "UsagePrice": 0
+ *   }
  * }
  * *\/
- * // example id: purchase-reserved-db-instances-offfering-f423c736-8413-429b-ba13-850fd4fa4dcd
+ * // example id: to-purchase-a-reserved-db-instance-1680263732858
  * ```
  *
  */
@@ -162,7 +183,7 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     input: PurchaseReservedDBInstancesOfferingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryPurchaseReservedDBInstancesOfferingCommand(input, context);
+    return se_PurchaseReservedDBInstancesOfferingCommand(input, context);
   }
 
   /**
@@ -172,7 +193,7 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> {
-    return deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand(output, context);
+    return de_PurchaseReservedDBInstancesOfferingCommand(output, context);
   }
 
   // Start section: command_body_extra

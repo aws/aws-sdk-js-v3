@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribePageRequest, DescribePageResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribePageCommand,
-  serializeAws_json1_1DescribePageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribePageCommand, se_DescribePageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -137,14 +134,14 @@ export class DescribePageCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribePageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePageCommand(input, context);
+    return se_DescribePageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePageCommandOutput> {
-    return deserializeAws_json1_1DescribePageCommand(output, context);
+    return de_DescribePageCommand(output, context);
   }
 
   // Start section: command_body_extra

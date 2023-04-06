@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DescribeDeliveryChannelsRequest, DescribeDeliveryChannelsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDeliveryChannelsCommand,
-  serializeAws_json1_1DescribeDeliveryChannelsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDeliveryChannelsCommand, se_DescribeDeliveryChannelsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DescribeDeliveryChannelsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDeliveryChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDeliveryChannelsCommand(input, context);
+    return se_DescribeDeliveryChannelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeliveryChannelsCommandOutput> {
-    return deserializeAws_json1_1DescribeDeliveryChannelsCommand(output, context);
+    return de_DescribeDeliveryChannelsCommand(output, context);
   }
 
   // Start section: command_body_extra

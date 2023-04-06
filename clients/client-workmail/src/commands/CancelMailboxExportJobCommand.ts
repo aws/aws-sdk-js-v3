@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelMailboxExportJobRequest, CancelMailboxExportJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelMailboxExportJobCommand,
-  serializeAws_json1_1CancelMailboxExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelMailboxExportJobCommand, se_CancelMailboxExportJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -141,14 +138,14 @@ export class CancelMailboxExportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelMailboxExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelMailboxExportJobCommand(input, context);
+    return se_CancelMailboxExportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelMailboxExportJobCommandOutput> {
-    return deserializeAws_json1_1CancelMailboxExportJobCommand(output, context);
+    return de_CancelMailboxExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

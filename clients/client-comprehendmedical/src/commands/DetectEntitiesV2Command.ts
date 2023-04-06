@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import { DetectEntitiesV2Request, DetectEntitiesV2Response } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectEntitiesV2Command,
-  serializeAws_json1_1DetectEntitiesV2Command,
-} from "../protocols/Aws_json1_1";
+import { de_DetectEntitiesV2Command, se_DetectEntitiesV2Command } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class DetectEntitiesV2Command extends $Command<
    * @internal
    */
   private serialize(input: DetectEntitiesV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectEntitiesV2Command(input, context);
+    return se_DetectEntitiesV2Command(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectEntitiesV2CommandOutput> {
-    return deserializeAws_json1_1DetectEntitiesV2Command(output, context);
+    return de_DetectEntitiesV2Command(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
 import { StartStageDeploymentRequest, StartStageDeploymentResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartStageDeploymentCommand,
-  serializeAws_restJson1StartStageDeploymentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartStageDeploymentCommand, se_StartStageDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class StartStageDeploymentCommand extends $Command<
    * @internal
    */
   private serialize(input: StartStageDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartStageDeploymentCommand(input, context);
+    return se_StartStageDeploymentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStageDeploymentCommandOutput> {
-    return deserializeAws_restJson1StartStageDeploymentCommand(output, context);
+    return de_StartStageDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

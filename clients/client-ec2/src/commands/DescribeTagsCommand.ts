@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeTagsRequest, DescribeTagsResult } from "../models/models_4";
-import { deserializeAws_ec2DescribeTagsCommand, serializeAws_ec2DescribeTagsCommand } from "../protocols/Aws_ec2";
+import { de_DescribeTagsCommand, se_DescribeTagsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -163,14 +163,14 @@ export class DescribeTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTagsCommand(input, context);
+    return se_DescribeTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
-    return deserializeAws_ec2DescribeTagsCommand(output, context);
+    return de_DescribeTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

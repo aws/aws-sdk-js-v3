@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { CreateStreamingURLRequest, CreateStreamingURLResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStreamingURLCommand,
-  serializeAws_json1_1CreateStreamingURLCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateStreamingURLCommand, se_CreateStreamingURLCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class CreateStreamingURLCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStreamingURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStreamingURLCommand(input, context);
+    return se_CreateStreamingURLCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStreamingURLCommandOutput> {
-    return deserializeAws_json1_1CreateStreamingURLCommand(output, context);
+    return de_CreateStreamingURLCommand(output, context);
   }
 
   // Start section: command_body_extra

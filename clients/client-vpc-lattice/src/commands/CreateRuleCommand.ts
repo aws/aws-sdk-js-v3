@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateRuleRequest, CreateRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRuleCommand,
-  serializeAws_restJson1CreateRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRuleCommand, se_CreateRuleCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -187,14 +184,14 @@ export class CreateRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRuleCommand(input, context);
+    return se_CreateRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleCommandOutput> {
-    return deserializeAws_restJson1CreateRuleCommand(output, context);
+    return de_CreateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

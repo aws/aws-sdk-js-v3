@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HttpResponseCodeOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlHttpResponseCodeCommand,
-  serializeAws_restXmlHttpResponseCodeCommand,
-} from "../protocols/Aws_restXml";
+import { de_HttpResponseCodeCommand, se_HttpResponseCodeCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class HttpResponseCodeCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpResponseCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpResponseCodeCommand(input, context);
+    return se_HttpResponseCodeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpResponseCodeCommandOutput> {
-    return deserializeAws_restXmlHttpResponseCodeCommand(output, context);
+    return de_HttpResponseCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

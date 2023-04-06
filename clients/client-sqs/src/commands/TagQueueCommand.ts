@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TagQueueRequest } from "../models/models_0";
-import { deserializeAws_queryTagQueueCommand, serializeAws_queryTagQueueCommand } from "../protocols/Aws_query";
+import { de_TagQueueCommand, se_TagQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -139,14 +139,14 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
    * @internal
    */
   private serialize(input: TagQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagQueueCommand(input, context);
+    return se_TagQueueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagQueueCommandOutput> {
-    return deserializeAws_queryTagQueueCommand(output, context);
+    return de_TagQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

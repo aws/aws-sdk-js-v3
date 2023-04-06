@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ResetCacheInput, ResetCacheOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ResetCacheCommand,
-  serializeAws_json1_1ResetCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResetCacheCommand, se_ResetCacheCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -154,14 +151,14 @@ export class ResetCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResetCacheCommand(input, context);
+    return se_ResetCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetCacheCommandOutput> {
-    return deserializeAws_json1_1ResetCacheCommand(output, context);
+    return de_ResetCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

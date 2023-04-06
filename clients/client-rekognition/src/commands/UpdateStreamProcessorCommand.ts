@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateStreamProcessorRequest, UpdateStreamProcessorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateStreamProcessorCommand,
-  serializeAws_json1_1UpdateStreamProcessorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateStreamProcessorCommand, se_UpdateStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -172,14 +169,14 @@ export class UpdateStreamProcessorCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStreamProcessorCommand(input, context);
+    return se_UpdateStreamProcessorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1UpdateStreamProcessorCommand(output, context);
+    return de_UpdateStreamProcessorCommand(output, context);
   }
 
   // Start section: command_body_extra

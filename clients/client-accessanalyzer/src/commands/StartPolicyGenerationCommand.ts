@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { StartPolicyGenerationRequest, StartPolicyGenerationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartPolicyGenerationCommand,
-  serializeAws_restJson1StartPolicyGenerationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartPolicyGenerationCommand, se_StartPolicyGenerationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class StartPolicyGenerationCommand extends $Command<
    * @internal
    */
   private serialize(input: StartPolicyGenerationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartPolicyGenerationCommand(input, context);
+    return se_StartPolicyGenerationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPolicyGenerationCommandOutput> {
-    return deserializeAws_restJson1StartPolicyGenerationCommand(output, context);
+    return de_StartPolicyGenerationCommand(output, context);
   }
 
   // Start section: command_body_extra

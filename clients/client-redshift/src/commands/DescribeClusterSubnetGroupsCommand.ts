@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ClusterSubnetGroupMessage, DescribeClusterSubnetGroupsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterSubnetGroupsCommand,
-  serializeAws_queryDescribeClusterSubnetGroupsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeClusterSubnetGroupsCommand, se_DescribeClusterSubnetGroupsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -145,7 +142,7 @@ export class DescribeClusterSubnetGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeClusterSubnetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterSubnetGroupsCommand(input, context);
+    return se_DescribeClusterSubnetGroupsCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class DescribeClusterSubnetGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClusterSubnetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeClusterSubnetGroupsCommand(output, context);
+    return de_DescribeClusterSubnetGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

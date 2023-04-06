@@ -15,8 +15,8 @@ import {
 
 import { DisableImportFindingsForProductRequest, DisableImportFindingsForProductResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1DisableImportFindingsForProductCommand,
-  serializeAws_restJson1DisableImportFindingsForProductCommand,
+  de_DisableImportFindingsForProductCommand,
+  se_DisableImportFindingsForProductCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
@@ -143,7 +143,7 @@ export class DisableImportFindingsForProductCommand extends $Command<
     input: DisableImportFindingsForProductCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableImportFindingsForProductCommand(input, context);
+    return se_DisableImportFindingsForProductCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class DisableImportFindingsForProductCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableImportFindingsForProductCommandOutput> {
-    return deserializeAws_restJson1DisableImportFindingsForProductCommand(output, context);
+    return de_DisableImportFindingsForProductCommand(output, context);
   }
 
   // Start section: command_body_extra

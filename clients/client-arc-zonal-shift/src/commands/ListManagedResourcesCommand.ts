@@ -15,10 +15,7 @@ import {
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { ListManagedResourcesRequest, ListManagedResourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListManagedResourcesCommand,
-  serializeAws_restJson1ListManagedResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListManagedResourcesCommand, se_ListManagedResourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListManagedResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListManagedResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListManagedResourcesCommand(input, context);
+    return se_ListManagedResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListManagedResourcesCommandOutput> {
-    return deserializeAws_restJson1ListManagedResourcesCommand(output, context);
+    return de_ListManagedResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

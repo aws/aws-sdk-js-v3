@@ -16,8 +16,8 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { ListGroupsOlderThanOrderingIdRequest, ListGroupsOlderThanOrderingIdResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListGroupsOlderThanOrderingIdCommand,
-  serializeAws_json1_1ListGroupsOlderThanOrderingIdCommand,
+  de_ListGroupsOlderThanOrderingIdCommand,
+  se_ListGroupsOlderThanOrderingIdCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGroupsOlderThanOrderingIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGroupsOlderThanOrderingIdCommand(input, context);
+    return se_ListGroupsOlderThanOrderingIdCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class ListGroupsOlderThanOrderingIdCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGroupsOlderThanOrderingIdCommandOutput> {
-    return deserializeAws_json1_1ListGroupsOlderThanOrderingIdCommand(output, context);
+    return de_ListGroupsOlderThanOrderingIdCommand(output, context);
   }
 
   // Start section: command_body_extra

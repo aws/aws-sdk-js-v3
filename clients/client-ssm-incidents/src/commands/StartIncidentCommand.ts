@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartIncidentInput, StartIncidentOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartIncidentCommand,
-  serializeAws_restJson1StartIncidentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartIncidentCommand, se_StartIncidentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -167,14 +164,14 @@ export class StartIncidentCommand extends $Command<
    * @internal
    */
   private serialize(input: StartIncidentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartIncidentCommand(input, context);
+    return se_StartIncidentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartIncidentCommandOutput> {
-    return deserializeAws_restJson1StartIncidentCommand(output, context);
+    return de_StartIncidentCommand(output, context);
   }
 
   // Start section: command_body_extra

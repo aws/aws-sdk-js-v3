@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListLabelingJobsForWorkteamRequest, ListLabelingJobsForWorkteamResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListLabelingJobsForWorkteamCommand,
-  serializeAws_json1_1ListLabelingJobsForWorkteamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLabelingJobsForWorkteamCommand, se_ListLabelingJobsForWorkteamCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -132,7 +129,7 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLabelingJobsForWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLabelingJobsForWorkteamCommand(input, context);
+    return se_ListLabelingJobsForWorkteamCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLabelingJobsForWorkteamCommandOutput> {
-    return deserializeAws_json1_1ListLabelingJobsForWorkteamCommand(output, context);
+    return de_ListLabelingJobsForWorkteamCommand(output, context);
   }
 
   // Start section: command_body_extra

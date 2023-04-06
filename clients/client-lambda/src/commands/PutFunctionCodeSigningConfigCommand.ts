@@ -16,8 +16,8 @@ import {
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { PutFunctionCodeSigningConfigRequest, PutFunctionCodeSigningConfigResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutFunctionCodeSigningConfigCommand,
-  serializeAws_restJson1PutFunctionCodeSigningConfigCommand,
+  de_PutFunctionCodeSigningConfigCommand,
+  se_PutFunctionCodeSigningConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -142,7 +142,7 @@ export class PutFunctionCodeSigningConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: PutFunctionCodeSigningConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutFunctionCodeSigningConfigCommand(input, context);
+    return se_PutFunctionCodeSigningConfigCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class PutFunctionCodeSigningConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutFunctionCodeSigningConfigCommandOutput> {
-    return deserializeAws_restJson1PutFunctionCodeSigningConfigCommand(output, context);
+    return de_PutFunctionCodeSigningConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

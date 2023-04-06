@@ -14,8 +14,8 @@ import {
 
 import { HostLabelInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1EndpointWithHostLabelOperationCommand,
-  serializeAws_restJson1EndpointWithHostLabelOperationCommand,
+  de_EndpointWithHostLabelOperationCommand,
+  se_EndpointWithHostLabelOperationCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -86,7 +86,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
     input: EndpointWithHostLabelOperationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1EndpointWithHostLabelOperationCommand(input, context);
+    return se_EndpointWithHostLabelOperationCommand(input, context);
   }
 
   /**
@@ -96,7 +96,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EndpointWithHostLabelOperationCommandOutput> {
-    return deserializeAws_restJson1EndpointWithHostLabelOperationCommand(output, context);
+    return de_EndpointWithHostLabelOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

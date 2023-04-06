@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { UnassignPrivateNatGatewayAddressRequest, UnassignPrivateNatGatewayAddressResult } from "../models/models_7";
 import {
-  deserializeAws_ec2UnassignPrivateNatGatewayAddressCommand,
-  serializeAws_ec2UnassignPrivateNatGatewayAddressCommand,
+  de_UnassignPrivateNatGatewayAddressCommand,
+  se_UnassignPrivateNatGatewayAddressCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -138,7 +138,7 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command<
     input: UnassignPrivateNatGatewayAddressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2UnassignPrivateNatGatewayAddressCommand(input, context);
+    return se_UnassignPrivateNatGatewayAddressCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UnassignPrivateNatGatewayAddressCommandOutput> {
-    return deserializeAws_ec2UnassignPrivateNatGatewayAddressCommand(output, context);
+    return de_UnassignPrivateNatGatewayAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

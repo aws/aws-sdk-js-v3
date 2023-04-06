@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DeleteBackupVaultInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBackupVaultCommand,
-  serializeAws_restJson1DeleteBackupVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteBackupVaultCommand, se_DeleteBackupVaultCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteBackupVaultCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBackupVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackupVaultCommand(input, context);
+    return se_DeleteBackupVaultCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackupVaultCommandOutput> {
-    return deserializeAws_restJson1DeleteBackupVaultCommand(output, context);
+    return de_DeleteBackupVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { GetRegistryScanningConfigurationRequest, GetRegistryScanningConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetRegistryScanningConfigurationCommand,
-  serializeAws_json1_1GetRegistryScanningConfigurationCommand,
+  de_GetRegistryScanningConfigurationCommand,
+  se_GetRegistryScanningConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -133,7 +133,7 @@ export class GetRegistryScanningConfigurationCommand extends $Command<
     input: GetRegistryScanningConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRegistryScanningConfigurationCommand(input, context);
+    return se_GetRegistryScanningConfigurationCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class GetRegistryScanningConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRegistryScanningConfigurationCommandOutput> {
-    return deserializeAws_json1_1GetRegistryScanningConfigurationCommand(output, context);
+    return de_GetRegistryScanningConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

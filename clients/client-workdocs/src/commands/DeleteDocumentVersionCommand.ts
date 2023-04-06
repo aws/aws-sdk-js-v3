@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDocumentVersionRequest, DeleteDocumentVersionRequestFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDocumentVersionCommand,
-  serializeAws_restJson1DeleteDocumentVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDocumentVersionCommand, se_DeleteDocumentVersionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -149,14 +146,14 @@ export class DeleteDocumentVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDocumentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDocumentVersionCommand(input, context);
+    return se_DeleteDocumentVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDocumentVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteDocumentVersionCommand(output, context);
+    return de_DeleteDocumentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

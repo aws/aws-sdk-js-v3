@@ -20,10 +20,7 @@ import {
   CreateUserResponse,
   CreateUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateUserCommand,
-  serializeAws_restJson1CreateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateUserCommand, se_CreateUserCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CreateUserCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateUserCommand(input, context);
+    return se_CreateUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserCommandOutput> {
-    return deserializeAws_restJson1CreateUserCommand(output, context);
+    return de_CreateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

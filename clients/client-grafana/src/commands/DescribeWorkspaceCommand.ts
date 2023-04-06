@@ -19,10 +19,7 @@ import {
   DescribeWorkspaceResponse,
   DescribeWorkspaceResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeWorkspaceCommand,
-  serializeAws_restJson1DescribeWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeWorkspaceCommand, se_DescribeWorkspaceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DescribeWorkspaceCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeWorkspaceCommand(input, context);
+    return se_DescribeWorkspaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkspaceCommandOutput> {
-    return deserializeAws_restJson1DescribeWorkspaceCommand(output, context);
+    return de_DescribeWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

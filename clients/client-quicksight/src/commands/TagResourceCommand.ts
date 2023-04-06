@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TagResourceRequest, TagResourceResponse } from "../models/models_3";
-import {
-  deserializeAws_restJson1TagResourceCommand,
-  serializeAws_restJson1TagResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -167,14 +164,14 @@ export class TagResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagResourceCommand(input, context);
+    return se_TagResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_restJson1TagResourceCommand(output, context);
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import { ExportConfigurationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ExportConfigurationsCommand,
-  serializeAws_json1_1ExportConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ExportConfigurationsCommand, se_ExportConfigurationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class ExportConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ExportConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExportConfigurationsCommand(input, context);
+    return se_ExportConfigurationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ExportConfigurationsCommand(output, context);
+    return de_ExportConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeEndpointsCommand,
-  serializeAws_restJson1DescribeEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeEndpointsCommand, se_DescribeEndpointsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeEndpointsCommand(input, context);
+    return se_DescribeEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointsCommandOutput> {
-    return deserializeAws_restJson1DescribeEndpointsCommand(output, context);
+    return de_DescribeEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { UpdateRecoveryPointLifecycleInput, UpdateRecoveryPointLifecycleOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand,
-  serializeAws_restJson1UpdateRecoveryPointLifecycleCommand,
+  de_UpdateRecoveryPointLifecycleCommand,
+  se_UpdateRecoveryPointLifecycleCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -156,7 +156,7 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRecoveryPointLifecycleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRecoveryPointLifecycleCommand(input, context);
+    return se_UpdateRecoveryPointLifecycleCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRecoveryPointLifecycleCommandOutput> {
-    return deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand(output, context);
+    return de_UpdateRecoveryPointLifecycleCommand(output, context);
   }
 
   // Start section: command_body_extra

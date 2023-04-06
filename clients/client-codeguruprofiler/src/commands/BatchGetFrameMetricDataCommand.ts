@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { BatchGetFrameMetricDataRequest, BatchGetFrameMetricDataResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetFrameMetricDataCommand,
-  serializeAws_restJson1BatchGetFrameMetricDataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetFrameMetricDataCommand, se_BatchGetFrameMetricDataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class BatchGetFrameMetricDataCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetFrameMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetFrameMetricDataCommand(input, context);
+    return se_BatchGetFrameMetricDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetFrameMetricDataCommandOutput> {
-    return deserializeAws_restJson1BatchGetFrameMetricDataCommand(output, context);
+    return de_BatchGetFrameMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { BatchCreateRoomMembershipRequest, BatchCreateRoomMembershipResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchCreateRoomMembershipCommand,
-  serializeAws_restJson1BatchCreateRoomMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchCreateRoomMembershipCommand, se_BatchCreateRoomMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,7 +145,7 @@ export class BatchCreateRoomMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchCreateRoomMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchCreateRoomMembershipCommand(input, context);
+    return se_BatchCreateRoomMembershipCommand(input, context);
   }
 
   /**
@@ -158,7 +155,7 @@ export class BatchCreateRoomMembershipCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchCreateRoomMembershipCommandOutput> {
-    return deserializeAws_restJson1BatchCreateRoomMembershipCommand(output, context);
+    return de_BatchCreateRoomMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

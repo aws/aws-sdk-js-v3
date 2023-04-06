@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeJobRequest, DescribeJobResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeJobCommand,
-  serializeAws_json1_1DescribeJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeJobCommand, se_DescribeJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -165,14 +162,14 @@ export class DescribeJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeJobCommand(input, context);
+    return se_DescribeJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobCommandOutput> {
-    return deserializeAws_json1_1DescribeJobCommand(output, context);
+    return de_DescribeJobCommand(output, context);
   }
 
   // Start section: command_body_extra

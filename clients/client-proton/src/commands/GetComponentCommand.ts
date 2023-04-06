@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetComponentInput, GetComponentOutput, GetComponentOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetComponentCommand,
-  serializeAws_json1_0GetComponentCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetComponentCommand, se_GetComponentCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -136,14 +133,14 @@ export class GetComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetComponentCommand(input, context);
+    return se_GetComponentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComponentCommandOutput> {
-    return deserializeAws_json1_0GetComponentCommand(output, context);
+    return de_GetComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

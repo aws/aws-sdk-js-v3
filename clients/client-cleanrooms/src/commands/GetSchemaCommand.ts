@@ -15,10 +15,7 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { GetSchemaInput, GetSchemaOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSchemaCommand,
-  serializeAws_restJson1GetSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSchemaCommand, se_GetSchemaCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetSchemaCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSchemaCommand(input, context);
+    return se_GetSchemaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaCommandOutput> {
-    return deserializeAws_restJson1GetSchemaCommand(output, context);
+    return de_GetSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

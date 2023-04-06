@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeregisterTargetsRequest, DeregisterTargetsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeregisterTargetsCommand,
-  serializeAws_restJson1DeregisterTargetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeregisterTargetsCommand, se_DeregisterTargetsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -146,14 +143,14 @@ export class DeregisterTargetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeregisterTargetsCommand(input, context);
+    return se_DeregisterTargetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterTargetsCommandOutput> {
-    return deserializeAws_restJson1DeregisterTargetsCommand(output, context);
+    return de_DeregisterTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteStreamProcessorRequest, DeleteStreamProcessorResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteStreamProcessorCommand,
-  serializeAws_json1_1DeleteStreamProcessorCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteStreamProcessorCommand, se_DeleteStreamProcessorCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -144,14 +141,14 @@ export class DeleteStreamProcessorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStreamProcessorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStreamProcessorCommand(input, context);
+    return se_DeleteStreamProcessorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1DeleteStreamProcessorCommand(output, context);
+    return de_DeleteStreamProcessorCommand(output, context);
   }
 
   // Start section: command_body_extra

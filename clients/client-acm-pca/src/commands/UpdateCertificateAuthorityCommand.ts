@@ -15,10 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { UpdateCertificateAuthorityRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateCertificateAuthorityCommand,
-  serializeAws_json1_1UpdateCertificateAuthorityCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateCertificateAuthorityCommand, se_UpdateCertificateAuthorityCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -165,7 +162,7 @@ export class UpdateCertificateAuthorityCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateCertificateAuthorityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCertificateAuthorityCommand(input, context);
+    return se_UpdateCertificateAuthorityCommand(input, context);
   }
 
   /**
@@ -175,7 +172,7 @@ export class UpdateCertificateAuthorityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1UpdateCertificateAuthorityCommand(output, context);
+    return de_UpdateCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

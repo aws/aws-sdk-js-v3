@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateLoginProfileRequest, UpdateLoginProfileRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateLoginProfileCommand,
-  serializeAws_queryUpdateLoginProfileCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateLoginProfileCommand, se_UpdateLoginProfileCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class UpdateLoginProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLoginProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateLoginProfileCommand(input, context);
+    return se_UpdateLoginProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLoginProfileCommandOutput> {
-    return deserializeAws_queryUpdateLoginProfileCommand(output, context);
+    return de_UpdateLoginProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

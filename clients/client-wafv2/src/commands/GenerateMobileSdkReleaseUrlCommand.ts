@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GenerateMobileSdkReleaseUrlRequest, GenerateMobileSdkReleaseUrlResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GenerateMobileSdkReleaseUrlCommand,
-  serializeAws_json1_1GenerateMobileSdkReleaseUrlCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GenerateMobileSdkReleaseUrlCommand, se_GenerateMobileSdkReleaseUrlCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -159,7 +156,7 @@ export class GenerateMobileSdkReleaseUrlCommand extends $Command<
    * @internal
    */
   private serialize(input: GenerateMobileSdkReleaseUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateMobileSdkReleaseUrlCommand(input, context);
+    return se_GenerateMobileSdkReleaseUrlCommand(input, context);
   }
 
   /**
@@ -169,7 +166,7 @@ export class GenerateMobileSdkReleaseUrlCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateMobileSdkReleaseUrlCommandOutput> {
-    return deserializeAws_json1_1GenerateMobileSdkReleaseUrlCommand(output, context);
+    return de_GenerateMobileSdkReleaseUrlCommand(output, context);
   }
 
   // Start section: command_body_extra

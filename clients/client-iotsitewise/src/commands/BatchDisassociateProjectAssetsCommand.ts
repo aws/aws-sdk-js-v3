@@ -16,8 +16,8 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { BatchDisassociateProjectAssetsRequest, BatchDisassociateProjectAssetsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchDisassociateProjectAssetsCommand,
-  serializeAws_restJson1BatchDisassociateProjectAssetsCommand,
+  de_BatchDisassociateProjectAssetsCommand,
+  se_BatchDisassociateProjectAssetsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class BatchDisassociateProjectAssetsCommand extends $Command<
     input: BatchDisassociateProjectAssetsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDisassociateProjectAssetsCommand(input, context);
+    return se_BatchDisassociateProjectAssetsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class BatchDisassociateProjectAssetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDisassociateProjectAssetsCommandOutput> {
-    return deserializeAws_restJson1BatchDisassociateProjectAssetsCommand(output, context);
+    return de_BatchDisassociateProjectAssetsCommand(output, context);
   }
 
   // Start section: command_body_extra

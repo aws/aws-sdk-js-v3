@@ -16,8 +16,8 @@ import {
 import { DescribeBrokerInstanceOptionsRequest, DescribeBrokerInstanceOptionsResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
-  deserializeAws_restJson1DescribeBrokerInstanceOptionsCommand,
-  serializeAws_restJson1DescribeBrokerInstanceOptionsCommand,
+  de_DescribeBrokerInstanceOptionsCommand,
+  se_DescribeBrokerInstanceOptionsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -135,7 +135,7 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBrokerInstanceOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBrokerInstanceOptionsCommand(input, context);
+    return se_DescribeBrokerInstanceOptionsCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeBrokerInstanceOptionsCommandOutput> {
-    return deserializeAws_restJson1DescribeBrokerInstanceOptionsCommand(output, context);
+    return de_DescribeBrokerInstanceOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

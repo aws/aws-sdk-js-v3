@@ -19,10 +19,7 @@ import {
   GetResourceRequestStatusOutput,
   GetResourceRequestStatusOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetResourceRequestStatusCommand,
-  serializeAws_json1_0GetResourceRequestStatusCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetResourceRequestStatusCommand, se_GetResourceRequestStatusCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetResourceRequestStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourceRequestStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetResourceRequestStatusCommand(input, context);
+    return se_GetResourceRequestStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceRequestStatusCommandOutput> {
-    return deserializeAws_json1_0GetResourceRequestStatusCommand(output, context);
+    return de_GetResourceRequestStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

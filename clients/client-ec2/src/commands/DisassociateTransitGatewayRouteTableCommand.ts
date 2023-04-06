@@ -19,8 +19,8 @@ import {
   DisassociateTransitGatewayRouteTableResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand,
-  serializeAws_ec2DisassociateTransitGatewayRouteTableCommand,
+  de_DisassociateTransitGatewayRouteTableCommand,
+  se_DisassociateTransitGatewayRouteTableCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -130,7 +130,7 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
     input: DisassociateTransitGatewayRouteTableCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisassociateTransitGatewayRouteTableCommand(input, context);
+    return se_DisassociateTransitGatewayRouteTableCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateTransitGatewayRouteTableCommandOutput> {
-    return deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand(output, context);
+    return de_DisassociateTransitGatewayRouteTableCommand(output, context);
   }
 
   // Start section: command_body_extra

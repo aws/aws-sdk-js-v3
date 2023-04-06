@@ -19,10 +19,7 @@ import {
   GenerateRandomResponse,
   GenerateRandomResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1GenerateRandomCommand,
-  serializeAws_json1_1GenerateRandomCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GenerateRandomCommand, se_GenerateRandomCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -207,14 +204,14 @@ export class GenerateRandomCommand extends $Command<
    * @internal
    */
   private serialize(input: GenerateRandomCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateRandomCommand(input, context);
+    return se_GenerateRandomCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateRandomCommandOutput> {
-    return deserializeAws_json1_1GenerateRandomCommand(output, context);
+    return de_GenerateRandomCommand(output, context);
   }
 
   // Start section: command_body_extra

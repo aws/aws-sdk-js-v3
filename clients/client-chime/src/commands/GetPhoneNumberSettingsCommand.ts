@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetPhoneNumberSettingsResponse, GetPhoneNumberSettingsResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPhoneNumberSettingsCommand,
-  serializeAws_restJson1GetPhoneNumberSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPhoneNumberSettingsCommand, se_GetPhoneNumberSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetPhoneNumberSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPhoneNumberSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPhoneNumberSettingsCommand(input, context);
+    return se_GetPhoneNumberSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPhoneNumberSettingsCommandOutput> {
-    return deserializeAws_restJson1GetPhoneNumberSettingsCommand(output, context);
+    return de_GetPhoneNumberSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

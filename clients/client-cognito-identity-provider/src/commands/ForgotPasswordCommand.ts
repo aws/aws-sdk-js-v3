@@ -23,10 +23,7 @@ import {
   ForgotPasswordRequestFilterSensitiveLog,
   ForgotPasswordResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ForgotPasswordCommand,
-  serializeAws_json1_1ForgotPasswordCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ForgotPasswordCommand, se_ForgotPasswordCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -222,14 +219,14 @@ export class ForgotPasswordCommand extends $Command<
    * @internal
    */
   private serialize(input: ForgotPasswordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ForgotPasswordCommand(input, context);
+    return se_ForgotPasswordCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ForgotPasswordCommandOutput> {
-    return deserializeAws_json1_1ForgotPasswordCommand(output, context);
+    return de_ForgotPasswordCommand(output, context);
   }
 
   // Start section: command_body_extra

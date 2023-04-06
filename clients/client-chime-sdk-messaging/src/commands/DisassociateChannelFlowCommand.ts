@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { DisassociateChannelFlowRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateChannelFlowCommand,
-  serializeAws_restJson1DisassociateChannelFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateChannelFlowCommand, se_DisassociateChannelFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class DisassociateChannelFlowCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateChannelFlowCommand(input, context);
+    return se_DisassociateChannelFlowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateChannelFlowCommandOutput> {
-    return deserializeAws_restJson1DisassociateChannelFlowCommand(output, context);
+    return de_DisassociateChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

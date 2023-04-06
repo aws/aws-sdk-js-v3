@@ -15,10 +15,7 @@ import {
 
 import { GetAssignmentRequest, GetAssignmentResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1GetAssignmentCommand,
-  serializeAws_json1_1GetAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAssignmentCommand, se_GetAssignmentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class GetAssignmentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAssignmentCommand(input, context);
+    return se_GetAssignmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssignmentCommandOutput> {
-    return deserializeAws_json1_1GetAssignmentCommand(output, context);
+    return de_GetAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

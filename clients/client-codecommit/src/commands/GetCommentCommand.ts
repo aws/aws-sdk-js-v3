@@ -15,10 +15,7 @@ import {
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { GetCommentInput, GetCommentOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCommentCommand,
-  serializeAws_json1_1GetCommentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCommentCommand, se_GetCommentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class GetCommentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCommentCommand(input, context);
+    return se_GetCommentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCommentCommandOutput> {
-    return deserializeAws_json1_1GetCommentCommand(output, context);
+    return de_GetCommentCommand(output, context);
   }
 
   // Start section: command_body_extra

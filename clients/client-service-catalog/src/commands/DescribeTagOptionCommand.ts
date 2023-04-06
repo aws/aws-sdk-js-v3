@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeTagOptionInput, DescribeTagOptionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTagOptionCommand,
-  serializeAws_json1_1DescribeTagOptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeTagOptionCommand, se_DescribeTagOptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -128,14 +125,14 @@ export class DescribeTagOptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTagOptionCommand(input, context);
+    return se_DescribeTagOptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagOptionCommandOutput> {
-    return deserializeAws_json1_1DescribeTagOptionCommand(output, context);
+    return de_DescribeTagOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

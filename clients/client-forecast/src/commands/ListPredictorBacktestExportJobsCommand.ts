@@ -16,8 +16,8 @@ import {
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { ListPredictorBacktestExportJobsRequest, ListPredictorBacktestExportJobsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListPredictorBacktestExportJobsCommand,
-  serializeAws_json1_1ListPredictorBacktestExportJobsCommand,
+  de_ListPredictorBacktestExportJobsCommand,
+  se_ListPredictorBacktestExportJobsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -143,7 +143,7 @@ export class ListPredictorBacktestExportJobsCommand extends $Command<
     input: ListPredictorBacktestExportJobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPredictorBacktestExportJobsCommand(input, context);
+    return se_ListPredictorBacktestExportJobsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class ListPredictorBacktestExportJobsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPredictorBacktestExportJobsCommandOutput> {
-    return deserializeAws_json1_1ListPredictorBacktestExportJobsCommand(output, context);
+    return de_ListPredictorBacktestExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

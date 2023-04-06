@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyAquaInputMessage, ModifyAquaOutputMessage } from "../models/models_1";
-import {
-  deserializeAws_queryModifyAquaConfigurationCommand,
-  serializeAws_queryModifyAquaConfigurationCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyAquaConfigurationCommand, se_ModifyAquaConfigurationCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -131,14 +128,14 @@ export class ModifyAquaConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyAquaConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyAquaConfigurationCommand(input, context);
+    return se_ModifyAquaConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyAquaConfigurationCommandOutput> {
-    return deserializeAws_queryModifyAquaConfigurationCommand(output, context);
+    return de_ModifyAquaConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { GetDashboardInput, GetDashboardOutput } from "../models/models_0";
-import { deserializeAws_queryGetDashboardCommand, serializeAws_queryGetDashboardCommand } from "../protocols/Aws_query";
+import { de_GetDashboardCommand, se_GetDashboardCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -127,14 +127,14 @@ export class GetDashboardCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetDashboardCommand(input, context);
+    return se_GetDashboardCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDashboardCommandOutput> {
-    return deserializeAws_queryGetDashboardCommand(output, context);
+    return de_GetDashboardCommand(output, context);
   }
 
   // Start section: command_body_extra

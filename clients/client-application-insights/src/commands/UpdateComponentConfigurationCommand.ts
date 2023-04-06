@@ -20,8 +20,8 @@ import {
 } from "../ApplicationInsightsClient";
 import { UpdateComponentConfigurationRequest, UpdateComponentConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateComponentConfigurationCommand,
-  serializeAws_json1_1UpdateComponentConfigurationCommand,
+  de_UpdateComponentConfigurationCommand,
+  se_UpdateComponentConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -142,7 +142,7 @@ export class UpdateComponentConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateComponentConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateComponentConfigurationCommand(input, context);
+    return se_UpdateComponentConfigurationCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class UpdateComponentConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateComponentConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateComponentConfigurationCommand(output, context);
+    return de_UpdateComponentConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

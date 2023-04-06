@@ -15,10 +15,7 @@ import {
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { GetJobRunRequest, GetJobRunResponse, GetJobRunResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetJobRunCommand,
-  serializeAws_restJson1GetJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetJobRunCommand, se_GetJobRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class GetJobRunCommand extends $Command<
    * @internal
    */
   private serialize(input: GetJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJobRunCommand(input, context);
+    return se_GetJobRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobRunCommandOutput> {
-    return deserializeAws_restJson1GetJobRunCommand(output, context);
+    return de_GetJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

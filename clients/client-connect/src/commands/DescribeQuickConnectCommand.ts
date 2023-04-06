@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DescribeQuickConnectRequest, DescribeQuickConnectResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeQuickConnectCommand,
-  serializeAws_restJson1DescribeQuickConnectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeQuickConnectCommand, se_DescribeQuickConnectCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DescribeQuickConnectCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeQuickConnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeQuickConnectCommand(input, context);
+    return se_DescribeQuickConnectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQuickConnectCommandOutput> {
-    return deserializeAws_restJson1DescribeQuickConnectCommand(output, context);
+    return de_DescribeQuickConnectCommand(output, context);
   }
 
   // Start section: command_body_extra

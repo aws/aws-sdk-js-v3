@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { UpdateSipRuleRequest, UpdateSipRuleResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateSipRuleCommand,
-  serializeAws_restJson1UpdateSipRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSipRuleCommand, se_UpdateSipRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class UpdateSipRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSipRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSipRuleCommand(input, context);
+    return se_UpdateSipRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSipRuleCommandOutput> {
-    return deserializeAws_restJson1UpdateSipRuleCommand(output, context);
+    return de_UpdateSipRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

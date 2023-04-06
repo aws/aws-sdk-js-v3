@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteWorkflowRequest, DeleteWorkflowResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteWorkflowCommand,
-  serializeAws_json1_1DeleteWorkflowCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteWorkflowCommand, se_DeleteWorkflowCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteWorkflowCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWorkflowCommand(input, context);
+    return se_DeleteWorkflowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowCommandOutput> {
-    return deserializeAws_json1_1DeleteWorkflowCommand(output, context);
+    return de_DeleteWorkflowCommand(output, context);
   }
 
   // Start section: command_body_extra

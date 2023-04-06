@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { ListDetectorModelVersionsRequest, ListDetectorModelVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDetectorModelVersionsCommand,
-  serializeAws_restJson1ListDetectorModelVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDetectorModelVersionsCommand, se_ListDetectorModelVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class ListDetectorModelVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDetectorModelVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDetectorModelVersionsCommand(input, context);
+    return se_ListDetectorModelVersionsCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class ListDetectorModelVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDetectorModelVersionsCommandOutput> {
-    return deserializeAws_restJson1ListDetectorModelVersionsCommand(output, context);
+    return de_ListDetectorModelVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { RemoveTemplateActionRequest, RemoveTemplateActionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveTemplateActionCommand,
-  serializeAws_restJson1RemoveTemplateActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RemoveTemplateActionCommand, se_RemoveTemplateActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class RemoveTemplateActionCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveTemplateActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveTemplateActionCommand(input, context);
+    return se_RemoveTemplateActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveTemplateActionCommandOutput> {
-    return deserializeAws_restJson1RemoveTemplateActionCommand(output, context);
+    return de_RemoveTemplateActionCommand(output, context);
   }
 
   // Start section: command_body_extra

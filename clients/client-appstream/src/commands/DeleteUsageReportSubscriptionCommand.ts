@@ -16,8 +16,8 @@ import {
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DeleteUsageReportSubscriptionRequest, DeleteUsageReportSubscriptionResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteUsageReportSubscriptionCommand,
-  serializeAws_json1_1DeleteUsageReportSubscriptionCommand,
+  de_DeleteUsageReportSubscriptionCommand,
+  se_DeleteUsageReportSubscriptionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -126,7 +126,7 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteUsageReportSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUsageReportSubscriptionCommand(input, context);
+    return se_DeleteUsageReportSubscriptionCommand(input, context);
   }
 
   /**
@@ -136,7 +136,7 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUsageReportSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteUsageReportSubscriptionCommand(output, context);
+    return de_DeleteUsageReportSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

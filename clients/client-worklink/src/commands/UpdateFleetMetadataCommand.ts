@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateFleetMetadataRequest, UpdateFleetMetadataResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFleetMetadataCommand,
-  serializeAws_restJson1UpdateFleetMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFleetMetadataCommand, se_UpdateFleetMetadataCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 
 /**
@@ -139,14 +136,14 @@ export class UpdateFleetMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFleetMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFleetMetadataCommand(input, context);
+    return se_UpdateFleetMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetMetadataCommandOutput> {
-    return deserializeAws_restJson1UpdateFleetMetadataCommand(output, context);
+    return de_UpdateFleetMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

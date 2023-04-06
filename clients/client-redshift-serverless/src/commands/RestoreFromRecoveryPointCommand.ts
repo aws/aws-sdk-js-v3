@@ -18,10 +18,7 @@ import {
   RestoreFromRecoveryPointResponse,
   RestoreFromRecoveryPointResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1RestoreFromRecoveryPointCommand,
-  serializeAws_json1_1RestoreFromRecoveryPointCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RestoreFromRecoveryPointCommand, se_RestoreFromRecoveryPointCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -142,14 +139,14 @@ export class RestoreFromRecoveryPointCommand extends $Command<
    * @internal
    */
   private serialize(input: RestoreFromRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RestoreFromRecoveryPointCommand(input, context);
+    return se_RestoreFromRecoveryPointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreFromRecoveryPointCommandOutput> {
-    return deserializeAws_json1_1RestoreFromRecoveryPointCommand(output, context);
+    return de_RestoreFromRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

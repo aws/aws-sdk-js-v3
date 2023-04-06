@@ -15,10 +15,7 @@ import {
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
 import { GetResourceInput, GetResourceOutput, GetResourceOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetResourceCommand,
-  serializeAws_json1_0GetResourceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetResourceCommand, se_GetResourceCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -189,14 +186,14 @@ export class GetResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetResourceCommand(input, context);
+    return se_GetResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceCommandOutput> {
-    return deserializeAws_json1_0GetResourceCommand(output, context);
+    return de_GetResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

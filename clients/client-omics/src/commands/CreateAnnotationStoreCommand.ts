@@ -15,10 +15,7 @@ import {
 
 import { CreateAnnotationStoreRequest, CreateAnnotationStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1CreateAnnotationStoreCommand,
-  serializeAws_restJson1CreateAnnotationStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAnnotationStoreCommand, se_CreateAnnotationStoreCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class CreateAnnotationStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAnnotationStoreCommand(input, context);
+    return se_CreateAnnotationStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAnnotationStoreCommandOutput> {
-    return deserializeAws_restJson1CreateAnnotationStoreCommand(output, context);
+    return de_CreateAnnotationStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

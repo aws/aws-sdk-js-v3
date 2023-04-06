@@ -18,8 +18,8 @@ import {
   DeleteEmailMonitoringConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommand,
-  serializeAws_json1_1DeleteEmailMonitoringConfigurationCommand,
+  de_DeleteEmailMonitoringConfigurationCommand,
+  se_DeleteEmailMonitoringConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -139,7 +139,7 @@ export class DeleteEmailMonitoringConfigurationCommand extends $Command<
     input: DeleteEmailMonitoringConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEmailMonitoringConfigurationCommand(input, context);
+    return se_DeleteEmailMonitoringConfigurationCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DeleteEmailMonitoringConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEmailMonitoringConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommand(output, context);
+    return de_DeleteEmailMonitoringConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

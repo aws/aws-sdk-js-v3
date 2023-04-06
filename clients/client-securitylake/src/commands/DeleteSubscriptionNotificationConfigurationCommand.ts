@@ -18,8 +18,8 @@ import {
   DeleteSubscriptionNotificationConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand,
-  serializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand,
+  de_DeleteSubscriptionNotificationConfigurationCommand,
+  se_DeleteSubscriptionNotificationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
@@ -164,7 +164,7 @@ export class DeleteSubscriptionNotificationConfigurationCommand extends $Command
     input: DeleteSubscriptionNotificationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand(input, context);
+    return se_DeleteSubscriptionNotificationConfigurationCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class DeleteSubscriptionNotificationConfigurationCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSubscriptionNotificationConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand(output, context);
+    return de_DeleteSubscriptionNotificationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

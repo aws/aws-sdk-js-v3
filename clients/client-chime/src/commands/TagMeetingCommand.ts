@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { TagMeetingRequest, TagMeetingRequestFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1TagMeetingCommand,
-  serializeAws_restJson1TagMeetingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TagMeetingCommand, se_TagMeetingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class TagMeetingCommand extends $Command<
    * @internal
    */
   private serialize(input: TagMeetingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TagMeetingCommand(input, context);
+    return se_TagMeetingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagMeetingCommandOutput> {
-    return deserializeAws_restJson1TagMeetingCommand(output, context);
+    return de_TagMeetingCommand(output, context);
   }
 
   // Start section: command_body_extra

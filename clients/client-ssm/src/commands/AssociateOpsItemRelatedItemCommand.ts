@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateOpsItemRelatedItemRequest, AssociateOpsItemRelatedItemResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateOpsItemRelatedItemCommand,
-  serializeAws_json1_1AssociateOpsItemRelatedItemCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateOpsItemRelatedItemCommand, se_AssociateOpsItemRelatedItemCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -144,7 +141,7 @@ export class AssociateOpsItemRelatedItemCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateOpsItemRelatedItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateOpsItemRelatedItemCommand(input, context);
+    return se_AssociateOpsItemRelatedItemCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class AssociateOpsItemRelatedItemCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateOpsItemRelatedItemCommandOutput> {
-    return deserializeAws_json1_1AssociateOpsItemRelatedItemCommand(output, context);
+    return de_AssociateOpsItemRelatedItemCommand(output, context);
   }
 
   // Start section: command_body_extra

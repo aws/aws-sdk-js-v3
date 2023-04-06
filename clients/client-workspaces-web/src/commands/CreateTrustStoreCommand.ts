@@ -18,10 +18,7 @@ import {
   CreateTrustStoreRequestFilterSensitiveLog,
   CreateTrustStoreResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTrustStoreCommand,
-  serializeAws_restJson1CreateTrustStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateTrustStoreCommand, se_CreateTrustStoreCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -155,14 +152,14 @@ export class CreateTrustStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTrustStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTrustStoreCommand(input, context);
+    return se_CreateTrustStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrustStoreCommandOutput> {
-    return deserializeAws_restJson1CreateTrustStoreCommand(output, context);
+    return de_CreateTrustStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

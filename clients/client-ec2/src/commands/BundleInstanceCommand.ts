@@ -15,7 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { BundleInstanceRequest, BundleInstanceResult } from "../models/models_0";
-import { deserializeAws_ec2BundleInstanceCommand, serializeAws_ec2BundleInstanceCommand } from "../protocols/Aws_ec2";
+import { de_BundleInstanceCommand, se_BundleInstanceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -131,14 +131,14 @@ export class BundleInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: BundleInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2BundleInstanceCommand(input, context);
+    return se_BundleInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BundleInstanceCommandOutput> {
-    return deserializeAws_ec2BundleInstanceCommand(output, context);
+    return de_BundleInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

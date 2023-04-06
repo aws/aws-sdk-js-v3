@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { UpdateFindingsFeedbackRequest, UpdateFindingsFeedbackResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateFindingsFeedbackCommand,
-  serializeAws_restJson1UpdateFindingsFeedbackCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFindingsFeedbackCommand, se_UpdateFindingsFeedbackCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class UpdateFindingsFeedbackCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFindingsFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFindingsFeedbackCommand(input, context);
+    return se_UpdateFindingsFeedbackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFindingsFeedbackCommandOutput> {
-    return deserializeAws_restJson1UpdateFindingsFeedbackCommand(output, context);
+    return de_UpdateFindingsFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

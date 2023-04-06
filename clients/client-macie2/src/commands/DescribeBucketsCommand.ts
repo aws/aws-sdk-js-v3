@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { DescribeBucketsRequest, DescribeBucketsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBucketsCommand,
-  serializeAws_restJson1DescribeBucketsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeBucketsCommand, se_DescribeBucketsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class DescribeBucketsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBucketsCommand(input, context);
+    return se_DescribeBucketsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBucketsCommandOutput> {
-    return deserializeAws_restJson1DescribeBucketsCommand(output, context);
+    return de_DescribeBucketsCommand(output, context);
   }
 
   // Start section: command_body_extra

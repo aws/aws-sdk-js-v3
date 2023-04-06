@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteReceiptFilterRequest, DeleteReceiptFilterResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteReceiptFilterCommand,
-  serializeAws_queryDeleteReceiptFilterCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteReceiptFilterCommand, se_DeleteReceiptFilterCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -134,14 +131,14 @@ export class DeleteReceiptFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteReceiptFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteReceiptFilterCommand(input, context);
+    return se_DeleteReceiptFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReceiptFilterCommandOutput> {
-    return deserializeAws_queryDeleteReceiptFilterCommand(output, context);
+    return de_DeleteReceiptFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

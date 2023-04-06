@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { PutCompositeAlarmInput } from "../models/models_0";
-import {
-  deserializeAws_queryPutCompositeAlarmCommand,
-  serializeAws_queryPutCompositeAlarmCommand,
-} from "../protocols/Aws_query";
+import { de_PutCompositeAlarmCommand, se_PutCompositeAlarmCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class PutCompositeAlarmCommand extends $Command<
    * @internal
    */
   private serialize(input: PutCompositeAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutCompositeAlarmCommand(input, context);
+    return se_PutCompositeAlarmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCompositeAlarmCommandOutput> {
-    return deserializeAws_queryPutCompositeAlarmCommand(output, context);
+    return de_PutCompositeAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

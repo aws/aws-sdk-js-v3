@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetContainerAPIMetadataRequest, GetContainerAPIMetadataResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContainerAPIMetadataCommand,
-  serializeAws_json1_1GetContainerAPIMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetContainerAPIMetadataCommand, se_GetContainerAPIMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetContainerAPIMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetContainerAPIMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContainerAPIMetadataCommand(input, context);
+    return se_GetContainerAPIMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerAPIMetadataCommandOutput> {
-    return deserializeAws_json1_1GetContainerAPIMetadataCommand(output, context);
+    return de_GetContainerAPIMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListDiscoverersRequest, ListDiscoverersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDiscoverersCommand,
-  serializeAws_restJson1ListDiscoverersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDiscoverersCommand, se_ListDiscoverersCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -133,14 +130,14 @@ export class ListDiscoverersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDiscoverersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDiscoverersCommand(input, context);
+    return se_ListDiscoverersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDiscoverersCommandOutput> {
-    return deserializeAws_restJson1ListDiscoverersCommand(output, context);
+    return de_ListDiscoverersCommand(output, context);
   }
 
   // Start section: command_body_extra

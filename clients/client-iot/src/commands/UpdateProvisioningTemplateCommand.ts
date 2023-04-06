@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateProvisioningTemplateRequest, UpdateProvisioningTemplateResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateProvisioningTemplateCommand,
-  serializeAws_restJson1UpdateProvisioningTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateProvisioningTemplateCommand, se_UpdateProvisioningTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,7 +143,7 @@ export class UpdateProvisioningTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateProvisioningTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateProvisioningTemplateCommand(input, context);
+    return se_UpdateProvisioningTemplateCommand(input, context);
   }
 
   /**
@@ -156,7 +153,7 @@ export class UpdateProvisioningTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateProvisioningTemplateCommandOutput> {
-    return deserializeAws_restJson1UpdateProvisioningTemplateCommand(output, context);
+    return de_UpdateProvisioningTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

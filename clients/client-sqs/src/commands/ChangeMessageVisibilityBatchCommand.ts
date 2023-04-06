@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChangeMessageVisibilityBatchRequest, ChangeMessageVisibilityBatchResult } from "../models/models_0";
-import {
-  deserializeAws_queryChangeMessageVisibilityBatchCommand,
-  serializeAws_queryChangeMessageVisibilityBatchCommand,
-} from "../protocols/Aws_query";
+import { de_ChangeMessageVisibilityBatchCommand, se_ChangeMessageVisibilityBatchCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -155,7 +152,7 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
    * @internal
    */
   private serialize(input: ChangeMessageVisibilityBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryChangeMessageVisibilityBatchCommand(input, context);
+    return se_ChangeMessageVisibilityBatchCommand(input, context);
   }
 
   /**
@@ -165,7 +162,7 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ChangeMessageVisibilityBatchCommandOutput> {
-    return deserializeAws_queryChangeMessageVisibilityBatchCommand(output, context);
+    return de_ChangeMessageVisibilityBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

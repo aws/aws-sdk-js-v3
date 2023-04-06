@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { CreateBGPPeerRequest, CreateBGPPeerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBGPPeerCommand,
-  serializeAws_json1_1CreateBGPPeerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateBGPPeerCommand, se_CreateBGPPeerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateBGPPeerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBGPPeerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBGPPeerCommand(input, context);
+    return se_CreateBGPPeerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBGPPeerCommandOutput> {
-    return deserializeAws_json1_1CreateBGPPeerCommand(output, context);
+    return de_CreateBGPPeerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DeleteSecurityProfileRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSecurityProfileCommand,
-  serializeAws_restJson1DeleteSecurityProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSecurityProfileCommand, se_DeleteSecurityProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DeleteSecurityProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSecurityProfileCommand(input, context);
+    return se_DeleteSecurityProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1DeleteSecurityProfileCommand(output, context);
+    return de_DeleteSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

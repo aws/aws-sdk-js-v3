@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteStreamRequest, DeleteStreamResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteStreamCommand,
-  serializeAws_restJson1DeleteStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteStreamCommand, se_DeleteStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStreamCommand(input, context);
+    return se_DeleteStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamCommandOutput> {
-    return deserializeAws_restJson1DeleteStreamCommand(output, context);
+    return de_DeleteStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

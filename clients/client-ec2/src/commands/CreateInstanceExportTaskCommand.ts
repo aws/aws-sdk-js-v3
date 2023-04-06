@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateInstanceExportTaskRequest, CreateInstanceExportTaskResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateInstanceExportTaskCommand,
-  serializeAws_ec2CreateInstanceExportTaskCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateInstanceExportTaskCommand, se_CreateInstanceExportTaskCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class CreateInstanceExportTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateInstanceExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateInstanceExportTaskCommand(input, context);
+    return se_CreateInstanceExportTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceExportTaskCommandOutput> {
-    return deserializeAws_ec2CreateInstanceExportTaskCommand(output, context);
+    return de_CreateInstanceExportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

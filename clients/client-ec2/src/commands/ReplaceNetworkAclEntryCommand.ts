@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ReplaceNetworkAclEntryRequest } from "../models/models_6";
-import {
-  deserializeAws_ec2ReplaceNetworkAclEntryCommand,
-  serializeAws_ec2ReplaceNetworkAclEntryCommand,
-} from "../protocols/Aws_ec2";
+import { de_ReplaceNetworkAclEntryCommand, se_ReplaceNetworkAclEntryCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class ReplaceNetworkAclEntryCommand extends $Command<
    * @internal
    */
   private serialize(input: ReplaceNetworkAclEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ReplaceNetworkAclEntryCommand(input, context);
+    return se_ReplaceNetworkAclEntryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplaceNetworkAclEntryCommandOutput> {
-    return deserializeAws_ec2ReplaceNetworkAclEntryCommand(output, context);
+    return de_ReplaceNetworkAclEntryCommand(output, context);
   }
 
   // Start section: command_body_extra

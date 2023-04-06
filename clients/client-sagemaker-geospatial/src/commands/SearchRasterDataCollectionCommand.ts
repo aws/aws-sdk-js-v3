@@ -19,10 +19,7 @@ import {
   SearchRasterDataCollectionOutput,
   SearchRasterDataCollectionOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1SearchRasterDataCollectionCommand,
-  serializeAws_restJson1SearchRasterDataCollectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SearchRasterDataCollectionCommand, se_SearchRasterDataCollectionCommand } from "../protocols/Aws_restJson1";
 import {
   SageMakerGeospatialClientResolvedConfig,
   ServiceInputTypes,
@@ -211,7 +208,7 @@ export class SearchRasterDataCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchRasterDataCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchRasterDataCollectionCommand(input, context);
+    return se_SearchRasterDataCollectionCommand(input, context);
   }
 
   /**
@@ -221,7 +218,7 @@ export class SearchRasterDataCollectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchRasterDataCollectionCommandOutput> {
-    return deserializeAws_restJson1SearchRasterDataCollectionCommand(output, context);
+    return de_SearchRasterDataCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

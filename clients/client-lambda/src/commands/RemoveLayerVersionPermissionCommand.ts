@@ -16,8 +16,8 @@ import {
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { RemoveLayerVersionPermissionRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1RemoveLayerVersionPermissionCommand,
-  serializeAws_restJson1RemoveLayerVersionPermissionCommand,
+  de_RemoveLayerVersionPermissionCommand,
+  se_RemoveLayerVersionPermissionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class RemoveLayerVersionPermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveLayerVersionPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveLayerVersionPermissionCommand(input, context);
+    return se_RemoveLayerVersionPermissionCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class RemoveLayerVersionPermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveLayerVersionPermissionCommandOutput> {
-    return deserializeAws_restJson1RemoveLayerVersionPermissionCommand(output, context);
+    return de_RemoveLayerVersionPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import { ListGroupMembershipsForMemberRequest, ListGroupMembershipsForMemberResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListGroupMembershipsForMemberCommand,
-  serializeAws_json1_1ListGroupMembershipsForMemberCommand,
+  de_ListGroupMembershipsForMemberCommand,
+  se_ListGroupMembershipsForMemberCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -142,7 +142,7 @@ export class ListGroupMembershipsForMemberCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGroupMembershipsForMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGroupMembershipsForMemberCommand(input, context);
+    return se_ListGroupMembershipsForMemberCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ListGroupMembershipsForMemberCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGroupMembershipsForMemberCommandOutput> {
-    return deserializeAws_json1_1ListGroupMembershipsForMemberCommand(output, context);
+    return de_ListGroupMembershipsForMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

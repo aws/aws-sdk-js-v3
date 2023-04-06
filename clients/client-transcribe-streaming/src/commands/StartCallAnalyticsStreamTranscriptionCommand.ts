@@ -23,8 +23,8 @@ import {
   StartCallAnalyticsStreamTranscriptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommand,
-  serializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommand,
+  de_StartCallAnalyticsStreamTranscriptionCommand,
+  se_StartCallAnalyticsStreamTranscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
@@ -212,7 +212,7 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command<
     input: StartCallAnalyticsStreamTranscriptionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommand(input, context);
+    return se_StartCallAnalyticsStreamTranscriptionCommand(input, context);
   }
 
   /**
@@ -222,7 +222,7 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<StartCallAnalyticsStreamTranscriptionCommandOutput> {
-    return deserializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommand(output, context);
+    return de_StartCallAnalyticsStreamTranscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

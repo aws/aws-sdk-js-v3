@@ -16,8 +16,8 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { UpdateAccessControlConfigurationRequest, UpdateAccessControlConfigurationResponse } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateAccessControlConfigurationCommand,
-  serializeAws_json1_1UpdateAccessControlConfigurationCommand,
+  de_UpdateAccessControlConfigurationCommand,
+  se_UpdateAccessControlConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -196,7 +196,7 @@ export class UpdateAccessControlConfigurationCommand extends $Command<
     input: UpdateAccessControlConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAccessControlConfigurationCommand(input, context);
+    return se_UpdateAccessControlConfigurationCommand(input, context);
   }
 
   /**
@@ -206,7 +206,7 @@ export class UpdateAccessControlConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccessControlConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateAccessControlConfigurationCommand(output, context);
+    return de_UpdateAccessControlConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

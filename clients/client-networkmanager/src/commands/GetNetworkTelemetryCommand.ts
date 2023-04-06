@@ -15,10 +15,7 @@ import {
 
 import { GetNetworkTelemetryRequest, GetNetworkTelemetryResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetNetworkTelemetryCommand,
-  serializeAws_restJson1GetNetworkTelemetryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetNetworkTelemetryCommand, se_GetNetworkTelemetryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetNetworkTelemetryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetNetworkTelemetryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkTelemetryCommand(input, context);
+    return se_GetNetworkTelemetryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkTelemetryCommandOutput> {
-    return deserializeAws_restJson1GetNetworkTelemetryCommand(output, context);
+    return de_GetNetworkTelemetryCommand(output, context);
   }
 
   // Start section: command_body_extra

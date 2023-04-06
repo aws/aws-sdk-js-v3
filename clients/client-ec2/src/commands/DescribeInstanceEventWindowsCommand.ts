@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeInstanceEventWindowsRequest, DescribeInstanceEventWindowsResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeInstanceEventWindowsCommand,
-  serializeAws_ec2DescribeInstanceEventWindowsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeInstanceEventWindowsCommand, se_DescribeInstanceEventWindowsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInstanceEventWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstanceEventWindowsCommand(input, context);
+    return se_DescribeInstanceEventWindowsCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceEventWindowsCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceEventWindowsCommand(output, context);
+    return de_DescribeInstanceEventWindowsCommand(output, context);
   }
 
   // Start section: command_body_extra

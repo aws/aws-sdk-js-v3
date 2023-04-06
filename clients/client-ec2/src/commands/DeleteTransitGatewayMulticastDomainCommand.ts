@@ -19,8 +19,8 @@ import {
   DeleteTransitGatewayMulticastDomainResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommand,
-  serializeAws_ec2DeleteTransitGatewayMulticastDomainCommand,
+  de_DeleteTransitGatewayMulticastDomainCommand,
+  se_DeleteTransitGatewayMulticastDomainCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -129,7 +129,7 @@ export class DeleteTransitGatewayMulticastDomainCommand extends $Command<
     input: DeleteTransitGatewayMulticastDomainCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteTransitGatewayMulticastDomainCommand(input, context);
+    return se_DeleteTransitGatewayMulticastDomainCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class DeleteTransitGatewayMulticastDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteTransitGatewayMulticastDomainCommandOutput> {
-    return deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommand(output, context);
+    return de_DeleteTransitGatewayMulticastDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import { DiscoverInputSchemaRequest, DiscoverInputSchemaResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DiscoverInputSchemaCommand,
-  serializeAws_json1_1DiscoverInputSchemaCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DiscoverInputSchemaCommand, se_DiscoverInputSchemaCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class DiscoverInputSchemaCommand extends $Command<
    * @internal
    */
   private serialize(input: DiscoverInputSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DiscoverInputSchemaCommand(input, context);
+    return se_DiscoverInputSchemaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DiscoverInputSchemaCommandOutput> {
-    return deserializeAws_json1_1DiscoverInputSchemaCommand(output, context);
+    return de_DiscoverInputSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

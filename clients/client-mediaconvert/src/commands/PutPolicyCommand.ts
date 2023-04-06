@@ -15,10 +15,7 @@ import {
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { PutPolicyRequest, PutPolicyResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1PutPolicyCommand,
-  serializeAws_restJson1PutPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutPolicyCommand, se_PutPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class PutPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutPolicyCommand(input, context);
+    return se_PutPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPolicyCommandOutput> {
-    return deserializeAws_restJson1PutPolicyCommand(output, context);
+    return de_PutPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

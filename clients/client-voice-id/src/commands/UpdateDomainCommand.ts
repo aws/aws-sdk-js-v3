@@ -19,10 +19,7 @@ import {
   UpdateDomainResponse,
   UpdateDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateDomainCommand,
-  serializeAws_json1_0UpdateDomainCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateDomainCommand, se_UpdateDomainCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -155,14 +152,14 @@ export class UpdateDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateDomainCommand(input, context);
+    return se_UpdateDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainCommandOutput> {
-    return deserializeAws_json1_0UpdateDomainCommand(output, context);
+    return de_UpdateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

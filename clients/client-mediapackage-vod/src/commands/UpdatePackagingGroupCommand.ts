@@ -15,10 +15,7 @@ import {
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
 import { UpdatePackagingGroupRequest, UpdatePackagingGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePackagingGroupCommand,
-  serializeAws_restJson1UpdatePackagingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePackagingGroupCommand, se_UpdatePackagingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class UpdatePackagingGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdatePackagingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePackagingGroupCommand(input, context);
+    return se_UpdatePackagingGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePackagingGroupCommandOutput> {
-    return deserializeAws_restJson1UpdatePackagingGroupCommand(output, context);
+    return de_UpdatePackagingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

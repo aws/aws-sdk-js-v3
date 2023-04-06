@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteConnectionAliasRequest, DeleteConnectionAliasResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConnectionAliasCommand,
-  serializeAws_json1_1DeleteConnectionAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteConnectionAliasCommand, se_DeleteConnectionAliasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -153,14 +150,14 @@ export class DeleteConnectionAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConnectionAliasCommand(input, context);
+    return se_DeleteConnectionAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionAliasCommandOutput> {
-    return deserializeAws_json1_1DeleteConnectionAliasCommand(output, context);
+    return de_DeleteConnectionAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

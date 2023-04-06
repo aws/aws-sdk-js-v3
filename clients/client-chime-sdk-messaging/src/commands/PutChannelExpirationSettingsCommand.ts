@@ -20,8 +20,8 @@ import {
 } from "../ChimeSDKMessagingClient";
 import { PutChannelExpirationSettingsRequest, PutChannelExpirationSettingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutChannelExpirationSettingsCommand,
-  serializeAws_restJson1PutChannelExpirationSettingsCommand,
+  de_PutChannelExpirationSettingsCommand,
+  se_PutChannelExpirationSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -170,7 +170,7 @@ export class PutChannelExpirationSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutChannelExpirationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutChannelExpirationSettingsCommand(input, context);
+    return se_PutChannelExpirationSettingsCommand(input, context);
   }
 
   /**
@@ -180,7 +180,7 @@ export class PutChannelExpirationSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutChannelExpirationSettingsCommandOutput> {
-    return deserializeAws_restJson1PutChannelExpirationSettingsCommand(output, context);
+    return de_PutChannelExpirationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

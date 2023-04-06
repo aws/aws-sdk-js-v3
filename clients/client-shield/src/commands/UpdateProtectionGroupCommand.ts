@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateProtectionGroupRequest, UpdateProtectionGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProtectionGroupCommand,
-  serializeAws_json1_1UpdateProtectionGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateProtectionGroupCommand, se_UpdateProtectionGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -139,14 +136,14 @@ export class UpdateProtectionGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateProtectionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProtectionGroupCommand(input, context);
+    return se_UpdateProtectionGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProtectionGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateProtectionGroupCommand(output, context);
+    return de_UpdateProtectionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

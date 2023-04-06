@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { GetCurrentMetricDataRequest, GetCurrentMetricDataResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCurrentMetricDataCommand,
-  serializeAws_restJson1GetCurrentMetricDataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCurrentMetricDataCommand, se_GetCurrentMetricDataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class GetCurrentMetricDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCurrentMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCurrentMetricDataCommand(input, context);
+    return se_GetCurrentMetricDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCurrentMetricDataCommandOutput> {
-    return deserializeAws_restJson1GetCurrentMetricDataCommand(output, context);
+    return de_GetCurrentMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

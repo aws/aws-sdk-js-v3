@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyVerifiedAccessGroupPolicyRequest, ModifyVerifiedAccessGroupPolicyResult } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand,
-  serializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand,
+  de_ModifyVerifiedAccessGroupPolicyCommand,
+  se_ModifyVerifiedAccessGroupPolicyCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -129,7 +129,7 @@ export class ModifyVerifiedAccessGroupPolicyCommand extends $Command<
     input: ModifyVerifiedAccessGroupPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand(input, context);
+    return se_ModifyVerifiedAccessGroupPolicyCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class ModifyVerifiedAccessGroupPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVerifiedAccessGroupPolicyCommandOutput> {
-    return deserializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand(output, context);
+    return de_ModifyVerifiedAccessGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { DeleteFindingsFilterRequest, DeleteFindingsFilterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFindingsFilterCommand,
-  serializeAws_restJson1DeleteFindingsFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFindingsFilterCommand, se_DeleteFindingsFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteFindingsFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFindingsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFindingsFilterCommand(input, context);
+    return se_DeleteFindingsFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFindingsFilterCommandOutput> {
-    return deserializeAws_restJson1DeleteFindingsFilterCommand(output, context);
+    return de_DeleteFindingsFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { DisassociateVehicleFleetRequest, DisassociateVehicleFleetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DisassociateVehicleFleetCommand,
-  serializeAws_json1_0DisassociateVehicleFleetCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DisassociateVehicleFleetCommand, se_DisassociateVehicleFleetCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DisassociateVehicleFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateVehicleFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisassociateVehicleFleetCommand(input, context);
+    return se_DisassociateVehicleFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateVehicleFleetCommandOutput> {
-    return deserializeAws_json1_0DisassociateVehicleFleetCommand(output, context);
+    return de_DisassociateVehicleFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

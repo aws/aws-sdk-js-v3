@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetExpenseAnalysisRequest, GetExpenseAnalysisResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetExpenseAnalysisCommand,
-  serializeAws_json1_1GetExpenseAnalysisCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetExpenseAnalysisCommand, se_GetExpenseAnalysisCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -172,14 +169,14 @@ export class GetExpenseAnalysisCommand extends $Command<
    * @internal
    */
   private serialize(input: GetExpenseAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetExpenseAnalysisCommand(input, context);
+    return se_GetExpenseAnalysisCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExpenseAnalysisCommandOutput> {
-    return deserializeAws_json1_1GetExpenseAnalysisCommand(output, context);
+    return de_GetExpenseAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

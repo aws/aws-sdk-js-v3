@@ -14,8 +14,8 @@ import {
 
 import { OmitsNullSerializesEmptyStringInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1OmitsNullSerializesEmptyStringCommand,
-  serializeAws_restJson1OmitsNullSerializesEmptyStringCommand,
+  de_OmitsNullSerializesEmptyStringCommand,
+  se_OmitsNullSerializesEmptyStringCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -111,7 +111,7 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
     input: OmitsNullSerializesEmptyStringCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1OmitsNullSerializesEmptyStringCommand(input, context);
+    return se_OmitsNullSerializesEmptyStringCommand(input, context);
   }
 
   /**
@@ -121,7 +121,7 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<OmitsNullSerializesEmptyStringCommandOutput> {
-    return deserializeAws_restJson1OmitsNullSerializesEmptyStringCommand(output, context);
+    return de_OmitsNullSerializesEmptyStringCommand(output, context);
   }
 
   // Start section: command_body_extra

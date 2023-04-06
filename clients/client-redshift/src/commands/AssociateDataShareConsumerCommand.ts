@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateDataShareConsumerMessage, DataShare } from "../models/models_0";
-import {
-  deserializeAws_queryAssociateDataShareConsumerCommand,
-  serializeAws_queryAssociateDataShareConsumerCommand,
-} from "../protocols/Aws_query";
+import { de_AssociateDataShareConsumerCommand, se_AssociateDataShareConsumerCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -131,7 +128,7 @@ export class AssociateDataShareConsumerCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateDataShareConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAssociateDataShareConsumerCommand(input, context);
+    return se_AssociateDataShareConsumerCommand(input, context);
   }
 
   /**
@@ -141,7 +138,7 @@ export class AssociateDataShareConsumerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDataShareConsumerCommandOutput> {
-    return deserializeAws_queryAssociateDataShareConsumerCommand(output, context);
+    return de_AssociateDataShareConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateDeliverabilityTestReportCommand,
-  serializeAws_restJson1CreateDeliverabilityTestReportCommand,
+  de_CreateDeliverabilityTestReportCommand,
+  se_CreateDeliverabilityTestReportCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -193,7 +193,7 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     input: CreateDeliverabilityTestReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDeliverabilityTestReportCommand(input, context);
+    return se_CreateDeliverabilityTestReportCommand(input, context);
   }
 
   /**
@@ -203,7 +203,7 @@ export class CreateDeliverabilityTestReportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeliverabilityTestReportCommandOutput> {
-    return deserializeAws_restJson1CreateDeliverabilityTestReportCommand(output, context);
+    return de_CreateDeliverabilityTestReportCommand(output, context);
   }
 
   // Start section: command_body_extra

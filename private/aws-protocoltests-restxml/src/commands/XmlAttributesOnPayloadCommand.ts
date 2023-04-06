@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlAttributesOnPayloadInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlXmlAttributesOnPayloadCommand,
-  serializeAws_restXmlXmlAttributesOnPayloadCommand,
-} from "../protocols/Aws_restXml";
+import { de_XmlAttributesOnPayloadCommand, se_XmlAttributesOnPayloadCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -110,14 +107,14 @@ export class XmlAttributesOnPayloadCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlAttributesOnPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlAttributesOnPayloadCommand(input, context);
+    return se_XmlAttributesOnPayloadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlAttributesOnPayloadCommandOutput> {
-    return deserializeAws_restXmlXmlAttributesOnPayloadCommand(output, context);
+    return de_XmlAttributesOnPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

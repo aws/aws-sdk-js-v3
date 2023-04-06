@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateParticipantRoleConfigRequest, UpdateParticipantRoleConfigResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateParticipantRoleConfigCommand,
-  serializeAws_restJson1UpdateParticipantRoleConfigCommand,
+  de_UpdateParticipantRoleConfigCommand,
+  se_UpdateParticipantRoleConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -172,7 +172,7 @@ export class UpdateParticipantRoleConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateParticipantRoleConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateParticipantRoleConfigCommand(input, context);
+    return se_UpdateParticipantRoleConfigCommand(input, context);
   }
 
   /**
@@ -182,7 +182,7 @@ export class UpdateParticipantRoleConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateParticipantRoleConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateParticipantRoleConfigCommand(output, context);
+    return de_UpdateParticipantRoleConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

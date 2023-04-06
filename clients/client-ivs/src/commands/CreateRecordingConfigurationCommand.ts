@@ -16,8 +16,8 @@ import {
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { CreateRecordingConfigurationRequest, CreateRecordingConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateRecordingConfigurationCommand,
-  serializeAws_restJson1CreateRecordingConfigurationCommand,
+  de_CreateRecordingConfigurationCommand,
+  se_CreateRecordingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -164,7 +164,7 @@ export class CreateRecordingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRecordingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRecordingConfigurationCommand(input, context);
+    return se_CreateRecordingConfigurationCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class CreateRecordingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateRecordingConfigurationCommandOutput> {
-    return deserializeAws_restJson1CreateRecordingConfigurationCommand(output, context);
+    return de_CreateRecordingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

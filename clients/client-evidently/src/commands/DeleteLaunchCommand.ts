@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { DeleteLaunchRequest, DeleteLaunchResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteLaunchCommand,
-  serializeAws_restJson1DeleteLaunchCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLaunchCommand, se_DeleteLaunchCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteLaunchCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLaunchCommand(input, context);
+    return se_DeleteLaunchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLaunchCommandOutput> {
-    return deserializeAws_restJson1DeleteLaunchCommand(output, context);
+    return de_DeleteLaunchCommand(output, context);
   }
 
   // Start section: command_body_extra

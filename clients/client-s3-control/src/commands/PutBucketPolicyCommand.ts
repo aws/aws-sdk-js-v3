@@ -16,10 +16,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutBucketPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutBucketPolicyCommand,
-  serializeAws_restXmlPutBucketPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutBucketPolicyCommand, se_PutBucketPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -166,14 +163,14 @@ export class PutBucketPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketPolicyCommand(input, context);
+    return se_PutBucketPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketPolicyCommandOutput> {
-    return deserializeAws_restXmlPutBucketPolicyCommand(output, context);
+    return de_PutBucketPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

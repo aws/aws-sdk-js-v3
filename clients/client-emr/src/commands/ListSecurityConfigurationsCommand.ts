@@ -15,10 +15,7 @@ import {
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ListSecurityConfigurationsInput, ListSecurityConfigurationsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSecurityConfigurationsCommand,
-  serializeAws_json1_1ListSecurityConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSecurityConfigurationsCommand, se_ListSecurityConfigurationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,7 +127,7 @@ export class ListSecurityConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSecurityConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSecurityConfigurationsCommand(input, context);
+    return se_ListSecurityConfigurationsCommand(input, context);
   }
 
   /**
@@ -140,7 +137,7 @@ export class ListSecurityConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListSecurityConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListSecurityConfigurationsCommand(output, context);
+    return de_ListSecurityConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { ScanInput, ScanOutput } from "../models/models_0";
-import { deserializeAws_json1_0ScanCommand, serializeAws_json1_0ScanCommand } from "../protocols/Aws_json1_0";
+import { de_ScanCommand, se_ScanCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -275,14 +275,14 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
    * @internal
    */
   private serialize(input: ScanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ScanCommand(input, context);
+    return se_ScanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScanCommandOutput> {
-    return deserializeAws_json1_0ScanCommand(output, context);
+    return de_ScanCommand(output, context);
   }
 
   // Start section: command_body_extra

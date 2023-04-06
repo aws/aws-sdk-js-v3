@@ -16,8 +16,8 @@ import {
 import { DescribeLoggingConfigurationRequest, DescribeLoggingConfigurationResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
-  deserializeAws_json1_0DescribeLoggingConfigurationCommand,
-  serializeAws_json1_0DescribeLoggingConfigurationCommand,
+  de_DescribeLoggingConfigurationCommand,
+  se_DescribeLoggingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -149,7 +149,7 @@ export class DescribeLoggingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeLoggingConfigurationCommand(input, context);
+    return se_DescribeLoggingConfigurationCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class DescribeLoggingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_0DescribeLoggingConfigurationCommand(output, context);
+    return de_DescribeLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

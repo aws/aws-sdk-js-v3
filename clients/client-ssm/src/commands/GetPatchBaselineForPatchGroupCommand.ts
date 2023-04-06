@@ -15,8 +15,8 @@ import {
 
 import { GetPatchBaselineForPatchGroupRequest, GetPatchBaselineForPatchGroupResult } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetPatchBaselineForPatchGroupCommand,
-  serializeAws_json1_1GetPatchBaselineForPatchGroupCommand,
+  de_GetPatchBaselineForPatchGroupCommand,
+  se_GetPatchBaselineForPatchGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -126,7 +126,7 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPatchBaselineForPatchGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPatchBaselineForPatchGroupCommand(input, context);
+    return se_GetPatchBaselineForPatchGroupCommand(input, context);
   }
 
   /**
@@ -136,7 +136,7 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPatchBaselineForPatchGroupCommandOutput> {
-    return deserializeAws_json1_1GetPatchBaselineForPatchGroupCommand(output, context);
+    return de_GetPatchBaselineForPatchGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

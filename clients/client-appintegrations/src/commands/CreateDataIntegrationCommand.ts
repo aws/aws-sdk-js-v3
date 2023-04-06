@@ -15,10 +15,7 @@ import {
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { CreateDataIntegrationRequest, CreateDataIntegrationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDataIntegrationCommand,
-  serializeAws_restJson1CreateDataIntegrationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDataIntegrationCommand, se_CreateDataIntegrationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -172,14 +169,14 @@ export class CreateDataIntegrationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDataIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDataIntegrationCommand(input, context);
+    return se_CreateDataIntegrationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataIntegrationCommandOutput> {
-    return deserializeAws_restJson1CreateDataIntegrationCommand(output, context);
+    return de_CreateDataIntegrationCommand(output, context);
   }
 
   // Start section: command_body_extra

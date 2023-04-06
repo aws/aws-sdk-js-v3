@@ -18,8 +18,8 @@ import {
   AssociateServiceActionWithProvisioningArtifactOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand,
-  serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand,
+  de_AssociateServiceActionWithProvisioningArtifactCommand,
+  se_AssociateServiceActionWithProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -151,7 +151,7 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
     input: AssociateServiceActionWithProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand(input, context);
+    return se_AssociateServiceActionWithProvisioningArtifactCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand(output, context);
+    return de_AssociateServiceActionWithProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

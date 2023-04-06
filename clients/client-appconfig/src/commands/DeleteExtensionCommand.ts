@@ -15,10 +15,7 @@ import {
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { DeleteExtensionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteExtensionCommand,
-  serializeAws_restJson1DeleteExtensionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteExtensionCommand, se_DeleteExtensionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteExtensionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteExtensionCommand(input, context);
+    return se_DeleteExtensionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExtensionCommandOutput> {
-    return deserializeAws_restJson1DeleteExtensionCommand(output, context);
+    return de_DeleteExtensionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -462,7 +462,10 @@ import {
 } from "../models/models_0";
 import { WorkMailServiceException as __BaseException } from "../models/WorkMailServiceException";
 
-export const serializeAws_json1_1AssociateDelegateToResourceCommand = async (
+/**
+ * serializeAws_json1_1AssociateDelegateToResourceCommand
+ */
+export const se_AssociateDelegateToResourceCommand = async (
   input: AssociateDelegateToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -471,11 +474,14 @@ export const serializeAws_json1_1AssociateDelegateToResourceCommand = async (
     "x-amz-target": "WorkMailService.AssociateDelegateToResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateDelegateToResourceRequest(input, context));
+  body = JSON.stringify(se_AssociateDelegateToResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssociateMemberToGroupCommand = async (
+/**
+ * serializeAws_json1_1AssociateMemberToGroupCommand
+ */
+export const se_AssociateMemberToGroupCommand = async (
   input: AssociateMemberToGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -484,11 +490,14 @@ export const serializeAws_json1_1AssociateMemberToGroupCommand = async (
     "x-amz-target": "WorkMailService.AssociateMemberToGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssociateMemberToGroupRequest(input, context));
+  body = JSON.stringify(se_AssociateMemberToGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1AssumeImpersonationRoleCommand = async (
+/**
+ * serializeAws_json1_1AssumeImpersonationRoleCommand
+ */
+export const se_AssumeImpersonationRoleCommand = async (
   input: AssumeImpersonationRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -497,11 +506,14 @@ export const serializeAws_json1_1AssumeImpersonationRoleCommand = async (
     "x-amz-target": "WorkMailService.AssumeImpersonationRole",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1AssumeImpersonationRoleRequest(input, context));
+  body = JSON.stringify(se_AssumeImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CancelMailboxExportJobCommand = async (
+/**
+ * serializeAws_json1_1CancelMailboxExportJobCommand
+ */
+export const se_CancelMailboxExportJobCommand = async (
   input: CancelMailboxExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -510,11 +522,14 @@ export const serializeAws_json1_1CancelMailboxExportJobCommand = async (
     "x-amz-target": "WorkMailService.CancelMailboxExportJob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CancelMailboxExportJobRequest(input, context));
+  body = JSON.stringify(se_CancelMailboxExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateAliasCommand = async (
+/**
+ * serializeAws_json1_1CreateAliasCommand
+ */
+export const se_CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -523,11 +538,14 @@ export const serializeAws_json1_1CreateAliasCommand = async (
     "x-amz-target": "WorkMailService.CreateAlias",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateAliasRequest(input, context));
+  body = JSON.stringify(se_CreateAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateAvailabilityConfigurationCommand = async (
+/**
+ * serializeAws_json1_1CreateAvailabilityConfigurationCommand
+ */
+export const se_CreateAvailabilityConfigurationCommand = async (
   input: CreateAvailabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -536,11 +554,14 @@ export const serializeAws_json1_1CreateAvailabilityConfigurationCommand = async 
     "x-amz-target": "WorkMailService.CreateAvailabilityConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateAvailabilityConfigurationRequest(input, context));
+  body = JSON.stringify(se_CreateAvailabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateGroupCommand = async (
+/**
+ * serializeAws_json1_1CreateGroupCommand
+ */
+export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -549,11 +570,14 @@ export const serializeAws_json1_1CreateGroupCommand = async (
     "x-amz-target": "WorkMailService.CreateGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateGroupRequest(input, context));
+  body = JSON.stringify(se_CreateGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateImpersonationRoleCommand = async (
+/**
+ * serializeAws_json1_1CreateImpersonationRoleCommand
+ */
+export const se_CreateImpersonationRoleCommand = async (
   input: CreateImpersonationRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -562,11 +586,14 @@ export const serializeAws_json1_1CreateImpersonationRoleCommand = async (
     "x-amz-target": "WorkMailService.CreateImpersonationRole",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateImpersonationRoleRequest(input, context));
+  body = JSON.stringify(se_CreateImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateMobileDeviceAccessRuleCommand = async (
+/**
+ * serializeAws_json1_1CreateMobileDeviceAccessRuleCommand
+ */
+export const se_CreateMobileDeviceAccessRuleCommand = async (
   input: CreateMobileDeviceAccessRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -575,11 +602,14 @@ export const serializeAws_json1_1CreateMobileDeviceAccessRuleCommand = async (
     "x-amz-target": "WorkMailService.CreateMobileDeviceAccessRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateMobileDeviceAccessRuleRequest(input, context));
+  body = JSON.stringify(se_CreateMobileDeviceAccessRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateOrganizationCommand = async (
+/**
+ * serializeAws_json1_1CreateOrganizationCommand
+ */
+export const se_CreateOrganizationCommand = async (
   input: CreateOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -588,11 +618,14 @@ export const serializeAws_json1_1CreateOrganizationCommand = async (
     "x-amz-target": "WorkMailService.CreateOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateOrganizationRequest(input, context));
+  body = JSON.stringify(se_CreateOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateResourceCommand = async (
+/**
+ * serializeAws_json1_1CreateResourceCommand
+ */
+export const se_CreateResourceCommand = async (
   input: CreateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -601,11 +634,14 @@ export const serializeAws_json1_1CreateResourceCommand = async (
     "x-amz-target": "WorkMailService.CreateResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateResourceRequest(input, context));
+  body = JSON.stringify(se_CreateResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateUserCommand = async (
+/**
+ * serializeAws_json1_1CreateUserCommand
+ */
+export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -614,11 +650,14 @@ export const serializeAws_json1_1CreateUserCommand = async (
     "x-amz-target": "WorkMailService.CreateUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
+  body = JSON.stringify(se_CreateUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteAccessControlRuleCommand = async (
+/**
+ * serializeAws_json1_1DeleteAccessControlRuleCommand
+ */
+export const se_DeleteAccessControlRuleCommand = async (
   input: DeleteAccessControlRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -627,11 +666,14 @@ export const serializeAws_json1_1DeleteAccessControlRuleCommand = async (
     "x-amz-target": "WorkMailService.DeleteAccessControlRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteAccessControlRuleRequest(input, context));
+  body = JSON.stringify(se_DeleteAccessControlRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteAliasCommand = async (
+/**
+ * serializeAws_json1_1DeleteAliasCommand
+ */
+export const se_DeleteAliasCommand = async (
   input: DeleteAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -640,11 +682,14 @@ export const serializeAws_json1_1DeleteAliasCommand = async (
     "x-amz-target": "WorkMailService.DeleteAlias",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteAliasRequest(input, context));
+  body = JSON.stringify(se_DeleteAliasRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteAvailabilityConfigurationCommand = async (
+/**
+ * serializeAws_json1_1DeleteAvailabilityConfigurationCommand
+ */
+export const se_DeleteAvailabilityConfigurationCommand = async (
   input: DeleteAvailabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -653,11 +698,14 @@ export const serializeAws_json1_1DeleteAvailabilityConfigurationCommand = async 
     "x-amz-target": "WorkMailService.DeleteAvailabilityConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteAvailabilityConfigurationRequest(input, context));
+  body = JSON.stringify(se_DeleteAvailabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteEmailMonitoringConfigurationCommand = async (
+/**
+ * serializeAws_json1_1DeleteEmailMonitoringConfigurationCommand
+ */
+export const se_DeleteEmailMonitoringConfigurationCommand = async (
   input: DeleteEmailMonitoringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -666,11 +714,14 @@ export const serializeAws_json1_1DeleteEmailMonitoringConfigurationCommand = asy
     "x-amz-target": "WorkMailService.DeleteEmailMonitoringConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteEmailMonitoringConfigurationRequest(input, context));
+  body = JSON.stringify(se_DeleteEmailMonitoringConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteGroupCommand = async (
+/**
+ * serializeAws_json1_1DeleteGroupCommand
+ */
+export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -679,11 +730,14 @@ export const serializeAws_json1_1DeleteGroupCommand = async (
     "x-amz-target": "WorkMailService.DeleteGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteGroupRequest(input, context));
+  body = JSON.stringify(se_DeleteGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteImpersonationRoleCommand = async (
+/**
+ * serializeAws_json1_1DeleteImpersonationRoleCommand
+ */
+export const se_DeleteImpersonationRoleCommand = async (
   input: DeleteImpersonationRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -692,11 +746,14 @@ export const serializeAws_json1_1DeleteImpersonationRoleCommand = async (
     "x-amz-target": "WorkMailService.DeleteImpersonationRole",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteImpersonationRoleRequest(input, context));
+  body = JSON.stringify(se_DeleteImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteMailboxPermissionsCommand = async (
+/**
+ * serializeAws_json1_1DeleteMailboxPermissionsCommand
+ */
+export const se_DeleteMailboxPermissionsCommand = async (
   input: DeleteMailboxPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -705,11 +762,14 @@ export const serializeAws_json1_1DeleteMailboxPermissionsCommand = async (
     "x-amz-target": "WorkMailService.DeleteMailboxPermissions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteMailboxPermissionsRequest(input, context));
+  body = JSON.stringify(se_DeleteMailboxPermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand = async (
+/**
+ * serializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand
+ */
+export const se_DeleteMobileDeviceAccessOverrideCommand = async (
   input: DeleteMobileDeviceAccessOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -718,11 +778,14 @@ export const serializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand = async
     "x-amz-target": "WorkMailService.DeleteMobileDeviceAccessOverride",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteMobileDeviceAccessOverrideRequest(input, context));
+  body = JSON.stringify(se_DeleteMobileDeviceAccessOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteMobileDeviceAccessRuleCommand = async (
+/**
+ * serializeAws_json1_1DeleteMobileDeviceAccessRuleCommand
+ */
+export const se_DeleteMobileDeviceAccessRuleCommand = async (
   input: DeleteMobileDeviceAccessRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -731,11 +794,14 @@ export const serializeAws_json1_1DeleteMobileDeviceAccessRuleCommand = async (
     "x-amz-target": "WorkMailService.DeleteMobileDeviceAccessRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteMobileDeviceAccessRuleRequest(input, context));
+  body = JSON.stringify(se_DeleteMobileDeviceAccessRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteOrganizationCommand = async (
+/**
+ * serializeAws_json1_1DeleteOrganizationCommand
+ */
+export const se_DeleteOrganizationCommand = async (
   input: DeleteOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -744,11 +810,14 @@ export const serializeAws_json1_1DeleteOrganizationCommand = async (
     "x-amz-target": "WorkMailService.DeleteOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteOrganizationRequest(input, context));
+  body = JSON.stringify(se_DeleteOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResourceCommand = async (
+/**
+ * serializeAws_json1_1DeleteResourceCommand
+ */
+export const se_DeleteResourceCommand = async (
   input: DeleteResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -757,11 +826,14 @@ export const serializeAws_json1_1DeleteResourceCommand = async (
     "x-amz-target": "WorkMailService.DeleteResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteResourceRequest(input, context));
+  body = JSON.stringify(se_DeleteResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteRetentionPolicyCommand = async (
+/**
+ * serializeAws_json1_1DeleteRetentionPolicyCommand
+ */
+export const se_DeleteRetentionPolicyCommand = async (
   input: DeleteRetentionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -770,11 +842,14 @@ export const serializeAws_json1_1DeleteRetentionPolicyCommand = async (
     "x-amz-target": "WorkMailService.DeleteRetentionPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteRetentionPolicyRequest(input, context));
+  body = JSON.stringify(se_DeleteRetentionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteUserCommand = async (
+/**
+ * serializeAws_json1_1DeleteUserCommand
+ */
+export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -783,11 +858,14 @@ export const serializeAws_json1_1DeleteUserCommand = async (
     "x-amz-target": "WorkMailService.DeleteUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
+  body = JSON.stringify(se_DeleteUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeregisterFromWorkMailCommand = async (
+/**
+ * serializeAws_json1_1DeregisterFromWorkMailCommand
+ */
+export const se_DeregisterFromWorkMailCommand = async (
   input: DeregisterFromWorkMailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -796,11 +874,14 @@ export const serializeAws_json1_1DeregisterFromWorkMailCommand = async (
     "x-amz-target": "WorkMailService.DeregisterFromWorkMail",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeregisterFromWorkMailRequest(input, context));
+  body = JSON.stringify(se_DeregisterFromWorkMailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeregisterMailDomainCommand = async (
+/**
+ * serializeAws_json1_1DeregisterMailDomainCommand
+ */
+export const se_DeregisterMailDomainCommand = async (
   input: DeregisterMailDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -809,11 +890,14 @@ export const serializeAws_json1_1DeregisterMailDomainCommand = async (
     "x-amz-target": "WorkMailService.DeregisterMailDomain",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeregisterMailDomainRequest(input, context));
+  body = JSON.stringify(se_DeregisterMailDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEmailMonitoringConfigurationCommand = async (
+/**
+ * serializeAws_json1_1DescribeEmailMonitoringConfigurationCommand
+ */
+export const se_DescribeEmailMonitoringConfigurationCommand = async (
   input: DescribeEmailMonitoringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -822,11 +906,14 @@ export const serializeAws_json1_1DescribeEmailMonitoringConfigurationCommand = a
     "x-amz-target": "WorkMailService.DescribeEmailMonitoringConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEmailMonitoringConfigurationRequest(input, context));
+  body = JSON.stringify(se_DescribeEmailMonitoringConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeGroupCommand = async (
+/**
+ * serializeAws_json1_1DescribeGroupCommand
+ */
+export const se_DescribeGroupCommand = async (
   input: DescribeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -835,11 +922,14 @@ export const serializeAws_json1_1DescribeGroupCommand = async (
     "x-amz-target": "WorkMailService.DescribeGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeGroupRequest(input, context));
+  body = JSON.stringify(se_DescribeGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeInboundDmarcSettingsCommand = async (
+/**
+ * serializeAws_json1_1DescribeInboundDmarcSettingsCommand
+ */
+export const se_DescribeInboundDmarcSettingsCommand = async (
   input: DescribeInboundDmarcSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -848,11 +938,14 @@ export const serializeAws_json1_1DescribeInboundDmarcSettingsCommand = async (
     "x-amz-target": "WorkMailService.DescribeInboundDmarcSettings",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeInboundDmarcSettingsRequest(input, context));
+  body = JSON.stringify(se_DescribeInboundDmarcSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeMailboxExportJobCommand = async (
+/**
+ * serializeAws_json1_1DescribeMailboxExportJobCommand
+ */
+export const se_DescribeMailboxExportJobCommand = async (
   input: DescribeMailboxExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -861,11 +954,14 @@ export const serializeAws_json1_1DescribeMailboxExportJobCommand = async (
     "x-amz-target": "WorkMailService.DescribeMailboxExportJob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeMailboxExportJobRequest(input, context));
+  body = JSON.stringify(se_DescribeMailboxExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeOrganizationCommand = async (
+/**
+ * serializeAws_json1_1DescribeOrganizationCommand
+ */
+export const se_DescribeOrganizationCommand = async (
   input: DescribeOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -874,11 +970,14 @@ export const serializeAws_json1_1DescribeOrganizationCommand = async (
     "x-amz-target": "WorkMailService.DescribeOrganization",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeOrganizationRequest(input, context));
+  body = JSON.stringify(se_DescribeOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeResourceCommand = async (
+/**
+ * serializeAws_json1_1DescribeResourceCommand
+ */
+export const se_DescribeResourceCommand = async (
   input: DescribeResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -887,11 +986,14 @@ export const serializeAws_json1_1DescribeResourceCommand = async (
     "x-amz-target": "WorkMailService.DescribeResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeResourceRequest(input, context));
+  body = JSON.stringify(se_DescribeResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeUserCommand = async (
+/**
+ * serializeAws_json1_1DescribeUserCommand
+ */
+export const se_DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -900,11 +1002,14 @@ export const serializeAws_json1_1DescribeUserCommand = async (
     "x-amz-target": "WorkMailService.DescribeUser",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeUserRequest(input, context));
+  body = JSON.stringify(se_DescribeUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateDelegateFromResourceCommand = async (
+/**
+ * serializeAws_json1_1DisassociateDelegateFromResourceCommand
+ */
+export const se_DisassociateDelegateFromResourceCommand = async (
   input: DisassociateDelegateFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -913,11 +1018,14 @@ export const serializeAws_json1_1DisassociateDelegateFromResourceCommand = async
     "x-amz-target": "WorkMailService.DisassociateDelegateFromResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateDelegateFromResourceRequest(input, context));
+  body = JSON.stringify(se_DisassociateDelegateFromResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DisassociateMemberFromGroupCommand = async (
+/**
+ * serializeAws_json1_1DisassociateMemberFromGroupCommand
+ */
+export const se_DisassociateMemberFromGroupCommand = async (
   input: DisassociateMemberFromGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -926,11 +1034,14 @@ export const serializeAws_json1_1DisassociateMemberFromGroupCommand = async (
     "x-amz-target": "WorkMailService.DisassociateMemberFromGroup",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DisassociateMemberFromGroupRequest(input, context));
+  body = JSON.stringify(se_DisassociateMemberFromGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAccessControlEffectCommand = async (
+/**
+ * serializeAws_json1_1GetAccessControlEffectCommand
+ */
+export const se_GetAccessControlEffectCommand = async (
   input: GetAccessControlEffectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -939,11 +1050,14 @@ export const serializeAws_json1_1GetAccessControlEffectCommand = async (
     "x-amz-target": "WorkMailService.GetAccessControlEffect",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAccessControlEffectRequest(input, context));
+  body = JSON.stringify(se_GetAccessControlEffectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetDefaultRetentionPolicyCommand = async (
+/**
+ * serializeAws_json1_1GetDefaultRetentionPolicyCommand
+ */
+export const se_GetDefaultRetentionPolicyCommand = async (
   input: GetDefaultRetentionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -952,11 +1066,14 @@ export const serializeAws_json1_1GetDefaultRetentionPolicyCommand = async (
     "x-amz-target": "WorkMailService.GetDefaultRetentionPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDefaultRetentionPolicyRequest(input, context));
+  body = JSON.stringify(se_GetDefaultRetentionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetImpersonationRoleCommand = async (
+/**
+ * serializeAws_json1_1GetImpersonationRoleCommand
+ */
+export const se_GetImpersonationRoleCommand = async (
   input: GetImpersonationRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -965,11 +1082,14 @@ export const serializeAws_json1_1GetImpersonationRoleCommand = async (
     "x-amz-target": "WorkMailService.GetImpersonationRole",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetImpersonationRoleRequest(input, context));
+  body = JSON.stringify(se_GetImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetImpersonationRoleEffectCommand = async (
+/**
+ * serializeAws_json1_1GetImpersonationRoleEffectCommand
+ */
+export const se_GetImpersonationRoleEffectCommand = async (
   input: GetImpersonationRoleEffectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -978,11 +1098,14 @@ export const serializeAws_json1_1GetImpersonationRoleEffectCommand = async (
     "x-amz-target": "WorkMailService.GetImpersonationRoleEffect",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetImpersonationRoleEffectRequest(input, context));
+  body = JSON.stringify(se_GetImpersonationRoleEffectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetMailboxDetailsCommand = async (
+/**
+ * serializeAws_json1_1GetMailboxDetailsCommand
+ */
+export const se_GetMailboxDetailsCommand = async (
   input: GetMailboxDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -991,11 +1114,14 @@ export const serializeAws_json1_1GetMailboxDetailsCommand = async (
     "x-amz-target": "WorkMailService.GetMailboxDetails",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetMailboxDetailsRequest(input, context));
+  body = JSON.stringify(se_GetMailboxDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetMailDomainCommand = async (
+/**
+ * serializeAws_json1_1GetMailDomainCommand
+ */
+export const se_GetMailDomainCommand = async (
   input: GetMailDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1004,11 +1130,14 @@ export const serializeAws_json1_1GetMailDomainCommand = async (
     "x-amz-target": "WorkMailService.GetMailDomain",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetMailDomainRequest(input, context));
+  body = JSON.stringify(se_GetMailDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetMobileDeviceAccessEffectCommand = async (
+/**
+ * serializeAws_json1_1GetMobileDeviceAccessEffectCommand
+ */
+export const se_GetMobileDeviceAccessEffectCommand = async (
   input: GetMobileDeviceAccessEffectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1017,11 +1146,14 @@ export const serializeAws_json1_1GetMobileDeviceAccessEffectCommand = async (
     "x-amz-target": "WorkMailService.GetMobileDeviceAccessEffect",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetMobileDeviceAccessEffectRequest(input, context));
+  body = JSON.stringify(se_GetMobileDeviceAccessEffectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetMobileDeviceAccessOverrideCommand = async (
+/**
+ * serializeAws_json1_1GetMobileDeviceAccessOverrideCommand
+ */
+export const se_GetMobileDeviceAccessOverrideCommand = async (
   input: GetMobileDeviceAccessOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1030,11 +1162,14 @@ export const serializeAws_json1_1GetMobileDeviceAccessOverrideCommand = async (
     "x-amz-target": "WorkMailService.GetMobileDeviceAccessOverride",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetMobileDeviceAccessOverrideRequest(input, context));
+  body = JSON.stringify(se_GetMobileDeviceAccessOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAccessControlRulesCommand = async (
+/**
+ * serializeAws_json1_1ListAccessControlRulesCommand
+ */
+export const se_ListAccessControlRulesCommand = async (
   input: ListAccessControlRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1043,11 +1178,14 @@ export const serializeAws_json1_1ListAccessControlRulesCommand = async (
     "x-amz-target": "WorkMailService.ListAccessControlRules",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAccessControlRulesRequest(input, context));
+  body = JSON.stringify(se_ListAccessControlRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAliasesCommand = async (
+/**
+ * serializeAws_json1_1ListAliasesCommand
+ */
+export const se_ListAliasesCommand = async (
   input: ListAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1056,11 +1194,14 @@ export const serializeAws_json1_1ListAliasesCommand = async (
     "x-amz-target": "WorkMailService.ListAliases",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAliasesRequest(input, context));
+  body = JSON.stringify(se_ListAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListAvailabilityConfigurationsCommand = async (
+/**
+ * serializeAws_json1_1ListAvailabilityConfigurationsCommand
+ */
+export const se_ListAvailabilityConfigurationsCommand = async (
   input: ListAvailabilityConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1069,11 +1210,14 @@ export const serializeAws_json1_1ListAvailabilityConfigurationsCommand = async (
     "x-amz-target": "WorkMailService.ListAvailabilityConfigurations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAvailabilityConfigurationsRequest(input, context));
+  body = JSON.stringify(se_ListAvailabilityConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListGroupMembersCommand = async (
+/**
+ * serializeAws_json1_1ListGroupMembersCommand
+ */
+export const se_ListGroupMembersCommand = async (
   input: ListGroupMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1082,11 +1226,14 @@ export const serializeAws_json1_1ListGroupMembersCommand = async (
     "x-amz-target": "WorkMailService.ListGroupMembers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListGroupMembersRequest(input, context));
+  body = JSON.stringify(se_ListGroupMembersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListGroupsCommand = async (
+/**
+ * serializeAws_json1_1ListGroupsCommand
+ */
+export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1095,11 +1242,14 @@ export const serializeAws_json1_1ListGroupsCommand = async (
     "x-amz-target": "WorkMailService.ListGroups",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListGroupsRequest(input, context));
+  body = JSON.stringify(se_ListGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListImpersonationRolesCommand = async (
+/**
+ * serializeAws_json1_1ListImpersonationRolesCommand
+ */
+export const se_ListImpersonationRolesCommand = async (
   input: ListImpersonationRolesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1108,11 +1258,14 @@ export const serializeAws_json1_1ListImpersonationRolesCommand = async (
     "x-amz-target": "WorkMailService.ListImpersonationRoles",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListImpersonationRolesRequest(input, context));
+  body = JSON.stringify(se_ListImpersonationRolesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListMailboxExportJobsCommand = async (
+/**
+ * serializeAws_json1_1ListMailboxExportJobsCommand
+ */
+export const se_ListMailboxExportJobsCommand = async (
   input: ListMailboxExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1121,11 +1274,14 @@ export const serializeAws_json1_1ListMailboxExportJobsCommand = async (
     "x-amz-target": "WorkMailService.ListMailboxExportJobs",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListMailboxExportJobsRequest(input, context));
+  body = JSON.stringify(se_ListMailboxExportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListMailboxPermissionsCommand = async (
+/**
+ * serializeAws_json1_1ListMailboxPermissionsCommand
+ */
+export const se_ListMailboxPermissionsCommand = async (
   input: ListMailboxPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1134,11 +1290,14 @@ export const serializeAws_json1_1ListMailboxPermissionsCommand = async (
     "x-amz-target": "WorkMailService.ListMailboxPermissions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListMailboxPermissionsRequest(input, context));
+  body = JSON.stringify(se_ListMailboxPermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListMailDomainsCommand = async (
+/**
+ * serializeAws_json1_1ListMailDomainsCommand
+ */
+export const se_ListMailDomainsCommand = async (
   input: ListMailDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1147,11 +1306,14 @@ export const serializeAws_json1_1ListMailDomainsCommand = async (
     "x-amz-target": "WorkMailService.ListMailDomains",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListMailDomainsRequest(input, context));
+  body = JSON.stringify(se_ListMailDomainsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListMobileDeviceAccessOverridesCommand = async (
+/**
+ * serializeAws_json1_1ListMobileDeviceAccessOverridesCommand
+ */
+export const se_ListMobileDeviceAccessOverridesCommand = async (
   input: ListMobileDeviceAccessOverridesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1160,11 +1322,14 @@ export const serializeAws_json1_1ListMobileDeviceAccessOverridesCommand = async 
     "x-amz-target": "WorkMailService.ListMobileDeviceAccessOverrides",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListMobileDeviceAccessOverridesRequest(input, context));
+  body = JSON.stringify(se_ListMobileDeviceAccessOverridesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListMobileDeviceAccessRulesCommand = async (
+/**
+ * serializeAws_json1_1ListMobileDeviceAccessRulesCommand
+ */
+export const se_ListMobileDeviceAccessRulesCommand = async (
   input: ListMobileDeviceAccessRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1173,11 +1338,14 @@ export const serializeAws_json1_1ListMobileDeviceAccessRulesCommand = async (
     "x-amz-target": "WorkMailService.ListMobileDeviceAccessRules",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListMobileDeviceAccessRulesRequest(input, context));
+  body = JSON.stringify(se_ListMobileDeviceAccessRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListOrganizationsCommand = async (
+/**
+ * serializeAws_json1_1ListOrganizationsCommand
+ */
+export const se_ListOrganizationsCommand = async (
   input: ListOrganizationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1186,11 +1354,14 @@ export const serializeAws_json1_1ListOrganizationsCommand = async (
     "x-amz-target": "WorkMailService.ListOrganizations",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListOrganizationsRequest(input, context));
+  body = JSON.stringify(se_ListOrganizationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResourceDelegatesCommand = async (
+/**
+ * serializeAws_json1_1ListResourceDelegatesCommand
+ */
+export const se_ListResourceDelegatesCommand = async (
   input: ListResourceDelegatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1199,11 +1370,14 @@ export const serializeAws_json1_1ListResourceDelegatesCommand = async (
     "x-amz-target": "WorkMailService.ListResourceDelegates",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResourceDelegatesRequest(input, context));
+  body = JSON.stringify(se_ListResourceDelegatesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListResourcesCommand = async (
+/**
+ * serializeAws_json1_1ListResourcesCommand
+ */
+export const se_ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1212,11 +1386,14 @@ export const serializeAws_json1_1ListResourcesCommand = async (
     "x-amz-target": "WorkMailService.ListResources",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListResourcesRequest(input, context));
+  body = JSON.stringify(se_ListResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1225,11 +1402,14 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "x-amz-target": "WorkMailService.ListTagsForResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(se_ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListUsersCommand = async (
+/**
+ * serializeAws_json1_1ListUsersCommand
+ */
+export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1238,11 +1418,14 @@ export const serializeAws_json1_1ListUsersCommand = async (
     "x-amz-target": "WorkMailService.ListUsers",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
+  body = JSON.stringify(se_ListUsersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutAccessControlRuleCommand = async (
+/**
+ * serializeAws_json1_1PutAccessControlRuleCommand
+ */
+export const se_PutAccessControlRuleCommand = async (
   input: PutAccessControlRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1251,11 +1434,14 @@ export const serializeAws_json1_1PutAccessControlRuleCommand = async (
     "x-amz-target": "WorkMailService.PutAccessControlRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutAccessControlRuleRequest(input, context));
+  body = JSON.stringify(se_PutAccessControlRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutEmailMonitoringConfigurationCommand = async (
+/**
+ * serializeAws_json1_1PutEmailMonitoringConfigurationCommand
+ */
+export const se_PutEmailMonitoringConfigurationCommand = async (
   input: PutEmailMonitoringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1264,11 +1450,14 @@ export const serializeAws_json1_1PutEmailMonitoringConfigurationCommand = async 
     "x-amz-target": "WorkMailService.PutEmailMonitoringConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutEmailMonitoringConfigurationRequest(input, context));
+  body = JSON.stringify(se_PutEmailMonitoringConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutInboundDmarcSettingsCommand = async (
+/**
+ * serializeAws_json1_1PutInboundDmarcSettingsCommand
+ */
+export const se_PutInboundDmarcSettingsCommand = async (
   input: PutInboundDmarcSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1277,11 +1466,14 @@ export const serializeAws_json1_1PutInboundDmarcSettingsCommand = async (
     "x-amz-target": "WorkMailService.PutInboundDmarcSettings",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutInboundDmarcSettingsRequest(input, context));
+  body = JSON.stringify(se_PutInboundDmarcSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutMailboxPermissionsCommand = async (
+/**
+ * serializeAws_json1_1PutMailboxPermissionsCommand
+ */
+export const se_PutMailboxPermissionsCommand = async (
   input: PutMailboxPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1290,11 +1482,14 @@ export const serializeAws_json1_1PutMailboxPermissionsCommand = async (
     "x-amz-target": "WorkMailService.PutMailboxPermissions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutMailboxPermissionsRequest(input, context));
+  body = JSON.stringify(se_PutMailboxPermissionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutMobileDeviceAccessOverrideCommand = async (
+/**
+ * serializeAws_json1_1PutMobileDeviceAccessOverrideCommand
+ */
+export const se_PutMobileDeviceAccessOverrideCommand = async (
   input: PutMobileDeviceAccessOverrideCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1303,11 +1498,14 @@ export const serializeAws_json1_1PutMobileDeviceAccessOverrideCommand = async (
     "x-amz-target": "WorkMailService.PutMobileDeviceAccessOverride",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutMobileDeviceAccessOverrideRequest(input, context));
+  body = JSON.stringify(se_PutMobileDeviceAccessOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutRetentionPolicyCommand = async (
+/**
+ * serializeAws_json1_1PutRetentionPolicyCommand
+ */
+export const se_PutRetentionPolicyCommand = async (
   input: PutRetentionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1316,11 +1514,14 @@ export const serializeAws_json1_1PutRetentionPolicyCommand = async (
     "x-amz-target": "WorkMailService.PutRetentionPolicy",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutRetentionPolicyRequest(input, context));
+  body = JSON.stringify(se_PutRetentionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RegisterMailDomainCommand = async (
+/**
+ * serializeAws_json1_1RegisterMailDomainCommand
+ */
+export const se_RegisterMailDomainCommand = async (
   input: RegisterMailDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1329,11 +1530,14 @@ export const serializeAws_json1_1RegisterMailDomainCommand = async (
     "x-amz-target": "WorkMailService.RegisterMailDomain",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RegisterMailDomainRequest(input, context));
+  body = JSON.stringify(se_RegisterMailDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1RegisterToWorkMailCommand = async (
+/**
+ * serializeAws_json1_1RegisterToWorkMailCommand
+ */
+export const se_RegisterToWorkMailCommand = async (
   input: RegisterToWorkMailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1342,11 +1546,14 @@ export const serializeAws_json1_1RegisterToWorkMailCommand = async (
     "x-amz-target": "WorkMailService.RegisterToWorkMail",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1RegisterToWorkMailRequest(input, context));
+  body = JSON.stringify(se_RegisterToWorkMailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ResetPasswordCommand = async (
+/**
+ * serializeAws_json1_1ResetPasswordCommand
+ */
+export const se_ResetPasswordCommand = async (
   input: ResetPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1355,11 +1562,14 @@ export const serializeAws_json1_1ResetPasswordCommand = async (
     "x-amz-target": "WorkMailService.ResetPassword",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ResetPasswordRequest(input, context));
+  body = JSON.stringify(se_ResetPasswordRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartMailboxExportJobCommand = async (
+/**
+ * serializeAws_json1_1StartMailboxExportJobCommand
+ */
+export const se_StartMailboxExportJobCommand = async (
   input: StartMailboxExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1368,11 +1578,14 @@ export const serializeAws_json1_1StartMailboxExportJobCommand = async (
     "x-amz-target": "WorkMailService.StartMailboxExportJob",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartMailboxExportJobRequest(input, context));
+  body = JSON.stringify(se_StartMailboxExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1381,11 +1594,14 @@ export const serializeAws_json1_1TagResourceCommand = async (
     "x-amz-target": "WorkMailService.TagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(se_TagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TestAvailabilityConfigurationCommand = async (
+/**
+ * serializeAws_json1_1TestAvailabilityConfigurationCommand
+ */
+export const se_TestAvailabilityConfigurationCommand = async (
   input: TestAvailabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1394,11 +1610,14 @@ export const serializeAws_json1_1TestAvailabilityConfigurationCommand = async (
     "x-amz-target": "WorkMailService.TestAvailabilityConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TestAvailabilityConfigurationRequest(input, context));
+  body = JSON.stringify(se_TestAvailabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1407,11 +1626,14 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "x-amz-target": "WorkMailService.UntagResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(se_UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateAvailabilityConfigurationCommand = async (
+/**
+ * serializeAws_json1_1UpdateAvailabilityConfigurationCommand
+ */
+export const se_UpdateAvailabilityConfigurationCommand = async (
   input: UpdateAvailabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1420,11 +1642,14 @@ export const serializeAws_json1_1UpdateAvailabilityConfigurationCommand = async 
     "x-amz-target": "WorkMailService.UpdateAvailabilityConfiguration",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateAvailabilityConfigurationRequest(input, context));
+  body = JSON.stringify(se_UpdateAvailabilityConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateDefaultMailDomainCommand = async (
+/**
+ * serializeAws_json1_1UpdateDefaultMailDomainCommand
+ */
+export const se_UpdateDefaultMailDomainCommand = async (
   input: UpdateDefaultMailDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1433,11 +1658,14 @@ export const serializeAws_json1_1UpdateDefaultMailDomainCommand = async (
     "x-amz-target": "WorkMailService.UpdateDefaultMailDomain",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateDefaultMailDomainRequest(input, context));
+  body = JSON.stringify(se_UpdateDefaultMailDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateImpersonationRoleCommand = async (
+/**
+ * serializeAws_json1_1UpdateImpersonationRoleCommand
+ */
+export const se_UpdateImpersonationRoleCommand = async (
   input: UpdateImpersonationRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1446,11 +1674,14 @@ export const serializeAws_json1_1UpdateImpersonationRoleCommand = async (
     "x-amz-target": "WorkMailService.UpdateImpersonationRole",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateImpersonationRoleRequest(input, context));
+  body = JSON.stringify(se_UpdateImpersonationRoleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateMailboxQuotaCommand = async (
+/**
+ * serializeAws_json1_1UpdateMailboxQuotaCommand
+ */
+export const se_UpdateMailboxQuotaCommand = async (
   input: UpdateMailboxQuotaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1459,11 +1690,14 @@ export const serializeAws_json1_1UpdateMailboxQuotaCommand = async (
     "x-amz-target": "WorkMailService.UpdateMailboxQuota",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateMailboxQuotaRequest(input, context));
+  body = JSON.stringify(se_UpdateMailboxQuotaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateMobileDeviceAccessRuleCommand = async (
+/**
+ * serializeAws_json1_1UpdateMobileDeviceAccessRuleCommand
+ */
+export const se_UpdateMobileDeviceAccessRuleCommand = async (
   input: UpdateMobileDeviceAccessRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1472,11 +1706,14 @@ export const serializeAws_json1_1UpdateMobileDeviceAccessRuleCommand = async (
     "x-amz-target": "WorkMailService.UpdateMobileDeviceAccessRule",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateMobileDeviceAccessRuleRequest(input, context));
+  body = JSON.stringify(se_UpdateMobileDeviceAccessRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdatePrimaryEmailAddressCommand = async (
+/**
+ * serializeAws_json1_1UpdatePrimaryEmailAddressCommand
+ */
+export const se_UpdatePrimaryEmailAddressCommand = async (
   input: UpdatePrimaryEmailAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1485,11 +1722,14 @@ export const serializeAws_json1_1UpdatePrimaryEmailAddressCommand = async (
     "x-amz-target": "WorkMailService.UpdatePrimaryEmailAddress",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdatePrimaryEmailAddressRequest(input, context));
+  body = JSON.stringify(se_UpdatePrimaryEmailAddressRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateResourceCommand = async (
+/**
+ * serializeAws_json1_1UpdateResourceCommand
+ */
+export const se_UpdateResourceCommand = async (
   input: UpdateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1498,20 +1738,23 @@ export const serializeAws_json1_1UpdateResourceCommand = async (
     "x-amz-target": "WorkMailService.UpdateResource",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateResourceRequest(input, context));
+  body = JSON.stringify(se_UpdateResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1AssociateDelegateToResourceCommand = async (
+/**
+ * deserializeAws_json1_1AssociateDelegateToResourceCommand
+ */
+export const de_AssociateDelegateToResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDelegateToResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateDelegateToResourceCommandError(output, context);
+    return de_AssociateDelegateToResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateDelegateToResourceResponse(data, context);
+  contents = de_AssociateDelegateToResourceResponse(data, context);
   const response: AssociateDelegateToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1519,7 +1762,10 @@ export const deserializeAws_json1_1AssociateDelegateToResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateDelegateToResourceCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateDelegateToResourceCommandError
+ */
+const de_AssociateDelegateToResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDelegateToResourceCommandOutput> => {
@@ -1531,19 +1777,19 @@ const deserializeAws_json1_1AssociateDelegateToResourceCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1555,16 +1801,19 @@ const deserializeAws_json1_1AssociateDelegateToResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AssociateMemberToGroupCommand = async (
+/**
+ * deserializeAws_json1_1AssociateMemberToGroupCommand
+ */
+export const de_AssociateMemberToGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateMemberToGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssociateMemberToGroupCommandError(output, context);
+    return de_AssociateMemberToGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateMemberToGroupResponse(data, context);
+  contents = de_AssociateMemberToGroupResponse(data, context);
   const response: AssociateMemberToGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1572,7 +1821,10 @@ export const deserializeAws_json1_1AssociateMemberToGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
+/**
+ * deserializeAws_json1_1AssociateMemberToGroupCommandError
+ */
+const de_AssociateMemberToGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateMemberToGroupCommandOutput> => {
@@ -1584,28 +1836,28 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1617,16 +1869,19 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1AssumeImpersonationRoleCommand = async (
+/**
+ * deserializeAws_json1_1AssumeImpersonationRoleCommand
+ */
+export const de_AssumeImpersonationRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssumeImpersonationRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1AssumeImpersonationRoleCommandError(output, context);
+    return de_AssumeImpersonationRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssumeImpersonationRoleResponse(data, context);
+  contents = de_AssumeImpersonationRoleResponse(data, context);
   const response: AssumeImpersonationRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1634,7 +1889,10 @@ export const deserializeAws_json1_1AssumeImpersonationRoleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1AssumeImpersonationRoleCommandError = async (
+/**
+ * deserializeAws_json1_1AssumeImpersonationRoleCommandError
+ */
+const de_AssumeImpersonationRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssumeImpersonationRoleCommandOutput> => {
@@ -1646,16 +1904,16 @@ const deserializeAws_json1_1AssumeImpersonationRoleCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1667,16 +1925,19 @@ const deserializeAws_json1_1AssumeImpersonationRoleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CancelMailboxExportJobCommand = async (
+/**
+ * deserializeAws_json1_1CancelMailboxExportJobCommand
+ */
+export const de_CancelMailboxExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelMailboxExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CancelMailboxExportJobCommandError(output, context);
+    return de_CancelMailboxExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelMailboxExportJobResponse(data, context);
+  contents = de_CancelMailboxExportJobResponse(data, context);
   const response: CancelMailboxExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1684,7 +1945,10 @@ export const deserializeAws_json1_1CancelMailboxExportJobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CancelMailboxExportJobCommandError = async (
+/**
+ * deserializeAws_json1_1CancelMailboxExportJobCommandError
+ */
+const de_CancelMailboxExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelMailboxExportJobCommandOutput> => {
@@ -1696,16 +1960,16 @@ const deserializeAws_json1_1CancelMailboxExportJobCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1717,16 +1981,19 @@ const deserializeAws_json1_1CancelMailboxExportJobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateAliasCommand = async (
+/**
+ * deserializeAws_json1_1CreateAliasCommand
+ */
+export const de_CreateAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateAliasCommandError(output, context);
+    return de_CreateAliasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAliasResponse(data, context);
+  contents = de_CreateAliasResponse(data, context);
   const response: CreateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1734,7 +2001,10 @@ export const deserializeAws_json1_1CreateAliasCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateAliasCommandError = async (
+/**
+ * deserializeAws_json1_1CreateAliasCommandError
+ */
+const de_CreateAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> => {
@@ -1746,31 +2016,31 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
   switch (errorCode) {
     case "EmailAddressInUseException":
     case "com.amazonaws.workmail#EmailAddressInUseException":
-      throw await deserializeAws_json1_1EmailAddressInUseExceptionResponse(parsedOutput, context);
+      throw await de_EmailAddressInUseExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workmail#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MailDomainNotFoundException":
     case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
     case "MailDomainStateException":
     case "com.amazonaws.workmail#MailDomainStateException":
-      throw await deserializeAws_json1_1MailDomainStateExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainStateExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1782,16 +2052,19 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateAvailabilityConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1CreateAvailabilityConfigurationCommand
+ */
+export const de_CreateAvailabilityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAvailabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateAvailabilityConfigurationCommandError(output, context);
+    return de_CreateAvailabilityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAvailabilityConfigurationResponse(data, context);
+  contents = de_CreateAvailabilityConfigurationResponse(data, context);
   const response: CreateAvailabilityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1799,7 +2072,10 @@ export const deserializeAws_json1_1CreateAvailabilityConfigurationCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateAvailabilityConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1CreateAvailabilityConfigurationCommandError
+ */
+const de_CreateAvailabilityConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAvailabilityConfigurationCommandOutput> => {
@@ -1811,19 +2087,19 @@ const deserializeAws_json1_1CreateAvailabilityConfigurationCommandError = async 
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workmail#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NameAvailabilityException":
     case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await deserializeAws_json1_1NameAvailabilityExceptionResponse(parsedOutput, context);
+      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1835,16 +2111,19 @@ const deserializeAws_json1_1CreateAvailabilityConfigurationCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1CreateGroupCommand = async (
+/**
+ * deserializeAws_json1_1CreateGroupCommand
+ */
+export const de_CreateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateGroupCommandError(output, context);
+    return de_CreateGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGroupResponse(data, context);
+  contents = de_CreateGroupResponse(data, context);
   const response: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1852,7 +2131,10 @@ export const deserializeAws_json1_1CreateGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateGroupCommandError = async (
+/**
+ * deserializeAws_json1_1CreateGroupCommandError
+ */
+const de_CreateGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
@@ -1864,28 +2146,28 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NameAvailabilityException":
     case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await deserializeAws_json1_1NameAvailabilityExceptionResponse(parsedOutput, context);
+      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ReservedNameException":
     case "com.amazonaws.workmail#ReservedNameException":
-      throw await deserializeAws_json1_1ReservedNameExceptionResponse(parsedOutput, context);
+      throw await de_ReservedNameExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1897,16 +2179,19 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateImpersonationRoleCommand = async (
+/**
+ * deserializeAws_json1_1CreateImpersonationRoleCommand
+ */
+export const de_CreateImpersonationRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImpersonationRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateImpersonationRoleCommandError(output, context);
+    return de_CreateImpersonationRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateImpersonationRoleResponse(data, context);
+  contents = de_CreateImpersonationRoleResponse(data, context);
   const response: CreateImpersonationRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1914,7 +2199,10 @@ export const deserializeAws_json1_1CreateImpersonationRoleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateImpersonationRoleCommandError = async (
+/**
+ * deserializeAws_json1_1CreateImpersonationRoleCommandError
+ */
+const de_CreateImpersonationRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImpersonationRoleCommandOutput> => {
@@ -1926,22 +2214,22 @@ const deserializeAws_json1_1CreateImpersonationRoleCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workmail#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1953,16 +2241,19 @@ const deserializeAws_json1_1CreateImpersonationRoleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateMobileDeviceAccessRuleCommand = async (
+/**
+ * deserializeAws_json1_1CreateMobileDeviceAccessRuleCommand
+ */
+export const de_CreateMobileDeviceAccessRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMobileDeviceAccessRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateMobileDeviceAccessRuleCommandError(output, context);
+    return de_CreateMobileDeviceAccessRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateMobileDeviceAccessRuleResponse(data, context);
+  contents = de_CreateMobileDeviceAccessRuleResponse(data, context);
   const response: CreateMobileDeviceAccessRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1970,7 +2261,10 @@ export const deserializeAws_json1_1CreateMobileDeviceAccessRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateMobileDeviceAccessRuleCommandError = async (
+/**
+ * deserializeAws_json1_1CreateMobileDeviceAccessRuleCommandError
+ */
+const de_CreateMobileDeviceAccessRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMobileDeviceAccessRuleCommandOutput> => {
@@ -1982,16 +2276,16 @@ const deserializeAws_json1_1CreateMobileDeviceAccessRuleCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workmail#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2003,16 +2297,19 @@ const deserializeAws_json1_1CreateMobileDeviceAccessRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1CreateOrganizationCommand
+ */
+export const de_CreateOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateOrganizationCommandError(output, context);
+    return de_CreateOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateOrganizationResponse(data, context);
+  contents = de_CreateOrganizationResponse(data, context);
   const response: CreateOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2020,7 +2317,10 @@ export const deserializeAws_json1_1CreateOrganizationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1CreateOrganizationCommandError
+ */
+const de_CreateOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOrganizationCommandOutput> => {
@@ -2032,19 +2332,19 @@ const deserializeAws_json1_1CreateOrganizationCommandError = async (
   switch (errorCode) {
     case "DirectoryInUseException":
     case "com.amazonaws.workmail#DirectoryInUseException":
-      throw await deserializeAws_json1_1DirectoryInUseExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryInUseExceptionRes(parsedOutput, context);
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workmail#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NameAvailabilityException":
     case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await deserializeAws_json1_1NameAvailabilityExceptionResponse(parsedOutput, context);
+      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2056,16 +2356,19 @@ const deserializeAws_json1_1CreateOrganizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateResourceCommand = async (
+/**
+ * deserializeAws_json1_1CreateResourceCommand
+ */
+export const de_CreateResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateResourceCommandError(output, context);
+    return de_CreateResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateResourceResponse(data, context);
+  contents = de_CreateResourceResponse(data, context);
   const response: CreateResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2073,7 +2376,10 @@ export const deserializeAws_json1_1CreateResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateResourceCommandError = async (
+/**
+ * deserializeAws_json1_1CreateResourceCommandError
+ */
+const de_CreateResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceCommandOutput> => {
@@ -2085,25 +2391,25 @@ const deserializeAws_json1_1CreateResourceCommandError = async (
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NameAvailabilityException":
     case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await deserializeAws_json1_1NameAvailabilityExceptionResponse(parsedOutput, context);
+      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ReservedNameException":
     case "com.amazonaws.workmail#ReservedNameException":
-      throw await deserializeAws_json1_1ReservedNameExceptionResponse(parsedOutput, context);
+      throw await de_ReservedNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2115,16 +2421,19 @@ const deserializeAws_json1_1CreateResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1CreateUserCommand = async (
+/**
+ * deserializeAws_json1_1CreateUserCommand
+ */
+export const de_CreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateUserCommandError(output, context);
+    return de_CreateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserResponse(data, context);
+  contents = de_CreateUserResponse(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2132,7 +2441,10 @@ export const deserializeAws_json1_1CreateUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateUserCommandError = async (
+/**
+ * deserializeAws_json1_1CreateUserCommandError
+ */
+const de_CreateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
@@ -2144,31 +2456,31 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.workmail#InvalidPasswordException":
-      throw await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "NameAvailabilityException":
     case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await deserializeAws_json1_1NameAvailabilityExceptionResponse(parsedOutput, context);
+      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ReservedNameException":
     case "com.amazonaws.workmail#ReservedNameException":
-      throw await deserializeAws_json1_1ReservedNameExceptionResponse(parsedOutput, context);
+      throw await de_ReservedNameExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2180,16 +2492,19 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteAccessControlRuleCommand = async (
+/**
+ * deserializeAws_json1_1DeleteAccessControlRuleCommand
+ */
+export const de_DeleteAccessControlRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessControlRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteAccessControlRuleCommandError(output, context);
+    return de_DeleteAccessControlRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAccessControlRuleResponse(data, context);
+  contents = de_DeleteAccessControlRuleResponse(data, context);
   const response: DeleteAccessControlRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2197,7 +2512,10 @@ export const deserializeAws_json1_1DeleteAccessControlRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteAccessControlRuleCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteAccessControlRuleCommandError
+ */
+const de_DeleteAccessControlRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessControlRuleCommandOutput> => {
@@ -2209,10 +2527,10 @@ const deserializeAws_json1_1DeleteAccessControlRuleCommandError = async (
   switch (errorCode) {
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2224,16 +2542,19 @@ const deserializeAws_json1_1DeleteAccessControlRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteAliasCommand = async (
+/**
+ * deserializeAws_json1_1DeleteAliasCommand
+ */
+export const de_DeleteAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteAliasCommandError(output, context);
+    return de_DeleteAliasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAliasResponse(data, context);
+  contents = de_DeleteAliasResponse(data, context);
   const response: DeleteAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2241,7 +2562,10 @@ export const deserializeAws_json1_1DeleteAliasCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteAliasCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteAliasCommandError
+ */
+const de_DeleteAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> => {
@@ -2253,19 +2577,19 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2277,16 +2601,19 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteAvailabilityConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1DeleteAvailabilityConfigurationCommand
+ */
+export const de_DeleteAvailabilityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAvailabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteAvailabilityConfigurationCommandError(output, context);
+    return de_DeleteAvailabilityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAvailabilityConfigurationResponse(data, context);
+  contents = de_DeleteAvailabilityConfigurationResponse(data, context);
   const response: DeleteAvailabilityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2294,7 +2621,10 @@ export const deserializeAws_json1_1DeleteAvailabilityConfigurationCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteAvailabilityConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteAvailabilityConfigurationCommandError
+ */
+const de_DeleteAvailabilityConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAvailabilityConfigurationCommandOutput> => {
@@ -2306,10 +2636,10 @@ const deserializeAws_json1_1DeleteAvailabilityConfigurationCommandError = async 
   switch (errorCode) {
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2321,16 +2651,19 @@ const deserializeAws_json1_1DeleteAvailabilityConfigurationCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommand
+ */
+export const de_DeleteEmailMonitoringConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailMonitoringConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommandError(output, context);
+    return de_DeleteEmailMonitoringConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEmailMonitoringConfigurationResponse(data, context);
+  contents = de_DeleteEmailMonitoringConfigurationResponse(data, context);
   const response: DeleteEmailMonitoringConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2338,7 +2671,10 @@ export const deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommand = a
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommandError
+ */
+const de_DeleteEmailMonitoringConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailMonitoringConfigurationCommandOutput> => {
@@ -2350,13 +2686,13 @@ const deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommandError = asy
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2368,16 +2704,19 @@ const deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommandError = asy
   }
 };
 
-export const deserializeAws_json1_1DeleteGroupCommand = async (
+/**
+ * deserializeAws_json1_1DeleteGroupCommand
+ */
+export const de_DeleteGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteGroupCommandError(output, context);
+    return de_DeleteGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteGroupResponse(data, context);
+  contents = de_DeleteGroupResponse(data, context);
   const response: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2385,7 +2724,10 @@ export const deserializeAws_json1_1DeleteGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteGroupCommandError
+ */
+const de_DeleteGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
@@ -2397,25 +2739,25 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2427,16 +2769,19 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteImpersonationRoleCommand = async (
+/**
+ * deserializeAws_json1_1DeleteImpersonationRoleCommand
+ */
+export const de_DeleteImpersonationRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImpersonationRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteImpersonationRoleCommandError(output, context);
+    return de_DeleteImpersonationRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteImpersonationRoleResponse(data, context);
+  contents = de_DeleteImpersonationRoleResponse(data, context);
   const response: DeleteImpersonationRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2444,7 +2789,10 @@ export const deserializeAws_json1_1DeleteImpersonationRoleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteImpersonationRoleCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteImpersonationRoleCommandError
+ */
+const de_DeleteImpersonationRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImpersonationRoleCommandOutput> => {
@@ -2456,13 +2804,13 @@ const deserializeAws_json1_1DeleteImpersonationRoleCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2474,16 +2822,19 @@ const deserializeAws_json1_1DeleteImpersonationRoleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteMailboxPermissionsCommand = async (
+/**
+ * deserializeAws_json1_1DeleteMailboxPermissionsCommand
+ */
+export const de_DeleteMailboxPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMailboxPermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteMailboxPermissionsCommandError(output, context);
+    return de_DeleteMailboxPermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteMailboxPermissionsResponse(data, context);
+  contents = de_DeleteMailboxPermissionsResponse(data, context);
   const response: DeleteMailboxPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2491,7 +2842,10 @@ export const deserializeAws_json1_1DeleteMailboxPermissionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteMailboxPermissionsCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteMailboxPermissionsCommandError
+ */
+const de_DeleteMailboxPermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMailboxPermissionsCommandOutput> => {
@@ -2503,19 +2857,19 @@ const deserializeAws_json1_1DeleteMailboxPermissionsCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2527,16 +2881,19 @@ const deserializeAws_json1_1DeleteMailboxPermissionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand = async (
+/**
+ * deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand
+ */
+export const de_DeleteMobileDeviceAccessOverrideCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMobileDeviceAccessOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommandError(output, context);
+    return de_DeleteMobileDeviceAccessOverrideCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteMobileDeviceAccessOverrideResponse(data, context);
+  contents = de_DeleteMobileDeviceAccessOverrideResponse(data, context);
   const response: DeleteMobileDeviceAccessOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2544,7 +2901,10 @@ export const deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommandError
+ */
+const de_DeleteMobileDeviceAccessOverrideCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMobileDeviceAccessOverrideCommandOutput> => {
@@ -2556,16 +2916,16 @@ const deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommandError = async
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2577,16 +2937,19 @@ const deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommandError = async
   }
 };
 
-export const deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommand = async (
+/**
+ * deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommand
+ */
+export const de_DeleteMobileDeviceAccessRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMobileDeviceAccessRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommandError(output, context);
+    return de_DeleteMobileDeviceAccessRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteMobileDeviceAccessRuleResponse(data, context);
+  contents = de_DeleteMobileDeviceAccessRuleResponse(data, context);
   const response: DeleteMobileDeviceAccessRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2594,7 +2957,10 @@ export const deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommandError
+ */
+const de_DeleteMobileDeviceAccessRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMobileDeviceAccessRuleCommandOutput> => {
@@ -2606,13 +2972,13 @@ const deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2624,16 +2990,19 @@ const deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1DeleteOrganizationCommand
+ */
+export const de_DeleteOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteOrganizationCommandError(output, context);
+    return de_DeleteOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteOrganizationResponse(data, context);
+  contents = de_DeleteOrganizationResponse(data, context);
   const response: DeleteOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2641,7 +3010,10 @@ export const deserializeAws_json1_1DeleteOrganizationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteOrganizationCommandError
+ */
+const de_DeleteOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOrganizationCommandOutput> => {
@@ -2653,13 +3025,13 @@ const deserializeAws_json1_1DeleteOrganizationCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2671,16 +3043,19 @@ const deserializeAws_json1_1DeleteOrganizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteResourceCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResourceCommand
+ */
+export const de_DeleteResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResourceCommandError(output, context);
+    return de_DeleteResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteResourceResponse(data, context);
+  contents = de_DeleteResourceResponse(data, context);
   const response: DeleteResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2688,7 +3063,10 @@ export const deserializeAws_json1_1DeleteResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteResourceCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResourceCommandError
+ */
+const de_DeleteResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceCommandOutput> => {
@@ -2700,16 +3078,16 @@ const deserializeAws_json1_1DeleteResourceCommandError = async (
   switch (errorCode) {
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2721,16 +3099,19 @@ const deserializeAws_json1_1DeleteResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteRetentionPolicyCommand = async (
+/**
+ * deserializeAws_json1_1DeleteRetentionPolicyCommand
+ */
+export const de_DeleteRetentionPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRetentionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteRetentionPolicyCommandError(output, context);
+    return de_DeleteRetentionPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRetentionPolicyResponse(data, context);
+  contents = de_DeleteRetentionPolicyResponse(data, context);
   const response: DeleteRetentionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2738,7 +3119,10 @@ export const deserializeAws_json1_1DeleteRetentionPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteRetentionPolicyCommandError
+ */
+const de_DeleteRetentionPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRetentionPolicyCommandOutput> => {
@@ -2750,13 +3134,13 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2768,16 +3152,19 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteUserCommand = async (
+/**
+ * deserializeAws_json1_1DeleteUserCommand
+ */
+export const de_DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteUserCommandError(output, context);
+    return de_DeleteUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserResponse(data, context);
+  contents = de_DeleteUserResponse(data, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2785,7 +3172,10 @@ export const deserializeAws_json1_1DeleteUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteUserCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteUserCommandError
+ */
+const de_DeleteUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
@@ -2797,25 +3187,25 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2827,16 +3217,19 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeregisterFromWorkMailCommand = async (
+/**
+ * deserializeAws_json1_1DeregisterFromWorkMailCommand
+ */
+export const de_DeregisterFromWorkMailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterFromWorkMailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeregisterFromWorkMailCommandError(output, context);
+    return de_DeregisterFromWorkMailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeregisterFromWorkMailResponse(data, context);
+  contents = de_DeregisterFromWorkMailResponse(data, context);
   const response: DeregisterFromWorkMailCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2844,7 +3237,10 @@ export const deserializeAws_json1_1DeregisterFromWorkMailCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeregisterFromWorkMailCommandError = async (
+/**
+ * deserializeAws_json1_1DeregisterFromWorkMailCommandError
+ */
+const de_DeregisterFromWorkMailCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterFromWorkMailCommandOutput> => {
@@ -2856,19 +3252,19 @@ const deserializeAws_json1_1DeregisterFromWorkMailCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2880,16 +3276,19 @@ const deserializeAws_json1_1DeregisterFromWorkMailCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeregisterMailDomainCommand = async (
+/**
+ * deserializeAws_json1_1DeregisterMailDomainCommand
+ */
+export const de_DeregisterMailDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterMailDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeregisterMailDomainCommandError(output, context);
+    return de_DeregisterMailDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeregisterMailDomainResponse(data, context);
+  contents = de_DeregisterMailDomainResponse(data, context);
   const response: DeregisterMailDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2897,7 +3296,10 @@ export const deserializeAws_json1_1DeregisterMailDomainCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeregisterMailDomainCommandError = async (
+/**
+ * deserializeAws_json1_1DeregisterMailDomainCommandError
+ */
+const de_DeregisterMailDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterMailDomainCommandOutput> => {
@@ -2909,19 +3311,19 @@ const deserializeAws_json1_1DeregisterMailDomainCommandError = async (
   switch (errorCode) {
     case "InvalidCustomSesConfigurationException":
     case "com.amazonaws.workmail#InvalidCustomSesConfigurationException":
-      throw await deserializeAws_json1_1InvalidCustomSesConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidCustomSesConfigurationExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MailDomainInUseException":
     case "com.amazonaws.workmail#MailDomainInUseException":
-      throw await deserializeAws_json1_1MailDomainInUseExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainInUseExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2933,16 +3335,19 @@ const deserializeAws_json1_1DeregisterMailDomainCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommand
+ */
+export const de_DescribeEmailMonitoringConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEmailMonitoringConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommandError(output, context);
+    return de_DescribeEmailMonitoringConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEmailMonitoringConfigurationResponse(data, context);
+  contents = de_DescribeEmailMonitoringConfigurationResponse(data, context);
   const response: DescribeEmailMonitoringConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2950,7 +3355,10 @@ export const deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommand =
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommandError
+ */
+const de_DescribeEmailMonitoringConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEmailMonitoringConfigurationCommandOutput> => {
@@ -2962,16 +3370,16 @@ const deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommandError = a
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2983,16 +3391,19 @@ const deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommandError = a
   }
 };
 
-export const deserializeAws_json1_1DescribeGroupCommand = async (
+/**
+ * deserializeAws_json1_1DescribeGroupCommand
+ */
+export const de_DescribeGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeGroupCommandError(output, context);
+    return de_DescribeGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeGroupResponse(data, context);
+  contents = de_DescribeGroupResponse(data, context);
   const response: DescribeGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3000,7 +3411,10 @@ export const deserializeAws_json1_1DescribeGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeGroupCommandError
+ */
+const de_DescribeGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGroupCommandOutput> => {
@@ -3012,16 +3426,16 @@ const deserializeAws_json1_1DescribeGroupCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3033,16 +3447,19 @@ const deserializeAws_json1_1DescribeGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeInboundDmarcSettingsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeInboundDmarcSettingsCommand
+ */
+export const de_DescribeInboundDmarcSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInboundDmarcSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeInboundDmarcSettingsCommandError(output, context);
+    return de_DescribeInboundDmarcSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeInboundDmarcSettingsResponse(data, context);
+  contents = de_DescribeInboundDmarcSettingsResponse(data, context);
   const response: DescribeInboundDmarcSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3050,7 +3467,10 @@ export const deserializeAws_json1_1DescribeInboundDmarcSettingsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeInboundDmarcSettingsCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeInboundDmarcSettingsCommandError
+ */
+const de_DescribeInboundDmarcSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInboundDmarcSettingsCommandOutput> => {
@@ -3062,10 +3482,10 @@ const deserializeAws_json1_1DescribeInboundDmarcSettingsCommandError = async (
   switch (errorCode) {
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3077,16 +3497,19 @@ const deserializeAws_json1_1DescribeInboundDmarcSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeMailboxExportJobCommand = async (
+/**
+ * deserializeAws_json1_1DescribeMailboxExportJobCommand
+ */
+export const de_DescribeMailboxExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMailboxExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeMailboxExportJobCommandError(output, context);
+    return de_DescribeMailboxExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMailboxExportJobResponse(data, context);
+  contents = de_DescribeMailboxExportJobResponse(data, context);
   const response: DescribeMailboxExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3094,7 +3517,10 @@ export const deserializeAws_json1_1DescribeMailboxExportJobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeMailboxExportJobCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeMailboxExportJobCommandError
+ */
+const de_DescribeMailboxExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMailboxExportJobCommandOutput> => {
@@ -3106,16 +3532,16 @@ const deserializeAws_json1_1DescribeMailboxExportJobCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3127,16 +3553,19 @@ const deserializeAws_json1_1DescribeMailboxExportJobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeOrganizationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeOrganizationCommand
+ */
+export const de_DescribeOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeOrganizationCommandError(output, context);
+    return de_DescribeOrganizationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeOrganizationResponse(data, context);
+  contents = de_DescribeOrganizationResponse(data, context);
   const response: DescribeOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3144,7 +3573,10 @@ export const deserializeAws_json1_1DescribeOrganizationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeOrganizationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeOrganizationCommandError
+ */
+const de_DescribeOrganizationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOrganizationCommandOutput> => {
@@ -3156,10 +3588,10 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3171,16 +3603,19 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeResourceCommand = async (
+/**
+ * deserializeAws_json1_1DescribeResourceCommand
+ */
+export const de_DescribeResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeResourceCommandError(output, context);
+    return de_DescribeResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeResourceResponse(data, context);
+  contents = de_DescribeResourceResponse(data, context);
   const response: DescribeResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3188,7 +3623,10 @@ export const deserializeAws_json1_1DescribeResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeResourceCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeResourceCommandError
+ */
+const de_DescribeResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourceCommandOutput> => {
@@ -3200,16 +3638,16 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3221,16 +3659,19 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeUserCommand = async (
+/**
+ * deserializeAws_json1_1DescribeUserCommand
+ */
+export const de_DescribeUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeUserCommandError(output, context);
+    return de_DescribeUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserResponse(data, context);
+  contents = de_DescribeUserResponse(data, context);
   const response: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3238,7 +3679,10 @@ export const deserializeAws_json1_1DescribeUserCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeUserCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeUserCommandError
+ */
+const de_DescribeUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> => {
@@ -3250,16 +3694,16 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3271,16 +3715,19 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DisassociateDelegateFromResourceCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateDelegateFromResourceCommand
+ */
+export const de_DisassociateDelegateFromResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDelegateFromResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateDelegateFromResourceCommandError(output, context);
+    return de_DisassociateDelegateFromResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateDelegateFromResourceResponse(data, context);
+  contents = de_DisassociateDelegateFromResourceResponse(data, context);
   const response: DisassociateDelegateFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3288,7 +3735,10 @@ export const deserializeAws_json1_1DisassociateDelegateFromResourceCommand = asy
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateDelegateFromResourceCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateDelegateFromResourceCommandError
+ */
+const de_DisassociateDelegateFromResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDelegateFromResourceCommandOutput> => {
@@ -3300,19 +3750,19 @@ const deserializeAws_json1_1DisassociateDelegateFromResourceCommandError = async
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3324,16 +3774,19 @@ const deserializeAws_json1_1DisassociateDelegateFromResourceCommandError = async
   }
 };
 
-export const deserializeAws_json1_1DisassociateMemberFromGroupCommand = async (
+/**
+ * deserializeAws_json1_1DisassociateMemberFromGroupCommand
+ */
+export const de_DisassociateMemberFromGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateMemberFromGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DisassociateMemberFromGroupCommandError(output, context);
+    return de_DisassociateMemberFromGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateMemberFromGroupResponse(data, context);
+  contents = de_DisassociateMemberFromGroupResponse(data, context);
   const response: DisassociateMemberFromGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3341,7 +3794,10 @@ export const deserializeAws_json1_1DisassociateMemberFromGroupCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DisassociateMemberFromGroupCommandError
+ */
+const de_DisassociateMemberFromGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateMemberFromGroupCommandOutput> => {
@@ -3353,28 +3809,28 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3386,16 +3842,19 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetAccessControlEffectCommand = async (
+/**
+ * deserializeAws_json1_1GetAccessControlEffectCommand
+ */
+export const de_GetAccessControlEffectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessControlEffectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAccessControlEffectCommandError(output, context);
+    return de_GetAccessControlEffectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAccessControlEffectResponse(data, context);
+  contents = de_GetAccessControlEffectResponse(data, context);
   const response: GetAccessControlEffectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3403,7 +3862,10 @@ export const deserializeAws_json1_1GetAccessControlEffectCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetAccessControlEffectCommandError = async (
+/**
+ * deserializeAws_json1_1GetAccessControlEffectCommandError
+ */
+const de_GetAccessControlEffectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessControlEffectCommandOutput> => {
@@ -3415,19 +3877,19 @@ const deserializeAws_json1_1GetAccessControlEffectCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3439,16 +3901,19 @@ const deserializeAws_json1_1GetAccessControlEffectCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetDefaultRetentionPolicyCommand = async (
+/**
+ * deserializeAws_json1_1GetDefaultRetentionPolicyCommand
+ */
+export const de_GetDefaultRetentionPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDefaultRetentionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDefaultRetentionPolicyCommandError(output, context);
+    return de_GetDefaultRetentionPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDefaultRetentionPolicyResponse(data, context);
+  contents = de_GetDefaultRetentionPolicyResponse(data, context);
   const response: GetDefaultRetentionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3456,7 +3921,10 @@ export const deserializeAws_json1_1GetDefaultRetentionPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetDefaultRetentionPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1GetDefaultRetentionPolicyCommandError
+ */
+const de_GetDefaultRetentionPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDefaultRetentionPolicyCommandOutput> => {
@@ -3468,16 +3936,16 @@ const deserializeAws_json1_1GetDefaultRetentionPolicyCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3489,16 +3957,19 @@ const deserializeAws_json1_1GetDefaultRetentionPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetImpersonationRoleCommand = async (
+/**
+ * deserializeAws_json1_1GetImpersonationRoleCommand
+ */
+export const de_GetImpersonationRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImpersonationRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetImpersonationRoleCommandError(output, context);
+    return de_GetImpersonationRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetImpersonationRoleResponse(data, context);
+  contents = de_GetImpersonationRoleResponse(data, context);
   const response: GetImpersonationRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3506,7 +3977,10 @@ export const deserializeAws_json1_1GetImpersonationRoleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetImpersonationRoleCommandError = async (
+/**
+ * deserializeAws_json1_1GetImpersonationRoleCommandError
+ */
+const de_GetImpersonationRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImpersonationRoleCommandOutput> => {
@@ -3518,16 +3992,16 @@ const deserializeAws_json1_1GetImpersonationRoleCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3539,16 +4013,19 @@ const deserializeAws_json1_1GetImpersonationRoleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetImpersonationRoleEffectCommand = async (
+/**
+ * deserializeAws_json1_1GetImpersonationRoleEffectCommand
+ */
+export const de_GetImpersonationRoleEffectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImpersonationRoleEffectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetImpersonationRoleEffectCommandError(output, context);
+    return de_GetImpersonationRoleEffectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetImpersonationRoleEffectResponse(data, context);
+  contents = de_GetImpersonationRoleEffectResponse(data, context);
   const response: GetImpersonationRoleEffectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3556,7 +4033,10 @@ export const deserializeAws_json1_1GetImpersonationRoleEffectCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetImpersonationRoleEffectCommandError = async (
+/**
+ * deserializeAws_json1_1GetImpersonationRoleEffectCommandError
+ */
+const de_GetImpersonationRoleEffectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImpersonationRoleEffectCommandOutput> => {
@@ -3568,22 +4048,22 @@ const deserializeAws_json1_1GetImpersonationRoleEffectCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3595,16 +4075,19 @@ const deserializeAws_json1_1GetImpersonationRoleEffectCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetMailboxDetailsCommand = async (
+/**
+ * deserializeAws_json1_1GetMailboxDetailsCommand
+ */
+export const de_GetMailboxDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMailboxDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetMailboxDetailsCommandError(output, context);
+    return de_GetMailboxDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMailboxDetailsResponse(data, context);
+  contents = de_GetMailboxDetailsResponse(data, context);
   const response: GetMailboxDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3612,7 +4095,10 @@ export const deserializeAws_json1_1GetMailboxDetailsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetMailboxDetailsCommandError = async (
+/**
+ * deserializeAws_json1_1GetMailboxDetailsCommandError
+ */
+const de_GetMailboxDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMailboxDetailsCommandOutput> => {
@@ -3624,13 +4110,13 @@ const deserializeAws_json1_1GetMailboxDetailsCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3642,16 +4128,19 @@ const deserializeAws_json1_1GetMailboxDetailsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetMailDomainCommand = async (
+/**
+ * deserializeAws_json1_1GetMailDomainCommand
+ */
+export const de_GetMailDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMailDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetMailDomainCommandError(output, context);
+    return de_GetMailDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMailDomainResponse(data, context);
+  contents = de_GetMailDomainResponse(data, context);
   const response: GetMailDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3659,7 +4148,10 @@ export const deserializeAws_json1_1GetMailDomainCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetMailDomainCommandError = async (
+/**
+ * deserializeAws_json1_1GetMailDomainCommandError
+ */
+const de_GetMailDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMailDomainCommandOutput> => {
@@ -3671,16 +4163,16 @@ const deserializeAws_json1_1GetMailDomainCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MailDomainNotFoundException":
     case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3692,16 +4184,19 @@ const deserializeAws_json1_1GetMailDomainCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetMobileDeviceAccessEffectCommand = async (
+/**
+ * deserializeAws_json1_1GetMobileDeviceAccessEffectCommand
+ */
+export const de_GetMobileDeviceAccessEffectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMobileDeviceAccessEffectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetMobileDeviceAccessEffectCommandError(output, context);
+    return de_GetMobileDeviceAccessEffectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMobileDeviceAccessEffectResponse(data, context);
+  contents = de_GetMobileDeviceAccessEffectResponse(data, context);
   const response: GetMobileDeviceAccessEffectCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3709,7 +4204,10 @@ export const deserializeAws_json1_1GetMobileDeviceAccessEffectCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetMobileDeviceAccessEffectCommandError = async (
+/**
+ * deserializeAws_json1_1GetMobileDeviceAccessEffectCommandError
+ */
+const de_GetMobileDeviceAccessEffectCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMobileDeviceAccessEffectCommandOutput> => {
@@ -3721,13 +4219,13 @@ const deserializeAws_json1_1GetMobileDeviceAccessEffectCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3739,16 +4237,19 @@ const deserializeAws_json1_1GetMobileDeviceAccessEffectCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetMobileDeviceAccessOverrideCommand = async (
+/**
+ * deserializeAws_json1_1GetMobileDeviceAccessOverrideCommand
+ */
+export const de_GetMobileDeviceAccessOverrideCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMobileDeviceAccessOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetMobileDeviceAccessOverrideCommandError(output, context);
+    return de_GetMobileDeviceAccessOverrideCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMobileDeviceAccessOverrideResponse(data, context);
+  contents = de_GetMobileDeviceAccessOverrideResponse(data, context);
   const response: GetMobileDeviceAccessOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3756,7 +4257,10 @@ export const deserializeAws_json1_1GetMobileDeviceAccessOverrideCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetMobileDeviceAccessOverrideCommandError = async (
+/**
+ * deserializeAws_json1_1GetMobileDeviceAccessOverrideCommandError
+ */
+const de_GetMobileDeviceAccessOverrideCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMobileDeviceAccessOverrideCommandOutput> => {
@@ -3768,19 +4272,19 @@ const deserializeAws_json1_1GetMobileDeviceAccessOverrideCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3792,16 +4296,19 @@ const deserializeAws_json1_1GetMobileDeviceAccessOverrideCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAccessControlRulesCommand = async (
+/**
+ * deserializeAws_json1_1ListAccessControlRulesCommand
+ */
+export const de_ListAccessControlRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessControlRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAccessControlRulesCommandError(output, context);
+    return de_ListAccessControlRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAccessControlRulesResponse(data, context);
+  contents = de_ListAccessControlRulesResponse(data, context);
   const response: ListAccessControlRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3809,7 +4316,10 @@ export const deserializeAws_json1_1ListAccessControlRulesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAccessControlRulesCommandError = async (
+/**
+ * deserializeAws_json1_1ListAccessControlRulesCommandError
+ */
+const de_ListAccessControlRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessControlRulesCommandOutput> => {
@@ -3821,10 +4331,10 @@ const deserializeAws_json1_1ListAccessControlRulesCommandError = async (
   switch (errorCode) {
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3836,16 +4346,19 @@ const deserializeAws_json1_1ListAccessControlRulesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAliasesCommand = async (
+/**
+ * deserializeAws_json1_1ListAliasesCommand
+ */
+export const de_ListAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAliasesCommandError(output, context);
+    return de_ListAliasesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAliasesResponse(data, context);
+  contents = de_ListAliasesResponse(data, context);
   const response: ListAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3853,7 +4366,10 @@ export const deserializeAws_json1_1ListAliasesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAliasesCommandError = async (
+/**
+ * deserializeAws_json1_1ListAliasesCommandError
+ */
+const de_ListAliasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> => {
@@ -3865,19 +4381,19 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3889,16 +4405,19 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListAvailabilityConfigurationsCommand = async (
+/**
+ * deserializeAws_json1_1ListAvailabilityConfigurationsCommand
+ */
+export const de_ListAvailabilityConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAvailabilityConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAvailabilityConfigurationsCommandError(output, context);
+    return de_ListAvailabilityConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAvailabilityConfigurationsResponse(data, context);
+  contents = de_ListAvailabilityConfigurationsResponse(data, context);
   const response: ListAvailabilityConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3906,7 +4425,10 @@ export const deserializeAws_json1_1ListAvailabilityConfigurationsCommand = async
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListAvailabilityConfigurationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListAvailabilityConfigurationsCommandError
+ */
+const de_ListAvailabilityConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAvailabilityConfigurationsCommandOutput> => {
@@ -3918,10 +4440,10 @@ const deserializeAws_json1_1ListAvailabilityConfigurationsCommandError = async (
   switch (errorCode) {
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3933,16 +4455,19 @@ const deserializeAws_json1_1ListAvailabilityConfigurationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListGroupMembersCommand = async (
+/**
+ * deserializeAws_json1_1ListGroupMembersCommand
+ */
+export const de_ListGroupMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupMembersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListGroupMembersCommandError(output, context);
+    return de_ListGroupMembersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGroupMembersResponse(data, context);
+  contents = de_ListGroupMembersResponse(data, context);
   const response: ListGroupMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -3950,7 +4475,10 @@ export const deserializeAws_json1_1ListGroupMembersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListGroupMembersCommandError = async (
+/**
+ * deserializeAws_json1_1ListGroupMembersCommandError
+ */
+const de_ListGroupMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupMembersCommandOutput> => {
@@ -3962,19 +4490,19 @@ const deserializeAws_json1_1ListGroupMembersCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3986,16 +4514,19 @@ const deserializeAws_json1_1ListGroupMembersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListGroupsCommand = async (
+/**
+ * deserializeAws_json1_1ListGroupsCommand
+ */
+export const de_ListGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListGroupsCommandError(output, context);
+    return de_ListGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGroupsResponse(data, context);
+  contents = de_ListGroupsResponse(data, context);
   const response: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4003,7 +4534,10 @@ export const deserializeAws_json1_1ListGroupsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ListGroupsCommandError
+ */
+const de_ListGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
@@ -4015,16 +4549,16 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4036,16 +4570,19 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListImpersonationRolesCommand = async (
+/**
+ * deserializeAws_json1_1ListImpersonationRolesCommand
+ */
+export const de_ListImpersonationRolesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImpersonationRolesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListImpersonationRolesCommandError(output, context);
+    return de_ListImpersonationRolesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListImpersonationRolesResponse(data, context);
+  contents = de_ListImpersonationRolesResponse(data, context);
   const response: ListImpersonationRolesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4053,7 +4590,10 @@ export const deserializeAws_json1_1ListImpersonationRolesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListImpersonationRolesCommandError = async (
+/**
+ * deserializeAws_json1_1ListImpersonationRolesCommandError
+ */
+const de_ListImpersonationRolesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImpersonationRolesCommandOutput> => {
@@ -4065,13 +4605,13 @@ const deserializeAws_json1_1ListImpersonationRolesCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4083,16 +4623,19 @@ const deserializeAws_json1_1ListImpersonationRolesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListMailboxExportJobsCommand = async (
+/**
+ * deserializeAws_json1_1ListMailboxExportJobsCommand
+ */
+export const de_ListMailboxExportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMailboxExportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListMailboxExportJobsCommandError(output, context);
+    return de_ListMailboxExportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListMailboxExportJobsResponse(data, context);
+  contents = de_ListMailboxExportJobsResponse(data, context);
   const response: ListMailboxExportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4100,7 +4643,10 @@ export const deserializeAws_json1_1ListMailboxExportJobsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListMailboxExportJobsCommandError = async (
+/**
+ * deserializeAws_json1_1ListMailboxExportJobsCommandError
+ */
+const de_ListMailboxExportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMailboxExportJobsCommandOutput> => {
@@ -4112,13 +4658,13 @@ const deserializeAws_json1_1ListMailboxExportJobsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4130,16 +4676,19 @@ const deserializeAws_json1_1ListMailboxExportJobsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListMailboxPermissionsCommand = async (
+/**
+ * deserializeAws_json1_1ListMailboxPermissionsCommand
+ */
+export const de_ListMailboxPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMailboxPermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListMailboxPermissionsCommandError(output, context);
+    return de_ListMailboxPermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListMailboxPermissionsResponse(data, context);
+  contents = de_ListMailboxPermissionsResponse(data, context);
   const response: ListMailboxPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4147,7 +4696,10 @@ export const deserializeAws_json1_1ListMailboxPermissionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListMailboxPermissionsCommandError = async (
+/**
+ * deserializeAws_json1_1ListMailboxPermissionsCommandError
+ */
+const de_ListMailboxPermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMailboxPermissionsCommandOutput> => {
@@ -4159,16 +4711,16 @@ const deserializeAws_json1_1ListMailboxPermissionsCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4180,16 +4732,19 @@ const deserializeAws_json1_1ListMailboxPermissionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListMailDomainsCommand = async (
+/**
+ * deserializeAws_json1_1ListMailDomainsCommand
+ */
+export const de_ListMailDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMailDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListMailDomainsCommandError(output, context);
+    return de_ListMailDomainsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListMailDomainsResponse(data, context);
+  contents = de_ListMailDomainsResponse(data, context);
   const response: ListMailDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4197,7 +4752,10 @@ export const deserializeAws_json1_1ListMailDomainsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListMailDomainsCommandError = async (
+/**
+ * deserializeAws_json1_1ListMailDomainsCommandError
+ */
+const de_ListMailDomainsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMailDomainsCommandOutput> => {
@@ -4209,13 +4767,13 @@ const deserializeAws_json1_1ListMailDomainsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4227,16 +4785,19 @@ const deserializeAws_json1_1ListMailDomainsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListMobileDeviceAccessOverridesCommand = async (
+/**
+ * deserializeAws_json1_1ListMobileDeviceAccessOverridesCommand
+ */
+export const de_ListMobileDeviceAccessOverridesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMobileDeviceAccessOverridesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListMobileDeviceAccessOverridesCommandError(output, context);
+    return de_ListMobileDeviceAccessOverridesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListMobileDeviceAccessOverridesResponse(data, context);
+  contents = de_ListMobileDeviceAccessOverridesResponse(data, context);
   const response: ListMobileDeviceAccessOverridesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4244,7 +4805,10 @@ export const deserializeAws_json1_1ListMobileDeviceAccessOverridesCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListMobileDeviceAccessOverridesCommandError = async (
+/**
+ * deserializeAws_json1_1ListMobileDeviceAccessOverridesCommandError
+ */
+const de_ListMobileDeviceAccessOverridesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMobileDeviceAccessOverridesCommandOutput> => {
@@ -4256,16 +4820,16 @@ const deserializeAws_json1_1ListMobileDeviceAccessOverridesCommandError = async 
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4277,16 +4841,19 @@ const deserializeAws_json1_1ListMobileDeviceAccessOverridesCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1ListMobileDeviceAccessRulesCommand = async (
+/**
+ * deserializeAws_json1_1ListMobileDeviceAccessRulesCommand
+ */
+export const de_ListMobileDeviceAccessRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMobileDeviceAccessRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListMobileDeviceAccessRulesCommandError(output, context);
+    return de_ListMobileDeviceAccessRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListMobileDeviceAccessRulesResponse(data, context);
+  contents = de_ListMobileDeviceAccessRulesResponse(data, context);
   const response: ListMobileDeviceAccessRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4294,7 +4861,10 @@ export const deserializeAws_json1_1ListMobileDeviceAccessRulesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListMobileDeviceAccessRulesCommandError = async (
+/**
+ * deserializeAws_json1_1ListMobileDeviceAccessRulesCommandError
+ */
+const de_ListMobileDeviceAccessRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMobileDeviceAccessRulesCommandOutput> => {
@@ -4306,13 +4876,13 @@ const deserializeAws_json1_1ListMobileDeviceAccessRulesCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4324,16 +4894,19 @@ const deserializeAws_json1_1ListMobileDeviceAccessRulesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListOrganizationsCommand = async (
+/**
+ * deserializeAws_json1_1ListOrganizationsCommand
+ */
+export const de_ListOrganizationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOrganizationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListOrganizationsCommandError(output, context);
+    return de_ListOrganizationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListOrganizationsResponse(data, context);
+  contents = de_ListOrganizationsResponse(data, context);
   const response: ListOrganizationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4341,7 +4914,10 @@ export const deserializeAws_json1_1ListOrganizationsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListOrganizationsCommandError = async (
+/**
+ * deserializeAws_json1_1ListOrganizationsCommandError
+ */
+const de_ListOrganizationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOrganizationsCommandOutput> => {
@@ -4353,7 +4929,7 @@ const deserializeAws_json1_1ListOrganizationsCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4365,16 +4941,19 @@ const deserializeAws_json1_1ListOrganizationsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResourceDelegatesCommand = async (
+/**
+ * deserializeAws_json1_1ListResourceDelegatesCommand
+ */
+export const de_ListResourceDelegatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceDelegatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResourceDelegatesCommandError(output, context);
+    return de_ListResourceDelegatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourceDelegatesResponse(data, context);
+  contents = de_ListResourceDelegatesResponse(data, context);
   const response: ListResourceDelegatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4382,7 +4961,10 @@ export const deserializeAws_json1_1ListResourceDelegatesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResourceDelegatesCommandError = async (
+/**
+ * deserializeAws_json1_1ListResourceDelegatesCommandError
+ */
+const de_ListResourceDelegatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceDelegatesCommandOutput> => {
@@ -4394,19 +4976,19 @@ const deserializeAws_json1_1ListResourceDelegatesCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4418,16 +5000,19 @@ const deserializeAws_json1_1ListResourceDelegatesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListResourcesCommand = async (
+/**
+ * deserializeAws_json1_1ListResourcesCommand
+ */
+export const de_ListResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListResourcesCommandError(output, context);
+    return de_ListResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourcesResponse(data, context);
+  contents = de_ListResourcesResponse(data, context);
   const response: ListResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4435,7 +5020,10 @@ export const deserializeAws_json1_1ListResourcesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListResourcesCommandError = async (
+/**
+ * deserializeAws_json1_1ListResourcesCommandError
+ */
+const de_ListResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> => {
@@ -4447,13 +5035,13 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4465,16 +5053,19 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = de_ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4482,7 +5073,10 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -4494,7 +5088,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4506,16 +5100,19 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListUsersCommand = async (
+/**
+ * deserializeAws_json1_1ListUsersCommand
+ */
+export const de_ListUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListUsersCommandError(output, context);
+    return de_ListUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUsersResponse(data, context);
+  contents = de_ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4523,7 +5120,10 @@ export const deserializeAws_json1_1ListUsersCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListUsersCommandError = async (
+/**
+ * deserializeAws_json1_1ListUsersCommandError
+ */
+const de_ListUsersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
@@ -4535,13 +5135,13 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4553,16 +5153,19 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutAccessControlRuleCommand = async (
+/**
+ * deserializeAws_json1_1PutAccessControlRuleCommand
+ */
+export const de_PutAccessControlRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccessControlRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutAccessControlRuleCommandError(output, context);
+    return de_PutAccessControlRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutAccessControlRuleResponse(data, context);
+  contents = de_PutAccessControlRuleResponse(data, context);
   const response: PutAccessControlRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4570,7 +5173,10 @@ export const deserializeAws_json1_1PutAccessControlRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutAccessControlRuleCommandError = async (
+/**
+ * deserializeAws_json1_1PutAccessControlRuleCommandError
+ */
+const de_PutAccessControlRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccessControlRuleCommandOutput> => {
@@ -4582,22 +5188,22 @@ const deserializeAws_json1_1PutAccessControlRuleCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workmail#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4609,16 +5215,19 @@ const deserializeAws_json1_1PutAccessControlRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutEmailMonitoringConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1PutEmailMonitoringConfigurationCommand
+ */
+export const de_PutEmailMonitoringConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailMonitoringConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutEmailMonitoringConfigurationCommandError(output, context);
+    return de_PutEmailMonitoringConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutEmailMonitoringConfigurationResponse(data, context);
+  contents = de_PutEmailMonitoringConfigurationResponse(data, context);
   const response: PutEmailMonitoringConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4626,7 +5235,10 @@ export const deserializeAws_json1_1PutEmailMonitoringConfigurationCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutEmailMonitoringConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1PutEmailMonitoringConfigurationCommandError
+ */
+const de_PutEmailMonitoringConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEmailMonitoringConfigurationCommandOutput> => {
@@ -4638,16 +5250,16 @@ const deserializeAws_json1_1PutEmailMonitoringConfigurationCommandError = async 
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4659,16 +5271,19 @@ const deserializeAws_json1_1PutEmailMonitoringConfigurationCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1PutInboundDmarcSettingsCommand = async (
+/**
+ * deserializeAws_json1_1PutInboundDmarcSettingsCommand
+ */
+export const de_PutInboundDmarcSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutInboundDmarcSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutInboundDmarcSettingsCommandError(output, context);
+    return de_PutInboundDmarcSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutInboundDmarcSettingsResponse(data, context);
+  contents = de_PutInboundDmarcSettingsResponse(data, context);
   const response: PutInboundDmarcSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4676,7 +5291,10 @@ export const deserializeAws_json1_1PutInboundDmarcSettingsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutInboundDmarcSettingsCommandError = async (
+/**
+ * deserializeAws_json1_1PutInboundDmarcSettingsCommandError
+ */
+const de_PutInboundDmarcSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutInboundDmarcSettingsCommandOutput> => {
@@ -4688,10 +5306,10 @@ const deserializeAws_json1_1PutInboundDmarcSettingsCommandError = async (
   switch (errorCode) {
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4703,16 +5321,19 @@ const deserializeAws_json1_1PutInboundDmarcSettingsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutMailboxPermissionsCommand = async (
+/**
+ * deserializeAws_json1_1PutMailboxPermissionsCommand
+ */
+export const de_PutMailboxPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMailboxPermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutMailboxPermissionsCommandError(output, context);
+    return de_PutMailboxPermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutMailboxPermissionsResponse(data, context);
+  contents = de_PutMailboxPermissionsResponse(data, context);
   const response: PutMailboxPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4720,7 +5341,10 @@ export const deserializeAws_json1_1PutMailboxPermissionsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutMailboxPermissionsCommandError = async (
+/**
+ * deserializeAws_json1_1PutMailboxPermissionsCommandError
+ */
+const de_PutMailboxPermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMailboxPermissionsCommandOutput> => {
@@ -4732,19 +5356,19 @@ const deserializeAws_json1_1PutMailboxPermissionsCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4756,16 +5380,19 @@ const deserializeAws_json1_1PutMailboxPermissionsCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutMobileDeviceAccessOverrideCommand = async (
+/**
+ * deserializeAws_json1_1PutMobileDeviceAccessOverrideCommand
+ */
+export const de_PutMobileDeviceAccessOverrideCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMobileDeviceAccessOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutMobileDeviceAccessOverrideCommandError(output, context);
+    return de_PutMobileDeviceAccessOverrideCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutMobileDeviceAccessOverrideResponse(data, context);
+  contents = de_PutMobileDeviceAccessOverrideResponse(data, context);
   const response: PutMobileDeviceAccessOverrideCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4773,7 +5400,10 @@ export const deserializeAws_json1_1PutMobileDeviceAccessOverrideCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutMobileDeviceAccessOverrideCommandError = async (
+/**
+ * deserializeAws_json1_1PutMobileDeviceAccessOverrideCommandError
+ */
+const de_PutMobileDeviceAccessOverrideCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMobileDeviceAccessOverrideCommandOutput> => {
@@ -4785,19 +5415,19 @@ const deserializeAws_json1_1PutMobileDeviceAccessOverrideCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4809,16 +5439,19 @@ const deserializeAws_json1_1PutMobileDeviceAccessOverrideCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutRetentionPolicyCommand = async (
+/**
+ * deserializeAws_json1_1PutRetentionPolicyCommand
+ */
+export const de_PutRetentionPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRetentionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutRetentionPolicyCommandError(output, context);
+    return de_PutRetentionPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRetentionPolicyResponse(data, context);
+  contents = de_PutRetentionPolicyResponse(data, context);
   const response: PutRetentionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4826,7 +5459,10 @@ export const deserializeAws_json1_1PutRetentionPolicyCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
+/**
+ * deserializeAws_json1_1PutRetentionPolicyCommandError
+ */
+const de_PutRetentionPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRetentionPolicyCommandOutput> => {
@@ -4838,16 +5474,16 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workmail#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4859,16 +5495,19 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RegisterMailDomainCommand = async (
+/**
+ * deserializeAws_json1_1RegisterMailDomainCommand
+ */
+export const de_RegisterMailDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterMailDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RegisterMailDomainCommandError(output, context);
+    return de_RegisterMailDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterMailDomainResponse(data, context);
+  contents = de_RegisterMailDomainResponse(data, context);
   const response: RegisterMailDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4876,7 +5515,10 @@ export const deserializeAws_json1_1RegisterMailDomainCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RegisterMailDomainCommandError = async (
+/**
+ * deserializeAws_json1_1RegisterMailDomainCommandError
+ */
+const de_RegisterMailDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterMailDomainCommandOutput> => {
@@ -4888,19 +5530,19 @@ const deserializeAws_json1_1RegisterMailDomainCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workmail#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MailDomainInUseException":
     case "com.amazonaws.workmail#MailDomainInUseException":
-      throw await deserializeAws_json1_1MailDomainInUseExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainInUseExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4912,16 +5554,19 @@ const deserializeAws_json1_1RegisterMailDomainCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1RegisterToWorkMailCommand = async (
+/**
+ * deserializeAws_json1_1RegisterToWorkMailCommand
+ */
+export const de_RegisterToWorkMailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterToWorkMailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1RegisterToWorkMailCommandError(output, context);
+    return de_RegisterToWorkMailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterToWorkMailResponse(data, context);
+  contents = de_RegisterToWorkMailResponse(data, context);
   const response: RegisterToWorkMailCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -4929,7 +5574,10 @@ export const deserializeAws_json1_1RegisterToWorkMailCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
+/**
+ * deserializeAws_json1_1RegisterToWorkMailCommandError
+ */
+const de_RegisterToWorkMailCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterToWorkMailCommandOutput> => {
@@ -4941,37 +5589,37 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "EmailAddressInUseException":
     case "com.amazonaws.workmail#EmailAddressInUseException":
-      throw await deserializeAws_json1_1EmailAddressInUseExceptionResponse(parsedOutput, context);
+      throw await de_EmailAddressInUseExceptionRes(parsedOutput, context);
     case "EntityAlreadyRegisteredException":
     case "com.amazonaws.workmail#EntityAlreadyRegisteredException":
-      throw await deserializeAws_json1_1EntityAlreadyRegisteredExceptionResponse(parsedOutput, context);
+      throw await de_EntityAlreadyRegisteredExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MailDomainNotFoundException":
     case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
     case "MailDomainStateException":
     case "com.amazonaws.workmail#MailDomainStateException":
-      throw await deserializeAws_json1_1MailDomainStateExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainStateExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4983,16 +5631,19 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ResetPasswordCommand = async (
+/**
+ * deserializeAws_json1_1ResetPasswordCommand
+ */
+export const de_ResetPasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ResetPasswordCommandError(output, context);
+    return de_ResetPasswordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ResetPasswordResponse(data, context);
+  contents = de_ResetPasswordResponse(data, context);
   const response: ResetPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5000,7 +5651,10 @@ export const deserializeAws_json1_1ResetPasswordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ResetPasswordCommandError = async (
+/**
+ * deserializeAws_json1_1ResetPasswordCommandError
+ */
+const de_ResetPasswordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetPasswordCommandOutput> => {
@@ -5012,31 +5666,31 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.workmail#InvalidPasswordException":
-      throw await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5048,16 +5702,19 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartMailboxExportJobCommand = async (
+/**
+ * deserializeAws_json1_1StartMailboxExportJobCommand
+ */
+export const de_StartMailboxExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMailboxExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartMailboxExportJobCommandError(output, context);
+    return de_StartMailboxExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartMailboxExportJobResponse(data, context);
+  contents = de_StartMailboxExportJobResponse(data, context);
   const response: StartMailboxExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5065,7 +5722,10 @@ export const deserializeAws_json1_1StartMailboxExportJobCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartMailboxExportJobCommandError = async (
+/**
+ * deserializeAws_json1_1StartMailboxExportJobCommandError
+ */
+const de_StartMailboxExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMailboxExportJobCommandOutput> => {
@@ -5077,19 +5737,19 @@ const deserializeAws_json1_1StartMailboxExportJobCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workmail#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5101,16 +5761,19 @@ const deserializeAws_json1_1StartMailboxExportJobCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = de_TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5118,7 +5781,10 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -5130,13 +5796,13 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   switch (errorCode) {
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.workmail#TooManyTagsException":
-      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5148,16 +5814,19 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TestAvailabilityConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1TestAvailabilityConfigurationCommand
+ */
+export const de_TestAvailabilityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestAvailabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TestAvailabilityConfigurationCommandError(output, context);
+    return de_TestAvailabilityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TestAvailabilityConfigurationResponse(data, context);
+  contents = de_TestAvailabilityConfigurationResponse(data, context);
   const response: TestAvailabilityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5165,7 +5834,10 @@ export const deserializeAws_json1_1TestAvailabilityConfigurationCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TestAvailabilityConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1TestAvailabilityConfigurationCommandError
+ */
+const de_TestAvailabilityConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestAvailabilityConfigurationCommandOutput> => {
@@ -5177,16 +5849,16 @@ const deserializeAws_json1_1TestAvailabilityConfigurationCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5198,16 +5870,19 @@ const deserializeAws_json1_1TestAvailabilityConfigurationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = de_UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5215,7 +5890,10 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -5227,7 +5905,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5239,16 +5917,19 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateAvailabilityConfigurationCommand = async (
+/**
+ * deserializeAws_json1_1UpdateAvailabilityConfigurationCommand
+ */
+export const de_UpdateAvailabilityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAvailabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateAvailabilityConfigurationCommandError(output, context);
+    return de_UpdateAvailabilityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAvailabilityConfigurationResponse(data, context);
+  contents = de_UpdateAvailabilityConfigurationResponse(data, context);
   const response: UpdateAvailabilityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5256,7 +5937,10 @@ export const deserializeAws_json1_1UpdateAvailabilityConfigurationCommand = asyn
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateAvailabilityConfigurationCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateAvailabilityConfigurationCommandError
+ */
+const de_UpdateAvailabilityConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAvailabilityConfigurationCommandOutput> => {
@@ -5268,16 +5952,16 @@ const deserializeAws_json1_1UpdateAvailabilityConfigurationCommandError = async 
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5289,16 +5973,19 @@ const deserializeAws_json1_1UpdateAvailabilityConfigurationCommandError = async 
   }
 };
 
-export const deserializeAws_json1_1UpdateDefaultMailDomainCommand = async (
+/**
+ * deserializeAws_json1_1UpdateDefaultMailDomainCommand
+ */
+export const de_UpdateDefaultMailDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDefaultMailDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateDefaultMailDomainCommandError(output, context);
+    return de_UpdateDefaultMailDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDefaultMailDomainResponse(data, context);
+  contents = de_UpdateDefaultMailDomainResponse(data, context);
   const response: UpdateDefaultMailDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5306,7 +5993,10 @@ export const deserializeAws_json1_1UpdateDefaultMailDomainCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateDefaultMailDomainCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateDefaultMailDomainCommandError
+ */
+const de_UpdateDefaultMailDomainCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDefaultMailDomainCommandOutput> => {
@@ -5318,19 +6008,19 @@ const deserializeAws_json1_1UpdateDefaultMailDomainCommandError = async (
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MailDomainNotFoundException":
     case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
     case "MailDomainStateException":
     case "com.amazonaws.workmail#MailDomainStateException":
-      throw await deserializeAws_json1_1MailDomainStateExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainStateExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5342,16 +6032,19 @@ const deserializeAws_json1_1UpdateDefaultMailDomainCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateImpersonationRoleCommand = async (
+/**
+ * deserializeAws_json1_1UpdateImpersonationRoleCommand
+ */
+export const de_UpdateImpersonationRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateImpersonationRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateImpersonationRoleCommandError(output, context);
+    return de_UpdateImpersonationRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateImpersonationRoleResponse(data, context);
+  contents = de_UpdateImpersonationRoleResponse(data, context);
   const response: UpdateImpersonationRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5359,7 +6052,10 @@ export const deserializeAws_json1_1UpdateImpersonationRoleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateImpersonationRoleCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateImpersonationRoleCommandError
+ */
+const de_UpdateImpersonationRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateImpersonationRoleCommandOutput> => {
@@ -5371,25 +6067,25 @@ const deserializeAws_json1_1UpdateImpersonationRoleCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workmail#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5401,16 +6097,19 @@ const deserializeAws_json1_1UpdateImpersonationRoleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateMailboxQuotaCommand = async (
+/**
+ * deserializeAws_json1_1UpdateMailboxQuotaCommand
+ */
+export const de_UpdateMailboxQuotaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMailboxQuotaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateMailboxQuotaCommandError(output, context);
+    return de_UpdateMailboxQuotaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateMailboxQuotaResponse(data, context);
+  contents = de_UpdateMailboxQuotaResponse(data, context);
   const response: UpdateMailboxQuotaCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5418,7 +6117,10 @@ export const deserializeAws_json1_1UpdateMailboxQuotaCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateMailboxQuotaCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateMailboxQuotaCommandError
+ */
+const de_UpdateMailboxQuotaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMailboxQuotaCommandOutput> => {
@@ -5430,19 +6132,19 @@ const deserializeAws_json1_1UpdateMailboxQuotaCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5454,16 +6156,19 @@ const deserializeAws_json1_1UpdateMailboxQuotaCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateMobileDeviceAccessRuleCommand = async (
+/**
+ * deserializeAws_json1_1UpdateMobileDeviceAccessRuleCommand
+ */
+export const de_UpdateMobileDeviceAccessRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMobileDeviceAccessRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateMobileDeviceAccessRuleCommandError(output, context);
+    return de_UpdateMobileDeviceAccessRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateMobileDeviceAccessRuleResponse(data, context);
+  contents = de_UpdateMobileDeviceAccessRuleResponse(data, context);
   const response: UpdateMobileDeviceAccessRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5471,7 +6176,10 @@ export const deserializeAws_json1_1UpdateMobileDeviceAccessRuleCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateMobileDeviceAccessRuleCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateMobileDeviceAccessRuleCommandError
+ */
+const de_UpdateMobileDeviceAccessRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMobileDeviceAccessRuleCommandOutput> => {
@@ -5483,16 +6191,16 @@ const deserializeAws_json1_1UpdateMobileDeviceAccessRuleCommandError = async (
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5504,16 +6212,19 @@ const deserializeAws_json1_1UpdateMobileDeviceAccessRuleCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdatePrimaryEmailAddressCommand = async (
+/**
+ * deserializeAws_json1_1UpdatePrimaryEmailAddressCommand
+ */
+export const de_UpdatePrimaryEmailAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePrimaryEmailAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError(output, context);
+    return de_UpdatePrimaryEmailAddressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePrimaryEmailAddressResponse(data, context);
+  contents = de_UpdatePrimaryEmailAddressResponse(data, context);
   const response: UpdatePrimaryEmailAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5521,7 +6232,10 @@ export const deserializeAws_json1_1UpdatePrimaryEmailAddressCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
+/**
+ * deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError
+ */
+const de_UpdatePrimaryEmailAddressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePrimaryEmailAddressCommandOutput> => {
@@ -5533,37 +6247,37 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "EmailAddressInUseException":
     case "com.amazonaws.workmail#EmailAddressInUseException":
-      throw await deserializeAws_json1_1EmailAddressInUseExceptionResponse(parsedOutput, context);
+      throw await de_EmailAddressInUseExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MailDomainNotFoundException":
     case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
     case "MailDomainStateException":
     case "com.amazonaws.workmail#MailDomainStateException":
-      throw await deserializeAws_json1_1MailDomainStateExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainStateExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5575,16 +6289,19 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateResourceCommand = async (
+/**
+ * deserializeAws_json1_1UpdateResourceCommand
+ */
+export const de_UpdateResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateResourceCommandError(output, context);
+    return de_UpdateResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateResourceResponse(data, context);
+  contents = de_UpdateResourceResponse(data, context);
   const response: UpdateResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -5592,7 +6309,10 @@ export const deserializeAws_json1_1UpdateResourceCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateResourceCommandError
+ */
+const de_UpdateResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceCommandOutput> => {
@@ -5604,34 +6324,34 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
   switch (errorCode) {
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "EmailAddressInUseException":
     case "com.amazonaws.workmail#EmailAddressInUseException":
-      throw await deserializeAws_json1_1EmailAddressInUseExceptionResponse(parsedOutput, context);
+      throw await de_EmailAddressInUseExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
-      throw await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context);
+      throw await de_EntityStateExceptionRes(parsedOutput, context);
     case "InvalidConfigurationException":
     case "com.amazonaws.workmail#InvalidConfigurationException":
-      throw await deserializeAws_json1_1InvalidConfigurationExceptionResponse(parsedOutput, context);
+      throw await de_InvalidConfigurationExceptionRes(parsedOutput, context);
     case "MailDomainNotFoundException":
     case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await deserializeAws_json1_1MailDomainNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
     case "MailDomainStateException":
     case "com.amazonaws.workmail#MailDomainStateException":
-      throw await deserializeAws_json1_1MailDomainStateExceptionResponse(parsedOutput, context);
+      throw await de_MailDomainStateExceptionRes(parsedOutput, context);
     case "NameAvailabilityException":
     case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await deserializeAws_json1_1NameAvailabilityExceptionResponse(parsedOutput, context);
+      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
     case "OrganizationStateException":
     case "com.amazonaws.workmail#OrganizationStateException":
-      throw await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context);
+      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -5643,12 +6363,15 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
   }
 };
 
-const deserializeAws_json1_1DirectoryInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DirectoryInUseExceptionRes
+ */
+const de_DirectoryInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DirectoryInUseException(body, context);
+  const deserialized: any = de_DirectoryInUseException(body, context);
   const exception = new DirectoryInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5656,12 +6379,15 @@ const deserializeAws_json1_1DirectoryInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionRes
+ */
+const de_DirectoryServiceAuthenticationFailedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryServiceAuthenticationFailedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DirectoryServiceAuthenticationFailedException(body, context);
+  const deserialized: any = de_DirectoryServiceAuthenticationFailedException(body, context);
   const exception = new DirectoryServiceAuthenticationFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5669,12 +6395,15 @@ const deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionRespons
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1DirectoryUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_json1_1DirectoryUnavailableExceptionRes
+ */
+const de_DirectoryUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DirectoryUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DirectoryUnavailableException(body, context);
+  const deserialized: any = de_DirectoryUnavailableException(body, context);
   const exception = new DirectoryUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5682,12 +6411,15 @@ const deserializeAws_json1_1DirectoryUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EmailAddressInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EmailAddressInUseExceptionRes
+ */
+const de_EmailAddressInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EmailAddressInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EmailAddressInUseException(body, context);
+  const deserialized: any = de_EmailAddressInUseException(body, context);
   const exception = new EmailAddressInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5695,12 +6427,15 @@ const deserializeAws_json1_1EmailAddressInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EntityAlreadyRegisteredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EntityAlreadyRegisteredExceptionRes
+ */
+const de_EntityAlreadyRegisteredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntityAlreadyRegisteredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EntityAlreadyRegisteredException(body, context);
+  const deserialized: any = de_EntityAlreadyRegisteredException(body, context);
   const exception = new EntityAlreadyRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5708,12 +6443,15 @@ const deserializeAws_json1_1EntityAlreadyRegisteredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EntityNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EntityNotFoundExceptionRes
+ */
+const de_EntityNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntityNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EntityNotFoundException(body, context);
+  const deserialized: any = de_EntityNotFoundException(body, context);
   const exception = new EntityNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5721,12 +6459,15 @@ const deserializeAws_json1_1EntityNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1EntityStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1EntityStateExceptionRes
+ */
+const de_EntityStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntityStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EntityStateException(body, context);
+  const deserialized: any = de_EntityStateException(body, context);
   const exception = new EntityStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5734,12 +6475,15 @@ const deserializeAws_json1_1EntityStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidConfigurationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidConfigurationExceptionRes
+ */
+const de_InvalidConfigurationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidConfigurationException(body, context);
+  const deserialized: any = de_InvalidConfigurationException(body, context);
   const exception = new InvalidConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5747,12 +6491,15 @@ const deserializeAws_json1_1InvalidConfigurationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidCustomSesConfigurationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidCustomSesConfigurationExceptionRes
+ */
+const de_InvalidCustomSesConfigurationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCustomSesConfigurationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidCustomSesConfigurationException(body, context);
+  const deserialized: any = de_InvalidCustomSesConfigurationException(body, context);
   const exception = new InvalidCustomSesConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5760,12 +6507,15 @@ const deserializeAws_json1_1InvalidCustomSesConfigurationExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
+  const deserialized: any = de_InvalidParameterException(body, context);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5773,12 +6523,15 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidPasswordExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidPasswordExceptionRes
+ */
+const de_InvalidPasswordExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPasswordException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPasswordException(body, context);
+  const deserialized: any = de_InvalidPasswordException(body, context);
   const exception = new InvalidPasswordException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5786,12 +6539,15 @@ const deserializeAws_json1_1InvalidPasswordExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5799,12 +6555,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MailDomainInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MailDomainInUseExceptionRes
+ */
+const de_MailDomainInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MailDomainInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MailDomainInUseException(body, context);
+  const deserialized: any = de_MailDomainInUseException(body, context);
   const exception = new MailDomainInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5812,12 +6571,15 @@ const deserializeAws_json1_1MailDomainInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MailDomainNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MailDomainNotFoundExceptionRes
+ */
+const de_MailDomainNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MailDomainNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MailDomainNotFoundException(body, context);
+  const deserialized: any = de_MailDomainNotFoundException(body, context);
   const exception = new MailDomainNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5825,12 +6587,15 @@ const deserializeAws_json1_1MailDomainNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1MailDomainStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1MailDomainStateExceptionRes
+ */
+const de_MailDomainStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MailDomainStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MailDomainStateException(body, context);
+  const deserialized: any = de_MailDomainStateException(body, context);
   const exception = new MailDomainStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5838,12 +6603,15 @@ const deserializeAws_json1_1MailDomainStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1NameAvailabilityExceptionResponse = async (
+/**
+ * deserializeAws_json1_1NameAvailabilityExceptionRes
+ */
+const de_NameAvailabilityExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NameAvailabilityException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NameAvailabilityException(body, context);
+  const deserialized: any = de_NameAvailabilityException(body, context);
   const exception = new NameAvailabilityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5851,12 +6619,15 @@ const deserializeAws_json1_1NameAvailabilityExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OrganizationNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1OrganizationNotFoundExceptionRes
+ */
+const de_OrganizationNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OrganizationNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OrganizationNotFoundException(body, context);
+  const deserialized: any = de_OrganizationNotFoundException(body, context);
   const exception = new OrganizationNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5864,12 +6635,15 @@ const deserializeAws_json1_1OrganizationNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1OrganizationStateExceptionResponse = async (
+/**
+ * deserializeAws_json1_1OrganizationStateExceptionRes
+ */
+const de_OrganizationStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OrganizationStateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OrganizationStateException(body, context);
+  const deserialized: any = de_OrganizationStateException(body, context);
   const exception = new OrganizationStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5877,12 +6651,15 @@ const deserializeAws_json1_1OrganizationStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ReservedNameExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ReservedNameExceptionRes
+ */
+const de_ReservedNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReservedNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ReservedNameException(body, context);
+  const deserialized: any = de_ReservedNameException(body, context);
   const exception = new ReservedNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5890,12 +6667,15 @@ const deserializeAws_json1_1ReservedNameExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5903,12 +6683,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const deserialized: any = de_TooManyTagsException(body, context);
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5916,12 +6699,15 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UnsupportedOperationExceptionRes
+ */
+const de_UnsupportedOperationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1UnsupportedOperationException(body, context);
+  const deserialized: any = de_UnsupportedOperationException(body, context);
   const exception = new UnsupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -5929,7 +6715,10 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1ActionsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ActionsList
+ */
+const se_ActionsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5937,7 +6726,10 @@ const serializeAws_json1_1ActionsList = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_json1_1AssociateDelegateToResourceRequest = (
+/**
+ * serializeAws_json1_1AssociateDelegateToResourceRequest
+ */
+const se_AssociateDelegateToResourceRequest = (
   input: AssociateDelegateToResourceRequest,
   context: __SerdeContext
 ): any => {
@@ -5948,10 +6740,10 @@ const serializeAws_json1_1AssociateDelegateToResourceRequest = (
   };
 };
 
-const serializeAws_json1_1AssociateMemberToGroupRequest = (
-  input: AssociateMemberToGroupRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AssociateMemberToGroupRequest
+ */
+const se_AssociateMemberToGroupRequest = (input: AssociateMemberToGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId != null && { GroupId: input.GroupId }),
     ...(input.MemberId != null && { MemberId: input.MemberId }),
@@ -5959,17 +6751,20 @@ const serializeAws_json1_1AssociateMemberToGroupRequest = (
   };
 };
 
-const serializeAws_json1_1AssumeImpersonationRoleRequest = (
-  input: AssumeImpersonationRoleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1AssumeImpersonationRoleRequest
+ */
+const se_AssumeImpersonationRoleRequest = (input: AssumeImpersonationRoleRequest, context: __SerdeContext): any => {
   return {
     ...(input.ImpersonationRoleId != null && { ImpersonationRoleId: input.ImpersonationRoleId }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1BookingOptions = (input: BookingOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1BookingOptions
+ */
+const se_BookingOptions = (input: BookingOptions, context: __SerdeContext): any => {
   return {
     ...(input.AutoAcceptRequests != null && { AutoAcceptRequests: input.AutoAcceptRequests }),
     ...(input.AutoDeclineConflictingRequests != null && {
@@ -5981,10 +6776,10 @@ const serializeAws_json1_1BookingOptions = (input: BookingOptions, context: __Se
   };
 };
 
-const serializeAws_json1_1CancelMailboxExportJobRequest = (
-  input: CancelMailboxExportJobRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CancelMailboxExportJobRequest
+ */
+const se_CancelMailboxExportJobRequest = (input: CancelMailboxExportJobRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.JobId != null && { JobId: input.JobId }),
@@ -5992,7 +6787,10 @@ const serializeAws_json1_1CancelMailboxExportJobRequest = (
   };
 };
 
-const serializeAws_json1_1CreateAliasRequest = (input: CreateAliasRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateAliasRequest
+ */
+const se_CreateAliasRequest = (input: CreateAliasRequest, context: __SerdeContext): any => {
   return {
     ...(input.Alias != null && { Alias: input.Alias }),
     ...(input.EntityId != null && { EntityId: input.EntityId }),
@@ -6000,97 +6798,98 @@ const serializeAws_json1_1CreateAliasRequest = (input: CreateAliasRequest, conte
   };
 };
 
-const serializeAws_json1_1CreateAvailabilityConfigurationRequest = (
+/**
+ * serializeAws_json1_1CreateAvailabilityConfigurationRequest
+ */
+const se_CreateAvailabilityConfigurationRequest = (
   input: CreateAvailabilityConfigurationRequest,
   context: __SerdeContext
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.EwsProvider != null && {
-      EwsProvider: serializeAws_json1_1EwsAvailabilityProvider(input.EwsProvider, context),
-    }),
+    ...(input.EwsProvider != null && { EwsProvider: se_EwsAvailabilityProvider(input.EwsProvider, context) }),
     ...(input.LambdaProvider != null && {
-      LambdaProvider: serializeAws_json1_1LambdaAvailabilityProvider(input.LambdaProvider, context),
+      LambdaProvider: se_LambdaAvailabilityProvider(input.LambdaProvider, context),
     }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateGroupRequest
+ */
+const se_CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1CreateImpersonationRoleRequest = (
-  input: CreateImpersonationRoleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateImpersonationRoleRequest
+ */
+const se_CreateImpersonationRoleRequest = (input: CreateImpersonationRoleRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
-    ...(input.Rules != null && { Rules: serializeAws_json1_1ImpersonationRuleList(input.Rules, context) }),
+    ...(input.Rules != null && { Rules: se_ImpersonationRuleList(input.Rules, context) }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };
 
-const serializeAws_json1_1CreateMobileDeviceAccessRuleRequest = (
+/**
+ * serializeAws_json1_1CreateMobileDeviceAccessRuleRequest
+ */
+const se_CreateMobileDeviceAccessRuleRequest = (
   input: CreateMobileDeviceAccessRuleRequest,
   context: __SerdeContext
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Description != null && { Description: input.Description }),
-    ...(input.DeviceModels != null && {
-      DeviceModels: serializeAws_json1_1DeviceModelList(input.DeviceModels, context),
-    }),
+    ...(input.DeviceModels != null && { DeviceModels: se_DeviceModelList(input.DeviceModels, context) }),
     ...(input.DeviceOperatingSystems != null && {
-      DeviceOperatingSystems: serializeAws_json1_1DeviceOperatingSystemList(input.DeviceOperatingSystems, context),
+      DeviceOperatingSystems: se_DeviceOperatingSystemList(input.DeviceOperatingSystems, context),
     }),
-    ...(input.DeviceTypes != null && { DeviceTypes: serializeAws_json1_1DeviceTypeList(input.DeviceTypes, context) }),
+    ...(input.DeviceTypes != null && { DeviceTypes: se_DeviceTypeList(input.DeviceTypes, context) }),
     ...(input.DeviceUserAgents != null && {
-      DeviceUserAgents: serializeAws_json1_1DeviceUserAgentList(input.DeviceUserAgents, context),
+      DeviceUserAgents: se_DeviceUserAgentList(input.DeviceUserAgents, context),
     }),
     ...(input.Effect != null && { Effect: input.Effect }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.NotDeviceModels != null && {
-      NotDeviceModels: serializeAws_json1_1DeviceModelList(input.NotDeviceModels, context),
-    }),
+    ...(input.NotDeviceModels != null && { NotDeviceModels: se_DeviceModelList(input.NotDeviceModels, context) }),
     ...(input.NotDeviceOperatingSystems != null && {
-      NotDeviceOperatingSystems: serializeAws_json1_1DeviceOperatingSystemList(
-        input.NotDeviceOperatingSystems,
-        context
-      ),
+      NotDeviceOperatingSystems: se_DeviceOperatingSystemList(input.NotDeviceOperatingSystems, context),
     }),
-    ...(input.NotDeviceTypes != null && {
-      NotDeviceTypes: serializeAws_json1_1DeviceTypeList(input.NotDeviceTypes, context),
-    }),
+    ...(input.NotDeviceTypes != null && { NotDeviceTypes: se_DeviceTypeList(input.NotDeviceTypes, context) }),
     ...(input.NotDeviceUserAgents != null && {
-      NotDeviceUserAgents: serializeAws_json1_1DeviceUserAgentList(input.NotDeviceUserAgents, context),
+      NotDeviceUserAgents: se_DeviceUserAgentList(input.NotDeviceUserAgents, context),
     }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1CreateOrganizationRequest = (
-  input: CreateOrganizationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateOrganizationRequest
+ */
+const se_CreateOrganizationRequest = (input: CreateOrganizationRequest, context: __SerdeContext): any => {
   return {
     ...(input.Alias != null && { Alias: input.Alias }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.DirectoryId != null && { DirectoryId: input.DirectoryId }),
-    ...(input.Domains != null && { Domains: serializeAws_json1_1Domains(input.Domains, context) }),
+    ...(input.Domains != null && { Domains: se_Domains(input.Domains, context) }),
     ...(input.EnableInteroperability != null && { EnableInteroperability: input.EnableInteroperability }),
     ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
   };
 };
 
-const serializeAws_json1_1CreateResourceRequest = (input: CreateResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateResourceRequest
+ */
+const se_CreateResourceRequest = (input: CreateResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
@@ -6098,7 +6897,10 @@ const serializeAws_json1_1CreateResourceRequest = (input: CreateResourceRequest,
   };
 };
 
-const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CreateUserRequest
+ */
+const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
     ...(input.Name != null && { Name: input.Name }),
@@ -6107,17 +6909,20 @@ const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context
   };
 };
 
-const serializeAws_json1_1DeleteAccessControlRuleRequest = (
-  input: DeleteAccessControlRuleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteAccessControlRuleRequest
+ */
+const se_DeleteAccessControlRuleRequest = (input: DeleteAccessControlRuleRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1DeleteAliasRequest = (input: DeleteAliasRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteAliasRequest
+ */
+const se_DeleteAliasRequest = (input: DeleteAliasRequest, context: __SerdeContext): any => {
   return {
     ...(input.Alias != null && { Alias: input.Alias }),
     ...(input.EntityId != null && { EntityId: input.EntityId }),
@@ -6125,7 +6930,10 @@ const serializeAws_json1_1DeleteAliasRequest = (input: DeleteAliasRequest, conte
   };
 };
 
-const serializeAws_json1_1DeleteAvailabilityConfigurationRequest = (
+/**
+ * serializeAws_json1_1DeleteAvailabilityConfigurationRequest
+ */
+const se_DeleteAvailabilityConfigurationRequest = (
   input: DeleteAvailabilityConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -6135,7 +6943,10 @@ const serializeAws_json1_1DeleteAvailabilityConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteEmailMonitoringConfigurationRequest = (
+/**
+ * serializeAws_json1_1DeleteEmailMonitoringConfigurationRequest
+ */
+const se_DeleteEmailMonitoringConfigurationRequest = (
   input: DeleteEmailMonitoringConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -6144,27 +6955,30 @@ const serializeAws_json1_1DeleteEmailMonitoringConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteGroupRequest
+ */
+const se_DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId != null && { GroupId: input.GroupId }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1DeleteImpersonationRoleRequest = (
-  input: DeleteImpersonationRoleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteImpersonationRoleRequest
+ */
+const se_DeleteImpersonationRoleRequest = (input: DeleteImpersonationRoleRequest, context: __SerdeContext): any => {
   return {
     ...(input.ImpersonationRoleId != null && { ImpersonationRoleId: input.ImpersonationRoleId }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1DeleteMailboxPermissionsRequest = (
-  input: DeleteMailboxPermissionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteMailboxPermissionsRequest
+ */
+const se_DeleteMailboxPermissionsRequest = (input: DeleteMailboxPermissionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.EntityId != null && { EntityId: input.EntityId }),
     ...(input.GranteeId != null && { GranteeId: input.GranteeId }),
@@ -6172,7 +6986,10 @@ const serializeAws_json1_1DeleteMailboxPermissionsRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteMobileDeviceAccessOverrideRequest = (
+/**
+ * serializeAws_json1_1DeleteMobileDeviceAccessOverrideRequest
+ */
+const se_DeleteMobileDeviceAccessOverrideRequest = (
   input: DeleteMobileDeviceAccessOverrideRequest,
   context: __SerdeContext
 ): any => {
@@ -6183,7 +7000,10 @@ const serializeAws_json1_1DeleteMobileDeviceAccessOverrideRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteMobileDeviceAccessRuleRequest = (
+/**
+ * serializeAws_json1_1DeleteMobileDeviceAccessRuleRequest
+ */
+const se_DeleteMobileDeviceAccessRuleRequest = (
   input: DeleteMobileDeviceAccessRuleRequest,
   context: __SerdeContext
 ): any => {
@@ -6193,10 +7013,10 @@ const serializeAws_json1_1DeleteMobileDeviceAccessRuleRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteOrganizationRequest = (
-  input: DeleteOrganizationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteOrganizationRequest
+ */
+const se_DeleteOrganizationRequest = (input: DeleteOrganizationRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.DeleteDirectory != null && { DeleteDirectory: input.DeleteDirectory }),
@@ -6204,51 +7024,60 @@ const serializeAws_json1_1DeleteOrganizationRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteResourceRequest = (input: DeleteResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteResourceRequest
+ */
+const se_DeleteResourceRequest = (input: DeleteResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_json1_1DeleteRetentionPolicyRequest = (
-  input: DeleteRetentionPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteRetentionPolicyRequest
+ */
+const se_DeleteRetentionPolicyRequest = (input: DeleteRetentionPolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.Id != null && { Id: input.Id }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeleteUserRequest
+ */
+const se_DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
     ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
-const serializeAws_json1_1DeregisterFromWorkMailRequest = (
-  input: DeregisterFromWorkMailRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeregisterFromWorkMailRequest
+ */
+const se_DeregisterFromWorkMailRequest = (input: DeregisterFromWorkMailRequest, context: __SerdeContext): any => {
   return {
     ...(input.EntityId != null && { EntityId: input.EntityId }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1DeregisterMailDomainRequest = (
-  input: DeregisterMailDomainRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeregisterMailDomainRequest
+ */
+const se_DeregisterMailDomainRequest = (input: DeregisterMailDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.DomainName != null && { DomainName: input.DomainName }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1DescribeEmailMonitoringConfigurationRequest = (
+/**
+ * serializeAws_json1_1DescribeEmailMonitoringConfigurationRequest
+ */
+const se_DescribeEmailMonitoringConfigurationRequest = (
   input: DescribeEmailMonitoringConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -6257,14 +7086,20 @@ const serializeAws_json1_1DescribeEmailMonitoringConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeGroupRequest = (input: DescribeGroupRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeGroupRequest
+ */
+const se_DescribeGroupRequest = (input: DescribeGroupRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId != null && { GroupId: input.GroupId }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1DescribeInboundDmarcSettingsRequest = (
+/**
+ * serializeAws_json1_1DescribeInboundDmarcSettingsRequest
+ */
+const se_DescribeInboundDmarcSettingsRequest = (
   input: DescribeInboundDmarcSettingsRequest,
   context: __SerdeContext
 ): any => {
@@ -6273,40 +7108,49 @@ const serializeAws_json1_1DescribeInboundDmarcSettingsRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeMailboxExportJobRequest = (
-  input: DescribeMailboxExportJobRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeMailboxExportJobRequest
+ */
+const se_DescribeMailboxExportJobRequest = (input: DescribeMailboxExportJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobId != null && { JobId: input.JobId }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1DescribeOrganizationRequest = (
-  input: DescribeOrganizationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeOrganizationRequest
+ */
+const se_DescribeOrganizationRequest = (input: DescribeOrganizationRequest, context: __SerdeContext): any => {
   return {
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1DescribeResourceRequest = (input: DescribeResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeResourceRequest
+ */
+const se_DescribeResourceRequest = (input: DescribeResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_json1_1DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DescribeUserRequest
+ */
+const se_DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
     ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
-const serializeAws_json1_1DeviceModelList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeviceModelList
+ */
+const se_DeviceModelList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6314,7 +7158,10 @@ const serializeAws_json1_1DeviceModelList = (input: string[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_1DeviceOperatingSystemList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeviceOperatingSystemList
+ */
+const se_DeviceOperatingSystemList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6322,7 +7169,10 @@ const serializeAws_json1_1DeviceOperatingSystemList = (input: string[], context:
     });
 };
 
-const serializeAws_json1_1DeviceTypeList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeviceTypeList
+ */
+const se_DeviceTypeList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6330,7 +7180,10 @@ const serializeAws_json1_1DeviceTypeList = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_json1_1DeviceUserAgentList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1DeviceUserAgentList
+ */
+const se_DeviceUserAgentList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6338,7 +7191,10 @@ const serializeAws_json1_1DeviceUserAgentList = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_json1_1DisassociateDelegateFromResourceRequest = (
+/**
+ * serializeAws_json1_1DisassociateDelegateFromResourceRequest
+ */
+const se_DisassociateDelegateFromResourceRequest = (
   input: DisassociateDelegateFromResourceRequest,
   context: __SerdeContext
 ): any => {
@@ -6349,7 +7205,10 @@ const serializeAws_json1_1DisassociateDelegateFromResourceRequest = (
   };
 };
 
-const serializeAws_json1_1DisassociateMemberFromGroupRequest = (
+/**
+ * serializeAws_json1_1DisassociateMemberFromGroupRequest
+ */
+const se_DisassociateMemberFromGroupRequest = (
   input: DisassociateMemberFromGroupRequest,
   context: __SerdeContext
 ): any => {
@@ -6360,22 +7219,31 @@ const serializeAws_json1_1DisassociateMemberFromGroupRequest = (
   };
 };
 
-const serializeAws_json1_1Domain = (input: Domain, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Domain
+ */
+const se_Domain = (input: Domain, context: __SerdeContext): any => {
   return {
     ...(input.DomainName != null && { DomainName: input.DomainName }),
     ...(input.HostedZoneId != null && { HostedZoneId: input.HostedZoneId }),
   };
 };
 
-const serializeAws_json1_1Domains = (input: Domain[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Domains
+ */
+const se_Domains = (input: Domain[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Domain(entry, context);
+      return se_Domain(entry, context);
     });
 };
 
-const serializeAws_json1_1EwsAvailabilityProvider = (input: EwsAvailabilityProvider, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EwsAvailabilityProvider
+ */
+const se_EwsAvailabilityProvider = (input: EwsAvailabilityProvider, context: __SerdeContext): any => {
   return {
     ...(input.EwsEndpoint != null && { EwsEndpoint: input.EwsEndpoint }),
     ...(input.EwsPassword != null && { EwsPassword: input.EwsPassword }),
@@ -6383,7 +7251,10 @@ const serializeAws_json1_1EwsAvailabilityProvider = (input: EwsAvailabilityProvi
   };
 };
 
-const serializeAws_json1_1FolderConfiguration = (input: FolderConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FolderConfiguration
+ */
+const se_FolderConfiguration = (input: FolderConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Action != null && { Action: input.Action }),
     ...(input.Name != null && { Name: input.Name }),
@@ -6391,18 +7262,21 @@ const serializeAws_json1_1FolderConfiguration = (input: FolderConfiguration, con
   };
 };
 
-const serializeAws_json1_1FolderConfigurations = (input: FolderConfiguration[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1FolderConfigurations
+ */
+const se_FolderConfigurations = (input: FolderConfiguration[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1FolderConfiguration(entry, context);
+      return se_FolderConfiguration(entry, context);
     });
 };
 
-const serializeAws_json1_1GetAccessControlEffectRequest = (
-  input: GetAccessControlEffectRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetAccessControlEffectRequest
+ */
+const se_GetAccessControlEffectRequest = (input: GetAccessControlEffectRequest, context: __SerdeContext): any => {
   return {
     ...(input.Action != null && { Action: input.Action }),
     ...(input.ImpersonationRoleId != null && { ImpersonationRoleId: input.ImpersonationRoleId }),
@@ -6412,16 +7286,19 @@ const serializeAws_json1_1GetAccessControlEffectRequest = (
   };
 };
 
-const serializeAws_json1_1GetDefaultRetentionPolicyRequest = (
-  input: GetDefaultRetentionPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetDefaultRetentionPolicyRequest
+ */
+const se_GetDefaultRetentionPolicyRequest = (input: GetDefaultRetentionPolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1GetImpersonationRoleEffectRequest = (
+/**
+ * serializeAws_json1_1GetImpersonationRoleEffectRequest
+ */
+const se_GetImpersonationRoleEffectRequest = (
   input: GetImpersonationRoleEffectRequest,
   context: __SerdeContext
 ): any => {
@@ -6432,34 +7309,40 @@ const serializeAws_json1_1GetImpersonationRoleEffectRequest = (
   };
 };
 
-const serializeAws_json1_1GetImpersonationRoleRequest = (
-  input: GetImpersonationRoleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetImpersonationRoleRequest
+ */
+const se_GetImpersonationRoleRequest = (input: GetImpersonationRoleRequest, context: __SerdeContext): any => {
   return {
     ...(input.ImpersonationRoleId != null && { ImpersonationRoleId: input.ImpersonationRoleId }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1GetMailboxDetailsRequest = (
-  input: GetMailboxDetailsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetMailboxDetailsRequest
+ */
+const se_GetMailboxDetailsRequest = (input: GetMailboxDetailsRequest, context: __SerdeContext): any => {
   return {
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
     ...(input.UserId != null && { UserId: input.UserId }),
   };
 };
 
-const serializeAws_json1_1GetMailDomainRequest = (input: GetMailDomainRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetMailDomainRequest
+ */
+const se_GetMailDomainRequest = (input: GetMailDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.DomainName != null && { DomainName: input.DomainName }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1GetMobileDeviceAccessEffectRequest = (
+/**
+ * serializeAws_json1_1GetMobileDeviceAccessEffectRequest
+ */
+const se_GetMobileDeviceAccessEffectRequest = (
   input: GetMobileDeviceAccessEffectRequest,
   context: __SerdeContext
 ): any => {
@@ -6472,7 +7355,10 @@ const serializeAws_json1_1GetMobileDeviceAccessEffectRequest = (
   };
 };
 
-const serializeAws_json1_1GetMobileDeviceAccessOverrideRequest = (
+/**
+ * serializeAws_json1_1GetMobileDeviceAccessOverrideRequest
+ */
+const se_GetMobileDeviceAccessOverrideRequest = (
   input: GetMobileDeviceAccessOverrideRequest,
   context: __SerdeContext
 ): any => {
@@ -6483,7 +7369,10 @@ const serializeAws_json1_1GetMobileDeviceAccessOverrideRequest = (
   };
 };
 
-const serializeAws_json1_1ImpersonationRoleIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ImpersonationRoleIdList
+ */
+const se_ImpersonationRoleIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6491,28 +7380,35 @@ const serializeAws_json1_1ImpersonationRoleIdList = (input: string[], context: _
     });
 };
 
-const serializeAws_json1_1ImpersonationRule = (input: ImpersonationRule, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ImpersonationRule
+ */
+const se_ImpersonationRule = (input: ImpersonationRule, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Effect != null && { Effect: input.Effect }),
     ...(input.ImpersonationRuleId != null && { ImpersonationRuleId: input.ImpersonationRuleId }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.NotTargetUsers != null && {
-      NotTargetUsers: serializeAws_json1_1TargetUsers(input.NotTargetUsers, context),
-    }),
-    ...(input.TargetUsers != null && { TargetUsers: serializeAws_json1_1TargetUsers(input.TargetUsers, context) }),
+    ...(input.NotTargetUsers != null && { NotTargetUsers: se_TargetUsers(input.NotTargetUsers, context) }),
+    ...(input.TargetUsers != null && { TargetUsers: se_TargetUsers(input.TargetUsers, context) }),
   };
 };
 
-const serializeAws_json1_1ImpersonationRuleList = (input: ImpersonationRule[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ImpersonationRuleList
+ */
+const se_ImpersonationRuleList = (input: ImpersonationRule[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ImpersonationRule(entry, context);
+      return se_ImpersonationRule(entry, context);
     });
 };
 
-const serializeAws_json1_1IpRangeList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1IpRangeList
+ */
+const se_IpRangeList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6520,25 +7416,28 @@ const serializeAws_json1_1IpRangeList = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_json1_1LambdaAvailabilityProvider = (
-  input: LambdaAvailabilityProvider,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1LambdaAvailabilityProvider
+ */
+const se_LambdaAvailabilityProvider = (input: LambdaAvailabilityProvider, context: __SerdeContext): any => {
   return {
     ...(input.LambdaArn != null && { LambdaArn: input.LambdaArn }),
   };
 };
 
-const serializeAws_json1_1ListAccessControlRulesRequest = (
-  input: ListAccessControlRulesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListAccessControlRulesRequest
+ */
+const se_ListAccessControlRulesRequest = (input: ListAccessControlRulesRequest, context: __SerdeContext): any => {
   return {
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1ListAliasesRequest = (input: ListAliasesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListAliasesRequest
+ */
+const se_ListAliasesRequest = (input: ListAliasesRequest, context: __SerdeContext): any => {
   return {
     ...(input.EntityId != null && { EntityId: input.EntityId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -6547,7 +7446,10 @@ const serializeAws_json1_1ListAliasesRequest = (input: ListAliasesRequest, conte
   };
 };
 
-const serializeAws_json1_1ListAvailabilityConfigurationsRequest = (
+/**
+ * serializeAws_json1_1ListAvailabilityConfigurationsRequest
+ */
+const se_ListAvailabilityConfigurationsRequest = (
   input: ListAvailabilityConfigurationsRequest,
   context: __SerdeContext
 ): any => {
@@ -6558,7 +7460,10 @@ const serializeAws_json1_1ListAvailabilityConfigurationsRequest = (
   };
 };
 
-const serializeAws_json1_1ListGroupMembersRequest = (input: ListGroupMembersRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListGroupMembersRequest
+ */
+const se_ListGroupMembersRequest = (input: ListGroupMembersRequest, context: __SerdeContext): any => {
   return {
     ...(input.GroupId != null && { GroupId: input.GroupId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -6567,7 +7472,10 @@ const serializeAws_json1_1ListGroupMembersRequest = (input: ListGroupMembersRequ
   };
 };
 
-const serializeAws_json1_1ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListGroupsRequest
+ */
+const se_ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -6575,10 +7483,10 @@ const serializeAws_json1_1ListGroupsRequest = (input: ListGroupsRequest, context
   };
 };
 
-const serializeAws_json1_1ListImpersonationRolesRequest = (
-  input: ListImpersonationRolesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListImpersonationRolesRequest
+ */
+const se_ListImpersonationRolesRequest = (input: ListImpersonationRolesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -6586,10 +7494,10 @@ const serializeAws_json1_1ListImpersonationRolesRequest = (
   };
 };
 
-const serializeAws_json1_1ListMailboxExportJobsRequest = (
-  input: ListMailboxExportJobsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListMailboxExportJobsRequest
+ */
+const se_ListMailboxExportJobsRequest = (input: ListMailboxExportJobsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -6597,10 +7505,10 @@ const serializeAws_json1_1ListMailboxExportJobsRequest = (
   };
 };
 
-const serializeAws_json1_1ListMailboxPermissionsRequest = (
-  input: ListMailboxPermissionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListMailboxPermissionsRequest
+ */
+const se_ListMailboxPermissionsRequest = (input: ListMailboxPermissionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.EntityId != null && { EntityId: input.EntityId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
@@ -6609,7 +7517,10 @@ const serializeAws_json1_1ListMailboxPermissionsRequest = (
   };
 };
 
-const serializeAws_json1_1ListMailDomainsRequest = (input: ListMailDomainsRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListMailDomainsRequest
+ */
+const se_ListMailDomainsRequest = (input: ListMailDomainsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -6617,7 +7528,10 @@ const serializeAws_json1_1ListMailDomainsRequest = (input: ListMailDomainsReques
   };
 };
 
-const serializeAws_json1_1ListMobileDeviceAccessOverridesRequest = (
+/**
+ * serializeAws_json1_1ListMobileDeviceAccessOverridesRequest
+ */
+const se_ListMobileDeviceAccessOverridesRequest = (
   input: ListMobileDeviceAccessOverridesRequest,
   context: __SerdeContext
 ): any => {
@@ -6630,7 +7544,10 @@ const serializeAws_json1_1ListMobileDeviceAccessOverridesRequest = (
   };
 };
 
-const serializeAws_json1_1ListMobileDeviceAccessRulesRequest = (
+/**
+ * serializeAws_json1_1ListMobileDeviceAccessRulesRequest
+ */
+const se_ListMobileDeviceAccessRulesRequest = (
   input: ListMobileDeviceAccessRulesRequest,
   context: __SerdeContext
 ): any => {
@@ -6639,20 +7556,20 @@ const serializeAws_json1_1ListMobileDeviceAccessRulesRequest = (
   };
 };
 
-const serializeAws_json1_1ListOrganizationsRequest = (
-  input: ListOrganizationsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListOrganizationsRequest
+ */
+const se_ListOrganizationsRequest = (input: ListOrganizationsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
-const serializeAws_json1_1ListResourceDelegatesRequest = (
-  input: ListResourceDelegatesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListResourceDelegatesRequest
+ */
+const se_ListResourceDelegatesRequest = (input: ListResourceDelegatesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -6661,7 +7578,10 @@ const serializeAws_json1_1ListResourceDelegatesRequest = (
   };
 };
 
-const serializeAws_json1_1ListResourcesRequest = (input: ListResourcesRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListResourcesRequest
+ */
+const se_ListResourcesRequest = (input: ListResourcesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -6669,16 +7589,19 @@ const serializeAws_json1_1ListResourcesRequest = (input: ListResourcesRequest, c
   };
 };
 
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForResourceRequest
+ */
+const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
   };
 };
 
-const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListUsersRequest
+ */
+const se_ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -6686,7 +7609,10 @@ const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: 
   };
 };
 
-const serializeAws_json1_1PermissionValues = (input: (PermissionType | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PermissionValues
+ */
+const se_PermissionValues = (input: (PermissionType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6694,31 +7620,34 @@ const serializeAws_json1_1PermissionValues = (input: (PermissionType | string)[]
     });
 };
 
-const serializeAws_json1_1PutAccessControlRuleRequest = (
-  input: PutAccessControlRuleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutAccessControlRuleRequest
+ */
+const se_PutAccessControlRuleRequest = (input: PutAccessControlRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Actions != null && { Actions: serializeAws_json1_1ActionsList(input.Actions, context) }),
+    ...(input.Actions != null && { Actions: se_ActionsList(input.Actions, context) }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Effect != null && { Effect: input.Effect }),
     ...(input.ImpersonationRoleIds != null && {
-      ImpersonationRoleIds: serializeAws_json1_1ImpersonationRoleIdList(input.ImpersonationRoleIds, context),
+      ImpersonationRoleIds: se_ImpersonationRoleIdList(input.ImpersonationRoleIds, context),
     }),
-    ...(input.IpRanges != null && { IpRanges: serializeAws_json1_1IpRangeList(input.IpRanges, context) }),
+    ...(input.IpRanges != null && { IpRanges: se_IpRangeList(input.IpRanges, context) }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.NotActions != null && { NotActions: serializeAws_json1_1ActionsList(input.NotActions, context) }),
+    ...(input.NotActions != null && { NotActions: se_ActionsList(input.NotActions, context) }),
     ...(input.NotImpersonationRoleIds != null && {
-      NotImpersonationRoleIds: serializeAws_json1_1ImpersonationRoleIdList(input.NotImpersonationRoleIds, context),
+      NotImpersonationRoleIds: se_ImpersonationRoleIdList(input.NotImpersonationRoleIds, context),
     }),
-    ...(input.NotIpRanges != null && { NotIpRanges: serializeAws_json1_1IpRangeList(input.NotIpRanges, context) }),
-    ...(input.NotUserIds != null && { NotUserIds: serializeAws_json1_1UserIdList(input.NotUserIds, context) }),
+    ...(input.NotIpRanges != null && { NotIpRanges: se_IpRangeList(input.NotIpRanges, context) }),
+    ...(input.NotUserIds != null && { NotUserIds: se_UserIdList(input.NotUserIds, context) }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
-    ...(input.UserIds != null && { UserIds: serializeAws_json1_1UserIdList(input.UserIds, context) }),
+    ...(input.UserIds != null && { UserIds: se_UserIdList(input.UserIds, context) }),
   };
 };
 
-const serializeAws_json1_1PutEmailMonitoringConfigurationRequest = (
+/**
+ * serializeAws_json1_1PutEmailMonitoringConfigurationRequest
+ */
+const se_PutEmailMonitoringConfigurationRequest = (
   input: PutEmailMonitoringConfigurationRequest,
   context: __SerdeContext
 ): any => {
@@ -6729,31 +7658,32 @@ const serializeAws_json1_1PutEmailMonitoringConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_1PutInboundDmarcSettingsRequest = (
-  input: PutInboundDmarcSettingsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutInboundDmarcSettingsRequest
+ */
+const se_PutInboundDmarcSettingsRequest = (input: PutInboundDmarcSettingsRequest, context: __SerdeContext): any => {
   return {
     ...(input.Enforced != null && { Enforced: input.Enforced }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1PutMailboxPermissionsRequest = (
-  input: PutMailboxPermissionsRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutMailboxPermissionsRequest
+ */
+const se_PutMailboxPermissionsRequest = (input: PutMailboxPermissionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.EntityId != null && { EntityId: input.EntityId }),
     ...(input.GranteeId != null && { GranteeId: input.GranteeId }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
-    ...(input.PermissionValues != null && {
-      PermissionValues: serializeAws_json1_1PermissionValues(input.PermissionValues, context),
-    }),
+    ...(input.PermissionValues != null && { PermissionValues: se_PermissionValues(input.PermissionValues, context) }),
   };
 };
 
-const serializeAws_json1_1PutMobileDeviceAccessOverrideRequest = (
+/**
+ * serializeAws_json1_1PutMobileDeviceAccessOverrideRequest
+ */
+const se_PutMobileDeviceAccessOverrideRequest = (
   input: PutMobileDeviceAccessOverrideRequest,
   context: __SerdeContext
 ): any => {
@@ -6766,14 +7696,14 @@ const serializeAws_json1_1PutMobileDeviceAccessOverrideRequest = (
   };
 };
 
-const serializeAws_json1_1PutRetentionPolicyRequest = (
-  input: PutRetentionPolicyRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1PutRetentionPolicyRequest
+ */
+const se_PutRetentionPolicyRequest = (input: PutRetentionPolicyRequest, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.FolderConfigurations != null && {
-      FolderConfigurations: serializeAws_json1_1FolderConfigurations(input.FolderConfigurations, context),
+      FolderConfigurations: se_FolderConfigurations(input.FolderConfigurations, context),
     }),
     ...(input.Id != null && { Id: input.Id }),
     ...(input.Name != null && { Name: input.Name }),
@@ -6781,10 +7711,10 @@ const serializeAws_json1_1PutRetentionPolicyRequest = (
   };
 };
 
-const serializeAws_json1_1RegisterMailDomainRequest = (
-  input: RegisterMailDomainRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RegisterMailDomainRequest
+ */
+const se_RegisterMailDomainRequest = (input: RegisterMailDomainRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.DomainName != null && { DomainName: input.DomainName }),
@@ -6792,10 +7722,10 @@ const serializeAws_json1_1RegisterMailDomainRequest = (
   };
 };
 
-const serializeAws_json1_1RegisterToWorkMailRequest = (
-  input: RegisterToWorkMailRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RegisterToWorkMailRequest
+ */
+const se_RegisterToWorkMailRequest = (input: RegisterToWorkMailRequest, context: __SerdeContext): any => {
   return {
     ...(input.Email != null && { Email: input.Email }),
     ...(input.EntityId != null && { EntityId: input.EntityId }),
@@ -6803,7 +7733,10 @@ const serializeAws_json1_1RegisterToWorkMailRequest = (
   };
 };
 
-const serializeAws_json1_1ResetPasswordRequest = (input: ResetPasswordRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResetPasswordRequest
+ */
+const se_ResetPasswordRequest = (input: ResetPasswordRequest, context: __SerdeContext): any => {
   return {
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
     ...(input.Password != null && { Password: input.Password }),
@@ -6811,10 +7744,10 @@ const serializeAws_json1_1ResetPasswordRequest = (input: ResetPasswordRequest, c
   };
 };
 
-const serializeAws_json1_1StartMailboxExportJobRequest = (
-  input: StartMailboxExportJobRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StartMailboxExportJobRequest
+ */
+const se_StartMailboxExportJobRequest = (input: StartMailboxExportJobRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Description != null && { Description: input.Description }),
@@ -6827,14 +7760,20 @@ const serializeAws_json1_1StartMailboxExportJobRequest = (
   };
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6842,22 +7781,31 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourceRequest
+ */
+const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1TargetUsers = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetUsers
+ */
+const se_TargetUsers = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6865,73 +7813,78 @@ const serializeAws_json1_1TargetUsers = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_json1_1TestAvailabilityConfigurationRequest = (
+/**
+ * serializeAws_json1_1TestAvailabilityConfigurationRequest
+ */
+const se_TestAvailabilityConfigurationRequest = (
   input: TestAvailabilityConfigurationRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.EwsProvider != null && {
-      EwsProvider: serializeAws_json1_1EwsAvailabilityProvider(input.EwsProvider, context),
-    }),
+    ...(input.EwsProvider != null && { EwsProvider: se_EwsAvailabilityProvider(input.EwsProvider, context) }),
     ...(input.LambdaProvider != null && {
-      LambdaProvider: serializeAws_json1_1LambdaAvailabilityProvider(input.LambdaProvider, context),
+      LambdaProvider: se_LambdaAvailabilityProvider(input.LambdaProvider, context),
     }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourceRequest
+ */
+const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN != null && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateAvailabilityConfigurationRequest = (
+/**
+ * serializeAws_json1_1UpdateAvailabilityConfigurationRequest
+ */
+const se_UpdateAvailabilityConfigurationRequest = (
   input: UpdateAvailabilityConfigurationRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.DomainName != null && { DomainName: input.DomainName }),
-    ...(input.EwsProvider != null && {
-      EwsProvider: serializeAws_json1_1EwsAvailabilityProvider(input.EwsProvider, context),
-    }),
+    ...(input.EwsProvider != null && { EwsProvider: se_EwsAvailabilityProvider(input.EwsProvider, context) }),
     ...(input.LambdaProvider != null && {
-      LambdaProvider: serializeAws_json1_1LambdaAvailabilityProvider(input.LambdaProvider, context),
+      LambdaProvider: se_LambdaAvailabilityProvider(input.LambdaProvider, context),
     }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1UpdateDefaultMailDomainRequest = (
-  input: UpdateDefaultMailDomainRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateDefaultMailDomainRequest
+ */
+const se_UpdateDefaultMailDomainRequest = (input: UpdateDefaultMailDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.DomainName != null && { DomainName: input.DomainName }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1UpdateImpersonationRoleRequest = (
-  input: UpdateImpersonationRoleRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateImpersonationRoleRequest
+ */
+const se_UpdateImpersonationRoleRequest = (input: UpdateImpersonationRoleRequest, context: __SerdeContext): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
     ...(input.ImpersonationRoleId != null && { ImpersonationRoleId: input.ImpersonationRoleId }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
-    ...(input.Rules != null && { Rules: serializeAws_json1_1ImpersonationRuleList(input.Rules, context) }),
+    ...(input.Rules != null && { Rules: se_ImpersonationRuleList(input.Rules, context) }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };
 
-const serializeAws_json1_1UpdateMailboxQuotaRequest = (
-  input: UpdateMailboxQuotaRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdateMailboxQuotaRequest
+ */
+const se_UpdateMailboxQuotaRequest = (input: UpdateMailboxQuotaRequest, context: __SerdeContext): any => {
   return {
     ...(input.MailboxQuota != null && { MailboxQuota: input.MailboxQuota }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
@@ -6939,48 +7892,42 @@ const serializeAws_json1_1UpdateMailboxQuotaRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateMobileDeviceAccessRuleRequest = (
+/**
+ * serializeAws_json1_1UpdateMobileDeviceAccessRuleRequest
+ */
+const se_UpdateMobileDeviceAccessRuleRequest = (
   input: UpdateMobileDeviceAccessRuleRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.Description != null && { Description: input.Description }),
-    ...(input.DeviceModels != null && {
-      DeviceModels: serializeAws_json1_1DeviceModelList(input.DeviceModels, context),
-    }),
+    ...(input.DeviceModels != null && { DeviceModels: se_DeviceModelList(input.DeviceModels, context) }),
     ...(input.DeviceOperatingSystems != null && {
-      DeviceOperatingSystems: serializeAws_json1_1DeviceOperatingSystemList(input.DeviceOperatingSystems, context),
+      DeviceOperatingSystems: se_DeviceOperatingSystemList(input.DeviceOperatingSystems, context),
     }),
-    ...(input.DeviceTypes != null && { DeviceTypes: serializeAws_json1_1DeviceTypeList(input.DeviceTypes, context) }),
+    ...(input.DeviceTypes != null && { DeviceTypes: se_DeviceTypeList(input.DeviceTypes, context) }),
     ...(input.DeviceUserAgents != null && {
-      DeviceUserAgents: serializeAws_json1_1DeviceUserAgentList(input.DeviceUserAgents, context),
+      DeviceUserAgents: se_DeviceUserAgentList(input.DeviceUserAgents, context),
     }),
     ...(input.Effect != null && { Effect: input.Effect }),
     ...(input.MobileDeviceAccessRuleId != null && { MobileDeviceAccessRuleId: input.MobileDeviceAccessRuleId }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.NotDeviceModels != null && {
-      NotDeviceModels: serializeAws_json1_1DeviceModelList(input.NotDeviceModels, context),
-    }),
+    ...(input.NotDeviceModels != null && { NotDeviceModels: se_DeviceModelList(input.NotDeviceModels, context) }),
     ...(input.NotDeviceOperatingSystems != null && {
-      NotDeviceOperatingSystems: serializeAws_json1_1DeviceOperatingSystemList(
-        input.NotDeviceOperatingSystems,
-        context
-      ),
+      NotDeviceOperatingSystems: se_DeviceOperatingSystemList(input.NotDeviceOperatingSystems, context),
     }),
-    ...(input.NotDeviceTypes != null && {
-      NotDeviceTypes: serializeAws_json1_1DeviceTypeList(input.NotDeviceTypes, context),
-    }),
+    ...(input.NotDeviceTypes != null && { NotDeviceTypes: se_DeviceTypeList(input.NotDeviceTypes, context) }),
     ...(input.NotDeviceUserAgents != null && {
-      NotDeviceUserAgents: serializeAws_json1_1DeviceUserAgentList(input.NotDeviceUserAgents, context),
+      NotDeviceUserAgents: se_DeviceUserAgentList(input.NotDeviceUserAgents, context),
     }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
   };
 };
 
-const serializeAws_json1_1UpdatePrimaryEmailAddressRequest = (
-  input: UpdatePrimaryEmailAddressRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UpdatePrimaryEmailAddressRequest
+ */
+const se_UpdatePrimaryEmailAddressRequest = (input: UpdatePrimaryEmailAddressRequest, context: __SerdeContext): any => {
   return {
     ...(input.Email != null && { Email: input.Email }),
     ...(input.EntityId != null && { EntityId: input.EntityId }),
@@ -6988,18 +7935,22 @@ const serializeAws_json1_1UpdatePrimaryEmailAddressRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateResourceRequest = (input: UpdateResourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateResourceRequest
+ */
+const se_UpdateResourceRequest = (input: UpdateResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BookingOptions != null && {
-      BookingOptions: serializeAws_json1_1BookingOptions(input.BookingOptions, context),
-    }),
+    ...(input.BookingOptions != null && { BookingOptions: se_BookingOptions(input.BookingOptions, context) }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
     ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_json1_1UserIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UserIdList
+ */
+const se_UserIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7007,9 +7958,12 @@ const serializeAws_json1_1UserIdList = (input: string[], context: __SerdeContext
     });
 };
 
-const deserializeAws_json1_1AccessControlRule = (output: any, context: __SerdeContext): AccessControlRule => {
+/**
+ * deserializeAws_json1_1AccessControlRule
+ */
+const de_AccessControlRule = (output: any, context: __SerdeContext): AccessControlRule => {
   return {
-    Actions: output.Actions != null ? deserializeAws_json1_1ActionsList(output.Actions, context) : undefined,
+    Actions: output.Actions != null ? de_ActionsList(output.Actions, context) : undefined,
     DateCreated:
       output.DateCreated != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
@@ -7022,23 +7976,25 @@ const deserializeAws_json1_1AccessControlRule = (output: any, context: __SerdeCo
     Effect: __expectString(output.Effect),
     ImpersonationRoleIds:
       output.ImpersonationRoleIds != null
-        ? deserializeAws_json1_1ImpersonationRoleIdList(output.ImpersonationRoleIds, context)
+        ? de_ImpersonationRoleIdList(output.ImpersonationRoleIds, context)
         : undefined,
-    IpRanges: output.IpRanges != null ? deserializeAws_json1_1IpRangeList(output.IpRanges, context) : undefined,
+    IpRanges: output.IpRanges != null ? de_IpRangeList(output.IpRanges, context) : undefined,
     Name: __expectString(output.Name),
-    NotActions: output.NotActions != null ? deserializeAws_json1_1ActionsList(output.NotActions, context) : undefined,
+    NotActions: output.NotActions != null ? de_ActionsList(output.NotActions, context) : undefined,
     NotImpersonationRoleIds:
       output.NotImpersonationRoleIds != null
-        ? deserializeAws_json1_1ImpersonationRoleIdList(output.NotImpersonationRoleIds, context)
+        ? de_ImpersonationRoleIdList(output.NotImpersonationRoleIds, context)
         : undefined,
-    NotIpRanges:
-      output.NotIpRanges != null ? deserializeAws_json1_1IpRangeList(output.NotIpRanges, context) : undefined,
-    NotUserIds: output.NotUserIds != null ? deserializeAws_json1_1UserIdList(output.NotUserIds, context) : undefined,
-    UserIds: output.UserIds != null ? deserializeAws_json1_1UserIdList(output.UserIds, context) : undefined,
+    NotIpRanges: output.NotIpRanges != null ? de_IpRangeList(output.NotIpRanges, context) : undefined,
+    NotUserIds: output.NotUserIds != null ? de_UserIdList(output.NotUserIds, context) : undefined,
+    UserIds: output.UserIds != null ? de_UserIdList(output.UserIds, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AccessControlRuleNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1AccessControlRuleNameList
+ */
+const de_AccessControlRuleNameList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7050,19 +8006,25 @@ const deserializeAws_json1_1AccessControlRuleNameList = (output: any, context: _
   return retVal;
 };
 
-const deserializeAws_json1_1AccessControlRulesList = (output: any, context: __SerdeContext): AccessControlRule[] => {
+/**
+ * deserializeAws_json1_1AccessControlRulesList
+ */
+const de_AccessControlRulesList = (output: any, context: __SerdeContext): AccessControlRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1AccessControlRule(entry, context);
+      return de_AccessControlRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ActionsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ActionsList
+ */
+const de_ActionsList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7074,7 +8036,10 @@ const deserializeAws_json1_1ActionsList = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_json1_1Aliases = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1Aliases
+ */
+const de_Aliases = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7086,34 +8051,37 @@ const deserializeAws_json1_1Aliases = (output: any, context: __SerdeContext): st
   return retVal;
 };
 
-const deserializeAws_json1_1AssociateDelegateToResourceResponse = (
+/**
+ * deserializeAws_json1_1AssociateDelegateToResourceResponse
+ */
+const de_AssociateDelegateToResourceResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateDelegateToResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AssociateMemberToGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): AssociateMemberToGroupResponse => {
+/**
+ * deserializeAws_json1_1AssociateMemberToGroupResponse
+ */
+const de_AssociateMemberToGroupResponse = (output: any, context: __SerdeContext): AssociateMemberToGroupResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1AssumeImpersonationRoleResponse = (
-  output: any,
-  context: __SerdeContext
-): AssumeImpersonationRoleResponse => {
+/**
+ * deserializeAws_json1_1AssumeImpersonationRoleResponse
+ */
+const de_AssumeImpersonationRoleResponse = (output: any, context: __SerdeContext): AssumeImpersonationRoleResponse => {
   return {
     ExpiresIn: __expectLong(output.ExpiresIn),
     Token: __expectString(output.Token),
   } as any;
 };
 
-const deserializeAws_json1_1AvailabilityConfiguration = (
-  output: any,
-  context: __SerdeContext
-): AvailabilityConfiguration => {
+/**
+ * deserializeAws_json1_1AvailabilityConfiguration
+ */
+const de_AvailabilityConfiguration = (output: any, context: __SerdeContext): AvailabilityConfiguration => {
   return {
     DateCreated:
       output.DateCreated != null
@@ -7125,33 +8093,32 @@ const deserializeAws_json1_1AvailabilityConfiguration = (
         : undefined,
     DomainName: __expectString(output.DomainName),
     EwsProvider:
-      output.EwsProvider != null
-        ? deserializeAws_json1_1RedactedEwsAvailabilityProvider(output.EwsProvider, context)
-        : undefined,
+      output.EwsProvider != null ? de_RedactedEwsAvailabilityProvider(output.EwsProvider, context) : undefined,
     LambdaProvider:
-      output.LambdaProvider != null
-        ? deserializeAws_json1_1LambdaAvailabilityProvider(output.LambdaProvider, context)
-        : undefined,
+      output.LambdaProvider != null ? de_LambdaAvailabilityProvider(output.LambdaProvider, context) : undefined,
     ProviderType: __expectString(output.ProviderType),
   } as any;
 };
 
-const deserializeAws_json1_1AvailabilityConfigurationList = (
-  output: any,
-  context: __SerdeContext
-): AvailabilityConfiguration[] => {
+/**
+ * deserializeAws_json1_1AvailabilityConfigurationList
+ */
+const de_AvailabilityConfigurationList = (output: any, context: __SerdeContext): AvailabilityConfiguration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1AvailabilityConfiguration(entry, context);
+      return de_AvailabilityConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1BookingOptions = (output: any, context: __SerdeContext): BookingOptions => {
+/**
+ * deserializeAws_json1_1BookingOptions
+ */
+const de_BookingOptions = (output: any, context: __SerdeContext): BookingOptions => {
   return {
     AutoAcceptRequests: __expectBoolean(output.AutoAcceptRequests),
     AutoDeclineConflictingRequests: __expectBoolean(output.AutoDeclineConflictingRequests),
@@ -7159,40 +8126,52 @@ const deserializeAws_json1_1BookingOptions = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1CancelMailboxExportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): CancelMailboxExportJobResponse => {
+/**
+ * deserializeAws_json1_1CancelMailboxExportJobResponse
+ */
+const de_CancelMailboxExportJobResponse = (output: any, context: __SerdeContext): CancelMailboxExportJobResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1CreateAliasResponse = (output: any, context: __SerdeContext): CreateAliasResponse => {
+/**
+ * deserializeAws_json1_1CreateAliasResponse
+ */
+const de_CreateAliasResponse = (output: any, context: __SerdeContext): CreateAliasResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1CreateAvailabilityConfigurationResponse = (
+/**
+ * deserializeAws_json1_1CreateAvailabilityConfigurationResponse
+ */
+const de_CreateAvailabilityConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): CreateAvailabilityConfigurationResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
+/**
+ * deserializeAws_json1_1CreateGroupResponse
+ */
+const de_CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
   return {
     GroupId: __expectString(output.GroupId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateImpersonationRoleResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateImpersonationRoleResponse => {
+/**
+ * deserializeAws_json1_1CreateImpersonationRoleResponse
+ */
+const de_CreateImpersonationRoleResponse = (output: any, context: __SerdeContext): CreateImpersonationRoleResponse => {
   return {
     ImpersonationRoleId: __expectString(output.ImpersonationRoleId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateMobileDeviceAccessRuleResponse = (
+/**
+ * deserializeAws_json1_1CreateMobileDeviceAccessRuleResponse
+ */
+const de_CreateMobileDeviceAccessRuleResponse = (
   output: any,
   context: __SerdeContext
 ): CreateMobileDeviceAccessRuleResponse => {
@@ -7201,131 +8180,170 @@ const deserializeAws_json1_1CreateMobileDeviceAccessRuleResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateOrganizationResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateOrganizationResponse => {
+/**
+ * deserializeAws_json1_1CreateOrganizationResponse
+ */
+const de_CreateOrganizationResponse = (output: any, context: __SerdeContext): CreateOrganizationResponse => {
   return {
     OrganizationId: __expectString(output.OrganizationId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateResourceResponse = (output: any, context: __SerdeContext): CreateResourceResponse => {
+/**
+ * deserializeAws_json1_1CreateResourceResponse
+ */
+const de_CreateResourceResponse = (output: any, context: __SerdeContext): CreateResourceResponse => {
   return {
     ResourceId: __expectString(output.ResourceId),
   } as any;
 };
 
-const deserializeAws_json1_1CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
+/**
+ * deserializeAws_json1_1CreateUserResponse
+ */
+const de_CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
   return {
     UserId: __expectString(output.UserId),
   } as any;
 };
 
-const deserializeAws_json1_1Delegate = (output: any, context: __SerdeContext): Delegate => {
+/**
+ * deserializeAws_json1_1Delegate
+ */
+const de_Delegate = (output: any, context: __SerdeContext): Delegate => {
   return {
     Id: __expectString(output.Id),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteAccessControlRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteAccessControlRuleResponse => {
+/**
+ * deserializeAws_json1_1DeleteAccessControlRuleResponse
+ */
+const de_DeleteAccessControlRuleResponse = (output: any, context: __SerdeContext): DeleteAccessControlRuleResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteAliasResponse = (output: any, context: __SerdeContext): DeleteAliasResponse => {
+/**
+ * deserializeAws_json1_1DeleteAliasResponse
+ */
+const de_DeleteAliasResponse = (output: any, context: __SerdeContext): DeleteAliasResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteAvailabilityConfigurationResponse = (
+/**
+ * deserializeAws_json1_1DeleteAvailabilityConfigurationResponse
+ */
+const de_DeleteAvailabilityConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteAvailabilityConfigurationResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteEmailMonitoringConfigurationResponse = (
+/**
+ * deserializeAws_json1_1DeleteEmailMonitoringConfigurationResponse
+ */
+const de_DeleteEmailMonitoringConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteEmailMonitoringConfigurationResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteGroupResponse = (output: any, context: __SerdeContext): DeleteGroupResponse => {
+/**
+ * deserializeAws_json1_1DeleteGroupResponse
+ */
+const de_DeleteGroupResponse = (output: any, context: __SerdeContext): DeleteGroupResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteImpersonationRoleResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteImpersonationRoleResponse => {
+/**
+ * deserializeAws_json1_1DeleteImpersonationRoleResponse
+ */
+const de_DeleteImpersonationRoleResponse = (output: any, context: __SerdeContext): DeleteImpersonationRoleResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteMailboxPermissionsResponse = (
+/**
+ * deserializeAws_json1_1DeleteMailboxPermissionsResponse
+ */
+const de_DeleteMailboxPermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteMailboxPermissionsResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteMobileDeviceAccessOverrideResponse = (
+/**
+ * deserializeAws_json1_1DeleteMobileDeviceAccessOverrideResponse
+ */
+const de_DeleteMobileDeviceAccessOverrideResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteMobileDeviceAccessOverrideResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteMobileDeviceAccessRuleResponse = (
+/**
+ * deserializeAws_json1_1DeleteMobileDeviceAccessRuleResponse
+ */
+const de_DeleteMobileDeviceAccessRuleResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteMobileDeviceAccessRuleResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteOrganizationResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteOrganizationResponse => {
+/**
+ * deserializeAws_json1_1DeleteOrganizationResponse
+ */
+const de_DeleteOrganizationResponse = (output: any, context: __SerdeContext): DeleteOrganizationResponse => {
   return {
     OrganizationId: __expectString(output.OrganizationId),
     State: __expectString(output.State),
   } as any;
 };
 
-const deserializeAws_json1_1DeleteResourceResponse = (output: any, context: __SerdeContext): DeleteResourceResponse => {
+/**
+ * deserializeAws_json1_1DeleteResourceResponse
+ */
+const de_DeleteResourceResponse = (output: any, context: __SerdeContext): DeleteResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteRetentionPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteRetentionPolicyResponse => {
+/**
+ * deserializeAws_json1_1DeleteRetentionPolicyResponse
+ */
+const de_DeleteRetentionPolicyResponse = (output: any, context: __SerdeContext): DeleteRetentionPolicyResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteUserResponse = (output: any, context: __SerdeContext): DeleteUserResponse => {
+/**
+ * deserializeAws_json1_1DeleteUserResponse
+ */
+const de_DeleteUserResponse = (output: any, context: __SerdeContext): DeleteUserResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeregisterFromWorkMailResponse = (
-  output: any,
-  context: __SerdeContext
-): DeregisterFromWorkMailResponse => {
+/**
+ * deserializeAws_json1_1DeregisterFromWorkMailResponse
+ */
+const de_DeregisterFromWorkMailResponse = (output: any, context: __SerdeContext): DeregisterFromWorkMailResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeregisterMailDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): DeregisterMailDomainResponse => {
+/**
+ * deserializeAws_json1_1DeregisterMailDomainResponse
+ */
+const de_DeregisterMailDomainResponse = (output: any, context: __SerdeContext): DeregisterMailDomainResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DescribeEmailMonitoringConfigurationResponse = (
+/**
+ * deserializeAws_json1_1DescribeEmailMonitoringConfigurationResponse
+ */
+const de_DescribeEmailMonitoringConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEmailMonitoringConfigurationResponse => {
@@ -7335,7 +8353,10 @@ const deserializeAws_json1_1DescribeEmailMonitoringConfigurationResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeGroupResponse = (output: any, context: __SerdeContext): DescribeGroupResponse => {
+/**
+ * deserializeAws_json1_1DescribeGroupResponse
+ */
+const de_DescribeGroupResponse = (output: any, context: __SerdeContext): DescribeGroupResponse => {
   return {
     DisabledDate:
       output.DisabledDate != null
@@ -7352,7 +8373,10 @@ const deserializeAws_json1_1DescribeGroupResponse = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1DescribeInboundDmarcSettingsResponse = (
+/**
+ * deserializeAws_json1_1DescribeInboundDmarcSettingsResponse
+ */
+const de_DescribeInboundDmarcSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeInboundDmarcSettingsResponse => {
@@ -7361,7 +8385,10 @@ const deserializeAws_json1_1DescribeInboundDmarcSettingsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeMailboxExportJobResponse = (
+/**
+ * deserializeAws_json1_1DescribeMailboxExportJobResponse
+ */
+const de_DescribeMailboxExportJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeMailboxExportJobResponse => {
@@ -7383,10 +8410,10 @@ const deserializeAws_json1_1DescribeMailboxExportJobResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeOrganizationResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeOrganizationResponse => {
+/**
+ * deserializeAws_json1_1DescribeOrganizationResponse
+ */
+const de_DescribeOrganizationResponse = (output: any, context: __SerdeContext): DescribeOrganizationResponse => {
   return {
     ARN: __expectString(output.ARN),
     Alias: __expectString(output.Alias),
@@ -7403,13 +8430,12 @@ const deserializeAws_json1_1DescribeOrganizationResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeResourceResponse => {
+/**
+ * deserializeAws_json1_1DescribeResourceResponse
+ */
+const de_DescribeResourceResponse = (output: any, context: __SerdeContext): DescribeResourceResponse => {
   return {
-    BookingOptions:
-      output.BookingOptions != null ? deserializeAws_json1_1BookingOptions(output.BookingOptions, context) : undefined,
+    BookingOptions: output.BookingOptions != null ? de_BookingOptions(output.BookingOptions, context) : undefined,
     DisabledDate:
       output.DisabledDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DisabledDate)))
@@ -7426,7 +8452,10 @@ const deserializeAws_json1_1DescribeResourceResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
+/**
+ * deserializeAws_json1_1DescribeUserResponse
+ */
+const de_DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
   return {
     DisabledDate:
       output.DisabledDate != null
@@ -7445,7 +8474,10 @@ const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1DeviceModelList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1DeviceModelList
+ */
+const de_DeviceModelList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7457,7 +8489,10 @@ const deserializeAws_json1_1DeviceModelList = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_json1_1DeviceOperatingSystemList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1DeviceOperatingSystemList
+ */
+const de_DeviceOperatingSystemList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7469,7 +8504,10 @@ const deserializeAws_json1_1DeviceOperatingSystemList = (output: any, context: _
   return retVal;
 };
 
-const deserializeAws_json1_1DeviceTypeList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1DeviceTypeList
+ */
+const de_DeviceTypeList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7481,7 +8519,10 @@ const deserializeAws_json1_1DeviceTypeList = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_json1_1DeviceUserAgentList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1DeviceUserAgentList
+ */
+const de_DeviceUserAgentList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7493,16 +8534,19 @@ const deserializeAws_json1_1DeviceUserAgentList = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_json1_1DirectoryInUseException = (
-  output: any,
-  context: __SerdeContext
-): DirectoryInUseException => {
+/**
+ * deserializeAws_json1_1DirectoryInUseException
+ */
+const de_DirectoryInUseException = (output: any, context: __SerdeContext): DirectoryInUseException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1DirectoryServiceAuthenticationFailedException = (
+/**
+ * deserializeAws_json1_1DirectoryServiceAuthenticationFailedException
+ */
+const de_DirectoryServiceAuthenticationFailedException = (
   output: any,
   context: __SerdeContext
 ): DirectoryServiceAuthenticationFailedException => {
@@ -7511,30 +8555,39 @@ const deserializeAws_json1_1DirectoryServiceAuthenticationFailedException = (
   } as any;
 };
 
-const deserializeAws_json1_1DirectoryUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): DirectoryUnavailableException => {
+/**
+ * deserializeAws_json1_1DirectoryUnavailableException
+ */
+const de_DirectoryUnavailableException = (output: any, context: __SerdeContext): DirectoryUnavailableException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1DisassociateDelegateFromResourceResponse = (
+/**
+ * deserializeAws_json1_1DisassociateDelegateFromResourceResponse
+ */
+const de_DisassociateDelegateFromResourceResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateDelegateFromResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DisassociateMemberFromGroupResponse = (
+/**
+ * deserializeAws_json1_1DisassociateMemberFromGroupResponse
+ */
+const de_DisassociateMemberFromGroupResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateMemberFromGroupResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DnsRecord = (output: any, context: __SerdeContext): DnsRecord => {
+/**
+ * deserializeAws_json1_1DnsRecord
+ */
+const de_DnsRecord = (output: any, context: __SerdeContext): DnsRecord => {
   return {
     Hostname: __expectString(output.Hostname),
     Type: __expectString(output.Type),
@@ -7542,28 +8595,34 @@ const deserializeAws_json1_1DnsRecord = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_json1_1DnsRecords = (output: any, context: __SerdeContext): DnsRecord[] => {
+/**
+ * deserializeAws_json1_1DnsRecords
+ */
+const de_DnsRecords = (output: any, context: __SerdeContext): DnsRecord[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DnsRecord(entry, context);
+      return de_DnsRecord(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1EmailAddressInUseException = (
-  output: any,
-  context: __SerdeContext
-): EmailAddressInUseException => {
+/**
+ * deserializeAws_json1_1EmailAddressInUseException
+ */
+const de_EmailAddressInUseException = (output: any, context: __SerdeContext): EmailAddressInUseException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1EntityAlreadyRegisteredException = (
+/**
+ * deserializeAws_json1_1EntityAlreadyRegisteredException
+ */
+const de_EntityAlreadyRegisteredException = (
   output: any,
   context: __SerdeContext
 ): EntityAlreadyRegisteredException => {
@@ -7572,22 +8631,28 @@ const deserializeAws_json1_1EntityAlreadyRegisteredException = (
   } as any;
 };
 
-const deserializeAws_json1_1EntityNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): EntityNotFoundException => {
+/**
+ * deserializeAws_json1_1EntityNotFoundException
+ */
+const de_EntityNotFoundException = (output: any, context: __SerdeContext): EntityNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1EntityStateException = (output: any, context: __SerdeContext): EntityStateException => {
+/**
+ * deserializeAws_json1_1EntityStateException
+ */
+const de_EntityStateException = (output: any, context: __SerdeContext): EntityStateException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1FolderConfiguration = (output: any, context: __SerdeContext): FolderConfiguration => {
+/**
+ * deserializeAws_json1_1FolderConfiguration
+ */
+const de_FolderConfiguration = (output: any, context: __SerdeContext): FolderConfiguration => {
   return {
     Action: __expectString(output.Action),
     Name: __expectString(output.Name),
@@ -7595,64 +8660,66 @@ const deserializeAws_json1_1FolderConfiguration = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1FolderConfigurations = (output: any, context: __SerdeContext): FolderConfiguration[] => {
+/**
+ * deserializeAws_json1_1FolderConfigurations
+ */
+const de_FolderConfigurations = (output: any, context: __SerdeContext): FolderConfiguration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1FolderConfiguration(entry, context);
+      return de_FolderConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1GetAccessControlEffectResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAccessControlEffectResponse => {
+/**
+ * deserializeAws_json1_1GetAccessControlEffectResponse
+ */
+const de_GetAccessControlEffectResponse = (output: any, context: __SerdeContext): GetAccessControlEffectResponse => {
   return {
     Effect: __expectString(output.Effect),
-    MatchedRules:
-      output.MatchedRules != null
-        ? deserializeAws_json1_1AccessControlRuleNameList(output.MatchedRules, context)
-        : undefined,
+    MatchedRules: output.MatchedRules != null ? de_AccessControlRuleNameList(output.MatchedRules, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetDefaultRetentionPolicyResponse = (
+/**
+ * deserializeAws_json1_1GetDefaultRetentionPolicyResponse
+ */
+const de_GetDefaultRetentionPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetDefaultRetentionPolicyResponse => {
   return {
     Description: __expectString(output.Description),
     FolderConfigurations:
-      output.FolderConfigurations != null
-        ? deserializeAws_json1_1FolderConfigurations(output.FolderConfigurations, context)
-        : undefined,
+      output.FolderConfigurations != null ? de_FolderConfigurations(output.FolderConfigurations, context) : undefined,
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_json1_1GetImpersonationRoleEffectResponse = (
+/**
+ * deserializeAws_json1_1GetImpersonationRoleEffectResponse
+ */
+const de_GetImpersonationRoleEffectResponse = (
   output: any,
   context: __SerdeContext
 ): GetImpersonationRoleEffectResponse => {
   return {
     Effect: __expectString(output.Effect),
     MatchedRules:
-      output.MatchedRules != null
-        ? deserializeAws_json1_1ImpersonationMatchedRuleList(output.MatchedRules, context)
-        : undefined,
+      output.MatchedRules != null ? de_ImpersonationMatchedRuleList(output.MatchedRules, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1GetImpersonationRoleResponse = (
-  output: any,
-  context: __SerdeContext
-): GetImpersonationRoleResponse => {
+/**
+ * deserializeAws_json1_1GetImpersonationRoleResponse
+ */
+const de_GetImpersonationRoleResponse = (output: any, context: __SerdeContext): GetImpersonationRoleResponse => {
   return {
     DateCreated:
       output.DateCreated != null
@@ -7665,45 +8732,52 @@ const deserializeAws_json1_1GetImpersonationRoleResponse = (
     Description: __expectString(output.Description),
     ImpersonationRoleId: __expectString(output.ImpersonationRoleId),
     Name: __expectString(output.Name),
-    Rules: output.Rules != null ? deserializeAws_json1_1ImpersonationRuleList(output.Rules, context) : undefined,
+    Rules: output.Rules != null ? de_ImpersonationRuleList(output.Rules, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1GetMailboxDetailsResponse = (
-  output: any,
-  context: __SerdeContext
-): GetMailboxDetailsResponse => {
+/**
+ * deserializeAws_json1_1GetMailboxDetailsResponse
+ */
+const de_GetMailboxDetailsResponse = (output: any, context: __SerdeContext): GetMailboxDetailsResponse => {
   return {
     MailboxQuota: __expectInt32(output.MailboxQuota),
     MailboxSize: __limitedParseDouble(output.MailboxSize),
   } as any;
 };
 
-const deserializeAws_json1_1GetMailDomainResponse = (output: any, context: __SerdeContext): GetMailDomainResponse => {
+/**
+ * deserializeAws_json1_1GetMailDomainResponse
+ */
+const de_GetMailDomainResponse = (output: any, context: __SerdeContext): GetMailDomainResponse => {
   return {
     DkimVerificationStatus: __expectString(output.DkimVerificationStatus),
     IsDefault: __expectBoolean(output.IsDefault),
     IsTestDomain: __expectBoolean(output.IsTestDomain),
     OwnershipVerificationStatus: __expectString(output.OwnershipVerificationStatus),
-    Records: output.Records != null ? deserializeAws_json1_1DnsRecords(output.Records, context) : undefined,
+    Records: output.Records != null ? de_DnsRecords(output.Records, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetMobileDeviceAccessEffectResponse = (
+/**
+ * deserializeAws_json1_1GetMobileDeviceAccessEffectResponse
+ */
+const de_GetMobileDeviceAccessEffectResponse = (
   output: any,
   context: __SerdeContext
 ): GetMobileDeviceAccessEffectResponse => {
   return {
     Effect: __expectString(output.Effect),
     MatchedRules:
-      output.MatchedRules != null
-        ? deserializeAws_json1_1MobileDeviceAccessMatchedRuleList(output.MatchedRules, context)
-        : undefined,
+      output.MatchedRules != null ? de_MobileDeviceAccessMatchedRuleList(output.MatchedRules, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetMobileDeviceAccessOverrideResponse = (
+/**
+ * deserializeAws_json1_1GetMobileDeviceAccessOverrideResponse
+ */
+const de_GetMobileDeviceAccessOverrideResponse = (
   output: any,
   context: __SerdeContext
 ): GetMobileDeviceAccessOverrideResponse => {
@@ -7723,7 +8797,10 @@ const deserializeAws_json1_1GetMobileDeviceAccessOverrideResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Group => {
+/**
+ * deserializeAws_json1_1Group
+ */
+const de_Group = (output: any, context: __SerdeContext): Group => {
   return {
     DisabledDate:
       output.DisabledDate != null
@@ -7740,44 +8817,50 @@ const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Grou
   } as any;
 };
 
-const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Group[] => {
+/**
+ * deserializeAws_json1_1Groups
+ */
+const de_Groups = (output: any, context: __SerdeContext): Group[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Group(entry, context);
+      return de_Group(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ImpersonationMatchedRule = (
-  output: any,
-  context: __SerdeContext
-): ImpersonationMatchedRule => {
+/**
+ * deserializeAws_json1_1ImpersonationMatchedRule
+ */
+const de_ImpersonationMatchedRule = (output: any, context: __SerdeContext): ImpersonationMatchedRule => {
   return {
     ImpersonationRuleId: __expectString(output.ImpersonationRuleId),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_json1_1ImpersonationMatchedRuleList = (
-  output: any,
-  context: __SerdeContext
-): ImpersonationMatchedRule[] => {
+/**
+ * deserializeAws_json1_1ImpersonationMatchedRuleList
+ */
+const de_ImpersonationMatchedRuleList = (output: any, context: __SerdeContext): ImpersonationMatchedRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ImpersonationMatchedRule(entry, context);
+      return de_ImpersonationMatchedRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ImpersonationRole = (output: any, context: __SerdeContext): ImpersonationRole => {
+/**
+ * deserializeAws_json1_1ImpersonationRole
+ */
+const de_ImpersonationRole = (output: any, context: __SerdeContext): ImpersonationRole => {
   return {
     DateCreated:
       output.DateCreated != null
@@ -7793,7 +8876,10 @@ const deserializeAws_json1_1ImpersonationRole = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1ImpersonationRoleIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ImpersonationRoleIdList
+ */
+const de_ImpersonationRoleIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7805,53 +8891,63 @@ const deserializeAws_json1_1ImpersonationRoleIdList = (output: any, context: __S
   return retVal;
 };
 
-const deserializeAws_json1_1ImpersonationRoleList = (output: any, context: __SerdeContext): ImpersonationRole[] => {
+/**
+ * deserializeAws_json1_1ImpersonationRoleList
+ */
+const de_ImpersonationRoleList = (output: any, context: __SerdeContext): ImpersonationRole[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ImpersonationRole(entry, context);
+      return de_ImpersonationRole(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ImpersonationRule = (output: any, context: __SerdeContext): ImpersonationRule => {
+/**
+ * deserializeAws_json1_1ImpersonationRule
+ */
+const de_ImpersonationRule = (output: any, context: __SerdeContext): ImpersonationRule => {
   return {
     Description: __expectString(output.Description),
     Effect: __expectString(output.Effect),
     ImpersonationRuleId: __expectString(output.ImpersonationRuleId),
     Name: __expectString(output.Name),
-    NotTargetUsers:
-      output.NotTargetUsers != null ? deserializeAws_json1_1TargetUsers(output.NotTargetUsers, context) : undefined,
-    TargetUsers:
-      output.TargetUsers != null ? deserializeAws_json1_1TargetUsers(output.TargetUsers, context) : undefined,
+    NotTargetUsers: output.NotTargetUsers != null ? de_TargetUsers(output.NotTargetUsers, context) : undefined,
+    TargetUsers: output.TargetUsers != null ? de_TargetUsers(output.TargetUsers, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ImpersonationRuleList = (output: any, context: __SerdeContext): ImpersonationRule[] => {
+/**
+ * deserializeAws_json1_1ImpersonationRuleList
+ */
+const de_ImpersonationRuleList = (output: any, context: __SerdeContext): ImpersonationRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ImpersonationRule(entry, context);
+      return de_ImpersonationRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1InvalidConfigurationException = (
-  output: any,
-  context: __SerdeContext
-): InvalidConfigurationException => {
+/**
+ * deserializeAws_json1_1InvalidConfigurationException
+ */
+const de_InvalidConfigurationException = (output: any, context: __SerdeContext): InvalidConfigurationException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidCustomSesConfigurationException = (
+/**
+ * deserializeAws_json1_1InvalidCustomSesConfigurationException
+ */
+const de_InvalidCustomSesConfigurationException = (
   output: any,
   context: __SerdeContext
 ): InvalidCustomSesConfigurationException => {
@@ -7860,25 +8956,28 @@ const deserializeAws_json1_1InvalidCustomSesConfigurationException = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterException => {
+/**
+ * deserializeAws_json1_1InvalidParameterException
+ */
+const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidPasswordException = (
-  output: any,
-  context: __SerdeContext
-): InvalidPasswordException => {
+/**
+ * deserializeAws_json1_1InvalidPasswordException
+ */
+const de_InvalidPasswordException = (output: any, context: __SerdeContext): InvalidPasswordException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1IpRangeList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1IpRangeList
+ */
+const de_IpRangeList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7890,191 +8989,215 @@ const deserializeAws_json1_1IpRangeList = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_json1_1Jobs = (output: any, context: __SerdeContext): MailboxExportJob[] => {
+/**
+ * deserializeAws_json1_1Jobs
+ */
+const de_Jobs = (output: any, context: __SerdeContext): MailboxExportJob[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1MailboxExportJob(entry, context);
+      return de_MailboxExportJob(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1LambdaAvailabilityProvider = (
-  output: any,
-  context: __SerdeContext
-): LambdaAvailabilityProvider => {
+/**
+ * deserializeAws_json1_1LambdaAvailabilityProvider
+ */
+const de_LambdaAvailabilityProvider = (output: any, context: __SerdeContext): LambdaAvailabilityProvider => {
   return {
     LambdaArn: __expectString(output.LambdaArn),
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_1LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ListAccessControlRulesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListAccessControlRulesResponse => {
+/**
+ * deserializeAws_json1_1ListAccessControlRulesResponse
+ */
+const de_ListAccessControlRulesResponse = (output: any, context: __SerdeContext): ListAccessControlRulesResponse => {
   return {
-    Rules: output.Rules != null ? deserializeAws_json1_1AccessControlRulesList(output.Rules, context) : undefined,
+    Rules: output.Rules != null ? de_AccessControlRulesList(output.Rules, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListAliasesResponse = (output: any, context: __SerdeContext): ListAliasesResponse => {
+/**
+ * deserializeAws_json1_1ListAliasesResponse
+ */
+const de_ListAliasesResponse = (output: any, context: __SerdeContext): ListAliasesResponse => {
   return {
-    Aliases: output.Aliases != null ? deserializeAws_json1_1Aliases(output.Aliases, context) : undefined,
+    Aliases: output.Aliases != null ? de_Aliases(output.Aliases, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListAvailabilityConfigurationsResponse = (
+/**
+ * deserializeAws_json1_1ListAvailabilityConfigurationsResponse
+ */
+const de_ListAvailabilityConfigurationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListAvailabilityConfigurationsResponse => {
   return {
     AvailabilityConfigurations:
       output.AvailabilityConfigurations != null
-        ? deserializeAws_json1_1AvailabilityConfigurationList(output.AvailabilityConfigurations, context)
+        ? de_AvailabilityConfigurationList(output.AvailabilityConfigurations, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListGroupMembersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListGroupMembersResponse => {
+/**
+ * deserializeAws_json1_1ListGroupMembersResponse
+ */
+const de_ListGroupMembersResponse = (output: any, context: __SerdeContext): ListGroupMembersResponse => {
   return {
-    Members: output.Members != null ? deserializeAws_json1_1Members(output.Members, context) : undefined,
+    Members: output.Members != null ? de_Members(output.Members, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
+/**
+ * deserializeAws_json1_1ListGroupsResponse
+ */
+const de_ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
   return {
-    Groups: output.Groups != null ? deserializeAws_json1_1Groups(output.Groups, context) : undefined,
+    Groups: output.Groups != null ? de_Groups(output.Groups, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListImpersonationRolesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListImpersonationRolesResponse => {
+/**
+ * deserializeAws_json1_1ListImpersonationRolesResponse
+ */
+const de_ListImpersonationRolesResponse = (output: any, context: __SerdeContext): ListImpersonationRolesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Roles: output.Roles != null ? deserializeAws_json1_1ImpersonationRoleList(output.Roles, context) : undefined,
+    Roles: output.Roles != null ? de_ImpersonationRoleList(output.Roles, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListMailboxExportJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListMailboxExportJobsResponse => {
+/**
+ * deserializeAws_json1_1ListMailboxExportJobsResponse
+ */
+const de_ListMailboxExportJobsResponse = (output: any, context: __SerdeContext): ListMailboxExportJobsResponse => {
   return {
-    Jobs: output.Jobs != null ? deserializeAws_json1_1Jobs(output.Jobs, context) : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListMailboxPermissionsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListMailboxPermissionsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Permissions:
-      output.Permissions != null ? deserializeAws_json1_1Permissions(output.Permissions, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListMailDomainsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListMailDomainsResponse => {
-  return {
-    MailDomains:
-      output.MailDomains != null ? deserializeAws_json1_1MailDomains(output.MailDomains, context) : undefined,
+    Jobs: output.Jobs != null ? de_Jobs(output.Jobs, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListMobileDeviceAccessOverridesResponse = (
+/**
+ * deserializeAws_json1_1ListMailboxPermissionsResponse
+ */
+const de_ListMailboxPermissionsResponse = (output: any, context: __SerdeContext): ListMailboxPermissionsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Permissions: output.Permissions != null ? de_Permissions(output.Permissions, context) : undefined,
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1ListMailDomainsResponse
+ */
+const de_ListMailDomainsResponse = (output: any, context: __SerdeContext): ListMailDomainsResponse => {
+  return {
+    MailDomains: output.MailDomains != null ? de_MailDomains(output.MailDomains, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+/**
+ * deserializeAws_json1_1ListMobileDeviceAccessOverridesResponse
+ */
+const de_ListMobileDeviceAccessOverridesResponse = (
   output: any,
   context: __SerdeContext
 ): ListMobileDeviceAccessOverridesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Overrides:
-      output.Overrides != null
-        ? deserializeAws_json1_1MobileDeviceAccessOverridesList(output.Overrides, context)
-        : undefined,
+    Overrides: output.Overrides != null ? de_MobileDeviceAccessOverridesList(output.Overrides, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListMobileDeviceAccessRulesResponse = (
+/**
+ * deserializeAws_json1_1ListMobileDeviceAccessRulesResponse
+ */
+const de_ListMobileDeviceAccessRulesResponse = (
   output: any,
   context: __SerdeContext
 ): ListMobileDeviceAccessRulesResponse => {
   return {
-    Rules: output.Rules != null ? deserializeAws_json1_1MobileDeviceAccessRulesList(output.Rules, context) : undefined,
+    Rules: output.Rules != null ? de_MobileDeviceAccessRulesList(output.Rules, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListOrganizationsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListOrganizationsResponse => {
+/**
+ * deserializeAws_json1_1ListOrganizationsResponse
+ */
+const de_ListOrganizationsResponse = (output: any, context: __SerdeContext): ListOrganizationsResponse => {
   return {
     NextToken: __expectString(output.NextToken),
     OrganizationSummaries:
       output.OrganizationSummaries != null
-        ? deserializeAws_json1_1OrganizationSummaries(output.OrganizationSummaries, context)
+        ? de_OrganizationSummaries(output.OrganizationSummaries, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListResourceDelegatesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListResourceDelegatesResponse => {
+/**
+ * deserializeAws_json1_1ListResourceDelegatesResponse
+ */
+const de_ListResourceDelegatesResponse = (output: any, context: __SerdeContext): ListResourceDelegatesResponse => {
   return {
-    Delegates:
-      output.Delegates != null ? deserializeAws_json1_1ResourceDelegates(output.Delegates, context) : undefined,
+    Delegates: output.Delegates != null ? de_ResourceDelegates(output.Delegates, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
 
-const deserializeAws_json1_1ListResourcesResponse = (output: any, context: __SerdeContext): ListResourcesResponse => {
+/**
+ * deserializeAws_json1_1ListResourcesResponse
+ */
+const de_ListResourcesResponse = (output: any, context: __SerdeContext): ListResourcesResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Resources: output.Resources != null ? deserializeAws_json1_1Resources(output.Resources, context) : undefined,
+    Resources: output.Resources != null ? de_Resources(output.Resources, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
+/**
+ * deserializeAws_json1_1ListTagsForResourceResponse
+ */
+const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   return {
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
+/**
+ * deserializeAws_json1_1ListUsersResponse
+ */
+const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
     NextToken: __expectString(output.NextToken),
-    Users: output.Users != null ? deserializeAws_json1_1Users(output.Users, context) : undefined,
+    Users: output.Users != null ? de_Users(output.Users, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MailboxExportJob = (output: any, context: __SerdeContext): MailboxExportJob => {
+/**
+ * deserializeAws_json1_1MailboxExportJob
+ */
+const de_MailboxExportJob = (output: any, context: __SerdeContext): MailboxExportJob => {
   return {
     Description: __expectString(output.Description),
     EndTime:
@@ -8090,53 +9213,62 @@ const deserializeAws_json1_1MailboxExportJob = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_json1_1MailDomainInUseException = (
-  output: any,
-  context: __SerdeContext
-): MailDomainInUseException => {
+/**
+ * deserializeAws_json1_1MailDomainInUseException
+ */
+const de_MailDomainInUseException = (output: any, context: __SerdeContext): MailDomainInUseException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1MailDomainNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): MailDomainNotFoundException => {
+/**
+ * deserializeAws_json1_1MailDomainNotFoundException
+ */
+const de_MailDomainNotFoundException = (output: any, context: __SerdeContext): MailDomainNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1MailDomains = (output: any, context: __SerdeContext): MailDomainSummary[] => {
+/**
+ * deserializeAws_json1_1MailDomains
+ */
+const de_MailDomains = (output: any, context: __SerdeContext): MailDomainSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1MailDomainSummary(entry, context);
+      return de_MailDomainSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1MailDomainStateException = (
-  output: any,
-  context: __SerdeContext
-): MailDomainStateException => {
+/**
+ * deserializeAws_json1_1MailDomainStateException
+ */
+const de_MailDomainStateException = (output: any, context: __SerdeContext): MailDomainStateException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1MailDomainSummary = (output: any, context: __SerdeContext): MailDomainSummary => {
+/**
+ * deserializeAws_json1_1MailDomainSummary
+ */
+const de_MailDomainSummary = (output: any, context: __SerdeContext): MailDomainSummary => {
   return {
     DefaultDomain: __expectBoolean(output.DefaultDomain),
     DomainName: __expectString(output.DomainName),
   } as any;
 };
 
-const deserializeAws_json1_1Member = (output: any, context: __SerdeContext): Member => {
+/**
+ * deserializeAws_json1_1Member
+ */
+const de_Member = (output: any, context: __SerdeContext): Member => {
   return {
     DisabledDate:
       output.DisabledDate != null
@@ -8153,29 +9285,35 @@ const deserializeAws_json1_1Member = (output: any, context: __SerdeContext): Mem
   } as any;
 };
 
-const deserializeAws_json1_1Members = (output: any, context: __SerdeContext): Member[] => {
+/**
+ * deserializeAws_json1_1Members
+ */
+const de_Members = (output: any, context: __SerdeContext): Member[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Member(entry, context);
+      return de_Member(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1MobileDeviceAccessMatchedRule = (
-  output: any,
-  context: __SerdeContext
-): MobileDeviceAccessMatchedRule => {
+/**
+ * deserializeAws_json1_1MobileDeviceAccessMatchedRule
+ */
+const de_MobileDeviceAccessMatchedRule = (output: any, context: __SerdeContext): MobileDeviceAccessMatchedRule => {
   return {
     MobileDeviceAccessRuleId: __expectString(output.MobileDeviceAccessRuleId),
     Name: __expectString(output.Name),
   } as any;
 };
 
-const deserializeAws_json1_1MobileDeviceAccessMatchedRuleList = (
+/**
+ * deserializeAws_json1_1MobileDeviceAccessMatchedRuleList
+ */
+const de_MobileDeviceAccessMatchedRuleList = (
   output: any,
   context: __SerdeContext
 ): MobileDeviceAccessMatchedRule[] => {
@@ -8185,15 +9323,15 @@ const deserializeAws_json1_1MobileDeviceAccessMatchedRuleList = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1MobileDeviceAccessMatchedRule(entry, context);
+      return de_MobileDeviceAccessMatchedRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1MobileDeviceAccessOverride = (
-  output: any,
-  context: __SerdeContext
-): MobileDeviceAccessOverride => {
+/**
+ * deserializeAws_json1_1MobileDeviceAccessOverride
+ */
+const de_MobileDeviceAccessOverride = (output: any, context: __SerdeContext): MobileDeviceAccessOverride => {
   return {
     DateCreated:
       output.DateCreated != null
@@ -8210,22 +9348,25 @@ const deserializeAws_json1_1MobileDeviceAccessOverride = (
   } as any;
 };
 
-const deserializeAws_json1_1MobileDeviceAccessOverridesList = (
-  output: any,
-  context: __SerdeContext
-): MobileDeviceAccessOverride[] => {
+/**
+ * deserializeAws_json1_1MobileDeviceAccessOverridesList
+ */
+const de_MobileDeviceAccessOverridesList = (output: any, context: __SerdeContext): MobileDeviceAccessOverride[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1MobileDeviceAccessOverride(entry, context);
+      return de_MobileDeviceAccessOverride(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1MobileDeviceAccessRule = (output: any, context: __SerdeContext): MobileDeviceAccessRule => {
+/**
+ * deserializeAws_json1_1MobileDeviceAccessRule
+ */
+const de_MobileDeviceAccessRule = (output: any, context: __SerdeContext): MobileDeviceAccessRule => {
   return {
     DateCreated:
       output.DateCreated != null
@@ -8236,93 +9377,89 @@ const deserializeAws_json1_1MobileDeviceAccessRule = (output: any, context: __Se
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
         : undefined,
     Description: __expectString(output.Description),
-    DeviceModels:
-      output.DeviceModels != null ? deserializeAws_json1_1DeviceModelList(output.DeviceModels, context) : undefined,
+    DeviceModels: output.DeviceModels != null ? de_DeviceModelList(output.DeviceModels, context) : undefined,
     DeviceOperatingSystems:
       output.DeviceOperatingSystems != null
-        ? deserializeAws_json1_1DeviceOperatingSystemList(output.DeviceOperatingSystems, context)
+        ? de_DeviceOperatingSystemList(output.DeviceOperatingSystems, context)
         : undefined,
-    DeviceTypes:
-      output.DeviceTypes != null ? deserializeAws_json1_1DeviceTypeList(output.DeviceTypes, context) : undefined,
+    DeviceTypes: output.DeviceTypes != null ? de_DeviceTypeList(output.DeviceTypes, context) : undefined,
     DeviceUserAgents:
-      output.DeviceUserAgents != null
-        ? deserializeAws_json1_1DeviceUserAgentList(output.DeviceUserAgents, context)
-        : undefined,
+      output.DeviceUserAgents != null ? de_DeviceUserAgentList(output.DeviceUserAgents, context) : undefined,
     Effect: __expectString(output.Effect),
     MobileDeviceAccessRuleId: __expectString(output.MobileDeviceAccessRuleId),
     Name: __expectString(output.Name),
-    NotDeviceModels:
-      output.NotDeviceModels != null
-        ? deserializeAws_json1_1DeviceModelList(output.NotDeviceModels, context)
-        : undefined,
+    NotDeviceModels: output.NotDeviceModels != null ? de_DeviceModelList(output.NotDeviceModels, context) : undefined,
     NotDeviceOperatingSystems:
       output.NotDeviceOperatingSystems != null
-        ? deserializeAws_json1_1DeviceOperatingSystemList(output.NotDeviceOperatingSystems, context)
+        ? de_DeviceOperatingSystemList(output.NotDeviceOperatingSystems, context)
         : undefined,
-    NotDeviceTypes:
-      output.NotDeviceTypes != null ? deserializeAws_json1_1DeviceTypeList(output.NotDeviceTypes, context) : undefined,
+    NotDeviceTypes: output.NotDeviceTypes != null ? de_DeviceTypeList(output.NotDeviceTypes, context) : undefined,
     NotDeviceUserAgents:
-      output.NotDeviceUserAgents != null
-        ? deserializeAws_json1_1DeviceUserAgentList(output.NotDeviceUserAgents, context)
-        : undefined,
+      output.NotDeviceUserAgents != null ? de_DeviceUserAgentList(output.NotDeviceUserAgents, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1MobileDeviceAccessRulesList = (
-  output: any,
-  context: __SerdeContext
-): MobileDeviceAccessRule[] => {
+/**
+ * deserializeAws_json1_1MobileDeviceAccessRulesList
+ */
+const de_MobileDeviceAccessRulesList = (output: any, context: __SerdeContext): MobileDeviceAccessRule[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1MobileDeviceAccessRule(entry, context);
+      return de_MobileDeviceAccessRule(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1NameAvailabilityException = (
-  output: any,
-  context: __SerdeContext
-): NameAvailabilityException => {
+/**
+ * deserializeAws_json1_1NameAvailabilityException
+ */
+const de_NameAvailabilityException = (output: any, context: __SerdeContext): NameAvailabilityException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): OrganizationNotFoundException => {
+/**
+ * deserializeAws_json1_1OrganizationNotFoundException
+ */
+const de_OrganizationNotFoundException = (output: any, context: __SerdeContext): OrganizationNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationStateException = (
-  output: any,
-  context: __SerdeContext
-): OrganizationStateException => {
+/**
+ * deserializeAws_json1_1OrganizationStateException
+ */
+const de_OrganizationStateException = (output: any, context: __SerdeContext): OrganizationStateException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1OrganizationSummaries = (output: any, context: __SerdeContext): OrganizationSummary[] => {
+/**
+ * deserializeAws_json1_1OrganizationSummaries
+ */
+const de_OrganizationSummaries = (output: any, context: __SerdeContext): OrganizationSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1OrganizationSummary(entry, context);
+      return de_OrganizationSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1OrganizationSummary = (output: any, context: __SerdeContext): OrganizationSummary => {
+/**
+ * deserializeAws_json1_1OrganizationSummary
+ */
+const de_OrganizationSummary = (output: any, context: __SerdeContext): OrganizationSummary => {
   return {
     Alias: __expectString(output.Alias),
     DefaultMailDomain: __expectString(output.DefaultMailDomain),
@@ -8332,30 +9469,37 @@ const deserializeAws_json1_1OrganizationSummary = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1Permission = (output: any, context: __SerdeContext): Permission => {
+/**
+ * deserializeAws_json1_1Permission
+ */
+const de_Permission = (output: any, context: __SerdeContext): Permission => {
   return {
     GranteeId: __expectString(output.GranteeId),
     GranteeType: __expectString(output.GranteeType),
     PermissionValues:
-      output.PermissionValues != null
-        ? deserializeAws_json1_1PermissionValues(output.PermissionValues, context)
-        : undefined,
+      output.PermissionValues != null ? de_PermissionValues(output.PermissionValues, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Permissions = (output: any, context: __SerdeContext): Permission[] => {
+/**
+ * deserializeAws_json1_1Permissions
+ */
+const de_Permissions = (output: any, context: __SerdeContext): Permission[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Permission(entry, context);
+      return de_Permission(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PermissionValues = (output: any, context: __SerdeContext): (PermissionType | string)[] => {
+/**
+ * deserializeAws_json1_1PermissionValues
+ */
+const de_PermissionValues = (output: any, context: __SerdeContext): (PermissionType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8367,83 +9511,98 @@ const deserializeAws_json1_1PermissionValues = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1PutAccessControlRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): PutAccessControlRuleResponse => {
+/**
+ * deserializeAws_json1_1PutAccessControlRuleResponse
+ */
+const de_PutAccessControlRuleResponse = (output: any, context: __SerdeContext): PutAccessControlRuleResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1PutEmailMonitoringConfigurationResponse = (
+/**
+ * deserializeAws_json1_1PutEmailMonitoringConfigurationResponse
+ */
+const de_PutEmailMonitoringConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): PutEmailMonitoringConfigurationResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1PutInboundDmarcSettingsResponse = (
-  output: any,
-  context: __SerdeContext
-): PutInboundDmarcSettingsResponse => {
+/**
+ * deserializeAws_json1_1PutInboundDmarcSettingsResponse
+ */
+const de_PutInboundDmarcSettingsResponse = (output: any, context: __SerdeContext): PutInboundDmarcSettingsResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1PutMailboxPermissionsResponse = (
-  output: any,
-  context: __SerdeContext
-): PutMailboxPermissionsResponse => {
+/**
+ * deserializeAws_json1_1PutMailboxPermissionsResponse
+ */
+const de_PutMailboxPermissionsResponse = (output: any, context: __SerdeContext): PutMailboxPermissionsResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1PutMobileDeviceAccessOverrideResponse = (
+/**
+ * deserializeAws_json1_1PutMobileDeviceAccessOverrideResponse
+ */
+const de_PutMobileDeviceAccessOverrideResponse = (
   output: any,
   context: __SerdeContext
 ): PutMobileDeviceAccessOverrideResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1PutRetentionPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): PutRetentionPolicyResponse => {
+/**
+ * deserializeAws_json1_1PutRetentionPolicyResponse
+ */
+const de_PutRetentionPolicyResponse = (output: any, context: __SerdeContext): PutRetentionPolicyResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1RedactedEwsAvailabilityProvider = (
-  output: any,
-  context: __SerdeContext
-): RedactedEwsAvailabilityProvider => {
+/**
+ * deserializeAws_json1_1RedactedEwsAvailabilityProvider
+ */
+const de_RedactedEwsAvailabilityProvider = (output: any, context: __SerdeContext): RedactedEwsAvailabilityProvider => {
   return {
     EwsEndpoint: __expectString(output.EwsEndpoint),
     EwsUsername: __expectString(output.EwsUsername),
   } as any;
 };
 
-const deserializeAws_json1_1RegisterMailDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): RegisterMailDomainResponse => {
+/**
+ * deserializeAws_json1_1RegisterMailDomainResponse
+ */
+const de_RegisterMailDomainResponse = (output: any, context: __SerdeContext): RegisterMailDomainResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1RegisterToWorkMailResponse = (
-  output: any,
-  context: __SerdeContext
-): RegisterToWorkMailResponse => {
+/**
+ * deserializeAws_json1_1RegisterToWorkMailResponse
+ */
+const de_RegisterToWorkMailResponse = (output: any, context: __SerdeContext): RegisterToWorkMailResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1ReservedNameException = (output: any, context: __SerdeContext): ReservedNameException => {
+/**
+ * deserializeAws_json1_1ReservedNameException
+ */
+const de_ReservedNameException = (output: any, context: __SerdeContext): ReservedNameException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ResetPasswordResponse = (output: any, context: __SerdeContext): ResetPasswordResponse => {
+/**
+ * deserializeAws_json1_1ResetPasswordResponse
+ */
+const de_ResetPasswordResponse = (output: any, context: __SerdeContext): ResetPasswordResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
+/**
+ * deserializeAws_json1_1Resource
+ */
+const de_Resource = (output: any, context: __SerdeContext): Resource => {
   return {
     DisabledDate:
       output.DisabledDate != null
@@ -8461,72 +9620,90 @@ const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): R
   } as any;
 };
 
-const deserializeAws_json1_1ResourceDelegates = (output: any, context: __SerdeContext): Delegate[] => {
+/**
+ * deserializeAws_json1_1ResourceDelegates
+ */
+const de_ResourceDelegates = (output: any, context: __SerdeContext): Delegate[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Delegate(entry, context);
+      return de_Delegate(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1Resources = (output: any, context: __SerdeContext): Resource[] => {
+/**
+ * deserializeAws_json1_1Resources
+ */
+const de_Resources = (output: any, context: __SerdeContext): Resource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Resource(entry, context);
+      return de_Resource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1StartMailboxExportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartMailboxExportJobResponse => {
+/**
+ * deserializeAws_json1_1StartMailboxExportJobResponse
+ */
+const de_StartMailboxExportJobResponse = (output: any, context: __SerdeContext): StartMailboxExportJobResponse => {
   return {
     JobId: __expectString(output.JobId),
   } as any;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+/**
+ * deserializeAws_json1_1TagResourceResponse
+ */
+const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1TargetUsers = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1TargetUsers
+ */
+const de_TargetUsers = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8538,7 +9715,10 @@ const deserializeAws_json1_1TargetUsers = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_json1_1TestAvailabilityConfigurationResponse = (
+/**
+ * deserializeAws_json1_1TestAvailabilityConfigurationResponse
+ */
+const de_TestAvailabilityConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): TestAvailabilityConfigurationResponse => {
@@ -8548,72 +9728,93 @@ const deserializeAws_json1_1TestAvailabilityConfigurationResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
+/**
+ * deserializeAws_json1_1TooManyTagsException
+ */
+const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1UnsupportedOperationException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedOperationException => {
+/**
+ * deserializeAws_json1_1UnsupportedOperationException
+ */
+const de_UnsupportedOperationException = (output: any, context: __SerdeContext): UnsupportedOperationException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+/**
+ * deserializeAws_json1_1UntagResourceResponse
+ */
+const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateAvailabilityConfigurationResponse = (
+/**
+ * deserializeAws_json1_1UpdateAvailabilityConfigurationResponse
+ */
+const de_UpdateAvailabilityConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateAvailabilityConfigurationResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateDefaultMailDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateDefaultMailDomainResponse => {
+/**
+ * deserializeAws_json1_1UpdateDefaultMailDomainResponse
+ */
+const de_UpdateDefaultMailDomainResponse = (output: any, context: __SerdeContext): UpdateDefaultMailDomainResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateImpersonationRoleResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateImpersonationRoleResponse => {
+/**
+ * deserializeAws_json1_1UpdateImpersonationRoleResponse
+ */
+const de_UpdateImpersonationRoleResponse = (output: any, context: __SerdeContext): UpdateImpersonationRoleResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateMailboxQuotaResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateMailboxQuotaResponse => {
+/**
+ * deserializeAws_json1_1UpdateMailboxQuotaResponse
+ */
+const de_UpdateMailboxQuotaResponse = (output: any, context: __SerdeContext): UpdateMailboxQuotaResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateMobileDeviceAccessRuleResponse = (
+/**
+ * deserializeAws_json1_1UpdateMobileDeviceAccessRuleResponse
+ */
+const de_UpdateMobileDeviceAccessRuleResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateMobileDeviceAccessRuleResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdatePrimaryEmailAddressResponse = (
+/**
+ * deserializeAws_json1_1UpdatePrimaryEmailAddressResponse
+ */
+const de_UpdatePrimaryEmailAddressResponse = (
   output: any,
   context: __SerdeContext
 ): UpdatePrimaryEmailAddressResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateResourceResponse = (output: any, context: __SerdeContext): UpdateResourceResponse => {
+/**
+ * deserializeAws_json1_1UpdateResourceResponse
+ */
+const de_UpdateResourceResponse = (output: any, context: __SerdeContext): UpdateResourceResponse => {
   return {} as any;
 };
 
-const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User => {
+/**
+ * deserializeAws_json1_1User
+ */
+const de_User = (output: any, context: __SerdeContext): User => {
   return {
     DisabledDate:
       output.DisabledDate != null
@@ -8632,7 +9833,10 @@ const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User 
   } as any;
 };
 
-const deserializeAws_json1_1UserIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1UserIdList
+ */
+const de_UserIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8644,14 +9848,17 @@ const deserializeAws_json1_1UserIdList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): User[] => {
+/**
+ * deserializeAws_json1_1Users
+ */
+const de_Users = (output: any, context: __SerdeContext): User[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1User(entry, context);
+      return de_User(entry, context);
     });
   return retVal;
 };

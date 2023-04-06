@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { ListFargateProfilesRequest, ListFargateProfilesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFargateProfilesCommand,
-  serializeAws_restJson1ListFargateProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFargateProfilesCommand, se_ListFargateProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class ListFargateProfilesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFargateProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFargateProfilesCommand(input, context);
+    return se_ListFargateProfilesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFargateProfilesCommandOutput> {
-    return deserializeAws_restJson1ListFargateProfilesCommand(output, context);
+    return de_ListFargateProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

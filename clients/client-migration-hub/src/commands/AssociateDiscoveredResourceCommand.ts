@@ -15,10 +15,7 @@ import {
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { AssociateDiscoveredResourceRequest, AssociateDiscoveredResourceResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateDiscoveredResourceCommand,
-  serializeAws_json1_1AssociateDiscoveredResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateDiscoveredResourceCommand, se_AssociateDiscoveredResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -166,7 +163,7 @@ export class AssociateDiscoveredResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateDiscoveredResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDiscoveredResourceCommand(input, context);
+    return se_AssociateDiscoveredResourceCommand(input, context);
   }
 
   /**
@@ -176,7 +173,7 @@ export class AssociateDiscoveredResourceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateDiscoveredResourceCommandOutput> {
-    return deserializeAws_json1_1AssociateDiscoveredResourceCommand(output, context);
+    return de_AssociateDiscoveredResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

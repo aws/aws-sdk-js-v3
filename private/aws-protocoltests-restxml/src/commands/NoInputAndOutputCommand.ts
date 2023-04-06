@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { NoInputAndOutputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlNoInputAndOutputCommand,
-  serializeAws_restXmlNoInputAndOutputCommand,
-} from "../protocols/Aws_restXml";
+import { de_NoInputAndOutputCommand, se_NoInputAndOutputCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -108,14 +105,14 @@ export class NoInputAndOutputCommand extends $Command<
    * @internal
    */
   private serialize(input: NoInputAndOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlNoInputAndOutputCommand(input, context);
+    return se_NoInputAndOutputCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NoInputAndOutputCommandOutput> {
-    return deserializeAws_restXmlNoInputAndOutputCommand(output, context);
+    return de_NoInputAndOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetFirewallRuleGroupPolicyRequest, GetFirewallRuleGroupPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetFirewallRuleGroupPolicyCommand,
-  serializeAws_json1_1GetFirewallRuleGroupPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetFirewallRuleGroupPolicyCommand, se_GetFirewallRuleGroupPolicyCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -137,7 +134,7 @@ export class GetFirewallRuleGroupPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFirewallRuleGroupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFirewallRuleGroupPolicyCommand(input, context);
+    return se_GetFirewallRuleGroupPolicyCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class GetFirewallRuleGroupPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFirewallRuleGroupPolicyCommandOutput> {
-    return deserializeAws_json1_1GetFirewallRuleGroupPolicyCommand(output, context);
+    return de_GetFirewallRuleGroupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

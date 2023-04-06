@@ -19,8 +19,8 @@ import {
   DescribeRemediationExecutionStatusResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeRemediationExecutionStatusCommand,
-  serializeAws_json1_1DescribeRemediationExecutionStatusCommand,
+  de_DescribeRemediationExecutionStatusCommand,
+  se_DescribeRemediationExecutionStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -149,7 +149,7 @@ export class DescribeRemediationExecutionStatusCommand extends $Command<
     input: DescribeRemediationExecutionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRemediationExecutionStatusCommand(input, context);
+    return se_DescribeRemediationExecutionStatusCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class DescribeRemediationExecutionStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRemediationExecutionStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeRemediationExecutionStatusCommand(output, context);
+    return de_DescribeRemediationExecutionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

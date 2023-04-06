@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { GetInsightSelectorsRequest, GetInsightSelectorsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetInsightSelectorsCommand,
-  serializeAws_json1_1GetInsightSelectorsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetInsightSelectorsCommand, se_GetInsightSelectorsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class GetInsightSelectorsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInsightSelectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInsightSelectorsCommand(input, context);
+    return se_GetInsightSelectorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInsightSelectorsCommandOutput> {
-    return deserializeAws_json1_1GetInsightSelectorsCommand(output, context);
+    return de_GetInsightSelectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

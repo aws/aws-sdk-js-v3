@@ -15,10 +15,7 @@ import {
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import { DeleteDatasetContentRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDatasetContentCommand,
-  serializeAws_restJson1DeleteDatasetContentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDatasetContentCommand, se_DeleteDatasetContentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteDatasetContentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDatasetContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDatasetContentCommand(input, context);
+    return se_DeleteDatasetContentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetContentCommandOutput> {
-    return deserializeAws_restJson1DeleteDatasetContentCommand(output, context);
+    return de_DeleteDatasetContentCommand(output, context);
   }
 
   // Start section: command_body_extra

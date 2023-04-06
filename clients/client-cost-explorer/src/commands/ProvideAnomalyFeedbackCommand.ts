@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { ProvideAnomalyFeedbackRequest, ProvideAnomalyFeedbackResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ProvideAnomalyFeedbackCommand,
-  serializeAws_json1_1ProvideAnomalyFeedbackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ProvideAnomalyFeedbackCommand, se_ProvideAnomalyFeedbackCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
    * @internal
    */
   private serialize(input: ProvideAnomalyFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ProvideAnomalyFeedbackCommand(input, context);
+    return se_ProvideAnomalyFeedbackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvideAnomalyFeedbackCommandOutput> {
-    return deserializeAws_json1_1ProvideAnomalyFeedbackCommand(output, context);
+    return de_ProvideAnomalyFeedbackCommand(output, context);
   }
 
   // Start section: command_body_extra

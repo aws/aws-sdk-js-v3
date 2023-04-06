@@ -15,8 +15,8 @@ import {
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import { EndpointWithHostLabelOperationInput } from "../models/models_0";
 import {
-  deserializeAws_json1_0EndpointWithHostLabelOperationCommand,
-  serializeAws_json1_0EndpointWithHostLabelOperationCommand,
+  de_EndpointWithHostLabelOperationCommand,
+  se_EndpointWithHostLabelOperationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -86,7 +86,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
     input: EndpointWithHostLabelOperationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0EndpointWithHostLabelOperationCommand(input, context);
+    return se_EndpointWithHostLabelOperationCommand(input, context);
   }
 
   /**
@@ -96,7 +96,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EndpointWithHostLabelOperationCommandOutput> {
-    return deserializeAws_json1_0EndpointWithHostLabelOperationCommand(output, context);
+    return de_EndpointWithHostLabelOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DescribeConfigurationAggregatorsRequest, DescribeConfigurationAggregatorsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeConfigurationAggregatorsCommand,
-  serializeAws_json1_1DescribeConfigurationAggregatorsCommand,
+  de_DescribeConfigurationAggregatorsCommand,
+  se_DescribeConfigurationAggregatorsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -147,7 +147,7 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
     input: DescribeConfigurationAggregatorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigurationAggregatorsCommand(input, context);
+    return se_DescribeConfigurationAggregatorsCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeConfigurationAggregatorsCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigurationAggregatorsCommand(output, context);
+    return de_DescribeConfigurationAggregatorsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeEventsMessage, EventsMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeEventsCommand,
-  serializeAws_queryDescribeEventsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeEventsCommand, se_DescribeEventsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -80,20 +77,42 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  *
- * @example To list information about events
+ * @example To describe events
  * ```javascript
- * // This example lists information for all backup-related events for the specified DB instance for the past 7 days (7 days * 24 hours * 60 minutes = 10,080 minutes).
+ * // The following retrieves details for the events that have occurred for the specified DB instance.
  * const input = {
- *   "Duration": 10080,
- *   "EventCategories": [
- *     "backup"
- *   ],
- *   "SourceIdentifier": "mymysqlinstance",
+ *   "SourceIdentifier": "test-instance",
  *   "SourceType": "db-instance"
  * };
  * const command = new DescribeEventsCommand(input);
- * await client.send(command);
- * // example id: describe-events-3836e5ed-3913-4f76-8452-c77fcad5016b
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Events": [
+ *     {
+ *       "Date": "2018-07-31T23:09:23.983Z",
+ *       "EventCategories": [
+ *         "backup"
+ *       ],
+ *       "Message": "Backing up DB instance",
+ *       "SourceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance",
+ *       "SourceIdentifier": "test-instance",
+ *       "SourceType": "db-instance"
+ *     },
+ *     {
+ *       "Date": "2018-07-31T23:15:13.049Z",
+ *       "EventCategories": [
+ *         "backup"
+ *       ],
+ *       "Message": "Finished DB Instance backup",
+ *       "SourceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance",
+ *       "SourceIdentifier": "test-instance",
+ *       "SourceType": "db-instance"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-events-1680281559411
  * ```
  *
  */
@@ -160,14 +179,14 @@ export class DescribeEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventsCommand(input, context);
+    return se_DescribeEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventsCommandOutput> {
-    return deserializeAws_queryDescribeEventsCommand(output, context);
+    return de_DescribeEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

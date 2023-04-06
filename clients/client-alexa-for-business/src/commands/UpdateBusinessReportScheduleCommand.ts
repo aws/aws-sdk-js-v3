@@ -16,8 +16,8 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { UpdateBusinessReportScheduleRequest, UpdateBusinessReportScheduleResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateBusinessReportScheduleCommand,
-  serializeAws_json1_1UpdateBusinessReportScheduleCommand,
+  de_UpdateBusinessReportScheduleCommand,
+  se_UpdateBusinessReportScheduleCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -136,7 +136,7 @@ export class UpdateBusinessReportScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateBusinessReportScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateBusinessReportScheduleCommand(input, context);
+    return se_UpdateBusinessReportScheduleCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class UpdateBusinessReportScheduleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateBusinessReportScheduleCommandOutput> {
-    return deserializeAws_json1_1UpdateBusinessReportScheduleCommand(output, context);
+    return de_UpdateBusinessReportScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

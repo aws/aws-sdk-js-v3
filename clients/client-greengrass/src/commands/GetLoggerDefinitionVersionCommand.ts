@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { GetLoggerDefinitionVersionRequest, GetLoggerDefinitionVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLoggerDefinitionVersionCommand,
-  serializeAws_restJson1GetLoggerDefinitionVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLoggerDefinitionVersionCommand, se_GetLoggerDefinitionVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -125,7 +122,7 @@ export class GetLoggerDefinitionVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLoggerDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLoggerDefinitionVersionCommand(input, context);
+    return se_GetLoggerDefinitionVersionCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class GetLoggerDefinitionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLoggerDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1GetLoggerDefinitionVersionCommand(output, context);
+    return de_GetLoggerDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

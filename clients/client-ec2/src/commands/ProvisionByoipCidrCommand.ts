@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ProvisionByoipCidrRequest, ProvisionByoipCidrResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ProvisionByoipCidrCommand,
-  serializeAws_ec2ProvisionByoipCidrCommand,
-} from "../protocols/Aws_ec2";
+import { de_ProvisionByoipCidrCommand, se_ProvisionByoipCidrCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class ProvisionByoipCidrCommand extends $Command<
    * @internal
    */
   private serialize(input: ProvisionByoipCidrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ProvisionByoipCidrCommand(input, context);
+    return se_ProvisionByoipCidrCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionByoipCidrCommandOutput> {
-    return deserializeAws_ec2ProvisionByoipCidrCommand(output, context);
+    return de_ProvisionByoipCidrCommand(output, context);
   }
 
   // Start section: command_body_extra

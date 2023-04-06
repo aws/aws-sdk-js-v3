@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { DeleteVaultNotificationsInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteVaultNotificationsCommand,
-  serializeAws_restJson1DeleteVaultNotificationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVaultNotificationsCommand, se_DeleteVaultNotificationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class DeleteVaultNotificationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVaultNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVaultNotificationsCommand(input, context);
+    return se_DeleteVaultNotificationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVaultNotificationsCommandOutput> {
-    return deserializeAws_restJson1DeleteVaultNotificationsCommand(output, context);
+    return de_DeleteVaultNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

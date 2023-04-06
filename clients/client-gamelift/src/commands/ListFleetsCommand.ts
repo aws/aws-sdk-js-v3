@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { ListFleetsInput, ListFleetsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFleetsCommand,
-  serializeAws_json1_1ListFleetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListFleetsCommand, se_ListFleetsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class ListFleetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFleetsCommand(input, context);
+    return se_ListFleetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFleetsCommandOutput> {
-    return deserializeAws_json1_1ListFleetsCommand(output, context);
+    return de_ListFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

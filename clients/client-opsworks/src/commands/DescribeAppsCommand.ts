@@ -15,10 +15,7 @@ import {
 
 import { DescribeAppsRequest, DescribeAppsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeAppsCommand,
-  serializeAws_json1_1DescribeAppsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeAppsCommand, se_DescribeAppsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeAppsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAppsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAppsCommand(input, context);
+    return se_DescribeAppsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppsCommandOutput> {
-    return deserializeAws_json1_1DescribeAppsCommand(output, context);
+    return de_DescribeAppsCommand(output, context);
   }
 
   // Start section: command_body_extra

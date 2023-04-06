@@ -15,7 +15,7 @@ import {
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { PutEventsRequest, PutEventsResponse } from "../models/models_0";
-import { deserializeAws_json1_1PutEventsCommand, serializeAws_json1_1PutEventsCommand } from "../protocols/Aws_json1_1";
+import { de_PutEventsCommand, se_PutEventsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +135,14 @@ export class PutEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutEventsCommand(input, context);
+    return se_PutEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventsCommandOutput> {
-    return deserializeAws_json1_1PutEventsCommand(output, context);
+    return de_PutEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

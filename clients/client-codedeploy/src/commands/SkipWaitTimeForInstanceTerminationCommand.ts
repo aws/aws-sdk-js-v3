@@ -16,8 +16,8 @@ import {
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { SkipWaitTimeForInstanceTerminationInput } from "../models/models_0";
 import {
-  deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand,
-  serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand,
+  de_SkipWaitTimeForInstanceTerminationCommand,
+  se_SkipWaitTimeForInstanceTerminationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     input: SkipWaitTimeForInstanceTerminationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(input, context);
+    return se_SkipWaitTimeForInstanceTerminationCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> {
-    return deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(output, context);
+    return de_SkipWaitTimeForInstanceTerminationCommand(output, context);
   }
 
   // Start section: command_body_extra

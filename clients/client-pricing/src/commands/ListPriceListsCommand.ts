@@ -15,10 +15,7 @@ import {
 
 import { ListPriceListsRequest, ListPriceListsResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
-import {
-  deserializeAws_json1_1ListPriceListsCommand,
-  serializeAws_json1_1ListPriceListsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPriceListsCommand, se_ListPriceListsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class ListPriceListsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPriceListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPriceListsCommand(input, context);
+    return se_ListPriceListsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPriceListsCommandOutput> {
-    return deserializeAws_json1_1ListPriceListsCommand(output, context);
+    return de_ListPriceListsCommand(output, context);
   }
 
   // Start section: command_body_extra

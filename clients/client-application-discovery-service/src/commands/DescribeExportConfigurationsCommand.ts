@@ -20,8 +20,8 @@ import {
 } from "../ApplicationDiscoveryServiceClient";
 import { DescribeExportConfigurationsRequest, DescribeExportConfigurationsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeExportConfigurationsCommand,
-  serializeAws_json1_1DescribeExportConfigurationsCommand,
+  de_DescribeExportConfigurationsCommand,
+  se_DescribeExportConfigurationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -154,7 +154,7 @@ export class DescribeExportConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeExportConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExportConfigurationsCommand(input, context);
+    return se_DescribeExportConfigurationsCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class DescribeExportConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeExportConfigurationsCommandOutput> {
-    return deserializeAws_json1_1DescribeExportConfigurationsCommand(output, context);
+    return de_DescribeExportConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

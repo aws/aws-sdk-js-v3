@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { DeleteEventBusRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEventBusCommand,
-  serializeAws_json1_1DeleteEventBusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEventBusCommand, se_DeleteEventBusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteEventBusCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEventBusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEventBusCommand(input, context);
+    return se_DeleteEventBusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventBusCommandOutput> {
-    return deserializeAws_json1_1DeleteEventBusCommand(output, context);
+    return de_DeleteEventBusCommand(output, context);
   }
 
   // Start section: command_body_extra

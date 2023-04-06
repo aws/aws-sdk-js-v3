@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDocumentRequest, DescribeDocumentResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDocumentCommand,
-  serializeAws_json1_1DescribeDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDocumentCommand, se_DescribeDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -131,14 +128,14 @@ export class DescribeDocumentCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDocumentCommand(input, context);
+    return se_DescribeDocumentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDocumentCommandOutput> {
-    return deserializeAws_json1_1DescribeDocumentCommand(output, context);
+    return de_DescribeDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

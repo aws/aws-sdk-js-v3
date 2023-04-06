@@ -16,8 +16,8 @@ import {
 import { CancelServiceSoftwareUpdateRequest, CancelServiceSoftwareUpdateResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  deserializeAws_restJson1CancelServiceSoftwareUpdateCommand,
-  serializeAws_restJson1CancelServiceSoftwareUpdateCommand,
+  de_CancelServiceSoftwareUpdateCommand,
+  se_CancelServiceSoftwareUpdateCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -136,7 +136,7 @@ export class CancelServiceSoftwareUpdateCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelServiceSoftwareUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelServiceSoftwareUpdateCommand(input, context);
+    return se_CancelServiceSoftwareUpdateCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class CancelServiceSoftwareUpdateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelServiceSoftwareUpdateCommandOutput> {
-    return deserializeAws_restJson1CancelServiceSoftwareUpdateCommand(output, context);
+    return de_CancelServiceSoftwareUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

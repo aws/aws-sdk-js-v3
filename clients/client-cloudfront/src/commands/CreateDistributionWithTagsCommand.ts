@@ -20,10 +20,7 @@ import {
   CreateDistributionWithTagsResult,
   CreateDistributionWithTagsResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateDistributionWithTagsCommand,
-  serializeAws_restXmlCreateDistributionWithTagsCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateDistributionWithTagsCommand, se_CreateDistributionWithTagsCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -651,7 +648,7 @@ export class CreateDistributionWithTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDistributionWithTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateDistributionWithTagsCommand(input, context);
+    return se_CreateDistributionWithTagsCommand(input, context);
   }
 
   /**
@@ -661,7 +658,7 @@ export class CreateDistributionWithTagsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDistributionWithTagsCommandOutput> {
-    return deserializeAws_restXmlCreateDistributionWithTagsCommand(output, context);
+    return de_CreateDistributionWithTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { ListAttachedIndicesRequest, ListAttachedIndicesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAttachedIndicesCommand,
-  serializeAws_restJson1ListAttachedIndicesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAttachedIndicesCommand, se_ListAttachedIndicesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class ListAttachedIndicesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAttachedIndicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttachedIndicesCommand(input, context);
+    return se_ListAttachedIndicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttachedIndicesCommandOutput> {
-    return deserializeAws_restJson1ListAttachedIndicesCommand(output, context);
+    return de_ListAttachedIndicesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisableFastSnapshotRestoresRequest, DisableFastSnapshotRestoresResult } from "../models/models_5";
-import {
-  deserializeAws_ec2DisableFastSnapshotRestoresCommand,
-  serializeAws_ec2DisableFastSnapshotRestoresCommand,
-} from "../protocols/Aws_ec2";
+import { de_DisableFastSnapshotRestoresCommand, se_DisableFastSnapshotRestoresCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,7 +123,7 @@ export class DisableFastSnapshotRestoresCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableFastSnapshotRestoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableFastSnapshotRestoresCommand(input, context);
+    return se_DisableFastSnapshotRestoresCommand(input, context);
   }
 
   /**
@@ -136,7 +133,7 @@ export class DisableFastSnapshotRestoresCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableFastSnapshotRestoresCommandOutput> {
-    return deserializeAws_ec2DisableFastSnapshotRestoresCommand(output, context);
+    return de_DisableFastSnapshotRestoresCommand(output, context);
   }
 
   // Start section: command_body_extra

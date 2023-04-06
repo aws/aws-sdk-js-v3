@@ -15,8 +15,8 @@ import {
 
 import { CreateMobileDeviceAccessRuleRequest, CreateMobileDeviceAccessRuleResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateMobileDeviceAccessRuleCommand,
-  serializeAws_json1_1CreateMobileDeviceAccessRuleCommand,
+  de_CreateMobileDeviceAccessRuleCommand,
+  se_CreateMobileDeviceAccessRuleCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -164,7 +164,7 @@ export class CreateMobileDeviceAccessRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMobileDeviceAccessRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMobileDeviceAccessRuleCommand(input, context);
+    return se_CreateMobileDeviceAccessRuleCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class CreateMobileDeviceAccessRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMobileDeviceAccessRuleCommandOutput> {
-    return deserializeAws_json1_1CreateMobileDeviceAccessRuleCommand(output, context);
+    return de_CreateMobileDeviceAccessRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

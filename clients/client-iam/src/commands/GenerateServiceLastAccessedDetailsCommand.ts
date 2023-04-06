@@ -19,8 +19,8 @@ import {
   GenerateServiceLastAccessedDetailsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGenerateServiceLastAccessedDetailsCommand,
-  serializeAws_queryGenerateServiceLastAccessedDetailsCommand,
+  de_GenerateServiceLastAccessedDetailsCommand,
+  se_GenerateServiceLastAccessedDetailsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -206,7 +206,7 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
     input: GenerateServiceLastAccessedDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGenerateServiceLastAccessedDetailsCommand(input, context);
+    return se_GenerateServiceLastAccessedDetailsCommand(input, context);
   }
 
   /**
@@ -216,7 +216,7 @@ export class GenerateServiceLastAccessedDetailsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateServiceLastAccessedDetailsCommandOutput> {
-    return deserializeAws_queryGenerateServiceLastAccessedDetailsCommand(output, context);
+    return de_GenerateServiceLastAccessedDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

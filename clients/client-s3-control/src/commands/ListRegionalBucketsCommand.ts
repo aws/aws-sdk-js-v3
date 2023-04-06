@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRegionalBucketsRequest, ListRegionalBucketsResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlListRegionalBucketsCommand,
-  serializeAws_restXmlListRegionalBucketsCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListRegionalBucketsCommand, se_ListRegionalBucketsCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -133,14 +130,14 @@ export class ListRegionalBucketsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRegionalBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListRegionalBucketsCommand(input, context);
+    return se_ListRegionalBucketsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegionalBucketsCommandOutput> {
-    return deserializeAws_restXmlListRegionalBucketsCommand(output, context);
+    return de_ListRegionalBucketsCommand(output, context);
   }
 
   // Start section: command_body_extra

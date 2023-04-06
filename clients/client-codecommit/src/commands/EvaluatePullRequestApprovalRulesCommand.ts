@@ -16,8 +16,8 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { EvaluatePullRequestApprovalRulesInput, EvaluatePullRequestApprovalRulesOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommand,
-  serializeAws_json1_1EvaluatePullRequestApprovalRulesCommand,
+  de_EvaluatePullRequestApprovalRulesCommand,
+  se_EvaluatePullRequestApprovalRulesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -159,7 +159,7 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
     input: EvaluatePullRequestApprovalRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1EvaluatePullRequestApprovalRulesCommand(input, context);
+    return se_EvaluatePullRequestApprovalRulesCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EvaluatePullRequestApprovalRulesCommandOutput> {
-    return deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommand(output, context);
+    return de_EvaluatePullRequestApprovalRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

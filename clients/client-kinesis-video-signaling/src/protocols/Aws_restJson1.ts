@@ -31,7 +31,10 @@ import {
   SessionExpiredException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1GetIceServerConfigCommand = async (
+/**
+ * serializeAws_restJson1GetIceServerConfigCommand
+ */
+export const se_GetIceServerConfigCommand = async (
   input: GetIceServerConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -59,7 +62,10 @@ export const serializeAws_restJson1GetIceServerConfigCommand = async (
   });
 };
 
-export const serializeAws_restJson1SendAlexaOfferToMasterCommand = async (
+/**
+ * serializeAws_restJson1SendAlexaOfferToMasterCommand
+ */
+export const se_SendAlexaOfferToMasterCommand = async (
   input: SendAlexaOfferToMasterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -86,24 +92,30 @@ export const serializeAws_restJson1SendAlexaOfferToMasterCommand = async (
   });
 };
 
-export const deserializeAws_restJson1GetIceServerConfigCommand = async (
+/**
+ * deserializeAws_restJson1GetIceServerConfigCommand
+ */
+export const de_GetIceServerConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIceServerConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetIceServerConfigCommandError(output, context);
+    return de_GetIceServerConfigCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.IceServerList != null) {
-    contents.IceServerList = deserializeAws_restJson1IceServerList(data.IceServerList, context);
+    contents.IceServerList = de_IceServerList(data.IceServerList, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetIceServerConfigCommandError = async (
+/**
+ * deserializeAws_restJson1GetIceServerConfigCommandError
+ */
+const de_GetIceServerConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIceServerConfigCommandOutput> => {
@@ -115,22 +127,22 @@ const deserializeAws_restJson1GetIceServerConfigCommandError = async (
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideosignaling#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideosignaling#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidClientException":
     case "com.amazonaws.kinesisvideosignaling#InvalidClientException":
-      throw await deserializeAws_restJson1InvalidClientExceptionResponse(parsedOutput, context);
+      throw await de_InvalidClientExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideosignaling#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideosignaling#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "SessionExpiredException":
     case "com.amazonaws.kinesisvideosignaling#SessionExpiredException":
-      throw await deserializeAws_restJson1SessionExpiredExceptionResponse(parsedOutput, context);
+      throw await de_SessionExpiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -142,12 +154,15 @@ const deserializeAws_restJson1GetIceServerConfigCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1SendAlexaOfferToMasterCommand = async (
+/**
+ * deserializeAws_restJson1SendAlexaOfferToMasterCommand
+ */
+export const de_SendAlexaOfferToMasterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendAlexaOfferToMasterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1SendAlexaOfferToMasterCommandError(output, context);
+    return de_SendAlexaOfferToMasterCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -159,7 +174,10 @@ export const deserializeAws_restJson1SendAlexaOfferToMasterCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1SendAlexaOfferToMasterCommandError = async (
+/**
+ * deserializeAws_restJson1SendAlexaOfferToMasterCommandError
+ */
+const de_SendAlexaOfferToMasterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendAlexaOfferToMasterCommandOutput> => {
@@ -171,16 +189,16 @@ const deserializeAws_restJson1SendAlexaOfferToMasterCommandError = async (
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazonaws.kinesisvideosignaling#ClientLimitExceededException":
-      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideosignaling#InvalidArgumentException":
-      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideosignaling#NotAuthorizedException":
-      throw await deserializeAws_restJson1NotAuthorizedExceptionResponse(parsedOutput, context);
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideosignaling#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -193,7 +211,10 @@ const deserializeAws_restJson1SendAlexaOfferToMasterCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ClientLimitExceededExceptionRes
+ */
+const de_ClientLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClientLimitExceededException> => {
@@ -209,7 +230,10 @@ const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidArgumentExceptionRes
+ */
+const de_InvalidArgumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
@@ -225,7 +249,10 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidClientExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidClientExceptionRes
+ */
+const de_InvalidClientExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidClientException> => {
@@ -241,7 +268,10 @@ const deserializeAws_restJson1InvalidClientExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1NotAuthorizedExceptionRes
+ */
+const de_NotAuthorizedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
@@ -257,7 +287,10 @@ const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -273,7 +306,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1SessionExpiredExceptionResponse = async (
+/**
+ * deserializeAws_restJson1SessionExpiredExceptionRes
+ */
+const de_SessionExpiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SessionExpiredException> => {
@@ -289,28 +325,37 @@ const deserializeAws_restJson1SessionExpiredExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1IceServer = (output: any, context: __SerdeContext): IceServer => {
+/**
+ * deserializeAws_restJson1IceServer
+ */
+const de_IceServer = (output: any, context: __SerdeContext): IceServer => {
   return {
     Password: __expectString(output.Password),
     Ttl: __expectInt32(output.Ttl),
-    Uris: output.Uris != null ? deserializeAws_restJson1Uris(output.Uris, context) : undefined,
+    Uris: output.Uris != null ? de_Uris(output.Uris, context) : undefined,
     Username: __expectString(output.Username),
   } as any;
 };
 
-const deserializeAws_restJson1IceServerList = (output: any, context: __SerdeContext): IceServer[] => {
+/**
+ * deserializeAws_restJson1IceServerList
+ */
+const de_IceServerList = (output: any, context: __SerdeContext): IceServer[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1IceServer(entry, context);
+      return de_IceServer(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Uris = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1Uris
+ */
+const de_Uris = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

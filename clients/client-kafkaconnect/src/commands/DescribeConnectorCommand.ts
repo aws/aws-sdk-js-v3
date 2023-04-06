@@ -19,10 +19,7 @@ import {
   DescribeConnectorResponse,
   DescribeConnectorResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeConnectorCommand,
-  serializeAws_restJson1DescribeConnectorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeConnectorCommand, se_DescribeConnectorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class DescribeConnectorCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeConnectorCommand(input, context);
+    return se_DescribeConnectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectorCommandOutput> {
-    return deserializeAws_restJson1DescribeConnectorCommand(output, context);
+    return de_DescribeConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDocumentRequest, GetDocumentResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDocumentCommand,
-  serializeAws_json1_1GetDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDocumentCommand, se_GetDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -130,14 +127,14 @@ export class GetDocumentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDocumentCommand(input, context);
+    return se_GetDocumentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentCommandOutput> {
-    return deserializeAws_json1_1GetDocumentCommand(output, context);
+    return de_GetDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

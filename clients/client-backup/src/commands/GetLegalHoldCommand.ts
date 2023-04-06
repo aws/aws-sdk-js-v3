@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { GetLegalHoldInput, GetLegalHoldOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLegalHoldCommand,
-  serializeAws_restJson1GetLegalHoldCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLegalHoldCommand, se_GetLegalHoldCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetLegalHoldCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLegalHoldCommand(input, context);
+    return se_GetLegalHoldCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLegalHoldCommandOutput> {
-    return deserializeAws_restJson1GetLegalHoldCommand(output, context);
+    return de_GetLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

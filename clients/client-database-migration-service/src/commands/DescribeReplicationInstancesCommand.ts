@@ -20,8 +20,8 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { DescribeReplicationInstancesMessage, DescribeReplicationInstancesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeReplicationInstancesCommand,
-  serializeAws_json1_1DescribeReplicationInstancesCommand,
+  de_DescribeReplicationInstancesCommand,
+  se_DescribeReplicationInstancesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -166,7 +166,7 @@ export class DescribeReplicationInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeReplicationInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationInstancesCommand(input, context);
+    return se_DescribeReplicationInstancesCommand(input, context);
   }
 
   /**
@@ -176,7 +176,7 @@ export class DescribeReplicationInstancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationInstancesCommand(output, context);
+    return de_DescribeReplicationInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

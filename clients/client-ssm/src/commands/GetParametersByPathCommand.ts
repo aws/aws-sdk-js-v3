@@ -18,10 +18,7 @@ import {
   GetParametersByPathResult,
   GetParametersByPathResultFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetParametersByPathCommand,
-  serializeAws_json1_1GetParametersByPathCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetParametersByPathCommand, se_GetParametersByPathCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -162,14 +159,14 @@ export class GetParametersByPathCommand extends $Command<
    * @internal
    */
   private serialize(input: GetParametersByPathCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetParametersByPathCommand(input, context);
+    return se_GetParametersByPathCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetParametersByPathCommandOutput> {
-    return deserializeAws_json1_1GetParametersByPathCommand(output, context);
+    return de_GetParametersByPathCommand(output, context);
   }
 
   // Start section: command_body_extra

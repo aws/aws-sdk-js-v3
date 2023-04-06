@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListApprovedOriginsRequest, ListApprovedOriginsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListApprovedOriginsCommand,
-  serializeAws_restJson1ListApprovedOriginsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListApprovedOriginsCommand, se_ListApprovedOriginsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListApprovedOriginsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListApprovedOriginsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApprovedOriginsCommand(input, context);
+    return se_ListApprovedOriginsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApprovedOriginsCommandOutput> {
-    return deserializeAws_restJson1ListApprovedOriginsCommand(output, context);
+    return de_ListApprovedOriginsCommand(output, context);
   }
 
   // Start section: command_body_extra

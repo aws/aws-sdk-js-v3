@@ -16,8 +16,8 @@ import {
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { DeleteDistributionConfigurationRequest, DeleteDistributionConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteDistributionConfigurationCommand,
-  serializeAws_restJson1DeleteDistributionConfigurationCommand,
+  de_DeleteDistributionConfigurationCommand,
+  se_DeleteDistributionConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -150,7 +150,7 @@ export class DeleteDistributionConfigurationCommand extends $Command<
     input: DeleteDistributionConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDistributionConfigurationCommand(input, context);
+    return se_DeleteDistributionConfigurationCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DeleteDistributionConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDistributionConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteDistributionConfigurationCommand(output, context);
+    return de_DeleteDistributionConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

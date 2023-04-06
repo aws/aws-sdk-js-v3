@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlListsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryXmlEmptyListsCommand,
-  serializeAws_queryXmlEmptyListsCommand,
-} from "../protocols/Aws_query";
+import { de_XmlEmptyListsCommand, se_XmlEmptyListsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class XmlEmptyListsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlEmptyListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryXmlEmptyListsCommand(input, context);
+    return se_XmlEmptyListsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyListsCommandOutput> {
-    return deserializeAws_queryXmlEmptyListsCommand(output, context);
+    return de_XmlEmptyListsCommand(output, context);
   }
 
   // Start section: command_body_extra

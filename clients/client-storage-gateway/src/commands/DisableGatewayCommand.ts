@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisableGatewayInput, DisableGatewayOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableGatewayCommand,
-  serializeAws_json1_1DisableGatewayCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableGatewayCommand, se_DisableGatewayCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -152,14 +149,14 @@ export class DisableGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableGatewayCommand(input, context);
+    return se_DisableGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableGatewayCommandOutput> {
-    return deserializeAws_json1_1DisableGatewayCommand(output, context);
+    return de_DisableGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

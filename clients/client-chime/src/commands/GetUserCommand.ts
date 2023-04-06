@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { GetUserRequest, GetUserResponse, GetUserResponseFilterSensitiveLog } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetUserCommand,
-  serializeAws_restJson1GetUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUserCommand, se_GetUserCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
    * @internal
    */
   private serialize(input: GetUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUserCommand(input, context);
+    return se_GetUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserCommandOutput> {
-    return deserializeAws_restJson1GetUserCommand(output, context);
+    return de_GetUserCommand(output, context);
   }
 
   // Start section: command_body_extra

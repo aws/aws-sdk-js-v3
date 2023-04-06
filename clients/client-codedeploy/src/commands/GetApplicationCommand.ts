@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { GetApplicationInput, GetApplicationOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetApplicationCommand,
-  serializeAws_json1_1GetApplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetApplicationCommand, se_GetApplicationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetApplicationCommand(input, context);
+    return se_GetApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationCommandOutput> {
-    return deserializeAws_json1_1GetApplicationCommand(output, context);
+    return de_GetApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

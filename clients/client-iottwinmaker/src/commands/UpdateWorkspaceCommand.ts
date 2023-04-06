@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { UpdateWorkspaceRequest, UpdateWorkspaceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkspaceCommand,
-  serializeAws_restJson1UpdateWorkspaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateWorkspaceCommand, se_UpdateWorkspaceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class UpdateWorkspaceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkspaceCommand(input, context);
+    return se_UpdateWorkspaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkspaceCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkspaceCommand(output, context);
+    return de_UpdateWorkspaceCommand(output, context);
   }
 
   // Start section: command_body_extra

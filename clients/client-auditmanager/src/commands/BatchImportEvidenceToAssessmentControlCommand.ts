@@ -19,8 +19,8 @@ import {
   BatchImportEvidenceToAssessmentControlResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand,
-  serializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand,
+  de_BatchImportEvidenceToAssessmentControlCommand,
+  se_BatchImportEvidenceToAssessmentControlCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -171,7 +171,7 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
     input: BatchImportEvidenceToAssessmentControlCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand(input, context);
+    return se_BatchImportEvidenceToAssessmentControlCommand(input, context);
   }
 
   /**
@@ -181,7 +181,7 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchImportEvidenceToAssessmentControlCommandOutput> {
-    return deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand(output, context);
+    return de_BatchImportEvidenceToAssessmentControlCommand(output, context);
   }
 
   // Start section: command_body_extra

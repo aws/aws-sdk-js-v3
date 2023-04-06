@@ -20,10 +20,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { ListUserImportJobsRequest, ListUserImportJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListUserImportJobsCommand,
-  serializeAws_json1_1ListUserImportJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListUserImportJobsCommand, se_ListUserImportJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class ListUserImportJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUserImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUserImportJobsCommand(input, context);
+    return se_ListUserImportJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserImportJobsCommandOutput> {
-    return deserializeAws_json1_1ListUserImportJobsCommand(output, context);
+    return de_ListUserImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

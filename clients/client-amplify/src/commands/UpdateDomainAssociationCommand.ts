@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { UpdateDomainAssociationRequest, UpdateDomainAssociationResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDomainAssociationCommand,
-  serializeAws_restJson1UpdateDomainAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDomainAssociationCommand, se_UpdateDomainAssociationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateDomainAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDomainAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDomainAssociationCommand(input, context);
+    return se_UpdateDomainAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainAssociationCommandOutput> {
-    return deserializeAws_restJson1UpdateDomainAssociationCommand(output, context);
+    return de_UpdateDomainAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

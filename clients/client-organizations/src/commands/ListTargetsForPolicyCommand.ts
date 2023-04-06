@@ -15,10 +15,7 @@ import {
 
 import { ListTargetsForPolicyRequest, ListTargetsForPolicyResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1ListTargetsForPolicyCommand,
-  serializeAws_json1_1ListTargetsForPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTargetsForPolicyCommand, se_ListTargetsForPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -300,14 +297,14 @@ export class ListTargetsForPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTargetsForPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTargetsForPolicyCommand(input, context);
+    return se_ListTargetsForPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsForPolicyCommandOutput> {
-    return deserializeAws_json1_1ListTargetsForPolicyCommand(output, context);
+    return de_ListTargetsForPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

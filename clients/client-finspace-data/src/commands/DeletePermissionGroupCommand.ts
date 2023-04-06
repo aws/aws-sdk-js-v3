@@ -15,10 +15,7 @@ import {
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { DeletePermissionGroupRequest, DeletePermissionGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeletePermissionGroupCommand,
-  serializeAws_restJson1DeletePermissionGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeletePermissionGroupCommand, se_DeletePermissionGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DeletePermissionGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePermissionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeletePermissionGroupCommand(input, context);
+    return se_DeletePermissionGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionGroupCommandOutput> {
-    return deserializeAws_restJson1DeletePermissionGroupCommand(output, context);
+    return de_DeletePermissionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateIPSetRequest, CreateIPSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateIPSetCommand,
-  serializeAws_json1_1CreateIPSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateIPSetCommand, se_CreateIPSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -236,14 +233,14 @@ export class CreateIPSetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateIPSetCommand(input, context);
+    return se_CreateIPSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIPSetCommandOutput> {
-    return deserializeAws_json1_1CreateIPSetCommand(output, context);
+    return de_CreateIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

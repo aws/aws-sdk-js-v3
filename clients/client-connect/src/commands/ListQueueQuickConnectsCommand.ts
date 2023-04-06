@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { ListQueueQuickConnectsRequest, ListQueueQuickConnectsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListQueueQuickConnectsCommand,
-  serializeAws_restJson1ListQueueQuickConnectsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListQueueQuickConnectsCommand, se_ListQueueQuickConnectsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListQueueQuickConnectsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListQueueQuickConnectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListQueueQuickConnectsCommand(input, context);
+    return se_ListQueueQuickConnectsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueueQuickConnectsCommandOutput> {
-    return deserializeAws_restJson1ListQueueQuickConnectsCommand(output, context);
+    return de_ListQueueQuickConnectsCommand(output, context);
   }
 
   // Start section: command_body_extra

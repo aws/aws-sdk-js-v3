@@ -15,10 +15,7 @@ import {
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { DeleteBudgetRequest, DeleteBudgetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteBudgetCommand,
-  serializeAws_json1_1DeleteBudgetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteBudgetCommand, se_DeleteBudgetCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteBudgetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBudgetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBudgetCommand(input, context);
+    return se_DeleteBudgetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBudgetCommandOutput> {
-    return deserializeAws_json1_1DeleteBudgetCommand(output, context);
+    return de_DeleteBudgetCommand(output, context);
   }
 
   // Start section: command_body_extra

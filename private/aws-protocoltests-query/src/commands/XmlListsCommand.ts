@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlListsOutput } from "../models/models_0";
-import { deserializeAws_queryXmlListsCommand, serializeAws_queryXmlListsCommand } from "../protocols/Aws_query";
+import { de_XmlListsCommand, se_XmlListsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -111,14 +111,14 @@ export class XmlListsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryXmlListsCommand(input, context);
+    return se_XmlListsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlListsCommandOutput> {
-    return deserializeAws_queryXmlListsCommand(output, context);
+    return de_XmlListsCommand(output, context);
   }
 
   // Start section: command_body_extra

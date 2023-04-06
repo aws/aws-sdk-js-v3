@@ -16,8 +16,8 @@ import {
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { DeleteVpcPeeringAuthorizationInput, DeleteVpcPeeringAuthorizationOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommand,
-  serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand,
+  de_DeleteVpcPeeringAuthorizationCommand,
+  se_DeleteVpcPeeringAuthorizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -144,7 +144,7 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVpcPeeringAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(input, context);
+    return se_DeleteVpcPeeringAuthorizationCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcPeeringAuthorizationCommandOutput> {
-    return deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(output, context);
+    return de_DeleteVpcPeeringAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteDevEndpointRequest, DeleteDevEndpointResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteDevEndpointCommand,
-  serializeAws_json1_1DeleteDevEndpointCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDevEndpointCommand, se_DeleteDevEndpointCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DeleteDevEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDevEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDevEndpointCommand(input, context);
+    return se_DeleteDevEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDevEndpointCommandOutput> {
-    return deserializeAws_json1_1DeleteDevEndpointCommand(output, context);
+    return de_DeleteDevEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

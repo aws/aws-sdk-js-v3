@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyTransitGatewayRequest, ModifyTransitGatewayResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyTransitGatewayCommand,
-  serializeAws_ec2ModifyTransitGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyTransitGatewayCommand, se_ModifyTransitGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ModifyTransitGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyTransitGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyTransitGatewayCommand(input, context);
+    return se_ModifyTransitGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyTransitGatewayCommandOutput> {
-    return deserializeAws_ec2ModifyTransitGatewayCommand(output, context);
+    return de_ModifyTransitGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

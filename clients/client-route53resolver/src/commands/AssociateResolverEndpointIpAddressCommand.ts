@@ -18,8 +18,8 @@ import {
   AssociateResolverEndpointIpAddressResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand,
-  serializeAws_json1_1AssociateResolverEndpointIpAddressCommand,
+  de_AssociateResolverEndpointIpAddressCommand,
+  se_AssociateResolverEndpointIpAddressCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
@@ -159,7 +159,7 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command<
     input: AssociateResolverEndpointIpAddressCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateResolverEndpointIpAddressCommand(input, context);
+    return se_AssociateResolverEndpointIpAddressCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateResolverEndpointIpAddressCommandOutput> {
-    return deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand(output, context);
+    return de_AssociateResolverEndpointIpAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

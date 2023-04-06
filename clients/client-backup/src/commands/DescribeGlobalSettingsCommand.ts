@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DescribeGlobalSettingsInput, DescribeGlobalSettingsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeGlobalSettingsCommand,
-  serializeAws_restJson1DescribeGlobalSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeGlobalSettingsCommand, se_DescribeGlobalSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DescribeGlobalSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeGlobalSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeGlobalSettingsCommand(input, context);
+    return se_DescribeGlobalSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalSettingsCommandOutput> {
-    return deserializeAws_restJson1DescribeGlobalSettingsCommand(output, context);
+    return de_DescribeGlobalSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

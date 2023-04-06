@@ -15,10 +15,7 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { DeleteEventDataStoreRequest, DeleteEventDataStoreResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEventDataStoreCommand,
-  serializeAws_json1_1DeleteEventDataStoreCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEventDataStoreCommand, se_DeleteEventDataStoreCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -174,14 +171,14 @@ export class DeleteEventDataStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEventDataStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEventDataStoreCommand(input, context);
+    return se_DeleteEventDataStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventDataStoreCommandOutput> {
-    return deserializeAws_json1_1DeleteEventDataStoreCommand(output, context);
+    return de_DeleteEventDataStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

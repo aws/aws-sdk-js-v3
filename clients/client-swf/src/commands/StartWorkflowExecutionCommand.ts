@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Run, StartWorkflowExecutionInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0StartWorkflowExecutionCommand,
-  serializeAws_json1_0StartWorkflowExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_StartWorkflowExecutionCommand, se_StartWorkflowExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -231,14 +228,14 @@ export class StartWorkflowExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StartWorkflowExecutionCommand(input, context);
+    return se_StartWorkflowExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0StartWorkflowExecutionCommand(output, context);
+    return de_StartWorkflowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

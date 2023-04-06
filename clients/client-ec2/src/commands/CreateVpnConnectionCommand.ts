@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateVpnConnectionRequest, CreateVpnConnectionResult } from "../models/models_2";
-import {
-  deserializeAws_ec2CreateVpnConnectionCommand,
-  serializeAws_ec2CreateVpnConnectionCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateVpnConnectionCommand, se_CreateVpnConnectionCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -220,14 +217,14 @@ export class CreateVpnConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVpnConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVpnConnectionCommand(input, context);
+    return se_CreateVpnConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVpnConnectionCommandOutput> {
-    return deserializeAws_ec2CreateVpnConnectionCommand(output, context);
+    return de_CreateVpnConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

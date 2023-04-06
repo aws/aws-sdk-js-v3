@@ -15,8 +15,8 @@ import {
 
 import { DescribeNodeConfigurationOptionsMessage, NodeConfigurationOptionsMessage } from "../models/models_1";
 import {
-  deserializeAws_queryDescribeNodeConfigurationOptionsCommand,
-  serializeAws_queryDescribeNodeConfigurationOptionsCommand,
+  de_DescribeNodeConfigurationOptionsCommand,
+  se_DescribeNodeConfigurationOptionsCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -159,7 +159,7 @@ export class DescribeNodeConfigurationOptionsCommand extends $Command<
     input: DescribeNodeConfigurationOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeNodeConfigurationOptionsCommand(input, context);
+    return se_DescribeNodeConfigurationOptionsCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class DescribeNodeConfigurationOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNodeConfigurationOptionsCommandOutput> {
-    return deserializeAws_queryDescribeNodeConfigurationOptionsCommand(output, context);
+    return de_DescribeNodeConfigurationOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

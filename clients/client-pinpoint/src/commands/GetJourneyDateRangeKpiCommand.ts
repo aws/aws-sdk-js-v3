@@ -15,10 +15,7 @@ import {
 
 import { GetJourneyDateRangeKpiRequest, GetJourneyDateRangeKpiResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetJourneyDateRangeKpiCommand,
-  serializeAws_restJson1GetJourneyDateRangeKpiCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetJourneyDateRangeKpiCommand, se_GetJourneyDateRangeKpiCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
    * @internal
    */
   private serialize(input: GetJourneyDateRangeKpiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJourneyDateRangeKpiCommand(input, context);
+    return se_GetJourneyDateRangeKpiCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJourneyDateRangeKpiCommandOutput> {
-    return deserializeAws_restJson1GetJourneyDateRangeKpiCommand(output, context);
+    return de_GetJourneyDateRangeKpiCommand(output, context);
   }
 
   // Start section: command_body_extra

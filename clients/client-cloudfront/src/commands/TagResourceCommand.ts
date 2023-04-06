@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { TagResourceRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlTagResourceCommand,
-  serializeAws_restXmlTagResourceCommand,
-} from "../protocols/Aws_restXml";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class TagResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlTagResourceCommand(input, context);
+    return se_TagResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_restXmlTagResourceCommand(output, context);
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { UpdateResourceEventConfigurationRequest, UpdateResourceEventConfigurationResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateResourceEventConfigurationCommand,
-  serializeAws_restJson1UpdateResourceEventConfigurationCommand,
+  de_UpdateResourceEventConfigurationCommand,
+  se_UpdateResourceEventConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -175,7 +175,7 @@ export class UpdateResourceEventConfigurationCommand extends $Command<
     input: UpdateResourceEventConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateResourceEventConfigurationCommand(input, context);
+    return se_UpdateResourceEventConfigurationCommand(input, context);
   }
 
   /**
@@ -185,7 +185,7 @@ export class UpdateResourceEventConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateResourceEventConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateResourceEventConfigurationCommand(output, context);
+    return de_UpdateResourceEventConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

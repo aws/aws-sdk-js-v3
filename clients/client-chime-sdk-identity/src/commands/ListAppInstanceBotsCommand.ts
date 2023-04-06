@@ -20,10 +20,7 @@ import {
   ListAppInstanceBotsResponse,
   ListAppInstanceBotsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAppInstanceBotsCommand,
-  serializeAws_restJson1ListAppInstanceBotsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAppInstanceBotsCommand, se_ListAppInstanceBotsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListAppInstanceBotsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAppInstanceBotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppInstanceBotsCommand(input, context);
+    return se_ListAppInstanceBotsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppInstanceBotsCommandOutput> {
-    return deserializeAws_restJson1ListAppInstanceBotsCommand(output, context);
+    return de_ListAppInstanceBotsCommand(output, context);
   }
 
   // Start section: command_body_extra

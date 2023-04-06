@@ -19,8 +19,8 @@ import {
   ModifyVpcEndpointServicePayerResponsibilityResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand,
-  serializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand,
+  de_ModifyVpcEndpointServicePayerResponsibilityCommand,
+  se_ModifyVpcEndpointServicePayerResponsibilityCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -137,7 +137,7 @@ export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command
     input: ModifyVpcEndpointServicePayerResponsibilityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand(input, context);
+    return se_ModifyVpcEndpointServicePayerResponsibilityCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class ModifyVpcEndpointServicePayerResponsibilityCommand extends $Command
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcEndpointServicePayerResponsibilityCommandOutput> {
-    return deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand(output, context);
+    return de_ModifyVpcEndpointServicePayerResponsibilityCommand(output, context);
   }
 
   // Start section: command_body_extra

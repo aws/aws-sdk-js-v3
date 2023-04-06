@@ -18,10 +18,7 @@ import {
   CreateAnalysisRequestFilterSensitiveLog,
   CreateAnalysisResponse,
 } from "../models/models_2";
-import {
-  deserializeAws_restJson1CreateAnalysisCommand,
-  serializeAws_restJson1CreateAnalysisCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAnalysisCommand, se_CreateAnalysisCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -4430,14 +4427,14 @@ export class CreateAnalysisCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAnalysisCommand(input, context);
+    return se_CreateAnalysisCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAnalysisCommandOutput> {
-    return deserializeAws_restJson1CreateAnalysisCommand(output, context);
+    return de_CreateAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

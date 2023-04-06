@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListProtectionGroupsRequest, ListProtectionGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProtectionGroupsCommand,
-  serializeAws_json1_1ListProtectionGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListProtectionGroupsCommand, se_ListProtectionGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -145,14 +142,14 @@ export class ListProtectionGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProtectionGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProtectionGroupsCommand(input, context);
+    return se_ListProtectionGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectionGroupsCommandOutput> {
-    return deserializeAws_json1_1ListProtectionGroupsCommand(output, context);
+    return de_ListProtectionGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

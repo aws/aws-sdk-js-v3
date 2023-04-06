@@ -135,7 +135,10 @@ import {
   VpcInterfaceRequest,
 } from "../models/models_0";
 
-export const serializeAws_restJson1AddFlowMediaStreamsCommand = async (
+/**
+ * serializeAws_restJson1AddFlowMediaStreamsCommand
+ */
+export const se_AddFlowMediaStreamsCommand = async (
   input: AddFlowMediaStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -148,9 +151,7 @@ export const serializeAws_restJson1AddFlowMediaStreamsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.MediaStreams != null && {
-      mediaStreams: serializeAws_restJson1__listOfAddMediaStreamRequest(input.MediaStreams, context),
-    }),
+    ...(input.MediaStreams != null && { mediaStreams: se___listOfAddMediaStreamRequest(input.MediaStreams, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -163,7 +164,10 @@ export const serializeAws_restJson1AddFlowMediaStreamsCommand = async (
   });
 };
 
-export const serializeAws_restJson1AddFlowOutputsCommand = async (
+/**
+ * serializeAws_restJson1AddFlowOutputsCommand
+ */
+export const se_AddFlowOutputsCommand = async (
   input: AddFlowOutputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -176,7 +180,7 @@ export const serializeAws_restJson1AddFlowOutputsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Outputs != null && { outputs: serializeAws_restJson1__listOfAddOutputRequest(input.Outputs, context) }),
+    ...(input.Outputs != null && { outputs: se___listOfAddOutputRequest(input.Outputs, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -189,7 +193,10 @@ export const serializeAws_restJson1AddFlowOutputsCommand = async (
   });
 };
 
-export const serializeAws_restJson1AddFlowSourcesCommand = async (
+/**
+ * serializeAws_restJson1AddFlowSourcesCommand
+ */
+export const se_AddFlowSourcesCommand = async (
   input: AddFlowSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -202,7 +209,7 @@ export const serializeAws_restJson1AddFlowSourcesCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Sources != null && { sources: serializeAws_restJson1__listOfSetSourceRequest(input.Sources, context) }),
+    ...(input.Sources != null && { sources: se___listOfSetSourceRequest(input.Sources, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -215,7 +222,10 @@ export const serializeAws_restJson1AddFlowSourcesCommand = async (
   });
 };
 
-export const serializeAws_restJson1AddFlowVpcInterfacesCommand = async (
+/**
+ * serializeAws_restJson1AddFlowVpcInterfacesCommand
+ */
+export const se_AddFlowVpcInterfacesCommand = async (
   input: AddFlowVpcInterfacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -228,9 +238,7 @@ export const serializeAws_restJson1AddFlowVpcInterfacesCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.VpcInterfaces != null && {
-      vpcInterfaces: serializeAws_restJson1__listOfVpcInterfaceRequest(input.VpcInterfaces, context),
-    }),
+    ...(input.VpcInterfaces != null && { vpcInterfaces: se___listOfVpcInterfaceRequest(input.VpcInterfaces, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -243,7 +251,10 @@ export const serializeAws_restJson1AddFlowVpcInterfacesCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateFlowCommand = async (
+/**
+ * serializeAws_restJson1CreateFlowCommand
+ */
+export const se_CreateFlowCommand = async (
   input: CreateFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -256,22 +267,18 @@ export const serializeAws_restJson1CreateFlowCommand = async (
   body = JSON.stringify({
     ...(input.AvailabilityZone != null && { availabilityZone: input.AvailabilityZone }),
     ...(input.Entitlements != null && {
-      entitlements: serializeAws_restJson1__listOfGrantEntitlementRequest(input.Entitlements, context),
+      entitlements: se___listOfGrantEntitlementRequest(input.Entitlements, context),
     }),
-    ...(input.Maintenance != null && { maintenance: serializeAws_restJson1AddMaintenance(input.Maintenance, context) }),
-    ...(input.MediaStreams != null && {
-      mediaStreams: serializeAws_restJson1__listOfAddMediaStreamRequest(input.MediaStreams, context),
-    }),
+    ...(input.Maintenance != null && { maintenance: se_AddMaintenance(input.Maintenance, context) }),
+    ...(input.MediaStreams != null && { mediaStreams: se___listOfAddMediaStreamRequest(input.MediaStreams, context) }),
     ...(input.Name != null && { name: input.Name }),
-    ...(input.Outputs != null && { outputs: serializeAws_restJson1__listOfAddOutputRequest(input.Outputs, context) }),
-    ...(input.Source != null && { source: serializeAws_restJson1SetSourceRequest(input.Source, context) }),
+    ...(input.Outputs != null && { outputs: se___listOfAddOutputRequest(input.Outputs, context) }),
+    ...(input.Source != null && { source: se_SetSourceRequest(input.Source, context) }),
     ...(input.SourceFailoverConfig != null && {
-      sourceFailoverConfig: serializeAws_restJson1FailoverConfig(input.SourceFailoverConfig, context),
+      sourceFailoverConfig: se_FailoverConfig(input.SourceFailoverConfig, context),
     }),
-    ...(input.Sources != null && { sources: serializeAws_restJson1__listOfSetSourceRequest(input.Sources, context) }),
-    ...(input.VpcInterfaces != null && {
-      vpcInterfaces: serializeAws_restJson1__listOfVpcInterfaceRequest(input.VpcInterfaces, context),
-    }),
+    ...(input.Sources != null && { sources: se___listOfSetSourceRequest(input.Sources, context) }),
+    ...(input.VpcInterfaces != null && { vpcInterfaces: se___listOfVpcInterfaceRequest(input.VpcInterfaces, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -284,7 +291,10 @@ export const serializeAws_restJson1CreateFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteFlowCommand = async (
+/**
+ * serializeAws_restJson1DeleteFlowCommand
+ */
+export const se_DeleteFlowCommand = async (
   input: DeleteFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -304,7 +314,10 @@ export const serializeAws_restJson1DeleteFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeFlowCommand = async (
+/**
+ * serializeAws_restJson1DescribeFlowCommand
+ */
+export const se_DescribeFlowCommand = async (
   input: DescribeFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -324,7 +337,10 @@ export const serializeAws_restJson1DescribeFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeOfferingCommand = async (
+/**
+ * serializeAws_restJson1DescribeOfferingCommand
+ */
+export const se_DescribeOfferingCommand = async (
   input: DescribeOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -345,7 +361,10 @@ export const serializeAws_restJson1DescribeOfferingCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeReservationCommand = async (
+/**
+ * serializeAws_restJson1DescribeReservationCommand
+ */
+export const se_DescribeReservationCommand = async (
   input: DescribeReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -373,7 +392,10 @@ export const serializeAws_restJson1DescribeReservationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GrantFlowEntitlementsCommand = async (
+/**
+ * serializeAws_restJson1GrantFlowEntitlementsCommand
+ */
+export const se_GrantFlowEntitlementsCommand = async (
   input: GrantFlowEntitlementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -387,7 +409,7 @@ export const serializeAws_restJson1GrantFlowEntitlementsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Entitlements != null && {
-      entitlements: serializeAws_restJson1__listOfGrantEntitlementRequest(input.Entitlements, context),
+      entitlements: se___listOfGrantEntitlementRequest(input.Entitlements, context),
     }),
   });
   return new __HttpRequest({
@@ -401,7 +423,10 @@ export const serializeAws_restJson1GrantFlowEntitlementsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListEntitlementsCommand = async (
+/**
+ * serializeAws_restJson1ListEntitlementsCommand
+ */
+export const se_ListEntitlementsCommand = async (
   input: ListEntitlementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -425,7 +450,10 @@ export const serializeAws_restJson1ListEntitlementsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListFlowsCommand = async (
+/**
+ * serializeAws_restJson1ListFlowsCommand
+ */
+export const se_ListFlowsCommand = async (
   input: ListFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -449,7 +477,10 @@ export const serializeAws_restJson1ListFlowsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListOfferingsCommand = async (
+/**
+ * serializeAws_restJson1ListOfferingsCommand
+ */
+export const se_ListOfferingsCommand = async (
   input: ListOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -473,7 +504,10 @@ export const serializeAws_restJson1ListOfferingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListReservationsCommand = async (
+/**
+ * serializeAws_restJson1ListReservationsCommand
+ */
+export const se_ListReservationsCommand = async (
   input: ListReservationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -497,7 +531,10 @@ export const serializeAws_restJson1ListReservationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -517,7 +554,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1PurchaseOfferingCommand = async (
+/**
+ * serializeAws_restJson1PurchaseOfferingCommand
+ */
+export const se_PurchaseOfferingCommand = async (
   input: PurchaseOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -544,7 +584,10 @@ export const serializeAws_restJson1PurchaseOfferingCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveFlowMediaStreamCommand = async (
+/**
+ * serializeAws_restJson1RemoveFlowMediaStreamCommand
+ */
+export const se_RemoveFlowMediaStreamCommand = async (
   input: RemoveFlowMediaStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -574,7 +617,10 @@ export const serializeAws_restJson1RemoveFlowMediaStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveFlowOutputCommand = async (
+/**
+ * serializeAws_restJson1RemoveFlowOutputCommand
+ */
+export const se_RemoveFlowOutputCommand = async (
   input: RemoveFlowOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -596,7 +642,10 @@ export const serializeAws_restJson1RemoveFlowOutputCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveFlowSourceCommand = async (
+/**
+ * serializeAws_restJson1RemoveFlowSourceCommand
+ */
+export const se_RemoveFlowSourceCommand = async (
   input: RemoveFlowSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -618,7 +667,10 @@ export const serializeAws_restJson1RemoveFlowSourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveFlowVpcInterfaceCommand = async (
+/**
+ * serializeAws_restJson1RemoveFlowVpcInterfaceCommand
+ */
+export const se_RemoveFlowVpcInterfaceCommand = async (
   input: RemoveFlowVpcInterfaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -648,7 +700,10 @@ export const serializeAws_restJson1RemoveFlowVpcInterfaceCommand = async (
   });
 };
 
-export const serializeAws_restJson1RevokeFlowEntitlementCommand = async (
+/**
+ * serializeAws_restJson1RevokeFlowEntitlementCommand
+ */
+export const se_RevokeFlowEntitlementCommand = async (
   input: RevokeFlowEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -678,7 +733,10 @@ export const serializeAws_restJson1RevokeFlowEntitlementCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartFlowCommand = async (
+/**
+ * serializeAws_restJson1StartFlowCommand
+ */
+export const se_StartFlowCommand = async (
   input: StartFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -699,7 +757,10 @@ export const serializeAws_restJson1StartFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopFlowCommand = async (
+/**
+ * serializeAws_restJson1StopFlowCommand
+ */
+export const se_StopFlowCommand = async (
   input: StopFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -719,7 +780,10 @@ export const serializeAws_restJson1StopFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -731,7 +795,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.Tags != null && { tags: se___mapOf__string(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -744,7 +808,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -771,7 +838,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFlowCommand = async (
+/**
+ * serializeAws_restJson1UpdateFlowCommand
+ */
+export const se_UpdateFlowCommand = async (
   input: UpdateFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -783,11 +853,9 @@ export const serializeAws_restJson1UpdateFlowCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Maintenance != null && {
-      maintenance: serializeAws_restJson1UpdateMaintenance(input.Maintenance, context),
-    }),
+    ...(input.Maintenance != null && { maintenance: se_UpdateMaintenance(input.Maintenance, context) }),
     ...(input.SourceFailoverConfig != null && {
-      sourceFailoverConfig: serializeAws_restJson1UpdateFailoverConfig(input.SourceFailoverConfig, context),
+      sourceFailoverConfig: se_UpdateFailoverConfig(input.SourceFailoverConfig, context),
     }),
   });
   return new __HttpRequest({
@@ -801,7 +869,10 @@ export const serializeAws_restJson1UpdateFlowCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFlowEntitlementCommand = async (
+/**
+ * serializeAws_restJson1UpdateFlowEntitlementCommand
+ */
+export const se_UpdateFlowEntitlementCommand = async (
   input: UpdateFlowEntitlementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -824,11 +895,9 @@ export const serializeAws_restJson1UpdateFlowEntitlementCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description != null && { description: input.Description }),
-    ...(input.Encryption != null && { encryption: serializeAws_restJson1UpdateEncryption(input.Encryption, context) }),
+    ...(input.Encryption != null && { encryption: se_UpdateEncryption(input.Encryption, context) }),
     ...(input.EntitlementStatus != null && { entitlementStatus: input.EntitlementStatus }),
-    ...(input.Subscribers != null && {
-      subscribers: serializeAws_restJson1__listOf__string(input.Subscribers, context),
-    }),
+    ...(input.Subscribers != null && { subscribers: se___listOf__string(input.Subscribers, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -841,7 +910,10 @@ export const serializeAws_restJson1UpdateFlowEntitlementCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFlowMediaStreamCommand = async (
+/**
+ * serializeAws_restJson1UpdateFlowMediaStreamCommand
+ */
+export const se_UpdateFlowMediaStreamCommand = async (
   input: UpdateFlowMediaStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -863,9 +935,7 @@ export const serializeAws_restJson1UpdateFlowMediaStreamCommand = async (
   );
   let body: any;
   body = JSON.stringify({
-    ...(input.Attributes != null && {
-      attributes: serializeAws_restJson1MediaStreamAttributesRequest(input.Attributes, context),
-    }),
+    ...(input.Attributes != null && { attributes: se_MediaStreamAttributesRequest(input.Attributes, context) }),
     ...(input.ClockRate != null && { clockRate: input.ClockRate }),
     ...(input.Description != null && { description: input.Description }),
     ...(input.MediaStreamType != null && { mediaStreamType: input.MediaStreamType }),
@@ -882,7 +952,10 @@ export const serializeAws_restJson1UpdateFlowMediaStreamCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFlowOutputCommand = async (
+/**
+ * serializeAws_restJson1UpdateFlowOutputCommand
+ */
+export const se_UpdateFlowOutputCommand = async (
   input: UpdateFlowOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -896,15 +969,13 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "OutputArn", () => input.OutputArn!, "{OutputArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.CidrAllowList != null && {
-      cidrAllowList: serializeAws_restJson1__listOf__string(input.CidrAllowList, context),
-    }),
+    ...(input.CidrAllowList != null && { cidrAllowList: se___listOf__string(input.CidrAllowList, context) }),
     ...(input.Description != null && { description: input.Description }),
     ...(input.Destination != null && { destination: input.Destination }),
-    ...(input.Encryption != null && { encryption: serializeAws_restJson1UpdateEncryption(input.Encryption, context) }),
+    ...(input.Encryption != null && { encryption: se_UpdateEncryption(input.Encryption, context) }),
     ...(input.MaxLatency != null && { maxLatency: input.MaxLatency }),
     ...(input.MediaStreamOutputConfigurations != null && {
-      mediaStreamOutputConfigurations: serializeAws_restJson1__listOfMediaStreamOutputConfigurationRequest(
+      mediaStreamOutputConfigurations: se___listOfMediaStreamOutputConfigurationRequest(
         input.MediaStreamOutputConfigurations,
         context
       ),
@@ -918,7 +989,7 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
     ...(input.SmoothingLatency != null && { smoothingLatency: input.SmoothingLatency }),
     ...(input.StreamId != null && { streamId: input.StreamId }),
     ...(input.VpcInterfaceAttachment != null && {
-      vpcInterfaceAttachment: serializeAws_restJson1VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
+      vpcInterfaceAttachment: se_VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
     }),
   });
   return new __HttpRequest({
@@ -932,7 +1003,10 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFlowSourceCommand = async (
+/**
+ * serializeAws_restJson1UpdateFlowSourceCommand
+ */
+export const se_UpdateFlowSourceCommand = async (
   input: UpdateFlowSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -946,7 +1020,7 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "SourceArn", () => input.SourceArn!, "{SourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Decryption != null && { decryption: serializeAws_restJson1UpdateEncryption(input.Decryption, context) }),
+    ...(input.Decryption != null && { decryption: se_UpdateEncryption(input.Decryption, context) }),
     ...(input.Description != null && { description: input.Description }),
     ...(input.EntitlementArn != null && { entitlementArn: input.EntitlementArn }),
     ...(input.IngestPort != null && { ingestPort: input.IngestPort }),
@@ -954,7 +1028,7 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
     ...(input.MaxLatency != null && { maxLatency: input.MaxLatency }),
     ...(input.MaxSyncBuffer != null && { maxSyncBuffer: input.MaxSyncBuffer }),
     ...(input.MediaStreamSourceConfigurations != null && {
-      mediaStreamSourceConfigurations: serializeAws_restJson1__listOfMediaStreamSourceConfigurationRequest(
+      mediaStreamSourceConfigurations: se___listOfMediaStreamSourceConfigurationRequest(
         input.MediaStreamSourceConfigurations,
         context
       ),
@@ -980,12 +1054,15 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
   });
 };
 
-export const deserializeAws_restJson1AddFlowMediaStreamsCommand = async (
+/**
+ * deserializeAws_restJson1AddFlowMediaStreamsCommand
+ */
+export const de_AddFlowMediaStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowMediaStreamsCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AddFlowMediaStreamsCommandError(output, context);
+    return de_AddFlowMediaStreamsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -995,12 +1072,15 @@ export const deserializeAws_restJson1AddFlowMediaStreamsCommand = async (
     contents.FlowArn = __expectString(data.flowArn);
   }
   if (data.mediaStreams != null) {
-    contents.MediaStreams = deserializeAws_restJson1__listOfMediaStream(data.mediaStreams, context);
+    contents.MediaStreams = de___listOfMediaStream(data.mediaStreams, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1AddFlowMediaStreamsCommandError = async (
+/**
+ * deserializeAws_restJson1AddFlowMediaStreamsCommandError
+ */
+const de_AddFlowMediaStreamsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowMediaStreamsCommandOutput> => {
@@ -1012,22 +1092,22 @@ const deserializeAws_restJson1AddFlowMediaStreamsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1039,12 +1119,15 @@ const deserializeAws_restJson1AddFlowMediaStreamsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1AddFlowOutputsCommand = async (
+/**
+ * deserializeAws_restJson1AddFlowOutputsCommand
+ */
+export const de_AddFlowOutputsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowOutputsCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AddFlowOutputsCommandError(output, context);
+    return de_AddFlowOutputsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1054,12 +1137,15 @@ export const deserializeAws_restJson1AddFlowOutputsCommand = async (
     contents.FlowArn = __expectString(data.flowArn);
   }
   if (data.outputs != null) {
-    contents.Outputs = deserializeAws_restJson1__listOfOutput(data.outputs, context);
+    contents.Outputs = de___listOfOutput(data.outputs, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1AddFlowOutputsCommandError = async (
+/**
+ * deserializeAws_restJson1AddFlowOutputsCommandError
+ */
+const de_AddFlowOutputsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowOutputsCommandOutput> => {
@@ -1071,25 +1157,25 @@ const deserializeAws_restJson1AddFlowOutputsCommandError = async (
   switch (errorCode) {
     case "AddFlowOutputs420Exception":
     case "com.amazonaws.mediaconnect#AddFlowOutputs420Exception":
-      throw await deserializeAws_restJson1AddFlowOutputs420ExceptionResponse(parsedOutput, context);
+      throw await de_AddFlowOutputs420ExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1101,12 +1187,15 @@ const deserializeAws_restJson1AddFlowOutputsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1AddFlowSourcesCommand = async (
+/**
+ * deserializeAws_restJson1AddFlowSourcesCommand
+ */
+export const de_AddFlowSourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowSourcesCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AddFlowSourcesCommandError(output, context);
+    return de_AddFlowSourcesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1116,12 +1205,15 @@ export const deserializeAws_restJson1AddFlowSourcesCommand = async (
     contents.FlowArn = __expectString(data.flowArn);
   }
   if (data.sources != null) {
-    contents.Sources = deserializeAws_restJson1__listOfSource(data.sources, context);
+    contents.Sources = de___listOfSource(data.sources, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1AddFlowSourcesCommandError = async (
+/**
+ * deserializeAws_restJson1AddFlowSourcesCommandError
+ */
+const de_AddFlowSourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowSourcesCommandOutput> => {
@@ -1133,22 +1225,22 @@ const deserializeAws_restJson1AddFlowSourcesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1160,12 +1252,15 @@ const deserializeAws_restJson1AddFlowSourcesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1AddFlowVpcInterfacesCommand = async (
+/**
+ * deserializeAws_restJson1AddFlowVpcInterfacesCommand
+ */
+export const de_AddFlowVpcInterfacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowVpcInterfacesCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AddFlowVpcInterfacesCommandError(output, context);
+    return de_AddFlowVpcInterfacesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1175,12 +1270,15 @@ export const deserializeAws_restJson1AddFlowVpcInterfacesCommand = async (
     contents.FlowArn = __expectString(data.flowArn);
   }
   if (data.vpcInterfaces != null) {
-    contents.VpcInterfaces = deserializeAws_restJson1__listOfVpcInterface(data.vpcInterfaces, context);
+    contents.VpcInterfaces = de___listOfVpcInterface(data.vpcInterfaces, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1AddFlowVpcInterfacesCommandError = async (
+/**
+ * deserializeAws_restJson1AddFlowVpcInterfacesCommandError
+ */
+const de_AddFlowVpcInterfacesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowVpcInterfacesCommandOutput> => {
@@ -1192,22 +1290,22 @@ const deserializeAws_restJson1AddFlowVpcInterfacesCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1219,24 +1317,30 @@ const deserializeAws_restJson1AddFlowVpcInterfacesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateFlowCommand = async (
+/**
+ * deserializeAws_restJson1CreateFlowCommand
+ */
+export const de_CreateFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFlowCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateFlowCommandError(output, context);
+    return de_CreateFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.flow != null) {
-    contents.Flow = deserializeAws_restJson1Flow(data.flow, context);
+    contents.Flow = de_Flow(data.flow, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateFlowCommandError = async (
+/**
+ * deserializeAws_restJson1CreateFlowCommandError
+ */
+const de_CreateFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFlowCommandOutput> => {
@@ -1248,22 +1352,22 @@ const deserializeAws_restJson1CreateFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "CreateFlow420Exception":
     case "com.amazonaws.mediaconnect#CreateFlow420Exception":
-      throw await deserializeAws_restJson1CreateFlow420ExceptionResponse(parsedOutput, context);
+      throw await de_CreateFlow420ExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1275,12 +1379,15 @@ const deserializeAws_restJson1CreateFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteFlowCommand = async (
+/**
+ * deserializeAws_restJson1DeleteFlowCommand
+ */
+export const de_DeleteFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFlowCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteFlowCommandError(output, context);
+    return de_DeleteFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1295,7 +1402,10 @@ export const deserializeAws_restJson1DeleteFlowCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteFlowCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteFlowCommandError
+ */
+const de_DeleteFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFlowCommandOutput> => {
@@ -1307,22 +1417,22 @@ const deserializeAws_restJson1DeleteFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1334,27 +1444,33 @@ const deserializeAws_restJson1DeleteFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeFlowCommand = async (
+/**
+ * deserializeAws_restJson1DescribeFlowCommand
+ */
+export const de_DescribeFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeFlowCommandError(output, context);
+    return de_DescribeFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.flow != null) {
-    contents.Flow = deserializeAws_restJson1Flow(data.flow, context);
+    contents.Flow = de_Flow(data.flow, context);
   }
   if (data.messages != null) {
-    contents.Messages = deserializeAws_restJson1Messages(data.messages, context);
+    contents.Messages = de_Messages(data.messages, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeFlowCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeFlowCommandError
+ */
+const de_DescribeFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFlowCommandOutput> => {
@@ -1366,22 +1482,22 @@ const deserializeAws_restJson1DescribeFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1393,24 +1509,30 @@ const deserializeAws_restJson1DescribeFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeOfferingCommand = async (
+/**
+ * deserializeAws_restJson1DescribeOfferingCommand
+ */
+export const de_DescribeOfferingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOfferingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeOfferingCommandError(output, context);
+    return de_DescribeOfferingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.offering != null) {
-    contents.Offering = deserializeAws_restJson1Offering(data.offering, context);
+    contents.Offering = de_Offering(data.offering, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeOfferingCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeOfferingCommandError
+ */
+const de_DescribeOfferingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOfferingCommandOutput> => {
@@ -1422,19 +1544,19 @@ const deserializeAws_restJson1DescribeOfferingCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1446,24 +1568,30 @@ const deserializeAws_restJson1DescribeOfferingCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DescribeReservationCommand = async (
+/**
+ * deserializeAws_restJson1DescribeReservationCommand
+ */
+export const de_DescribeReservationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeReservationCommandError(output, context);
+    return de_DescribeReservationCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.reservation != null) {
-    contents.Reservation = deserializeAws_restJson1Reservation(data.reservation, context);
+    contents.Reservation = de_Reservation(data.reservation, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1DescribeReservationCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeReservationCommandError
+ */
+const de_DescribeReservationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservationCommandOutput> => {
@@ -1475,19 +1603,19 @@ const deserializeAws_restJson1DescribeReservationCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1499,19 +1627,22 @@ const deserializeAws_restJson1DescribeReservationCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GrantFlowEntitlementsCommand = async (
+/**
+ * deserializeAws_restJson1GrantFlowEntitlementsCommand
+ */
+export const de_GrantFlowEntitlementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GrantFlowEntitlementsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GrantFlowEntitlementsCommandError(output, context);
+    return de_GrantFlowEntitlementsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entitlements != null) {
-    contents.Entitlements = deserializeAws_restJson1__listOfEntitlement(data.entitlements, context);
+    contents.Entitlements = de___listOfEntitlement(data.entitlements, context);
   }
   if (data.flowArn != null) {
     contents.FlowArn = __expectString(data.flowArn);
@@ -1519,7 +1650,10 @@ export const deserializeAws_restJson1GrantFlowEntitlementsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GrantFlowEntitlementsCommandError = async (
+/**
+ * deserializeAws_restJson1GrantFlowEntitlementsCommandError
+ */
+const de_GrantFlowEntitlementsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GrantFlowEntitlementsCommandOutput> => {
@@ -1531,25 +1665,25 @@ const deserializeAws_restJson1GrantFlowEntitlementsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "GrantFlowEntitlements420Exception":
     case "com.amazonaws.mediaconnect#GrantFlowEntitlements420Exception":
-      throw await deserializeAws_restJson1GrantFlowEntitlements420ExceptionResponse(parsedOutput, context);
+      throw await de_GrantFlowEntitlements420ExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1561,19 +1695,22 @@ const deserializeAws_restJson1GrantFlowEntitlementsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListEntitlementsCommand = async (
+/**
+ * deserializeAws_restJson1ListEntitlementsCommand
+ */
+export const de_ListEntitlementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitlementsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListEntitlementsCommandError(output, context);
+    return de_ListEntitlementsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entitlements != null) {
-    contents.Entitlements = deserializeAws_restJson1__listOfListedEntitlement(data.entitlements, context);
+    contents.Entitlements = de___listOfListedEntitlement(data.entitlements, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -1581,7 +1718,10 @@ export const deserializeAws_restJson1ListEntitlementsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListEntitlementsCommandError = async (
+/**
+ * deserializeAws_restJson1ListEntitlementsCommandError
+ */
+const de_ListEntitlementsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitlementsCommandOutput> => {
@@ -1593,16 +1733,16 @@ const deserializeAws_restJson1ListEntitlementsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1614,19 +1754,22 @@ const deserializeAws_restJson1ListEntitlementsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListFlowsCommand = async (
+/**
+ * deserializeAws_restJson1ListFlowsCommand
+ */
+export const de_ListFlowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFlowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListFlowsCommandError(output, context);
+    return de_ListFlowsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.flows != null) {
-    contents.Flows = deserializeAws_restJson1__listOfListedFlow(data.flows, context);
+    contents.Flows = de___listOfListedFlow(data.flows, context);
   }
   if (data.nextToken != null) {
     contents.NextToken = __expectString(data.nextToken);
@@ -1634,7 +1777,10 @@ export const deserializeAws_restJson1ListFlowsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListFlowsCommandError = async (
+/**
+ * deserializeAws_restJson1ListFlowsCommandError
+ */
+const de_ListFlowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFlowsCommandOutput> => {
@@ -1646,16 +1792,16 @@ const deserializeAws_restJson1ListFlowsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1667,12 +1813,15 @@ const deserializeAws_restJson1ListFlowsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListOfferingsCommand = async (
+/**
+ * deserializeAws_restJson1ListOfferingsCommand
+ */
+export const de_ListOfferingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOfferingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListOfferingsCommandError(output, context);
+    return de_ListOfferingsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1682,12 +1831,15 @@ export const deserializeAws_restJson1ListOfferingsCommand = async (
     contents.NextToken = __expectString(data.nextToken);
   }
   if (data.offerings != null) {
-    contents.Offerings = deserializeAws_restJson1__listOfOffering(data.offerings, context);
+    contents.Offerings = de___listOfOffering(data.offerings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListOfferingsCommandError = async (
+/**
+ * deserializeAws_restJson1ListOfferingsCommandError
+ */
+const de_ListOfferingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOfferingsCommandOutput> => {
@@ -1699,16 +1851,16 @@ const deserializeAws_restJson1ListOfferingsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1720,12 +1872,15 @@ const deserializeAws_restJson1ListOfferingsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListReservationsCommand = async (
+/**
+ * deserializeAws_restJson1ListReservationsCommand
+ */
+export const de_ListReservationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReservationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListReservationsCommandError(output, context);
+    return de_ListReservationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1735,12 +1890,15 @@ export const deserializeAws_restJson1ListReservationsCommand = async (
     contents.NextToken = __expectString(data.nextToken);
   }
   if (data.reservations != null) {
-    contents.Reservations = deserializeAws_restJson1__listOfReservation(data.reservations, context);
+    contents.Reservations = de___listOfReservation(data.reservations, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListReservationsCommandError = async (
+/**
+ * deserializeAws_restJson1ListReservationsCommandError
+ */
+const de_ListReservationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReservationsCommandOutput> => {
@@ -1752,16 +1910,16 @@ const deserializeAws_restJson1ListReservationsCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1773,24 +1931,30 @@ const deserializeAws_restJson1ListReservationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.tags != null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
+    contents.Tags = de___mapOf__string(data.tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -1802,13 +1966,13 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1820,24 +1984,30 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PurchaseOfferingCommand = async (
+/**
+ * deserializeAws_restJson1PurchaseOfferingCommand
+ */
+export const de_PurchaseOfferingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseOfferingCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PurchaseOfferingCommandError(output, context);
+    return de_PurchaseOfferingCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.reservation != null) {
-    contents.Reservation = deserializeAws_restJson1Reservation(data.reservation, context);
+    contents.Reservation = de_Reservation(data.reservation, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1PurchaseOfferingCommandError = async (
+/**
+ * deserializeAws_restJson1PurchaseOfferingCommandError
+ */
+const de_PurchaseOfferingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseOfferingCommandOutput> => {
@@ -1849,22 +2019,22 @@ const deserializeAws_restJson1PurchaseOfferingCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1876,12 +2046,15 @@ const deserializeAws_restJson1PurchaseOfferingCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RemoveFlowMediaStreamCommand = async (
+/**
+ * deserializeAws_restJson1RemoveFlowMediaStreamCommand
+ */
+export const de_RemoveFlowMediaStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowMediaStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveFlowMediaStreamCommandError(output, context);
+    return de_RemoveFlowMediaStreamCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1896,7 +2069,10 @@ export const deserializeAws_restJson1RemoveFlowMediaStreamCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RemoveFlowMediaStreamCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveFlowMediaStreamCommandError
+ */
+const de_RemoveFlowMediaStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowMediaStreamCommandOutput> => {
@@ -1908,22 +2084,22 @@ const deserializeAws_restJson1RemoveFlowMediaStreamCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1935,12 +2111,15 @@ const deserializeAws_restJson1RemoveFlowMediaStreamCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RemoveFlowOutputCommand = async (
+/**
+ * deserializeAws_restJson1RemoveFlowOutputCommand
+ */
+export const de_RemoveFlowOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowOutputCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveFlowOutputCommandError(output, context);
+    return de_RemoveFlowOutputCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1955,7 +2134,10 @@ export const deserializeAws_restJson1RemoveFlowOutputCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RemoveFlowOutputCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveFlowOutputCommandError
+ */
+const de_RemoveFlowOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowOutputCommandOutput> => {
@@ -1967,22 +2149,22 @@ const deserializeAws_restJson1RemoveFlowOutputCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1994,12 +2176,15 @@ const deserializeAws_restJson1RemoveFlowOutputCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RemoveFlowSourceCommand = async (
+/**
+ * deserializeAws_restJson1RemoveFlowSourceCommand
+ */
+export const de_RemoveFlowSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowSourceCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveFlowSourceCommandError(output, context);
+    return de_RemoveFlowSourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2014,7 +2199,10 @@ export const deserializeAws_restJson1RemoveFlowSourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RemoveFlowSourceCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveFlowSourceCommandError
+ */
+const de_RemoveFlowSourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowSourceCommandOutput> => {
@@ -2026,22 +2214,22 @@ const deserializeAws_restJson1RemoveFlowSourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2053,12 +2241,15 @@ const deserializeAws_restJson1RemoveFlowSourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RemoveFlowVpcInterfaceCommand = async (
+/**
+ * deserializeAws_restJson1RemoveFlowVpcInterfaceCommand
+ */
+export const de_RemoveFlowVpcInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowVpcInterfaceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveFlowVpcInterfaceCommandError(output, context);
+    return de_RemoveFlowVpcInterfaceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2068,10 +2259,7 @@ export const deserializeAws_restJson1RemoveFlowVpcInterfaceCommand = async (
     contents.FlowArn = __expectString(data.flowArn);
   }
   if (data.nonDeletedNetworkInterfaceIds != null) {
-    contents.NonDeletedNetworkInterfaceIds = deserializeAws_restJson1__listOf__string(
-      data.nonDeletedNetworkInterfaceIds,
-      context
-    );
+    contents.NonDeletedNetworkInterfaceIds = de___listOf__string(data.nonDeletedNetworkInterfaceIds, context);
   }
   if (data.vpcInterfaceName != null) {
     contents.VpcInterfaceName = __expectString(data.vpcInterfaceName);
@@ -2079,7 +2267,10 @@ export const deserializeAws_restJson1RemoveFlowVpcInterfaceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RemoveFlowVpcInterfaceCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveFlowVpcInterfaceCommandError
+ */
+const de_RemoveFlowVpcInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowVpcInterfaceCommandOutput> => {
@@ -2091,22 +2282,22 @@ const deserializeAws_restJson1RemoveFlowVpcInterfaceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2118,12 +2309,15 @@ const deserializeAws_restJson1RemoveFlowVpcInterfaceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RevokeFlowEntitlementCommand = async (
+/**
+ * deserializeAws_restJson1RevokeFlowEntitlementCommand
+ */
+export const de_RevokeFlowEntitlementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeFlowEntitlementCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RevokeFlowEntitlementCommandError(output, context);
+    return de_RevokeFlowEntitlementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2138,7 +2332,10 @@ export const deserializeAws_restJson1RevokeFlowEntitlementCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RevokeFlowEntitlementCommandError = async (
+/**
+ * deserializeAws_restJson1RevokeFlowEntitlementCommandError
+ */
+const de_RevokeFlowEntitlementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeFlowEntitlementCommandOutput> => {
@@ -2150,22 +2347,22 @@ const deserializeAws_restJson1RevokeFlowEntitlementCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2177,12 +2374,15 @@ const deserializeAws_restJson1RevokeFlowEntitlementCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StartFlowCommand = async (
+/**
+ * deserializeAws_restJson1StartFlowCommand
+ */
+export const de_StartFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFlowCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartFlowCommandError(output, context);
+    return de_StartFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2197,7 +2397,10 @@ export const deserializeAws_restJson1StartFlowCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StartFlowCommandError = async (
+/**
+ * deserializeAws_restJson1StartFlowCommandError
+ */
+const de_StartFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFlowCommandOutput> => {
@@ -2209,22 +2412,22 @@ const deserializeAws_restJson1StartFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2236,12 +2439,15 @@ const deserializeAws_restJson1StartFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1StopFlowCommand = async (
+/**
+ * deserializeAws_restJson1StopFlowCommand
+ */
+export const de_StopFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopFlowCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopFlowCommandError(output, context);
+    return de_StopFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2256,7 +2462,10 @@ export const deserializeAws_restJson1StopFlowCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1StopFlowCommandError = async (
+/**
+ * deserializeAws_restJson1StopFlowCommandError
+ */
+const de_StopFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopFlowCommandOutput> => {
@@ -2268,22 +2477,22 @@ const deserializeAws_restJson1StopFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2295,12 +2504,15 @@ const deserializeAws_restJson1StopFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2309,7 +2521,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -2321,13 +2536,13 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2339,12 +2554,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2353,7 +2571,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -2365,13 +2586,13 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2383,24 +2604,30 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateFlowCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFlowCommand
+ */
+export const de_UpdateFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFlowCommandError(output, context);
+    return de_UpdateFlowCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.flow != null) {
-    contents.Flow = deserializeAws_restJson1Flow(data.flow, context);
+    contents.Flow = de_Flow(data.flow, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateFlowCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFlowCommandError
+ */
+const de_UpdateFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowCommandOutput> => {
@@ -2412,22 +2639,22 @@ const deserializeAws_restJson1UpdateFlowCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2439,19 +2666,22 @@ const deserializeAws_restJson1UpdateFlowCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateFlowEntitlementCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFlowEntitlementCommand
+ */
+export const de_UpdateFlowEntitlementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowEntitlementCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFlowEntitlementCommandError(output, context);
+    return de_UpdateFlowEntitlementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.entitlement != null) {
-    contents.Entitlement = deserializeAws_restJson1Entitlement(data.entitlement, context);
+    contents.Entitlement = de_Entitlement(data.entitlement, context);
   }
   if (data.flowArn != null) {
     contents.FlowArn = __expectString(data.flowArn);
@@ -2459,7 +2689,10 @@ export const deserializeAws_restJson1UpdateFlowEntitlementCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateFlowEntitlementCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFlowEntitlementCommandError
+ */
+const de_UpdateFlowEntitlementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowEntitlementCommandOutput> => {
@@ -2471,22 +2704,22 @@ const deserializeAws_restJson1UpdateFlowEntitlementCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2498,12 +2731,15 @@ const deserializeAws_restJson1UpdateFlowEntitlementCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateFlowMediaStreamCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFlowMediaStreamCommand
+ */
+export const de_UpdateFlowMediaStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowMediaStreamCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFlowMediaStreamCommandError(output, context);
+    return de_UpdateFlowMediaStreamCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2513,12 +2749,15 @@ export const deserializeAws_restJson1UpdateFlowMediaStreamCommand = async (
     contents.FlowArn = __expectString(data.flowArn);
   }
   if (data.mediaStream != null) {
-    contents.MediaStream = deserializeAws_restJson1MediaStream(data.mediaStream, context);
+    contents.MediaStream = de_MediaStream(data.mediaStream, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateFlowMediaStreamCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFlowMediaStreamCommandError
+ */
+const de_UpdateFlowMediaStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowMediaStreamCommandOutput> => {
@@ -2530,22 +2769,22 @@ const deserializeAws_restJson1UpdateFlowMediaStreamCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2557,12 +2796,15 @@ const deserializeAws_restJson1UpdateFlowMediaStreamCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateFlowOutputCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFlowOutputCommand
+ */
+export const de_UpdateFlowOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowOutputCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFlowOutputCommandError(output, context);
+    return de_UpdateFlowOutputCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2572,12 +2814,15 @@ export const deserializeAws_restJson1UpdateFlowOutputCommand = async (
     contents.FlowArn = __expectString(data.flowArn);
   }
   if (data.output != null) {
-    contents.Output = deserializeAws_restJson1Output(data.output, context);
+    contents.Output = de_Output(data.output, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateFlowOutputCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFlowOutputCommandError
+ */
+const de_UpdateFlowOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowOutputCommandOutput> => {
@@ -2589,22 +2834,22 @@ const deserializeAws_restJson1UpdateFlowOutputCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2616,12 +2861,15 @@ const deserializeAws_restJson1UpdateFlowOutputCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateFlowSourceCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFlowSourceCommand
+ */
+export const de_UpdateFlowSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowSourceCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFlowSourceCommandError(output, context);
+    return de_UpdateFlowSourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2631,12 +2879,15 @@ export const deserializeAws_restJson1UpdateFlowSourceCommand = async (
     contents.FlowArn = __expectString(data.flowArn);
   }
   if (data.source != null) {
-    contents.Source = deserializeAws_restJson1Source(data.source, context);
+    contents.Source = de_Source(data.source, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdateFlowSourceCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFlowSourceCommandError
+ */
+const de_UpdateFlowSourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowSourceCommandOutput> => {
@@ -2648,22 +2899,22 @@ const deserializeAws_restJson1UpdateFlowSourceCommandError = async (
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediaconnect#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.mediaconnect#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.mediaconnect#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.mediaconnect#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.mediaconnect#ServiceUnavailableException":
-      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.mediaconnect#TooManyRequestsException":
-      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2676,7 +2927,10 @@ const deserializeAws_restJson1UpdateFlowSourceCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AddFlowOutputs420ExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AddFlowOutputs420ExceptionRes
+ */
+const de_AddFlowOutputs420ExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AddFlowOutputs420Exception> => {
@@ -2692,10 +2946,10 @@ const deserializeAws_restJson1AddFlowOutputs420ExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -2708,7 +2962,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1CreateFlow420ExceptionResponse = async (
+/**
+ * deserializeAws_restJson1CreateFlow420ExceptionRes
+ */
+const de_CreateFlow420ExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CreateFlow420Exception> => {
@@ -2724,10 +2981,10 @@ const deserializeAws_restJson1CreateFlow420ExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_restJson1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -2740,7 +2997,10 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1GrantFlowEntitlements420ExceptionResponse = async (
+/**
+ * deserializeAws_restJson1GrantFlowEntitlements420ExceptionRes
+ */
+const de_GrantFlowEntitlements420ExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<GrantFlowEntitlements420Exception> => {
@@ -2756,7 +3016,10 @@ const deserializeAws_restJson1GrantFlowEntitlements420ExceptionResponse = async 
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerErrorExceptionRes
+ */
+const de_InternalServerErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
@@ -2772,10 +3035,10 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -2788,7 +3051,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
@@ -2804,7 +3070,10 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
@@ -2820,7 +3089,10 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1__listOf__string = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1__listOf__string
+ */
+const se___listOf__string = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2828,100 +3100,118 @@ const serializeAws_restJson1__listOf__string = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_restJson1__listOfAddMediaStreamRequest = (
-  input: AddMediaStreamRequest[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1__listOfAddMediaStreamRequest
+ */
+const se___listOfAddMediaStreamRequest = (input: AddMediaStreamRequest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1AddMediaStreamRequest(entry, context);
+      return se_AddMediaStreamRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1__listOfAddOutputRequest = (input: AddOutputRequest[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1__listOfAddOutputRequest
+ */
+const se___listOfAddOutputRequest = (input: AddOutputRequest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1AddOutputRequest(entry, context);
+      return se_AddOutputRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1__listOfDestinationConfigurationRequest = (
+/**
+ * serializeAws_restJson1__listOfDestinationConfigurationRequest
+ */
+const se___listOfDestinationConfigurationRequest = (
   input: DestinationConfigurationRequest[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1DestinationConfigurationRequest(entry, context);
+      return se_DestinationConfigurationRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1__listOfGrantEntitlementRequest = (
-  input: GrantEntitlementRequest[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1__listOfGrantEntitlementRequest
+ */
+const se___listOfGrantEntitlementRequest = (input: GrantEntitlementRequest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1GrantEntitlementRequest(entry, context);
+      return se_GrantEntitlementRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1__listOfInputConfigurationRequest = (
-  input: InputConfigurationRequest[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1__listOfInputConfigurationRequest
+ */
+const se___listOfInputConfigurationRequest = (input: InputConfigurationRequest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1InputConfigurationRequest(entry, context);
+      return se_InputConfigurationRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1__listOfMediaStreamOutputConfigurationRequest = (
+/**
+ * serializeAws_restJson1__listOfMediaStreamOutputConfigurationRequest
+ */
+const se___listOfMediaStreamOutputConfigurationRequest = (
   input: MediaStreamOutputConfigurationRequest[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1MediaStreamOutputConfigurationRequest(entry, context);
+      return se_MediaStreamOutputConfigurationRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1__listOfMediaStreamSourceConfigurationRequest = (
+/**
+ * serializeAws_restJson1__listOfMediaStreamSourceConfigurationRequest
+ */
+const se___listOfMediaStreamSourceConfigurationRequest = (
   input: MediaStreamSourceConfigurationRequest[],
   context: __SerdeContext
 ): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1MediaStreamSourceConfigurationRequest(entry, context);
+      return se_MediaStreamSourceConfigurationRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1__listOfSetSourceRequest = (input: SetSourceRequest[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1__listOfSetSourceRequest
+ */
+const se___listOfSetSourceRequest = (input: SetSourceRequest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1SetSourceRequest(entry, context);
+      return se_SetSourceRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1__listOfVpcInterfaceRequest = (
-  input: VpcInterfaceRequest[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1__listOfVpcInterfaceRequest
+ */
+const se___listOfVpcInterfaceRequest = (input: VpcInterfaceRequest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1VpcInterfaceRequest(entry, context);
+      return se_VpcInterfaceRequest(entry, context);
     });
 };
 
-const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1__mapOf__string
+ */
+const se___mapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2931,18 +3221,22 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
   }, {});
 };
 
-const serializeAws_restJson1AddMaintenance = (input: AddMaintenance, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AddMaintenance
+ */
+const se_AddMaintenance = (input: AddMaintenance, context: __SerdeContext): any => {
   return {
     ...(input.MaintenanceDay != null && { maintenanceDay: input.MaintenanceDay }),
     ...(input.MaintenanceStartHour != null && { maintenanceStartHour: input.MaintenanceStartHour }),
   };
 };
 
-const serializeAws_restJson1AddMediaStreamRequest = (input: AddMediaStreamRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AddMediaStreamRequest
+ */
+const se_AddMediaStreamRequest = (input: AddMediaStreamRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Attributes != null && {
-      attributes: serializeAws_restJson1MediaStreamAttributesRequest(input.Attributes, context),
-    }),
+    ...(input.Attributes != null && { attributes: se_MediaStreamAttributesRequest(input.Attributes, context) }),
     ...(input.ClockRate != null && { clockRate: input.ClockRate }),
     ...(input.Description != null && { description: input.Description }),
     ...(input.MediaStreamId != null && { mediaStreamId: input.MediaStreamId }),
@@ -2952,17 +3246,18 @@ const serializeAws_restJson1AddMediaStreamRequest = (input: AddMediaStreamReques
   };
 };
 
-const serializeAws_restJson1AddOutputRequest = (input: AddOutputRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AddOutputRequest
+ */
+const se_AddOutputRequest = (input: AddOutputRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CidrAllowList != null && {
-      cidrAllowList: serializeAws_restJson1__listOf__string(input.CidrAllowList, context),
-    }),
+    ...(input.CidrAllowList != null && { cidrAllowList: se___listOf__string(input.CidrAllowList, context) }),
     ...(input.Description != null && { description: input.Description }),
     ...(input.Destination != null && { destination: input.Destination }),
-    ...(input.Encryption != null && { encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
+    ...(input.Encryption != null && { encryption: se_Encryption(input.Encryption, context) }),
     ...(input.MaxLatency != null && { maxLatency: input.MaxLatency }),
     ...(input.MediaStreamOutputConfigurations != null && {
-      mediaStreamOutputConfigurations: serializeAws_restJson1__listOfMediaStreamOutputConfigurationRequest(
+      mediaStreamOutputConfigurations: se___listOfMediaStreamOutputConfigurationRequest(
         input.MediaStreamOutputConfigurations,
         context
       ),
@@ -2976,33 +3271,36 @@ const serializeAws_restJson1AddOutputRequest = (input: AddOutputRequest, context
     ...(input.SmoothingLatency != null && { smoothingLatency: input.SmoothingLatency }),
     ...(input.StreamId != null && { streamId: input.StreamId }),
     ...(input.VpcInterfaceAttachment != null && {
-      vpcInterfaceAttachment: serializeAws_restJson1VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
+      vpcInterfaceAttachment: se_VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
     }),
   };
 };
 
-const serializeAws_restJson1DestinationConfigurationRequest = (
-  input: DestinationConfigurationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1DestinationConfigurationRequest
+ */
+const se_DestinationConfigurationRequest = (input: DestinationConfigurationRequest, context: __SerdeContext): any => {
   return {
     ...(input.DestinationIp != null && { destinationIp: input.DestinationIp }),
     ...(input.DestinationPort != null && { destinationPort: input.DestinationPort }),
-    ...(input.Interface != null && { interface: serializeAws_restJson1InterfaceRequest(input.Interface, context) }),
+    ...(input.Interface != null && { interface: se_InterfaceRequest(input.Interface, context) }),
   };
 };
 
-const serializeAws_restJson1EncodingParametersRequest = (
-  input: EncodingParametersRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1EncodingParametersRequest
+ */
+const se_EncodingParametersRequest = (input: EncodingParametersRequest, context: __SerdeContext): any => {
   return {
     ...(input.CompressionFactor != null && { compressionFactor: __serializeFloat(input.CompressionFactor) }),
     ...(input.EncoderProfile != null && { encoderProfile: input.EncoderProfile }),
   };
 };
 
-const serializeAws_restJson1Encryption = (input: Encryption, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Encryption
+ */
+const se_Encryption = (input: Encryption, context: __SerdeContext): any => {
   return {
     ...(input.Algorithm != null && { algorithm: input.Algorithm }),
     ...(input.ConstantInitializationVector != null && {
@@ -3018,18 +3316,22 @@ const serializeAws_restJson1Encryption = (input: Encryption, context: __SerdeCon
   };
 };
 
-const serializeAws_restJson1FailoverConfig = (input: FailoverConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FailoverConfig
+ */
+const se_FailoverConfig = (input: FailoverConfig, context: __SerdeContext): any => {
   return {
     ...(input.FailoverMode != null && { failoverMode: input.FailoverMode }),
     ...(input.RecoveryWindow != null && { recoveryWindow: input.RecoveryWindow }),
-    ...(input.SourcePriority != null && {
-      sourcePriority: serializeAws_restJson1SourcePriority(input.SourcePriority, context),
-    }),
+    ...(input.SourcePriority != null && { sourcePriority: se_SourcePriority(input.SourcePriority, context) }),
     ...(input.State != null && { state: input.State }),
   };
 };
 
-const serializeAws_restJson1FmtpRequest = (input: FmtpRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FmtpRequest
+ */
+const se_FmtpRequest = (input: FmtpRequest, context: __SerdeContext): any => {
   return {
     ...(input.ChannelOrder != null && { channelOrder: input.ChannelOrder }),
     ...(input.Colorimetry != null && { colorimetry: input.Colorimetry }),
@@ -3041,85 +3343,92 @@ const serializeAws_restJson1FmtpRequest = (input: FmtpRequest, context: __SerdeC
   };
 };
 
-const serializeAws_restJson1GrantEntitlementRequest = (
-  input: GrantEntitlementRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1GrantEntitlementRequest
+ */
+const se_GrantEntitlementRequest = (input: GrantEntitlementRequest, context: __SerdeContext): any => {
   return {
     ...(input.DataTransferSubscriberFeePercent != null && {
       dataTransferSubscriberFeePercent: input.DataTransferSubscriberFeePercent,
     }),
     ...(input.Description != null && { description: input.Description }),
-    ...(input.Encryption != null && { encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
+    ...(input.Encryption != null && { encryption: se_Encryption(input.Encryption, context) }),
     ...(input.EntitlementStatus != null && { entitlementStatus: input.EntitlementStatus }),
     ...(input.Name != null && { name: input.Name }),
-    ...(input.Subscribers != null && {
-      subscribers: serializeAws_restJson1__listOf__string(input.Subscribers, context),
-    }),
+    ...(input.Subscribers != null && { subscribers: se___listOf__string(input.Subscribers, context) }),
   };
 };
 
-const serializeAws_restJson1InputConfigurationRequest = (
-  input: InputConfigurationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1InputConfigurationRequest
+ */
+const se_InputConfigurationRequest = (input: InputConfigurationRequest, context: __SerdeContext): any => {
   return {
     ...(input.InputPort != null && { inputPort: input.InputPort }),
-    ...(input.Interface != null && { interface: serializeAws_restJson1InterfaceRequest(input.Interface, context) }),
+    ...(input.Interface != null && { interface: se_InterfaceRequest(input.Interface, context) }),
   };
 };
 
-const serializeAws_restJson1InterfaceRequest = (input: InterfaceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1InterfaceRequest
+ */
+const se_InterfaceRequest = (input: InterfaceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { name: input.Name }),
   };
 };
 
-const serializeAws_restJson1MediaStreamAttributesRequest = (
-  input: MediaStreamAttributesRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1MediaStreamAttributesRequest
+ */
+const se_MediaStreamAttributesRequest = (input: MediaStreamAttributesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Fmtp != null && { fmtp: serializeAws_restJson1FmtpRequest(input.Fmtp, context) }),
+    ...(input.Fmtp != null && { fmtp: se_FmtpRequest(input.Fmtp, context) }),
     ...(input.Lang != null && { lang: input.Lang }),
   };
 };
 
-const serializeAws_restJson1MediaStreamOutputConfigurationRequest = (
+/**
+ * serializeAws_restJson1MediaStreamOutputConfigurationRequest
+ */
+const se_MediaStreamOutputConfigurationRequest = (
   input: MediaStreamOutputConfigurationRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.DestinationConfigurations != null && {
-      destinationConfigurations: serializeAws_restJson1__listOfDestinationConfigurationRequest(
-        input.DestinationConfigurations,
-        context
-      ),
+      destinationConfigurations: se___listOfDestinationConfigurationRequest(input.DestinationConfigurations, context),
     }),
     ...(input.EncodingName != null && { encodingName: input.EncodingName }),
     ...(input.EncodingParameters != null && {
-      encodingParameters: serializeAws_restJson1EncodingParametersRequest(input.EncodingParameters, context),
+      encodingParameters: se_EncodingParametersRequest(input.EncodingParameters, context),
     }),
     ...(input.MediaStreamName != null && { mediaStreamName: input.MediaStreamName }),
   };
 };
 
-const serializeAws_restJson1MediaStreamSourceConfigurationRequest = (
+/**
+ * serializeAws_restJson1MediaStreamSourceConfigurationRequest
+ */
+const se_MediaStreamSourceConfigurationRequest = (
   input: MediaStreamSourceConfigurationRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.EncodingName != null && { encodingName: input.EncodingName }),
     ...(input.InputConfigurations != null && {
-      inputConfigurations: serializeAws_restJson1__listOfInputConfigurationRequest(input.InputConfigurations, context),
+      inputConfigurations: se___listOfInputConfigurationRequest(input.InputConfigurations, context),
     }),
     ...(input.MediaStreamName != null && { mediaStreamName: input.MediaStreamName }),
   };
 };
 
-const serializeAws_restJson1SetSourceRequest = (input: SetSourceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SetSourceRequest
+ */
+const se_SetSourceRequest = (input: SetSourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Decryption != null && { decryption: serializeAws_restJson1Encryption(input.Decryption, context) }),
+    ...(input.Decryption != null && { decryption: se_Encryption(input.Decryption, context) }),
     ...(input.Description != null && { description: input.Description }),
     ...(input.EntitlementArn != null && { entitlementArn: input.EntitlementArn }),
     ...(input.IngestPort != null && { ingestPort: input.IngestPort }),
@@ -3127,7 +3436,7 @@ const serializeAws_restJson1SetSourceRequest = (input: SetSourceRequest, context
     ...(input.MaxLatency != null && { maxLatency: input.MaxLatency }),
     ...(input.MaxSyncBuffer != null && { maxSyncBuffer: input.MaxSyncBuffer }),
     ...(input.MediaStreamSourceConfigurations != null && {
-      mediaStreamSourceConfigurations: serializeAws_restJson1__listOfMediaStreamSourceConfigurationRequest(
+      mediaStreamSourceConfigurations: se___listOfMediaStreamSourceConfigurationRequest(
         input.MediaStreamSourceConfigurations,
         context
       ),
@@ -3145,13 +3454,19 @@ const serializeAws_restJson1SetSourceRequest = (input: SetSourceRequest, context
   };
 };
 
-const serializeAws_restJson1SourcePriority = (input: SourcePriority, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SourcePriority
+ */
+const se_SourcePriority = (input: SourcePriority, context: __SerdeContext): any => {
   return {
     ...(input.PrimarySource != null && { primarySource: input.PrimarySource }),
   };
 };
 
-const serializeAws_restJson1UpdateEncryption = (input: UpdateEncryption, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1UpdateEncryption
+ */
+const se_UpdateEncryption = (input: UpdateEncryption, context: __SerdeContext): any => {
   return {
     ...(input.Algorithm != null && { algorithm: input.Algorithm }),
     ...(input.ConstantInitializationVector != null && {
@@ -3167,18 +3482,22 @@ const serializeAws_restJson1UpdateEncryption = (input: UpdateEncryption, context
   };
 };
 
-const serializeAws_restJson1UpdateFailoverConfig = (input: UpdateFailoverConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1UpdateFailoverConfig
+ */
+const se_UpdateFailoverConfig = (input: UpdateFailoverConfig, context: __SerdeContext): any => {
   return {
     ...(input.FailoverMode != null && { failoverMode: input.FailoverMode }),
     ...(input.RecoveryWindow != null && { recoveryWindow: input.RecoveryWindow }),
-    ...(input.SourcePriority != null && {
-      sourcePriority: serializeAws_restJson1SourcePriority(input.SourcePriority, context),
-    }),
+    ...(input.SourcePriority != null && { sourcePriority: se_SourcePriority(input.SourcePriority, context) }),
     ...(input.State != null && { state: input.State }),
   };
 };
 
-const serializeAws_restJson1UpdateMaintenance = (input: UpdateMaintenance, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1UpdateMaintenance
+ */
+const se_UpdateMaintenance = (input: UpdateMaintenance, context: __SerdeContext): any => {
   return {
     ...(input.MaintenanceDay != null && { maintenanceDay: input.MaintenanceDay }),
     ...(input.MaintenanceScheduledDate != null && { maintenanceScheduledDate: input.MaintenanceScheduledDate }),
@@ -3186,25 +3505,32 @@ const serializeAws_restJson1UpdateMaintenance = (input: UpdateMaintenance, conte
   };
 };
 
-const serializeAws_restJson1VpcInterfaceAttachment = (input: VpcInterfaceAttachment, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1VpcInterfaceAttachment
+ */
+const se_VpcInterfaceAttachment = (input: VpcInterfaceAttachment, context: __SerdeContext): any => {
   return {
     ...(input.VpcInterfaceName != null && { vpcInterfaceName: input.VpcInterfaceName }),
   };
 };
 
-const serializeAws_restJson1VpcInterfaceRequest = (input: VpcInterfaceRequest, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1VpcInterfaceRequest
+ */
+const se_VpcInterfaceRequest = (input: VpcInterfaceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { name: input.Name }),
     ...(input.NetworkInterfaceType != null && { networkInterfaceType: input.NetworkInterfaceType }),
     ...(input.RoleArn != null && { roleArn: input.RoleArn }),
-    ...(input.SecurityGroupIds != null && {
-      securityGroupIds: serializeAws_restJson1__listOf__string(input.SecurityGroupIds, context),
-    }),
+    ...(input.SecurityGroupIds != null && { securityGroupIds: se___listOf__string(input.SecurityGroupIds, context) }),
     ...(input.SubnetId != null && { subnetId: input.SubnetId }),
   };
 };
 
-const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1__listOf__string
+ */
+const de___listOf__string = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3216,88 +3542,100 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfDestinationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DestinationConfiguration[] => {
+/**
+ * deserializeAws_restJson1__listOfDestinationConfiguration
+ */
+const de___listOfDestinationConfiguration = (output: any, context: __SerdeContext): DestinationConfiguration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1DestinationConfiguration(entry, context);
+      return de_DestinationConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfEntitlement = (output: any, context: __SerdeContext): Entitlement[] => {
+/**
+ * deserializeAws_restJson1__listOfEntitlement
+ */
+const de___listOfEntitlement = (output: any, context: __SerdeContext): Entitlement[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Entitlement(entry, context);
+      return de_Entitlement(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfInputConfiguration = (
-  output: any,
-  context: __SerdeContext
-): InputConfiguration[] => {
+/**
+ * deserializeAws_restJson1__listOfInputConfiguration
+ */
+const de___listOfInputConfiguration = (output: any, context: __SerdeContext): InputConfiguration[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1InputConfiguration(entry, context);
+      return de_InputConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfListedEntitlement = (
-  output: any,
-  context: __SerdeContext
-): ListedEntitlement[] => {
+/**
+ * deserializeAws_restJson1__listOfListedEntitlement
+ */
+const de___listOfListedEntitlement = (output: any, context: __SerdeContext): ListedEntitlement[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ListedEntitlement(entry, context);
+      return de_ListedEntitlement(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfListedFlow = (output: any, context: __SerdeContext): ListedFlow[] => {
+/**
+ * deserializeAws_restJson1__listOfListedFlow
+ */
+const de___listOfListedFlow = (output: any, context: __SerdeContext): ListedFlow[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ListedFlow(entry, context);
+      return de_ListedFlow(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfMediaStream = (output: any, context: __SerdeContext): MediaStream[] => {
+/**
+ * deserializeAws_restJson1__listOfMediaStream
+ */
+const de___listOfMediaStream = (output: any, context: __SerdeContext): MediaStream[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1MediaStream(entry, context);
+      return de_MediaStream(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfMediaStreamOutputConfiguration = (
+/**
+ * deserializeAws_restJson1__listOfMediaStreamOutputConfiguration
+ */
+const de___listOfMediaStreamOutputConfiguration = (
   output: any,
   context: __SerdeContext
 ): MediaStreamOutputConfiguration[] => {
@@ -3307,12 +3645,15 @@ const deserializeAws_restJson1__listOfMediaStreamOutputConfiguration = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1MediaStreamOutputConfiguration(entry, context);
+      return de_MediaStreamOutputConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfMediaStreamSourceConfiguration = (
+/**
+ * deserializeAws_restJson1__listOfMediaStreamSourceConfiguration
+ */
+const de___listOfMediaStreamSourceConfiguration = (
   output: any,
   context: __SerdeContext
 ): MediaStreamSourceConfiguration[] => {
@@ -3322,72 +3663,90 @@ const deserializeAws_restJson1__listOfMediaStreamSourceConfiguration = (
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1MediaStreamSourceConfiguration(entry, context);
+      return de_MediaStreamSourceConfiguration(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfOffering = (output: any, context: __SerdeContext): Offering[] => {
+/**
+ * deserializeAws_restJson1__listOfOffering
+ */
+const de___listOfOffering = (output: any, context: __SerdeContext): Offering[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Offering(entry, context);
+      return de_Offering(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfOutput = (output: any, context: __SerdeContext): Output[] => {
+/**
+ * deserializeAws_restJson1__listOfOutput
+ */
+const de___listOfOutput = (output: any, context: __SerdeContext): Output[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Output(entry, context);
+      return de_Output(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfReservation = (output: any, context: __SerdeContext): Reservation[] => {
+/**
+ * deserializeAws_restJson1__listOfReservation
+ */
+const de___listOfReservation = (output: any, context: __SerdeContext): Reservation[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Reservation(entry, context);
+      return de_Reservation(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfSource = (output: any, context: __SerdeContext): Source[] => {
+/**
+ * deserializeAws_restJson1__listOfSource
+ */
+const de___listOfSource = (output: any, context: __SerdeContext): Source[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Source(entry, context);
+      return de_Source(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfVpcInterface = (output: any, context: __SerdeContext): VpcInterface[] => {
+/**
+ * deserializeAws_restJson1__listOfVpcInterface
+ */
+const de___listOfVpcInterface = (output: any, context: __SerdeContext): VpcInterface[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1VpcInterface(entry, context);
+      return de_VpcInterface(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1__mapOf__string
+ */
+const de___mapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -3397,26 +3756,32 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
   }, {});
 };
 
-const deserializeAws_restJson1DestinationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DestinationConfiguration => {
+/**
+ * deserializeAws_restJson1DestinationConfiguration
+ */
+const de_DestinationConfiguration = (output: any, context: __SerdeContext): DestinationConfiguration => {
   return {
     DestinationIp: __expectString(output.destinationIp),
     DestinationPort: __expectInt32(output.destinationPort),
-    Interface: output.interface != null ? deserializeAws_restJson1Interface(output.interface, context) : undefined,
+    Interface: output.interface != null ? de_Interface(output.interface, context) : undefined,
     OutboundIp: __expectString(output.outboundIp),
   } as any;
 };
 
-const deserializeAws_restJson1EncodingParameters = (output: any, context: __SerdeContext): EncodingParameters => {
+/**
+ * deserializeAws_restJson1EncodingParameters
+ */
+const de_EncodingParameters = (output: any, context: __SerdeContext): EncodingParameters => {
   return {
     CompressionFactor: __limitedParseDouble(output.compressionFactor),
     EncoderProfile: __expectString(output.encoderProfile),
   } as any;
 };
 
-const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext): Encryption => {
+/**
+ * deserializeAws_restJson1Encryption
+ */
+const de_Encryption = (output: any, context: __SerdeContext): Encryption => {
   return {
     Algorithm: __expectString(output.algorithm),
     ConstantInitializationVector: __expectString(output.constantInitializationVector),
@@ -3430,64 +3795,60 @@ const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_restJson1Entitlement = (output: any, context: __SerdeContext): Entitlement => {
+/**
+ * deserializeAws_restJson1Entitlement
+ */
+const de_Entitlement = (output: any, context: __SerdeContext): Entitlement => {
   return {
     DataTransferSubscriberFeePercent: __expectInt32(output.dataTransferSubscriberFeePercent),
     Description: __expectString(output.description),
-    Encryption: output.encryption != null ? deserializeAws_restJson1Encryption(output.encryption, context) : undefined,
+    Encryption: output.encryption != null ? de_Encryption(output.encryption, context) : undefined,
     EntitlementArn: __expectString(output.entitlementArn),
     EntitlementStatus: __expectString(output.entitlementStatus),
     Name: __expectString(output.name),
-    Subscribers:
-      output.subscribers != null ? deserializeAws_restJson1__listOf__string(output.subscribers, context) : undefined,
+    Subscribers: output.subscribers != null ? de___listOf__string(output.subscribers, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1FailoverConfig = (output: any, context: __SerdeContext): FailoverConfig => {
+/**
+ * deserializeAws_restJson1FailoverConfig
+ */
+const de_FailoverConfig = (output: any, context: __SerdeContext): FailoverConfig => {
   return {
     FailoverMode: __expectString(output.failoverMode),
     RecoveryWindow: __expectInt32(output.recoveryWindow),
-    SourcePriority:
-      output.sourcePriority != null
-        ? deserializeAws_restJson1SourcePriority(output.sourcePriority, context)
-        : undefined,
+    SourcePriority: output.sourcePriority != null ? de_SourcePriority(output.sourcePriority, context) : undefined,
     State: __expectString(output.state),
   } as any;
 };
 
-const deserializeAws_restJson1Flow = (output: any, context: __SerdeContext): Flow => {
+/**
+ * deserializeAws_restJson1Flow
+ */
+const de_Flow = (output: any, context: __SerdeContext): Flow => {
   return {
     AvailabilityZone: __expectString(output.availabilityZone),
     Description: __expectString(output.description),
     EgressIp: __expectString(output.egressIp),
-    Entitlements:
-      output.entitlements != null
-        ? deserializeAws_restJson1__listOfEntitlement(output.entitlements, context)
-        : undefined,
+    Entitlements: output.entitlements != null ? de___listOfEntitlement(output.entitlements, context) : undefined,
     FlowArn: __expectString(output.flowArn),
-    Maintenance:
-      output.maintenance != null ? deserializeAws_restJson1Maintenance(output.maintenance, context) : undefined,
-    MediaStreams:
-      output.mediaStreams != null
-        ? deserializeAws_restJson1__listOfMediaStream(output.mediaStreams, context)
-        : undefined,
+    Maintenance: output.maintenance != null ? de_Maintenance(output.maintenance, context) : undefined,
+    MediaStreams: output.mediaStreams != null ? de___listOfMediaStream(output.mediaStreams, context) : undefined,
     Name: __expectString(output.name),
-    Outputs: output.outputs != null ? deserializeAws_restJson1__listOfOutput(output.outputs, context) : undefined,
-    Source: output.source != null ? deserializeAws_restJson1Source(output.source, context) : undefined,
+    Outputs: output.outputs != null ? de___listOfOutput(output.outputs, context) : undefined,
+    Source: output.source != null ? de_Source(output.source, context) : undefined,
     SourceFailoverConfig:
-      output.sourceFailoverConfig != null
-        ? deserializeAws_restJson1FailoverConfig(output.sourceFailoverConfig, context)
-        : undefined,
-    Sources: output.sources != null ? deserializeAws_restJson1__listOfSource(output.sources, context) : undefined,
+      output.sourceFailoverConfig != null ? de_FailoverConfig(output.sourceFailoverConfig, context) : undefined,
+    Sources: output.sources != null ? de___listOfSource(output.sources, context) : undefined,
     Status: __expectString(output.status),
-    VpcInterfaces:
-      output.vpcInterfaces != null
-        ? deserializeAws_restJson1__listOfVpcInterface(output.vpcInterfaces, context)
-        : undefined,
+    VpcInterfaces: output.vpcInterfaces != null ? de___listOfVpcInterface(output.vpcInterfaces, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Fmtp = (output: any, context: __SerdeContext): Fmtp => {
+/**
+ * deserializeAws_restJson1Fmtp
+ */
+const de_Fmtp = (output: any, context: __SerdeContext): Fmtp => {
   return {
     ChannelOrder: __expectString(output.channelOrder),
     Colorimetry: __expectString(output.colorimetry),
@@ -3499,21 +3860,30 @@ const deserializeAws_restJson1Fmtp = (output: any, context: __SerdeContext): Fmt
   } as any;
 };
 
-const deserializeAws_restJson1InputConfiguration = (output: any, context: __SerdeContext): InputConfiguration => {
+/**
+ * deserializeAws_restJson1InputConfiguration
+ */
+const de_InputConfiguration = (output: any, context: __SerdeContext): InputConfiguration => {
   return {
     InputIp: __expectString(output.inputIp),
     InputPort: __expectInt32(output.inputPort),
-    Interface: output.interface != null ? deserializeAws_restJson1Interface(output.interface, context) : undefined,
+    Interface: output.interface != null ? de_Interface(output.interface, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Interface = (output: any, context: __SerdeContext): Interface => {
+/**
+ * deserializeAws_restJson1Interface
+ */
+const de_Interface = (output: any, context: __SerdeContext): Interface => {
   return {
     Name: __expectString(output.name),
   } as any;
 };
 
-const deserializeAws_restJson1ListedEntitlement = (output: any, context: __SerdeContext): ListedEntitlement => {
+/**
+ * deserializeAws_restJson1ListedEntitlement
+ */
+const de_ListedEntitlement = (output: any, context: __SerdeContext): ListedEntitlement => {
   return {
     DataTransferSubscriberFeePercent: __expectInt32(output.dataTransferSubscriberFeePercent),
     EntitlementArn: __expectString(output.entitlementArn),
@@ -3521,20 +3891,25 @@ const deserializeAws_restJson1ListedEntitlement = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_restJson1ListedFlow = (output: any, context: __SerdeContext): ListedFlow => {
+/**
+ * deserializeAws_restJson1ListedFlow
+ */
+const de_ListedFlow = (output: any, context: __SerdeContext): ListedFlow => {
   return {
     AvailabilityZone: __expectString(output.availabilityZone),
     Description: __expectString(output.description),
     FlowArn: __expectString(output.flowArn),
-    Maintenance:
-      output.maintenance != null ? deserializeAws_restJson1Maintenance(output.maintenance, context) : undefined,
+    Maintenance: output.maintenance != null ? de_Maintenance(output.maintenance, context) : undefined,
     Name: __expectString(output.name),
     SourceType: __expectString(output.sourceType),
     Status: __expectString(output.status),
   } as any;
 };
 
-const deserializeAws_restJson1Maintenance = (output: any, context: __SerdeContext): Maintenance => {
+/**
+ * deserializeAws_restJson1Maintenance
+ */
+const de_Maintenance = (output: any, context: __SerdeContext): Maintenance => {
   return {
     MaintenanceDay: __expectString(output.maintenanceDay),
     MaintenanceDeadline: __expectString(output.maintenanceDeadline),
@@ -3543,10 +3918,12 @@ const deserializeAws_restJson1Maintenance = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_restJson1MediaStream = (output: any, context: __SerdeContext): MediaStream => {
+/**
+ * deserializeAws_restJson1MediaStream
+ */
+const de_MediaStream = (output: any, context: __SerdeContext): MediaStream => {
   return {
-    Attributes:
-      output.attributes != null ? deserializeAws_restJson1MediaStreamAttributes(output.attributes, context) : undefined,
+    Attributes: output.attributes != null ? de_MediaStreamAttributes(output.attributes, context) : undefined,
     ClockRate: __expectInt32(output.clockRate),
     Description: __expectString(output.description),
     Fmt: __expectInt32(output.fmt),
@@ -3557,52 +3934,59 @@ const deserializeAws_restJson1MediaStream = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_restJson1MediaStreamAttributes = (output: any, context: __SerdeContext): MediaStreamAttributes => {
+/**
+ * deserializeAws_restJson1MediaStreamAttributes
+ */
+const de_MediaStreamAttributes = (output: any, context: __SerdeContext): MediaStreamAttributes => {
   return {
-    Fmtp: output.fmtp != null ? deserializeAws_restJson1Fmtp(output.fmtp, context) : undefined,
+    Fmtp: output.fmtp != null ? de_Fmtp(output.fmtp, context) : undefined,
     Lang: __expectString(output.lang),
   } as any;
 };
 
-const deserializeAws_restJson1MediaStreamOutputConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MediaStreamOutputConfiguration => {
+/**
+ * deserializeAws_restJson1MediaStreamOutputConfiguration
+ */
+const de_MediaStreamOutputConfiguration = (output: any, context: __SerdeContext): MediaStreamOutputConfiguration => {
   return {
     DestinationConfigurations:
       output.destinationConfigurations != null
-        ? deserializeAws_restJson1__listOfDestinationConfiguration(output.destinationConfigurations, context)
+        ? de___listOfDestinationConfiguration(output.destinationConfigurations, context)
         : undefined,
     EncodingName: __expectString(output.encodingName),
     EncodingParameters:
-      output.encodingParameters != null
-        ? deserializeAws_restJson1EncodingParameters(output.encodingParameters, context)
-        : undefined,
+      output.encodingParameters != null ? de_EncodingParameters(output.encodingParameters, context) : undefined,
     MediaStreamName: __expectString(output.mediaStreamName),
   } as any;
 };
 
-const deserializeAws_restJson1MediaStreamSourceConfiguration = (
-  output: any,
-  context: __SerdeContext
-): MediaStreamSourceConfiguration => {
+/**
+ * deserializeAws_restJson1MediaStreamSourceConfiguration
+ */
+const de_MediaStreamSourceConfiguration = (output: any, context: __SerdeContext): MediaStreamSourceConfiguration => {
   return {
     EncodingName: __expectString(output.encodingName),
     InputConfigurations:
       output.inputConfigurations != null
-        ? deserializeAws_restJson1__listOfInputConfiguration(output.inputConfigurations, context)
+        ? de___listOfInputConfiguration(output.inputConfigurations, context)
         : undefined,
     MediaStreamName: __expectString(output.mediaStreamName),
   } as any;
 };
 
-const deserializeAws_restJson1Messages = (output: any, context: __SerdeContext): Messages => {
+/**
+ * deserializeAws_restJson1Messages
+ */
+const de_Messages = (output: any, context: __SerdeContext): Messages => {
   return {
-    Errors: output.errors != null ? deserializeAws_restJson1__listOf__string(output.errors, context) : undefined,
+    Errors: output.errors != null ? de___listOf__string(output.errors, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Offering = (output: any, context: __SerdeContext): Offering => {
+/**
+ * deserializeAws_restJson1Offering
+ */
+const de_Offering = (output: any, context: __SerdeContext): Offering => {
   return {
     CurrencyCode: __expectString(output.currencyCode),
     Duration: __expectInt32(output.duration),
@@ -3613,39 +3997,42 @@ const deserializeAws_restJson1Offering = (output: any, context: __SerdeContext):
     PriceUnits: __expectString(output.priceUnits),
     ResourceSpecification:
       output.resourceSpecification != null
-        ? deserializeAws_restJson1ResourceSpecification(output.resourceSpecification, context)
+        ? de_ResourceSpecification(output.resourceSpecification, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): Output => {
+/**
+ * deserializeAws_restJson1Output
+ */
+const de_Output = (output: any, context: __SerdeContext): Output => {
   return {
     DataTransferSubscriberFeePercent: __expectInt32(output.dataTransferSubscriberFeePercent),
     Description: __expectString(output.description),
     Destination: __expectString(output.destination),
-    Encryption: output.encryption != null ? deserializeAws_restJson1Encryption(output.encryption, context) : undefined,
+    Encryption: output.encryption != null ? de_Encryption(output.encryption, context) : undefined,
     EntitlementArn: __expectString(output.entitlementArn),
     ListenerAddress: __expectString(output.listenerAddress),
     MediaLiveInputArn: __expectString(output.mediaLiveInputArn),
     MediaStreamOutputConfigurations:
       output.mediaStreamOutputConfigurations != null
-        ? deserializeAws_restJson1__listOfMediaStreamOutputConfiguration(
-            output.mediaStreamOutputConfigurations,
-            context
-          )
+        ? de___listOfMediaStreamOutputConfiguration(output.mediaStreamOutputConfigurations, context)
         : undefined,
     Name: __expectString(output.name),
     OutputArn: __expectString(output.outputArn),
     Port: __expectInt32(output.port),
-    Transport: output.transport != null ? deserializeAws_restJson1Transport(output.transport, context) : undefined,
+    Transport: output.transport != null ? de_Transport(output.transport, context) : undefined,
     VpcInterfaceAttachment:
       output.vpcInterfaceAttachment != null
-        ? deserializeAws_restJson1VpcInterfaceAttachment(output.vpcInterfaceAttachment, context)
+        ? de_VpcInterfaceAttachment(output.vpcInterfaceAttachment, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Reservation = (output: any, context: __SerdeContext): Reservation => {
+/**
+ * deserializeAws_restJson1Reservation
+ */
+const de_Reservation = (output: any, context: __SerdeContext): Reservation => {
   return {
     CurrencyCode: __expectString(output.currencyCode),
     Duration: __expectInt32(output.duration),
@@ -3660,56 +4047,62 @@ const deserializeAws_restJson1Reservation = (output: any, context: __SerdeContex
     ReservationState: __expectString(output.reservationState),
     ResourceSpecification:
       output.resourceSpecification != null
-        ? deserializeAws_restJson1ResourceSpecification(output.resourceSpecification, context)
+        ? de_ResourceSpecification(output.resourceSpecification, context)
         : undefined,
     Start: __expectString(output.start),
   } as any;
 };
 
-const deserializeAws_restJson1ResourceSpecification = (output: any, context: __SerdeContext): ResourceSpecification => {
+/**
+ * deserializeAws_restJson1ResourceSpecification
+ */
+const de_ResourceSpecification = (output: any, context: __SerdeContext): ResourceSpecification => {
   return {
     ReservedBitrate: __expectInt32(output.reservedBitrate),
     ResourceType: __expectString(output.resourceType),
   } as any;
 };
 
-const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): Source => {
+/**
+ * deserializeAws_restJson1Source
+ */
+const de_Source = (output: any, context: __SerdeContext): Source => {
   return {
     DataTransferSubscriberFeePercent: __expectInt32(output.dataTransferSubscriberFeePercent),
-    Decryption: output.decryption != null ? deserializeAws_restJson1Encryption(output.decryption, context) : undefined,
+    Decryption: output.decryption != null ? de_Encryption(output.decryption, context) : undefined,
     Description: __expectString(output.description),
     EntitlementArn: __expectString(output.entitlementArn),
     IngestIp: __expectString(output.ingestIp),
     IngestPort: __expectInt32(output.ingestPort),
     MediaStreamSourceConfigurations:
       output.mediaStreamSourceConfigurations != null
-        ? deserializeAws_restJson1__listOfMediaStreamSourceConfiguration(
-            output.mediaStreamSourceConfigurations,
-            context
-          )
+        ? de___listOfMediaStreamSourceConfiguration(output.mediaStreamSourceConfigurations, context)
         : undefined,
     Name: __expectString(output.name),
     SenderControlPort: __expectInt32(output.senderControlPort),
     SenderIpAddress: __expectString(output.senderIpAddress),
     SourceArn: __expectString(output.sourceArn),
-    Transport: output.transport != null ? deserializeAws_restJson1Transport(output.transport, context) : undefined,
+    Transport: output.transport != null ? de_Transport(output.transport, context) : undefined,
     VpcInterfaceName: __expectString(output.vpcInterfaceName),
     WhitelistCidr: __expectString(output.whitelistCidr),
   } as any;
 };
 
-const deserializeAws_restJson1SourcePriority = (output: any, context: __SerdeContext): SourcePriority => {
+/**
+ * deserializeAws_restJson1SourcePriority
+ */
+const de_SourcePriority = (output: any, context: __SerdeContext): SourcePriority => {
   return {
     PrimarySource: __expectString(output.primarySource),
   } as any;
 };
 
-const deserializeAws_restJson1Transport = (output: any, context: __SerdeContext): Transport => {
+/**
+ * deserializeAws_restJson1Transport
+ */
+const de_Transport = (output: any, context: __SerdeContext): Transport => {
   return {
-    CidrAllowList:
-      output.cidrAllowList != null
-        ? deserializeAws_restJson1__listOf__string(output.cidrAllowList, context)
-        : undefined,
+    CidrAllowList: output.cidrAllowList != null ? de___listOf__string(output.cidrAllowList, context) : undefined,
     MaxBitrate: __expectInt32(output.maxBitrate),
     MaxLatency: __expectInt32(output.maxLatency),
     MaxSyncBuffer: __expectInt32(output.maxSyncBuffer),
@@ -3725,27 +4118,26 @@ const deserializeAws_restJson1Transport = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_restJson1VpcInterface = (output: any, context: __SerdeContext): VpcInterface => {
+/**
+ * deserializeAws_restJson1VpcInterface
+ */
+const de_VpcInterface = (output: any, context: __SerdeContext): VpcInterface => {
   return {
     Name: __expectString(output.name),
     NetworkInterfaceIds:
-      output.networkInterfaceIds != null
-        ? deserializeAws_restJson1__listOf__string(output.networkInterfaceIds, context)
-        : undefined,
+      output.networkInterfaceIds != null ? de___listOf__string(output.networkInterfaceIds, context) : undefined,
     NetworkInterfaceType: __expectString(output.networkInterfaceType),
     RoleArn: __expectString(output.roleArn),
     SecurityGroupIds:
-      output.securityGroupIds != null
-        ? deserializeAws_restJson1__listOf__string(output.securityGroupIds, context)
-        : undefined,
+      output.securityGroupIds != null ? de___listOf__string(output.securityGroupIds, context) : undefined,
     SubnetId: __expectString(output.subnetId),
   } as any;
 };
 
-const deserializeAws_restJson1VpcInterfaceAttachment = (
-  output: any,
-  context: __SerdeContext
-): VpcInterfaceAttachment => {
+/**
+ * deserializeAws_restJson1VpcInterfaceAttachment
+ */
+const de_VpcInterfaceAttachment = (output: any, context: __SerdeContext): VpcInterfaceAttachment => {
   return {
     VpcInterfaceName: __expectString(output.vpcInterfaceName),
   } as any;

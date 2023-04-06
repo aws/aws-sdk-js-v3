@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { RunStatementRequest, RunStatementResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1RunStatementCommand,
-  serializeAws_json1_1RunStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RunStatementCommand, se_RunStatementCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class RunStatementCommand extends $Command<
    * @internal
    */
   private serialize(input: RunStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RunStatementCommand(input, context);
+    return se_RunStatementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunStatementCommandOutput> {
-    return deserializeAws_json1_1RunStatementCommand(output, context);
+    return de_RunStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

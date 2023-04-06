@@ -16,8 +16,8 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { UpdateApprovalRuleTemplateNameInput, UpdateApprovalRuleTemplateNameOutput } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand,
-  serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand,
+  de_UpdateApprovalRuleTemplateNameCommand,
+  se_UpdateApprovalRuleTemplateNameCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -144,7 +144,7 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
     input: UpdateApprovalRuleTemplateNameCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(input, context);
+    return se_UpdateApprovalRuleTemplateNameCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApprovalRuleTemplateNameCommandOutput> {
-    return deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(output, context);
+    return de_UpdateApprovalRuleTemplateNameCommand(output, context);
   }
 
   // Start section: command_body_extra

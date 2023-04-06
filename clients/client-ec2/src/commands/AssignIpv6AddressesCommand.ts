@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AssignIpv6AddressesRequest, AssignIpv6AddressesResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AssignIpv6AddressesCommand,
-  serializeAws_ec2AssignIpv6AddressesCommand,
-} from "../protocols/Aws_ec2";
+import { de_AssignIpv6AddressesCommand, se_AssignIpv6AddressesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class AssignIpv6AddressesCommand extends $Command<
    * @internal
    */
   private serialize(input: AssignIpv6AddressesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AssignIpv6AddressesCommand(input, context);
+    return se_AssignIpv6AddressesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignIpv6AddressesCommandOutput> {
-    return deserializeAws_ec2AssignIpv6AddressesCommand(output, context);
+    return de_AssignIpv6AddressesCommand(output, context);
   }
 
   // Start section: command_body_extra

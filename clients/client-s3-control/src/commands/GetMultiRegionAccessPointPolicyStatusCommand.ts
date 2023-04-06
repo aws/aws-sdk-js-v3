@@ -20,8 +20,8 @@ import {
   GetMultiRegionAccessPointPolicyStatusResult,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand,
-  serializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand,
+  de_GetMultiRegionAccessPointPolicyStatusCommand,
+  se_GetMultiRegionAccessPointPolicyStatusCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -155,7 +155,7 @@ export class GetMultiRegionAccessPointPolicyStatusCommand extends $Command<
     input: GetMultiRegionAccessPointPolicyStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand(input, context);
+    return se_GetMultiRegionAccessPointPolicyStatusCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class GetMultiRegionAccessPointPolicyStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMultiRegionAccessPointPolicyStatusCommandOutput> {
-    return deserializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand(output, context);
+    return de_GetMultiRegionAccessPointPolicyStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

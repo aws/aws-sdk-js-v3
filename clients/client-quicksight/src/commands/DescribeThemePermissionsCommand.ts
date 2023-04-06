@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeThemePermissionsRequest, DescribeThemePermissionsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeThemePermissionsCommand,
-  serializeAws_restJson1DescribeThemePermissionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeThemePermissionsCommand, se_DescribeThemePermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -145,14 +142,14 @@ export class DescribeThemePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeThemePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeThemePermissionsCommand(input, context);
+    return se_DescribeThemePermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeThemePermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeThemePermissionsCommand(output, context);
+    return de_DescribeThemePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

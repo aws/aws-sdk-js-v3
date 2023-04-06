@@ -15,8 +15,8 @@ import {
 
 import { AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult } from "../models/models_0";
 import {
-  deserializeAws_queryAddSourceIdentifierToSubscriptionCommand,
-  serializeAws_queryAddSourceIdentifierToSubscriptionCommand,
+  de_AddSourceIdentifierToSubscriptionCommand,
+  se_AddSourceIdentifierToSubscriptionCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -65,21 +65,38 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  *  <p>The subscription name does not exist.</p>
  *
  *
- * @example To add a source identifier to an event notification subscription
+ * @example To add a source identifier to a subscription
  * ```javascript
- * // This example add a source identifier to an event notification subscription.
+ * // The following example adds another source identifier to an existing subscription.
  * const input = {
- *   "SourceIdentifier": "mymysqlinstance",
- *   "SubscriptionName": "mymysqleventsubscription"
+ *   "SourceIdentifier": "test-instance-repl",
+ *   "SubscriptionName": "my-instance-events"
  * };
  * const command = new AddSourceIdentifierToSubscriptionCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "EventSubscription": {}
+ *   "EventSubscription": {
+ *     "CustSubscriptionId": "my-instance-events",
+ *     "CustomerAwsId": "123456789012",
+ *     "Enabled": false,
+ *     "EventCategoriesList": [
+ *       "backup",
+ *       "recovery"
+ *     ],
+ *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     "SourceIdsList": [
+ *       "test-instance",
+ *       "test-instance-repl"
+ *     ],
+ *     "SourceType": "db-instance",
+ *     "Status": "modifying",
+ *     "SubscriptionCreationTime": "Tue Jul 31 23:22:01 UTC 2018"
+ *   }
  * }
  * *\/
- * // example id: add-source-identifier-to-subscription-93fb6a15-0a59-4577-a7b5-e12db9752c14
+ * // example id: to-add-a-source-identifier-to-a-subscription-1679691771786
  * ```
  *
  */
@@ -149,7 +166,7 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     input: AddSourceIdentifierToSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAddSourceIdentifierToSubscriptionCommand(input, context);
+    return se_AddSourceIdentifierToSubscriptionCommand(input, context);
   }
 
   /**
@@ -159,7 +176,7 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> {
-    return deserializeAws_queryAddSourceIdentifierToSubscriptionCommand(output, context);
+    return de_AddSourceIdentifierToSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

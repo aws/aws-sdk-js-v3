@@ -19,8 +19,8 @@ import {
   ModifyVerifiedAccessEndpointPolicyResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand,
-  serializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand,
+  de_ModifyVerifiedAccessEndpointPolicyCommand,
+  se_ModifyVerifiedAccessEndpointPolicyCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -132,7 +132,7 @@ export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
     input: ModifyVerifiedAccessEndpointPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand(input, context);
+    return se_ModifyVerifiedAccessEndpointPolicyCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVerifiedAccessEndpointPolicyCommandOutput> {
-    return deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand(output, context);
+    return de_ModifyVerifiedAccessEndpointPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

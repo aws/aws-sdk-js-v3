@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RegisterToWorkMailRequest, RegisterToWorkMailResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterToWorkMailCommand,
-  serializeAws_json1_1RegisterToWorkMailCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterToWorkMailCommand, se_RegisterToWorkMailCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -168,14 +165,14 @@ export class RegisterToWorkMailCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterToWorkMailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterToWorkMailCommand(input, context);
+    return se_RegisterToWorkMailCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterToWorkMailCommandOutput> {
-    return deserializeAws_json1_1RegisterToWorkMailCommand(output, context);
+    return de_RegisterToWorkMailCommand(output, context);
   }
 
   // Start section: command_body_extra

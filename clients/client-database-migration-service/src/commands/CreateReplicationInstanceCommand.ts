@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { CreateReplicationInstanceMessage, CreateReplicationInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateReplicationInstanceCommand,
-  serializeAws_json1_1CreateReplicationInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateReplicationInstanceCommand, se_CreateReplicationInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -264,7 +261,7 @@ export class CreateReplicationInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateReplicationInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateReplicationInstanceCommand(input, context);
+    return se_CreateReplicationInstanceCommand(input, context);
   }
 
   /**
@@ -274,7 +271,7 @@ export class CreateReplicationInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateReplicationInstanceCommandOutput> {
-    return deserializeAws_json1_1CreateReplicationInstanceCommand(output, context);
+    return de_CreateReplicationInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

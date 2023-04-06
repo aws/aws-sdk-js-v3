@@ -15,10 +15,7 @@ import {
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { GetBackendJobRequest, GetBackendJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBackendJobCommand,
-  serializeAws_restJson1GetBackendJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBackendJobCommand, se_GetBackendJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetBackendJobCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBackendJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackendJobCommand(input, context);
+    return se_GetBackendJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackendJobCommandOutput> {
-    return deserializeAws_restJson1GetBackendJobCommand(output, context);
+    return de_GetBackendJobCommand(output, context);
   }
 
   // Start section: command_body_extra

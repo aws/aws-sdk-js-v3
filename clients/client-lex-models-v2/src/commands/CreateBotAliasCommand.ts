@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { CreateBotAliasRequest, CreateBotAliasResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateBotAliasCommand,
-  serializeAws_restJson1CreateBotAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateBotAliasCommand, se_CreateBotAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -194,14 +191,14 @@ export class CreateBotAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateBotAliasCommand(input, context);
+    return se_CreateBotAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBotAliasCommandOutput> {
-    return deserializeAws_restJson1CreateBotAliasCommand(output, context);
+    return de_CreateBotAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

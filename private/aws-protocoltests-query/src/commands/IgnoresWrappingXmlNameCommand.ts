@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IgnoresWrappingXmlNameOutput } from "../models/models_0";
-import {
-  deserializeAws_queryIgnoresWrappingXmlNameCommand,
-  serializeAws_queryIgnoresWrappingXmlNameCommand,
-} from "../protocols/Aws_query";
+import { de_IgnoresWrappingXmlNameCommand, se_IgnoresWrappingXmlNameCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -108,14 +105,14 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
    * @internal
    */
   private serialize(input: IgnoresWrappingXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryIgnoresWrappingXmlNameCommand(input, context);
+    return se_IgnoresWrappingXmlNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IgnoresWrappingXmlNameCommandOutput> {
-    return deserializeAws_queryIgnoresWrappingXmlNameCommand(output, context);
+    return de_IgnoresWrappingXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

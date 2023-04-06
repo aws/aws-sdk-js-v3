@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { ListManagedDataIdentifiersRequest, ListManagedDataIdentifiersResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListManagedDataIdentifiersCommand,
-  serializeAws_restJson1ListManagedDataIdentifiersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListManagedDataIdentifiersCommand, se_ListManagedDataIdentifiersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -120,7 +117,7 @@ export class ListManagedDataIdentifiersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListManagedDataIdentifiersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListManagedDataIdentifiersCommand(input, context);
+    return se_ListManagedDataIdentifiersCommand(input, context);
   }
 
   /**
@@ -130,7 +127,7 @@ export class ListManagedDataIdentifiersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListManagedDataIdentifiersCommandOutput> {
-    return deserializeAws_restJson1ListManagedDataIdentifiersCommand(output, context);
+    return de_ListManagedDataIdentifiersCommand(output, context);
   }
 
   // Start section: command_body_extra

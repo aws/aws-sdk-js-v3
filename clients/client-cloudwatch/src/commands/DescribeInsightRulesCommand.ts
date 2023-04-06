@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { DescribeInsightRulesInput, DescribeInsightRulesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeInsightRulesCommand,
-  serializeAws_queryDescribeInsightRulesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeInsightRulesCommand, se_DescribeInsightRulesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DescribeInsightRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeInsightRulesCommand(input, context);
+    return se_DescribeInsightRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInsightRulesCommandOutput> {
-    return deserializeAws_queryDescribeInsightRulesCommand(output, context);
+    return de_DescribeInsightRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { CreateDomainEntryRequest, CreateDomainEntryResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDomainEntryCommand,
-  serializeAws_json1_1CreateDomainEntryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDomainEntryCommand, se_CreateDomainEntryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class CreateDomainEntryCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDomainEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDomainEntryCommand(input, context);
+    return se_CreateDomainEntryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainEntryCommandOutput> {
-    return deserializeAws_json1_1CreateDomainEntryCommand(output, context);
+    return de_CreateDomainEntryCommand(output, context);
   }
 
   // Start section: command_body_extra

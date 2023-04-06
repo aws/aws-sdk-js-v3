@@ -19,8 +19,8 @@ import {
   GetServiceLinkedRoleDeletionStatusResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand,
-  serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand,
+  de_GetServiceLinkedRoleDeletionStatusCommand,
+  se_GetServiceLinkedRoleDeletionStatusCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -144,7 +144,7 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
     input: GetServiceLinkedRoleDeletionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand(input, context);
+    return se_GetServiceLinkedRoleDeletionStatusCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> {
-    return deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand(output, context);
+    return de_GetServiceLinkedRoleDeletionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   GetFailbackReplicationConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetFailbackReplicationConfigurationCommand,
-  serializeAws_restJson1GetFailbackReplicationConfigurationCommand,
+  de_GetFailbackReplicationConfigurationCommand,
+  se_GetFailbackReplicationConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class GetFailbackReplicationConfigurationCommand extends $Command<
     input: GetFailbackReplicationConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFailbackReplicationConfigurationCommand(input, context);
+    return se_GetFailbackReplicationConfigurationCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class GetFailbackReplicationConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFailbackReplicationConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetFailbackReplicationConfigurationCommand(output, context);
+    return de_GetFailbackReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

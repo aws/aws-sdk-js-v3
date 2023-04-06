@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteSAMLProviderRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteSAMLProviderCommand,
-  serializeAws_queryDeleteSAMLProviderCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteSAMLProviderCommand, se_DeleteSAMLProviderCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteSAMLProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteSAMLProviderCommand(input, context);
+    return se_DeleteSAMLProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSAMLProviderCommandOutput> {
-    return deserializeAws_queryDeleteSAMLProviderCommand(output, context);
+    return de_DeleteSAMLProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

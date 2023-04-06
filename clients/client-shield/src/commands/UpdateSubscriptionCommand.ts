@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateSubscriptionRequest, UpdateSubscriptionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSubscriptionCommand,
-  serializeAws_json1_1UpdateSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSubscriptionCommand, se_UpdateSubscriptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -140,14 +137,14 @@ export class UpdateSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSubscriptionCommand(input, context);
+    return se_UpdateSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSubscriptionCommandOutput> {
-    return deserializeAws_json1_1UpdateSubscriptionCommand(output, context);
+    return de_UpdateSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

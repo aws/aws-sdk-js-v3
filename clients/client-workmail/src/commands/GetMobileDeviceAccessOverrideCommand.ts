@@ -15,8 +15,8 @@ import {
 
 import { GetMobileDeviceAccessOverrideRequest, GetMobileDeviceAccessOverrideResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetMobileDeviceAccessOverrideCommand,
-  serializeAws_json1_1GetMobileDeviceAccessOverrideCommand,
+  de_GetMobileDeviceAccessOverrideCommand,
+  se_GetMobileDeviceAccessOverrideCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -142,7 +142,7 @@ export class GetMobileDeviceAccessOverrideCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMobileDeviceAccessOverrideCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMobileDeviceAccessOverrideCommand(input, context);
+    return se_GetMobileDeviceAccessOverrideCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class GetMobileDeviceAccessOverrideCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMobileDeviceAccessOverrideCommandOutput> {
-    return deserializeAws_json1_1GetMobileDeviceAccessOverrideCommand(output, context);
+    return de_GetMobileDeviceAccessOverrideCommand(output, context);
   }
 
   // Start section: command_body_extra

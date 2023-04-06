@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateCapacityReservationRequest, CreateCapacityReservationResult } from "../models/models_0";
-import {
-  deserializeAws_ec2CreateCapacityReservationCommand,
-  serializeAws_ec2CreateCapacityReservationCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateCapacityReservationCommand, se_CreateCapacityReservationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -159,7 +156,7 @@ export class CreateCapacityReservationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateCapacityReservationCommand(input, context);
+    return se_CreateCapacityReservationCommand(input, context);
   }
 
   /**
@@ -169,7 +166,7 @@ export class CreateCapacityReservationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCapacityReservationCommandOutput> {
-    return deserializeAws_ec2CreateCapacityReservationCommand(output, context);
+    return de_CreateCapacityReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

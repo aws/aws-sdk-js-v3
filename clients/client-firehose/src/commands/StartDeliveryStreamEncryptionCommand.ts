@@ -16,8 +16,8 @@ import {
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { StartDeliveryStreamEncryptionInput, StartDeliveryStreamEncryptionOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1StartDeliveryStreamEncryptionCommand,
-  serializeAws_json1_1StartDeliveryStreamEncryptionCommand,
+  de_StartDeliveryStreamEncryptionCommand,
+  se_StartDeliveryStreamEncryptionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -180,7 +180,7 @@ export class StartDeliveryStreamEncryptionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartDeliveryStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDeliveryStreamEncryptionCommand(input, context);
+    return se_StartDeliveryStreamEncryptionCommand(input, context);
   }
 
   /**
@@ -190,7 +190,7 @@ export class StartDeliveryStreamEncryptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDeliveryStreamEncryptionCommandOutput> {
-    return deserializeAws_json1_1StartDeliveryStreamEncryptionCommand(output, context);
+    return de_StartDeliveryStreamEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

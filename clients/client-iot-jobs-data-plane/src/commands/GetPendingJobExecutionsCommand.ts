@@ -15,10 +15,7 @@ import {
 
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
 import { GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPendingJobExecutionsCommand,
-  serializeAws_restJson1GetPendingJobExecutionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPendingJobExecutionsCommand, se_GetPendingJobExecutionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetPendingJobExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPendingJobExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPendingJobExecutionsCommand(input, context);
+    return se_GetPendingJobExecutionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPendingJobExecutionsCommandOutput> {
-    return deserializeAws_restJson1GetPendingJobExecutionsCommand(output, context);
+    return de_GetPendingJobExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

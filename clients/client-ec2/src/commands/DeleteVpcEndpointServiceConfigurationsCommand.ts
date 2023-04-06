@@ -19,8 +19,8 @@ import {
   DeleteVpcEndpointServiceConfigurationsResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,
-  serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,
+  de_DeleteVpcEndpointServiceConfigurationsCommand,
+  se_DeleteVpcEndpointServiceConfigurationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -135,7 +135,7 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     input: DeleteVpcEndpointServiceConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand(input, context);
+    return se_DeleteVpcEndpointServiceConfigurationsCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcEndpointServiceConfigurationsCommandOutput> {
-    return deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand(output, context);
+    return de_DeleteVpcEndpointServiceConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

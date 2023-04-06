@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ListAvailableSolutionStacksResultMessage } from "../models/models_0";
-import {
-  deserializeAws_queryListAvailableSolutionStacksCommand,
-  serializeAws_queryListAvailableSolutionStacksCommand,
-} from "../protocols/Aws_query";
+import { de_ListAvailableSolutionStacksCommand, se_ListAvailableSolutionStacksCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -172,7 +169,7 @@ export class ListAvailableSolutionStacksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAvailableSolutionStacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListAvailableSolutionStacksCommand(input, context);
+    return se_ListAvailableSolutionStacksCommand(input, context);
   }
 
   /**
@@ -182,7 +179,7 @@ export class ListAvailableSolutionStacksCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableSolutionStacksCommandOutput> {
-    return deserializeAws_queryListAvailableSolutionStacksCommand(output, context);
+    return de_ListAvailableSolutionStacksCommand(output, context);
   }
 
   // Start section: command_body_extra

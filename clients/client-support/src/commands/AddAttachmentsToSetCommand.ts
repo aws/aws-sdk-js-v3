@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AddAttachmentsToSetRequest, AddAttachmentsToSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddAttachmentsToSetCommand,
-  serializeAws_json1_1AddAttachmentsToSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AddAttachmentsToSetCommand, se_AddAttachmentsToSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -161,14 +158,14 @@ export class AddAttachmentsToSetCommand extends $Command<
    * @internal
    */
   private serialize(input: AddAttachmentsToSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddAttachmentsToSetCommand(input, context);
+    return se_AddAttachmentsToSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddAttachmentsToSetCommandOutput> {
-    return deserializeAws_json1_1AddAttachmentsToSetCommand(output, context);
+    return de_AddAttachmentsToSetCommand(output, context);
   }
 
   // Start section: command_body_extra

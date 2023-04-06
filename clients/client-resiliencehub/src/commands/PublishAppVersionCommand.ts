@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PublishAppVersionRequest, PublishAppVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PublishAppVersionCommand,
-  serializeAws_restJson1PublishAppVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PublishAppVersionCommand, se_PublishAppVersionCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -144,14 +141,14 @@ export class PublishAppVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: PublishAppVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishAppVersionCommand(input, context);
+    return se_PublishAppVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishAppVersionCommandOutput> {
-    return deserializeAws_restJson1PublishAppVersionCommand(output, context);
+    return de_PublishAppVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

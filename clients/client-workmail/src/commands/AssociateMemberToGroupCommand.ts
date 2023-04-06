@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateMemberToGroupRequest, AssociateMemberToGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateMemberToGroupCommand,
-  serializeAws_json1_1AssociateMemberToGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateMemberToGroupCommand, se_AssociateMemberToGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -150,14 +147,14 @@ export class AssociateMemberToGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateMemberToGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateMemberToGroupCommand(input, context);
+    return se_AssociateMemberToGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMemberToGroupCommandOutput> {
-    return deserializeAws_json1_1AssociateMemberToGroupCommand(output, context);
+    return de_AssociateMemberToGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

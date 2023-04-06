@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { ListFeaturesRequest, ListFeaturesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFeaturesCommand,
-  serializeAws_restJson1ListFeaturesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFeaturesCommand, se_ListFeaturesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListFeaturesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFeaturesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFeaturesCommand(input, context);
+    return se_ListFeaturesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFeaturesCommandOutput> {
-    return deserializeAws_restJson1ListFeaturesCommand(output, context);
+    return de_ListFeaturesCommand(output, context);
   }
 
   // Start section: command_body_extra

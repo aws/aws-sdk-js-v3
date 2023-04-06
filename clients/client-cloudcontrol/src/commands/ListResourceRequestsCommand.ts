@@ -19,10 +19,7 @@ import {
   ListResourceRequestsOutput,
   ListResourceRequestsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListResourceRequestsCommand,
-  serializeAws_json1_0ListResourceRequestsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListResourceRequestsCommand, se_ListResourceRequestsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListResourceRequestsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResourceRequestsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListResourceRequestsCommand(input, context);
+    return se_ListResourceRequestsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceRequestsCommandOutput> {
-    return deserializeAws_json1_0ListResourceRequestsCommand(output, context);
+    return de_ListResourceRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

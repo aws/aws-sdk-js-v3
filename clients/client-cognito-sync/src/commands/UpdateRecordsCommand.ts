@@ -15,10 +15,7 @@ import {
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { UpdateRecordsRequest, UpdateRecordsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRecordsCommand,
-  serializeAws_restJson1UpdateRecordsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRecordsCommand, se_UpdateRecordsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -168,14 +165,14 @@ export class UpdateRecordsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRecordsCommand(input, context);
+    return se_UpdateRecordsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRecordsCommandOutput> {
-    return deserializeAws_restJson1UpdateRecordsCommand(output, context);
+    return de_UpdateRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

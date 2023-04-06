@@ -16,8 +16,8 @@ import {
 import { CreateTransitGatewayPeeringRequest, CreateTransitGatewayPeeringResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1CreateTransitGatewayPeeringCommand,
-  serializeAws_restJson1CreateTransitGatewayPeeringCommand,
+  de_CreateTransitGatewayPeeringCommand,
+  se_CreateTransitGatewayPeeringCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -149,7 +149,7 @@ export class CreateTransitGatewayPeeringCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTransitGatewayPeeringCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTransitGatewayPeeringCommand(input, context);
+    return se_CreateTransitGatewayPeeringCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class CreateTransitGatewayPeeringCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateTransitGatewayPeeringCommandOutput> {
-    return deserializeAws_restJson1CreateTransitGatewayPeeringCommand(output, context);
+    return de_CreateTransitGatewayPeeringCommand(output, context);
   }
 
   // Start section: command_body_extra

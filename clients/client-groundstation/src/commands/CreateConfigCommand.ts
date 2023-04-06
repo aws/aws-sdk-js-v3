@@ -15,10 +15,7 @@ import {
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { ConfigIdResponse, CreateConfigRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateConfigCommand,
-  serializeAws_restJson1CreateConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateConfigCommand, se_CreateConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -198,14 +195,14 @@ export class CreateConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateConfigCommand(input, context);
+    return se_CreateConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfigCommandOutput> {
-    return deserializeAws_restJson1CreateConfigCommand(output, context);
+    return de_CreateConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

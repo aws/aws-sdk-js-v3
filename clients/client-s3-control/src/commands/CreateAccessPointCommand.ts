@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAccessPointRequest, CreateAccessPointResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlCreateAccessPointCommand,
-  serializeAws_restXmlCreateAccessPointCommand,
-} from "../protocols/Aws_restXml";
+import { de_CreateAccessPointCommand, se_CreateAccessPointCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -168,14 +165,14 @@ export class CreateAccessPointCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateAccessPointCommand(input, context);
+    return se_CreateAccessPointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessPointCommandOutput> {
-    return deserializeAws_restXmlCreateAccessPointCommand(output, context);
+    return de_CreateAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

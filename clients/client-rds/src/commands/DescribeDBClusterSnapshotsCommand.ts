@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DBClusterSnapshotMessage, DescribeDBClusterSnapshotsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeDBClusterSnapshotsCommand,
-  serializeAws_queryDescribeDBClusterSnapshotsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBClusterSnapshotsCommand, se_DescribeDBClusterSnapshotsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -80,16 +77,71 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
  *
  *
- * @example To list DB cluster snapshots
+ * @example To describe a DB cluster snapshot for a DB cluster
  * ```javascript
- * // This example lists settings for the specified, manually-created cluster snapshot.
+ * // The following example retrieves the details for the DB cluster snapshots for the specified DB cluster.
  * const input = {
- *   "DBClusterSnapshotIdentifier": "mydbclustersnapshot",
- *   "SnapshotType": "manual"
+ *   "DBClusterIdentifier": "mydbcluster"
  * };
  * const command = new DescribeDBClusterSnapshotsCommand(input);
- * await client.send(command);
- * // example id: describe-db-cluster-snapshots-52f38af1-3431-4a51-9a6a-e6bb8c961b32
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBClusterSnapshots": [
+ *     {
+ *       "AllocatedStorage": 0,
+ *       "AvailabilityZones": [
+ *         "us-east-1a",
+ *         "us-east-1b",
+ *         "us-east-1e"
+ *       ],
+ *       "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
+ *       "DBClusterIdentifier": "mydbcluster",
+ *       "DBClusterSnapshotArn": "arn:aws:rds:us-east-1:814387698303:cluster-snapshot:myclustersnapshotcopy",
+ *       "DBClusterSnapshotIdentifier": "myclustersnapshotcopy",
+ *       "Engine": "aurora-mysql",
+ *       "EngineVersion": "5.7.mysql_aurora.2.04.2",
+ *       "IAMDatabaseAuthenticationEnabled": false,
+ *       "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *       "LicenseModel": "aurora-mysql",
+ *       "MasterUsername": "myadmin",
+ *       "PercentProgress": 100,
+ *       "Port": 0,
+ *       "SnapshotCreateTime": "2019-06-04T09:16:42.649Z",
+ *       "SnapshotType": "manual",
+ *       "Status": "available",
+ *       "StorageEncrypted": true,
+ *       "VpcId": "vpc-6594f31c"
+ *     },
+ *     {
+ *       "AllocatedStorage": 0,
+ *       "AvailabilityZones": [
+ *         "us-east-1a",
+ *         "us-east-1b",
+ *         "us-east-1e"
+ *       ],
+ *       "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
+ *       "DBClusterIdentifier": "mydbcluster",
+ *       "DBClusterSnapshotArn": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:rds:mydbcluster-2019-06-20-09-16",
+ *       "DBClusterSnapshotIdentifier": "rds:mydbcluster-2019-06-20-09-16",
+ *       "Engine": "aurora-mysql",
+ *       "EngineVersion": "5.7.mysql_aurora.2.04.2",
+ *       "IAMDatabaseAuthenticationEnabled": false,
+ *       "KmsKeyId": "arn:aws:kms:us-east-1:814387698303:key/AKIAIOSFODNN7EXAMPLE",
+ *       "LicenseModel": "aurora-mysql",
+ *       "MasterUsername": "myadmin",
+ *       "PercentProgress": 100,
+ *       "Port": 0,
+ *       "SnapshotCreateTime": "2019-06-20T09:16:26.569Z",
+ *       "SnapshotType": "automated",
+ *       "Status": "available",
+ *       "StorageEncrypted": true,
+ *       "VpcId": "vpc-6594f31c"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-a-db-cluster-snapshot-for-a-db-cluster-1680216426182
  * ```
  *
  */
@@ -156,7 +208,7 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDBClusterSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterSnapshotsCommand(input, context);
+    return se_DescribeDBClusterSnapshotsCommand(input, context);
   }
 
   /**
@@ -166,7 +218,7 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterSnapshotsCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterSnapshotsCommand(output, context);
+    return de_DescribeDBClusterSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

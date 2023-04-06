@@ -14,8 +14,8 @@ import {
 
 import { HttpRequestWithGreedyLabelInPathInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand,
-  serializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand,
+  de_HttpRequestWithGreedyLabelInPathCommand,
+  se_HttpRequestWithGreedyLabelInPathCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -86,7 +86,7 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command<
     input: HttpRequestWithGreedyLabelInPathCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand(input, context);
+    return se_HttpRequestWithGreedyLabelInPathCommand(input, context);
   }
 
   /**
@@ -96,7 +96,7 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> {
-    return deserializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand(output, context);
+    return de_HttpRequestWithGreedyLabelInPathCommand(output, context);
   }
 
   // Start section: command_body_extra

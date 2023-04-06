@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../KinesisVideoWebRTCStorageClient";
 import { JoinStorageSessionInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1JoinStorageSessionCommand,
-  serializeAws_restJson1JoinStorageSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_JoinStorageSessionCommand, se_JoinStorageSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class JoinStorageSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: JoinStorageSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1JoinStorageSessionCommand(input, context);
+    return se_JoinStorageSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JoinStorageSessionCommandOutput> {
-    return deserializeAws_restJson1JoinStorageSessionCommand(output, context);
+    return de_JoinStorageSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

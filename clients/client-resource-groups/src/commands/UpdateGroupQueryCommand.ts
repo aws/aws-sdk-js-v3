@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateGroupQueryInput, UpdateGroupQueryOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGroupQueryCommand,
-  serializeAws_restJson1UpdateGroupQueryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateGroupQueryCommand, se_UpdateGroupQueryCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 /**
@@ -156,14 +153,14 @@ export class UpdateGroupQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGroupQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGroupQueryCommand(input, context);
+    return se_UpdateGroupQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGroupQueryCommandOutput> {
-    return deserializeAws_restJson1UpdateGroupQueryCommand(output, context);
+    return de_UpdateGroupQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

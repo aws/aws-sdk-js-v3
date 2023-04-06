@@ -19,8 +19,8 @@ import {
   GetDataQualityRuleRecommendationRunResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetDataQualityRuleRecommendationRunCommand,
-  serializeAws_json1_1GetDataQualityRuleRecommendationRunCommand,
+  de_GetDataQualityRuleRecommendationRunCommand,
+  se_GetDataQualityRuleRecommendationRunCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -140,7 +140,7 @@ export class GetDataQualityRuleRecommendationRunCommand extends $Command<
     input: GetDataQualityRuleRecommendationRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataQualityRuleRecommendationRunCommand(input, context);
+    return se_GetDataQualityRuleRecommendationRunCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class GetDataQualityRuleRecommendationRunCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDataQualityRuleRecommendationRunCommandOutput> {
-    return deserializeAws_json1_1GetDataQualityRuleRecommendationRunCommand(output, context);
+    return de_GetDataQualityRuleRecommendationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

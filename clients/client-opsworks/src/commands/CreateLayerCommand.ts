@@ -15,10 +15,7 @@ import {
 
 import { CreateLayerRequest, CreateLayerResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1CreateLayerCommand,
-  serializeAws_json1_1CreateLayerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLayerCommand, se_CreateLayerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -204,14 +201,14 @@ export class CreateLayerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLayerCommand(input, context);
+    return se_CreateLayerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLayerCommandOutput> {
-    return deserializeAws_json1_1CreateLayerCommand(output, context);
+    return de_CreateLayerCommand(output, context);
   }
 
   // Start section: command_body_extra

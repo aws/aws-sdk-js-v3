@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDBSecurityGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBSecurityGroupCommand,
-  serializeAws_queryDeleteDBSecurityGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBSecurityGroupCommand, se_DeleteDBSecurityGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -146,14 +143,14 @@ export class DeleteDBSecurityGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBSecurityGroupCommand(input, context);
+    return se_DeleteDBSecurityGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBSecurityGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBSecurityGroupCommand(output, context);
+    return de_DeleteDBSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

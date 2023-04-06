@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteResponsePlanInput, DeleteResponsePlanOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteResponsePlanCommand,
-  serializeAws_restJson1DeleteResponsePlanCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteResponsePlanCommand, se_DeleteResponsePlanCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -135,14 +132,14 @@ export class DeleteResponsePlanCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResponsePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResponsePlanCommand(input, context);
+    return se_DeleteResponsePlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResponsePlanCommandOutput> {
-    return deserializeAws_restJson1DeleteResponsePlanCommand(output, context);
+    return de_DeleteResponsePlanCommand(output, context);
   }
 
   // Start section: command_body_extra

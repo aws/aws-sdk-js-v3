@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateVocabularyRequest, UpdateVocabularyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateVocabularyCommand,
-  serializeAws_json1_1UpdateVocabularyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateVocabularyCommand, se_UpdateVocabularyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -150,14 +147,14 @@ export class UpdateVocabularyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateVocabularyCommand(input, context);
+    return se_UpdateVocabularyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVocabularyCommandOutput> {
-    return deserializeAws_json1_1UpdateVocabularyCommand(output, context);
+    return de_UpdateVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

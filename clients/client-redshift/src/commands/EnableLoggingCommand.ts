@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EnableLoggingMessage, LoggingStatus } from "../models/models_1";
-import {
-  deserializeAws_queryEnableLoggingCommand,
-  serializeAws_queryEnableLoggingCommand,
-} from "../protocols/Aws_query";
+import { de_EnableLoggingCommand, se_EnableLoggingCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -149,14 +146,14 @@ export class EnableLoggingCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableLoggingCommand(input, context);
+    return se_EnableLoggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableLoggingCommandOutput> {
-    return deserializeAws_queryEnableLoggingCommand(output, context);
+    return de_EnableLoggingCommand(output, context);
   }
 
   // Start section: command_body_extra

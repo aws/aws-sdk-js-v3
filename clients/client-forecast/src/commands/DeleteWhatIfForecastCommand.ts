@@ -15,10 +15,7 @@ import {
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DeleteWhatIfForecastRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWhatIfForecastCommand,
-  serializeAws_json1_1DeleteWhatIfForecastCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteWhatIfForecastCommand, se_DeleteWhatIfForecastCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteWhatIfForecastCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWhatIfForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWhatIfForecastCommand(input, context);
+    return se_DeleteWhatIfForecastCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWhatIfForecastCommandOutput> {
-    return deserializeAws_json1_1DeleteWhatIfForecastCommand(output, context);
+    return de_DeleteWhatIfForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

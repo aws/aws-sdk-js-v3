@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListPagesByEngagementRequest, ListPagesByEngagementResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListPagesByEngagementCommand,
-  serializeAws_json1_1ListPagesByEngagementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListPagesByEngagementCommand, se_ListPagesByEngagementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -138,14 +135,14 @@ export class ListPagesByEngagementCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPagesByEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPagesByEngagementCommand(input, context);
+    return se_ListPagesByEngagementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPagesByEngagementCommandOutput> {
-    return deserializeAws_json1_1ListPagesByEngagementCommand(output, context);
+    return de_ListPagesByEngagementCommand(output, context);
   }
 
   // Start section: command_body_extra

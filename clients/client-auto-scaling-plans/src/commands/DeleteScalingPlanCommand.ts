@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
 import { DeleteScalingPlanRequest, DeleteScalingPlanResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteScalingPlanCommand,
-  serializeAws_json1_1DeleteScalingPlanCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteScalingPlanCommand, se_DeleteScalingPlanCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteScalingPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteScalingPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteScalingPlanCommand(input, context);
+    return se_DeleteScalingPlanCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteScalingPlanCommandOutput> {
-    return deserializeAws_json1_1DeleteScalingPlanCommand(output, context);
+    return de_DeleteScalingPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

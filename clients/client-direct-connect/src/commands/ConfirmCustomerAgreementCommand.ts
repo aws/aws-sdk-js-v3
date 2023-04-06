@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { ConfirmCustomerAgreementRequest, ConfirmCustomerAgreementResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ConfirmCustomerAgreementCommand,
-  serializeAws_json1_1ConfirmCustomerAgreementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ConfirmCustomerAgreementCommand, se_ConfirmCustomerAgreementCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ConfirmCustomerAgreementCommand extends $Command<
    * @internal
    */
   private serialize(input: ConfirmCustomerAgreementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmCustomerAgreementCommand(input, context);
+    return se_ConfirmCustomerAgreementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmCustomerAgreementCommandOutput> {
-    return deserializeAws_json1_1ConfirmCustomerAgreementCommand(output, context);
+    return de_ConfirmCustomerAgreementCommand(output, context);
   }
 
   // Start section: command_body_extra

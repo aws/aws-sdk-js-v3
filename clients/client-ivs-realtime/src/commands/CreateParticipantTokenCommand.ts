@@ -19,10 +19,7 @@ import {
   CreateParticipantTokenResponse,
   CreateParticipantTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateParticipantTokenCommand,
-  serializeAws_restJson1CreateParticipantTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateParticipantTokenCommand, se_CreateParticipantTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class CreateParticipantTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateParticipantTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateParticipantTokenCommand(input, context);
+    return se_CreateParticipantTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateParticipantTokenCommandOutput> {
-    return deserializeAws_restJson1CreateParticipantTokenCommand(output, context);
+    return de_CreateParticipantTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetObjectTaggingOutput, GetObjectTaggingRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetObjectTaggingCommand,
-  serializeAws_restXmlGetObjectTaggingCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetObjectTaggingCommand, se_GetObjectTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -209,14 +206,14 @@ export class GetObjectTaggingCommand extends $Command<
    * @internal
    */
   private serialize(input: GetObjectTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetObjectTaggingCommand(input, context);
+    return se_GetObjectTaggingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectTaggingCommandOutput> {
-    return deserializeAws_restXmlGetObjectTaggingCommand(output, context);
+    return de_GetObjectTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

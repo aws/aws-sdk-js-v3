@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { TagInstanceProfileRequest } from "../models/models_0";
-import {
-  deserializeAws_queryTagInstanceProfileCommand,
-  serializeAws_queryTagInstanceProfileCommand,
-} from "../protocols/Aws_query";
+import { de_TagInstanceProfileCommand, se_TagInstanceProfileCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class TagInstanceProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: TagInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagInstanceProfileCommand(input, context);
+    return se_TagInstanceProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagInstanceProfileCommandOutput> {
-    return deserializeAws_queryTagInstanceProfileCommand(output, context);
+    return de_TagInstanceProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

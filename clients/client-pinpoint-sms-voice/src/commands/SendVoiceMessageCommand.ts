@@ -15,10 +15,7 @@ import {
 
 import { SendVoiceMessageRequest, SendVoiceMessageResponse } from "../models/models_0";
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
-import {
-  deserializeAws_restJson1SendVoiceMessageCommand,
-  serializeAws_restJson1SendVoiceMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendVoiceMessageCommand, se_SendVoiceMessageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class SendVoiceMessageCommand extends $Command<
    * @internal
    */
   private serialize(input: SendVoiceMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendVoiceMessageCommand(input, context);
+    return se_SendVoiceMessageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendVoiceMessageCommandOutput> {
-    return deserializeAws_restJson1SendVoiceMessageCommand(output, context);
+    return de_SendVoiceMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

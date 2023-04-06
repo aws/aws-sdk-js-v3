@@ -15,8 +15,8 @@ import {
 
 import { DisableAWSOrganizationsAccessInput, DisableAWSOrganizationsAccessOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisableAWSOrganizationsAccessCommand,
-  serializeAws_json1_1DisableAWSOrganizationsAccessCommand,
+  de_DisableAWSOrganizationsAccessCommand,
+  se_DisableAWSOrganizationsAccessCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -142,7 +142,7 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableAWSOrganizationsAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableAWSOrganizationsAccessCommand(input, context);
+    return se_DisableAWSOrganizationsAccessCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DisableAWSOrganizationsAccessCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableAWSOrganizationsAccessCommandOutput> {
-    return deserializeAws_json1_1DisableAWSOrganizationsAccessCommand(output, context);
+    return de_DisableAWSOrganizationsAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

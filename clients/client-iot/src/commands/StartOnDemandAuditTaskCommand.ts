@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { StartOnDemandAuditTaskRequest, StartOnDemandAuditTaskResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1StartOnDemandAuditTaskCommand,
-  serializeAws_restJson1StartOnDemandAuditTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartOnDemandAuditTaskCommand, se_StartOnDemandAuditTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class StartOnDemandAuditTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: StartOnDemandAuditTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartOnDemandAuditTaskCommand(input, context);
+    return se_StartOnDemandAuditTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartOnDemandAuditTaskCommandOutput> {
-    return deserializeAws_restJson1StartOnDemandAuditTaskCommand(output, context);
+    return de_StartOnDemandAuditTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

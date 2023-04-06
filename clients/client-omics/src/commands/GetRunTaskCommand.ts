@@ -15,10 +15,7 @@ import {
 
 import { GetRunTaskRequest, GetRunTaskResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetRunTaskCommand,
-  serializeAws_restJson1GetRunTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRunTaskCommand, se_GetRunTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetRunTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRunTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRunTaskCommand(input, context);
+    return se_GetRunTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRunTaskCommandOutput> {
-    return deserializeAws_restJson1GetRunTaskCommand(output, context);
+    return de_GetRunTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

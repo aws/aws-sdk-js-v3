@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TerminateSessionRequest, TerminateSessionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1TerminateSessionCommand,
-  serializeAws_json1_1TerminateSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TerminateSessionCommand, se_TerminateSessionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -124,14 +121,14 @@ export class TerminateSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TerminateSessionCommand(input, context);
+    return se_TerminateSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateSessionCommandOutput> {
-    return deserializeAws_json1_1TerminateSessionCommand(output, context);
+    return de_TerminateSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { DescribeIdentityPoolUsageRequest, DescribeIdentityPoolUsageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeIdentityPoolUsageCommand,
-  serializeAws_restJson1DescribeIdentityPoolUsageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeIdentityPoolUsageCommand, se_DescribeIdentityPoolUsageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -188,7 +185,7 @@ export class DescribeIdentityPoolUsageCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeIdentityPoolUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeIdentityPoolUsageCommand(input, context);
+    return se_DescribeIdentityPoolUsageCommand(input, context);
   }
 
   /**
@@ -198,7 +195,7 @@ export class DescribeIdentityPoolUsageCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeIdentityPoolUsageCommandOutput> {
-    return deserializeAws_restJson1DescribeIdentityPoolUsageCommand(output, context);
+    return de_DescribeIdentityPoolUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

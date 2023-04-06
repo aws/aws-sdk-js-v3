@@ -19,8 +19,8 @@ import {
   DescribeOrganizationConfigRuleStatusesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand,
-  serializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand,
+  de_DescribeOrganizationConfigRuleStatusesCommand,
+  se_DescribeOrganizationConfigRuleStatusesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -172,7 +172,7 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
     input: DescribeOrganizationConfigRuleStatusesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand(input, context);
+    return se_DescribeOrganizationConfigRuleStatusesCommand(input, context);
   }
 
   /**
@@ -182,7 +182,7 @@ export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand(output, context);
+    return de_DescribeOrganizationConfigRuleStatusesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ListSpeechSynthesisTasksInput, ListSpeechSynthesisTasksOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1ListSpeechSynthesisTasksCommand,
-  serializeAws_restJson1ListSpeechSynthesisTasksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSpeechSynthesisTasksCommand, se_ListSpeechSynthesisTasksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class ListSpeechSynthesisTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSpeechSynthesisTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSpeechSynthesisTasksCommand(input, context);
+    return se_ListSpeechSynthesisTasksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSpeechSynthesisTasksCommandOutput> {
-    return deserializeAws_restJson1ListSpeechSynthesisTasksCommand(output, context);
+    return de_ListSpeechSynthesisTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

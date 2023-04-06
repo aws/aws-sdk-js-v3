@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetRotationRequest, GetRotationResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetRotationCommand,
-  serializeAws_json1_1GetRotationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetRotationCommand, se_GetRotationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -134,14 +131,14 @@ export class GetRotationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRotationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRotationCommand(input, context);
+    return se_GetRotationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRotationCommandOutput> {
-    return deserializeAws_json1_1GetRotationCommand(output, context);
+    return de_GetRotationCommand(output, context);
   }
 
   // Start section: command_body_extra

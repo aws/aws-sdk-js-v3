@@ -19,8 +19,8 @@ import {
   UpdateGatewayCapabilityConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand,
-  serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand,
+  de_UpdateGatewayCapabilityConfigurationCommand,
+  se_UpdateGatewayCapabilityConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -160,7 +160,7 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
     input: UpdateGatewayCapabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand(input, context);
+    return se_UpdateGatewayCapabilityConfigurationCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateGatewayCapabilityConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand(output, context);
+    return de_UpdateGatewayCapabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

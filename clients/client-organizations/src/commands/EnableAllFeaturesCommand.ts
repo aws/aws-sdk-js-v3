@@ -19,10 +19,7 @@ import {
   EnableAllFeaturesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1EnableAllFeaturesCommand,
-  serializeAws_json1_1EnableAllFeaturesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_EnableAllFeaturesCommand, se_EnableAllFeaturesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -369,14 +366,14 @@ export class EnableAllFeaturesCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableAllFeaturesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1EnableAllFeaturesCommand(input, context);
+    return se_EnableAllFeaturesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAllFeaturesCommandOutput> {
-    return deserializeAws_json1_1EnableAllFeaturesCommand(output, context);
+    return de_EnableAllFeaturesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { SuspendContactRecordingRequest, SuspendContactRecordingResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1SuspendContactRecordingCommand,
-  serializeAws_restJson1SuspendContactRecordingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SuspendContactRecordingCommand, se_SuspendContactRecordingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class SuspendContactRecordingCommand extends $Command<
    * @internal
    */
   private serialize(input: SuspendContactRecordingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SuspendContactRecordingCommand(input, context);
+    return se_SuspendContactRecordingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SuspendContactRecordingCommandOutput> {
-    return deserializeAws_restJson1SuspendContactRecordingCommand(output, context);
+    return de_SuspendContactRecordingCommand(output, context);
   }
 
   // Start section: command_body_extra

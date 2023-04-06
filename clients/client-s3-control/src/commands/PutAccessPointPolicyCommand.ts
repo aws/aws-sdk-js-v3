@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutAccessPointPolicyRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutAccessPointPolicyCommand,
-  serializeAws_restXmlPutAccessPointPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutAccessPointPolicyCommand, se_PutAccessPointPolicyCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -145,14 +142,14 @@ export class PutAccessPointPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAccessPointPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutAccessPointPolicyCommand(input, context);
+    return se_PutAccessPointPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAccessPointPolicyCommandOutput> {
-    return deserializeAws_restXmlPutAccessPointPolicyCommand(output, context);
+    return de_PutAccessPointPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

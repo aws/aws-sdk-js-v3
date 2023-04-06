@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { CreateRevisionRequest, CreateRevisionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRevisionCommand,
-  serializeAws_restJson1CreateRevisionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRevisionCommand, se_CreateRevisionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class CreateRevisionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRevisionCommand(input, context);
+    return se_CreateRevisionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRevisionCommandOutput> {
-    return deserializeAws_restJson1CreateRevisionCommand(output, context);
+    return de_CreateRevisionCommand(output, context);
   }
 
   // Start section: command_body_extra

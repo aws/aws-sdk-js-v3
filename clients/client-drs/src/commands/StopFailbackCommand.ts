@@ -15,10 +15,7 @@ import {
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { StopFailbackRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopFailbackCommand,
-  serializeAws_restJson1StopFailbackCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopFailbackCommand, se_StopFailbackCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class StopFailbackCommand extends $Command<
    * @internal
    */
   private serialize(input: StopFailbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopFailbackCommand(input, context);
+    return se_StopFailbackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFailbackCommandOutput> {
-    return deserializeAws_restJson1StopFailbackCommand(output, context);
+    return de_StopFailbackCommand(output, context);
   }
 
   // Start section: command_body_extra

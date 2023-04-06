@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteFolderRequest, DeleteFolderResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteFolderCommand,
-  serializeAws_restJson1DeleteFolderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFolderCommand, se_DeleteFolderCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -149,14 +146,14 @@ export class DeleteFolderCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFolderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFolderCommand(input, context);
+    return se_DeleteFolderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFolderCommandOutput> {
-    return deserializeAws_restJson1DeleteFolderCommand(output, context);
+    return de_DeleteFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { UpdateClusterInput, UpdateClusterInputFilterSensitiveLog, UpdateClusterOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateClusterCommand,
-  serializeAws_restJson1UpdateClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateClusterCommand, se_UpdateClusterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class UpdateClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateClusterCommand(input, context);
+    return se_UpdateClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterCommandOutput> {
-    return deserializeAws_restJson1UpdateClusterCommand(output, context);
+    return de_UpdateClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

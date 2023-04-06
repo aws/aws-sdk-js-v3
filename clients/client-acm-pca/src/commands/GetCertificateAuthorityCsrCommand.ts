@@ -15,10 +15,7 @@ import {
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { GetCertificateAuthorityCsrRequest, GetCertificateAuthorityCsrResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCertificateAuthorityCsrCommand,
-  serializeAws_json1_1GetCertificateAuthorityCsrCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCertificateAuthorityCsrCommand, se_GetCertificateAuthorityCsrCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class GetCertificateAuthorityCsrCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCertificateAuthorityCsrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCertificateAuthorityCsrCommand(input, context);
+    return se_GetCertificateAuthorityCsrCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class GetCertificateAuthorityCsrCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCertificateAuthorityCsrCommandOutput> {
-    return deserializeAws_json1_1GetCertificateAuthorityCsrCommand(output, context);
+    return de_GetCertificateAuthorityCsrCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListTagsForResourceMessage, TagListMessage } from "../models/models_1";
-import {
-  deserializeAws_queryListTagsForResourceCommand,
-  serializeAws_queryListTagsForResourceCommand,
-} from "../protocols/Aws_query";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -89,15 +86,29 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
  *
- * @example To list information about tags associated with a resource
+ * @example To list tags on an Amazon RDS resource
  * ```javascript
- * // This example lists information about all tags associated with the specified DB option group.
+ * // The following example lists all tags on a DB instance.
  * const input = {
- *   "ResourceName": "arn:aws:rds:us-east-1:992648334831:og:mymysqloptiongroup"
+ *   "ResourceName": "arn:aws:rds:us-east-1:123456789012:db:orcl1"
  * };
  * const command = new ListTagsForResourceCommand(input);
- * await client.send(command);
- * // example id: list-tags-for-resource-8401f3c2-77cd-4f90-bfd5-b523f0adcc2f
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "TagList": [
+ *     {
+ *       "Key": "Environment",
+ *       "Value": "test"
+ *     },
+ *     {
+ *       "Key": "Name",
+ *       "Value": "MyDatabase"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-tags-on-an-amazon-rds-resource-1680285113240
  * ```
  *
  */
@@ -164,14 +175,14 @@ export class ListTagsForResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListTagsForResourceCommand(input, context);
+    return se_ListTagsForResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
-    return deserializeAws_queryListTagsForResourceCommand(output, context);
+    return de_ListTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

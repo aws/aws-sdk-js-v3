@@ -16,8 +16,8 @@ import {
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { CreateDataRepositoryAssociationRequest, CreateDataRepositoryAssociationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateDataRepositoryAssociationCommand,
-  serializeAws_json1_1CreateDataRepositoryAssociationCommand,
+  de_CreateDataRepositoryAssociationCommand,
+  se_CreateDataRepositoryAssociationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -185,7 +185,7 @@ export class CreateDataRepositoryAssociationCommand extends $Command<
     input: CreateDataRepositoryAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDataRepositoryAssociationCommand(input, context);
+    return se_CreateDataRepositoryAssociationCommand(input, context);
   }
 
   /**
@@ -195,7 +195,7 @@ export class CreateDataRepositoryAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDataRepositoryAssociationCommandOutput> {
-    return deserializeAws_json1_1CreateDataRepositoryAssociationCommand(output, context);
+    return de_CreateDataRepositoryAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

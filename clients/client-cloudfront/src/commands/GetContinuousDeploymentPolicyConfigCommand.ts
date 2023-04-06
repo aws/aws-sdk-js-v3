@@ -19,8 +19,8 @@ import {
   GetContinuousDeploymentPolicyConfigResult,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand,
-  serializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand,
+  de_GetContinuousDeploymentPolicyConfigCommand,
+  se_GetContinuousDeploymentPolicyConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -134,7 +134,7 @@ export class GetContinuousDeploymentPolicyConfigCommand extends $Command<
     input: GetContinuousDeploymentPolicyConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand(input, context);
+    return se_GetContinuousDeploymentPolicyConfigCommand(input, context);
   }
 
   /**
@@ -144,7 +144,7 @@ export class GetContinuousDeploymentPolicyConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContinuousDeploymentPolicyConfigCommandOutput> {
-    return deserializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand(output, context);
+    return de_GetContinuousDeploymentPolicyConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

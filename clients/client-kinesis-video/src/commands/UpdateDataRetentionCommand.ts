@@ -15,10 +15,7 @@ import {
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import { UpdateDataRetentionInput, UpdateDataRetentionOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDataRetentionCommand,
-  serializeAws_restJson1UpdateDataRetentionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDataRetentionCommand, se_UpdateDataRetentionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -186,14 +183,14 @@ export class UpdateDataRetentionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDataRetentionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataRetentionCommand(input, context);
+    return se_UpdateDataRetentionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDataRetentionCommandOutput> {
-    return deserializeAws_restJson1UpdateDataRetentionCommand(output, context);
+    return de_UpdateDataRetentionCommand(output, context);
   }
 
   // Start section: command_body_extra

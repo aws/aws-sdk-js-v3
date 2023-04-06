@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DescribeImagesRequest, DescribeImagesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImagesCommand,
-  serializeAws_json1_1DescribeImagesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeImagesCommand, se_DescribeImagesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeImagesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImagesCommand(input, context);
+    return se_DescribeImagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImagesCommandOutput> {
-    return deserializeAws_json1_1DescribeImagesCommand(output, context);
+    return de_DescribeImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

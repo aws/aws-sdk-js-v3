@@ -65,7 +65,10 @@ import {
 } from "../models/models_0";
 import { ResourceGroupsTaggingAPIServiceException as __BaseException } from "../models/ResourceGroupsTaggingAPIServiceException";
 
-export const serializeAws_json1_1DescribeReportCreationCommand = async (
+/**
+ * serializeAws_json1_1DescribeReportCreationCommand
+ */
+export const se_DescribeReportCreationCommand = async (
   input: DescribeReportCreationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -74,11 +77,14 @@ export const serializeAws_json1_1DescribeReportCreationCommand = async (
     "x-amz-target": "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeReportCreationInput(input, context));
+  body = JSON.stringify(se_DescribeReportCreationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetComplianceSummaryCommand = async (
+/**
+ * serializeAws_json1_1GetComplianceSummaryCommand
+ */
+export const se_GetComplianceSummaryCommand = async (
   input: GetComplianceSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -87,11 +93,14 @@ export const serializeAws_json1_1GetComplianceSummaryCommand = async (
     "x-amz-target": "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetComplianceSummaryInput(input, context));
+  body = JSON.stringify(se_GetComplianceSummaryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetResourcesCommand = async (
+/**
+ * serializeAws_json1_1GetResourcesCommand
+ */
+export const se_GetResourcesCommand = async (
   input: GetResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -100,11 +109,14 @@ export const serializeAws_json1_1GetResourcesCommand = async (
     "x-amz-target": "ResourceGroupsTaggingAPI_20170126.GetResources",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetResourcesInput(input, context));
+  body = JSON.stringify(se_GetResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetTagKeysCommand = async (
+/**
+ * serializeAws_json1_1GetTagKeysCommand
+ */
+export const se_GetTagKeysCommand = async (
   input: GetTagKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -113,11 +125,14 @@ export const serializeAws_json1_1GetTagKeysCommand = async (
     "x-amz-target": "ResourceGroupsTaggingAPI_20170126.GetTagKeys",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetTagKeysInput(input, context));
+  body = JSON.stringify(se_GetTagKeysInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetTagValuesCommand = async (
+/**
+ * serializeAws_json1_1GetTagValuesCommand
+ */
+export const se_GetTagValuesCommand = async (
   input: GetTagValuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -126,11 +141,14 @@ export const serializeAws_json1_1GetTagValuesCommand = async (
     "x-amz-target": "ResourceGroupsTaggingAPI_20170126.GetTagValues",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetTagValuesInput(input, context));
+  body = JSON.stringify(se_GetTagValuesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartReportCreationCommand = async (
+/**
+ * serializeAws_json1_1StartReportCreationCommand
+ */
+export const se_StartReportCreationCommand = async (
   input: StartReportCreationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -139,11 +157,14 @@ export const serializeAws_json1_1StartReportCreationCommand = async (
     "x-amz-target": "ResourceGroupsTaggingAPI_20170126.StartReportCreation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartReportCreationInput(input, context));
+  body = JSON.stringify(se_StartReportCreationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourcesCommand = async (
+/**
+ * serializeAws_json1_1TagResourcesCommand
+ */
+export const se_TagResourcesCommand = async (
   input: TagResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -152,11 +173,14 @@ export const serializeAws_json1_1TagResourcesCommand = async (
     "x-amz-target": "ResourceGroupsTaggingAPI_20170126.TagResources",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourcesInput(input, context));
+  body = JSON.stringify(se_TagResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourcesCommand = async (
+/**
+ * serializeAws_json1_1UntagResourcesCommand
+ */
+export const se_UntagResourcesCommand = async (
   input: UntagResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -165,20 +189,23 @@ export const serializeAws_json1_1UntagResourcesCommand = async (
     "x-amz-target": "ResourceGroupsTaggingAPI_20170126.UntagResources",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourcesInput(input, context));
+  body = JSON.stringify(se_UntagResourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1DescribeReportCreationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeReportCreationCommand
+ */
+export const de_DescribeReportCreationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReportCreationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeReportCreationCommandError(output, context);
+    return de_DescribeReportCreationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeReportCreationOutput(data, context);
+  contents = de_DescribeReportCreationOutput(data, context);
   const response: DescribeReportCreationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -186,7 +213,10 @@ export const deserializeAws_json1_1DescribeReportCreationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeReportCreationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeReportCreationCommandError
+ */
+const de_DescribeReportCreationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReportCreationCommandOutput> => {
@@ -198,16 +228,16 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
   switch (errorCode) {
     case "ConstraintViolationException":
     case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -219,16 +249,19 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetComplianceSummaryCommand = async (
+/**
+ * deserializeAws_json1_1GetComplianceSummaryCommand
+ */
+export const de_GetComplianceSummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComplianceSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetComplianceSummaryCommandError(output, context);
+    return de_GetComplianceSummaryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetComplianceSummaryOutput(data, context);
+  contents = de_GetComplianceSummaryOutput(data, context);
   const response: GetComplianceSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -236,7 +269,10 @@ export const deserializeAws_json1_1GetComplianceSummaryCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
+/**
+ * deserializeAws_json1_1GetComplianceSummaryCommandError
+ */
+const de_GetComplianceSummaryCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComplianceSummaryCommandOutput> => {
@@ -248,16 +284,16 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
   switch (errorCode) {
     case "ConstraintViolationException":
     case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -269,16 +305,19 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetResourcesCommand = async (
+/**
+ * deserializeAws_json1_1GetResourcesCommand
+ */
+export const de_GetResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetResourcesCommandError(output, context);
+    return de_GetResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResourcesOutput(data, context);
+  contents = de_GetResourcesOutput(data, context);
   const response: GetResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -286,7 +325,10 @@ export const deserializeAws_json1_1GetResourcesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetResourcesCommandError = async (
+/**
+ * deserializeAws_json1_1GetResourcesCommandError
+ */
+const de_GetResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcesCommandOutput> => {
@@ -298,16 +340,16 @@ const deserializeAws_json1_1GetResourcesCommandError = async (
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "PaginationTokenExpiredException":
     case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
-      throw await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(parsedOutput, context);
+      throw await de_PaginationTokenExpiredExceptionRes(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -319,16 +361,19 @@ const deserializeAws_json1_1GetResourcesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetTagKeysCommand = async (
+/**
+ * deserializeAws_json1_1GetTagKeysCommand
+ */
+export const de_GetTagKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetTagKeysCommandError(output, context);
+    return de_GetTagKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTagKeysOutput(data, context);
+  contents = de_GetTagKeysOutput(data, context);
   const response: GetTagKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -336,7 +381,10 @@ export const deserializeAws_json1_1GetTagKeysCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetTagKeysCommandError = async (
+/**
+ * deserializeAws_json1_1GetTagKeysCommandError
+ */
+const de_GetTagKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagKeysCommandOutput> => {
@@ -348,16 +396,16 @@ const deserializeAws_json1_1GetTagKeysCommandError = async (
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "PaginationTokenExpiredException":
     case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
-      throw await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(parsedOutput, context);
+      throw await de_PaginationTokenExpiredExceptionRes(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -369,16 +417,19 @@ const deserializeAws_json1_1GetTagKeysCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1GetTagValuesCommand = async (
+/**
+ * deserializeAws_json1_1GetTagValuesCommand
+ */
+export const de_GetTagValuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagValuesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetTagValuesCommandError(output, context);
+    return de_GetTagValuesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTagValuesOutput(data, context);
+  contents = de_GetTagValuesOutput(data, context);
   const response: GetTagValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -386,7 +437,10 @@ export const deserializeAws_json1_1GetTagValuesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1GetTagValuesCommandError = async (
+/**
+ * deserializeAws_json1_1GetTagValuesCommandError
+ */
+const de_GetTagValuesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagValuesCommandOutput> => {
@@ -398,16 +452,16 @@ const deserializeAws_json1_1GetTagValuesCommandError = async (
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "PaginationTokenExpiredException":
     case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
-      throw await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(parsedOutput, context);
+      throw await de_PaginationTokenExpiredExceptionRes(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -419,16 +473,19 @@ const deserializeAws_json1_1GetTagValuesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartReportCreationCommand = async (
+/**
+ * deserializeAws_json1_1StartReportCreationCommand
+ */
+export const de_StartReportCreationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartReportCreationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartReportCreationCommandError(output, context);
+    return de_StartReportCreationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartReportCreationOutput(data, context);
+  contents = de_StartReportCreationOutput(data, context);
   const response: StartReportCreationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -436,7 +493,10 @@ export const deserializeAws_json1_1StartReportCreationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartReportCreationCommandError = async (
+/**
+ * deserializeAws_json1_1StartReportCreationCommandError
+ */
+const de_StartReportCreationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartReportCreationCommandOutput> => {
@@ -448,19 +508,19 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.resourcegroupstaggingapi#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
-      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -472,16 +532,19 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagResourcesCommand = async (
+/**
+ * deserializeAws_json1_1TagResourcesCommand
+ */
+export const de_TagResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourcesCommandError(output, context);
+    return de_TagResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourcesOutput(data, context);
+  contents = de_TagResourcesOutput(data, context);
   const response: TagResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -489,7 +552,10 @@ export const deserializeAws_json1_1TagResourcesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagResourcesCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourcesCommandError
+ */
+const de_TagResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourcesCommandOutput> => {
@@ -501,13 +567,13 @@ const deserializeAws_json1_1TagResourcesCommandError = async (
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -519,16 +585,19 @@ const deserializeAws_json1_1TagResourcesCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagResourcesCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourcesCommand
+ */
+export const de_UntagResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourcesCommandError(output, context);
+    return de_UntagResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourcesOutput(data, context);
+  contents = de_UntagResourcesOutput(data, context);
   const response: UntagResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -536,7 +605,10 @@ export const deserializeAws_json1_1UntagResourcesCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagResourcesCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourcesCommandError
+ */
+const de_UntagResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourcesCommandOutput> => {
@@ -548,13 +620,13 @@ const deserializeAws_json1_1UntagResourcesCommandError = async (
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -566,12 +638,15 @@ const deserializeAws_json1_1UntagResourcesCommandError = async (
   }
 };
 
-const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
+  const deserialized: any = de_ConcurrentModificationException(body, context);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -579,12 +654,15 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConstraintViolationExceptionRes
+ */
+const de_ConstraintViolationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConstraintViolationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConstraintViolationException(body, context);
+  const deserialized: any = de_ConstraintViolationException(body, context);
   const exception = new ConstraintViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -592,12 +670,15 @@ const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InternalServiceExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InternalServiceExceptionRes
+ */
+const de_InternalServiceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceException(body, context);
+  const deserialized: any = de_InternalServiceException(body, context);
   const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -605,12 +686,15 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
+  const deserialized: any = de_InvalidParameterException(body, context);
   const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -618,12 +702,15 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1PaginationTokenExpiredExceptionResponse = async (
+/**
+ * deserializeAws_json1_1PaginationTokenExpiredExceptionRes
+ */
+const de_PaginationTokenExpiredExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PaginationTokenExpiredException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PaginationTokenExpiredException(body, context);
+  const deserialized: any = de_PaginationTokenExpiredException(body, context);
   const exception = new PaginationTokenExpiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -631,12 +718,12 @@ const deserializeAws_json1_1PaginationTokenExpiredExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ThrottledExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottledException> => {
+/**
+ * deserializeAws_json1_1ThrottledExceptionRes
+ */
+const de_ThrottledExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottledException(body, context);
+  const deserialized: any = de_ThrottledException(body, context);
   const exception = new ThrottledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -644,67 +731,71 @@ const deserializeAws_json1_1ThrottledExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1DescribeReportCreationInput = (
-  input: DescribeReportCreationInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeReportCreationInput
+ */
+const se_DescribeReportCreationInput = (input: DescribeReportCreationInput, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_1GetComplianceSummaryInput = (
-  input: GetComplianceSummaryInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1GetComplianceSummaryInput
+ */
+const se_GetComplianceSummaryInput = (input: GetComplianceSummaryInput, context: __SerdeContext): any => {
   return {
-    ...(input.GroupBy != null && { GroupBy: serializeAws_json1_1GroupBy(input.GroupBy, context) }),
+    ...(input.GroupBy != null && { GroupBy: se_GroupBy(input.GroupBy, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
-    ...(input.RegionFilters != null && {
-      RegionFilters: serializeAws_json1_1RegionFilterList(input.RegionFilters, context),
-    }),
+    ...(input.RegionFilters != null && { RegionFilters: se_RegionFilterList(input.RegionFilters, context) }),
     ...(input.ResourceTypeFilters != null && {
-      ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(input.ResourceTypeFilters, context),
+      ResourceTypeFilters: se_ResourceTypeFilterList(input.ResourceTypeFilters, context),
     }),
-    ...(input.TagKeyFilters != null && {
-      TagKeyFilters: serializeAws_json1_1TagKeyFilterList(input.TagKeyFilters, context),
-    }),
-    ...(input.TargetIdFilters != null && {
-      TargetIdFilters: serializeAws_json1_1TargetIdFilterList(input.TargetIdFilters, context),
-    }),
+    ...(input.TagKeyFilters != null && { TagKeyFilters: se_TagKeyFilterList(input.TagKeyFilters, context) }),
+    ...(input.TargetIdFilters != null && { TargetIdFilters: se_TargetIdFilterList(input.TargetIdFilters, context) }),
   };
 };
 
-const serializeAws_json1_1GetResourcesInput = (input: GetResourcesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetResourcesInput
+ */
+const se_GetResourcesInput = (input: GetResourcesInput, context: __SerdeContext): any => {
   return {
     ...(input.ExcludeCompliantResources != null && { ExcludeCompliantResources: input.ExcludeCompliantResources }),
     ...(input.IncludeComplianceDetails != null && { IncludeComplianceDetails: input.IncludeComplianceDetails }),
     ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
-    ...(input.ResourceARNList != null && {
-      ResourceARNList: serializeAws_json1_1ResourceARNListForGet(input.ResourceARNList, context),
-    }),
+    ...(input.ResourceARNList != null && { ResourceARNList: se_ResourceARNListForGet(input.ResourceARNList, context) }),
     ...(input.ResourceTypeFilters != null && {
-      ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(input.ResourceTypeFilters, context),
+      ResourceTypeFilters: se_ResourceTypeFilterList(input.ResourceTypeFilters, context),
     }),
     ...(input.ResourcesPerPage != null && { ResourcesPerPage: input.ResourcesPerPage }),
-    ...(input.TagFilters != null && { TagFilters: serializeAws_json1_1TagFilterList(input.TagFilters, context) }),
+    ...(input.TagFilters != null && { TagFilters: se_TagFilterList(input.TagFilters, context) }),
     ...(input.TagsPerPage != null && { TagsPerPage: input.TagsPerPage }),
   };
 };
 
-const serializeAws_json1_1GetTagKeysInput = (input: GetTagKeysInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetTagKeysInput
+ */
+const se_GetTagKeysInput = (input: GetTagKeysInput, context: __SerdeContext): any => {
   return {
     ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
   };
 };
 
-const serializeAws_json1_1GetTagValuesInput = (input: GetTagValuesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GetTagValuesInput
+ */
+const se_GetTagValuesInput = (input: GetTagValuesInput, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.PaginationToken != null && { PaginationToken: input.PaginationToken }),
   };
 };
 
-const serializeAws_json1_1GroupBy = (input: (GroupByAttribute | string)[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1GroupBy
+ */
+const se_GroupBy = (input: (GroupByAttribute | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -712,7 +803,10 @@ const serializeAws_json1_1GroupBy = (input: (GroupByAttribute | string)[], conte
     });
 };
 
-const serializeAws_json1_1RegionFilterList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RegionFilterList
+ */
+const se_RegionFilterList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -720,7 +814,10 @@ const serializeAws_json1_1RegionFilterList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1ResourceARNListForGet = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResourceARNListForGet
+ */
+const se_ResourceARNListForGet = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -728,7 +825,10 @@ const serializeAws_json1_1ResourceARNListForGet = (input: string[], context: __S
     });
 };
 
-const serializeAws_json1_1ResourceARNListForTagUntag = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResourceARNListForTagUntag
+ */
+const se_ResourceARNListForTagUntag = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -736,7 +836,10 @@ const serializeAws_json1_1ResourceARNListForTagUntag = (input: string[], context
     });
 };
 
-const serializeAws_json1_1ResourceTypeFilterList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ResourceTypeFilterList
+ */
+const se_ResourceTypeFilterList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -744,31 +847,40 @@ const serializeAws_json1_1ResourceTypeFilterList = (input: string[], context: __
     });
 };
 
-const serializeAws_json1_1StartReportCreationInput = (
-  input: StartReportCreationInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1StartReportCreationInput
+ */
+const se_StartReportCreationInput = (input: StartReportCreationInput, context: __SerdeContext): any => {
   return {
     ...(input.S3Bucket != null && { S3Bucket: input.S3Bucket }),
   };
 };
 
-const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagFilter
+ */
+const se_TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
-    ...(input.Values != null && { Values: serializeAws_json1_1TagValueList(input.Values, context) }),
+    ...(input.Values != null && { Values: se_TagValueList(input.Values, context) }),
   };
 };
 
-const serializeAws_json1_1TagFilterList = (input: TagFilter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagFilterList
+ */
+const se_TagFilterList = (input: TagFilter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1TagFilter(entry, context);
+      return se_TagFilter(entry, context);
     });
 };
 
-const serializeAws_json1_1TagKeyFilterList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeyFilterList
+ */
+const se_TagKeyFilterList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -776,7 +888,10 @@ const serializeAws_json1_1TagKeyFilterList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1TagKeyListForUntag = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeyListForUntag
+ */
+const se_TagKeyListForUntag = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -784,7 +899,10 @@ const serializeAws_json1_1TagKeyListForUntag = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagMap
+ */
+const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -794,16 +912,22 @@ const serializeAws_json1_1TagMap = (input: Record<string, string>, context: __Se
   }, {});
 };
 
-const serializeAws_json1_1TagResourcesInput = (input: TagResourcesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagResourcesInput
+ */
+const se_TagResourcesInput = (input: TagResourcesInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARNList != null && {
-      ResourceARNList: serializeAws_json1_1ResourceARNListForTagUntag(input.ResourceARNList, context),
+      ResourceARNList: se_ResourceARNListForTagUntag(input.ResourceARNList, context),
     }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagMap(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1TagValueList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagValueList
+ */
+const se_TagValueList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -811,7 +935,10 @@ const serializeAws_json1_1TagValueList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_json1_1TargetIdFilterList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TargetIdFilterList
+ */
+const se_TargetIdFilterList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -819,49 +946,52 @@ const serializeAws_json1_1TargetIdFilterList = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_1UntagResourcesInput = (input: UntagResourcesInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UntagResourcesInput
+ */
+const se_UntagResourcesInput = (input: UntagResourcesInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARNList != null && {
-      ResourceARNList: serializeAws_json1_1ResourceARNListForTagUntag(input.ResourceARNList, context),
+      ResourceARNList: se_ResourceARNListForTagUntag(input.ResourceARNList, context),
     }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyListForUntag(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyListForUntag(input.TagKeys, context) }),
   };
 };
 
-const deserializeAws_json1_1ComplianceDetails = (output: any, context: __SerdeContext): ComplianceDetails => {
+/**
+ * deserializeAws_json1_1ComplianceDetails
+ */
+const de_ComplianceDetails = (output: any, context: __SerdeContext): ComplianceDetails => {
   return {
     ComplianceStatus: __expectBoolean(output.ComplianceStatus),
     KeysWithNoncompliantValues:
-      output.KeysWithNoncompliantValues != null
-        ? deserializeAws_json1_1TagKeyList(output.KeysWithNoncompliantValues, context)
-        : undefined,
-    NoncompliantKeys:
-      output.NoncompliantKeys != null ? deserializeAws_json1_1TagKeyList(output.NoncompliantKeys, context) : undefined,
+      output.KeysWithNoncompliantValues != null ? de_TagKeyList(output.KeysWithNoncompliantValues, context) : undefined,
+    NoncompliantKeys: output.NoncompliantKeys != null ? de_TagKeyList(output.NoncompliantKeys, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
+/**
+ * deserializeAws_json1_1ConcurrentModificationException
+ */
+const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ConstraintViolationException = (
-  output: any,
-  context: __SerdeContext
-): ConstraintViolationException => {
+/**
+ * deserializeAws_json1_1ConstraintViolationException
+ */
+const de_ConstraintViolationException = (output: any, context: __SerdeContext): ConstraintViolationException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1DescribeReportCreationOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeReportCreationOutput => {
+/**
+ * deserializeAws_json1_1DescribeReportCreationOutput
+ */
+const de_DescribeReportCreationOutput = (output: any, context: __SerdeContext): DescribeReportCreationOutput => {
   return {
     ErrorMessage: __expectString(output.ErrorMessage),
     S3Location: __expectString(output.S3Location),
@@ -870,20 +1000,23 @@ const deserializeAws_json1_1DescribeReportCreationOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1FailedResourcesMap = (
-  output: any,
-  context: __SerdeContext
-): Record<string, FailureInfo> => {
+/**
+ * deserializeAws_json1_1FailedResourcesMap
+ */
+const de_FailedResourcesMap = (output: any, context: __SerdeContext): Record<string, FailureInfo> => {
   return Object.entries(output).reduce((acc: Record<string, FailureInfo>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_json1_1FailureInfo(value, context);
+    acc[key] = de_FailureInfo(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_json1_1FailureInfo = (output: any, context: __SerdeContext): FailureInfo => {
+/**
+ * deserializeAws_json1_1FailureInfo
+ */
+const de_FailureInfo = (output: any, context: __SerdeContext): FailureInfo => {
   return {
     ErrorCode: __expectString(output.ErrorCode),
     ErrorMessage: __expectString(output.ErrorMessage),
@@ -891,100 +1024,114 @@ const deserializeAws_json1_1FailureInfo = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1GetComplianceSummaryOutput = (
-  output: any,
-  context: __SerdeContext
-): GetComplianceSummaryOutput => {
+/**
+ * deserializeAws_json1_1GetComplianceSummaryOutput
+ */
+const de_GetComplianceSummaryOutput = (output: any, context: __SerdeContext): GetComplianceSummaryOutput => {
   return {
     PaginationToken: __expectString(output.PaginationToken),
-    SummaryList:
-      output.SummaryList != null ? deserializeAws_json1_1SummaryList(output.SummaryList, context) : undefined,
+    SummaryList: output.SummaryList != null ? de_SummaryList(output.SummaryList, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetResourcesOutput = (output: any, context: __SerdeContext): GetResourcesOutput => {
+/**
+ * deserializeAws_json1_1GetResourcesOutput
+ */
+const de_GetResourcesOutput = (output: any, context: __SerdeContext): GetResourcesOutput => {
   return {
     PaginationToken: __expectString(output.PaginationToken),
     ResourceTagMappingList:
       output.ResourceTagMappingList != null
-        ? deserializeAws_json1_1ResourceTagMappingList(output.ResourceTagMappingList, context)
+        ? de_ResourceTagMappingList(output.ResourceTagMappingList, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetTagKeysOutput = (output: any, context: __SerdeContext): GetTagKeysOutput => {
+/**
+ * deserializeAws_json1_1GetTagKeysOutput
+ */
+const de_GetTagKeysOutput = (output: any, context: __SerdeContext): GetTagKeysOutput => {
   return {
     PaginationToken: __expectString(output.PaginationToken),
-    TagKeys: output.TagKeys != null ? deserializeAws_json1_1TagKeyList(output.TagKeys, context) : undefined,
+    TagKeys: output.TagKeys != null ? de_TagKeyList(output.TagKeys, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1GetTagValuesOutput = (output: any, context: __SerdeContext): GetTagValuesOutput => {
+/**
+ * deserializeAws_json1_1GetTagValuesOutput
+ */
+const de_GetTagValuesOutput = (output: any, context: __SerdeContext): GetTagValuesOutput => {
   return {
     PaginationToken: __expectString(output.PaginationToken),
-    TagValues:
-      output.TagValues != null ? deserializeAws_json1_1TagValuesOutputList(output.TagValues, context) : undefined,
+    TagValues: output.TagValues != null ? de_TagValuesOutputList(output.TagValues, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InternalServiceException = (
-  output: any,
-  context: __SerdeContext
-): InternalServiceException => {
+/**
+ * deserializeAws_json1_1InternalServiceException
+ */
+const de_InternalServiceException = (output: any, context: __SerdeContext): InternalServiceException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidParameterException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterException => {
+/**
+ * deserializeAws_json1_1InvalidParameterException
+ */
+const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1PaginationTokenExpiredException = (
-  output: any,
-  context: __SerdeContext
-): PaginationTokenExpiredException => {
+/**
+ * deserializeAws_json1_1PaginationTokenExpiredException
+ */
+const de_PaginationTokenExpiredException = (output: any, context: __SerdeContext): PaginationTokenExpiredException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceTagMapping = (output: any, context: __SerdeContext): ResourceTagMapping => {
+/**
+ * deserializeAws_json1_1ResourceTagMapping
+ */
+const de_ResourceTagMapping = (output: any, context: __SerdeContext): ResourceTagMapping => {
   return {
     ComplianceDetails:
-      output.ComplianceDetails != null
-        ? deserializeAws_json1_1ComplianceDetails(output.ComplianceDetails, context)
-        : undefined,
+      output.ComplianceDetails != null ? de_ComplianceDetails(output.ComplianceDetails, context) : undefined,
     ResourceARN: __expectString(output.ResourceARN),
-    Tags: output.Tags != null ? deserializeAws_json1_1TagList(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_TagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ResourceTagMappingList = (output: any, context: __SerdeContext): ResourceTagMapping[] => {
+/**
+ * deserializeAws_json1_1ResourceTagMappingList
+ */
+const de_ResourceTagMappingList = (output: any, context: __SerdeContext): ResourceTagMapping[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ResourceTagMapping(entry, context);
+      return de_ResourceTagMapping(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1StartReportCreationOutput = (
-  output: any,
-  context: __SerdeContext
-): StartReportCreationOutput => {
+/**
+ * deserializeAws_json1_1StartReportCreationOutput
+ */
+const de_StartReportCreationOutput = (output: any, context: __SerdeContext): StartReportCreationOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1Summary = (output: any, context: __SerdeContext): Summary => {
+/**
+ * deserializeAws_json1_1Summary
+ */
+const de_Summary = (output: any, context: __SerdeContext): Summary => {
   return {
     LastUpdated: __expectString(output.LastUpdated),
     NonCompliantResources: __expectLong(output.NonCompliantResources),
@@ -995,26 +1142,35 @@ const deserializeAws_json1_1Summary = (output: any, context: __SerdeContext): Su
   } as any;
 };
 
-const deserializeAws_json1_1SummaryList = (output: any, context: __SerdeContext): Summary[] => {
+/**
+ * deserializeAws_json1_1SummaryList
+ */
+const de_SummaryList = (output: any, context: __SerdeContext): Summary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Summary(entry, context);
+      return de_Summary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagKeyList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1TagKeyList
+ */
+const de_TagKeyList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1026,28 +1182,35 @@ const deserializeAws_json1_1TagKeyList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1TagResourcesOutput = (output: any, context: __SerdeContext): TagResourcesOutput => {
+/**
+ * deserializeAws_json1_1TagResourcesOutput
+ */
+const de_TagResourcesOutput = (output: any, context: __SerdeContext): TagResourcesOutput => {
   return {
     FailedResourcesMap:
-      output.FailedResourcesMap != null
-        ? deserializeAws_json1_1FailedResourcesMap(output.FailedResourcesMap, context)
-        : undefined,
+      output.FailedResourcesMap != null ? de_FailedResourcesMap(output.FailedResourcesMap, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1TagValuesOutputList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1TagValuesOutputList
+ */
+const de_TagValuesOutputList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1059,18 +1222,22 @@ const deserializeAws_json1_1TagValuesOutputList = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_json1_1ThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
+/**
+ * deserializeAws_json1_1ThrottledException
+ */
+const de_ThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
   return {
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_json1_1UntagResourcesOutput = (output: any, context: __SerdeContext): UntagResourcesOutput => {
+/**
+ * deserializeAws_json1_1UntagResourcesOutput
+ */
+const de_UntagResourcesOutput = (output: any, context: __SerdeContext): UntagResourcesOutput => {
   return {
     FailedResourcesMap:
-      output.FailedResourcesMap != null
-        ? deserializeAws_json1_1FailedResourcesMap(output.FailedResourcesMap, context)
-        : undefined,
+      output.FailedResourcesMap != null ? de_FailedResourcesMap(output.FailedResourcesMap, context) : undefined,
   } as any;
 };
 

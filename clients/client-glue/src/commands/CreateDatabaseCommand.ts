@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateDatabaseRequest, CreateDatabaseResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDatabaseCommand,
-  serializeAws_json1_1CreateDatabaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDatabaseCommand, se_CreateDatabaseCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -173,14 +170,14 @@ export class CreateDatabaseCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDatabaseCommand(input, context);
+    return se_CreateDatabaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatabaseCommandOutput> {
-    return deserializeAws_json1_1CreateDatabaseCommand(output, context);
+    return de_CreateDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

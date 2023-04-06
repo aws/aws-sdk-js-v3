@@ -15,10 +15,7 @@ import {
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { ListProgressUpdateStreamsRequest, ListProgressUpdateStreamsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProgressUpdateStreamsCommand,
-  serializeAws_json1_1ListProgressUpdateStreamsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListProgressUpdateStreamsCommand, se_ListProgressUpdateStreamsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class ListProgressUpdateStreamsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProgressUpdateStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProgressUpdateStreamsCommand(input, context);
+    return se_ListProgressUpdateStreamsCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class ListProgressUpdateStreamsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProgressUpdateStreamsCommandOutput> {
-    return deserializeAws_json1_1ListProgressUpdateStreamsCommand(output, context);
+    return de_ListProgressUpdateStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

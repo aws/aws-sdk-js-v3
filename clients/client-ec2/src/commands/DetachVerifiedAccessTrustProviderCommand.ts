@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DetachVerifiedAccessTrustProviderRequest, DetachVerifiedAccessTrustProviderResult } from "../models/models_5";
 import {
-  deserializeAws_ec2DetachVerifiedAccessTrustProviderCommand,
-  serializeAws_ec2DetachVerifiedAccessTrustProviderCommand,
+  de_DetachVerifiedAccessTrustProviderCommand,
+  se_DetachVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -128,7 +128,7 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command<
     input: DetachVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DetachVerifiedAccessTrustProviderCommand(input, context);
+    return se_DetachVerifiedAccessTrustProviderCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachVerifiedAccessTrustProviderCommandOutput> {
-    return deserializeAws_ec2DetachVerifiedAccessTrustProviderCommand(output, context);
+    return de_DetachVerifiedAccessTrustProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

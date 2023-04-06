@@ -15,7 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { GetLabelsRequest, GetLabelsResult } from "../models/models_0";
-import { deserializeAws_json1_1GetLabelsCommand, serializeAws_json1_1GetLabelsCommand } from "../protocols/Aws_json1_1";
+import { de_GetLabelsCommand, se_GetLabelsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +137,14 @@ export class GetLabelsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetLabelsCommand(input, context);
+    return se_GetLabelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLabelsCommandOutput> {
-    return deserializeAws_json1_1GetLabelsCommand(output, context);
+    return de_GetLabelsCommand(output, context);
   }
 
   // Start section: command_body_extra

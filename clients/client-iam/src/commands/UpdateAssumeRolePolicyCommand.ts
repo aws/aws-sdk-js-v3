@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateAssumeRolePolicyRequest } from "../models/models_1";
-import {
-  deserializeAws_queryUpdateAssumeRolePolicyCommand,
-  serializeAws_queryUpdateAssumeRolePolicyCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateAssumeRolePolicyCommand, se_UpdateAssumeRolePolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class UpdateAssumeRolePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAssumeRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateAssumeRolePolicyCommand(input, context);
+    return se_UpdateAssumeRolePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAssumeRolePolicyCommandOutput> {
-    return deserializeAws_queryUpdateAssumeRolePolicyCommand(output, context);
+    return de_UpdateAssumeRolePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetDataflowGraphRequest, GetDataflowGraphResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDataflowGraphCommand,
-  serializeAws_json1_1GetDataflowGraphCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDataflowGraphCommand, se_GetDataflowGraphCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetDataflowGraphCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataflowGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataflowGraphCommand(input, context);
+    return se_GetDataflowGraphCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataflowGraphCommandOutput> {
-    return deserializeAws_json1_1GetDataflowGraphCommand(output, context);
+    return de_GetDataflowGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListHubsRequest, ListHubsResponse } from "../models/models_3";
-import { deserializeAws_json1_1ListHubsCommand, serializeAws_json1_1ListHubsCommand } from "../protocols/Aws_json1_1";
+import { de_ListHubsCommand, se_ListHubsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -126,14 +126,14 @@ export class ListHubsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHubsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHubsCommand(input, context);
+    return se_ListHubsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHubsCommandOutput> {
-    return deserializeAws_json1_1ListHubsCommand(output, context);
+    return de_ListHubsCommand(output, context);
   }
 
   // Start section: command_body_extra

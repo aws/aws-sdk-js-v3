@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeEndpointsCommand,
-  serializeAws_json1_0DescribeEndpointsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeEndpointsCommand, se_DescribeEndpointsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
 /**
@@ -149,14 +146,14 @@ export class DescribeEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeEndpointsCommand(input, context);
+    return se_DescribeEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointsCommandOutput> {
-    return deserializeAws_json1_0DescribeEndpointsCommand(output, context);
+    return de_DescribeEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

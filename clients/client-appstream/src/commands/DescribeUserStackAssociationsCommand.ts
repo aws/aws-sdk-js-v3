@@ -21,8 +21,8 @@ import {
   DescribeUserStackAssociationsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeUserStackAssociationsCommand,
-  serializeAws_json1_1DescribeUserStackAssociationsCommand,
+  de_DescribeUserStackAssociationsCommand,
+  se_DescribeUserStackAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -145,7 +145,7 @@ export class DescribeUserStackAssociationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeUserStackAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserStackAssociationsCommand(input, context);
+    return se_DescribeUserStackAssociationsCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DescribeUserStackAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUserStackAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeUserStackAssociationsCommand(output, context);
+    return de_DescribeUserStackAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

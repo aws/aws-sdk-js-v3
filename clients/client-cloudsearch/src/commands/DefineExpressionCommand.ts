@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DefineExpressionRequest, DefineExpressionResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDefineExpressionCommand,
-  serializeAws_queryDefineExpressionCommand,
-} from "../protocols/Aws_query";
+import { de_DefineExpressionCommand, se_DefineExpressionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DefineExpressionCommand extends $Command<
    * @internal
    */
   private serialize(input: DefineExpressionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDefineExpressionCommand(input, context);
+    return se_DefineExpressionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DefineExpressionCommandOutput> {
-    return deserializeAws_queryDefineExpressionCommand(output, context);
+    return de_DefineExpressionCommand(output, context);
   }
 
   // Start section: command_body_extra

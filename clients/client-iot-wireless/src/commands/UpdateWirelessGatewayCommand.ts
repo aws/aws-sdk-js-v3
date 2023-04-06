@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { UpdateWirelessGatewayRequest, UpdateWirelessGatewayResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateWirelessGatewayCommand,
-  serializeAws_restJson1UpdateWirelessGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateWirelessGatewayCommand, se_UpdateWirelessGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class UpdateWirelessGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWirelessGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWirelessGatewayCommand(input, context);
+    return se_UpdateWirelessGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWirelessGatewayCommandOutput> {
-    return deserializeAws_restJson1UpdateWirelessGatewayCommand(output, context);
+    return de_UpdateWirelessGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

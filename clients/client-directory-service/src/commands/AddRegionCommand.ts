@@ -15,7 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { AddRegionRequest, AddRegionResult } from "../models/models_0";
-import { deserializeAws_json1_1AddRegionCommand, serializeAws_json1_1AddRegionCommand } from "../protocols/Aws_json1_1";
+import { de_AddRegionCommand, se_AddRegionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +154,14 @@ export class AddRegionCommand extends $Command<
    * @internal
    */
   private serialize(input: AddRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddRegionCommand(input, context);
+    return se_AddRegionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRegionCommandOutput> {
-    return deserializeAws_json1_1AddRegionCommand(output, context);
+    return de_AddRegionCommand(output, context);
   }
 
   // Start section: command_body_extra

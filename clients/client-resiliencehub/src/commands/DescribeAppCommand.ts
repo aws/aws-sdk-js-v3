@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeAppRequest, DescribeAppResponse, DescribeAppResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAppCommand,
-  serializeAws_restJson1DescribeAppCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAppCommand, se_DescribeAppCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -136,14 +133,14 @@ export class DescribeAppCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppCommand(input, context);
+    return se_DescribeAppCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppCommandOutput> {
-    return deserializeAws_restJson1DescribeAppCommand(output, context);
+    return de_DescribeAppCommand(output, context);
   }
 
   // Start section: command_body_extra

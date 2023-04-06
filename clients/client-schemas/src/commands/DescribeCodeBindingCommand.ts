@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeCodeBindingRequest, DescribeCodeBindingResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCodeBindingCommand,
-  serializeAws_restJson1DescribeCodeBindingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeCodeBindingCommand, se_DescribeCodeBindingCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -135,14 +132,14 @@ export class DescribeCodeBindingCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCodeBindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCodeBindingCommand(input, context);
+    return se_DescribeCodeBindingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCodeBindingCommandOutput> {
-    return deserializeAws_restJson1DescribeCodeBindingCommand(output, context);
+    return de_DescribeCodeBindingCommand(output, context);
   }
 
   // Start section: command_body_extra

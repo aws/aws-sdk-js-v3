@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAuthPolicyRequest, DeleteAuthPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAuthPolicyCommand,
-  serializeAws_restJson1DeleteAuthPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAuthPolicyCommand, se_DeleteAuthPolicyCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -139,14 +136,14 @@ export class DeleteAuthPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAuthPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAuthPolicyCommand(input, context);
+    return se_DeleteAuthPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAuthPolicyCommandOutput> {
-    return deserializeAws_restJson1DeleteAuthPolicyCommand(output, context);
+    return de_DeleteAuthPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

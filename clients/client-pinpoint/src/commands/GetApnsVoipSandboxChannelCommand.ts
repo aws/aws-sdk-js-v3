@@ -15,10 +15,7 @@ import {
 
 import { GetApnsVoipSandboxChannelRequest, GetApnsVoipSandboxChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetApnsVoipSandboxChannelCommand,
-  serializeAws_restJson1GetApnsVoipSandboxChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetApnsVoipSandboxChannelCommand, se_GetApnsVoipSandboxChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class GetApnsVoipSandboxChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: GetApnsVoipSandboxChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApnsVoipSandboxChannelCommand(input, context);
+    return se_GetApnsVoipSandboxChannelCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class GetApnsVoipSandboxChannelCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApnsVoipSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1GetApnsVoipSandboxChannelCommand(output, context);
+    return de_GetApnsVoipSandboxChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

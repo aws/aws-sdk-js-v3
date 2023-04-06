@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDataProtectionPolicyInput, GetDataProtectionPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetDataProtectionPolicyCommand,
-  serializeAws_queryGetDataProtectionPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_GetDataProtectionPolicyCommand, se_GetDataProtectionPolicyCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -138,14 +135,14 @@ export class GetDataProtectionPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetDataProtectionPolicyCommand(input, context);
+    return se_GetDataProtectionPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataProtectionPolicyCommandOutput> {
-    return deserializeAws_queryGetDataProtectionPolicyCommand(output, context);
+    return de_GetDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

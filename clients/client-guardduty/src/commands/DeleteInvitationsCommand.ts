@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { DeleteInvitationsRequest, DeleteInvitationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteInvitationsCommand,
-  serializeAws_restJson1DeleteInvitationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteInvitationsCommand, se_DeleteInvitationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteInvitationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteInvitationsCommand(input, context);
+    return se_DeleteInvitationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInvitationsCommandOutput> {
-    return deserializeAws_restJson1DeleteInvitationsCommand(output, context);
+    return de_DeleteInvitationsCommand(output, context);
   }
 
   // Start section: command_body_extra

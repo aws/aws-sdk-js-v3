@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetLensReviewReportInput, GetLensReviewReportOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLensReviewReportCommand,
-  serializeAws_restJson1GetLensReviewReportCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLensReviewReportCommand, se_GetLensReviewReportCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -137,14 +134,14 @@ export class GetLensReviewReportCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLensReviewReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLensReviewReportCommand(input, context);
+    return se_GetLensReviewReportCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLensReviewReportCommandOutput> {
-    return deserializeAws_restJson1GetLensReviewReportCommand(output, context);
+    return de_GetLensReviewReportCommand(output, context);
   }
 
   // Start section: command_body_extra

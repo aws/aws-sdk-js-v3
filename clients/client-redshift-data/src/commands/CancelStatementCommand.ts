@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CancelStatementRequest, CancelStatementResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelStatementCommand,
-  serializeAws_json1_1CancelStatementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelStatementCommand, se_CancelStatementCommand } from "../protocols/Aws_json1_1";
 import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 
 /**
@@ -135,14 +132,14 @@ export class CancelStatementCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelStatementCommand(input, context);
+    return se_CancelStatementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelStatementCommandOutput> {
-    return deserializeAws_json1_1CancelStatementCommand(output, context);
+    return de_CancelStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

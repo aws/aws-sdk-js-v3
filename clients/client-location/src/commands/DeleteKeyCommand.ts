@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { DeleteKeyRequest, DeleteKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteKeyCommand,
-  serializeAws_restJson1DeleteKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteKeyCommand, se_DeleteKeyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteKeyCommand(input, context);
+    return se_DeleteKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyCommandOutput> {
-    return deserializeAws_restJson1DeleteKeyCommand(output, context);
+    return de_DeleteKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

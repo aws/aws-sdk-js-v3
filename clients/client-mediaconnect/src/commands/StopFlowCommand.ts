@@ -15,10 +15,7 @@ import {
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import { StopFlowRequest, StopFlowResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopFlowCommand,
-  serializeAws_restJson1StopFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopFlowCommand, se_StopFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class StopFlowCommand extends $Command<
    * @internal
    */
   private serialize(input: StopFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopFlowCommand(input, context);
+    return se_StopFlowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopFlowCommandOutput> {
-    return deserializeAws_restJson1StopFlowCommand(output, context);
+    return de_StopFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

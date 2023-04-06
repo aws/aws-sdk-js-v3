@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutComplianceItemsRequest, PutComplianceItemsResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutComplianceItemsCommand,
-  serializeAws_json1_1PutComplianceItemsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutComplianceItemsCommand, se_PutComplianceItemsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -218,14 +215,14 @@ export class PutComplianceItemsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutComplianceItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutComplianceItemsCommand(input, context);
+    return se_PutComplianceItemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutComplianceItemsCommandOutput> {
-    return deserializeAws_json1_1PutComplianceItemsCommand(output, context);
+    return de_PutComplianceItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

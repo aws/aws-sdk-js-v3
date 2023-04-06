@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { StopBgpFailoverTestRequest, StopBgpFailoverTestResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopBgpFailoverTestCommand,
-  serializeAws_json1_1StopBgpFailoverTestCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopBgpFailoverTestCommand, se_StopBgpFailoverTestCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class StopBgpFailoverTestCommand extends $Command<
    * @internal
    */
   private serialize(input: StopBgpFailoverTestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopBgpFailoverTestCommand(input, context);
+    return se_StopBgpFailoverTestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBgpFailoverTestCommandOutput> {
-    return deserializeAws_json1_1StopBgpFailoverTestCommand(output, context);
+    return de_StopBgpFailoverTestCommand(output, context);
   }
 
   // Start section: command_body_extra

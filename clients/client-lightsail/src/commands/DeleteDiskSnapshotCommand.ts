@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DeleteDiskSnapshotRequest, DeleteDiskSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteDiskSnapshotCommand,
-  serializeAws_json1_1DeleteDiskSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDiskSnapshotCommand, se_DeleteDiskSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class DeleteDiskSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDiskSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDiskSnapshotCommand(input, context);
+    return se_DeleteDiskSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDiskSnapshotCommandOutput> {
-    return deserializeAws_json1_1DeleteDiskSnapshotCommand(output, context);
+    return de_DeleteDiskSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

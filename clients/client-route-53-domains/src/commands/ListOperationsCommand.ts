@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListOperationsRequest, ListOperationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListOperationsCommand,
-  serializeAws_json1_1ListOperationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListOperationsCommand, se_ListOperationsCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -138,14 +135,14 @@ export class ListOperationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOperationsCommand(input, context);
+    return se_ListOperationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOperationsCommandOutput> {
-    return deserializeAws_json1_1ListOperationsCommand(output, context);
+    return de_ListOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

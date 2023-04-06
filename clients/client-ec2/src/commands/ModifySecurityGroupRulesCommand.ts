@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifySecurityGroupRulesRequest, ModifySecurityGroupRulesResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifySecurityGroupRulesCommand,
-  serializeAws_ec2ModifySecurityGroupRulesCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifySecurityGroupRulesCommand, se_ModifySecurityGroupRulesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ModifySecurityGroupRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifySecurityGroupRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifySecurityGroupRulesCommand(input, context);
+    return se_ModifySecurityGroupRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySecurityGroupRulesCommandOutput> {
-    return deserializeAws_ec2ModifySecurityGroupRulesCommand(output, context);
+    return de_ModifySecurityGroupRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { PutSlotTypeRequest, PutSlotTypeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSlotTypeCommand,
-  serializeAws_restJson1PutSlotTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutSlotTypeCommand, se_PutSlotTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -215,14 +212,14 @@ export class PutSlotTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: PutSlotTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSlotTypeCommand(input, context);
+    return se_PutSlotTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSlotTypeCommandOutput> {
-    return deserializeAws_restJson1PutSlotTypeCommand(output, context);
+    return de_PutSlotTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

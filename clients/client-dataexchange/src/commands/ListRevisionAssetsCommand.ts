@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { ListRevisionAssetsRequest, ListRevisionAssetsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListRevisionAssetsCommand,
-  serializeAws_restJson1ListRevisionAssetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRevisionAssetsCommand, se_ListRevisionAssetsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListRevisionAssetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRevisionAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRevisionAssetsCommand(input, context);
+    return se_ListRevisionAssetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRevisionAssetsCommandOutput> {
-    return deserializeAws_restJson1ListRevisionAssetsCommand(output, context);
+    return de_ListRevisionAssetsCommand(output, context);
   }
 
   // Start section: command_body_extra

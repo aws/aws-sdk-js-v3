@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetBucketVersioningRequest, GetBucketVersioningResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketVersioningCommand,
-  serializeAws_restXmlGetBucketVersioningCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketVersioningCommand, se_GetBucketVersioningCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
@@ -164,14 +161,14 @@ export class GetBucketVersioningCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketVersioningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketVersioningCommand(input, context);
+    return se_GetBucketVersioningCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketVersioningCommandOutput> {
-    return deserializeAws_restXmlGetBucketVersioningCommand(output, context);
+    return de_GetBucketVersioningCommand(output, context);
   }
 
   // Start section: command_body_extra

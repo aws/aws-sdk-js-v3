@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfirmSubscriptionInput, ConfirmSubscriptionResponse } from "../models/models_0";
-import {
-  deserializeAws_queryConfirmSubscriptionCommand,
-  serializeAws_queryConfirmSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { de_ConfirmSubscriptionCommand, se_ConfirmSubscriptionCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -148,14 +145,14 @@ export class ConfirmSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: ConfirmSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryConfirmSubscriptionCommand(input, context);
+    return se_ConfirmSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmSubscriptionCommandOutput> {
-    return deserializeAws_queryConfirmSubscriptionCommand(output, context);
+    return de_ConfirmSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

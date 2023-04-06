@@ -15,10 +15,7 @@ import {
 
 import { StartStackRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1StartStackCommand,
-  serializeAws_json1_1StartStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartStackCommand, se_StartStackCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class StartStackCommand extends $Command<
    * @internal
    */
   private serialize(input: StartStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartStackCommand(input, context);
+    return se_StartStackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStackCommandOutput> {
-    return deserializeAws_json1_1StartStackCommand(output, context);
+    return de_StartStackCommand(output, context);
   }
 
   // Start section: command_body_extra

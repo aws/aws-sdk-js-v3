@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import { DescribeChangeSetRequest, DescribeChangeSetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeChangeSetCommand,
-  serializeAws_restJson1DescribeChangeSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeChangeSetCommand, se_DescribeChangeSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeChangeSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeChangeSetCommand(input, context);
+    return se_DescribeChangeSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChangeSetCommandOutput> {
-    return deserializeAws_restJson1DescribeChangeSetCommand(output, context);
+    return de_DescribeChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

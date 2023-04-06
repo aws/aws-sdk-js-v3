@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutObjectLockConfigurationOutput, PutObjectLockConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutObjectLockConfigurationCommand,
-  serializeAws_restXmlPutObjectLockConfigurationCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutObjectLockConfigurationCommand, se_PutObjectLockConfigurationCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -168,7 +165,7 @@ export class PutObjectLockConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutObjectLockConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutObjectLockConfigurationCommand(input, context);
+    return se_PutObjectLockConfigurationCommand(input, context);
   }
 
   /**
@@ -178,7 +175,7 @@ export class PutObjectLockConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutObjectLockConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutObjectLockConfigurationCommand(output, context);
+    return de_PutObjectLockConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

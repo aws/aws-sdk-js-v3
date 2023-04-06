@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateRumMetricDefinitionRequest, UpdateRumMetricDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRumMetricDefinitionCommand,
-  serializeAws_restJson1UpdateRumMetricDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRumMetricDefinitionCommand, se_UpdateRumMetricDefinitionCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
@@ -155,7 +152,7 @@ export class UpdateRumMetricDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRumMetricDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRumMetricDefinitionCommand(input, context);
+    return se_UpdateRumMetricDefinitionCommand(input, context);
   }
 
   /**
@@ -165,7 +162,7 @@ export class UpdateRumMetricDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRumMetricDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateRumMetricDefinitionCommand(output, context);
+    return de_UpdateRumMetricDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

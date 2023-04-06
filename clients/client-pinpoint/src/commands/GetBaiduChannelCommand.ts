@@ -15,10 +15,7 @@ import {
 
 import { GetBaiduChannelRequest, GetBaiduChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetBaiduChannelCommand,
-  serializeAws_restJson1GetBaiduChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBaiduChannelCommand, se_GetBaiduChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetBaiduChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBaiduChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBaiduChannelCommand(input, context);
+    return se_GetBaiduChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBaiduChannelCommandOutput> {
-    return deserializeAws_restJson1GetBaiduChannelCommand(output, context);
+    return de_GetBaiduChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

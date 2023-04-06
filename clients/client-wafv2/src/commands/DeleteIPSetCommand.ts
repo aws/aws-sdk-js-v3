@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteIPSetCommand,
-  serializeAws_json1_1DeleteIPSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteIPSetCommand, se_DeleteIPSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -171,14 +168,14 @@ export class DeleteIPSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteIPSetCommand(input, context);
+    return se_DeleteIPSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIPSetCommandOutput> {
-    return deserializeAws_json1_1DeleteIPSetCommand(output, context);
+    return de_DeleteIPSetCommand(output, context);
   }
 
   // Start section: command_body_extra

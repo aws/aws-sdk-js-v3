@@ -15,8 +15,8 @@ import {
 
 import { SwitchoverBlueGreenDeploymentRequest, SwitchoverBlueGreenDeploymentResponse } from "../models/models_1";
 import {
-  deserializeAws_querySwitchoverBlueGreenDeploymentCommand,
-  serializeAws_querySwitchoverBlueGreenDeploymentCommand,
+  de_SwitchoverBlueGreenDeploymentCommand,
+  se_SwitchoverBlueGreenDeploymentCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -73,6 +73,144 @@ export interface SwitchoverBlueGreenDeploymentCommandOutput
  *  <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in
  *             the green environment.</p>
  *
+ *
+ * @example To switch a blue/green deployment for an RDS DB instance
+ * ```javascript
+ * // The following example promotes the specified green environment as the new production environment.
+ * const input = {
+ *   "BlueGreenDeploymentIdentifier": "bgd-wi89nwzglccsfake",
+ *   "SwitchoverTimeout": 300
+ * };
+ * const command = new SwitchoverBlueGreenDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "BlueGreenDeployment": {
+ *     "BlueGreenDeploymentIdentifier": "bgd-v53303651eexfake",
+ *     "BlueGreenDeploymentName": "bgd-cli-test-instance",
+ *     "CreateTime": "2022-02-25T22:33:22.225000+00:00",
+ *     "Source": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
+ *     "Status": "SWITCHOVER_IN_PROGRESS",
+ *     "SwitchoverDetails": [
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-green-blhi1e"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-1",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-1-green-k5fv7u"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-2",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-2-green-ggsh8m"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-3",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-3-green-o2vwm0"
+ *       }
+ *     ],
+ *     "Target": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-green-blhi1e",
+ *     "Tasks": [
+ *       {
+ *         "Name": "CREATING_READ_REPLICA_OF_SOURCE",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "DB_ENGINE_VERSION_UPGRADE",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "CONFIGURE_BACKUPS",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "CREATING_TOPOLOGY_OF_SOURCE",
+ *         "Status": "COMPLETED"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-switch-a-bluegreen-deployment-for-an-rds-db-instance-1679699425237
+ * ```
+ *
+ * @example To promote a blue/green deployment for an Aurora MySQL DB cluster
+ * ```javascript
+ * // The following example promotes the specified green environment as the new production environment.
+ * const input = {
+ *   "BlueGreenDeploymentIdentifier": "bgd-wi89nwzglccsfake",
+ *   "SwitchoverTimeout": 300
+ * };
+ * const command = new SwitchoverBlueGreenDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "BlueGreenDeployment": {
+ *     "BlueGreenDeploymentIdentifier": "bgd-wi89nwzglccsfake",
+ *     "BlueGreenDeploymentName": "my-blue-green-deployment",
+ *     "CreateTime": "2022-02-25T22:38:49.522000+00:00",
+ *     "Source": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *     "Status": "SWITCHOVER_IN_PROGRESS",
+ *     "SwitchoverDetails": [
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster-green-3ud8z6"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1-green-bvxc73"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2-green-7wc4ie"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3-green-p4xxkz"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint-green-np1ikl"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint-green-miszlf"
+ *       }
+ *     ],
+ *     "Target": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster-green-3ud8z6",
+ *     "Tasks": [
+ *       {
+ *         "Name": "CREATING_READ_REPLICA_OF_SOURCE",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "DB_ENGINE_VERSION_UPGRADE",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "CREATE_DB_INSTANCES_FOR_CLUSTER",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "CREATE_CUSTOM_ENDPOINTS",
+ *         "Status": "COMPLETED"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-promote-a-bluegreen-deployment-for-an-aurora-mysql-db-cluster-1679700197409
+ * ```
  *
  */
 export class SwitchoverBlueGreenDeploymentCommand extends $Command<
@@ -138,7 +276,7 @@ export class SwitchoverBlueGreenDeploymentCommand extends $Command<
    * @internal
    */
   private serialize(input: SwitchoverBlueGreenDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySwitchoverBlueGreenDeploymentCommand(input, context);
+    return se_SwitchoverBlueGreenDeploymentCommand(input, context);
   }
 
   /**
@@ -148,7 +286,7 @@ export class SwitchoverBlueGreenDeploymentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SwitchoverBlueGreenDeploymentCommandOutput> {
-    return deserializeAws_querySwitchoverBlueGreenDeploymentCommand(output, context);
+    return de_SwitchoverBlueGreenDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { DeleteRemoteAccessSessionRequest, DeleteRemoteAccessSessionResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRemoteAccessSessionCommand,
-  serializeAws_json1_1DeleteRemoteAccessSessionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRemoteAccessSessionCommand, se_DeleteRemoteAccessSessionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRemoteAccessSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRemoteAccessSessionCommand(input, context);
+    return se_DeleteRemoteAccessSessionCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteRemoteAccessSessionCommandOutput> {
-    return deserializeAws_json1_1DeleteRemoteAccessSessionCommand(output, context);
+    return de_DeleteRemoteAccessSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

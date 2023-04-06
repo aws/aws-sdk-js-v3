@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { RemoveIpRoutesRequest, RemoveIpRoutesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1RemoveIpRoutesCommand,
-  serializeAws_json1_1RemoveIpRoutesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RemoveIpRoutesCommand, se_RemoveIpRoutesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class RemoveIpRoutesCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveIpRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveIpRoutesCommand(input, context);
+    return se_RemoveIpRoutesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveIpRoutesCommandOutput> {
-    return deserializeAws_json1_1RemoveIpRoutesCommand(output, context);
+    return de_RemoveIpRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

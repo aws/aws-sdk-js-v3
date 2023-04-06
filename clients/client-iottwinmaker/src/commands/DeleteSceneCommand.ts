@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { DeleteSceneRequest, DeleteSceneResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSceneCommand,
-  serializeAws_restJson1DeleteSceneCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSceneCommand, se_DeleteSceneCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DeleteSceneCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSceneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSceneCommand(input, context);
+    return se_DeleteSceneCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSceneCommandOutput> {
-    return deserializeAws_restJson1DeleteSceneCommand(output, context);
+    return de_DeleteSceneCommand(output, context);
   }
 
   // Start section: command_body_extra

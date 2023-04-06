@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AttachNetworkInterfaceRequest, AttachNetworkInterfaceResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AttachNetworkInterfaceCommand,
-  serializeAws_ec2AttachNetworkInterfaceCommand,
-} from "../protocols/Aws_ec2";
+import { de_AttachNetworkInterfaceCommand, se_AttachNetworkInterfaceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class AttachNetworkInterfaceCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachNetworkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AttachNetworkInterfaceCommand(input, context);
+    return se_AttachNetworkInterfaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachNetworkInterfaceCommandOutput> {
-    return deserializeAws_ec2AttachNetworkInterfaceCommand(output, context);
+    return de_AttachNetworkInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

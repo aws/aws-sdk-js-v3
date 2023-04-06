@@ -15,10 +15,7 @@ import {
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { ListAnomalyDetectorsRequest, ListAnomalyDetectorsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAnomalyDetectorsCommand,
-  serializeAws_restJson1ListAnomalyDetectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAnomalyDetectorsCommand, se_ListAnomalyDetectorsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListAnomalyDetectorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAnomalyDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAnomalyDetectorsCommand(input, context);
+    return se_ListAnomalyDetectorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAnomalyDetectorsCommandOutput> {
-    return deserializeAws_restJson1ListAnomalyDetectorsCommand(output, context);
+    return de_ListAnomalyDetectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

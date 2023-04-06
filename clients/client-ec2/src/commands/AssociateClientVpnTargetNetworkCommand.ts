@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AssociateClientVpnTargetNetworkRequest, AssociateClientVpnTargetNetworkResult } from "../models/models_0";
 import {
-  deserializeAws_ec2AssociateClientVpnTargetNetworkCommand,
-  serializeAws_ec2AssociateClientVpnTargetNetworkCommand,
+  de_AssociateClientVpnTargetNetworkCommand,
+  se_AssociateClientVpnTargetNetworkCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -129,7 +129,7 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
     input: AssociateClientVpnTargetNetworkCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateClientVpnTargetNetworkCommand(input, context);
+    return se_AssociateClientVpnTargetNetworkCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateClientVpnTargetNetworkCommandOutput> {
-    return deserializeAws_ec2AssociateClientVpnTargetNetworkCommand(output, context);
+    return de_AssociateClientVpnTargetNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { CreateCloudFormationChangeSetRequest, CreateCloudFormationChangeSetResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateCloudFormationChangeSetCommand,
-  serializeAws_restJson1CreateCloudFormationChangeSetCommand,
+  de_CreateCloudFormationChangeSetCommand,
+  se_CreateCloudFormationChangeSetCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
@@ -174,7 +174,7 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCloudFormationChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCloudFormationChangeSetCommand(input, context);
+    return se_CreateCloudFormationChangeSetCommand(input, context);
   }
 
   /**
@@ -184,7 +184,7 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCloudFormationChangeSetCommandOutput> {
-    return deserializeAws_restJson1CreateCloudFormationChangeSetCommand(output, context);
+    return de_CreateCloudFormationChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateResolverRuleRequest, UpdateResolverRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateResolverRuleCommand,
-  serializeAws_json1_1UpdateResolverRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateResolverRuleCommand, se_UpdateResolverRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -153,14 +150,14 @@ export class UpdateResolverRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateResolverRuleCommand(input, context);
+    return se_UpdateResolverRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResolverRuleCommandOutput> {
-    return deserializeAws_json1_1UpdateResolverRuleCommand(output, context);
+    return de_UpdateResolverRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

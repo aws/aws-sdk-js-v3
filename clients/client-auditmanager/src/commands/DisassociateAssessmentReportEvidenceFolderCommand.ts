@@ -19,8 +19,8 @@ import {
   DisassociateAssessmentReportEvidenceFolderResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommand,
-  serializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommand,
+  de_DisassociateAssessmentReportEvidenceFolderCommand,
+  se_DisassociateAssessmentReportEvidenceFolderCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -150,7 +150,7 @@ export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command<
     input: DisassociateAssessmentReportEvidenceFolderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommand(input, context);
+    return se_DisassociateAssessmentReportEvidenceFolderCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateAssessmentReportEvidenceFolderCommandOutput> {
-    return deserializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommand(output, context);
+    return de_DisassociateAssessmentReportEvidenceFolderCommand(output, context);
   }
 
   // Start section: command_body_extra

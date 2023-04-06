@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DeleteNamespaceCommand,
-  serializeAws_restJson1DeleteNamespaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteNamespaceCommand, se_DeleteNamespaceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -147,14 +144,14 @@ export class DeleteNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNamespaceCommand(input, context);
+    return se_DeleteNamespaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNamespaceCommandOutput> {
-    return deserializeAws_restJson1DeleteNamespaceCommand(output, context);
+    return de_DeleteNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

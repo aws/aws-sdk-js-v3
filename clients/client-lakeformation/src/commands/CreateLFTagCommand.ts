@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { CreateLFTagRequest, CreateLFTagResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateLFTagCommand,
-  serializeAws_restJson1CreateLFTagCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateLFTagCommand, se_CreateLFTagCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class CreateLFTagCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateLFTagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateLFTagCommand(input, context);
+    return se_CreateLFTagCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLFTagCommandOutput> {
-    return deserializeAws_restJson1CreateLFTagCommand(output, context);
+    return de_CreateLFTagCommand(output, context);
   }
 
   // Start section: command_body_extra

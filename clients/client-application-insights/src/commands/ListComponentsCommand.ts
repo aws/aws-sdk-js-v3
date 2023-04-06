@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import { ListComponentsRequest, ListComponentsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListComponentsCommand,
-  serializeAws_json1_1ListComponentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListComponentsCommand, se_ListComponentsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListComponentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListComponentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListComponentsCommand(input, context);
+    return se_ListComponentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListComponentsCommandOutput> {
-    return deserializeAws_json1_1ListComponentsCommand(output, context);
+    return de_ListComponentsCommand(output, context);
   }
 
   // Start section: command_body_extra

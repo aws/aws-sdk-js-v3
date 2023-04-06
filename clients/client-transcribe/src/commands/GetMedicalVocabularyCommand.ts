@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetMedicalVocabularyRequest, GetMedicalVocabularyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMedicalVocabularyCommand,
-  serializeAws_json1_1GetMedicalVocabularyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetMedicalVocabularyCommand, se_GetMedicalVocabularyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -143,14 +140,14 @@ export class GetMedicalVocabularyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMedicalVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMedicalVocabularyCommand(input, context);
+    return se_GetMedicalVocabularyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMedicalVocabularyCommandOutput> {
-    return deserializeAws_json1_1GetMedicalVocabularyCommand(output, context);
+    return de_GetMedicalVocabularyCommand(output, context);
   }
 
   // Start section: command_body_extra

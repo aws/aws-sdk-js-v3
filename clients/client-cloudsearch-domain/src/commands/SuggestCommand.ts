@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
 import { SuggestRequest, SuggestResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SuggestCommand,
-  serializeAws_restJson1SuggestCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SuggestCommand, se_SuggestCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class SuggestCommand extends $Command<
    * @internal
    */
   private serialize(input: SuggestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SuggestCommand(input, context);
+    return se_SuggestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SuggestCommandOutput> {
-    return deserializeAws_restJson1SuggestCommand(output, context);
+    return de_SuggestCommand(output, context);
   }
 
   // Start section: command_body_extra

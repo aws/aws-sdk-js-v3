@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTagOptionInput, DeleteTagOptionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTagOptionCommand,
-  serializeAws_json1_1DeleteTagOptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTagOptionCommand, se_DeleteTagOptionCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -132,14 +129,14 @@ export class DeleteTagOptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTagOptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTagOptionCommand(input, context);
+    return se_DeleteTagOptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTagOptionCommandOutput> {
-    return deserializeAws_json1_1DeleteTagOptionCommand(output, context);
+    return de_DeleteTagOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

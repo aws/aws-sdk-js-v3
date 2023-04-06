@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ResetServiceSettingRequest, ResetServiceSettingResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1ResetServiceSettingCommand,
-  serializeAws_json1_1ResetServiceSettingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResetServiceSettingCommand, se_ResetServiceSettingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -144,14 +141,14 @@ export class ResetServiceSettingCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetServiceSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResetServiceSettingCommand(input, context);
+    return se_ResetServiceSettingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetServiceSettingCommandOutput> {
-    return deserializeAws_json1_1ResetServiceSettingCommand(output, context);
+    return de_ResetServiceSettingCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,7 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { TestAlarmRequest, TestAlarmResult } from "../models/models_1";
-import { deserializeAws_json1_1TestAlarmCommand, serializeAws_json1_1TestAlarmCommand } from "../protocols/Aws_json1_1";
+import { de_TestAlarmCommand, se_TestAlarmCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +149,14 @@ export class TestAlarmCommand extends $Command<
    * @internal
    */
   private serialize(input: TestAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TestAlarmCommand(input, context);
+    return se_TestAlarmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestAlarmCommandOutput> {
-    return deserializeAws_json1_1TestAlarmCommand(output, context);
+    return de_TestAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

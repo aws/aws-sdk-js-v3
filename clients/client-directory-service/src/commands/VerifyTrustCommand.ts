@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { VerifyTrustRequest, VerifyTrustResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1VerifyTrustCommand,
-  serializeAws_json1_1VerifyTrustCommand,
-} from "../protocols/Aws_json1_1";
+import { de_VerifyTrustCommand, se_VerifyTrustCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class VerifyTrustCommand extends $Command<
    * @internal
    */
   private serialize(input: VerifyTrustCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1VerifyTrustCommand(input, context);
+    return se_VerifyTrustCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyTrustCommandOutput> {
-    return deserializeAws_json1_1VerifyTrustCommand(output, context);
+    return de_VerifyTrustCommand(output, context);
   }
 
   // Start section: command_body_extra

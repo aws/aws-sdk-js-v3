@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { SetRulePrioritiesInput, SetRulePrioritiesOutput } from "../models/models_0";
-import {
-  deserializeAws_querySetRulePrioritiesCommand,
-  serializeAws_querySetRulePrioritiesCommand,
-} from "../protocols/Aws_query";
+import { de_SetRulePrioritiesCommand, se_SetRulePrioritiesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class SetRulePrioritiesCommand extends $Command<
    * @internal
    */
   private serialize(input: SetRulePrioritiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetRulePrioritiesCommand(input, context);
+    return se_SetRulePrioritiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetRulePrioritiesCommandOutput> {
-    return deserializeAws_querySetRulePrioritiesCommand(output, context);
+    return de_SetRulePrioritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

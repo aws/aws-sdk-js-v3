@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InputAndOutputWithHeadersIO } from "../models/models_0";
-import {
-  deserializeAws_restJson1InputAndOutputWithHeadersCommand,
-  serializeAws_restJson1InputAndOutputWithHeadersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InputAndOutputWithHeadersCommand, se_InputAndOutputWithHeadersCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -139,7 +136,7 @@ export class InputAndOutputWithHeadersCommand extends $Command<
    * @internal
    */
   private serialize(input: InputAndOutputWithHeadersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InputAndOutputWithHeadersCommand(input, context);
+    return se_InputAndOutputWithHeadersCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InputAndOutputWithHeadersCommandOutput> {
-    return deserializeAws_restJson1InputAndOutputWithHeadersCommand(output, context);
+    return de_InputAndOutputWithHeadersCommand(output, context);
   }
 
   // Start section: command_body_extra

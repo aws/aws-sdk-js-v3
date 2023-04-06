@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteEventSubscriptionCommand,
-  serializeAws_queryDeleteEventSubscriptionCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteEventSubscriptionCommand, se_DeleteEventSubscriptionCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -62,20 +59,36 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  *  <p>The subscription name does not exist.</p>
  *
  *
- * @example To delete a DB event subscription.
+ * @example To delete an event subscription
  * ```javascript
- * // This example deletes the specified DB event subscription.
+ * // The following example deletes the specified event subscription.
  * const input = {
- *   "SubscriptionName": "myeventsubscription"
+ *   "SubscriptionName": "my-instance-events"
  * };
  * const command = new DeleteEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "EventSubscription": {}
+ *   "EventSubscription": {
+ *     "CustSubscriptionId": "my-instance-events",
+ *     "CustomerAwsId": "123456789012",
+ *     "Enabled": false,
+ *     "EventCategoriesList": [
+ *       "backup",
+ *       "recovery"
+ *     ],
+ *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     "SourceIdsList": [
+ *       "test-instance"
+ *     ],
+ *     "SourceType": "db-instance",
+ *     "Status": "deleting",
+ *     "SubscriptionCreationTime": "2018-07-31 23:22:01.893"
+ *   }
  * }
  * *\/
- * // example id: delete-db-event-subscription-d33567e3-1d5d-48ff-873f-0270453f4a75
+ * // example id: to-delete-an-event-subscription-1680128383147
  * ```
  *
  */
@@ -142,14 +155,14 @@ export class DeleteEventSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteEventSubscriptionCommand(input, context);
+    return se_DeleteEventSubscriptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventSubscriptionCommandOutput> {
-    return deserializeAws_queryDeleteEventSubscriptionCommand(output, context);
+    return de_DeleteEventSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

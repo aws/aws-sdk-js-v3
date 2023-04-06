@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { ListDashboardsRequest, ListDashboardsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListDashboardsCommand,
-  serializeAws_restJson1ListDashboardsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListDashboardsCommand, se_ListDashboardsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListDashboardsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDashboardsCommand(input, context);
+    return se_ListDashboardsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDashboardsCommandOutput> {
-    return deserializeAws_restJson1ListDashboardsCommand(output, context);
+    return de_ListDashboardsCommand(output, context);
   }
 
   // Start section: command_body_extra

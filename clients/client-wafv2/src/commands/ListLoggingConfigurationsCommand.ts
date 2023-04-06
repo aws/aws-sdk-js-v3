@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLoggingConfigurationsCommand,
-  serializeAws_json1_1ListLoggingConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLoggingConfigurationsCommand, se_ListLoggingConfigurationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -150,7 +147,7 @@ export class ListLoggingConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLoggingConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLoggingConfigurationsCommand(input, context);
+    return se_ListLoggingConfigurationsCommand(input, context);
   }
 
   /**
@@ -160,7 +157,7 @@ export class ListLoggingConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLoggingConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListLoggingConfigurationsCommand(output, context);
+    return de_ListLoggingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { GetGatewayInput, GetGatewayOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetGatewayCommand,
-  serializeAws_json1_0GetGatewayCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetGatewayCommand, se_GetGatewayCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: GetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetGatewayCommand(input, context);
+    return se_GetGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGatewayCommandOutput> {
-    return deserializeAws_json1_0GetGatewayCommand(output, context);
+    return de_GetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

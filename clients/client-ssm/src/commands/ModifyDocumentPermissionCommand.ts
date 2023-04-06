@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyDocumentPermissionRequest, ModifyDocumentPermissionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1ModifyDocumentPermissionCommand,
-  serializeAws_json1_1ModifyDocumentPermissionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyDocumentPermissionCommand, se_ModifyDocumentPermissionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -152,14 +149,14 @@ export class ModifyDocumentPermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyDocumentPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyDocumentPermissionCommand(input, context);
+    return se_ModifyDocumentPermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDocumentPermissionCommandOutput> {
-    return deserializeAws_json1_1ModifyDocumentPermissionCommand(output, context);
+    return de_ModifyDocumentPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

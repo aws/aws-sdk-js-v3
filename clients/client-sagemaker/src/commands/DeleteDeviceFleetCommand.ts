@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDeviceFleetRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteDeviceFleetCommand,
-  serializeAws_json1_1DeleteDeviceFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDeviceFleetCommand, se_DeleteDeviceFleetCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -123,14 +120,14 @@ export class DeleteDeviceFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDeviceFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDeviceFleetCommand(input, context);
+    return se_DeleteDeviceFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDeviceFleetCommandOutput> {
-    return deserializeAws_json1_1DeleteDeviceFleetCommand(output, context);
+    return de_DeleteDeviceFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

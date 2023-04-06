@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { GetComplianceDetailRequest, GetComplianceDetailResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetComplianceDetailCommand,
-  serializeAws_json1_1GetComplianceDetailCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetComplianceDetailCommand, se_GetComplianceDetailCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class GetComplianceDetailCommand extends $Command<
    * @internal
    */
   private serialize(input: GetComplianceDetailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceDetailCommand(input, context);
+    return se_GetComplianceDetailCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComplianceDetailCommandOutput> {
-    return deserializeAws_json1_1GetComplianceDetailCommand(output, context);
+    return de_GetComplianceDetailCommand(output, context);
   }
 
   // Start section: command_body_extra

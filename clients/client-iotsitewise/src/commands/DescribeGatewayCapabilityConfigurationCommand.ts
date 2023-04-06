@@ -19,8 +19,8 @@ import {
   DescribeGatewayCapabilityConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand,
-  serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand,
+  de_DescribeGatewayCapabilityConfigurationCommand,
+  se_DescribeGatewayCapabilityConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -150,7 +150,7 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
     input: DescribeGatewayCapabilityConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand(input, context);
+    return se_DescribeGatewayCapabilityConfigurationCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeGatewayCapabilityConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand(output, context);
+    return de_DescribeGatewayCapabilityConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateCallAnalyticsCategoryRequest, CreateCallAnalyticsCategoryResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCallAnalyticsCategoryCommand,
-  serializeAws_json1_1CreateCallAnalyticsCategoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateCallAnalyticsCategoryCommand, se_CreateCallAnalyticsCategoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -232,7 +229,7 @@ export class CreateCallAnalyticsCategoryCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateCallAnalyticsCategoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateCallAnalyticsCategoryCommand(input, context);
+    return se_CreateCallAnalyticsCategoryCommand(input, context);
   }
 
   /**
@@ -242,7 +239,7 @@ export class CreateCallAnalyticsCategoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCallAnalyticsCategoryCommandOutput> {
-    return deserializeAws_json1_1CreateCallAnalyticsCategoryCommand(output, context);
+    return de_CreateCallAnalyticsCategoryCommand(output, context);
   }
 
   // Start section: command_body_extra

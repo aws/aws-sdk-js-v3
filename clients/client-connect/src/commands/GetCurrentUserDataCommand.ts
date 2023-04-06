@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { GetCurrentUserDataRequest, GetCurrentUserDataResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCurrentUserDataCommand,
-  serializeAws_restJson1GetCurrentUserDataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCurrentUserDataCommand, se_GetCurrentUserDataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class GetCurrentUserDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCurrentUserDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCurrentUserDataCommand(input, context);
+    return se_GetCurrentUserDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCurrentUserDataCommandOutput> {
-    return deserializeAws_restJson1GetCurrentUserDataCommand(output, context);
+    return de_GetCurrentUserDataCommand(output, context);
   }
 
   // Start section: command_body_extra

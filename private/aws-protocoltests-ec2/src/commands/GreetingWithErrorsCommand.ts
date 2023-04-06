@@ -14,10 +14,7 @@ import {
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { GreetingWithErrorsOutput } from "../models/models_0";
-import {
-  deserializeAws_ec2GreetingWithErrorsCommand,
-  serializeAws_ec2GreetingWithErrorsCommand,
-} from "../protocols/Aws_ec2";
+import { de_GreetingWithErrorsCommand, se_GreetingWithErrorsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -115,14 +112,14 @@ export class GreetingWithErrorsCommand extends $Command<
    * @internal
    */
   private serialize(input: GreetingWithErrorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GreetingWithErrorsCommand(input, context);
+    return se_GreetingWithErrorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GreetingWithErrorsCommandOutput> {
-    return deserializeAws_ec2GreetingWithErrorsCommand(output, context);
+    return de_GreetingWithErrorsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DescribeGlobalClustersMessage, GlobalClustersMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeGlobalClustersCommand,
-  serializeAws_queryDescribeGlobalClustersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeGlobalClustersCommand, se_DescribeGlobalClustersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DescribeGlobalClustersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeGlobalClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeGlobalClustersCommand(input, context);
+    return se_DescribeGlobalClustersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalClustersCommandOutput> {
-    return deserializeAws_queryDescribeGlobalClustersCommand(output, context);
+    return de_DescribeGlobalClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

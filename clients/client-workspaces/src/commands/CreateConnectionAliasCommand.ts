@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateConnectionAliasRequest, CreateConnectionAliasResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateConnectionAliasCommand,
-  serializeAws_json1_1CreateConnectionAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateConnectionAliasCommand, se_CreateConnectionAliasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -146,14 +143,14 @@ export class CreateConnectionAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateConnectionAliasCommand(input, context);
+    return se_CreateConnectionAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectionAliasCommandOutput> {
-    return deserializeAws_json1_1CreateConnectionAliasCommand(output, context);
+    return de_CreateConnectionAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

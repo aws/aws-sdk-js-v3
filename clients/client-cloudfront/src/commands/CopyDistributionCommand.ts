@@ -19,10 +19,7 @@ import {
   CopyDistributionResult,
   CopyDistributionResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restXmlCopyDistributionCommand,
-  serializeAws_restXmlCopyDistributionCommand,
-} from "../protocols/Aws_restXml";
+import { de_CopyDistributionCommand, se_CopyDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -359,14 +356,14 @@ export class CopyDistributionCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCopyDistributionCommand(input, context);
+    return se_CopyDistributionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDistributionCommandOutput> {
-    return deserializeAws_restXmlCopyDistributionCommand(output, context);
+    return de_CopyDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

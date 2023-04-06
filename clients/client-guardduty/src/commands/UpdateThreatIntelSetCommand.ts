@@ -15,10 +15,7 @@ import {
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { UpdateThreatIntelSetRequest, UpdateThreatIntelSetResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateThreatIntelSetCommand,
-  serializeAws_restJson1UpdateThreatIntelSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateThreatIntelSetCommand, se_UpdateThreatIntelSetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class UpdateThreatIntelSetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateThreatIntelSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateThreatIntelSetCommand(input, context);
+    return se_UpdateThreatIntelSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThreatIntelSetCommandOutput> {
-    return deserializeAws_restJson1UpdateThreatIntelSetCommand(output, context);
+    return de_UpdateThreatIntelSetCommand(output, context);
   }
 
   // Start section: command_body_extra

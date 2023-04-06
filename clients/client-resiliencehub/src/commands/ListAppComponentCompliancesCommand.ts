@@ -15,8 +15,8 @@ import {
 
 import { ListAppComponentCompliancesRequest, ListAppComponentCompliancesResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAppComponentCompliancesCommand,
-  serializeAws_restJson1ListAppComponentCompliancesCommand,
+  de_ListAppComponentCompliancesCommand,
+  se_ListAppComponentCompliancesCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -142,7 +142,7 @@ export class ListAppComponentCompliancesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAppComponentCompliancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppComponentCompliancesCommand(input, context);
+    return se_ListAppComponentCompliancesCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ListAppComponentCompliancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAppComponentCompliancesCommandOutput> {
-    return deserializeAws_restJson1ListAppComponentCompliancesCommand(output, context);
+    return de_ListAppComponentCompliancesCommand(output, context);
   }
 
   // Start section: command_body_extra

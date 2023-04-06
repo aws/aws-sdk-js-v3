@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AttachInternetGatewayRequest } from "../models/models_0";
-import {
-  deserializeAws_ec2AttachInternetGatewayCommand,
-  serializeAws_ec2AttachInternetGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { de_AttachInternetGatewayCommand, se_AttachInternetGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class AttachInternetGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: AttachInternetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AttachInternetGatewayCommand(input, context);
+    return se_AttachInternetGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachInternetGatewayCommandOutput> {
-    return deserializeAws_ec2AttachInternetGatewayCommand(output, context);
+    return de_AttachInternetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

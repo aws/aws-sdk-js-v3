@@ -19,8 +19,8 @@ import {
   GetReservationPurchaseRecommendationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetReservationPurchaseRecommendationCommand,
-  serializeAws_json1_1GetReservationPurchaseRecommendationCommand,
+  de_GetReservationPurchaseRecommendationCommand,
+  se_GetReservationPurchaseRecommendationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -231,7 +231,7 @@ export class GetReservationPurchaseRecommendationCommand extends $Command<
     input: GetReservationPurchaseRecommendationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetReservationPurchaseRecommendationCommand(input, context);
+    return se_GetReservationPurchaseRecommendationCommand(input, context);
   }
 
   /**
@@ -241,7 +241,7 @@ export class GetReservationPurchaseRecommendationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReservationPurchaseRecommendationCommandOutput> {
-    return deserializeAws_json1_1GetReservationPurchaseRecommendationCommand(output, context);
+    return de_GetReservationPurchaseRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

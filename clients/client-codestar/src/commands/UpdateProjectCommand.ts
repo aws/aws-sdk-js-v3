@@ -15,10 +15,7 @@ import {
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
 import { UpdateProjectRequest, UpdateProjectRequestFilterSensitiveLog, UpdateProjectResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateProjectCommand,
-  serializeAws_json1_1UpdateProjectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateProjectCommand, se_UpdateProjectCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class UpdateProjectCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProjectCommand(input, context);
+    return se_UpdateProjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProjectCommandOutput> {
-    return deserializeAws_json1_1UpdateProjectCommand(output, context);
+    return de_UpdateProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

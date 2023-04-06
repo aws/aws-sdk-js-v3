@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopAppReplicationRequest, StopAppReplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopAppReplicationCommand,
-  serializeAws_json1_1StopAppReplicationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopAppReplicationCommand, se_StopAppReplicationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -137,14 +134,14 @@ export class StopAppReplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: StopAppReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopAppReplicationCommand(input, context);
+    return se_StopAppReplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopAppReplicationCommandOutput> {
-    return deserializeAws_json1_1StopAppReplicationCommand(output, context);
+    return de_StopAppReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateClusterSettingsCommand,
-  serializeAws_json1_1UpdateClusterSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateClusterSettingsCommand, se_UpdateClusterSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class UpdateClusterSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateClusterSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateClusterSettingsCommand(input, context);
+    return se_UpdateClusterSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateClusterSettingsCommand(output, context);
+    return de_UpdateClusterSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

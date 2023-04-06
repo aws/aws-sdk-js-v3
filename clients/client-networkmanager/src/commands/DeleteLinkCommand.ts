@@ -15,10 +15,7 @@ import {
 
 import { DeleteLinkRequest, DeleteLinkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DeleteLinkCommand,
-  serializeAws_restJson1DeleteLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteLinkCommand, se_DeleteLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteLinkCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLinkCommand(input, context);
+    return se_DeleteLinkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLinkCommandOutput> {
-    return deserializeAws_restJson1DeleteLinkCommand(output, context);
+    return de_DeleteLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

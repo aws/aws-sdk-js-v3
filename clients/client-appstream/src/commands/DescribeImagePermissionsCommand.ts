@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DescribeImagePermissionsRequest, DescribeImagePermissionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeImagePermissionsCommand,
-  serializeAws_json1_1DescribeImagePermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeImagePermissionsCommand, se_DescribeImagePermissionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class DescribeImagePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeImagePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeImagePermissionsCommand(input, context);
+    return se_DescribeImagePermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeImagePermissionsCommandOutput> {
-    return deserializeAws_json1_1DescribeImagePermissionsCommand(output, context);
+    return de_DescribeImagePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

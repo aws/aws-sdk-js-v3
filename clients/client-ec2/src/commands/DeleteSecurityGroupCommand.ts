@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteSecurityGroupRequest } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteSecurityGroupCommand,
-  serializeAws_ec2DeleteSecurityGroupCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteSecurityGroupCommand, se_DeleteSecurityGroupCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteSecurityGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteSecurityGroupCommand(input, context);
+    return se_DeleteSecurityGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSecurityGroupCommandOutput> {
-    return deserializeAws_ec2DeleteSecurityGroupCommand(output, context);
+    return de_DeleteSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

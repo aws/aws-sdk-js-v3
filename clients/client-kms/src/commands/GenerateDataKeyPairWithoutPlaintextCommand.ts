@@ -19,8 +19,8 @@ import {
   GenerateDataKeyPairWithoutPlaintextResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand,
-  serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand,
+  de_GenerateDataKeyPairWithoutPlaintextCommand,
+  se_GenerateDataKeyPairWithoutPlaintextCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -282,7 +282,7 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     input: GenerateDataKeyPairWithoutPlaintextCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand(input, context);
+    return se_GenerateDataKeyPairWithoutPlaintextCommand(input, context);
   }
 
   /**
@@ -292,7 +292,7 @@ export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput> {
-    return deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand(output, context);
+    return de_GenerateDataKeyPairWithoutPlaintextCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateManagedInstanceRoleCommand,
-  serializeAws_json1_1UpdateManagedInstanceRoleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateManagedInstanceRoleCommand, se_UpdateManagedInstanceRoleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -146,7 +143,7 @@ export class UpdateManagedInstanceRoleCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateManagedInstanceRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateManagedInstanceRoleCommand(input, context);
+    return se_UpdateManagedInstanceRoleCommand(input, context);
   }
 
   /**
@@ -156,7 +153,7 @@ export class UpdateManagedInstanceRoleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateManagedInstanceRoleCommandOutput> {
-    return deserializeAws_json1_1UpdateManagedInstanceRoleCommand(output, context);
+    return de_UpdateManagedInstanceRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

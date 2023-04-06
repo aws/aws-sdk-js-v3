@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { GetPolicyRequest, GetPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPolicyCommand,
-  serializeAws_restJson1GetPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPolicyCommand, se_GetPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPolicyCommand(input, context);
+    return se_GetPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyCommandOutput> {
-    return deserializeAws_restJson1GetPolicyCommand(output, context);
+    return de_GetPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DescribeBulkImportJobRequest, DescribeBulkImportJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeBulkImportJobCommand,
-  serializeAws_restJson1DescribeBulkImportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeBulkImportJobCommand, se_DescribeBulkImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeBulkImportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeBulkImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeBulkImportJobCommand(input, context);
+    return se_DescribeBulkImportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBulkImportJobCommandOutput> {
-    return deserializeAws_restJson1DescribeBulkImportJobCommand(output, context);
+    return de_DescribeBulkImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

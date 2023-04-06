@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { DeleteProgramRequest, DeleteProgramResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteProgramCommand,
-  serializeAws_restJson1DeleteProgramCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteProgramCommand, se_DeleteProgramCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -119,14 +116,14 @@ export class DeleteProgramCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProgramCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProgramCommand(input, context);
+    return se_DeleteProgramCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProgramCommandOutput> {
-    return deserializeAws_restJson1DeleteProgramCommand(output, context);
+    return de_DeleteProgramCommand(output, context);
   }
 
   // Start section: command_body_extra

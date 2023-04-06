@@ -15,10 +15,7 @@ import {
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { DeleteJobQueueRequest, DeleteJobQueueResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteJobQueueCommand,
-  serializeAws_restJson1DeleteJobQueueCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteJobQueueCommand, se_DeleteJobQueueCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteJobQueueCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteJobQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteJobQueueCommand(input, context);
+    return se_DeleteJobQueueCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobQueueCommandOutput> {
-    return deserializeAws_restJson1DeleteJobQueueCommand(output, context);
+    return de_DeleteJobQueueCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { ListProfilingGroupsRequest, ListProfilingGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListProfilingGroupsCommand,
-  serializeAws_restJson1ListProfilingGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListProfilingGroupsCommand, se_ListProfilingGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListProfilingGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProfilingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListProfilingGroupsCommand(input, context);
+    return se_ListProfilingGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProfilingGroupsCommandOutput> {
-    return deserializeAws_restJson1ListProfilingGroupsCommand(output, context);
+    return de_ListProfilingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

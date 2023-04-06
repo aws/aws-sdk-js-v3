@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { DeleteUserDefinedFunctionRequest, DeleteUserDefinedFunctionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeleteUserDefinedFunctionCommand,
-  serializeAws_json1_1DeleteUserDefinedFunctionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteUserDefinedFunctionCommand, se_DeleteUserDefinedFunctionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,7 +131,7 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteUserDefinedFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUserDefinedFunctionCommand(input, context);
+    return se_DeleteUserDefinedFunctionCommand(input, context);
   }
 
   /**
@@ -144,7 +141,7 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUserDefinedFunctionCommandOutput> {
-    return deserializeAws_json1_1DeleteUserDefinedFunctionCommand(output, context);
+    return de_DeleteUserDefinedFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

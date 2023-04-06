@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteClientBrandingRequest, DeleteClientBrandingResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteClientBrandingCommand,
-  serializeAws_json1_1DeleteClientBrandingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteClientBrandingCommand, se_DeleteClientBrandingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -137,14 +134,14 @@ export class DeleteClientBrandingCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteClientBrandingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteClientBrandingCommand(input, context);
+    return se_DeleteClientBrandingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClientBrandingCommandOutput> {
-    return deserializeAws_json1_1DeleteClientBrandingCommand(output, context);
+    return de_DeleteClientBrandingCommand(output, context);
   }
 
   // Start section: command_body_extra

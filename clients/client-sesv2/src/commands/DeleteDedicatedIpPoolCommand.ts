@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDedicatedIpPoolCommand,
-  serializeAws_restJson1DeleteDedicatedIpPoolCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDedicatedIpPoolCommand, se_DeleteDedicatedIpPoolCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -132,14 +129,14 @@ export class DeleteDedicatedIpPoolCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDedicatedIpPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDedicatedIpPoolCommand(input, context);
+    return se_DeleteDedicatedIpPoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDedicatedIpPoolCommandOutput> {
-    return deserializeAws_restJson1DeleteDedicatedIpPoolCommand(output, context);
+    return de_DeleteDedicatedIpPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

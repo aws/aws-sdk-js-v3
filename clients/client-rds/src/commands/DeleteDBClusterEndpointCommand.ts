@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DBClusterEndpoint, DeleteDBClusterEndpointMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBClusterEndpointCommand,
-  serializeAws_queryDeleteDBClusterEndpointCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBClusterEndpointCommand, se_DeleteDBClusterEndpointCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -67,6 +64,35 @@ export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
  *
+ *
+ * @example To delete a custom DB cluster endpoint
+ * ```javascript
+ * // The following example deletes the specified custom DB cluster endpoint.
+ * const input = {
+ *   "DBClusterEndpointIdentifier": "mycustomendpoint"
+ * };
+ * const command = new DeleteDBClusterEndpointCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CustomEndpointType": "READER",
+ *   "DBClusterEndpointArn": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:mycustomendpoint",
+ *   "DBClusterEndpointIdentifier": "mycustomendpoint",
+ *   "DBClusterEndpointResourceIdentifier": "cluster-endpoint-ANPAJ4AE5446DAEXAMPLE",
+ *   "DBClusterIdentifier": "mydbcluster",
+ *   "Endpoint": "mycustomendpoint.cluster-custom-cnpexample.us-east-1.rds.amazonaws.com",
+ *   "EndpointType": "CUSTOM",
+ *   "ExcludedMembers": [],
+ *   "StaticMembers": [
+ *     "dbinstance1",
+ *     "dbinstance2",
+ *     "dbinstance3"
+ *   ],
+ *   "Status": "deleting"
+ * }
+ * *\/
+ * // example id: to-delete-a-custom-db-cluster-endpoint-1679960663390
+ * ```
  *
  */
 export class DeleteDBClusterEndpointCommand extends $Command<
@@ -132,14 +158,14 @@ export class DeleteDBClusterEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBClusterEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterEndpointCommand(input, context);
+    return se_DeleteDBClusterEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterEndpointCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterEndpointCommand(output, context);
+    return de_DeleteDBClusterEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

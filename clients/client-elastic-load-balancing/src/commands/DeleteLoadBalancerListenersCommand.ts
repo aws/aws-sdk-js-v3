@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
 import { DeleteLoadBalancerListenerInput, DeleteLoadBalancerListenerOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteLoadBalancerListenersCommand,
-  serializeAws_queryDeleteLoadBalancerListenersCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteLoadBalancerListenersCommand, se_DeleteLoadBalancerListenersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class DeleteLoadBalancerListenersCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLoadBalancerListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteLoadBalancerListenersCommand(input, context);
+    return se_DeleteLoadBalancerListenersCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class DeleteLoadBalancerListenersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLoadBalancerListenersCommandOutput> {
-    return deserializeAws_queryDeleteLoadBalancerListenersCommand(output, context);
+    return de_DeleteLoadBalancerListenersCommand(output, context);
   }
 
   // Start section: command_body_extra

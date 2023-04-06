@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GatewayResponse, PutGatewayResponseRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutGatewayResponseCommand,
-  serializeAws_restJson1PutGatewayResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutGatewayResponseCommand, se_PutGatewayResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class PutGatewayResponseCommand extends $Command<
    * @internal
    */
   private serialize(input: PutGatewayResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutGatewayResponseCommand(input, context);
+    return se_PutGatewayResponseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutGatewayResponseCommandOutput> {
-    return deserializeAws_restJson1PutGatewayResponseCommand(output, context);
+    return de_PutGatewayResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

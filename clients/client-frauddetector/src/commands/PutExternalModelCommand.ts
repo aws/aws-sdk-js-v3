@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { PutExternalModelRequest, PutExternalModelResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutExternalModelCommand,
-  serializeAws_json1_1PutExternalModelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutExternalModelCommand, se_PutExternalModelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class PutExternalModelCommand extends $Command<
    * @internal
    */
   private serialize(input: PutExternalModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutExternalModelCommand(input, context);
+    return se_PutExternalModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutExternalModelCommandOutput> {
-    return deserializeAws_json1_1PutExternalModelCommand(output, context);
+    return de_PutExternalModelCommand(output, context);
   }
 
   // Start section: command_body_extra

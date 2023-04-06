@@ -15,8 +15,8 @@ import {
 
 import { RespondDecisionTaskCompletedInput } from "../models/models_0";
 import {
-  deserializeAws_json1_0RespondDecisionTaskCompletedCommand,
-  serializeAws_json1_0RespondDecisionTaskCompletedCommand,
+  de_RespondDecisionTaskCompletedCommand,
+  se_RespondDecisionTaskCompletedCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
@@ -247,7 +247,7 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
    * @internal
    */
   private serialize(input: RespondDecisionTaskCompletedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RespondDecisionTaskCompletedCommand(input, context);
+    return se_RespondDecisionTaskCompletedCommand(input, context);
   }
 
   /**
@@ -257,7 +257,7 @@ export class RespondDecisionTaskCompletedCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RespondDecisionTaskCompletedCommandOutput> {
-    return deserializeAws_json1_0RespondDecisionTaskCompletedCommand(output, context);
+    return de_RespondDecisionTaskCompletedCommand(output, context);
   }
 
   // Start section: command_body_extra

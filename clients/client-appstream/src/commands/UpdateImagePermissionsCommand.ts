@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { UpdateImagePermissionsRequest, UpdateImagePermissionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateImagePermissionsCommand,
-  serializeAws_json1_1UpdateImagePermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateImagePermissionsCommand, se_UpdateImagePermissionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class UpdateImagePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateImagePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateImagePermissionsCommand(input, context);
+    return se_UpdateImagePermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImagePermissionsCommandOutput> {
-    return deserializeAws_json1_1UpdateImagePermissionsCommand(output, context);
+    return de_UpdateImagePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

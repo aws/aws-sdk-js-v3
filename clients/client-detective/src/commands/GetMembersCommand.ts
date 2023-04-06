@@ -15,10 +15,7 @@ import {
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { GetMembersRequest, GetMembersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMembersCommand,
-  serializeAws_restJson1GetMembersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMembersCommand, se_GetMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetMembersCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMembersCommand(input, context);
+    return se_GetMembersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMembersCommandOutput> {
-    return deserializeAws_restJson1GetMembersCommand(output, context);
+    return de_GetMembersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,8 +23,8 @@ import {
   DeleteApplicationVpcConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteApplicationVpcConfigurationCommand,
-  serializeAws_json1_1DeleteApplicationVpcConfigurationCommand,
+  de_DeleteApplicationVpcConfigurationCommand,
+  se_DeleteApplicationVpcConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -152,7 +152,7 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     input: DeleteApplicationVpcConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationVpcConfigurationCommand(input, context);
+    return se_DeleteApplicationVpcConfigurationCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApplicationVpcConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationVpcConfigurationCommand(output, context);
+    return de_DeleteApplicationVpcConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

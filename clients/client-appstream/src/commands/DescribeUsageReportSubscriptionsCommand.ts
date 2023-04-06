@@ -16,8 +16,8 @@ import {
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DescribeUsageReportSubscriptionsRequest, DescribeUsageReportSubscriptionsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeUsageReportSubscriptionsCommand,
-  serializeAws_json1_1DescribeUsageReportSubscriptionsCommand,
+  de_DescribeUsageReportSubscriptionsCommand,
+  se_DescribeUsageReportSubscriptionsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -132,7 +132,7 @@ export class DescribeUsageReportSubscriptionsCommand extends $Command<
     input: DescribeUsageReportSubscriptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUsageReportSubscriptionsCommand(input, context);
+    return se_DescribeUsageReportSubscriptionsCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class DescribeUsageReportSubscriptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUsageReportSubscriptionsCommandOutput> {
-    return deserializeAws_json1_1DescribeUsageReportSubscriptionsCommand(output, context);
+    return de_DescribeUsageReportSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

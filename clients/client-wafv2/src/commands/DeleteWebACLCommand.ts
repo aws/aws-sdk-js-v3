@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteWebACLRequest, DeleteWebACLResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWebACLCommand,
-  serializeAws_json1_1DeleteWebACLCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteWebACLCommand, se_DeleteWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -203,14 +200,14 @@ export class DeleteWebACLCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWebACLCommand(input, context);
+    return se_DeleteWebACLCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWebACLCommandOutput> {
-    return deserializeAws_json1_1DeleteWebACLCommand(output, context);
+    return de_DeleteWebACLCommand(output, context);
   }
 
   // Start section: command_body_extra

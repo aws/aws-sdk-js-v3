@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeletePatchBaselineRequest, DeletePatchBaselineResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePatchBaselineCommand,
-  serializeAws_json1_1DeletePatchBaselineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeletePatchBaselineCommand, se_DeletePatchBaselineCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -127,14 +124,14 @@ export class DeletePatchBaselineCommand extends $Command<
    * @internal
    */
   private serialize(input: DeletePatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePatchBaselineCommand(input, context);
+    return se_DeletePatchBaselineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePatchBaselineCommandOutput> {
-    return deserializeAws_json1_1DeletePatchBaselineCommand(output, context);
+    return de_DeletePatchBaselineCommand(output, context);
   }
 
   // Start section: command_body_extra

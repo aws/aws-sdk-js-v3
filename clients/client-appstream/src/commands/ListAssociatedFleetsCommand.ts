@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { ListAssociatedFleetsRequest, ListAssociatedFleetsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAssociatedFleetsCommand,
-  serializeAws_json1_1ListAssociatedFleetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAssociatedFleetsCommand, se_ListAssociatedFleetsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -121,14 +118,14 @@ export class ListAssociatedFleetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAssociatedFleetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAssociatedFleetsCommand(input, context);
+    return se_ListAssociatedFleetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedFleetsCommandOutput> {
-    return deserializeAws_json1_1ListAssociatedFleetsCommand(output, context);
+    return de_ListAssociatedFleetsCommand(output, context);
   }
 
   // Start section: command_body_extra

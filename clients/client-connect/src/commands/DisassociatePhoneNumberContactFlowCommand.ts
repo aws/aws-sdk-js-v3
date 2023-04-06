@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DisassociatePhoneNumberContactFlowRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociatePhoneNumberContactFlowCommand,
-  serializeAws_restJson1DisassociatePhoneNumberContactFlowCommand,
+  de_DisassociatePhoneNumberContactFlowCommand,
+  se_DisassociatePhoneNumberContactFlowCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -149,7 +149,7 @@ export class DisassociatePhoneNumberContactFlowCommand extends $Command<
     input: DisassociatePhoneNumberContactFlowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociatePhoneNumberContactFlowCommand(input, context);
+    return se_DisassociatePhoneNumberContactFlowCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class DisassociatePhoneNumberContactFlowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePhoneNumberContactFlowCommandOutput> {
-    return deserializeAws_restJson1DisassociatePhoneNumberContactFlowCommand(output, context);
+    return de_DisassociatePhoneNumberContactFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

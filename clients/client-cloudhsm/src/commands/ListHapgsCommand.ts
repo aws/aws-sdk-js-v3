@@ -15,7 +15,7 @@ import {
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { ListHapgsRequest, ListHapgsResponse } from "../models/models_0";
-import { deserializeAws_json1_1ListHapgsCommand, serializeAws_json1_1ListHapgsCommand } from "../protocols/Aws_json1_1";
+import { de_ListHapgsCommand, se_ListHapgsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +138,14 @@ export class ListHapgsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHapgsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHapgsCommand(input, context);
+    return se_ListHapgsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHapgsCommandOutput> {
-    return deserializeAws_json1_1ListHapgsCommand(output, context);
+    return de_ListHapgsCommand(output, context);
   }
 
   // Start section: command_body_extra

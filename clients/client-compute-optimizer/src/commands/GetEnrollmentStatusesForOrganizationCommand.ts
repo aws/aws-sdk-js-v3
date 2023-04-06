@@ -19,8 +19,8 @@ import {
   GetEnrollmentStatusesForOrganizationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand,
-  serializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand,
+  de_GetEnrollmentStatusesForOrganizationCommand,
+  se_GetEnrollmentStatusesForOrganizationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -158,7 +158,7 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
     input: GetEnrollmentStatusesForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand(input, context);
+    return se_GetEnrollmentStatusesForOrganizationCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEnrollmentStatusesForOrganizationCommandOutput> {
-    return deserializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand(output, context);
+    return de_GetEnrollmentStatusesForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

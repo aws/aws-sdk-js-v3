@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { ListResolversByFunctionRequest, ListResolversByFunctionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResolversByFunctionCommand,
-  serializeAws_restJson1ListResolversByFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListResolversByFunctionCommand, se_ListResolversByFunctionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class ListResolversByFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResolversByFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResolversByFunctionCommand(input, context);
+    return se_ListResolversByFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResolversByFunctionCommandOutput> {
-    return deserializeAws_restJson1ListResolversByFunctionCommand(output, context);
+    return de_ListResolversByFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

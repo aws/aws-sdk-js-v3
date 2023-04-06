@@ -16,8 +16,8 @@ import {
 import { DeleteCoreNetworkPolicyVersionRequest, DeleteCoreNetworkPolicyVersionResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand,
-  serializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand,
+  de_DeleteCoreNetworkPolicyVersionCommand,
+  se_DeleteCoreNetworkPolicyVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class DeleteCoreNetworkPolicyVersionCommand extends $Command<
     input: DeleteCoreNetworkPolicyVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand(input, context);
+    return se_DeleteCoreNetworkPolicyVersionCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DeleteCoreNetworkPolicyVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCoreNetworkPolicyVersionCommandOutput> {
-    return deserializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand(output, context);
+    return de_DeleteCoreNetworkPolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

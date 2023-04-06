@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DescribeConnectionLoaRequest, DescribeConnectionLoaResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConnectionLoaCommand,
-  serializeAws_json1_1DescribeConnectionLoaCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeConnectionLoaCommand, se_DescribeConnectionLoaCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeConnectionLoaCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConnectionLoaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionLoaCommand(input, context);
+    return se_DescribeConnectionLoaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectionLoaCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionLoaCommand(output, context);
+    return de_DescribeConnectionLoaCommand(output, context);
   }
 
   // Start section: command_body_extra

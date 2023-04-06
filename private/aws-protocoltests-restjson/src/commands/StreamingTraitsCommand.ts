@@ -16,10 +16,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1StreamingTraitsCommand,
-  serializeAws_restJson1StreamingTraitsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StreamingTraitsCommand, se_StreamingTraitsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -125,7 +122,7 @@ export class StreamingTraitsCommand extends $Command<
    * @internal
    */
   private serialize(input: StreamingTraitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StreamingTraitsCommand(input, context);
+    return se_StreamingTraitsCommand(input, context);
   }
 
   /**
@@ -135,7 +132,7 @@ export class StreamingTraitsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<StreamingTraitsCommandOutput> {
-    return deserializeAws_restJson1StreamingTraitsCommand(output, context);
+    return de_StreamingTraitsCommand(output, context);
   }
 
   // Start section: command_body_extra

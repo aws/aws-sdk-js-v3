@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { StartMetricStreamsInput, StartMetricStreamsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryStartMetricStreamsCommand,
-  serializeAws_queryStartMetricStreamsCommand,
-} from "../protocols/Aws_query";
+import { de_StartMetricStreamsCommand, se_StartMetricStreamsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class StartMetricStreamsCommand extends $Command<
    * @internal
    */
   private serialize(input: StartMetricStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStartMetricStreamsCommand(input, context);
+    return se_StartMetricStreamsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMetricStreamsCommandOutput> {
-    return deserializeAws_queryStartMetricStreamsCommand(output, context);
+    return de_StartMetricStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

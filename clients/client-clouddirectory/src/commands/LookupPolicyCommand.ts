@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { LookupPolicyRequest, LookupPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1LookupPolicyCommand,
-  serializeAws_restJson1LookupPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_LookupPolicyCommand, se_LookupPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class LookupPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: LookupPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1LookupPolicyCommand(input, context);
+    return se_LookupPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LookupPolicyCommandOutput> {
-    return deserializeAws_restJson1LookupPolicyCommand(output, context);
+    return de_LookupPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

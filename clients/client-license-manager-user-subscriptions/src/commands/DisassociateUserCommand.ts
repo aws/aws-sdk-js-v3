@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import { DisassociateUserRequest, DisassociateUserResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateUserCommand,
-  serializeAws_restJson1DisassociateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateUserCommand, se_DisassociateUserCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class DisassociateUserCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateUserCommand(input, context);
+    return se_DisassociateUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateUserCommandOutput> {
-    return deserializeAws_restJson1DisassociateUserCommand(output, context);
+    return de_DisassociateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

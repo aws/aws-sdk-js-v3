@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteAccountAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteAccountAliasCommand,
-  serializeAws_queryDeleteAccountAliasCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteAccountAliasCommand, se_DeleteAccountAliasCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteAccountAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccountAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAccountAliasCommand(input, context);
+    return se_DeleteAccountAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountAliasCommandOutput> {
-    return deserializeAws_queryDeleteAccountAliasCommand(output, context);
+    return de_DeleteAccountAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

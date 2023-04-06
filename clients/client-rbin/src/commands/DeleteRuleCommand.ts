@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteRuleRequest, DeleteRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteRuleCommand,
-  serializeAws_restJson1DeleteRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteRuleCommand, se_DeleteRuleCommand } from "../protocols/Aws_restJson1";
 import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 
 /**
@@ -131,14 +128,14 @@ export class DeleteRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteRuleCommand(input, context);
+    return se_DeleteRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteRuleCommand(output, context);
+    return de_DeleteRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

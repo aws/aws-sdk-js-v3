@@ -16,8 +16,8 @@ import {
 import { RemoveAccountFromOrganizationRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1RemoveAccountFromOrganizationCommand,
-  serializeAws_json1_1RemoveAccountFromOrganizationCommand,
+  de_RemoveAccountFromOrganizationCommand,
+  se_RemoveAccountFromOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -505,7 +505,7 @@ export class RemoveAccountFromOrganizationCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveAccountFromOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveAccountFromOrganizationCommand(input, context);
+    return se_RemoveAccountFromOrganizationCommand(input, context);
   }
 
   /**
@@ -515,7 +515,7 @@ export class RemoveAccountFromOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAccountFromOrganizationCommandOutput> {
-    return deserializeAws_json1_1RemoveAccountFromOrganizationCommand(output, context);
+    return de_RemoveAccountFromOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

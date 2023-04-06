@@ -15,10 +15,7 @@ import {
 
 import { ClusterCredentials, ClusterCredentialsFilterSensitiveLog } from "../models/models_0";
 import { GetClusterCredentialsMessage } from "../models/models_1";
-import {
-  deserializeAws_queryGetClusterCredentialsCommand,
-  serializeAws_queryGetClusterCredentialsCommand,
-} from "../protocols/Aws_query";
+import { de_GetClusterCredentialsCommand, se_GetClusterCredentialsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -155,14 +152,14 @@ export class GetClusterCredentialsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetClusterCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetClusterCredentialsCommand(input, context);
+    return se_GetClusterCredentialsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClusterCredentialsCommandOutput> {
-    return deserializeAws_queryGetClusterCredentialsCommand(output, context);
+    return de_GetClusterCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

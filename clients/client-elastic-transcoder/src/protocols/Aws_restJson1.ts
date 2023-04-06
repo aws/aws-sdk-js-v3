@@ -83,7 +83,10 @@ import {
   Warning,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CancelJobCommand = async (
+/**
+ * serializeAws_restJson1CancelJobCommand
+ */
+export const se_CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -103,7 +106,10 @@ export const serializeAws_restJson1CancelJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateJobCommand = async (
+/**
+ * serializeAws_restJson1CreateJobCommand
+ */
+export const se_CreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -114,16 +120,14 @@ export const serializeAws_restJson1CreateJobCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2012-09-25/jobs";
   let body: any;
   body = JSON.stringify({
-    ...(input.Input != null && { Input: serializeAws_restJson1JobInput(input.Input, context) }),
-    ...(input.Inputs != null && { Inputs: serializeAws_restJson1JobInputs(input.Inputs, context) }),
-    ...(input.Output != null && { Output: serializeAws_restJson1CreateJobOutput(input.Output, context) }),
+    ...(input.Input != null && { Input: se_JobInput(input.Input, context) }),
+    ...(input.Inputs != null && { Inputs: se_JobInputs(input.Inputs, context) }),
+    ...(input.Output != null && { Output: se_CreateJobOutput(input.Output, context) }),
     ...(input.OutputKeyPrefix != null && { OutputKeyPrefix: input.OutputKeyPrefix }),
-    ...(input.Outputs != null && { Outputs: serializeAws_restJson1CreateJobOutputs(input.Outputs, context) }),
+    ...(input.Outputs != null && { Outputs: se_CreateJobOutputs(input.Outputs, context) }),
     ...(input.PipelineId != null && { PipelineId: input.PipelineId }),
-    ...(input.Playlists != null && { Playlists: serializeAws_restJson1CreateJobPlaylists(input.Playlists, context) }),
-    ...(input.UserMetadata != null && {
-      UserMetadata: serializeAws_restJson1UserMetadata(input.UserMetadata, context),
-    }),
+    ...(input.Playlists != null && { Playlists: se_CreateJobPlaylists(input.Playlists, context) }),
+    ...(input.UserMetadata != null && { UserMetadata: se_UserMetadata(input.UserMetadata, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -136,7 +140,10 @@ export const serializeAws_restJson1CreateJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreatePipelineCommand = async (
+/**
+ * serializeAws_restJson1CreatePipelineCommand
+ */
+export const se_CreatePipelineCommand = async (
   input: CreatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -148,19 +155,13 @@ export const serializeAws_restJson1CreatePipelineCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AwsKmsKeyArn != null && { AwsKmsKeyArn: input.AwsKmsKeyArn }),
-    ...(input.ContentConfig != null && {
-      ContentConfig: serializeAws_restJson1PipelineOutputConfig(input.ContentConfig, context),
-    }),
+    ...(input.ContentConfig != null && { ContentConfig: se_PipelineOutputConfig(input.ContentConfig, context) }),
     ...(input.InputBucket != null && { InputBucket: input.InputBucket }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Notifications != null && {
-      Notifications: serializeAws_restJson1Notifications(input.Notifications, context),
-    }),
+    ...(input.Notifications != null && { Notifications: se_Notifications(input.Notifications, context) }),
     ...(input.OutputBucket != null && { OutputBucket: input.OutputBucket }),
     ...(input.Role != null && { Role: input.Role }),
-    ...(input.ThumbnailConfig != null && {
-      ThumbnailConfig: serializeAws_restJson1PipelineOutputConfig(input.ThumbnailConfig, context),
-    }),
+    ...(input.ThumbnailConfig != null && { ThumbnailConfig: se_PipelineOutputConfig(input.ThumbnailConfig, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -173,7 +174,10 @@ export const serializeAws_restJson1CreatePipelineCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreatePresetCommand = async (
+/**
+ * serializeAws_restJson1CreatePresetCommand
+ */
+export const se_CreatePresetCommand = async (
   input: CreatePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -184,12 +188,12 @@ export const serializeAws_restJson1CreatePresetCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2012-09-25/presets";
   let body: any;
   body = JSON.stringify({
-    ...(input.Audio != null && { Audio: serializeAws_restJson1AudioParameters(input.Audio, context) }),
+    ...(input.Audio != null && { Audio: se_AudioParameters(input.Audio, context) }),
     ...(input.Container != null && { Container: input.Container }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Thumbnails != null && { Thumbnails: serializeAws_restJson1Thumbnails(input.Thumbnails, context) }),
-    ...(input.Video != null && { Video: serializeAws_restJson1VideoParameters(input.Video, context) }),
+    ...(input.Thumbnails != null && { Thumbnails: se_Thumbnails(input.Thumbnails, context) }),
+    ...(input.Video != null && { Video: se_VideoParameters(input.Video, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -202,7 +206,10 @@ export const serializeAws_restJson1CreatePresetCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeletePipelineCommand = async (
+/**
+ * serializeAws_restJson1DeletePipelineCommand
+ */
+export const se_DeletePipelineCommand = async (
   input: DeletePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -223,7 +230,10 @@ export const serializeAws_restJson1DeletePipelineCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeletePresetCommand = async (
+/**
+ * serializeAws_restJson1DeletePresetCommand
+ */
+export const se_DeletePresetCommand = async (
   input: DeletePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -243,7 +253,10 @@ export const serializeAws_restJson1DeletePresetCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListJobsByPipelineCommand = async (
+/**
+ * serializeAws_restJson1ListJobsByPipelineCommand
+ */
+export const se_ListJobsByPipelineCommand = async (
   input: ListJobsByPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -269,7 +282,10 @@ export const serializeAws_restJson1ListJobsByPipelineCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListJobsByStatusCommand = async (
+/**
+ * serializeAws_restJson1ListJobsByStatusCommand
+ */
+export const se_ListJobsByStatusCommand = async (
   input: ListJobsByStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -295,7 +311,10 @@ export const serializeAws_restJson1ListJobsByStatusCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListPipelinesCommand = async (
+/**
+ * serializeAws_restJson1ListPipelinesCommand
+ */
+export const se_ListPipelinesCommand = async (
   input: ListPipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -319,7 +338,10 @@ export const serializeAws_restJson1ListPipelinesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListPresetsCommand = async (
+/**
+ * serializeAws_restJson1ListPresetsCommand
+ */
+export const se_ListPresetsCommand = async (
   input: ListPresetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -343,7 +365,10 @@ export const serializeAws_restJson1ListPresetsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ReadJobCommand = async (
+/**
+ * serializeAws_restJson1ReadJobCommand
+ */
+export const se_ReadJobCommand = async (
   input: ReadJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -363,7 +388,10 @@ export const serializeAws_restJson1ReadJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1ReadPipelineCommand = async (
+/**
+ * serializeAws_restJson1ReadPipelineCommand
+ */
+export const se_ReadPipelineCommand = async (
   input: ReadPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -384,7 +412,10 @@ export const serializeAws_restJson1ReadPipelineCommand = async (
   });
 };
 
-export const serializeAws_restJson1ReadPresetCommand = async (
+/**
+ * serializeAws_restJson1ReadPresetCommand
+ */
+export const se_ReadPresetCommand = async (
   input: ReadPresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -404,7 +435,10 @@ export const serializeAws_restJson1ReadPresetCommand = async (
   });
 };
 
-export const serializeAws_restJson1TestRoleCommand = async (
+/**
+ * serializeAws_restJson1TestRoleCommand
+ */
+export const se_TestRoleCommand = async (
   input: TestRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -418,7 +452,7 @@ export const serializeAws_restJson1TestRoleCommand = async (
     ...(input.InputBucket != null && { InputBucket: input.InputBucket }),
     ...(input.OutputBucket != null && { OutputBucket: input.OutputBucket }),
     ...(input.Role != null && { Role: input.Role }),
-    ...(input.Topics != null && { Topics: serializeAws_restJson1SnsTopics(input.Topics, context) }),
+    ...(input.Topics != null && { Topics: se_SnsTopics(input.Topics, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -431,7 +465,10 @@ export const serializeAws_restJson1TestRoleCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdatePipelineCommand = async (
+/**
+ * serializeAws_restJson1UpdatePipelineCommand
+ */
+export const se_UpdatePipelineCommand = async (
   input: UpdatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -445,18 +482,12 @@ export const serializeAws_restJson1UpdatePipelineCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.AwsKmsKeyArn != null && { AwsKmsKeyArn: input.AwsKmsKeyArn }),
-    ...(input.ContentConfig != null && {
-      ContentConfig: serializeAws_restJson1PipelineOutputConfig(input.ContentConfig, context),
-    }),
+    ...(input.ContentConfig != null && { ContentConfig: se_PipelineOutputConfig(input.ContentConfig, context) }),
     ...(input.InputBucket != null && { InputBucket: input.InputBucket }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.Notifications != null && {
-      Notifications: serializeAws_restJson1Notifications(input.Notifications, context),
-    }),
+    ...(input.Notifications != null && { Notifications: se_Notifications(input.Notifications, context) }),
     ...(input.Role != null && { Role: input.Role }),
-    ...(input.ThumbnailConfig != null && {
-      ThumbnailConfig: serializeAws_restJson1PipelineOutputConfig(input.ThumbnailConfig, context),
-    }),
+    ...(input.ThumbnailConfig != null && { ThumbnailConfig: se_PipelineOutputConfig(input.ThumbnailConfig, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -469,7 +500,10 @@ export const serializeAws_restJson1UpdatePipelineCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdatePipelineNotificationsCommand = async (
+/**
+ * serializeAws_restJson1UpdatePipelineNotificationsCommand
+ */
+export const se_UpdatePipelineNotificationsCommand = async (
   input: UpdatePipelineNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -482,9 +516,7 @@ export const serializeAws_restJson1UpdatePipelineNotificationsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Notifications != null && {
-      Notifications: serializeAws_restJson1Notifications(input.Notifications, context),
-    }),
+    ...(input.Notifications != null && { Notifications: se_Notifications(input.Notifications, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -497,7 +529,10 @@ export const serializeAws_restJson1UpdatePipelineNotificationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdatePipelineStatusCommand = async (
+/**
+ * serializeAws_restJson1UpdatePipelineStatusCommand
+ */
+export const se_UpdatePipelineStatusCommand = async (
   input: UpdatePipelineStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -523,12 +558,15 @@ export const serializeAws_restJson1UpdatePipelineStatusCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CancelJobCommand = async (
+/**
+ * deserializeAws_restJson1CancelJobCommand
+ */
+export const de_CancelJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CancelJobCommandError(output, context);
+    return de_CancelJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -537,7 +575,10 @@ export const deserializeAws_restJson1CancelJobCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CancelJobCommandError = async (
+/**
+ * deserializeAws_restJson1CancelJobCommandError
+ */
+const de_CancelJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> => {
@@ -549,22 +590,22 @@ const deserializeAws_restJson1CancelJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.elastictranscoder#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -576,24 +617,30 @@ const deserializeAws_restJson1CancelJobCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateJobCommand = async (
+/**
+ * deserializeAws_restJson1CreateJobCommand
+ */
+export const de_CreateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateJobCommandError(output, context);
+    return de_CreateJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Job != null) {
-    contents.Job = deserializeAws_restJson1Job(data.Job, context);
+    contents.Job = de_Job(data.Job, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreateJobCommandError = async (
+/**
+ * deserializeAws_restJson1CreateJobCommandError
+ */
+const de_CreateJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> => {
@@ -605,22 +652,22 @@ const deserializeAws_restJson1CreateJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.elastictranscoder#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -632,27 +679,33 @@ const deserializeAws_restJson1CreateJobCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreatePipelineCommand = async (
+/**
+ * deserializeAws_restJson1CreatePipelineCommand
+ */
+export const de_CreatePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreatePipelineCommandError(output, context);
+    return de_CreatePipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Pipeline != null) {
-    contents.Pipeline = deserializeAws_restJson1Pipeline(data.Pipeline, context);
+    contents.Pipeline = de_Pipeline(data.Pipeline, context);
   }
   if (data.Warnings != null) {
-    contents.Warnings = deserializeAws_restJson1Warnings(data.Warnings, context);
+    contents.Warnings = de_Warnings(data.Warnings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1CreatePipelineCommandError = async (
+/**
+ * deserializeAws_restJson1CreatePipelineCommandError
+ */
+const de_CreatePipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> => {
@@ -664,22 +717,22 @@ const deserializeAws_restJson1CreatePipelineCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.elastictranscoder#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -691,19 +744,22 @@ const deserializeAws_restJson1CreatePipelineCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreatePresetCommand = async (
+/**
+ * deserializeAws_restJson1CreatePresetCommand
+ */
+export const de_CreatePresetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePresetCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreatePresetCommandError(output, context);
+    return de_CreatePresetCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Preset != null) {
-    contents.Preset = deserializeAws_restJson1Preset(data.Preset, context);
+    contents.Preset = de_Preset(data.Preset, context);
   }
   if (data.Warning != null) {
     contents.Warning = __expectString(data.Warning);
@@ -711,7 +767,10 @@ export const deserializeAws_restJson1CreatePresetCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreatePresetCommandError = async (
+/**
+ * deserializeAws_restJson1CreatePresetCommandError
+ */
+const de_CreatePresetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePresetCommandOutput> => {
@@ -723,19 +782,19 @@ const deserializeAws_restJson1CreatePresetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.elastictranscoder#LimitExceededException":
-      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -747,12 +806,15 @@ const deserializeAws_restJson1CreatePresetCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeletePipelineCommand = async (
+/**
+ * deserializeAws_restJson1DeletePipelineCommand
+ */
+export const de_DeletePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeletePipelineCommandError(output, context);
+    return de_DeletePipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -761,7 +823,10 @@ export const deserializeAws_restJson1DeletePipelineCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeletePipelineCommandError = async (
+/**
+ * deserializeAws_restJson1DeletePipelineCommandError
+ */
+const de_DeletePipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> => {
@@ -773,22 +838,22 @@ const deserializeAws_restJson1DeletePipelineCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.elastictranscoder#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -800,12 +865,15 @@ const deserializeAws_restJson1DeletePipelineCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeletePresetCommand = async (
+/**
+ * deserializeAws_restJson1DeletePresetCommand
+ */
+export const de_DeletePresetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePresetCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeletePresetCommandError(output, context);
+    return de_DeletePresetCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -814,7 +882,10 @@ export const deserializeAws_restJson1DeletePresetCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeletePresetCommandError = async (
+/**
+ * deserializeAws_restJson1DeletePresetCommandError
+ */
+const de_DeletePresetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePresetCommandOutput> => {
@@ -826,19 +897,19 @@ const deserializeAws_restJson1DeletePresetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -850,19 +921,22 @@ const deserializeAws_restJson1DeletePresetCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListJobsByPipelineCommand = async (
+/**
+ * deserializeAws_restJson1ListJobsByPipelineCommand
+ */
+export const de_ListJobsByPipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsByPipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListJobsByPipelineCommandError(output, context);
+    return de_ListJobsByPipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Jobs != null) {
-    contents.Jobs = deserializeAws_restJson1Jobs(data.Jobs, context);
+    contents.Jobs = de_Jobs(data.Jobs, context);
   }
   if (data.NextPageToken != null) {
     contents.NextPageToken = __expectString(data.NextPageToken);
@@ -870,7 +944,10 @@ export const deserializeAws_restJson1ListJobsByPipelineCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListJobsByPipelineCommandError = async (
+/**
+ * deserializeAws_restJson1ListJobsByPipelineCommandError
+ */
+const de_ListJobsByPipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsByPipelineCommandOutput> => {
@@ -882,19 +959,19 @@ const deserializeAws_restJson1ListJobsByPipelineCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -906,19 +983,22 @@ const deserializeAws_restJson1ListJobsByPipelineCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListJobsByStatusCommand = async (
+/**
+ * deserializeAws_restJson1ListJobsByStatusCommand
+ */
+export const de_ListJobsByStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsByStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListJobsByStatusCommandError(output, context);
+    return de_ListJobsByStatusCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Jobs != null) {
-    contents.Jobs = deserializeAws_restJson1Jobs(data.Jobs, context);
+    contents.Jobs = de_Jobs(data.Jobs, context);
   }
   if (data.NextPageToken != null) {
     contents.NextPageToken = __expectString(data.NextPageToken);
@@ -926,7 +1006,10 @@ export const deserializeAws_restJson1ListJobsByStatusCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1ListJobsByStatusCommandError = async (
+/**
+ * deserializeAws_restJson1ListJobsByStatusCommandError
+ */
+const de_ListJobsByStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsByStatusCommandOutput> => {
@@ -938,19 +1021,19 @@ const deserializeAws_restJson1ListJobsByStatusCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -962,12 +1045,15 @@ const deserializeAws_restJson1ListJobsByStatusCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListPipelinesCommand = async (
+/**
+ * deserializeAws_restJson1ListPipelinesCommand
+ */
+export const de_ListPipelinesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListPipelinesCommandError(output, context);
+    return de_ListPipelinesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -977,12 +1063,15 @@ export const deserializeAws_restJson1ListPipelinesCommand = async (
     contents.NextPageToken = __expectString(data.NextPageToken);
   }
   if (data.Pipelines != null) {
-    contents.Pipelines = deserializeAws_restJson1Pipelines(data.Pipelines, context);
+    contents.Pipelines = de_Pipelines(data.Pipelines, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListPipelinesCommandError = async (
+/**
+ * deserializeAws_restJson1ListPipelinesCommandError
+ */
+const de_ListPipelinesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> => {
@@ -994,16 +1083,16 @@ const deserializeAws_restJson1ListPipelinesCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1015,12 +1104,15 @@ const deserializeAws_restJson1ListPipelinesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListPresetsCommand = async (
+/**
+ * deserializeAws_restJson1ListPresetsCommand
+ */
+export const de_ListPresetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPresetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListPresetsCommandError(output, context);
+    return de_ListPresetsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1030,12 +1122,15 @@ export const deserializeAws_restJson1ListPresetsCommand = async (
     contents.NextPageToken = __expectString(data.NextPageToken);
   }
   if (data.Presets != null) {
-    contents.Presets = deserializeAws_restJson1Presets(data.Presets, context);
+    contents.Presets = de_Presets(data.Presets, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListPresetsCommandError = async (
+/**
+ * deserializeAws_restJson1ListPresetsCommandError
+ */
+const de_ListPresetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPresetsCommandOutput> => {
@@ -1047,16 +1142,16 @@ const deserializeAws_restJson1ListPresetsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1068,24 +1163,30 @@ const deserializeAws_restJson1ListPresetsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ReadJobCommand = async (
+/**
+ * deserializeAws_restJson1ReadJobCommand
+ */
+export const de_ReadJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ReadJobCommandError(output, context);
+    return de_ReadJobCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Job != null) {
-    contents.Job = deserializeAws_restJson1Job(data.Job, context);
+    contents.Job = de_Job(data.Job, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ReadJobCommandError = async (
+/**
+ * deserializeAws_restJson1ReadJobCommandError
+ */
+const de_ReadJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadJobCommandOutput> => {
@@ -1097,19 +1198,19 @@ const deserializeAws_restJson1ReadJobCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1121,27 +1222,33 @@ const deserializeAws_restJson1ReadJobCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ReadPipelineCommand = async (
+/**
+ * deserializeAws_restJson1ReadPipelineCommand
+ */
+export const de_ReadPipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadPipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ReadPipelineCommandError(output, context);
+    return de_ReadPipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Pipeline != null) {
-    contents.Pipeline = deserializeAws_restJson1Pipeline(data.Pipeline, context);
+    contents.Pipeline = de_Pipeline(data.Pipeline, context);
   }
   if (data.Warnings != null) {
-    contents.Warnings = deserializeAws_restJson1Warnings(data.Warnings, context);
+    contents.Warnings = de_Warnings(data.Warnings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ReadPipelineCommandError = async (
+/**
+ * deserializeAws_restJson1ReadPipelineCommandError
+ */
+const de_ReadPipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadPipelineCommandOutput> => {
@@ -1153,19 +1260,19 @@ const deserializeAws_restJson1ReadPipelineCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1177,24 +1284,30 @@ const deserializeAws_restJson1ReadPipelineCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ReadPresetCommand = async (
+/**
+ * deserializeAws_restJson1ReadPresetCommand
+ */
+export const de_ReadPresetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadPresetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ReadPresetCommandError(output, context);
+    return de_ReadPresetCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Preset != null) {
-    contents.Preset = deserializeAws_restJson1Preset(data.Preset, context);
+    contents.Preset = de_Preset(data.Preset, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ReadPresetCommandError = async (
+/**
+ * deserializeAws_restJson1ReadPresetCommandError
+ */
+const de_ReadPresetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadPresetCommandOutput> => {
@@ -1206,19 +1319,19 @@ const deserializeAws_restJson1ReadPresetCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1230,19 +1343,22 @@ const deserializeAws_restJson1ReadPresetCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TestRoleCommand = async (
+/**
+ * deserializeAws_restJson1TestRoleCommand
+ */
+export const de_TestRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestRoleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TestRoleCommandError(output, context);
+    return de_TestRoleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Messages != null) {
-    contents.Messages = deserializeAws_restJson1ExceptionMessages(data.Messages, context);
+    contents.Messages = de_ExceptionMessages(data.Messages, context);
   }
   if (data.Success != null) {
     contents.Success = __expectString(data.Success);
@@ -1250,7 +1366,10 @@ export const deserializeAws_restJson1TestRoleCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TestRoleCommandError = async (
+/**
+ * deserializeAws_restJson1TestRoleCommandError
+ */
+const de_TestRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestRoleCommandOutput> => {
@@ -1262,19 +1381,19 @@ const deserializeAws_restJson1TestRoleCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1286,27 +1405,33 @@ const deserializeAws_restJson1TestRoleCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdatePipelineCommand = async (
+/**
+ * deserializeAws_restJson1UpdatePipelineCommand
+ */
+export const de_UpdatePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdatePipelineCommandError(output, context);
+    return de_UpdatePipelineCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Pipeline != null) {
-    contents.Pipeline = deserializeAws_restJson1Pipeline(data.Pipeline, context);
+    contents.Pipeline = de_Pipeline(data.Pipeline, context);
   }
   if (data.Warnings != null) {
-    contents.Warnings = deserializeAws_restJson1Warnings(data.Warnings, context);
+    contents.Warnings = de_Warnings(data.Warnings, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdatePipelineCommandError = async (
+/**
+ * deserializeAws_restJson1UpdatePipelineCommandError
+ */
+const de_UpdatePipelineCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> => {
@@ -1318,22 +1443,22 @@ const deserializeAws_restJson1UpdatePipelineCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.elastictranscoder#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1345,24 +1470,30 @@ const deserializeAws_restJson1UpdatePipelineCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdatePipelineNotificationsCommand = async (
+/**
+ * deserializeAws_restJson1UpdatePipelineNotificationsCommand
+ */
+export const de_UpdatePipelineNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdatePipelineNotificationsCommandError(output, context);
+    return de_UpdatePipelineNotificationsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Pipeline != null) {
-    contents.Pipeline = deserializeAws_restJson1Pipeline(data.Pipeline, context);
+    contents.Pipeline = de_Pipeline(data.Pipeline, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdatePipelineNotificationsCommandError = async (
+/**
+ * deserializeAws_restJson1UpdatePipelineNotificationsCommandError
+ */
+const de_UpdatePipelineNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineNotificationsCommandOutput> => {
@@ -1374,22 +1505,22 @@ const deserializeAws_restJson1UpdatePipelineNotificationsCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.elastictranscoder#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1401,24 +1532,30 @@ const deserializeAws_restJson1UpdatePipelineNotificationsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdatePipelineStatusCommand = async (
+/**
+ * deserializeAws_restJson1UpdatePipelineStatusCommand
+ */
+export const de_UpdatePipelineStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdatePipelineStatusCommandError(output, context);
+    return de_UpdatePipelineStatusCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Pipeline != null) {
-    contents.Pipeline = deserializeAws_restJson1Pipeline(data.Pipeline, context);
+    contents.Pipeline = de_Pipeline(data.Pipeline, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1UpdatePipelineStatusCommandError = async (
+/**
+ * deserializeAws_restJson1UpdatePipelineStatusCommandError
+ */
+const de_UpdatePipelineStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineStatusCommandOutput> => {
@@ -1430,22 +1567,22 @@ const deserializeAws_restJson1UpdatePipelineStatusCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "IncompatibleVersionException":
     case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await deserializeAws_restJson1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.elastictranscoder#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1458,7 +1595,10 @@ const deserializeAws_restJson1UpdatePipelineStatusCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -1474,7 +1614,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1IncompatibleVersionExceptionResponse = async (
+/**
+ * deserializeAws_restJson1IncompatibleVersionExceptionRes
+ */
+const de_IncompatibleVersionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IncompatibleVersionException> => {
@@ -1490,7 +1633,10 @@ const deserializeAws_restJson1IncompatibleVersionExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServiceExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServiceExceptionRes
+ */
+const de_InternalServiceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
@@ -1506,7 +1652,10 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
@@ -1522,7 +1671,10 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
@@ -1538,7 +1690,10 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -1554,10 +1709,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -1570,7 +1725,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AccessControls = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AccessControls
+ */
+const se_AccessControls = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1578,10 +1736,13 @@ const serializeAws_restJson1AccessControls = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_restJson1Artwork = (input: Artwork, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Artwork
+ */
+const se_Artwork = (input: Artwork, context: __SerdeContext): any => {
   return {
     ...(input.AlbumArtFormat != null && { AlbumArtFormat: input.AlbumArtFormat }),
-    ...(input.Encryption != null && { Encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
+    ...(input.Encryption != null && { Encryption: se_Encryption(input.Encryption, context) }),
     ...(input.InputKey != null && { InputKey: input.InputKey }),
     ...(input.MaxHeight != null && { MaxHeight: input.MaxHeight }),
     ...(input.MaxWidth != null && { MaxWidth: input.MaxWidth }),
@@ -1590,15 +1751,21 @@ const serializeAws_restJson1Artwork = (input: Artwork, context: __SerdeContext):
   };
 };
 
-const serializeAws_restJson1Artworks = (input: Artwork[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Artworks
+ */
+const se_Artworks = (input: Artwork[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Artwork(entry, context);
+      return se_Artwork(entry, context);
     });
 };
 
-const serializeAws_restJson1AudioCodecOptions = (input: AudioCodecOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AudioCodecOptions
+ */
+const se_AudioCodecOptions = (input: AudioCodecOptions, context: __SerdeContext): any => {
   return {
     ...(input.BitDepth != null && { BitDepth: input.BitDepth }),
     ...(input.BitOrder != null && { BitOrder: input.BitOrder }),
@@ -1607,50 +1774,59 @@ const serializeAws_restJson1AudioCodecOptions = (input: AudioCodecOptions, conte
   };
 };
 
-const serializeAws_restJson1AudioParameters = (input: AudioParameters, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AudioParameters
+ */
+const se_AudioParameters = (input: AudioParameters, context: __SerdeContext): any => {
   return {
     ...(input.AudioPackingMode != null && { AudioPackingMode: input.AudioPackingMode }),
     ...(input.BitRate != null && { BitRate: input.BitRate }),
     ...(input.Channels != null && { Channels: input.Channels }),
     ...(input.Codec != null && { Codec: input.Codec }),
-    ...(input.CodecOptions != null && {
-      CodecOptions: serializeAws_restJson1AudioCodecOptions(input.CodecOptions, context),
-    }),
+    ...(input.CodecOptions != null && { CodecOptions: se_AudioCodecOptions(input.CodecOptions, context) }),
     ...(input.SampleRate != null && { SampleRate: input.SampleRate }),
   };
 };
 
-const serializeAws_restJson1CaptionFormat = (input: CaptionFormat, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CaptionFormat
+ */
+const se_CaptionFormat = (input: CaptionFormat, context: __SerdeContext): any => {
   return {
-    ...(input.Encryption != null && { Encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
+    ...(input.Encryption != null && { Encryption: se_Encryption(input.Encryption, context) }),
     ...(input.Format != null && { Format: input.Format }),
     ...(input.Pattern != null && { Pattern: input.Pattern }),
   };
 };
 
-const serializeAws_restJson1CaptionFormats = (input: CaptionFormat[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CaptionFormats
+ */
+const se_CaptionFormats = (input: CaptionFormat[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1CaptionFormat(entry, context);
+      return se_CaptionFormat(entry, context);
     });
 };
 
-const serializeAws_restJson1Captions = (input: Captions, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Captions
+ */
+const se_Captions = (input: Captions, context: __SerdeContext): any => {
   return {
-    ...(input.CaptionFormats != null && {
-      CaptionFormats: serializeAws_restJson1CaptionFormats(input.CaptionFormats, context),
-    }),
-    ...(input.CaptionSources != null && {
-      CaptionSources: serializeAws_restJson1CaptionSources(input.CaptionSources, context),
-    }),
+    ...(input.CaptionFormats != null && { CaptionFormats: se_CaptionFormats(input.CaptionFormats, context) }),
+    ...(input.CaptionSources != null && { CaptionSources: se_CaptionSources(input.CaptionSources, context) }),
     ...(input.MergePolicy != null && { MergePolicy: input.MergePolicy }),
   };
 };
 
-const serializeAws_restJson1CaptionSource = (input: CaptionSource, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CaptionSource
+ */
+const se_CaptionSource = (input: CaptionSource, context: __SerdeContext): any => {
   return {
-    ...(input.Encryption != null && { Encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
+    ...(input.Encryption != null && { Encryption: se_Encryption(input.Encryption, context) }),
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Label != null && { Label: input.Label }),
     ...(input.Language != null && { Language: input.Language }),
@@ -1658,21 +1834,30 @@ const serializeAws_restJson1CaptionSource = (input: CaptionSource, context: __Se
   };
 };
 
-const serializeAws_restJson1CaptionSources = (input: CaptionSource[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CaptionSources
+ */
+const se_CaptionSources = (input: CaptionSource[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1CaptionSource(entry, context);
+      return se_CaptionSource(entry, context);
     });
 };
 
-const serializeAws_restJson1Clip = (input: Clip, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Clip
+ */
+const se_Clip = (input: Clip, context: __SerdeContext): any => {
   return {
-    ...(input.TimeSpan != null && { TimeSpan: serializeAws_restJson1TimeSpan(input.TimeSpan, context) }),
+    ...(input.TimeSpan != null && { TimeSpan: se_TimeSpan(input.TimeSpan, context) }),
   };
 };
 
-const serializeAws_restJson1CodecOptions = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CodecOptions
+ */
+const se_CodecOptions = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1682,63 +1867,79 @@ const serializeAws_restJson1CodecOptions = (input: Record<string, string>, conte
   }, {});
 };
 
-const serializeAws_restJson1Composition = (input: Clip[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Composition
+ */
+const se_Composition = (input: Clip[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Clip(entry, context);
+      return se_Clip(entry, context);
     });
 };
 
-const serializeAws_restJson1CreateJobOutput = (input: CreateJobOutput, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CreateJobOutput
+ */
+const se_CreateJobOutput = (input: CreateJobOutput, context: __SerdeContext): any => {
   return {
-    ...(input.AlbumArt != null && { AlbumArt: serializeAws_restJson1JobAlbumArt(input.AlbumArt, context) }),
-    ...(input.Captions != null && { Captions: serializeAws_restJson1Captions(input.Captions, context) }),
-    ...(input.Composition != null && { Composition: serializeAws_restJson1Composition(input.Composition, context) }),
-    ...(input.Encryption != null && { Encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
+    ...(input.AlbumArt != null && { AlbumArt: se_JobAlbumArt(input.AlbumArt, context) }),
+    ...(input.Captions != null && { Captions: se_Captions(input.Captions, context) }),
+    ...(input.Composition != null && { Composition: se_Composition(input.Composition, context) }),
+    ...(input.Encryption != null && { Encryption: se_Encryption(input.Encryption, context) }),
     ...(input.Key != null && { Key: input.Key }),
     ...(input.PresetId != null && { PresetId: input.PresetId }),
     ...(input.Rotate != null && { Rotate: input.Rotate }),
     ...(input.SegmentDuration != null && { SegmentDuration: input.SegmentDuration }),
     ...(input.ThumbnailEncryption != null && {
-      ThumbnailEncryption: serializeAws_restJson1Encryption(input.ThumbnailEncryption, context),
+      ThumbnailEncryption: se_Encryption(input.ThumbnailEncryption, context),
     }),
     ...(input.ThumbnailPattern != null && { ThumbnailPattern: input.ThumbnailPattern }),
-    ...(input.Watermarks != null && { Watermarks: serializeAws_restJson1JobWatermarks(input.Watermarks, context) }),
+    ...(input.Watermarks != null && { Watermarks: se_JobWatermarks(input.Watermarks, context) }),
   };
 };
 
-const serializeAws_restJson1CreateJobOutputs = (input: CreateJobOutput[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CreateJobOutputs
+ */
+const se_CreateJobOutputs = (input: CreateJobOutput[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1CreateJobOutput(entry, context);
+      return se_CreateJobOutput(entry, context);
     });
 };
 
-const serializeAws_restJson1CreateJobPlaylist = (input: CreateJobPlaylist, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CreateJobPlaylist
+ */
+const se_CreateJobPlaylist = (input: CreateJobPlaylist, context: __SerdeContext): any => {
   return {
     ...(input.Format != null && { Format: input.Format }),
     ...(input.HlsContentProtection != null && {
-      HlsContentProtection: serializeAws_restJson1HlsContentProtection(input.HlsContentProtection, context),
+      HlsContentProtection: se_HlsContentProtection(input.HlsContentProtection, context),
     }),
     ...(input.Name != null && { Name: input.Name }),
-    ...(input.OutputKeys != null && { OutputKeys: serializeAws_restJson1OutputKeys(input.OutputKeys, context) }),
-    ...(input.PlayReadyDrm != null && {
-      PlayReadyDrm: serializeAws_restJson1PlayReadyDrm(input.PlayReadyDrm, context),
-    }),
+    ...(input.OutputKeys != null && { OutputKeys: se_OutputKeys(input.OutputKeys, context) }),
+    ...(input.PlayReadyDrm != null && { PlayReadyDrm: se_PlayReadyDrm(input.PlayReadyDrm, context) }),
   };
 };
 
-const serializeAws_restJson1CreateJobPlaylists = (input: CreateJobPlaylist[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1CreateJobPlaylists
+ */
+const se_CreateJobPlaylists = (input: CreateJobPlaylist[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1CreateJobPlaylist(entry, context);
+      return se_CreateJobPlaylist(entry, context);
     });
 };
 
-const serializeAws_restJson1DetectedProperties = (input: DetectedProperties, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DetectedProperties
+ */
+const se_DetectedProperties = (input: DetectedProperties, context: __SerdeContext): any => {
   return {
     ...(input.DurationMillis != null && { DurationMillis: input.DurationMillis }),
     ...(input.FileSize != null && { FileSize: input.FileSize }),
@@ -1748,7 +1949,10 @@ const serializeAws_restJson1DetectedProperties = (input: DetectedProperties, con
   };
 };
 
-const serializeAws_restJson1Encryption = (input: Encryption, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Encryption
+ */
+const se_Encryption = (input: Encryption, context: __SerdeContext): any => {
   return {
     ...(input.InitializationVector != null && { InitializationVector: input.InitializationVector }),
     ...(input.Key != null && { Key: input.Key }),
@@ -1757,7 +1961,10 @@ const serializeAws_restJson1Encryption = (input: Encryption, context: __SerdeCon
   };
 };
 
-const serializeAws_restJson1HlsContentProtection = (input: HlsContentProtection, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1HlsContentProtection
+ */
+const se_HlsContentProtection = (input: HlsContentProtection, context: __SerdeContext): any => {
   return {
     ...(input.InitializationVector != null && { InitializationVector: input.InitializationVector }),
     ...(input.Key != null && { Key: input.Key }),
@@ -1768,66 +1975,83 @@ const serializeAws_restJson1HlsContentProtection = (input: HlsContentProtection,
   };
 };
 
-const serializeAws_restJson1InputCaptions = (input: InputCaptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1InputCaptions
+ */
+const se_InputCaptions = (input: InputCaptions, context: __SerdeContext): any => {
   return {
-    ...(input.CaptionSources != null && {
-      CaptionSources: serializeAws_restJson1CaptionSources(input.CaptionSources, context),
-    }),
+    ...(input.CaptionSources != null && { CaptionSources: se_CaptionSources(input.CaptionSources, context) }),
     ...(input.MergePolicy != null && { MergePolicy: input.MergePolicy }),
   };
 };
 
-const serializeAws_restJson1JobAlbumArt = (input: JobAlbumArt, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1JobAlbumArt
+ */
+const se_JobAlbumArt = (input: JobAlbumArt, context: __SerdeContext): any => {
   return {
-    ...(input.Artwork != null && { Artwork: serializeAws_restJson1Artworks(input.Artwork, context) }),
+    ...(input.Artwork != null && { Artwork: se_Artworks(input.Artwork, context) }),
     ...(input.MergePolicy != null && { MergePolicy: input.MergePolicy }),
   };
 };
 
-const serializeAws_restJson1JobInput = (input: JobInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1JobInput
+ */
+const se_JobInput = (input: JobInput, context: __SerdeContext): any => {
   return {
     ...(input.AspectRatio != null && { AspectRatio: input.AspectRatio }),
     ...(input.Container != null && { Container: input.Container }),
     ...(input.DetectedProperties != null && {
-      DetectedProperties: serializeAws_restJson1DetectedProperties(input.DetectedProperties, context),
+      DetectedProperties: se_DetectedProperties(input.DetectedProperties, context),
     }),
-    ...(input.Encryption != null && { Encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
+    ...(input.Encryption != null && { Encryption: se_Encryption(input.Encryption, context) }),
     ...(input.FrameRate != null && { FrameRate: input.FrameRate }),
-    ...(input.InputCaptions != null && {
-      InputCaptions: serializeAws_restJson1InputCaptions(input.InputCaptions, context),
-    }),
+    ...(input.InputCaptions != null && { InputCaptions: se_InputCaptions(input.InputCaptions, context) }),
     ...(input.Interlaced != null && { Interlaced: input.Interlaced }),
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Resolution != null && { Resolution: input.Resolution }),
-    ...(input.TimeSpan != null && { TimeSpan: serializeAws_restJson1TimeSpan(input.TimeSpan, context) }),
+    ...(input.TimeSpan != null && { TimeSpan: se_TimeSpan(input.TimeSpan, context) }),
   };
 };
 
-const serializeAws_restJson1JobInputs = (input: JobInput[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1JobInputs
+ */
+const se_JobInputs = (input: JobInput[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1JobInput(entry, context);
+      return se_JobInput(entry, context);
     });
 };
 
-const serializeAws_restJson1JobWatermark = (input: JobWatermark, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1JobWatermark
+ */
+const se_JobWatermark = (input: JobWatermark, context: __SerdeContext): any => {
   return {
-    ...(input.Encryption != null && { Encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
+    ...(input.Encryption != null && { Encryption: se_Encryption(input.Encryption, context) }),
     ...(input.InputKey != null && { InputKey: input.InputKey }),
     ...(input.PresetWatermarkId != null && { PresetWatermarkId: input.PresetWatermarkId }),
   };
 };
 
-const serializeAws_restJson1JobWatermarks = (input: JobWatermark[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1JobWatermarks
+ */
+const se_JobWatermarks = (input: JobWatermark[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1JobWatermark(entry, context);
+      return se_JobWatermark(entry, context);
     });
 };
 
-const serializeAws_restJson1Notifications = (input: Notifications, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Notifications
+ */
+const se_Notifications = (input: Notifications, context: __SerdeContext): any => {
   return {
     ...(input.Completed != null && { Completed: input.Completed }),
     ...(input.Error != null && { Error: input.Error }),
@@ -1836,7 +2060,10 @@ const serializeAws_restJson1Notifications = (input: Notifications, context: __Se
   };
 };
 
-const serializeAws_restJson1OutputKeys = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1OutputKeys
+ */
+const se_OutputKeys = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1844,31 +2071,43 @@ const serializeAws_restJson1OutputKeys = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1Permission = (input: Permission, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Permission
+ */
+const se_Permission = (input: Permission, context: __SerdeContext): any => {
   return {
-    ...(input.Access != null && { Access: serializeAws_restJson1AccessControls(input.Access, context) }),
+    ...(input.Access != null && { Access: se_AccessControls(input.Access, context) }),
     ...(input.Grantee != null && { Grantee: input.Grantee }),
     ...(input.GranteeType != null && { GranteeType: input.GranteeType }),
   };
 };
 
-const serializeAws_restJson1Permissions = (input: Permission[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Permissions
+ */
+const se_Permissions = (input: Permission[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Permission(entry, context);
+      return se_Permission(entry, context);
     });
 };
 
-const serializeAws_restJson1PipelineOutputConfig = (input: PipelineOutputConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PipelineOutputConfig
+ */
+const se_PipelineOutputConfig = (input: PipelineOutputConfig, context: __SerdeContext): any => {
   return {
     ...(input.Bucket != null && { Bucket: input.Bucket }),
-    ...(input.Permissions != null && { Permissions: serializeAws_restJson1Permissions(input.Permissions, context) }),
+    ...(input.Permissions != null && { Permissions: se_Permissions(input.Permissions, context) }),
     ...(input.StorageClass != null && { StorageClass: input.StorageClass }),
   };
 };
 
-const serializeAws_restJson1PlayReadyDrm = (input: PlayReadyDrm, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PlayReadyDrm
+ */
+const se_PlayReadyDrm = (input: PlayReadyDrm, context: __SerdeContext): any => {
   return {
     ...(input.Format != null && { Format: input.Format }),
     ...(input.InitializationVector != null && { InitializationVector: input.InitializationVector }),
@@ -1879,7 +2118,10 @@ const serializeAws_restJson1PlayReadyDrm = (input: PlayReadyDrm, context: __Serd
   };
 };
 
-const serializeAws_restJson1PresetWatermark = (input: PresetWatermark, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PresetWatermark
+ */
+const se_PresetWatermark = (input: PresetWatermark, context: __SerdeContext): any => {
   return {
     ...(input.HorizontalAlign != null && { HorizontalAlign: input.HorizontalAlign }),
     ...(input.HorizontalOffset != null && { HorizontalOffset: input.HorizontalOffset }),
@@ -1894,15 +2136,21 @@ const serializeAws_restJson1PresetWatermark = (input: PresetWatermark, context: 
   };
 };
 
-const serializeAws_restJson1PresetWatermarks = (input: PresetWatermark[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PresetWatermarks
+ */
+const se_PresetWatermarks = (input: PresetWatermark[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1PresetWatermark(entry, context);
+      return se_PresetWatermark(entry, context);
     });
 };
 
-const serializeAws_restJson1SnsTopics = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SnsTopics
+ */
+const se_SnsTopics = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1910,7 +2158,10 @@ const serializeAws_restJson1SnsTopics = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_restJson1Thumbnails = (input: Thumbnails, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Thumbnails
+ */
+const se_Thumbnails = (input: Thumbnails, context: __SerdeContext): any => {
   return {
     ...(input.AspectRatio != null && { AspectRatio: input.AspectRatio }),
     ...(input.Format != null && { Format: input.Format }),
@@ -1923,14 +2174,20 @@ const serializeAws_restJson1Thumbnails = (input: Thumbnails, context: __SerdeCon
   };
 };
 
-const serializeAws_restJson1TimeSpan = (input: TimeSpan, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TimeSpan
+ */
+const se_TimeSpan = (input: TimeSpan, context: __SerdeContext): any => {
   return {
     ...(input.Duration != null && { Duration: input.Duration }),
     ...(input.StartTime != null && { StartTime: input.StartTime }),
   };
 };
 
-const serializeAws_restJson1UserMetadata = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1UserMetadata
+ */
+const se_UserMetadata = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1940,14 +2197,15 @@ const serializeAws_restJson1UserMetadata = (input: Record<string, string>, conte
   }, {});
 };
 
-const serializeAws_restJson1VideoParameters = (input: VideoParameters, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1VideoParameters
+ */
+const se_VideoParameters = (input: VideoParameters, context: __SerdeContext): any => {
   return {
     ...(input.AspectRatio != null && { AspectRatio: input.AspectRatio }),
     ...(input.BitRate != null && { BitRate: input.BitRate }),
     ...(input.Codec != null && { Codec: input.Codec }),
-    ...(input.CodecOptions != null && {
-      CodecOptions: serializeAws_restJson1CodecOptions(input.CodecOptions, context),
-    }),
+    ...(input.CodecOptions != null && { CodecOptions: se_CodecOptions(input.CodecOptions, context) }),
     ...(input.DisplayAspectRatio != null && { DisplayAspectRatio: input.DisplayAspectRatio }),
     ...(input.FixedGOP != null && { FixedGOP: input.FixedGOP }),
     ...(input.FrameRate != null && { FrameRate: input.FrameRate }),
@@ -1958,11 +2216,14 @@ const serializeAws_restJson1VideoParameters = (input: VideoParameters, context: 
     ...(input.PaddingPolicy != null && { PaddingPolicy: input.PaddingPolicy }),
     ...(input.Resolution != null && { Resolution: input.Resolution }),
     ...(input.SizingPolicy != null && { SizingPolicy: input.SizingPolicy }),
-    ...(input.Watermarks != null && { Watermarks: serializeAws_restJson1PresetWatermarks(input.Watermarks, context) }),
+    ...(input.Watermarks != null && { Watermarks: se_PresetWatermarks(input.Watermarks, context) }),
   };
 };
 
-const deserializeAws_restJson1AccessControls = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1AccessControls
+ */
+const de_AccessControls = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1974,10 +2235,13 @@ const deserializeAws_restJson1AccessControls = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_restJson1Artwork = (output: any, context: __SerdeContext): Artwork => {
+/**
+ * deserializeAws_restJson1Artwork
+ */
+const de_Artwork = (output: any, context: __SerdeContext): Artwork => {
   return {
     AlbumArtFormat: __expectString(output.AlbumArtFormat),
-    Encryption: output.Encryption != null ? deserializeAws_restJson1Encryption(output.Encryption, context) : undefined,
+    Encryption: output.Encryption != null ? de_Encryption(output.Encryption, context) : undefined,
     InputKey: __expectString(output.InputKey),
     MaxHeight: __expectString(output.MaxHeight),
     MaxWidth: __expectString(output.MaxWidth),
@@ -1986,19 +2250,25 @@ const deserializeAws_restJson1Artwork = (output: any, context: __SerdeContext): 
   } as any;
 };
 
-const deserializeAws_restJson1Artworks = (output: any, context: __SerdeContext): Artwork[] => {
+/**
+ * deserializeAws_restJson1Artworks
+ */
+const de_Artworks = (output: any, context: __SerdeContext): Artwork[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Artwork(entry, context);
+      return de_Artwork(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1AudioCodecOptions = (output: any, context: __SerdeContext): AudioCodecOptions => {
+/**
+ * deserializeAws_restJson1AudioCodecOptions
+ */
+const de_AudioCodecOptions = (output: any, context: __SerdeContext): AudioCodecOptions => {
   return {
     BitDepth: __expectString(output.BitDepth),
     BitOrder: __expectString(output.BitOrder),
@@ -2007,55 +2277,63 @@ const deserializeAws_restJson1AudioCodecOptions = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_restJson1AudioParameters = (output: any, context: __SerdeContext): AudioParameters => {
+/**
+ * deserializeAws_restJson1AudioParameters
+ */
+const de_AudioParameters = (output: any, context: __SerdeContext): AudioParameters => {
   return {
     AudioPackingMode: __expectString(output.AudioPackingMode),
     BitRate: __expectString(output.BitRate),
     Channels: __expectString(output.Channels),
     Codec: __expectString(output.Codec),
-    CodecOptions:
-      output.CodecOptions != null ? deserializeAws_restJson1AudioCodecOptions(output.CodecOptions, context) : undefined,
+    CodecOptions: output.CodecOptions != null ? de_AudioCodecOptions(output.CodecOptions, context) : undefined,
     SampleRate: __expectString(output.SampleRate),
   } as any;
 };
 
-const deserializeAws_restJson1CaptionFormat = (output: any, context: __SerdeContext): CaptionFormat => {
+/**
+ * deserializeAws_restJson1CaptionFormat
+ */
+const de_CaptionFormat = (output: any, context: __SerdeContext): CaptionFormat => {
   return {
-    Encryption: output.Encryption != null ? deserializeAws_restJson1Encryption(output.Encryption, context) : undefined,
+    Encryption: output.Encryption != null ? de_Encryption(output.Encryption, context) : undefined,
     Format: __expectString(output.Format),
     Pattern: __expectString(output.Pattern),
   } as any;
 };
 
-const deserializeAws_restJson1CaptionFormats = (output: any, context: __SerdeContext): CaptionFormat[] => {
+/**
+ * deserializeAws_restJson1CaptionFormats
+ */
+const de_CaptionFormats = (output: any, context: __SerdeContext): CaptionFormat[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1CaptionFormat(entry, context);
+      return de_CaptionFormat(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Captions = (output: any, context: __SerdeContext): Captions => {
+/**
+ * deserializeAws_restJson1Captions
+ */
+const de_Captions = (output: any, context: __SerdeContext): Captions => {
   return {
-    CaptionFormats:
-      output.CaptionFormats != null
-        ? deserializeAws_restJson1CaptionFormats(output.CaptionFormats, context)
-        : undefined,
-    CaptionSources:
-      output.CaptionSources != null
-        ? deserializeAws_restJson1CaptionSources(output.CaptionSources, context)
-        : undefined,
+    CaptionFormats: output.CaptionFormats != null ? de_CaptionFormats(output.CaptionFormats, context) : undefined,
+    CaptionSources: output.CaptionSources != null ? de_CaptionSources(output.CaptionSources, context) : undefined,
     MergePolicy: __expectString(output.MergePolicy),
   } as any;
 };
 
-const deserializeAws_restJson1CaptionSource = (output: any, context: __SerdeContext): CaptionSource => {
+/**
+ * deserializeAws_restJson1CaptionSource
+ */
+const de_CaptionSource = (output: any, context: __SerdeContext): CaptionSource => {
   return {
-    Encryption: output.Encryption != null ? deserializeAws_restJson1Encryption(output.Encryption, context) : undefined,
+    Encryption: output.Encryption != null ? de_Encryption(output.Encryption, context) : undefined,
     Key: __expectString(output.Key),
     Label: __expectString(output.Label),
     Language: __expectString(output.Language),
@@ -2063,25 +2341,34 @@ const deserializeAws_restJson1CaptionSource = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_restJson1CaptionSources = (output: any, context: __SerdeContext): CaptionSource[] => {
+/**
+ * deserializeAws_restJson1CaptionSources
+ */
+const de_CaptionSources = (output: any, context: __SerdeContext): CaptionSource[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1CaptionSource(entry, context);
+      return de_CaptionSource(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Clip = (output: any, context: __SerdeContext): Clip => {
+/**
+ * deserializeAws_restJson1Clip
+ */
+const de_Clip = (output: any, context: __SerdeContext): Clip => {
   return {
-    TimeSpan: output.TimeSpan != null ? deserializeAws_restJson1TimeSpan(output.TimeSpan, context) : undefined,
+    TimeSpan: output.TimeSpan != null ? de_TimeSpan(output.TimeSpan, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1CodecOptions = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1CodecOptions
+ */
+const de_CodecOptions = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2091,19 +2378,25 @@ const deserializeAws_restJson1CodecOptions = (output: any, context: __SerdeConte
   }, {});
 };
 
-const deserializeAws_restJson1Composition = (output: any, context: __SerdeContext): Clip[] => {
+/**
+ * deserializeAws_restJson1Composition
+ */
+const de_Composition = (output: any, context: __SerdeContext): Clip[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Clip(entry, context);
+      return de_Clip(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1DetectedProperties = (output: any, context: __SerdeContext): DetectedProperties => {
+/**
+ * deserializeAws_restJson1DetectedProperties
+ */
+const de_DetectedProperties = (output: any, context: __SerdeContext): DetectedProperties => {
   return {
     DurationMillis: __expectLong(output.DurationMillis),
     FileSize: __expectLong(output.FileSize),
@@ -2113,7 +2406,10 @@ const deserializeAws_restJson1DetectedProperties = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext): Encryption => {
+/**
+ * deserializeAws_restJson1Encryption
+ */
+const de_Encryption = (output: any, context: __SerdeContext): Encryption => {
   return {
     InitializationVector: __expectString(output.InitializationVector),
     Key: __expectString(output.Key),
@@ -2122,7 +2418,10 @@ const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_restJson1ExceptionMessages = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1ExceptionMessages
+ */
+const de_ExceptionMessages = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2134,7 +2433,10 @@ const deserializeAws_restJson1ExceptionMessages = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_restJson1HlsContentProtection = (output: any, context: __SerdeContext): HlsContentProtection => {
+/**
+ * deserializeAws_restJson1HlsContentProtection
+ */
+const de_HlsContentProtection = (output: any, context: __SerdeContext): HlsContentProtection => {
   return {
     InitializationVector: __expectString(output.InitializationVector),
     Key: __expectString(output.Key),
@@ -2145,82 +2447,92 @@ const deserializeAws_restJson1HlsContentProtection = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_restJson1InputCaptions = (output: any, context: __SerdeContext): InputCaptions => {
+/**
+ * deserializeAws_restJson1InputCaptions
+ */
+const de_InputCaptions = (output: any, context: __SerdeContext): InputCaptions => {
   return {
-    CaptionSources:
-      output.CaptionSources != null
-        ? deserializeAws_restJson1CaptionSources(output.CaptionSources, context)
-        : undefined,
+    CaptionSources: output.CaptionSources != null ? de_CaptionSources(output.CaptionSources, context) : undefined,
     MergePolicy: __expectString(output.MergePolicy),
   } as any;
 };
 
-const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job => {
+/**
+ * deserializeAws_restJson1Job
+ */
+const de_Job = (output: any, context: __SerdeContext): Job => {
   return {
     Arn: __expectString(output.Arn),
     Id: __expectString(output.Id),
-    Input: output.Input != null ? deserializeAws_restJson1JobInput(output.Input, context) : undefined,
-    Inputs: output.Inputs != null ? deserializeAws_restJson1JobInputs(output.Inputs, context) : undefined,
-    Output: output.Output != null ? deserializeAws_restJson1JobOutput(output.Output, context) : undefined,
+    Input: output.Input != null ? de_JobInput(output.Input, context) : undefined,
+    Inputs: output.Inputs != null ? de_JobInputs(output.Inputs, context) : undefined,
+    Output: output.Output != null ? de_JobOutput(output.Output, context) : undefined,
     OutputKeyPrefix: __expectString(output.OutputKeyPrefix),
-    Outputs: output.Outputs != null ? deserializeAws_restJson1JobOutputs(output.Outputs, context) : undefined,
+    Outputs: output.Outputs != null ? de_JobOutputs(output.Outputs, context) : undefined,
     PipelineId: __expectString(output.PipelineId),
-    Playlists: output.Playlists != null ? deserializeAws_restJson1Playlists(output.Playlists, context) : undefined,
+    Playlists: output.Playlists != null ? de_Playlists(output.Playlists, context) : undefined,
     Status: __expectString(output.Status),
-    Timing: output.Timing != null ? deserializeAws_restJson1Timing(output.Timing, context) : undefined,
-    UserMetadata:
-      output.UserMetadata != null ? deserializeAws_restJson1UserMetadata(output.UserMetadata, context) : undefined,
+    Timing: output.Timing != null ? de_Timing(output.Timing, context) : undefined,
+    UserMetadata: output.UserMetadata != null ? de_UserMetadata(output.UserMetadata, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1JobAlbumArt = (output: any, context: __SerdeContext): JobAlbumArt => {
+/**
+ * deserializeAws_restJson1JobAlbumArt
+ */
+const de_JobAlbumArt = (output: any, context: __SerdeContext): JobAlbumArt => {
   return {
-    Artwork: output.Artwork != null ? deserializeAws_restJson1Artworks(output.Artwork, context) : undefined,
+    Artwork: output.Artwork != null ? de_Artworks(output.Artwork, context) : undefined,
     MergePolicy: __expectString(output.MergePolicy),
   } as any;
 };
 
-const deserializeAws_restJson1JobInput = (output: any, context: __SerdeContext): JobInput => {
+/**
+ * deserializeAws_restJson1JobInput
+ */
+const de_JobInput = (output: any, context: __SerdeContext): JobInput => {
   return {
     AspectRatio: __expectString(output.AspectRatio),
     Container: __expectString(output.Container),
     DetectedProperties:
-      output.DetectedProperties != null
-        ? deserializeAws_restJson1DetectedProperties(output.DetectedProperties, context)
-        : undefined,
-    Encryption: output.Encryption != null ? deserializeAws_restJson1Encryption(output.Encryption, context) : undefined,
+      output.DetectedProperties != null ? de_DetectedProperties(output.DetectedProperties, context) : undefined,
+    Encryption: output.Encryption != null ? de_Encryption(output.Encryption, context) : undefined,
     FrameRate: __expectString(output.FrameRate),
-    InputCaptions:
-      output.InputCaptions != null ? deserializeAws_restJson1InputCaptions(output.InputCaptions, context) : undefined,
+    InputCaptions: output.InputCaptions != null ? de_InputCaptions(output.InputCaptions, context) : undefined,
     Interlaced: __expectString(output.Interlaced),
     Key: __expectString(output.Key),
     Resolution: __expectString(output.Resolution),
-    TimeSpan: output.TimeSpan != null ? deserializeAws_restJson1TimeSpan(output.TimeSpan, context) : undefined,
+    TimeSpan: output.TimeSpan != null ? de_TimeSpan(output.TimeSpan, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1JobInputs = (output: any, context: __SerdeContext): JobInput[] => {
+/**
+ * deserializeAws_restJson1JobInputs
+ */
+const de_JobInputs = (output: any, context: __SerdeContext): JobInput[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1JobInput(entry, context);
+      return de_JobInput(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1JobOutput = (output: any, context: __SerdeContext): JobOutput => {
+/**
+ * deserializeAws_restJson1JobOutput
+ */
+const de_JobOutput = (output: any, context: __SerdeContext): JobOutput => {
   return {
-    AlbumArt: output.AlbumArt != null ? deserializeAws_restJson1JobAlbumArt(output.AlbumArt, context) : undefined,
+    AlbumArt: output.AlbumArt != null ? de_JobAlbumArt(output.AlbumArt, context) : undefined,
     AppliedColorSpaceConversion: __expectString(output.AppliedColorSpaceConversion),
-    Captions: output.Captions != null ? deserializeAws_restJson1Captions(output.Captions, context) : undefined,
-    Composition:
-      output.Composition != null ? deserializeAws_restJson1Composition(output.Composition, context) : undefined,
+    Captions: output.Captions != null ? de_Captions(output.Captions, context) : undefined,
+    Composition: output.Composition != null ? de_Composition(output.Composition, context) : undefined,
     Duration: __expectLong(output.Duration),
     DurationMillis: __expectLong(output.DurationMillis),
-    Encryption: output.Encryption != null ? deserializeAws_restJson1Encryption(output.Encryption, context) : undefined,
+    Encryption: output.Encryption != null ? de_Encryption(output.Encryption, context) : undefined,
     FileSize: __expectLong(output.FileSize),
     FrameRate: __expectString(output.FrameRate),
     Height: __expectInt32(output.Height),
@@ -2232,61 +2544,73 @@ const deserializeAws_restJson1JobOutput = (output: any, context: __SerdeContext)
     Status: __expectString(output.Status),
     StatusDetail: __expectString(output.StatusDetail),
     ThumbnailEncryption:
-      output.ThumbnailEncryption != null
-        ? deserializeAws_restJson1Encryption(output.ThumbnailEncryption, context)
-        : undefined,
+      output.ThumbnailEncryption != null ? de_Encryption(output.ThumbnailEncryption, context) : undefined,
     ThumbnailPattern: __expectString(output.ThumbnailPattern),
-    Watermarks:
-      output.Watermarks != null ? deserializeAws_restJson1JobWatermarks(output.Watermarks, context) : undefined,
+    Watermarks: output.Watermarks != null ? de_JobWatermarks(output.Watermarks, context) : undefined,
     Width: __expectInt32(output.Width),
   } as any;
 };
 
-const deserializeAws_restJson1JobOutputs = (output: any, context: __SerdeContext): JobOutput[] => {
+/**
+ * deserializeAws_restJson1JobOutputs
+ */
+const de_JobOutputs = (output: any, context: __SerdeContext): JobOutput[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1JobOutput(entry, context);
+      return de_JobOutput(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Jobs = (output: any, context: __SerdeContext): Job[] => {
+/**
+ * deserializeAws_restJson1Jobs
+ */
+const de_Jobs = (output: any, context: __SerdeContext): Job[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Job(entry, context);
+      return de_Job(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1JobWatermark = (output: any, context: __SerdeContext): JobWatermark => {
+/**
+ * deserializeAws_restJson1JobWatermark
+ */
+const de_JobWatermark = (output: any, context: __SerdeContext): JobWatermark => {
   return {
-    Encryption: output.Encryption != null ? deserializeAws_restJson1Encryption(output.Encryption, context) : undefined,
+    Encryption: output.Encryption != null ? de_Encryption(output.Encryption, context) : undefined,
     InputKey: __expectString(output.InputKey),
     PresetWatermarkId: __expectString(output.PresetWatermarkId),
   } as any;
 };
 
-const deserializeAws_restJson1JobWatermarks = (output: any, context: __SerdeContext): JobWatermark[] => {
+/**
+ * deserializeAws_restJson1JobWatermarks
+ */
+const de_JobWatermarks = (output: any, context: __SerdeContext): JobWatermark[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1JobWatermark(entry, context);
+      return de_JobWatermark(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Notifications = (output: any, context: __SerdeContext): Notifications => {
+/**
+ * deserializeAws_restJson1Notifications
+ */
+const de_Notifications = (output: any, context: __SerdeContext): Notifications => {
   return {
     Completed: __expectString(output.Completed),
     Error: __expectString(output.Error),
@@ -2295,7 +2619,10 @@ const deserializeAws_restJson1Notifications = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_restJson1OutputKeys = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1OutputKeys
+ */
+const de_OutputKeys = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2307,99 +2634,113 @@ const deserializeAws_restJson1OutputKeys = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1Permission = (output: any, context: __SerdeContext): Permission => {
+/**
+ * deserializeAws_restJson1Permission
+ */
+const de_Permission = (output: any, context: __SerdeContext): Permission => {
   return {
-    Access: output.Access != null ? deserializeAws_restJson1AccessControls(output.Access, context) : undefined,
+    Access: output.Access != null ? de_AccessControls(output.Access, context) : undefined,
     Grantee: __expectString(output.Grantee),
     GranteeType: __expectString(output.GranteeType),
   } as any;
 };
 
-const deserializeAws_restJson1Permissions = (output: any, context: __SerdeContext): Permission[] => {
+/**
+ * deserializeAws_restJson1Permissions
+ */
+const de_Permissions = (output: any, context: __SerdeContext): Permission[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Permission(entry, context);
+      return de_Permission(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Pipeline = (output: any, context: __SerdeContext): Pipeline => {
+/**
+ * deserializeAws_restJson1Pipeline
+ */
+const de_Pipeline = (output: any, context: __SerdeContext): Pipeline => {
   return {
     Arn: __expectString(output.Arn),
     AwsKmsKeyArn: __expectString(output.AwsKmsKeyArn),
-    ContentConfig:
-      output.ContentConfig != null
-        ? deserializeAws_restJson1PipelineOutputConfig(output.ContentConfig, context)
-        : undefined,
+    ContentConfig: output.ContentConfig != null ? de_PipelineOutputConfig(output.ContentConfig, context) : undefined,
     Id: __expectString(output.Id),
     InputBucket: __expectString(output.InputBucket),
     Name: __expectString(output.Name),
-    Notifications:
-      output.Notifications != null ? deserializeAws_restJson1Notifications(output.Notifications, context) : undefined,
+    Notifications: output.Notifications != null ? de_Notifications(output.Notifications, context) : undefined,
     OutputBucket: __expectString(output.OutputBucket),
     Role: __expectString(output.Role),
     Status: __expectString(output.Status),
     ThumbnailConfig:
-      output.ThumbnailConfig != null
-        ? deserializeAws_restJson1PipelineOutputConfig(output.ThumbnailConfig, context)
-        : undefined,
+      output.ThumbnailConfig != null ? de_PipelineOutputConfig(output.ThumbnailConfig, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1PipelineOutputConfig = (output: any, context: __SerdeContext): PipelineOutputConfig => {
+/**
+ * deserializeAws_restJson1PipelineOutputConfig
+ */
+const de_PipelineOutputConfig = (output: any, context: __SerdeContext): PipelineOutputConfig => {
   return {
     Bucket: __expectString(output.Bucket),
-    Permissions:
-      output.Permissions != null ? deserializeAws_restJson1Permissions(output.Permissions, context) : undefined,
+    Permissions: output.Permissions != null ? de_Permissions(output.Permissions, context) : undefined,
     StorageClass: __expectString(output.StorageClass),
   } as any;
 };
 
-const deserializeAws_restJson1Pipelines = (output: any, context: __SerdeContext): Pipeline[] => {
+/**
+ * deserializeAws_restJson1Pipelines
+ */
+const de_Pipelines = (output: any, context: __SerdeContext): Pipeline[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Pipeline(entry, context);
+      return de_Pipeline(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Playlist = (output: any, context: __SerdeContext): Playlist => {
+/**
+ * deserializeAws_restJson1Playlist
+ */
+const de_Playlist = (output: any, context: __SerdeContext): Playlist => {
   return {
     Format: __expectString(output.Format),
     HlsContentProtection:
-      output.HlsContentProtection != null
-        ? deserializeAws_restJson1HlsContentProtection(output.HlsContentProtection, context)
-        : undefined,
+      output.HlsContentProtection != null ? de_HlsContentProtection(output.HlsContentProtection, context) : undefined,
     Name: __expectString(output.Name),
-    OutputKeys: output.OutputKeys != null ? deserializeAws_restJson1OutputKeys(output.OutputKeys, context) : undefined,
-    PlayReadyDrm:
-      output.PlayReadyDrm != null ? deserializeAws_restJson1PlayReadyDrm(output.PlayReadyDrm, context) : undefined,
+    OutputKeys: output.OutputKeys != null ? de_OutputKeys(output.OutputKeys, context) : undefined,
+    PlayReadyDrm: output.PlayReadyDrm != null ? de_PlayReadyDrm(output.PlayReadyDrm, context) : undefined,
     Status: __expectString(output.Status),
     StatusDetail: __expectString(output.StatusDetail),
   } as any;
 };
 
-const deserializeAws_restJson1Playlists = (output: any, context: __SerdeContext): Playlist[] => {
+/**
+ * deserializeAws_restJson1Playlists
+ */
+const de_Playlists = (output: any, context: __SerdeContext): Playlist[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Playlist(entry, context);
+      return de_Playlist(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PlayReadyDrm = (output: any, context: __SerdeContext): PlayReadyDrm => {
+/**
+ * deserializeAws_restJson1PlayReadyDrm
+ */
+const de_PlayReadyDrm = (output: any, context: __SerdeContext): PlayReadyDrm => {
   return {
     Format: __expectString(output.Format),
     InitializationVector: __expectString(output.InitializationVector),
@@ -2410,33 +2751,42 @@ const deserializeAws_restJson1PlayReadyDrm = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_restJson1Preset = (output: any, context: __SerdeContext): Preset => {
+/**
+ * deserializeAws_restJson1Preset
+ */
+const de_Preset = (output: any, context: __SerdeContext): Preset => {
   return {
     Arn: __expectString(output.Arn),
-    Audio: output.Audio != null ? deserializeAws_restJson1AudioParameters(output.Audio, context) : undefined,
+    Audio: output.Audio != null ? de_AudioParameters(output.Audio, context) : undefined,
     Container: __expectString(output.Container),
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
-    Thumbnails: output.Thumbnails != null ? deserializeAws_restJson1Thumbnails(output.Thumbnails, context) : undefined,
+    Thumbnails: output.Thumbnails != null ? de_Thumbnails(output.Thumbnails, context) : undefined,
     Type: __expectString(output.Type),
-    Video: output.Video != null ? deserializeAws_restJson1VideoParameters(output.Video, context) : undefined,
+    Video: output.Video != null ? de_VideoParameters(output.Video, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Presets = (output: any, context: __SerdeContext): Preset[] => {
+/**
+ * deserializeAws_restJson1Presets
+ */
+const de_Presets = (output: any, context: __SerdeContext): Preset[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Preset(entry, context);
+      return de_Preset(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PresetWatermark = (output: any, context: __SerdeContext): PresetWatermark => {
+/**
+ * deserializeAws_restJson1PresetWatermark
+ */
+const de_PresetWatermark = (output: any, context: __SerdeContext): PresetWatermark => {
   return {
     HorizontalAlign: __expectString(output.HorizontalAlign),
     HorizontalOffset: __expectString(output.HorizontalOffset),
@@ -2451,19 +2801,25 @@ const deserializeAws_restJson1PresetWatermark = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_restJson1PresetWatermarks = (output: any, context: __SerdeContext): PresetWatermark[] => {
+/**
+ * deserializeAws_restJson1PresetWatermarks
+ */
+const de_PresetWatermarks = (output: any, context: __SerdeContext): PresetWatermark[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1PresetWatermark(entry, context);
+      return de_PresetWatermark(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Thumbnails = (output: any, context: __SerdeContext): Thumbnails => {
+/**
+ * deserializeAws_restJson1Thumbnails
+ */
+const de_Thumbnails = (output: any, context: __SerdeContext): Thumbnails => {
   return {
     AspectRatio: __expectString(output.AspectRatio),
     Format: __expectString(output.Format),
@@ -2476,14 +2832,20 @@ const deserializeAws_restJson1Thumbnails = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_restJson1TimeSpan = (output: any, context: __SerdeContext): TimeSpan => {
+/**
+ * deserializeAws_restJson1TimeSpan
+ */
+const de_TimeSpan = (output: any, context: __SerdeContext): TimeSpan => {
   return {
     Duration: __expectString(output.Duration),
     StartTime: __expectString(output.StartTime),
   } as any;
 };
 
-const deserializeAws_restJson1Timing = (output: any, context: __SerdeContext): Timing => {
+/**
+ * deserializeAws_restJson1Timing
+ */
+const de_Timing = (output: any, context: __SerdeContext): Timing => {
   return {
     FinishTimeMillis: __expectLong(output.FinishTimeMillis),
     StartTimeMillis: __expectLong(output.StartTimeMillis),
@@ -2491,7 +2853,10 @@ const deserializeAws_restJson1Timing = (output: any, context: __SerdeContext): T
   } as any;
 };
 
-const deserializeAws_restJson1UserMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1UserMetadata
+ */
+const de_UserMetadata = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2501,13 +2866,15 @@ const deserializeAws_restJson1UserMetadata = (output: any, context: __SerdeConte
   }, {});
 };
 
-const deserializeAws_restJson1VideoParameters = (output: any, context: __SerdeContext): VideoParameters => {
+/**
+ * deserializeAws_restJson1VideoParameters
+ */
+const de_VideoParameters = (output: any, context: __SerdeContext): VideoParameters => {
   return {
     AspectRatio: __expectString(output.AspectRatio),
     BitRate: __expectString(output.BitRate),
     Codec: __expectString(output.Codec),
-    CodecOptions:
-      output.CodecOptions != null ? deserializeAws_restJson1CodecOptions(output.CodecOptions, context) : undefined,
+    CodecOptions: output.CodecOptions != null ? de_CodecOptions(output.CodecOptions, context) : undefined,
     DisplayAspectRatio: __expectString(output.DisplayAspectRatio),
     FixedGOP: __expectString(output.FixedGOP),
     FrameRate: __expectString(output.FrameRate),
@@ -2518,26 +2885,31 @@ const deserializeAws_restJson1VideoParameters = (output: any, context: __SerdeCo
     PaddingPolicy: __expectString(output.PaddingPolicy),
     Resolution: __expectString(output.Resolution),
     SizingPolicy: __expectString(output.SizingPolicy),
-    Watermarks:
-      output.Watermarks != null ? deserializeAws_restJson1PresetWatermarks(output.Watermarks, context) : undefined,
+    Watermarks: output.Watermarks != null ? de_PresetWatermarks(output.Watermarks, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Warning = (output: any, context: __SerdeContext): Warning => {
+/**
+ * deserializeAws_restJson1Warning
+ */
+const de_Warning = (output: any, context: __SerdeContext): Warning => {
   return {
     Code: __expectString(output.Code),
     Message: __expectString(output.Message),
   } as any;
 };
 
-const deserializeAws_restJson1Warnings = (output: any, context: __SerdeContext): Warning[] => {
+/**
+ * deserializeAws_restJson1Warnings
+ */
+const de_Warnings = (output: any, context: __SerdeContext): Warning[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Warning(entry, context);
+      return de_Warning(entry, context);
     });
   return retVal;
 };

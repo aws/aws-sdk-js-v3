@@ -16,8 +16,8 @@ import {
 import { RestoreCoreNetworkPolicyVersionRequest, RestoreCoreNetworkPolicyVersionResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1RestoreCoreNetworkPolicyVersionCommand,
-  serializeAws_restJson1RestoreCoreNetworkPolicyVersionCommand,
+  de_RestoreCoreNetworkPolicyVersionCommand,
+  se_RestoreCoreNetworkPolicyVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class RestoreCoreNetworkPolicyVersionCommand extends $Command<
     input: RestoreCoreNetworkPolicyVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RestoreCoreNetworkPolicyVersionCommand(input, context);
+    return se_RestoreCoreNetworkPolicyVersionCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class RestoreCoreNetworkPolicyVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreCoreNetworkPolicyVersionCommandOutput> {
-    return deserializeAws_restJson1RestoreCoreNetworkPolicyVersionCommand(output, context);
+    return de_RestoreCoreNetworkPolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

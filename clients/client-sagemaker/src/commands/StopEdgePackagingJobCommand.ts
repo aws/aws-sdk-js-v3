@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopEdgePackagingJobRequest } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopEdgePackagingJobCommand,
-  serializeAws_json1_1StopEdgePackagingJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopEdgePackagingJobCommand, se_StopEdgePackagingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -120,14 +117,14 @@ export class StopEdgePackagingJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopEdgePackagingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopEdgePackagingJobCommand(input, context);
+    return se_StopEdgePackagingJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEdgePackagingJobCommandOutput> {
-    return deserializeAws_json1_1StopEdgePackagingJobCommand(output, context);
+    return de_StopEdgePackagingJobCommand(output, context);
   }
 
   // Start section: command_body_extra

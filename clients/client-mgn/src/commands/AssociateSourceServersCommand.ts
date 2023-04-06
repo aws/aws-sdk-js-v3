@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { AssociateSourceServersRequest, AssociateSourceServersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateSourceServersCommand,
-  serializeAws_restJson1AssociateSourceServersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateSourceServersCommand, se_AssociateSourceServersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class AssociateSourceServersCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateSourceServersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateSourceServersCommand(input, context);
+    return se_AssociateSourceServersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSourceServersCommandOutput> {
-    return deserializeAws_restJson1AssociateSourceServersCommand(output, context);
+    return de_AssociateSourceServersCommand(output, context);
   }
 
   // Start section: command_body_extra

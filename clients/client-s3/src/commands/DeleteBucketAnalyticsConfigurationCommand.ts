@@ -15,8 +15,8 @@ import {
 
 import { DeleteBucketAnalyticsConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand,
-  serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand,
+  de_DeleteBucketAnalyticsConfigurationCommand,
+  se_DeleteBucketAnalyticsConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -158,7 +158,7 @@ export class DeleteBucketAnalyticsConfigurationCommand extends $Command<
     input: DeleteBucketAnalyticsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand(input, context);
+    return se_DeleteBucketAnalyticsConfigurationCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class DeleteBucketAnalyticsConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketAnalyticsConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand(output, context);
+    return de_DeleteBucketAnalyticsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ListDistributionsByOriginRequestPolicyIdResult,
 } from "../models/models_1";
 import {
-  deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand,
-  serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand,
+  de_ListDistributionsByOriginRequestPolicyIdCommand,
+  se_ListDistributionsByOriginRequestPolicyIdCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -152,7 +152,7 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
     input: ListDistributionsByOriginRequestPolicyIdCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand(input, context);
+    return se_ListDistributionsByOriginRequestPolicyIdCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDistributionsByOriginRequestPolicyIdCommandOutput> {
-    return deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand(output, context);
+    return de_ListDistributionsByOriginRequestPolicyIdCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetHostedZoneLimitRequest, GetHostedZoneLimitResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetHostedZoneLimitCommand,
-  serializeAws_restXmlGetHostedZoneLimitCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetHostedZoneLimitCommand, se_GetHostedZoneLimitCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -136,14 +133,14 @@ export class GetHostedZoneLimitCommand extends $Command<
    * @internal
    */
   private serialize(input: GetHostedZoneLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHostedZoneLimitCommand(input, context);
+    return se_GetHostedZoneLimitCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostedZoneLimitCommandOutput> {
-    return deserializeAws_restXmlGetHostedZoneLimitCommand(output, context);
+    return de_GetHostedZoneLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

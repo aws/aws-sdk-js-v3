@@ -14,8 +14,8 @@ import {
 
 import { HostLabelHeaderInput } from "../models/models_0";
 import {
-  deserializeAws_restXmlEndpointWithHostLabelHeaderOperationCommand,
-  serializeAws_restXmlEndpointWithHostLabelHeaderOperationCommand,
+  de_EndpointWithHostLabelHeaderOperationCommand,
+  se_EndpointWithHostLabelHeaderOperationCommand,
 } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -86,7 +86,7 @@ export class EndpointWithHostLabelHeaderOperationCommand extends $Command<
     input: EndpointWithHostLabelHeaderOperationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlEndpointWithHostLabelHeaderOperationCommand(input, context);
+    return se_EndpointWithHostLabelHeaderOperationCommand(input, context);
   }
 
   /**
@@ -96,7 +96,7 @@ export class EndpointWithHostLabelHeaderOperationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EndpointWithHostLabelHeaderOperationCommandOutput> {
-    return deserializeAws_restXmlEndpointWithHostLabelHeaderOperationCommand(output, context);
+    return de_EndpointWithHostLabelHeaderOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

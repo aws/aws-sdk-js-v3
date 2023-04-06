@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { DeleteFunctionConcurrencyRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteFunctionConcurrencyCommand,
-  serializeAws_restJson1DeleteFunctionConcurrencyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteFunctionConcurrencyCommand, se_DeleteFunctionConcurrencyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteFunctionConcurrencyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteFunctionConcurrencyCommand(input, context);
+    return se_DeleteFunctionConcurrencyCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFunctionConcurrencyCommandOutput> {
-    return deserializeAws_restJson1DeleteFunctionConcurrencyCommand(output, context);
+    return de_DeleteFunctionConcurrencyCommand(output, context);
   }
 
   // Start section: command_body_extra

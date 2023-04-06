@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAppImageConfigRequest, CreateAppImageConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAppImageConfigCommand,
-  serializeAws_json1_1CreateAppImageConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAppImageConfigCommand, se_CreateAppImageConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -144,14 +141,14 @@ export class CreateAppImageConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAppImageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAppImageConfigCommand(input, context);
+    return se_CreateAppImageConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppImageConfigCommandOutput> {
-    return deserializeAws_json1_1CreateAppImageConfigCommand(output, context);
+    return de_CreateAppImageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

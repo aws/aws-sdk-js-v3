@@ -19,8 +19,8 @@ import {
   AssociateEnclaveCertificateIamRoleResult,
 } from "../models/models_0";
 import {
-  deserializeAws_ec2AssociateEnclaveCertificateIamRoleCommand,
-  serializeAws_ec2AssociateEnclaveCertificateIamRoleCommand,
+  de_AssociateEnclaveCertificateIamRoleCommand,
+  se_AssociateEnclaveCertificateIamRoleCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -142,7 +142,7 @@ export class AssociateEnclaveCertificateIamRoleCommand extends $Command<
     input: AssociateEnclaveCertificateIamRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2AssociateEnclaveCertificateIamRoleCommand(input, context);
+    return se_AssociateEnclaveCertificateIamRoleCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class AssociateEnclaveCertificateIamRoleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateEnclaveCertificateIamRoleCommandOutput> {
-    return deserializeAws_ec2AssociateEnclaveCertificateIamRoleCommand(output, context);
+    return de_AssociateEnclaveCertificateIamRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

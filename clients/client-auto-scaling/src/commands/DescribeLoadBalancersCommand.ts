@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DescribeLoadBalancersRequest, DescribeLoadBalancersResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeLoadBalancersCommand,
-  serializeAws_queryDescribeLoadBalancersCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeLoadBalancersCommand, se_DescribeLoadBalancersCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -180,14 +177,14 @@ export class DescribeLoadBalancersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoadBalancersCommand(input, context);
+    return se_DescribeLoadBalancersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoadBalancersCommandOutput> {
-    return deserializeAws_queryDescribeLoadBalancersCommand(output, context);
+    return de_DescribeLoadBalancersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { DeleteGraphRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteGraphCommand,
-  serializeAws_restJson1DeleteGraphCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteGraphCommand, se_DeleteGraphCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteGraphCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGraphCommand(input, context);
+    return se_DeleteGraphCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGraphCommandOutput> {
-    return deserializeAws_restJson1DeleteGraphCommand(output, context);
+    return de_DeleteGraphCommand(output, context);
   }
 
   // Start section: command_body_extra

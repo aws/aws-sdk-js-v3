@@ -15,10 +15,7 @@ import {
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { GetDomainPermissionsPolicyRequest, GetDomainPermissionsPolicyResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDomainPermissionsPolicyCommand,
-  serializeAws_restJson1GetDomainPermissionsPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDomainPermissionsPolicyCommand, se_GetDomainPermissionsPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,7 +150,7 @@ export class GetDomainPermissionsPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDomainPermissionsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDomainPermissionsPolicyCommand(input, context);
+    return se_GetDomainPermissionsPolicyCommand(input, context);
   }
 
   /**
@@ -163,7 +160,7 @@ export class GetDomainPermissionsPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDomainPermissionsPolicyCommandOutput> {
-    return deserializeAws_restJson1GetDomainPermissionsPolicyCommand(output, context);
+    return de_GetDomainPermissionsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

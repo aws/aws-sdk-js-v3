@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { SendInvitationRequest, SendInvitationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SendInvitationCommand,
-  serializeAws_json1_1SendInvitationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SendInvitationCommand, se_SendInvitationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class SendInvitationCommand extends $Command<
    * @internal
    */
   private serialize(input: SendInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendInvitationCommand(input, context);
+    return se_SendInvitationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendInvitationCommandOutput> {
-    return deserializeAws_json1_1SendInvitationCommand(output, context);
+    return de_SendInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateTimelineEventInput, CreateTimelineEventOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTimelineEventCommand,
-  serializeAws_restJson1CreateTimelineEventCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateTimelineEventCommand, se_CreateTimelineEventCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -153,14 +150,14 @@ export class CreateTimelineEventCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTimelineEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTimelineEventCommand(input, context);
+    return se_CreateTimelineEventCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTimelineEventCommandOutput> {
-    return deserializeAws_restJson1CreateTimelineEventCommand(output, context);
+    return de_CreateTimelineEventCommand(output, context);
   }
 
   // Start section: command_body_extra

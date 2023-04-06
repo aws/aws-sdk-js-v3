@@ -15,10 +15,7 @@ import {
 
 import { GetApplicationDateRangeKpiRequest, GetApplicationDateRangeKpiResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetApplicationDateRangeKpiCommand,
-  serializeAws_restJson1GetApplicationDateRangeKpiCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetApplicationDateRangeKpiCommand, se_GetApplicationDateRangeKpiCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,7 +143,7 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
    * @internal
    */
   private serialize(input: GetApplicationDateRangeKpiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationDateRangeKpiCommand(input, context);
+    return se_GetApplicationDateRangeKpiCommand(input, context);
   }
 
   /**
@@ -156,7 +153,7 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetApplicationDateRangeKpiCommandOutput> {
-    return deserializeAws_restJson1GetApplicationDateRangeKpiCommand(output, context);
+    return de_GetApplicationDateRangeKpiCommand(output, context);
   }
 
   // Start section: command_body_extra

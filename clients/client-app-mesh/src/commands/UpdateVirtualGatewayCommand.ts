@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { UpdateVirtualGatewayInput, UpdateVirtualGatewayOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateVirtualGatewayCommand,
-  serializeAws_restJson1UpdateVirtualGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateVirtualGatewayCommand, se_UpdateVirtualGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -272,14 +269,14 @@ export class UpdateVirtualGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateVirtualGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateVirtualGatewayCommand(input, context);
+    return se_UpdateVirtualGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualGatewayCommandOutput> {
-    return deserializeAws_restJson1UpdateVirtualGatewayCommand(output, context);
+    return de_UpdateVirtualGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

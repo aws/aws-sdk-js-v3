@@ -15,10 +15,7 @@ import {
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { GetCorsPolicyInput, GetCorsPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCorsPolicyCommand,
-  serializeAws_json1_1GetCorsPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCorsPolicyCommand, se_GetCorsPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetCorsPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCorsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCorsPolicyCommand(input, context);
+    return se_GetCorsPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCorsPolicyCommandOutput> {
-    return deserializeAws_json1_1GetCorsPolicyCommand(output, context);
+    return de_GetCorsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

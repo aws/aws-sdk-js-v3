@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { CancelDataRepositoryTaskRequest, CancelDataRepositoryTaskResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelDataRepositoryTaskCommand,
-  serializeAws_json1_1CancelDataRepositoryTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelDataRepositoryTaskCommand, se_CancelDataRepositoryTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class CancelDataRepositoryTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelDataRepositoryTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelDataRepositoryTaskCommand(input, context);
+    return se_CancelDataRepositoryTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelDataRepositoryTaskCommandOutput> {
-    return deserializeAws_json1_1CancelDataRepositoryTaskCommand(output, context);
+    return de_CancelDataRepositoryTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

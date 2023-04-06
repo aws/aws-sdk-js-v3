@@ -15,10 +15,7 @@ import {
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { PauseServiceRequest, PauseServiceResponse, PauseServiceResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_0PauseServiceCommand,
-  serializeAws_json1_0PauseServiceCommand,
-} from "../protocols/Aws_json1_0";
+import { de_PauseServiceCommand, se_PauseServiceCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class PauseServiceCommand extends $Command<
    * @internal
    */
   private serialize(input: PauseServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0PauseServiceCommand(input, context);
+    return se_PauseServiceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PauseServiceCommandOutput> {
-    return deserializeAws_json1_0PauseServiceCommand(output, context);
+    return de_PauseServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

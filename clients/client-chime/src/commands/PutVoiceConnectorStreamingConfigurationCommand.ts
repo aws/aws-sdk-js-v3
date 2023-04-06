@@ -19,8 +19,8 @@ import {
   PutVoiceConnectorStreamingConfigurationResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1PutVoiceConnectorStreamingConfigurationCommand,
-  serializeAws_restJson1PutVoiceConnectorStreamingConfigurationCommand,
+  de_PutVoiceConnectorStreamingConfigurationCommand,
+  se_PutVoiceConnectorStreamingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -167,7 +167,7 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
     input: PutVoiceConnectorStreamingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorStreamingConfigurationCommand(input, context);
+    return se_PutVoiceConnectorStreamingConfigurationCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorStreamingConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorStreamingConfigurationCommand(output, context);
+    return de_PutVoiceConnectorStreamingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

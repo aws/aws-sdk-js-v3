@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { AssociateChannelFlowRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateChannelFlowCommand,
-  serializeAws_restJson1AssociateChannelFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateChannelFlowCommand, se_AssociateChannelFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class AssociateChannelFlowCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateChannelFlowCommand(input, context);
+    return se_AssociateChannelFlowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateChannelFlowCommandOutput> {
-    return deserializeAws_restJson1AssociateChannelFlowCommand(output, context);
+    return de_AssociateChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { FunctionEventInvokeConfig, PutFunctionEventInvokeConfigRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutFunctionEventInvokeConfigCommand,
-  serializeAws_restJson1PutFunctionEventInvokeConfigCommand,
+  de_PutFunctionEventInvokeConfigCommand,
+  se_PutFunctionEventInvokeConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -156,7 +156,7 @@ export class PutFunctionEventInvokeConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: PutFunctionEventInvokeConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutFunctionEventInvokeConfigCommand(input, context);
+    return se_PutFunctionEventInvokeConfigCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class PutFunctionEventInvokeConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutFunctionEventInvokeConfigCommandOutput> {
-    return deserializeAws_restJson1PutFunctionEventInvokeConfigCommand(output, context);
+    return de_PutFunctionEventInvokeConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

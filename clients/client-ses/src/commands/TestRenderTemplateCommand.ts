@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { TestRenderTemplateRequest, TestRenderTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_queryTestRenderTemplateCommand,
-  serializeAws_queryTestRenderTemplateCommand,
-} from "../protocols/Aws_query";
+import { de_TestRenderTemplateCommand, se_TestRenderTemplateCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -136,14 +133,14 @@ export class TestRenderTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: TestRenderTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTestRenderTemplateCommand(input, context);
+    return se_TestRenderTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestRenderTemplateCommandOutput> {
-    return deserializeAws_queryTestRenderTemplateCommand(output, context);
+    return de_TestRenderTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

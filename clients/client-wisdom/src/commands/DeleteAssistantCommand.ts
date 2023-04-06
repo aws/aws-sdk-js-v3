@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAssistantRequest, DeleteAssistantResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAssistantCommand,
-  serializeAws_restJson1DeleteAssistantCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAssistantCommand, se_DeleteAssistantCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -129,14 +126,14 @@ export class DeleteAssistantCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAssistantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAssistantCommand(input, context);
+    return se_DeleteAssistantCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAssistantCommandOutput> {
-    return deserializeAws_restJson1DeleteAssistantCommand(output, context);
+    return de_DeleteAssistantCommand(output, context);
   }
 
   // Start section: command_body_extra

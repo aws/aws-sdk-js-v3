@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DescribeSchemasMessage, DescribeSchemasResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSchemasCommand,
-  serializeAws_json1_1DescribeSchemasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSchemasCommand, se_DescribeSchemasCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class DescribeSchemasCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSchemasCommand(input, context);
+    return se_DescribeSchemasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSchemasCommandOutput> {
-    return deserializeAws_json1_1DescribeSchemasCommand(output, context);
+    return de_DescribeSchemasCommand(output, context);
   }
 
   // Start section: command_body_extra

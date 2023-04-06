@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateQuickConnectConfigRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateQuickConnectConfigCommand,
-  serializeAws_restJson1UpdateQuickConnectConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateQuickConnectConfigCommand, se_UpdateQuickConnectConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class UpdateQuickConnectConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateQuickConnectConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateQuickConnectConfigCommand(input, context);
+    return se_UpdateQuickConnectConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateQuickConnectConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateQuickConnectConfigCommand(output, context);
+    return de_UpdateQuickConnectConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

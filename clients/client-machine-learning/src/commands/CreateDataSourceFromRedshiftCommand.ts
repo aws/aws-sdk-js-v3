@@ -16,8 +16,8 @@ import {
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { CreateDataSourceFromRedshiftInput, CreateDataSourceFromRedshiftOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateDataSourceFromRedshiftCommand,
-  serializeAws_json1_1CreateDataSourceFromRedshiftCommand,
+  de_CreateDataSourceFromRedshiftCommand,
+  se_CreateDataSourceFromRedshiftCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -181,7 +181,7 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDataSourceFromRedshiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDataSourceFromRedshiftCommand(input, context);
+    return se_CreateDataSourceFromRedshiftCommand(input, context);
   }
 
   /**
@@ -191,7 +191,7 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDataSourceFromRedshiftCommandOutput> {
-    return deserializeAws_json1_1CreateDataSourceFromRedshiftCommand(output, context);
+    return de_CreateDataSourceFromRedshiftCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { SearchSkillGroupsRequest, SearchSkillGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1SearchSkillGroupsCommand,
-  serializeAws_json1_1SearchSkillGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SearchSkillGroupsCommand, se_SearchSkillGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class SearchSkillGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchSkillGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SearchSkillGroupsCommand(input, context);
+    return se_SearchSkillGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchSkillGroupsCommandOutput> {
-    return deserializeAws_json1_1SearchSkillGroupsCommand(output, context);
+    return de_SearchSkillGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

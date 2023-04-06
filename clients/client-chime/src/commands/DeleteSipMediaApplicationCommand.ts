@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteSipMediaApplicationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSipMediaApplicationCommand,
-  serializeAws_restJson1DeleteSipMediaApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSipMediaApplicationCommand, se_DeleteSipMediaApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,7 +142,7 @@ export class DeleteSipMediaApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSipMediaApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSipMediaApplicationCommand(input, context);
+    return se_DeleteSipMediaApplicationCommand(input, context);
   }
 
   /**
@@ -155,7 +152,7 @@ export class DeleteSipMediaApplicationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteSipMediaApplicationCommandOutput> {
-    return deserializeAws_restJson1DeleteSipMediaApplicationCommand(output, context);
+    return de_DeleteSipMediaApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

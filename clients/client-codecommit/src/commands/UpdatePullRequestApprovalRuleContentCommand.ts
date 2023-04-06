@@ -19,8 +19,8 @@ import {
   UpdatePullRequestApprovalRuleContentOutput,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand,
-  serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand,
+  de_UpdatePullRequestApprovalRuleContentCommand,
+  se_UpdatePullRequestApprovalRuleContentCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -181,7 +181,7 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
     input: UpdatePullRequestApprovalRuleContentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand(input, context);
+    return se_UpdatePullRequestApprovalRuleContentCommand(input, context);
   }
 
   /**
@@ -191,7 +191,7 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> {
-    return deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand(output, context);
+    return de_UpdatePullRequestApprovalRuleContentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse } from "../models/models_1";
-import {
-  deserializeAws_queryUploadSSHPublicKeyCommand,
-  serializeAws_queryUploadSSHPublicKeyCommand,
-} from "../protocols/Aws_query";
+import { de_UploadSSHPublicKeyCommand, se_UploadSSHPublicKeyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class UploadSSHPublicKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: UploadSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUploadSSHPublicKeyCommand(input, context);
+    return se_UploadSSHPublicKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadSSHPublicKeyCommandOutput> {
-    return deserializeAws_queryUploadSSHPublicKeyCommand(output, context);
+    return de_UploadSSHPublicKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

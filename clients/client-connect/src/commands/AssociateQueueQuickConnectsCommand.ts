@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { AssociateQueueQuickConnectsRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateQueueQuickConnectsCommand,
-  serializeAws_restJson1AssociateQueueQuickConnectsCommand,
+  de_AssociateQueueQuickConnectsCommand,
+  se_AssociateQueueQuickConnectsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class AssociateQueueQuickConnectsCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateQueueQuickConnectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateQueueQuickConnectsCommand(input, context);
+    return se_AssociateQueueQuickConnectsCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class AssociateQueueQuickConnectsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateQueueQuickConnectsCommandOutput> {
-    return deserializeAws_restJson1AssociateQueueQuickConnectsCommand(output, context);
+    return de_AssociateQueueQuickConnectsCommand(output, context);
   }
 
   // Start section: command_body_extra

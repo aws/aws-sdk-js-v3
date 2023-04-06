@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { UpdateMapRequest, UpdateMapResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMapCommand,
-  serializeAws_restJson1UpdateMapCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateMapCommand, se_UpdateMapCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class UpdateMapCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMapCommand(input, context);
+    return se_UpdateMapCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMapCommandOutput> {
-    return deserializeAws_restJson1UpdateMapCommand(output, context);
+    return de_UpdateMapCommand(output, context);
   }
 
   // Start section: command_body_extra

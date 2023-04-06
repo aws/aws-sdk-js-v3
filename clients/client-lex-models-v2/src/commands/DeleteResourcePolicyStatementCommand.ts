@@ -16,8 +16,8 @@ import {
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { DeleteResourcePolicyStatementRequest, DeleteResourcePolicyStatementResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteResourcePolicyStatementCommand,
-  serializeAws_restJson1DeleteResourcePolicyStatementCommand,
+  de_DeleteResourcePolicyStatementCommand,
+  se_DeleteResourcePolicyStatementCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -145,7 +145,7 @@ export class DeleteResourcePolicyStatementCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResourcePolicyStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteResourcePolicyStatementCommand(input, context);
+    return se_DeleteResourcePolicyStatementCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DeleteResourcePolicyStatementCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteResourcePolicyStatementCommandOutput> {
-    return deserializeAws_restJson1DeleteResourcePolicyStatementCommand(output, context);
+    return de_DeleteResourcePolicyStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

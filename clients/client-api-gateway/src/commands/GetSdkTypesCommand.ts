@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GetSdkTypesRequest, SdkTypes } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSdkTypesCommand,
-  serializeAws_restJson1GetSdkTypesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSdkTypesCommand, se_GetSdkTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetSdkTypesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSdkTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSdkTypesCommand(input, context);
+    return se_GetSdkTypesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSdkTypesCommandOutput> {
-    return deserializeAws_restJson1GetSdkTypesCommand(output, context);
+    return de_GetSdkTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetResourceMetricsRequest, GetResourceMetricsResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import {
-  deserializeAws_json1_1GetResourceMetricsCommand,
-  serializeAws_json1_1GetResourceMetricsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetResourceMetricsCommand, se_GetResourceMetricsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class GetResourceMetricsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourceMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourceMetricsCommand(input, context);
+    return se_GetResourceMetricsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceMetricsCommandOutput> {
-    return deserializeAws_json1_1GetResourceMetricsCommand(output, context);
+    return de_GetResourceMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

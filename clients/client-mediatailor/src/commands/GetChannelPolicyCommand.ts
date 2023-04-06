@@ -15,10 +15,7 @@ import {
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import { GetChannelPolicyRequest, GetChannelPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetChannelPolicyCommand,
-  serializeAws_restJson1GetChannelPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetChannelPolicyCommand, se_GetChannelPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -120,14 +117,14 @@ export class GetChannelPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetChannelPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetChannelPolicyCommand(input, context);
+    return se_GetChannelPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelPolicyCommandOutput> {
-    return deserializeAws_restJson1GetChannelPolicyCommand(output, context);
+    return de_GetChannelPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

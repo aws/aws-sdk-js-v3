@@ -15,8 +15,8 @@ import {
 
 import { DeleteAppVersionAppComponentRequest, DeleteAppVersionAppComponentResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteAppVersionAppComponentCommand,
-  serializeAws_restJson1DeleteAppVersionAppComponentCommand,
+  de_DeleteAppVersionAppComponentCommand,
+  se_DeleteAppVersionAppComponentCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -158,7 +158,7 @@ export class DeleteAppVersionAppComponentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAppVersionAppComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppVersionAppComponentCommand(input, context);
+    return se_DeleteAppVersionAppComponentCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class DeleteAppVersionAppComponentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAppVersionAppComponentCommandOutput> {
-    return deserializeAws_restJson1DeleteAppVersionAppComponentCommand(output, context);
+    return de_DeleteAppVersionAppComponentCommand(output, context);
   }
 
   // Start section: command_body_extra

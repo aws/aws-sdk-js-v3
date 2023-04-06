@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteQueryLoggingConfigRequest, DeleteQueryLoggingConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteQueryLoggingConfigCommand,
-  serializeAws_restXmlDeleteQueryLoggingConfigCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteQueryLoggingConfigCommand, se_DeleteQueryLoggingConfigCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -135,14 +132,14 @@ export class DeleteQueryLoggingConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteQueryLoggingConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteQueryLoggingConfigCommand(input, context);
+    return se_DeleteQueryLoggingConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueryLoggingConfigCommandOutput> {
-    return deserializeAws_restXmlDeleteQueryLoggingConfigCommand(output, context);
+    return de_DeleteQueryLoggingConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

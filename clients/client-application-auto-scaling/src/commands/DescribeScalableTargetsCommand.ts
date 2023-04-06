@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
 import { DescribeScalableTargetsRequest, DescribeScalableTargetsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeScalableTargetsCommand,
-  serializeAws_json1_1DescribeScalableTargetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeScalableTargetsCommand, se_DescribeScalableTargetsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -177,14 +174,14 @@ export class DescribeScalableTargetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeScalableTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeScalableTargetsCommand(input, context);
+    return se_DescribeScalableTargetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScalableTargetsCommandOutput> {
-    return deserializeAws_json1_1DescribeScalableTargetsCommand(output, context);
+    return de_DescribeScalableTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

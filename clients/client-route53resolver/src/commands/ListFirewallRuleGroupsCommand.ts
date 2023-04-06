@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListFirewallRuleGroupsRequest, ListFirewallRuleGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFirewallRuleGroupsCommand,
-  serializeAws_json1_1ListFirewallRuleGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListFirewallRuleGroupsCommand, se_ListFirewallRuleGroupsCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -135,14 +132,14 @@ export class ListFirewallRuleGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFirewallRuleGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFirewallRuleGroupsCommand(input, context);
+    return se_ListFirewallRuleGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFirewallRuleGroupsCommandOutput> {
-    return deserializeAws_json1_1ListFirewallRuleGroupsCommand(output, context);
+    return de_ListFirewallRuleGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

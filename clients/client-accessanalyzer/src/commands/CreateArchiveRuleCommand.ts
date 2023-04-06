@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { CreateArchiveRuleRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateArchiveRuleCommand,
-  serializeAws_restJson1CreateArchiveRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateArchiveRuleCommand, se_CreateArchiveRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class CreateArchiveRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateArchiveRuleCommand(input, context);
+    return se_CreateArchiveRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateArchiveRuleCommandOutput> {
-    return deserializeAws_restJson1CreateArchiveRuleCommand(output, context);
+    return de_CreateArchiveRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

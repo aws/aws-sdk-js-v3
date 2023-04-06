@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSchemaVersionsRequest, ListSchemaVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSchemaVersionsCommand,
-  serializeAws_restJson1ListSchemaVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSchemaVersionsCommand, se_ListSchemaVersionsCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -135,14 +132,14 @@ export class ListSchemaVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSchemaVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSchemaVersionsCommand(input, context);
+    return se_ListSchemaVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSchemaVersionsCommandOutput> {
-    return deserializeAws_restJson1ListSchemaVersionsCommand(output, context);
+    return de_ListSchemaVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

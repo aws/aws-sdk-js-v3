@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SendRawEmailRequest, SendRawEmailResponse } from "../models/models_0";
-import { deserializeAws_querySendRawEmailCommand, serializeAws_querySendRawEmailCommand } from "../protocols/Aws_query";
+import { de_SendRawEmailCommand, se_SendRawEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -283,14 +283,14 @@ export class SendRawEmailCommand extends $Command<
    * @internal
    */
   private serialize(input: SendRawEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendRawEmailCommand(input, context);
+    return se_SendRawEmailCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendRawEmailCommandOutput> {
-    return deserializeAws_querySendRawEmailCommand(output, context);
+    return de_SendRawEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

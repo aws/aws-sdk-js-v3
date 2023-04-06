@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetNamespaceRequest, GetNamespaceResponse, GetNamespaceResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNamespaceCommand,
-  serializeAws_json1_1GetNamespaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetNamespaceCommand, se_GetNamespaceCommand } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -131,14 +128,14 @@ export class GetNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNamespaceCommand(input, context);
+    return se_GetNamespaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNamespaceCommandOutput> {
-    return deserializeAws_json1_1GetNamespaceCommand(output, context);
+    return de_GetNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

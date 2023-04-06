@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { StopVoiceToneAnalysisTaskRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopVoiceToneAnalysisTaskCommand,
-  serializeAws_restJson1StopVoiceToneAnalysisTaskCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopVoiceToneAnalysisTaskCommand, se_StopVoiceToneAnalysisTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,7 +148,7 @@ export class StopVoiceToneAnalysisTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: StopVoiceToneAnalysisTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopVoiceToneAnalysisTaskCommand(input, context);
+    return se_StopVoiceToneAnalysisTaskCommand(input, context);
   }
 
   /**
@@ -161,7 +158,7 @@ export class StopVoiceToneAnalysisTaskCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopVoiceToneAnalysisTaskCommandOutput> {
-    return deserializeAws_restJson1StopVoiceToneAnalysisTaskCommand(output, context);
+    return de_StopVoiceToneAnalysisTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

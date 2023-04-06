@@ -18,10 +18,7 @@ import {
   ListResiliencyPoliciesResponse,
   ListResiliencyPoliciesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListResiliencyPoliciesCommand,
-  serializeAws_restJson1ListResiliencyPoliciesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListResiliencyPoliciesCommand, se_ListResiliencyPoliciesCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -144,14 +141,14 @@ export class ListResiliencyPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListResiliencyPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResiliencyPoliciesCommand(input, context);
+    return se_ListResiliencyPoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResiliencyPoliciesCommandOutput> {
-    return deserializeAws_restJson1ListResiliencyPoliciesCommand(output, context);
+    return de_ListResiliencyPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

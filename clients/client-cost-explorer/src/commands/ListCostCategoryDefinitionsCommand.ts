@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { ListCostCategoryDefinitionsRequest, ListCostCategoryDefinitionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCostCategoryDefinitionsCommand,
-  serializeAws_json1_1ListCostCategoryDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCostCategoryDefinitionsCommand, se_ListCostCategoryDefinitionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,7 +130,7 @@ export class ListCostCategoryDefinitionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCostCategoryDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCostCategoryDefinitionsCommand(input, context);
+    return se_ListCostCategoryDefinitionsCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class ListCostCategoryDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCostCategoryDefinitionsCommandOutput> {
-    return deserializeAws_json1_1ListCostCategoryDefinitionsCommand(output, context);
+    return de_ListCostCategoryDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1AcceptAdministratorInvitationCommand,
-  serializeAws_restJson1AcceptAdministratorInvitationCommand,
+  de_AcceptAdministratorInvitationCommand,
+  se_AcceptAdministratorInvitationCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
@@ -145,7 +145,7 @@ export class AcceptAdministratorInvitationCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptAdministratorInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptAdministratorInvitationCommand(input, context);
+    return se_AcceptAdministratorInvitationCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class AcceptAdministratorInvitationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptAdministratorInvitationCommandOutput> {
-    return deserializeAws_restJson1AcceptAdministratorInvitationCommand(output, context);
+    return de_AcceptAdministratorInvitationCommand(output, context);
   }
 
   // Start section: command_body_extra

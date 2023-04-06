@@ -15,8 +15,8 @@ import {
 
 import { DeleteDBInstanceAutomatedBackupMessage, DeleteDBInstanceAutomatedBackupResult } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteDBInstanceAutomatedBackupCommand,
-  serializeAws_queryDeleteDBInstanceAutomatedBackupCommand,
+  de_DeleteDBInstanceAutomatedBackupCommand,
+  se_DeleteDBInstanceAutomatedBackupCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -65,6 +65,44 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  *  <p>The automated backup is in an invalid state.
  *             For example, this automated backup is associated with an active instance.</p>
  *
+ *
+ * @example To delete a replicated automated backup from a Region
+ * ```javascript
+ * // The following example deletes the automated backup with the specified Amazon Resource Name (ARN).
+ * const input = {
+ *   "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example"
+ * };
+ * const command = new DeleteDBInstanceAutomatedBackupCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstanceAutomatedBackup": {
+ *     "AllocatedStorage": 20,
+ *     "AvailabilityZone": "us-east-1b",
+ *     "BackupRetentionPeriod": 7,
+ *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
+ *     "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
+ *     "DBInstanceIdentifier": "new-orcl-db",
+ *     "DbiResourceId": "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
+ *     "Encrypted": false,
+ *     "Engine": "oracle-se2",
+ *     "EngineVersion": "12.1.0.2.v21",
+ *     "IAMDatabaseAuthenticationEnabled": false,
+ *     "InstanceCreateTime": "2020-12-04T15:28:31Z",
+ *     "LicenseModel": "bring-your-own-license",
+ *     "MasterUsername": "admin",
+ *     "OptionGroupName": "default:oracle-se2-12-1",
+ *     "Port": 1521,
+ *     "Region": "us-east-1",
+ *     "RestoreWindow": {},
+ *     "Status": "deleting",
+ *     "StorageType": "gp2",
+ *     "VpcId": "vpc-########"
+ *   }
+ * }
+ * *\/
+ * // example id: to-delete-a-replicated-automated-backup-from-a-region-1679963187406
+ * ```
  *
  */
 export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
@@ -133,7 +171,7 @@ export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
     input: DeleteDBInstanceAutomatedBackupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBInstanceAutomatedBackupCommand(input, context);
+    return se_DeleteDBInstanceAutomatedBackupCommand(input, context);
   }
 
   /**
@@ -143,7 +181,7 @@ export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDBInstanceAutomatedBackupCommandOutput> {
-    return deserializeAws_queryDeleteDBInstanceAutomatedBackupCommand(output, context);
+    return de_DeleteDBInstanceAutomatedBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { InitializeClusterRequest, InitializeClusterResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1InitializeClusterCommand,
-  serializeAws_json1_1InitializeClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_InitializeClusterCommand, se_InitializeClusterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class InitializeClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: InitializeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InitializeClusterCommand(input, context);
+    return se_InitializeClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitializeClusterCommandOutput> {
-    return deserializeAws_json1_1InitializeClusterCommand(output, context);
+    return de_InitializeClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

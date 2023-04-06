@@ -19,8 +19,8 @@ import {
   DeleteColumnStatisticsForPartitionResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1DeleteColumnStatisticsForPartitionCommand,
-  serializeAws_json1_1DeleteColumnStatisticsForPartitionCommand,
+  de_DeleteColumnStatisticsForPartitionCommand,
+  se_DeleteColumnStatisticsForPartitionCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -150,7 +150,7 @@ export class DeleteColumnStatisticsForPartitionCommand extends $Command<
     input: DeleteColumnStatisticsForPartitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteColumnStatisticsForPartitionCommand(input, context);
+    return se_DeleteColumnStatisticsForPartitionCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DeleteColumnStatisticsForPartitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteColumnStatisticsForPartitionCommandOutput> {
-    return deserializeAws_json1_1DeleteColumnStatisticsForPartitionCommand(output, context);
+    return de_DeleteColumnStatisticsForPartitionCommand(output, context);
   }
 
   // Start section: command_body_extra

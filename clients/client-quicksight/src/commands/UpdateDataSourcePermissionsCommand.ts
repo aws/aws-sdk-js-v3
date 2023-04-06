@@ -15,8 +15,8 @@ import {
 
 import { UpdateDataSourcePermissionsRequest, UpdateDataSourcePermissionsResponse } from "../models/models_3";
 import {
-  deserializeAws_restJson1UpdateDataSourcePermissionsCommand,
-  serializeAws_restJson1UpdateDataSourcePermissionsCommand,
+  de_UpdateDataSourcePermissionsCommand,
+  se_UpdateDataSourcePermissionsCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -160,7 +160,7 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDataSourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDataSourcePermissionsCommand(input, context);
+    return se_UpdateDataSourcePermissionsCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDataSourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1UpdateDataSourcePermissionsCommand(output, context);
+    return de_UpdateDataSourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

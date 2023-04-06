@@ -15,10 +15,7 @@ import {
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
 import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeCampaignCommand,
-  serializeAws_restJson1DescribeCampaignCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeCampaignCommand, se_DescribeCampaignCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class DescribeCampaignCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeCampaignCommand(input, context);
+    return se_DescribeCampaignCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCampaignCommandOutput> {
-    return deserializeAws_restJson1DescribeCampaignCommand(output, context);
+    return de_DescribeCampaignCommand(output, context);
   }
 
   // Start section: command_body_extra

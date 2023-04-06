@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { ReplicateKeyRequest, ReplicateKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ReplicateKeyCommand,
-  serializeAws_json1_1ReplicateKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ReplicateKeyCommand, se_ReplicateKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -310,14 +307,14 @@ export class ReplicateKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: ReplicateKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ReplicateKeyCommand(input, context);
+    return se_ReplicateKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReplicateKeyCommandOutput> {
-    return deserializeAws_json1_1ReplicateKeyCommand(output, context);
+    return de_ReplicateKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

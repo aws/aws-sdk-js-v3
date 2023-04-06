@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateImageVersionRequest, CreateImageVersionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateImageVersionCommand,
-  serializeAws_json1_1CreateImageVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateImageVersionCommand, se_CreateImageVersionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -143,14 +140,14 @@ export class CreateImageVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateImageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateImageVersionCommand(input, context);
+    return se_CreateImageVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImageVersionCommandOutput> {
-    return deserializeAws_json1_1CreateImageVersionCommand(output, context);
+    return de_CreateImageVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   GetDevicePositionHistoryResponse,
   GetDevicePositionHistoryResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDevicePositionHistoryCommand,
-  serializeAws_restJson1GetDevicePositionHistoryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDevicePositionHistoryCommand, se_GetDevicePositionHistoryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class GetDevicePositionHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDevicePositionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDevicePositionHistoryCommand(input, context);
+    return se_GetDevicePositionHistoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevicePositionHistoryCommandOutput> {
-    return deserializeAws_restJson1GetDevicePositionHistoryCommand(output, context);
+    return de_GetDevicePositionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

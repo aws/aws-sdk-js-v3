@@ -21,8 +21,8 @@ import {
   BatchDetectTargetedSentimentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchDetectTargetedSentimentCommand,
-  serializeAws_json1_1BatchDetectTargetedSentimentCommand,
+  de_BatchDetectTargetedSentimentCommand,
+  se_BatchDetectTargetedSentimentCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -152,7 +152,7 @@ export class BatchDetectTargetedSentimentCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchDetectTargetedSentimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDetectTargetedSentimentCommand(input, context);
+    return se_BatchDetectTargetedSentimentCommand(input, context);
   }
 
   /**
@@ -162,7 +162,7 @@ export class BatchDetectTargetedSentimentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDetectTargetedSentimentCommandOutput> {
-    return deserializeAws_json1_1BatchDetectTargetedSentimentCommand(output, context);
+    return de_BatchDetectTargetedSentimentCommand(output, context);
   }
 
   // Start section: command_body_extra

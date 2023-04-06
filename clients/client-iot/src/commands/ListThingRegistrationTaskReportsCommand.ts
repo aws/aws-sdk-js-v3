@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListThingRegistrationTaskReportsRequest, ListThingRegistrationTaskReportsResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1ListThingRegistrationTaskReportsCommand,
-  serializeAws_restJson1ListThingRegistrationTaskReportsCommand,
+  de_ListThingRegistrationTaskReportsCommand,
+  se_ListThingRegistrationTaskReportsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class ListThingRegistrationTaskReportsCommand extends $Command<
     input: ListThingRegistrationTaskReportsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListThingRegistrationTaskReportsCommand(input, context);
+    return se_ListThingRegistrationTaskReportsCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class ListThingRegistrationTaskReportsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListThingRegistrationTaskReportsCommandOutput> {
-    return deserializeAws_restJson1ListThingRegistrationTaskReportsCommand(output, context);
+    return de_ListThingRegistrationTaskReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

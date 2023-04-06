@@ -15,10 +15,7 @@ import {
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { DescribeNodegroupRequest, DescribeNodegroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeNodegroupCommand,
-  serializeAws_restJson1DescribeNodegroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeNodegroupCommand, se_DescribeNodegroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DescribeNodegroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeNodegroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeNodegroupCommand(input, context);
+    return se_DescribeNodegroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeNodegroupCommandOutput> {
-    return deserializeAws_restJson1DescribeNodegroupCommand(output, context);
+    return de_DescribeNodegroupCommand(output, context);
   }
 
   // Start section: command_body_extra

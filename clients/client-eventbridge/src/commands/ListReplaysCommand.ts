@@ -15,10 +15,7 @@ import {
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { ListReplaysRequest, ListReplaysResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListReplaysCommand,
-  serializeAws_json1_1ListReplaysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListReplaysCommand, se_ListReplaysCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class ListReplaysCommand extends $Command<
    * @internal
    */
   private serialize(input: ListReplaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReplaysCommand(input, context);
+    return se_ListReplaysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReplaysCommandOutput> {
-    return deserializeAws_json1_1ListReplaysCommand(output, context);
+    return de_ListReplaysCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeAccountAttributesRequest, DescribeAccountAttributesResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeAccountAttributesCommand,
-  serializeAws_ec2DescribeAccountAttributesCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeAccountAttributesCommand, se_DescribeAccountAttributesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -256,7 +253,7 @@ export class DescribeAccountAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAccountAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeAccountAttributesCommand(input, context);
+    return se_DescribeAccountAttributesCommand(input, context);
   }
 
   /**
@@ -266,7 +263,7 @@ export class DescribeAccountAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountAttributesCommandOutput> {
-    return deserializeAws_ec2DescribeAccountAttributesCommand(output, context);
+    return de_DescribeAccountAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

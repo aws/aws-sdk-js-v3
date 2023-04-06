@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateControlPanelRequest, UpdateControlPanelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateControlPanelCommand,
-  serializeAws_restJson1UpdateControlPanelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateControlPanelCommand, se_UpdateControlPanelCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -143,14 +140,14 @@ export class UpdateControlPanelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateControlPanelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateControlPanelCommand(input, context);
+    return se_UpdateControlPanelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateControlPanelCommandOutput> {
-    return deserializeAws_restJson1UpdateControlPanelCommand(output, context);
+    return de_UpdateControlPanelCommand(output, context);
   }
 
   // Start section: command_body_extra

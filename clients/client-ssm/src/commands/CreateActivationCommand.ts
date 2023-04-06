@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateActivationRequest, CreateActivationResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateActivationCommand,
-  serializeAws_json1_1CreateActivationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateActivationCommand, se_CreateActivationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -152,14 +149,14 @@ export class CreateActivationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateActivationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateActivationCommand(input, context);
+    return se_CreateActivationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateActivationCommandOutput> {
-    return deserializeAws_json1_1CreateActivationCommand(output, context);
+    return de_CreateActivationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetLensVersionDifferenceInput, GetLensVersionDifferenceOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetLensVersionDifferenceCommand,
-  serializeAws_restJson1GetLensVersionDifferenceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLensVersionDifferenceCommand, se_GetLensVersionDifferenceCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -137,14 +134,14 @@ export class GetLensVersionDifferenceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLensVersionDifferenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLensVersionDifferenceCommand(input, context);
+    return se_GetLensVersionDifferenceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLensVersionDifferenceCommandOutput> {
-    return deserializeAws_restJson1GetLensVersionDifferenceCommand(output, context);
+    return de_GetLensVersionDifferenceCommand(output, context);
   }
 
   // Start section: command_body_extra

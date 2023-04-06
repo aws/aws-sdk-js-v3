@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeActivityInput, DescribeActivityOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeActivityCommand,
-  serializeAws_json1_0DescribeActivityCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeActivityCommand, se_DescribeActivityCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -129,14 +126,14 @@ export class DescribeActivityCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeActivityCommand(input, context);
+    return se_DescribeActivityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActivityCommandOutput> {
-    return deserializeAws_json1_0DescribeActivityCommand(output, context);
+    return de_DescribeActivityCommand(output, context);
   }
 
   // Start section: command_body_extra

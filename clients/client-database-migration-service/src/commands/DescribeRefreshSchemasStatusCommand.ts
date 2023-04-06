@@ -20,8 +20,8 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import { DescribeRefreshSchemasStatusMessage, DescribeRefreshSchemasStatusResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeRefreshSchemasStatusCommand,
-  serializeAws_json1_1DescribeRefreshSchemasStatusCommand,
+  de_DescribeRefreshSchemasStatusCommand,
+  se_DescribeRefreshSchemasStatusCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRefreshSchemasStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRefreshSchemasStatusCommand(input, context);
+    return se_DescribeRefreshSchemasStatusCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeRefreshSchemasStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeRefreshSchemasStatusCommand(output, context);
+    return de_DescribeRefreshSchemasStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

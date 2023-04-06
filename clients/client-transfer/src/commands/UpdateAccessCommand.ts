@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateAccessRequest, UpdateAccessResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateAccessCommand,
-  serializeAws_json1_1UpdateAccessCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateAccessCommand, se_UpdateAccessCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -156,14 +153,14 @@ export class UpdateAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAccessCommand(input, context);
+    return se_UpdateAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccessCommandOutput> {
-    return deserializeAws_json1_1UpdateAccessCommand(output, context);
+    return de_UpdateAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

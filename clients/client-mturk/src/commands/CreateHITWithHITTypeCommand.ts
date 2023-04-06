@@ -15,10 +15,7 @@ import {
 
 import { CreateHITWithHITTypeRequest, CreateHITWithHITTypeResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1CreateHITWithHITTypeCommand,
-  serializeAws_json1_1CreateHITWithHITTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateHITWithHITTypeCommand, se_CreateHITWithHITTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -193,14 +190,14 @@ export class CreateHITWithHITTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateHITWithHITTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHITWithHITTypeCommand(input, context);
+    return se_CreateHITWithHITTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHITWithHITTypeCommandOutput> {
-    return deserializeAws_json1_1CreateHITWithHITTypeCommand(output, context);
+    return de_CreateHITWithHITTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

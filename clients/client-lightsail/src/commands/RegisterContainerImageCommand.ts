@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { RegisterContainerImageRequest, RegisterContainerImageResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1RegisterContainerImageCommand,
-  serializeAws_json1_1RegisterContainerImageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterContainerImageCommand, se_RegisterContainerImageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class RegisterContainerImageCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterContainerImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterContainerImageCommand(input, context);
+    return se_RegisterContainerImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterContainerImageCommandOutput> {
-    return deserializeAws_json1_1RegisterContainerImageCommand(output, context);
+    return de_RegisterContainerImageCommand(output, context);
   }
 
   // Start section: command_body_extra

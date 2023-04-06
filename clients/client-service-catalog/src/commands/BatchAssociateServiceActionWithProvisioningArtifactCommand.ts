@@ -18,8 +18,8 @@ import {
   BatchAssociateServiceActionWithProvisioningArtifactOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand,
-  serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand,
+  de_BatchAssociateServiceActionWithProvisioningArtifactCommand,
+  se_BatchAssociateServiceActionWithProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -145,7 +145,7 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
     input: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand(input, context);
+    return se_BatchAssociateServiceActionWithProvisioningArtifactCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand(output, context);
+    return de_BatchAssociateServiceActionWithProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

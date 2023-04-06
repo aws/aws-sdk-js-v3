@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_5";
-import {
-  deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
-  serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetAssociatedIpv6PoolCidrsCommand, se_GetAssociatedIpv6PoolCidrsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -123,7 +120,7 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAssociatedIpv6PoolCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(input, context);
+    return se_GetAssociatedIpv6PoolCidrsCommand(input, context);
   }
 
   /**
@@ -133,7 +130,7 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> {
-    return deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(output, context);
+    return de_GetAssociatedIpv6PoolCidrsCommand(output, context);
   }
 
   // Start section: command_body_extra

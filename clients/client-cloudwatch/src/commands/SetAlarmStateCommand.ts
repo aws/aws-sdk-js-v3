@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { SetAlarmStateInput } from "../models/models_0";
-import {
-  deserializeAws_querySetAlarmStateCommand,
-  serializeAws_querySetAlarmStateCommand,
-} from "../protocols/Aws_query";
+import { de_SetAlarmStateCommand, se_SetAlarmStateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class SetAlarmStateCommand extends $Command<
    * @internal
    */
   private serialize(input: SetAlarmStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetAlarmStateCommand(input, context);
+    return se_SetAlarmStateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetAlarmStateCommandOutput> {
-    return deserializeAws_querySetAlarmStateCommand(output, context);
+    return de_SetAlarmStateCommand(output, context);
   }
 
   // Start section: command_body_extra

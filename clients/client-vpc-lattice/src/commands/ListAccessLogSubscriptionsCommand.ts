@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAccessLogSubscriptionsRequest, ListAccessLogSubscriptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAccessLogSubscriptionsCommand,
-  serializeAws_restJson1ListAccessLogSubscriptionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAccessLogSubscriptionsCommand, se_ListAccessLogSubscriptionsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -132,7 +129,7 @@ export class ListAccessLogSubscriptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccessLogSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccessLogSubscriptionsCommand(input, context);
+    return se_ListAccessLogSubscriptionsCommand(input, context);
   }
 
   /**
@@ -142,7 +139,7 @@ export class ListAccessLogSubscriptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAccessLogSubscriptionsCommandOutput> {
-    return deserializeAws_restJson1ListAccessLogSubscriptionsCommand(output, context);
+    return de_ListAccessLogSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

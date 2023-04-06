@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisableDomainTransferLockRequest, DisableDomainTransferLockResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableDomainTransferLockCommand,
-  serializeAws_json1_1DisableDomainTransferLockCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableDomainTransferLockCommand, se_DisableDomainTransferLockCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
 /**
@@ -144,7 +141,7 @@ export class DisableDomainTransferLockCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableDomainTransferLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableDomainTransferLockCommand(input, context);
+    return se_DisableDomainTransferLockCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class DisableDomainTransferLockCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableDomainTransferLockCommandOutput> {
-    return deserializeAws_json1_1DisableDomainTransferLockCommand(output, context);
+    return de_DisableDomainTransferLockCommand(output, context);
   }
 
   // Start section: command_body_extra

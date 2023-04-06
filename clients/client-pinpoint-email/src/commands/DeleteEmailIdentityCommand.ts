@@ -15,10 +15,7 @@ import {
 
 import { DeleteEmailIdentityRequest, DeleteEmailIdentityResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import {
-  deserializeAws_restJson1DeleteEmailIdentityCommand,
-  serializeAws_restJson1DeleteEmailIdentityCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteEmailIdentityCommand, se_DeleteEmailIdentityCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteEmailIdentityCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEmailIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteEmailIdentityCommand(input, context);
+    return se_DeleteEmailIdentityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEmailIdentityCommandOutput> {
-    return deserializeAws_restJson1DeleteEmailIdentityCommand(output, context);
+    return de_DeleteEmailIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
 import { AssociateMemberAccountRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateMemberAccountCommand,
-  serializeAws_json1_1AssociateMemberAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateMemberAccountCommand, se_AssociateMemberAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class AssociateMemberAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateMemberAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateMemberAccountCommand(input, context);
+    return se_AssociateMemberAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMemberAccountCommandOutput> {
-    return deserializeAws_json1_1AssociateMemberAccountCommand(output, context);
+    return de_AssociateMemberAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { ListScramSecretsRequest, ListScramSecretsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListScramSecretsCommand,
-  serializeAws_restJson1ListScramSecretsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListScramSecretsCommand, se_ListScramSecretsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ListScramSecretsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListScramSecretsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListScramSecretsCommand(input, context);
+    return se_ListScramSecretsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListScramSecretsCommandOutput> {
-    return deserializeAws_restJson1ListScramSecretsCommand(output, context);
+    return de_ListScramSecretsCommand(output, context);
   }
 
   // Start section: command_body_extra

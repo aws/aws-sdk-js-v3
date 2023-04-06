@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { ListGrantsResponse, ListRetirableGrantsRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRetirableGrantsCommand,
-  serializeAws_json1_1ListRetirableGrantsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRetirableGrantsCommand, se_ListRetirableGrantsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -214,14 +211,14 @@ export class ListRetirableGrantsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRetirableGrantsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRetirableGrantsCommand(input, context);
+    return se_ListRetirableGrantsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRetirableGrantsCommandOutput> {
-    return deserializeAws_json1_1ListRetirableGrantsCommand(output, context);
+    return de_ListRetirableGrantsCommand(output, context);
   }
 
   // Start section: command_body_extra

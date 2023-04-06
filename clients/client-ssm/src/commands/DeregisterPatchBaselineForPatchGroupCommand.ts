@@ -18,8 +18,8 @@ import {
   DeregisterPatchBaselineForPatchGroupResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand,
-  serializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand,
+  de_DeregisterPatchBaselineForPatchGroupCommand,
+  se_DeregisterPatchBaselineForPatchGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -135,7 +135,7 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
     input: DeregisterPatchBaselineForPatchGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand(input, context);
+    return se_DeregisterPatchBaselineForPatchGroupCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput> {
-    return deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand(output, context);
+    return de_DeregisterPatchBaselineForPatchGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

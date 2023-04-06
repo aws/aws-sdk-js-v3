@@ -15,10 +15,7 @@ import {
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { GetDataSourceInput, GetDataSourceOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDataSourceCommand,
-  serializeAws_json1_1GetDataSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDataSourceCommand, se_GetDataSourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class GetDataSourceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDataSourceCommand(input, context);
+    return se_GetDataSourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSourceCommandOutput> {
-    return deserializeAws_json1_1GetDataSourceCommand(output, context);
+    return de_GetDataSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

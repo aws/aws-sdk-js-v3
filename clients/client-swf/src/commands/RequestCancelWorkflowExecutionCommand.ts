@@ -15,8 +15,8 @@ import {
 
 import { RequestCancelWorkflowExecutionInput } from "../models/models_0";
 import {
-  deserializeAws_json1_0RequestCancelWorkflowExecutionCommand,
-  serializeAws_json1_0RequestCancelWorkflowExecutionCommand,
+  de_RequestCancelWorkflowExecutionCommand,
+  se_RequestCancelWorkflowExecutionCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
@@ -169,7 +169,7 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
     input: RequestCancelWorkflowExecutionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0RequestCancelWorkflowExecutionCommand(input, context);
+    return se_RequestCancelWorkflowExecutionCommand(input, context);
   }
 
   /**
@@ -179,7 +179,7 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RequestCancelWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0RequestCancelWorkflowExecutionCommand(output, context);
+    return de_RequestCancelWorkflowExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

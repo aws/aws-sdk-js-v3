@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListInstanceProfilesRequest, ListInstanceProfilesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListInstanceProfilesCommand,
-  serializeAws_queryListInstanceProfilesCommand,
-} from "../protocols/Aws_query";
+import { de_ListInstanceProfilesCommand, se_ListInstanceProfilesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListInstanceProfilesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListInstanceProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListInstanceProfilesCommand(input, context);
+    return se_ListInstanceProfilesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstanceProfilesCommandOutput> {
-    return deserializeAws_queryListInstanceProfilesCommand(output, context);
+    return de_ListInstanceProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

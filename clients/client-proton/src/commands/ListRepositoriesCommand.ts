@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListRepositoriesInput, ListRepositoriesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListRepositoriesCommand,
-  serializeAws_json1_0ListRepositoriesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListRepositoriesCommand, se_ListRepositoriesCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -136,14 +133,14 @@ export class ListRepositoriesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListRepositoriesCommand(input, context);
+    return se_ListRepositoriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRepositoriesCommandOutput> {
-    return deserializeAws_json1_0ListRepositoriesCommand(output, context);
+    return de_ListRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

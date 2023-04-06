@@ -16,8 +16,8 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeletePendingAggregationRequestRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeletePendingAggregationRequestCommand,
-  serializeAws_json1_1DeletePendingAggregationRequestCommand,
+  de_DeletePendingAggregationRequestCommand,
+  se_DeletePendingAggregationRequestCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -129,7 +129,7 @@ export class DeletePendingAggregationRequestCommand extends $Command<
     input: DeletePendingAggregationRequestCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePendingAggregationRequestCommand(input, context);
+    return se_DeletePendingAggregationRequestCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class DeletePendingAggregationRequestCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePendingAggregationRequestCommandOutput> {
-    return deserializeAws_json1_1DeletePendingAggregationRequestCommand(output, context);
+    return de_DeletePendingAggregationRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

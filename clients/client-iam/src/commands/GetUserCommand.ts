@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetUserRequest, GetUserResponse } from "../models/models_0";
-import { deserializeAws_queryGetUserCommand, serializeAws_queryGetUserCommand } from "../protocols/Aws_query";
+import { de_GetUserCommand, se_GetUserCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -144,14 +144,14 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
    * @internal
    */
   private serialize(input: GetUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetUserCommand(input, context);
+    return se_GetUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserCommandOutput> {
-    return deserializeAws_queryGetUserCommand(output, context);
+    return de_GetUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 
 import { PutBucketAccelerateConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlPutBucketAccelerateConfigurationCommand,
-  serializeAws_restXmlPutBucketAccelerateConfigurationCommand,
+  de_PutBucketAccelerateConfigurationCommand,
+  se_PutBucketAccelerateConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -180,7 +180,7 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     input: PutBucketAccelerateConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutBucketAccelerateConfigurationCommand(input, context);
+    return se_PutBucketAccelerateConfigurationCommand(input, context);
   }
 
   /**
@@ -190,7 +190,7 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutBucketAccelerateConfigurationCommandOutput> {
-    return deserializeAws_restXmlPutBucketAccelerateConfigurationCommand(output, context);
+    return de_PutBucketAccelerateConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

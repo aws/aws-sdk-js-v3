@@ -15,10 +15,7 @@ import {
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { CreateMountTargetRequest, MountTargetDescription } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMountTargetCommand,
-  serializeAws_restJson1CreateMountTargetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMountTargetCommand, se_CreateMountTargetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -341,14 +338,14 @@ export class CreateMountTargetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMountTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMountTargetCommand(input, context);
+    return se_CreateMountTargetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMountTargetCommandOutput> {
-    return deserializeAws_restJson1CreateMountTargetCommand(output, context);
+    return de_CreateMountTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

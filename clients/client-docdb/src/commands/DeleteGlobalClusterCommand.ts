@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteGlobalClusterCommand,
-  serializeAws_queryDeleteGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteGlobalClusterCommand, se_DeleteGlobalClusterCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteGlobalClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteGlobalClusterCommand(input, context);
+    return se_DeleteGlobalClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGlobalClusterCommandOutput> {
-    return deserializeAws_queryDeleteGlobalClusterCommand(output, context);
+    return de_DeleteGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

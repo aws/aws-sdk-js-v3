@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { UpdateModelManifestRequest, UpdateModelManifestResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateModelManifestCommand,
-  serializeAws_json1_0UpdateModelManifestCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateModelManifestCommand, se_UpdateModelManifestCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class UpdateModelManifestCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateModelManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateModelManifestCommand(input, context);
+    return se_UpdateModelManifestCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelManifestCommandOutput> {
-    return deserializeAws_json1_0UpdateModelManifestCommand(output, context);
+    return de_UpdateModelManifestCommand(output, context);
   }
 
   // Start section: command_body_extra

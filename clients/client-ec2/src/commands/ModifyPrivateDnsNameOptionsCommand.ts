@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyPrivateDnsNameOptionsRequest, ModifyPrivateDnsNameOptionsResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyPrivateDnsNameOptionsCommand,
-  serializeAws_ec2ModifyPrivateDnsNameOptionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyPrivateDnsNameOptionsCommand, se_ModifyPrivateDnsNameOptionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class ModifyPrivateDnsNameOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyPrivateDnsNameOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyPrivateDnsNameOptionsCommand(input, context);
+    return se_ModifyPrivateDnsNameOptionsCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class ModifyPrivateDnsNameOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyPrivateDnsNameOptionsCommandOutput> {
-    return deserializeAws_ec2ModifyPrivateDnsNameOptionsCommand(output, context);
+    return de_ModifyPrivateDnsNameOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

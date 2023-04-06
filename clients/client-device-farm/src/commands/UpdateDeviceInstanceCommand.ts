@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { UpdateDeviceInstanceRequest, UpdateDeviceInstanceResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDeviceInstanceCommand,
-  serializeAws_json1_1UpdateDeviceInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDeviceInstanceCommand, se_UpdateDeviceInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class UpdateDeviceInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDeviceInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDeviceInstanceCommand(input, context);
+    return se_UpdateDeviceInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceInstanceCommandOutput> {
-    return deserializeAws_json1_1UpdateDeviceInstanceCommand(output, context);
+    return de_UpdateDeviceInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

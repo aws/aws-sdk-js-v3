@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { StartRemediationExecutionRequest, StartRemediationExecutionResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1StartRemediationExecutionCommand,
-  serializeAws_json1_1StartRemediationExecutionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartRemediationExecutionCommand, se_StartRemediationExecutionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -159,7 +156,7 @@ export class StartRemediationExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartRemediationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartRemediationExecutionCommand(input, context);
+    return se_StartRemediationExecutionCommand(input, context);
   }
 
   /**
@@ -169,7 +166,7 @@ export class StartRemediationExecutionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartRemediationExecutionCommandOutput> {
-    return deserializeAws_json1_1StartRemediationExecutionCommand(output, context);
+    return de_StartRemediationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { GetSolFunctionPackageContentInput, GetSolFunctionPackageContentOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetSolFunctionPackageContentCommand,
-  serializeAws_restJson1GetSolFunctionPackageContentCommand,
+  de_GetSolFunctionPackageContentCommand,
+  se_GetSolFunctionPackageContentCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
@@ -139,7 +139,7 @@ export class GetSolFunctionPackageContentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSolFunctionPackageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSolFunctionPackageContentCommand(input, context);
+    return se_GetSolFunctionPackageContentCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class GetSolFunctionPackageContentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSolFunctionPackageContentCommandOutput> {
-    return deserializeAws_restJson1GetSolFunctionPackageContentCommand(output, context);
+    return de_GetSolFunctionPackageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

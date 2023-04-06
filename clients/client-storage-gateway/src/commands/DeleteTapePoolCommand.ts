@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTapePoolInput, DeleteTapePoolOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTapePoolCommand,
-  serializeAws_json1_1DeleteTapePoolCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTapePoolCommand, se_DeleteTapePoolCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -130,14 +127,14 @@ export class DeleteTapePoolCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTapePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTapePoolCommand(input, context);
+    return se_DeleteTapePoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTapePoolCommandOutput> {
-    return deserializeAws_json1_1DeleteTapePoolCommand(output, context);
+    return de_DeleteTapePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

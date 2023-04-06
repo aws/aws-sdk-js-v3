@@ -16,8 +16,8 @@ import {
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult } from "../models/models_0";
 import {
-  deserializeAws_queryAddSourceIdentifierToSubscriptionCommand,
-  serializeAws_queryAddSourceIdentifierToSubscriptionCommand,
+  de_AddSourceIdentifierToSubscriptionCommand,
+  se_AddSourceIdentifierToSubscriptionCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -133,7 +133,7 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     input: AddSourceIdentifierToSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryAddSourceIdentifierToSubscriptionCommand(input, context);
+    return se_AddSourceIdentifierToSubscriptionCommand(input, context);
   }
 
   /**
@@ -143,7 +143,7 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> {
-    return deserializeAws_queryAddSourceIdentifierToSubscriptionCommand(output, context);
+    return de_AddSourceIdentifierToSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

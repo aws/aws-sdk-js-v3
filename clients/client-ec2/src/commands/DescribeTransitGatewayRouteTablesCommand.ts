@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeTransitGatewayRouteTablesRequest, DescribeTransitGatewayRouteTablesResult } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeTransitGatewayRouteTablesCommand,
-  serializeAws_ec2DescribeTransitGatewayRouteTablesCommand,
+  de_DescribeTransitGatewayRouteTablesCommand,
+  se_DescribeTransitGatewayRouteTablesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -139,7 +139,7 @@ export class DescribeTransitGatewayRouteTablesCommand extends $Command<
     input: DescribeTransitGatewayRouteTablesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeTransitGatewayRouteTablesCommand(input, context);
+    return se_DescribeTransitGatewayRouteTablesCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DescribeTransitGatewayRouteTablesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTransitGatewayRouteTablesCommandOutput> {
-    return deserializeAws_ec2DescribeTransitGatewayRouteTablesCommand(output, context);
+    return de_DescribeTransitGatewayRouteTablesCommand(output, context);
   }
 
   // Start section: command_body_extra

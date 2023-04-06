@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteMessageBatchRequest, DeleteMessageBatchResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteMessageBatchCommand,
-  serializeAws_queryDeleteMessageBatchCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteMessageBatchCommand, se_DeleteMessageBatchCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -149,14 +146,14 @@ export class DeleteMessageBatchCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMessageBatchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteMessageBatchCommand(input, context);
+    return se_DeleteMessageBatchCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMessageBatchCommandOutput> {
-    return deserializeAws_queryDeleteMessageBatchCommand(output, context);
+    return de_DeleteMessageBatchCommand(output, context);
   }
 
   // Start section: command_body_extra

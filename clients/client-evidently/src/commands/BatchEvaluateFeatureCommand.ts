@@ -15,10 +15,7 @@ import {
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import { BatchEvaluateFeatureRequest, BatchEvaluateFeatureResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchEvaluateFeatureCommand,
-  serializeAws_restJson1BatchEvaluateFeatureCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchEvaluateFeatureCommand, se_BatchEvaluateFeatureCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class BatchEvaluateFeatureCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchEvaluateFeatureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchEvaluateFeatureCommand(input, context);
+    return se_BatchEvaluateFeatureCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchEvaluateFeatureCommandOutput> {
-    return deserializeAws_restJson1BatchEvaluateFeatureCommand(output, context);
+    return de_BatchEvaluateFeatureCommand(output, context);
   }
 
   // Start section: command_body_extra

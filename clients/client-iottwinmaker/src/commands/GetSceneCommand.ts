@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { GetSceneRequest, GetSceneResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSceneCommand,
-  serializeAws_restJson1GetSceneCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSceneCommand, se_GetSceneCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetSceneCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSceneCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSceneCommand(input, context);
+    return se_GetSceneCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSceneCommandOutput> {
-    return deserializeAws_restJson1GetSceneCommand(output, context);
+    return de_GetSceneCommand(output, context);
   }
 
   // Start section: command_body_extra

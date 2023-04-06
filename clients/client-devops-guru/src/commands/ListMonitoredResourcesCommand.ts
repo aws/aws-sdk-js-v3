@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { ListMonitoredResourcesRequest, ListMonitoredResourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListMonitoredResourcesCommand,
-  serializeAws_restJson1ListMonitoredResourcesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListMonitoredResourcesCommand, se_ListMonitoredResourcesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class ListMonitoredResourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMonitoredResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMonitoredResourcesCommand(input, context);
+    return se_ListMonitoredResourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMonitoredResourcesCommandOutput> {
-    return deserializeAws_restJson1ListMonitoredResourcesCommand(output, context);
+    return de_ListMonitoredResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

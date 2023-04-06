@@ -16,8 +16,8 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { AssociateContactWithAddressBookRequest, AssociateContactWithAddressBookResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateContactWithAddressBookCommand,
-  serializeAws_json1_1AssociateContactWithAddressBookCommand,
+  de_AssociateContactWithAddressBookCommand,
+  se_AssociateContactWithAddressBookCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -129,7 +129,7 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     input: AssociateContactWithAddressBookCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateContactWithAddressBookCommand(input, context);
+    return se_AssociateContactWithAddressBookCommand(input, context);
   }
 
   /**
@@ -139,7 +139,7 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateContactWithAddressBookCommandOutput> {
-    return deserializeAws_json1_1AssociateContactWithAddressBookCommand(output, context);
+    return de_AssociateContactWithAddressBookCommand(output, context);
   }
 
   // Start section: command_body_extra

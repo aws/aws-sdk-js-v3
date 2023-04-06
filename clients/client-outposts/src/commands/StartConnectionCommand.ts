@@ -15,10 +15,7 @@ import {
 
 import { StartConnectionRequest, StartConnectionResponse } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1StartConnectionCommand,
-  serializeAws_restJson1StartConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartConnectionCommand, se_StartConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class StartConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartConnectionCommand(input, context);
+    return se_StartConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartConnectionCommandOutput> {
-    return deserializeAws_restJson1StartConnectionCommand(output, context);
+    return de_StartConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

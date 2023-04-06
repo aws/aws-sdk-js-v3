@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteClusterRequest, DeleteClusterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteClusterCommand,
-  serializeAws_restJson1DeleteClusterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteClusterCommand, se_DeleteClusterCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
@@ -140,14 +137,14 @@ export class DeleteClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteClusterCommand(input, context);
+    return se_DeleteClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
-    return deserializeAws_restJson1DeleteClusterCommand(output, context);
+    return de_DeleteClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

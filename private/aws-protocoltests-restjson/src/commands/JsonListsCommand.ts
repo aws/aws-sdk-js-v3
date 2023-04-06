@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonListsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1JsonListsCommand,
-  serializeAws_restJson1JsonListsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_JsonListsCommand, se_JsonListsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -147,14 +144,14 @@ export class JsonListsCommand extends $Command<
    * @internal
    */
   private serialize(input: JsonListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1JsonListsCommand(input, context);
+    return se_JsonListsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonListsCommandOutput> {
-    return deserializeAws_restJson1JsonListsCommand(output, context);
+    return de_JsonListsCommand(output, context);
   }
 
   // Start section: command_body_extra

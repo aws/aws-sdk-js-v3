@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteAccessKeyRequest } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteAccessKeyCommand,
-  serializeAws_queryDeleteAccessKeyCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteAccessKeyCommand, se_DeleteAccessKeyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class DeleteAccessKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccessKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAccessKeyCommand(input, context);
+    return se_DeleteAccessKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccessKeyCommandOutput> {
-    return deserializeAws_queryDeleteAccessKeyCommand(output, context);
+    return de_DeleteAccessKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

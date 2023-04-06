@@ -15,7 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { RunTaskRequest, RunTaskResponse } from "../models/models_0";
-import { deserializeAws_json1_1RunTaskCommand, serializeAws_json1_1RunTaskCommand } from "../protocols/Aws_json1_1";
+import { de_RunTaskCommand, se_RunTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -303,14 +303,14 @@ export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommand
    * @internal
    */
   private serialize(input: RunTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RunTaskCommand(input, context);
+    return se_RunTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunTaskCommandOutput> {
-    return deserializeAws_json1_1RunTaskCommand(output, context);
+    return de_RunTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

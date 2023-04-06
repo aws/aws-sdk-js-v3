@@ -15,10 +15,7 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { BatchGetSchemaInput, BatchGetSchemaOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetSchemaCommand,
-  serializeAws_restJson1BatchGetSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetSchemaCommand, se_BatchGetSchemaCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class BatchGetSchemaCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetSchemaCommand(input, context);
+    return se_BatchGetSchemaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetSchemaCommandOutput> {
-    return deserializeAws_restJson1BatchGetSchemaCommand(output, context);
+    return de_BatchGetSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

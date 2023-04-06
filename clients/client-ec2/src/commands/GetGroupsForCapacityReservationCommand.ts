@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetGroupsForCapacityReservationRequest, GetGroupsForCapacityReservationResult } from "../models/models_5";
 import {
-  deserializeAws_ec2GetGroupsForCapacityReservationCommand,
-  serializeAws_ec2GetGroupsForCapacityReservationCommand,
+  de_GetGroupsForCapacityReservationCommand,
+  se_GetGroupsForCapacityReservationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -128,7 +128,7 @@ export class GetGroupsForCapacityReservationCommand extends $Command<
     input: GetGroupsForCapacityReservationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetGroupsForCapacityReservationCommand(input, context);
+    return se_GetGroupsForCapacityReservationCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class GetGroupsForCapacityReservationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetGroupsForCapacityReservationCommandOutput> {
-    return deserializeAws_ec2GetGroupsForCapacityReservationCommand(output, context);
+    return de_GetGroupsForCapacityReservationCommand(output, context);
   }
 
   // Start section: command_body_extra

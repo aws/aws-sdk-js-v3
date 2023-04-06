@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateDimensionRequest, CreateDimensionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDimensionCommand,
-  serializeAws_restJson1CreateDimensionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDimensionCommand, se_CreateDimensionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class CreateDimensionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDimensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDimensionCommand(input, context);
+    return se_CreateDimensionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDimensionCommandOutput> {
-    return deserializeAws_restJson1CreateDimensionCommand(output, context);
+    return de_CreateDimensionCommand(output, context);
   }
 
   // Start section: command_body_extra

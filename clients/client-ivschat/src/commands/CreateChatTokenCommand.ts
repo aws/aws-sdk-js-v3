@@ -15,10 +15,7 @@ import {
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
 import { CreateChatTokenRequest, CreateChatTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateChatTokenCommand,
-  serializeAws_restJson1CreateChatTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateChatTokenCommand, se_CreateChatTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CreateChatTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateChatTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateChatTokenCommand(input, context);
+    return se_CreateChatTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateChatTokenCommandOutput> {
-    return deserializeAws_restJson1CreateChatTokenCommand(output, context);
+    return de_CreateChatTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

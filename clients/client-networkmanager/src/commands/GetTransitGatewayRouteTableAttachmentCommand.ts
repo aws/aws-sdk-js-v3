@@ -19,8 +19,8 @@ import {
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand,
-  serializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand,
+  de_GetTransitGatewayRouteTableAttachmentCommand,
+  se_GetTransitGatewayRouteTableAttachmentCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
     input: GetTransitGatewayRouteTableAttachmentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand(input, context);
+    return se_GetTransitGatewayRouteTableAttachmentCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayRouteTableAttachmentCommandOutput> {
-    return deserializeAws_restJson1GetTransitGatewayRouteTableAttachmentCommand(output, context);
+    return de_GetTransitGatewayRouteTableAttachmentCommand(output, context);
   }
 
   // Start section: command_body_extra

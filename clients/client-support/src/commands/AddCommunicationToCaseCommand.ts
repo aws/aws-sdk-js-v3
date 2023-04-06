@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AddCommunicationToCaseRequest, AddCommunicationToCaseResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddCommunicationToCaseCommand,
-  serializeAws_json1_1AddCommunicationToCaseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AddCommunicationToCaseCommand, se_AddCommunicationToCaseCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -156,14 +153,14 @@ export class AddCommunicationToCaseCommand extends $Command<
    * @internal
    */
   private serialize(input: AddCommunicationToCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddCommunicationToCaseCommand(input, context);
+    return se_AddCommunicationToCaseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddCommunicationToCaseCommandOutput> {
-    return deserializeAws_json1_1AddCommunicationToCaseCommand(output, context);
+    return de_AddCommunicationToCaseCommand(output, context);
   }
 
   // Start section: command_body_extra

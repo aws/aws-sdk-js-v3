@@ -20,8 +20,8 @@ import {
   GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand,
-  serializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand,
+  de_GetVpnConnectionDeviceSampleConfigurationCommand,
+  se_GetVpnConnectionDeviceSampleConfigurationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -140,7 +140,7 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
     input: GetVpnConnectionDeviceSampleConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand(input, context);
+    return se_GetVpnConnectionDeviceSampleConfigurationCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVpnConnectionDeviceSampleConfigurationCommandOutput> {
-    return deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand(output, context);
+    return de_GetVpnConnectionDeviceSampleConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

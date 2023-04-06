@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutLoggingConfigurationRequest, PutLoggingConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutLoggingConfigurationCommand,
-  serializeAws_json1_1PutLoggingConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutLoggingConfigurationCommand, se_PutLoggingConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -168,14 +165,14 @@ export class PutLoggingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutLoggingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutLoggingConfigurationCommand(input, context);
+    return se_PutLoggingConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLoggingConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutLoggingConfigurationCommand(output, context);
+    return de_PutLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DeleteSequenceStoreRequest, DeleteSequenceStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1DeleteSequenceStoreCommand,
-  serializeAws_restJson1DeleteSequenceStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSequenceStoreCommand, se_DeleteSequenceStoreCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteSequenceStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSequenceStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSequenceStoreCommand(input, context);
+    return se_DeleteSequenceStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSequenceStoreCommandOutput> {
-    return deserializeAws_restJson1DeleteSequenceStoreCommand(output, context);
+    return de_DeleteSequenceStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

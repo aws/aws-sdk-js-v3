@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopEngagementRequest, StopEngagementResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopEngagementCommand,
-  serializeAws_json1_1StopEngagementCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopEngagementCommand, se_StopEngagementCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -138,14 +135,14 @@ export class StopEngagementCommand extends $Command<
    * @internal
    */
   private serialize(input: StopEngagementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopEngagementCommand(input, context);
+    return se_StopEngagementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEngagementCommandOutput> {
-    return deserializeAws_json1_1StopEngagementCommand(output, context);
+    return de_StopEngagementCommand(output, context);
   }
 
   // Start section: command_body_extra

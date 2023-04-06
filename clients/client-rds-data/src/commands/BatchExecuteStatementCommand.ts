@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchExecuteStatementRequest, BatchExecuteStatementResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchExecuteStatementCommand,
-  serializeAws_restJson1BatchExecuteStatementCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchExecuteStatementCommand, se_BatchExecuteStatementCommand } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
@@ -206,14 +203,14 @@ export class BatchExecuteStatementCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchExecuteStatementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchExecuteStatementCommand(input, context);
+    return se_BatchExecuteStatementCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchExecuteStatementCommandOutput> {
-    return deserializeAws_restJson1BatchExecuteStatementCommand(output, context);
+    return de_BatchExecuteStatementCommand(output, context);
   }
 
   // Start section: command_body_extra

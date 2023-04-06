@@ -28,7 +28,10 @@ import {
 } from "../models/models_0";
 import { PersonalizeEventsServiceException as __BaseException } from "../models/PersonalizeEventsServiceException";
 
-export const serializeAws_restJson1PutEventsCommand = async (
+/**
+ * serializeAws_restJson1PutEventsCommand
+ */
+export const se_PutEventsCommand = async (
   input: PutEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -39,7 +42,7 @@ export const serializeAws_restJson1PutEventsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events";
   let body: any;
   body = JSON.stringify({
-    ...(input.eventList != null && { eventList: serializeAws_restJson1EventList(input.eventList, context) }),
+    ...(input.eventList != null && { eventList: se_EventList(input.eventList, context) }),
     ...(input.sessionId != null && { sessionId: input.sessionId }),
     ...(input.trackingId != null && { trackingId: input.trackingId }),
     ...(input.userId != null && { userId: input.userId }),
@@ -55,7 +58,10 @@ export const serializeAws_restJson1PutEventsCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutItemsCommand = async (
+/**
+ * serializeAws_restJson1PutItemsCommand
+ */
+export const se_PutItemsCommand = async (
   input: PutItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -67,7 +73,7 @@ export const serializeAws_restJson1PutItemsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.datasetArn != null && { datasetArn: input.datasetArn }),
-    ...(input.items != null && { items: serializeAws_restJson1ItemList(input.items, context) }),
+    ...(input.items != null && { items: se_ItemList(input.items, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -80,7 +86,10 @@ export const serializeAws_restJson1PutItemsCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutUsersCommand = async (
+/**
+ * serializeAws_restJson1PutUsersCommand
+ */
+export const se_PutUsersCommand = async (
   input: PutUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -92,7 +101,7 @@ export const serializeAws_restJson1PutUsersCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.datasetArn != null && { datasetArn: input.datasetArn }),
-    ...(input.users != null && { users: serializeAws_restJson1UserList(input.users, context) }),
+    ...(input.users != null && { users: se_UserList(input.users, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -105,12 +114,15 @@ export const serializeAws_restJson1PutUsersCommand = async (
   });
 };
 
-export const deserializeAws_restJson1PutEventsCommand = async (
+/**
+ * deserializeAws_restJson1PutEventsCommand
+ */
+export const de_PutEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutEventsCommandError(output, context);
+    return de_PutEventsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -119,7 +131,10 @@ export const deserializeAws_restJson1PutEventsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutEventsCommandError = async (
+/**
+ * deserializeAws_restJson1PutEventsCommandError
+ */
+const de_PutEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventsCommandOutput> => {
@@ -131,7 +146,7 @@ const deserializeAws_restJson1PutEventsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalizeevents#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -143,12 +158,15 @@ const deserializeAws_restJson1PutEventsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutItemsCommand = async (
+/**
+ * deserializeAws_restJson1PutItemsCommand
+ */
+export const de_PutItemsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutItemsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutItemsCommandError(output, context);
+    return de_PutItemsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -157,7 +175,10 @@ export const deserializeAws_restJson1PutItemsCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutItemsCommandError = async (
+/**
+ * deserializeAws_restJson1PutItemsCommandError
+ */
+const de_PutItemsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutItemsCommandOutput> => {
@@ -169,13 +190,13 @@ const deserializeAws_restJson1PutItemsCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalizeevents#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalizeevents#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalizeevents#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -187,12 +208,15 @@ const deserializeAws_restJson1PutItemsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1PutUsersCommand = async (
+/**
+ * deserializeAws_restJson1PutUsersCommand
+ */
+export const de_PutUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutUsersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutUsersCommandError(output, context);
+    return de_PutUsersCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -201,7 +225,10 @@ export const deserializeAws_restJson1PutUsersCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1PutUsersCommandError = async (
+/**
+ * deserializeAws_restJson1PutUsersCommandError
+ */
+const de_PutUsersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutUsersCommandOutput> => {
@@ -213,13 +240,13 @@ const deserializeAws_restJson1PutUsersCommandError = async (
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalizeevents#InvalidInputException":
-      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalizeevents#ResourceInUseException":
-      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalizeevents#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -232,7 +259,10 @@ const deserializeAws_restJson1PutUsersCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1InvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
@@ -248,7 +278,10 @@ const deserializeAws_restJson1InvalidInputExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
@@ -264,7 +297,10 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -280,15 +316,18 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Event
+ */
+const se_Event = (input: Event, context: __SerdeContext): any => {
   return {
     ...(input.eventId != null && { eventId: input.eventId }),
     ...(input.eventType != null && { eventType: input.eventType }),
     ...(input.eventValue != null && { eventValue: __serializeFloat(input.eventValue) }),
-    ...(input.impression != null && { impression: serializeAws_restJson1Impression(input.impression, context) }),
+    ...(input.impression != null && { impression: se_Impression(input.impression, context) }),
     ...(input.itemId != null && { itemId: input.itemId }),
     ...(input.metricAttribution != null && {
-      metricAttribution: serializeAws_restJson1MetricAttribution(input.metricAttribution, context),
+      metricAttribution: se_MetricAttribution(input.metricAttribution, context),
     }),
     ...(input.properties != null && { properties: __LazyJsonString.fromObject(input.properties) }),
     ...(input.recommendationId != null && { recommendationId: input.recommendationId }),
@@ -296,15 +335,21 @@ const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any
   };
 };
 
-const serializeAws_restJson1EventList = (input: Event[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EventList
+ */
+const se_EventList = (input: Event[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Event(entry, context);
+      return se_Event(entry, context);
     });
 };
 
-const serializeAws_restJson1Impression = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Impression
+ */
+const se_Impression = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -312,39 +357,54 @@ const serializeAws_restJson1Impression = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1Item = (input: Item, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Item
+ */
+const se_Item = (input: Item, context: __SerdeContext): any => {
   return {
     ...(input.itemId != null && { itemId: input.itemId }),
     ...(input.properties != null && { properties: __LazyJsonString.fromObject(input.properties) }),
   };
 };
 
-const serializeAws_restJson1ItemList = (input: Item[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ItemList
+ */
+const se_ItemList = (input: Item[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Item(entry, context);
+      return se_Item(entry, context);
     });
 };
 
-const serializeAws_restJson1MetricAttribution = (input: MetricAttribution, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1MetricAttribution
+ */
+const se_MetricAttribution = (input: MetricAttribution, context: __SerdeContext): any => {
   return {
     ...(input.eventAttributionSource != null && { eventAttributionSource: input.eventAttributionSource }),
   };
 };
 
-const serializeAws_restJson1User = (input: User, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1User
+ */
+const se_User = (input: User, context: __SerdeContext): any => {
   return {
     ...(input.properties != null && { properties: __LazyJsonString.fromObject(input.properties) }),
     ...(input.userId != null && { userId: input.userId }),
   };
 };
 
-const serializeAws_restJson1UserList = (input: User[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1UserList
+ */
+const se_UserList = (input: User[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1User(entry, context);
+      return se_User(entry, context);
     });
 };
 

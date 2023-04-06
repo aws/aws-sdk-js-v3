@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { ContainerServicesListResult, GetContainerServicesRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetContainerServicesCommand,
-  serializeAws_json1_1GetContainerServicesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetContainerServicesCommand, se_GetContainerServicesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetContainerServicesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetContainerServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContainerServicesCommand(input, context);
+    return se_GetContainerServicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetContainerServicesCommandOutput> {
-    return deserializeAws_json1_1GetContainerServicesCommand(output, context);
+    return de_GetContainerServicesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DescribeExportTasksRequest, DescribeExportTasksResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeExportTasksCommand,
-  serializeAws_json1_1DescribeExportTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeExportTasksCommand, se_DescribeExportTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DescribeExportTasksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeExportTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExportTasksCommand(input, context);
+    return se_DescribeExportTasksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExportTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeExportTasksCommand(output, context);
+    return de_DescribeExportTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

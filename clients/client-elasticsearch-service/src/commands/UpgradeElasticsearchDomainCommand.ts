@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import { UpgradeElasticsearchDomainRequest, UpgradeElasticsearchDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpgradeElasticsearchDomainCommand,
-  serializeAws_restJson1UpgradeElasticsearchDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpgradeElasticsearchDomainCommand, se_UpgradeElasticsearchDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class UpgradeElasticsearchDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: UpgradeElasticsearchDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpgradeElasticsearchDomainCommand(input, context);
+    return se_UpgradeElasticsearchDomainCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class UpgradeElasticsearchDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpgradeElasticsearchDomainCommandOutput> {
-    return deserializeAws_restJson1UpgradeElasticsearchDomainCommand(output, context);
+    return de_UpgradeElasticsearchDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

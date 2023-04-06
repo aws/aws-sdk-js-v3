@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteNatGatewayRequest, DeleteNatGatewayResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteNatGatewayCommand,
-  serializeAws_ec2DeleteNatGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteNatGatewayCommand, se_DeleteNatGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteNatGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNatGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteNatGatewayCommand(input, context);
+    return se_DeleteNatGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNatGatewayCommandOutput> {
-    return deserializeAws_ec2DeleteNatGatewayCommand(output, context);
+    return de_DeleteNatGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

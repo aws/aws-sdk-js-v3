@@ -15,7 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { StopTaskRequest, StopTaskResponse } from "../models/models_0";
-import { deserializeAws_json1_1StopTaskCommand, serializeAws_json1_1StopTaskCommand } from "../protocols/Aws_json1_1";
+import { de_StopTaskCommand, se_StopTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +140,14 @@ export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskComm
    * @internal
    */
   private serialize(input: StopTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopTaskCommand(input, context);
+    return se_StopTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTaskCommandOutput> {
-    return deserializeAws_json1_1StopTaskCommand(output, context);
+    return de_StopTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

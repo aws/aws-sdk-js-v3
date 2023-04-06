@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteClusterSecurityGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteClusterSecurityGroupCommand,
-  serializeAws_queryDeleteClusterSecurityGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteClusterSecurityGroupCommand, se_DeleteClusterSecurityGroupCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -135,7 +132,7 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteClusterSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteClusterSecurityGroupCommand(input, context);
+    return se_DeleteClusterSecurityGroupCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteClusterSecurityGroupCommandOutput> {
-    return deserializeAws_queryDeleteClusterSecurityGroupCommand(output, context);
+    return de_DeleteClusterSecurityGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

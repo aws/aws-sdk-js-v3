@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAccountLimitRequest, GetAccountLimitResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetAccountLimitCommand,
-  serializeAws_restXmlGetAccountLimitCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetAccountLimitCommand, se_GetAccountLimitCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -131,14 +128,14 @@ export class GetAccountLimitCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccountLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetAccountLimitCommand(input, context);
+    return se_GetAccountLimitCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountLimitCommandOutput> {
-    return deserializeAws_restXmlGetAccountLimitCommand(output, context);
+    return de_GetAccountLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

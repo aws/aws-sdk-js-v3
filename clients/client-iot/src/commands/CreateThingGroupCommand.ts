@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateThingGroupRequest, CreateThingGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateThingGroupCommand,
-  serializeAws_restJson1CreateThingGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateThingGroupCommand, se_CreateThingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class CreateThingGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateThingGroupCommand(input, context);
+    return se_CreateThingGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThingGroupCommandOutput> {
-    return deserializeAws_restJson1CreateThingGroupCommand(output, context);
+    return de_CreateThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

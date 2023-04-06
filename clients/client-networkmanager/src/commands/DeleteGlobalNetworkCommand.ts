@@ -15,10 +15,7 @@ import {
 
 import { DeleteGlobalNetworkRequest, DeleteGlobalNetworkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DeleteGlobalNetworkCommand,
-  serializeAws_restJson1DeleteGlobalNetworkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteGlobalNetworkCommand, se_DeleteGlobalNetworkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DeleteGlobalNetworkCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteGlobalNetworkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteGlobalNetworkCommand(input, context);
+    return se_DeleteGlobalNetworkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGlobalNetworkCommandOutput> {
-    return deserializeAws_restJson1DeleteGlobalNetworkCommand(output, context);
+    return de_DeleteGlobalNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

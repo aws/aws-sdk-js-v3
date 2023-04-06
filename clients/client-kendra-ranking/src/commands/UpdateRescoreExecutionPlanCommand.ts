@@ -15,10 +15,7 @@ import {
 
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
 import { UpdateRescoreExecutionPlanRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateRescoreExecutionPlanCommand,
-  serializeAws_json1_0UpdateRescoreExecutionPlanCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateRescoreExecutionPlanCommand, se_UpdateRescoreExecutionPlanCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -166,7 +163,7 @@ export class UpdateRescoreExecutionPlanCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRescoreExecutionPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateRescoreExecutionPlanCommand(input, context);
+    return se_UpdateRescoreExecutionPlanCommand(input, context);
   }
 
   /**
@@ -176,7 +173,7 @@ export class UpdateRescoreExecutionPlanCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateRescoreExecutionPlanCommandOutput> {
-    return deserializeAws_json1_0UpdateRescoreExecutionPlanCommand(output, context);
+    return de_UpdateRescoreExecutionPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

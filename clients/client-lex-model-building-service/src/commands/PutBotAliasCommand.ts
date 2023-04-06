@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { PutBotAliasRequest, PutBotAliasResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutBotAliasCommand,
-  serializeAws_restJson1PutBotAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutBotAliasCommand, se_PutBotAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -168,14 +165,14 @@ export class PutBotAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: PutBotAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutBotAliasCommand(input, context);
+    return se_PutBotAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBotAliasCommandOutput> {
-    return deserializeAws_restJson1PutBotAliasCommand(output, context);
+    return de_PutBotAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

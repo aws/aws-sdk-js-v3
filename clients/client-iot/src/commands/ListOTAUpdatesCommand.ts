@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListOTAUpdatesRequest, ListOTAUpdatesResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListOTAUpdatesCommand,
-  serializeAws_restJson1ListOTAUpdatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListOTAUpdatesCommand, se_ListOTAUpdatesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListOTAUpdatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOTAUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOTAUpdatesCommand(input, context);
+    return se_ListOTAUpdatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOTAUpdatesCommandOutput> {
-    return deserializeAws_restJson1ListOTAUpdatesCommand(output, context);
+    return de_ListOTAUpdatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeprecateActivityTypeInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeprecateActivityTypeCommand,
-  serializeAws_json1_0DeprecateActivityTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeprecateActivityTypeCommand, se_DeprecateActivityTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -175,14 +172,14 @@ export class DeprecateActivityTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeprecateActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeprecateActivityTypeCommand(input, context);
+    return se_DeprecateActivityTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateActivityTypeCommandOutput> {
-    return deserializeAws_json1_0DeprecateActivityTypeCommand(output, context);
+    return de_DeprecateActivityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

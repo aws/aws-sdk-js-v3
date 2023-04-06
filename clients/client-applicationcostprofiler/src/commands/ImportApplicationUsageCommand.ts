@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
 import { ImportApplicationUsageRequest, ImportApplicationUsageResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ImportApplicationUsageCommand,
-  serializeAws_restJson1ImportApplicationUsageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ImportApplicationUsageCommand, se_ImportApplicationUsageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class ImportApplicationUsageCommand extends $Command<
    * @internal
    */
   private serialize(input: ImportApplicationUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportApplicationUsageCommand(input, context);
+    return se_ImportApplicationUsageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportApplicationUsageCommandOutput> {
-    return deserializeAws_restJson1ImportApplicationUsageCommand(output, context);
+    return de_ImportApplicationUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

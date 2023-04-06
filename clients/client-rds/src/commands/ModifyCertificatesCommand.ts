@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyCertificatesMessage, ModifyCertificatesResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyCertificatesCommand,
-  serializeAws_queryModifyCertificatesCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyCertificatesCommand, se_ModifyCertificatesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -86,6 +83,31 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  *         existing certificate.</p>
  *
  *
+ * @example To temporarily override the system-default SSL/TLS certificate for new DB instances
+ * ```javascript
+ * // The following example temporarily overrides the system-default SSL/TLS certificate for new DB instances.
+ * const input = {
+ *   "CertificateIdentifier": "rds-ca-2019"
+ * };
+ * const command = new ModifyCertificatesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Certificate": {
+ *     "CertificateArn": "arn:aws:rds:us-east-1::cert:rds-ca-2019",
+ *     "CertificateIdentifier": "rds-ca-2019",
+ *     "CertificateType": "CA",
+ *     "CustomerOverride": true,
+ *     "CustomerOverrideValidTill": "2024-08-22T17:08:50Z",
+ *     "Thumbprint": "EXAMPLE123456789012",
+ *     "ValidFrom": "2019-09-19T18:16:53Z",
+ *     "ValidTill": "2024-08-22T17:08:50Z"
+ *   }
+ * }
+ * *\/
+ * // example id: to-temporarily-override-the-system-default-ssltls-certificate-for-new-db-instances-1680306491984
+ * ```
+ *
  */
 export class ModifyCertificatesCommand extends $Command<
   ModifyCertificatesCommandInput,
@@ -150,14 +172,14 @@ export class ModifyCertificatesCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyCertificatesCommand(input, context);
+    return se_ModifyCertificatesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyCertificatesCommandOutput> {
-    return deserializeAws_queryModifyCertificatesCommand(output, context);
+    return de_ModifyCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

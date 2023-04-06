@@ -16,8 +16,8 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateIndexingConfigurationRequest, UpdateIndexingConfigurationResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1UpdateIndexingConfigurationCommand,
-  serializeAws_restJson1UpdateIndexingConfigurationCommand,
+  de_UpdateIndexingConfigurationCommand,
+  se_UpdateIndexingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -175,7 +175,7 @@ export class UpdateIndexingConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateIndexingConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIndexingConfigurationCommand(input, context);
+    return se_UpdateIndexingConfigurationCommand(input, context);
   }
 
   /**
@@ -185,7 +185,7 @@ export class UpdateIndexingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateIndexingConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateIndexingConfigurationCommand(output, context);
+    return de_UpdateIndexingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

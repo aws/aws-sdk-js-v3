@@ -25,8 +25,8 @@ import {
   CreateMediaLiveConnectorPipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommand,
-  serializeAws_restJson1CreateMediaLiveConnectorPipelineCommand,
+  de_CreateMediaLiveConnectorPipelineCommand,
+  se_CreateMediaLiveConnectorPipelineCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -200,7 +200,7 @@ export class CreateMediaLiveConnectorPipelineCommand extends $Command<
     input: CreateMediaLiveConnectorPipelineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMediaLiveConnectorPipelineCommand(input, context);
+    return se_CreateMediaLiveConnectorPipelineCommand(input, context);
   }
 
   /**
@@ -210,7 +210,7 @@ export class CreateMediaLiveConnectorPipelineCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMediaLiveConnectorPipelineCommandOutput> {
-    return deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommand(output, context);
+    return de_CreateMediaLiveConnectorPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

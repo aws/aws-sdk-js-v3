@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteEgressOnlyInternetGatewayRequest, DeleteEgressOnlyInternetGatewayResult } from "../models/models_2";
 import {
-  deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommand,
-  serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand,
+  de_DeleteEgressOnlyInternetGatewayCommand,
+  se_DeleteEgressOnlyInternetGatewayCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -126,7 +126,7 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
     input: DeleteEgressOnlyInternetGatewayCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(input, context);
+    return se_DeleteEgressOnlyInternetGatewayCommand(input, context);
   }
 
   /**
@@ -136,7 +136,7 @@ export class DeleteEgressOnlyInternetGatewayCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEgressOnlyInternetGatewayCommandOutput> {
-    return deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommand(output, context);
+    return de_DeleteEgressOnlyInternetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

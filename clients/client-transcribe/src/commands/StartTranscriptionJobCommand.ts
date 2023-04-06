@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartTranscriptionJobRequest, StartTranscriptionJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartTranscriptionJobCommand,
-  serializeAws_json1_1StartTranscriptionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartTranscriptionJobCommand, se_StartTranscriptionJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -233,14 +230,14 @@ export class StartTranscriptionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartTranscriptionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartTranscriptionJobCommand(input, context);
+    return se_StartTranscriptionJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTranscriptionJobCommandOutput> {
-    return deserializeAws_json1_1StartTranscriptionJobCommand(output, context);
+    return de_StartTranscriptionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

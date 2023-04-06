@@ -15,10 +15,7 @@ import {
 
 import { DeleteDatasetGroupRequest } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DeleteDatasetGroupCommand,
-  serializeAws_json1_1DeleteDatasetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteDatasetGroupCommand, se_DeleteDatasetGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class DeleteDatasetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDatasetGroupCommand(input, context);
+    return se_DeleteDatasetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteDatasetGroupCommand(output, context);
+    return de_DeleteDatasetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutAppLaunchConfigurationRequest, PutAppLaunchConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutAppLaunchConfigurationCommand,
-  serializeAws_json1_1PutAppLaunchConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutAppLaunchConfigurationCommand, se_PutAppLaunchConfigurationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
 /**
@@ -183,7 +180,7 @@ export class PutAppLaunchConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAppLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAppLaunchConfigurationCommand(input, context);
+    return se_PutAppLaunchConfigurationCommand(input, context);
   }
 
   /**
@@ -193,7 +190,7 @@ export class PutAppLaunchConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAppLaunchConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutAppLaunchConfigurationCommand(output, context);
+    return de_PutAppLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

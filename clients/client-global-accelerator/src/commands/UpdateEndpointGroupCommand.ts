@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { UpdateEndpointGroupRequest, UpdateEndpointGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEndpointGroupCommand,
-  serializeAws_json1_1UpdateEndpointGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateEndpointGroupCommand, se_UpdateEndpointGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class UpdateEndpointGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEndpointGroupCommand(input, context);
+    return se_UpdateEndpointGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateEndpointGroupCommand(output, context);
+    return de_UpdateEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

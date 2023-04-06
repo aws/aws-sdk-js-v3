@@ -15,10 +15,7 @@ import {
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import { UpdateChangesetRequest, UpdateChangesetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateChangesetCommand,
-  serializeAws_restJson1UpdateChangesetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateChangesetCommand, se_UpdateChangesetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateChangesetCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateChangesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateChangesetCommand(input, context);
+    return se_UpdateChangesetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChangesetCommandOutput> {
-    return deserializeAws_restJson1UpdateChangesetCommand(output, context);
+    return de_UpdateChangesetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GetRestApiRequest, RestApi } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRestApiCommand,
-  serializeAws_restJson1GetRestApiCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRestApiCommand, se_GetRestApiCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetRestApiCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRestApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRestApiCommand(input, context);
+    return se_GetRestApiCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRestApiCommandOutput> {
-    return deserializeAws_restJson1GetRestApiCommand(output, context);
+    return de_GetRestApiCommand(output, context);
   }
 
   // Start section: command_body_extra

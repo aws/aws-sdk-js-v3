@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { AssociateKmsKeyRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateKmsKeyCommand,
-  serializeAws_json1_1AssociateKmsKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateKmsKeyCommand, se_AssociateKmsKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class AssociateKmsKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateKmsKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateKmsKeyCommand(input, context);
+    return se_AssociateKmsKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateKmsKeyCommandOutput> {
-    return deserializeAws_json1_1AssociateKmsKeyCommand(output, context);
+    return de_AssociateKmsKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

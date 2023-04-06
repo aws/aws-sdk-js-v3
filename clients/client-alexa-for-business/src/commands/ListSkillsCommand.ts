@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { ListSkillsRequest, ListSkillsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSkillsCommand,
-  serializeAws_json1_1ListSkillsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSkillsCommand, se_ListSkillsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class ListSkillsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSkillsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSkillsCommand(input, context);
+    return se_ListSkillsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSkillsCommandOutput> {
-    return deserializeAws_json1_1ListSkillsCommand(output, context);
+    return de_ListSkillsCommand(output, context);
   }
 
   // Start section: command_body_extra

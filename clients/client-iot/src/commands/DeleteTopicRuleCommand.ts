@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteTopicRuleRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteTopicRuleCommand,
-  serializeAws_restJson1DeleteTopicRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTopicRuleCommand, se_DeleteTopicRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteTopicRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTopicRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTopicRuleCommand(input, context);
+    return se_DeleteTopicRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTopicRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteTopicRuleCommand(output, context);
+    return de_DeleteTopicRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

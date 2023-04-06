@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListLensReviewImprovementsInput, ListLensReviewImprovementsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListLensReviewImprovementsCommand,
-  serializeAws_restJson1ListLensReviewImprovementsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListLensReviewImprovementsCommand, se_ListLensReviewImprovementsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -140,7 +137,7 @@ export class ListLensReviewImprovementsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLensReviewImprovementsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListLensReviewImprovementsCommand(input, context);
+    return se_ListLensReviewImprovementsCommand(input, context);
   }
 
   /**
@@ -150,7 +147,7 @@ export class ListLensReviewImprovementsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLensReviewImprovementsCommandOutput> {
-    return deserializeAws_restJson1ListLensReviewImprovementsCommand(output, context);
+    return de_ListLensReviewImprovementsCommand(output, context);
   }
 
   // Start section: command_body_extra

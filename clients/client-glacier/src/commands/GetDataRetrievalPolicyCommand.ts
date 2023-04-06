@@ -15,10 +15,7 @@ import {
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { GetDataRetrievalPolicyInput, GetDataRetrievalPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDataRetrievalPolicyCommand,
-  serializeAws_restJson1GetDataRetrievalPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDataRetrievalPolicyCommand, se_GetDataRetrievalPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class GetDataRetrievalPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDataRetrievalPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDataRetrievalPolicyCommand(input, context);
+    return se_GetDataRetrievalPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataRetrievalPolicyCommandOutput> {
-    return deserializeAws_restJson1GetDataRetrievalPolicyCommand(output, context);
+    return de_GetDataRetrievalPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

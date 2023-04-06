@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DescribeLogGroupsRequest, DescribeLogGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLogGroupsCommand,
-  serializeAws_json1_1DescribeLogGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLogGroupsCommand, se_DescribeLogGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DescribeLogGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLogGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLogGroupsCommand(input, context);
+    return se_DescribeLogGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLogGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeLogGroupsCommand(output, context);
+    return de_DescribeLogGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

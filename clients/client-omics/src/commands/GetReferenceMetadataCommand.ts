@@ -15,10 +15,7 @@ import {
 
 import { GetReferenceMetadataRequest, GetReferenceMetadataResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetReferenceMetadataCommand,
-  serializeAws_restJson1GetReferenceMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReferenceMetadataCommand, se_GetReferenceMetadataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetReferenceMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetReferenceMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReferenceMetadataCommand(input, context);
+    return se_GetReferenceMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReferenceMetadataCommandOutput> {
-    return deserializeAws_restJson1GetReferenceMetadataCommand(output, context);
+    return de_GetReferenceMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

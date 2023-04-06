@@ -20,10 +20,7 @@ import {
   CalculateRouteMatrixResponse,
   CalculateRouteMatrixResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CalculateRouteMatrixCommand,
-  serializeAws_restJson1CalculateRouteMatrixCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CalculateRouteMatrixCommand, se_CalculateRouteMatrixCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -214,14 +211,14 @@ export class CalculateRouteMatrixCommand extends $Command<
    * @internal
    */
   private serialize(input: CalculateRouteMatrixCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CalculateRouteMatrixCommand(input, context);
+    return se_CalculateRouteMatrixCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CalculateRouteMatrixCommandOutput> {
-    return deserializeAws_restJson1CalculateRouteMatrixCommand(output, context);
+    return de_CalculateRouteMatrixCommand(output, context);
   }
 
   // Start section: command_body_extra

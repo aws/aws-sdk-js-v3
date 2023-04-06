@@ -18,8 +18,8 @@ import {
   DeleteConfigurationSetEventDestinationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand,
+  de_DeleteConfigurationSetEventDestinationCommand,
+  se_DeleteConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
@@ -145,7 +145,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     input: DeleteConfigurationSetEventDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand(input, context);
+    return se_DeleteConfigurationSetEventDestinationCommand(input, context);
   }
 
   /**
@@ -155,7 +155,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand(output, context);
+    return de_DeleteConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

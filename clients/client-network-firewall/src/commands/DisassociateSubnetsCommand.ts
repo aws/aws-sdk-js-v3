@@ -15,10 +15,7 @@ import {
 
 import { DisassociateSubnetsRequest, DisassociateSubnetsResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
-import {
-  deserializeAws_json1_0DisassociateSubnetsCommand,
-  serializeAws_json1_0DisassociateSubnetsCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DisassociateSubnetsCommand, se_DisassociateSubnetsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class DisassociateSubnetsCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DisassociateSubnetsCommand(input, context);
+    return se_DisassociateSubnetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateSubnetsCommandOutput> {
-    return deserializeAws_json1_0DisassociateSubnetsCommand(output, context);
+    return de_DisassociateSubnetsCommand(output, context);
   }
 
   // Start section: command_body_extra

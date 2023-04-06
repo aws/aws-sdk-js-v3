@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { BasePathMapping, GetBasePathMappingRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBasePathMappingCommand,
-  serializeAws_restJson1GetBasePathMappingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBasePathMappingCommand, se_GetBasePathMappingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetBasePathMappingCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBasePathMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBasePathMappingCommand(input, context);
+    return se_GetBasePathMappingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBasePathMappingCommandOutput> {
-    return deserializeAws_restJson1GetBasePathMappingCommand(output, context);
+    return de_GetBasePathMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

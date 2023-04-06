@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { CheckoutLicenseRequest, CheckoutLicenseResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CheckoutLicenseCommand,
-  serializeAws_json1_1CheckoutLicenseCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CheckoutLicenseCommand, se_CheckoutLicenseCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class CheckoutLicenseCommand extends $Command<
    * @internal
    */
   private serialize(input: CheckoutLicenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CheckoutLicenseCommand(input, context);
+    return se_CheckoutLicenseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckoutLicenseCommandOutput> {
-    return deserializeAws_json1_1CheckoutLicenseCommand(output, context);
+    return de_CheckoutLicenseCommand(output, context);
   }
 
   // Start section: command_body_extra

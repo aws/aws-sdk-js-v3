@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisableVgwRoutePropagationRequest } from "../models/models_5";
-import {
-  deserializeAws_ec2DisableVgwRoutePropagationCommand,
-  serializeAws_ec2DisableVgwRoutePropagationCommand,
-} from "../protocols/Aws_ec2";
+import { de_DisableVgwRoutePropagationCommand, se_DisableVgwRoutePropagationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class DisableVgwRoutePropagationCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableVgwRoutePropagationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableVgwRoutePropagationCommand(input, context);
+    return se_DisableVgwRoutePropagationCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DisableVgwRoutePropagationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableVgwRoutePropagationCommandOutput> {
-    return deserializeAws_ec2DisableVgwRoutePropagationCommand(output, context);
+    return de_DisableVgwRoutePropagationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { ArchiveWaveRequest, Wave, WaveFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1ArchiveWaveCommand,
-  serializeAws_restJson1ArchiveWaveCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ArchiveWaveCommand, se_ArchiveWaveCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class ArchiveWaveCommand extends $Command<
    * @internal
    */
   private serialize(input: ArchiveWaveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ArchiveWaveCommand(input, context);
+    return se_ArchiveWaveCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ArchiveWaveCommandOutput> {
-    return deserializeAws_restJson1ArchiveWaveCommand(output, context);
+    return de_ArchiveWaveCommand(output, context);
   }
 
   // Start section: command_body_extra

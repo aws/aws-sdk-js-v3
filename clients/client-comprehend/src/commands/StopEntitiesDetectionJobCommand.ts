@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { StopEntitiesDetectionJobRequest, StopEntitiesDetectionJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StopEntitiesDetectionJobCommand,
-  serializeAws_json1_1StopEntitiesDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StopEntitiesDetectionJobCommand, se_StopEntitiesDetectionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class StopEntitiesDetectionJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StopEntitiesDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopEntitiesDetectionJobCommand(input, context);
+    return se_StopEntitiesDetectionJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopEntitiesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopEntitiesDetectionJobCommand(output, context);
+    return de_StopEntitiesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

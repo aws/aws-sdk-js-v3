@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { UpdateApiDestinationRequest, UpdateApiDestinationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateApiDestinationCommand,
-  serializeAws_json1_1UpdateApiDestinationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateApiDestinationCommand, se_UpdateApiDestinationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class UpdateApiDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateApiDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApiDestinationCommand(input, context);
+    return se_UpdateApiDestinationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApiDestinationCommandOutput> {
-    return deserializeAws_json1_1UpdateApiDestinationCommand(output, context);
+    return de_UpdateApiDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

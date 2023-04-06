@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateRepositoryInput, CreateRepositoryOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateRepositoryCommand,
-  serializeAws_json1_0CreateRepositoryCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateRepositoryCommand, se_CreateRepositoryCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -153,14 +150,14 @@ export class CreateRepositoryCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateRepositoryCommand(input, context);
+    return se_CreateRepositoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRepositoryCommandOutput> {
-    return deserializeAws_json1_0CreateRepositoryCommand(output, context);
+    return de_CreateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

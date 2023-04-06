@@ -18,8 +18,8 @@ import {
   RegisterSlackWorkspaceForOrganizationResult,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand,
-  serializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand,
+  de_RegisterSlackWorkspaceForOrganizationCommand,
+  se_RegisterSlackWorkspaceForOrganizationCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
@@ -200,7 +200,7 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
     input: RegisterSlackWorkspaceForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand(input, context);
+    return se_RegisterSlackWorkspaceForOrganizationCommand(input, context);
   }
 
   /**
@@ -210,7 +210,7 @@ export class RegisterSlackWorkspaceForOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterSlackWorkspaceForOrganizationCommandOutput> {
-    return deserializeAws_restJson1RegisterSlackWorkspaceForOrganizationCommand(output, context);
+    return de_RegisterSlackWorkspaceForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

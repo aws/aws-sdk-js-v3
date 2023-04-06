@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { ConfirmConnectionRequest, ConfirmConnectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ConfirmConnectionCommand,
-  serializeAws_json1_1ConfirmConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ConfirmConnectionCommand, se_ConfirmConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ConfirmConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: ConfirmConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmConnectionCommand(input, context);
+    return se_ConfirmConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmConnectionCommandOutput> {
-    return deserializeAws_json1_1ConfirmConnectionCommand(output, context);
+    return de_ConfirmConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

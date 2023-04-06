@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StopExecutionInput, StopExecutionInputFilterSensitiveLog, StopExecutionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0StopExecutionCommand,
-  serializeAws_json1_0StopExecutionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_StopExecutionCommand, se_StopExecutionCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -130,14 +127,14 @@ export class StopExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: StopExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0StopExecutionCommand(input, context);
+    return se_StopExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopExecutionCommandOutput> {
-    return deserializeAws_json1_0StopExecutionCommand(output, context);
+    return de_StopExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { CreateResourceDefinitionVersionRequest, CreateResourceDefinitionVersionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateResourceDefinitionVersionCommand,
-  serializeAws_restJson1CreateResourceDefinitionVersionCommand,
+  de_CreateResourceDefinitionVersionCommand,
+  se_CreateResourceDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -174,7 +174,7 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
     input: CreateResourceDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateResourceDefinitionVersionCommand(input, context);
+    return se_CreateResourceDefinitionVersionCommand(input, context);
   }
 
   /**
@@ -184,7 +184,7 @@ export class CreateResourceDefinitionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateResourceDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1CreateResourceDefinitionVersionCommand(output, context);
+    return de_CreateResourceDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

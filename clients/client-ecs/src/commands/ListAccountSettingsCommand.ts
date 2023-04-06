@@ -15,10 +15,7 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { ListAccountSettingsRequest, ListAccountSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAccountSettingsCommand,
-  serializeAws_json1_1ListAccountSettingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAccountSettingsCommand, se_ListAccountSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -202,14 +199,14 @@ export class ListAccountSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccountSettingsCommand(input, context);
+    return se_ListAccountSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountSettingsCommandOutput> {
-    return deserializeAws_json1_1ListAccountSettingsCommand(output, context);
+    return de_ListAccountSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

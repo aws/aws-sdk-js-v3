@@ -16,8 +16,8 @@ import {
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListOrganizationAdminAccountsCommand,
-  serializeAws_restJson1ListOrganizationAdminAccountsCommand,
+  de_ListOrganizationAdminAccountsCommand,
+  se_ListOrganizationAdminAccountsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -138,7 +138,7 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOrganizationAdminAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOrganizationAdminAccountsCommand(input, context);
+    return se_ListOrganizationAdminAccountsCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListOrganizationAdminAccountsCommandOutput> {
-    return deserializeAws_restJson1ListOrganizationAdminAccountsCommand(output, context);
+    return de_ListOrganizationAdminAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

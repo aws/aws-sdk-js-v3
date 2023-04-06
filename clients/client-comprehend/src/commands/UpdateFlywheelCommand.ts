@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { UpdateFlywheelRequest, UpdateFlywheelResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateFlywheelCommand,
-  serializeAws_json1_1UpdateFlywheelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateFlywheelCommand, se_UpdateFlywheelCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class UpdateFlywheelCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFlywheelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFlywheelCommand(input, context);
+    return se_UpdateFlywheelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlywheelCommandOutput> {
-    return deserializeAws_json1_1UpdateFlywheelCommand(output, context);
+    return de_UpdateFlywheelCommand(output, context);
   }
 
   // Start section: command_body_extra

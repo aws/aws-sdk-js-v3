@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse } from "../models/models_0";
-import {
-  deserializeAws_querySetIdentityMailFromDomainCommand,
-  serializeAws_querySetIdentityMailFromDomainCommand,
-} from "../protocols/Aws_query";
+import { de_SetIdentityMailFromDomainCommand, se_SetIdentityMailFromDomainCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -144,7 +141,7 @@ export class SetIdentityMailFromDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: SetIdentityMailFromDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityMailFromDomainCommand(input, context);
+    return se_SetIdentityMailFromDomainCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class SetIdentityMailFromDomainCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityMailFromDomainCommandOutput> {
-    return deserializeAws_querySetIdentityMailFromDomainCommand(output, context);
+    return de_SetIdentityMailFromDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

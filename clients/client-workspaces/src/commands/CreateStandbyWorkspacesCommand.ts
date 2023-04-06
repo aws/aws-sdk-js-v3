@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateStandbyWorkspacesRequest, CreateStandbyWorkspacesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateStandbyWorkspacesCommand,
-  serializeAws_json1_1CreateStandbyWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateStandbyWorkspacesCommand, se_CreateStandbyWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -148,14 +145,14 @@ export class CreateStandbyWorkspacesCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStandbyWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateStandbyWorkspacesCommand(input, context);
+    return se_CreateStandbyWorkspacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStandbyWorkspacesCommandOutput> {
-    return deserializeAws_json1_1CreateStandbyWorkspacesCommand(output, context);
+    return de_CreateStandbyWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

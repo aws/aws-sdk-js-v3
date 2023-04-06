@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSizeConstraintSetsRequest, ListSizeConstraintSetsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListSizeConstraintSetsCommand,
-  serializeAws_json1_1ListSizeConstraintSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListSizeConstraintSetsCommand, se_ListSizeConstraintSetsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -156,14 +153,14 @@ export class ListSizeConstraintSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSizeConstraintSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSizeConstraintSetsCommand(input, context);
+    return se_ListSizeConstraintSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSizeConstraintSetsCommandOutput> {
-    return deserializeAws_json1_1ListSizeConstraintSetsCommand(output, context);
+    return de_ListSizeConstraintSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

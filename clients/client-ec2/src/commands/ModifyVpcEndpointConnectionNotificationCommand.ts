@@ -19,8 +19,8 @@ import {
   ModifyVpcEndpointConnectionNotificationResult,
 } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand,
-  serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand,
+  de_ModifyVpcEndpointConnectionNotificationCommand,
+  se_ModifyVpcEndpointConnectionNotificationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -141,7 +141,7 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     input: ModifyVpcEndpointConnectionNotificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(input, context);
+    return se_ModifyVpcEndpointConnectionNotificationCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput> {
-    return deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(output, context);
+    return de_ModifyVpcEndpointConnectionNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

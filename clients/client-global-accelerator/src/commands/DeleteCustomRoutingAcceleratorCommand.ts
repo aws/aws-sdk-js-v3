@@ -20,8 +20,8 @@ import {
 } from "../GlobalAcceleratorClient";
 import { DeleteCustomRoutingAcceleratorRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommand,
-  serializeAws_json1_1DeleteCustomRoutingAcceleratorCommand,
+  de_DeleteCustomRoutingAcceleratorCommand,
+  se_DeleteCustomRoutingAcceleratorCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -156,7 +156,7 @@ export class DeleteCustomRoutingAcceleratorCommand extends $Command<
     input: DeleteCustomRoutingAcceleratorCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCustomRoutingAcceleratorCommand(input, context);
+    return se_DeleteCustomRoutingAcceleratorCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class DeleteCustomRoutingAcceleratorCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCustomRoutingAcceleratorCommandOutput> {
-    return deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommand(output, context);
+    return de_DeleteCustomRoutingAcceleratorCommand(output, context);
   }
 
   // Start section: command_body_extra

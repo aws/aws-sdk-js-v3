@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateContactFlowModuleMetadataRequest, UpdateContactFlowModuleMetadataResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateContactFlowModuleMetadataCommand,
-  serializeAws_restJson1UpdateContactFlowModuleMetadataCommand,
+  de_UpdateContactFlowModuleMetadataCommand,
+  se_UpdateContactFlowModuleMetadataCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -150,7 +150,7 @@ export class UpdateContactFlowModuleMetadataCommand extends $Command<
     input: UpdateContactFlowModuleMetadataCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateContactFlowModuleMetadataCommand(input, context);
+    return se_UpdateContactFlowModuleMetadataCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class UpdateContactFlowModuleMetadataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateContactFlowModuleMetadataCommandOutput> {
-    return deserializeAws_restJson1UpdateContactFlowModuleMetadataCommand(output, context);
+    return de_UpdateContactFlowModuleMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

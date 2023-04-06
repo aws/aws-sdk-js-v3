@@ -20,10 +20,7 @@ import {
   CreateMeetingResponse,
   CreateMeetingResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMeetingCommand,
-  serializeAws_restJson1CreateMeetingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMeetingCommand, se_CreateMeetingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -167,14 +164,14 @@ export class CreateMeetingCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMeetingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMeetingCommand(input, context);
+    return se_CreateMeetingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeetingCommandOutput> {
-    return deserializeAws_restJson1CreateMeetingCommand(output, context);
+    return de_CreateMeetingCommand(output, context);
   }
 
   // Start section: command_body_extra

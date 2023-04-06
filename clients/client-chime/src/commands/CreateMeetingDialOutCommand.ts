@@ -19,10 +19,7 @@ import {
   CreateMeetingDialOutRequestFilterSensitiveLog,
   CreateMeetingDialOutResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateMeetingDialOutCommand,
-  serializeAws_restJson1CreateMeetingDialOutCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateMeetingDialOutCommand, se_CreateMeetingDialOutCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class CreateMeetingDialOutCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateMeetingDialOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMeetingDialOutCommand(input, context);
+    return se_CreateMeetingDialOutCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMeetingDialOutCommandOutput> {
-    return deserializeAws_restJson1CreateMeetingDialOutCommand(output, context);
+    return de_CreateMeetingDialOutCommand(output, context);
   }
 
   // Start section: command_body_extra

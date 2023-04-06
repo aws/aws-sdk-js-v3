@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { DeleteInferenceSchedulerRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteInferenceSchedulerCommand,
-  serializeAws_json1_0DeleteInferenceSchedulerCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteInferenceSchedulerCommand, se_DeleteInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeleteInferenceSchedulerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteInferenceSchedulerCommand(input, context);
+    return se_DeleteInferenceSchedulerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInferenceSchedulerCommandOutput> {
-    return deserializeAws_json1_0DeleteInferenceSchedulerCommand(output, context);
+    return de_DeleteInferenceSchedulerCommand(output, context);
   }
 
   // Start section: command_body_extra

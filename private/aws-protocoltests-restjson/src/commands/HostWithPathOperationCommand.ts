@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  deserializeAws_restJson1HostWithPathOperationCommand,
-  serializeAws_restJson1HostWithPathOperationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_HostWithPathOperationCommand, se_HostWithPathOperationCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -82,14 +79,14 @@ export class HostWithPathOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: HostWithPathOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HostWithPathOperationCommand(input, context);
+    return se_HostWithPathOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HostWithPathOperationCommandOutput> {
-    return deserializeAws_restJson1HostWithPathOperationCommand(output, context);
+    return de_HostWithPathOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

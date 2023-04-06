@@ -16,8 +16,8 @@ import {
 import { CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
-  deserializeAws_queryCreateDBClusterParameterGroupCommand,
-  serializeAws_queryCreateDBClusterParameterGroupCommand,
+  de_CreateDBClusterParameterGroupCommand,
+  se_CreateDBClusterParameterGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -160,7 +160,7 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBClusterParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBClusterParameterGroupCommand(input, context);
+    return se_CreateDBClusterParameterGroupCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDBClusterParameterGroupCommandOutput> {
-    return deserializeAws_queryCreateDBClusterParameterGroupCommand(output, context);
+    return de_CreateDBClusterParameterGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

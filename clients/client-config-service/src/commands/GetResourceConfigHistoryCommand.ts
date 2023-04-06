@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { GetResourceConfigHistoryRequest, GetResourceConfigHistoryResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetResourceConfigHistoryCommand,
-  serializeAws_json1_1GetResourceConfigHistoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetResourceConfigHistoryCommand, se_GetResourceConfigHistoryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -171,14 +168,14 @@ export class GetResourceConfigHistoryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResourceConfigHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResourceConfigHistoryCommand(input, context);
+    return se_GetResourceConfigHistoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourceConfigHistoryCommandOutput> {
-    return deserializeAws_json1_1GetResourceConfigHistoryCommand(output, context);
+    return de_GetResourceConfigHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

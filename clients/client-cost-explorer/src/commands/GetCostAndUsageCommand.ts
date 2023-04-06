@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { GetCostAndUsageRequest, GetCostAndUsageResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetCostAndUsageCommand,
-  serializeAws_json1_1GetCostAndUsageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetCostAndUsageCommand, se_GetCostAndUsageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -223,14 +220,14 @@ export class GetCostAndUsageCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCostAndUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCostAndUsageCommand(input, context);
+    return se_GetCostAndUsageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCostAndUsageCommandOutput> {
-    return deserializeAws_json1_1GetCostAndUsageCommand(output, context);
+    return de_GetCostAndUsageCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteAccountAssignmentRequest, DeleteAccountAssignmentResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAccountAssignmentCommand,
-  serializeAws_json1_1DeleteAccountAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAccountAssignmentCommand, se_DeleteAccountAssignmentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -152,14 +149,14 @@ export class DeleteAccountAssignmentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAccountAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAccountAssignmentCommand(input, context);
+    return se_DeleteAccountAssignmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAccountAssignmentCommandOutput> {
-    return deserializeAws_json1_1DeleteAccountAssignmentCommand(output, context);
+    return de_DeleteAccountAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { UpdateChannelReadMarkerRequest, UpdateChannelReadMarkerResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateChannelReadMarkerCommand,
-  serializeAws_restJson1UpdateChannelReadMarkerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateChannelReadMarkerCommand, se_UpdateChannelReadMarkerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class UpdateChannelReadMarkerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateChannelReadMarkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateChannelReadMarkerCommand(input, context);
+    return se_UpdateChannelReadMarkerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelReadMarkerCommandOutput> {
-    return deserializeAws_restJson1UpdateChannelReadMarkerCommand(output, context);
+    return de_UpdateChannelReadMarkerCommand(output, context);
   }
 
   // Start section: command_body_extra

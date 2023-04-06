@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { UpdateConnectivityInfoRequest, UpdateConnectivityInfoResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConnectivityInfoCommand,
-  serializeAws_restJson1UpdateConnectivityInfoCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateConnectivityInfoCommand, se_UpdateConnectivityInfoCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class UpdateConnectivityInfoCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConnectivityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConnectivityInfoCommand(input, context);
+    return se_UpdateConnectivityInfoCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectivityInfoCommandOutput> {
-    return deserializeAws_restJson1UpdateConnectivityInfoCommand(output, context);
+    return de_UpdateConnectivityInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

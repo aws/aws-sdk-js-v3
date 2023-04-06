@@ -15,8 +15,8 @@ import {
 
 import { ListRepositorySyncDefinitionsInput, ListRepositorySyncDefinitionsOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_0ListRepositorySyncDefinitionsCommand,
-  serializeAws_json1_0ListRepositorySyncDefinitionsCommand,
+  de_ListRepositorySyncDefinitionsCommand,
+  se_ListRepositorySyncDefinitionsCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -137,7 +137,7 @@ export class ListRepositorySyncDefinitionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRepositorySyncDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListRepositorySyncDefinitionsCommand(input, context);
+    return se_ListRepositorySyncDefinitionsCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class ListRepositorySyncDefinitionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListRepositorySyncDefinitionsCommandOutput> {
-    return deserializeAws_json1_0ListRepositorySyncDefinitionsCommand(output, context);
+    return de_ListRepositorySyncDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

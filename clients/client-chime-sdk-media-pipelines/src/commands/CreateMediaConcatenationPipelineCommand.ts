@@ -25,8 +25,8 @@ import {
   CreateMediaConcatenationPipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateMediaConcatenationPipelineCommand,
-  serializeAws_restJson1CreateMediaConcatenationPipelineCommand,
+  de_CreateMediaConcatenationPipelineCommand,
+  se_CreateMediaConcatenationPipelineCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -202,7 +202,7 @@ export class CreateMediaConcatenationPipelineCommand extends $Command<
     input: CreateMediaConcatenationPipelineCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateMediaConcatenationPipelineCommand(input, context);
+    return se_CreateMediaConcatenationPipelineCommand(input, context);
   }
 
   /**
@@ -212,7 +212,7 @@ export class CreateMediaConcatenationPipelineCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateMediaConcatenationPipelineCommandOutput> {
-    return deserializeAws_restJson1CreateMediaConcatenationPipelineCommand(output, context);
+    return de_CreateMediaConcatenationPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

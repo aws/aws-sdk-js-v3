@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { CreateDetectorVersionRequest, CreateDetectorVersionResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDetectorVersionCommand,
-  serializeAws_json1_1CreateDetectorVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDetectorVersionCommand, se_CreateDetectorVersionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class CreateDetectorVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDetectorVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDetectorVersionCommand(input, context);
+    return se_CreateDetectorVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDetectorVersionCommandOutput> {
-    return deserializeAws_json1_1CreateDetectorVersionCommand(output, context);
+    return de_CreateDetectorVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

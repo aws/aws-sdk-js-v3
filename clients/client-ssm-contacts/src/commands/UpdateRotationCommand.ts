@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateRotationRequest, UpdateRotationResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRotationCommand,
-  serializeAws_json1_1UpdateRotationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRotationCommand, se_UpdateRotationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -180,14 +177,14 @@ export class UpdateRotationCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRotationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRotationCommand(input, context);
+    return se_UpdateRotationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRotationCommandOutput> {
-    return deserializeAws_json1_1UpdateRotationCommand(output, context);
+    return de_UpdateRotationCommand(output, context);
   }
 
   // Start section: command_body_extra

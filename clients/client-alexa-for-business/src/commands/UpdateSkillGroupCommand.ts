@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { UpdateSkillGroupRequest, UpdateSkillGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSkillGroupCommand,
-  serializeAws_json1_1UpdateSkillGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSkillGroupCommand, se_UpdateSkillGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class UpdateSkillGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSkillGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSkillGroupCommand(input, context);
+    return se_UpdateSkillGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSkillGroupCommandOutput> {
-    return deserializeAws_json1_1UpdateSkillGroupCommand(output, context);
+    return de_UpdateSkillGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

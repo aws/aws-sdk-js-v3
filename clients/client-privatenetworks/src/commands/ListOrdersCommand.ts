@@ -15,10 +15,7 @@ import {
 
 import { ListOrdersRequest, ListOrdersResponse, ListOrdersResponseFilterSensitiveLog } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ListOrdersCommand,
-  serializeAws_restJson1ListOrdersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListOrdersCommand, se_ListOrdersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class ListOrdersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListOrdersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOrdersCommand(input, context);
+    return se_ListOrdersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOrdersCommandOutput> {
-    return deserializeAws_restJson1ListOrdersCommand(output, context);
+    return de_ListOrdersCommand(output, context);
   }
 
   // Start section: command_body_extra

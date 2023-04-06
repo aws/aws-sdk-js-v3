@@ -18,8 +18,8 @@ import {
   UpdateApplicationLayerAutomaticResponseResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateApplicationLayerAutomaticResponseCommand,
-  serializeAws_json1_1UpdateApplicationLayerAutomaticResponseCommand,
+  de_UpdateApplicationLayerAutomaticResponseCommand,
+  se_UpdateApplicationLayerAutomaticResponseCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
@@ -155,7 +155,7 @@ export class UpdateApplicationLayerAutomaticResponseCommand extends $Command<
     input: UpdateApplicationLayerAutomaticResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApplicationLayerAutomaticResponseCommand(input, context);
+    return se_UpdateApplicationLayerAutomaticResponseCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class UpdateApplicationLayerAutomaticResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationLayerAutomaticResponseCommandOutput> {
-    return deserializeAws_json1_1UpdateApplicationLayerAutomaticResponseCommand(output, context);
+    return de_UpdateApplicationLayerAutomaticResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

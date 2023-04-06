@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { StartDetectorModelAnalysisRequest, StartDetectorModelAnalysisResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartDetectorModelAnalysisCommand,
-  serializeAws_restJson1StartDetectorModelAnalysisCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartDetectorModelAnalysisCommand, se_StartDetectorModelAnalysisCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -510,7 +507,7 @@ export class StartDetectorModelAnalysisCommand extends $Command<
    * @internal
    */
   private serialize(input: StartDetectorModelAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartDetectorModelAnalysisCommand(input, context);
+    return se_StartDetectorModelAnalysisCommand(input, context);
   }
 
   /**
@@ -520,7 +517,7 @@ export class StartDetectorModelAnalysisCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDetectorModelAnalysisCommandOutput> {
-    return deserializeAws_restJson1StartDetectorModelAnalysisCommand(output, context);
+    return de_StartDetectorModelAnalysisCommand(output, context);
   }
 
   // Start section: command_body_extra

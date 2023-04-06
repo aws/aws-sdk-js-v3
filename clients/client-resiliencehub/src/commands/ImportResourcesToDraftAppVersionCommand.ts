@@ -15,8 +15,8 @@ import {
 
 import { ImportResourcesToDraftAppVersionRequest, ImportResourcesToDraftAppVersionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ImportResourcesToDraftAppVersionCommand,
-  serializeAws_restJson1ImportResourcesToDraftAppVersionCommand,
+  de_ImportResourcesToDraftAppVersionCommand,
+  se_ImportResourcesToDraftAppVersionCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -167,7 +167,7 @@ export class ImportResourcesToDraftAppVersionCommand extends $Command<
     input: ImportResourcesToDraftAppVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ImportResourcesToDraftAppVersionCommand(input, context);
+    return se_ImportResourcesToDraftAppVersionCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class ImportResourcesToDraftAppVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ImportResourcesToDraftAppVersionCommandOutput> {
-    return deserializeAws_restJson1ImportResourcesToDraftAppVersionCommand(output, context);
+    return de_ImportResourcesToDraftAppVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DeleteVolumeRequest, DeleteVolumeResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteVolumeCommand,
-  serializeAws_json1_1DeleteVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteVolumeCommand, se_DeleteVolumeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class DeleteVolumeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVolumeCommand(input, context);
+    return se_DeleteVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVolumeCommandOutput> {
-    return deserializeAws_json1_1DeleteVolumeCommand(output, context);
+    return de_DeleteVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DeleteContainerImageRequest, DeleteContainerImageResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteContainerImageCommand,
-  serializeAws_json1_1DeleteContainerImageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteContainerImageCommand, se_DeleteContainerImageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteContainerImageCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteContainerImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteContainerImageCommand(input, context);
+    return se_DeleteContainerImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteContainerImageCommandOutput> {
-    return deserializeAws_json1_1DeleteContainerImageCommand(output, context);
+    return de_DeleteContainerImageCommand(output, context);
   }
 
   // Start section: command_body_extra

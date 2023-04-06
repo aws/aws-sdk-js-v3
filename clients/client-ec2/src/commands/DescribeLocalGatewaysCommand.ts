@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeLocalGatewaysRequest, DescribeLocalGatewaysResult } from "../models/models_4";
-import {
-  deserializeAws_ec2DescribeLocalGatewaysCommand,
-  serializeAws_ec2DescribeLocalGatewaysCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeLocalGatewaysCommand, se_DescribeLocalGatewaysCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DescribeLocalGatewaysCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLocalGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLocalGatewaysCommand(input, context);
+    return se_DescribeLocalGatewaysCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLocalGatewaysCommandOutput> {
-    return deserializeAws_ec2DescribeLocalGatewaysCommand(output, context);
+    return de_DescribeLocalGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

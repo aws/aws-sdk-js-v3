@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/models_0";
-import {
-  deserializeAws_queryStopStackSetOperationCommand,
-  serializeAws_queryStopStackSetOperationCommand,
-} from "../protocols/Aws_query";
+import { de_StopStackSetOperationCommand, se_StopStackSetOperationCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class StopStackSetOperationCommand extends $Command<
    * @internal
    */
   private serialize(input: StopStackSetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopStackSetOperationCommand(input, context);
+    return se_StopStackSetOperationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStackSetOperationCommandOutput> {
-    return deserializeAws_queryStopStackSetOperationCommand(output, context);
+    return de_StopStackSetOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

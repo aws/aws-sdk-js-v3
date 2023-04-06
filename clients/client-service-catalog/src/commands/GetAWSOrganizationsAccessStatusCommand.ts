@@ -15,8 +15,8 @@ import {
 
 import { GetAWSOrganizationsAccessStatusInput, GetAWSOrganizationsAccessStatusOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommand,
-  serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand,
+  de_GetAWSOrganizationsAccessStatusCommand,
+  se_GetAWSOrganizationsAccessStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
@@ -130,7 +130,7 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
     input: GetAWSOrganizationsAccessStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand(input, context);
+    return se_GetAWSOrganizationsAccessStatusCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> {
-    return deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommand(output, context);
+    return de_GetAWSOrganizationsAccessStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

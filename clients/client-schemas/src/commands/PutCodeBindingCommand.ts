@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutCodeBindingRequest, PutCodeBindingResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutCodeBindingCommand,
-  serializeAws_restJson1PutCodeBindingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutCodeBindingCommand, se_PutCodeBindingCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -137,14 +134,14 @@ export class PutCodeBindingCommand extends $Command<
    * @internal
    */
   private serialize(input: PutCodeBindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutCodeBindingCommand(input, context);
+    return se_PutCodeBindingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutCodeBindingCommandOutput> {
-    return deserializeAws_restJson1PutCodeBindingCommand(output, context);
+    return de_PutCodeBindingCommand(output, context);
   }
 
   // Start section: command_body_extra

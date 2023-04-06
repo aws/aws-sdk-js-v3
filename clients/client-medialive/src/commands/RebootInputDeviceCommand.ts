@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { RebootInputDeviceRequest, RebootInputDeviceResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1RebootInputDeviceCommand,
-  serializeAws_restJson1RebootInputDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RebootInputDeviceCommand, se_RebootInputDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class RebootInputDeviceCommand extends $Command<
    * @internal
    */
   private serialize(input: RebootInputDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RebootInputDeviceCommand(input, context);
+    return se_RebootInputDeviceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootInputDeviceCommandOutput> {
-    return deserializeAws_restJson1RebootInputDeviceCommand(output, context);
+    return de_RebootInputDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

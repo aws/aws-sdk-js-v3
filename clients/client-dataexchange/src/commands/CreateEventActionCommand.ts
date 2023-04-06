@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { CreateEventActionRequest, CreateEventActionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateEventActionCommand,
-  serializeAws_restJson1CreateEventActionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateEventActionCommand, se_CreateEventActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class CreateEventActionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateEventActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateEventActionCommand(input, context);
+    return se_CreateEventActionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventActionCommandOutput> {
-    return deserializeAws_restJson1CreateEventActionCommand(output, context);
+    return de_CreateEventActionCommand(output, context);
   }
 
   // Start section: command_body_extra

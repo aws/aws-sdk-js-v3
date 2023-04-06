@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RegisterInstanceRequest, RegisterInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1RegisterInstanceCommand,
-  serializeAws_json1_1RegisterInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterInstanceCommand, se_RegisterInstanceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -209,14 +206,14 @@ export class RegisterInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterInstanceCommand(input, context);
+    return se_RegisterInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterInstanceCommandOutput> {
-    return deserializeAws_json1_1RegisterInstanceCommand(output, context);
+    return de_RegisterInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

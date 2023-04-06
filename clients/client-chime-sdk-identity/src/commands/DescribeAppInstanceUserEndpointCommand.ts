@@ -21,8 +21,8 @@ import {
   DescribeAppInstanceUserEndpointResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeAppInstanceUserEndpointCommand,
-  serializeAws_restJson1DescribeAppInstanceUserEndpointCommand,
+  de_DescribeAppInstanceUserEndpointCommand,
+  se_DescribeAppInstanceUserEndpointCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -149,7 +149,7 @@ export class DescribeAppInstanceUserEndpointCommand extends $Command<
     input: DescribeAppInstanceUserEndpointCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAppInstanceUserEndpointCommand(input, context);
+    return se_DescribeAppInstanceUserEndpointCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class DescribeAppInstanceUserEndpointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAppInstanceUserEndpointCommandOutput> {
-    return deserializeAws_restJson1DescribeAppInstanceUserEndpointCommand(output, context);
+    return de_DescribeAppInstanceUserEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

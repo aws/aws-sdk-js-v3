@@ -19,8 +19,8 @@ import {
   DescribeAggregateComplianceByConformancePacksResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand,
-  serializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand,
+  de_DescribeAggregateComplianceByConformancePacksCommand,
+  se_DescribeAggregateComplianceByConformancePacksCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -163,7 +163,7 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
     input: DescribeAggregateComplianceByConformancePacksCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand(input, context);
+    return se_DescribeAggregateComplianceByConformancePacksCommand(input, context);
   }
 
   /**
@@ -173,7 +173,7 @@ export class DescribeAggregateComplianceByConformancePacksCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAggregateComplianceByConformancePacksCommandOutput> {
-    return deserializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand(output, context);
+    return de_DescribeAggregateComplianceByConformancePacksCommand(output, context);
   }
 
   // Start section: command_body_extra

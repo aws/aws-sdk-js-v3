@@ -104,16 +104,16 @@ export const deserializeMalformedEnumRequest = async (
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.list != null) {
-    contents.list = deserializeAws_restJson1EnumList(data.list, context);
+    contents.list = de_EnumList(data.list, context);
   }
   if (data.map != null) {
-    contents.map = deserializeAws_restJson1EnumMap(data.map, context);
+    contents.map = de_EnumMap(data.map, context);
   }
   if (data.string != null) {
     contents.string = __expectString(data.string);
   }
   if (data.union != null) {
-    contents.union = deserializeAws_restJson1EnumUnion(__expectUnion(data.union), context);
+    contents.union = de_EnumUnion(__expectUnion(data.union), context);
   }
   return contents;
 };
@@ -144,10 +144,10 @@ export const deserializeMalformedLengthRequest = async (
     contents.blob = context.base64Decoder(data.blob);
   }
   if (data.list != null) {
-    contents.list = deserializeAws_restJson1LengthList(data.list, context);
+    contents.list = de_LengthList(data.list, context);
   }
   if (data.map != null) {
-    contents.map = deserializeAws_restJson1LengthMap(data.map, context);
+    contents.map = de_LengthMap(data.map, context);
   }
   if (data.maxString != null) {
     contents.maxString = __expectString(data.maxString);
@@ -187,10 +187,10 @@ export const deserializeMalformedLengthOverrideRequest = async (
     contents.blob = context.base64Decoder(data.blob);
   }
   if (data.list != null) {
-    contents.list = deserializeAws_restJson1LengthList(data.list, context);
+    contents.list = de_LengthList(data.list, context);
   }
   if (data.map != null) {
-    contents.map = deserializeAws_restJson1LengthMap(data.map, context);
+    contents.map = de_LengthMap(data.map, context);
   }
   if (data.maxString != null) {
     contents.maxString = __expectString(data.maxString);
@@ -271,16 +271,16 @@ export const deserializeMalformedPatternRequest = async (
     contents.evilString = __expectString(data.evilString);
   }
   if (data.list != null) {
-    contents.list = deserializeAws_restJson1PatternList(data.list, context);
+    contents.list = de_PatternList(data.list, context);
   }
   if (data.map != null) {
-    contents.map = deserializeAws_restJson1PatternMap(data.map, context);
+    contents.map = de_PatternMap(data.map, context);
   }
   if (data.string != null) {
     contents.string = __expectString(data.string);
   }
   if (data.union != null) {
-    contents.union = deserializeAws_restJson1PatternUnion(__expectUnion(data.union), context);
+    contents.union = de_PatternUnion(__expectUnion(data.union), context);
   }
   return contents;
 };
@@ -308,16 +308,16 @@ export const deserializeMalformedPatternOverrideRequest = async (
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.list != null) {
-    contents.list = deserializeAws_restJson1PatternListOverride(data.list, context);
+    contents.list = de_PatternListOverride(data.list, context);
   }
   if (data.map != null) {
-    contents.map = deserializeAws_restJson1PatternMapOverride(data.map, context);
+    contents.map = de_PatternMapOverride(data.map, context);
   }
   if (data.string != null) {
     contents.string = __expectString(data.string);
   }
   if (data.union != null) {
-    contents.union = deserializeAws_restJson1PatternUnionOverride(__expectUnion(data.union), context);
+    contents.union = de_PatternUnionOverride(__expectUnion(data.union), context);
   }
   return contents;
 };
@@ -531,49 +531,49 @@ export const deserializeMalformedUniqueItemsRequest = async (
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.blobList != null) {
-    contents.blobList = deserializeAws_restJson1BlobSet(data.blobList, context);
+    contents.blobList = de_BlobSet(data.blobList, context);
   }
   if (data.booleanList != null) {
-    contents.booleanList = deserializeAws_restJson1BooleanSet(data.booleanList, context);
+    contents.booleanList = de_BooleanSet(data.booleanList, context);
   }
   if (data.byteList != null) {
-    contents.byteList = deserializeAws_restJson1ByteSet(data.byteList, context);
+    contents.byteList = de_ByteSet(data.byteList, context);
   }
   if (data.dateTimeList != null) {
-    contents.dateTimeList = deserializeAws_restJson1DateTimeSet(data.dateTimeList, context);
+    contents.dateTimeList = de_DateTimeSet(data.dateTimeList, context);
   }
   if (data.enumList != null) {
-    contents.enumList = deserializeAws_restJson1FooEnumSet(data.enumList, context);
+    contents.enumList = de_FooEnumSet(data.enumList, context);
   }
   if (data.httpDateList != null) {
-    contents.httpDateList = deserializeAws_restJson1HttpDateSet(data.httpDateList, context);
+    contents.httpDateList = de_HttpDateSet(data.httpDateList, context);
   }
   if (data.intEnumList != null) {
-    contents.intEnumList = deserializeAws_restJson1IntegerEnumSet(data.intEnumList, context);
+    contents.intEnumList = de_IntegerEnumSet(data.intEnumList, context);
   }
   if (data.integerList != null) {
-    contents.integerList = deserializeAws_restJson1IntegerSet(data.integerList, context);
+    contents.integerList = de_IntegerSet(data.integerList, context);
   }
   if (data.listList != null) {
-    contents.listList = deserializeAws_restJson1ListSet(data.listList, context);
+    contents.listList = de_ListSet(data.listList, context);
   }
   if (data.longList != null) {
-    contents.longList = deserializeAws_restJson1LongSet(data.longList, context);
+    contents.longList = de_LongSet(data.longList, context);
   }
   if (data.shortList != null) {
-    contents.shortList = deserializeAws_restJson1ShortSet(data.shortList, context);
+    contents.shortList = de_ShortSet(data.shortList, context);
   }
   if (data.stringList != null) {
-    contents.stringList = deserializeAws_restJson1StringSet(data.stringList, context);
+    contents.stringList = de_StringSet(data.stringList, context);
   }
   if (data.structureList != null) {
-    contents.structureList = deserializeAws_restJson1StructureSet(data.structureList, context);
+    contents.structureList = de_StructureSet(data.structureList, context);
   }
   if (data.timestampList != null) {
-    contents.timestampList = deserializeAws_restJson1TimestampSet(data.timestampList, context);
+    contents.timestampList = de_TimestampSet(data.timestampList, context);
   }
   if (data.unionList != null) {
-    contents.unionList = deserializeAws_restJson1UnionSet(data.unionList, context);
+    contents.unionList = de_UnionSet(data.unionList, context);
   }
   return contents;
 };
@@ -601,7 +601,7 @@ export const deserializeRecursiveStructuresRequest = async (
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.union != null) {
-    contents.union = deserializeAws_restJson1RecursiveUnionOne(__expectUnion(data.union), context);
+    contents.union = de_RecursiveUnionOne(__expectUnion(data.union), context);
   }
   return contents;
 };
@@ -1150,9 +1150,7 @@ export const serializeValidationExceptionError = async (
   });
   let body: any;
   body = JSON.stringify({
-    ...(input.fieldList != null && {
-      fieldList: serializeAws_restJson1ValidationExceptionFieldList(input.fieldList, context),
-    }),
+    ...(input.fieldList != null && { fieldList: se_ValidationExceptionFieldList(input.fieldList, context) }),
     ...(input.message != null && { message: input.message }),
   });
   return new __HttpResponse({
@@ -1162,28 +1160,31 @@ export const serializeValidationExceptionError = async (
   });
 };
 
-const serializeAws_restJson1ValidationExceptionField = (
-  input: ValidationExceptionField,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ValidationExceptionField
+ */
+const se_ValidationExceptionField = (input: ValidationExceptionField, context: __SerdeContext): any => {
   return {
     ...(input.message != null && { message: input.message }),
     ...(input.path != null && { path: input.path }),
   };
 };
 
-const serializeAws_restJson1ValidationExceptionFieldList = (
-  input: ValidationExceptionField[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1ValidationExceptionFieldList
+ */
+const se_ValidationExceptionFieldList = (input: ValidationExceptionField[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ValidationExceptionField(entry, context);
+      return se_ValidationExceptionField(entry, context);
     });
 };
 
-const deserializeAws_restJson1EnumList = (output: any, context: __SerdeContext): (EnumString | string)[] => {
+/**
+ * deserializeAws_restJson1EnumList
+ */
+const de_EnumList = (output: any, context: __SerdeContext): (EnumString | string)[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1195,7 +1196,10 @@ const deserializeAws_restJson1EnumList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_restJson1EnumMap = (output: any, context: __SerdeContext): Record<string, EnumString | string> => {
+/**
+ * deserializeAws_restJson1EnumMap
+ */
+const de_EnumMap = (output: any, context: __SerdeContext): Record<string, EnumString | string> => {
   return Object.entries(output).reduce(
     (acc: Record<string, EnumString | string>, [key, value]: [EnumString | string, any]) => {
       if (value === null) {
@@ -1208,7 +1212,10 @@ const deserializeAws_restJson1EnumMap = (output: any, context: __SerdeContext): 
   );
 };
 
-const deserializeAws_restJson1EnumUnion = (output: any, context: __SerdeContext): EnumUnion => {
+/**
+ * deserializeAws_restJson1EnumUnion
+ */
+const de_EnumUnion = (output: any, context: __SerdeContext): EnumUnion => {
   if (__expectString(output.first) !== undefined) {
     return { first: __expectString(output.first) as any };
   }
@@ -1218,7 +1225,10 @@ const deserializeAws_restJson1EnumUnion = (output: any, context: __SerdeContext)
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1LengthList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1LengthList
+ */
+const de_LengthList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1230,17 +1240,23 @@ const deserializeAws_restJson1LengthList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1LengthMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
+/**
+ * deserializeAws_restJson1LengthMap
+ */
+const de_LengthMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
   return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = deserializeAws_restJson1LengthList(value, context);
+    acc[key] = de_LengthList(value, context);
     return acc;
   }, {});
 };
 
-const deserializeAws_restJson1PatternList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1PatternList
+ */
+const de_PatternList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1252,7 +1268,10 @@ const deserializeAws_restJson1PatternList = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1PatternListOverride = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1PatternListOverride
+ */
+const de_PatternListOverride = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1264,7 +1283,10 @@ const deserializeAws_restJson1PatternListOverride = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_restJson1PatternMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1PatternMap
+ */
+const de_PatternMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1274,7 +1296,10 @@ const deserializeAws_restJson1PatternMap = (output: any, context: __SerdeContext
   }, {});
 };
 
-const deserializeAws_restJson1PatternMapOverride = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1PatternMapOverride
+ */
+const de_PatternMapOverride = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1284,7 +1309,10 @@ const deserializeAws_restJson1PatternMapOverride = (output: any, context: __Serd
   }, {});
 };
 
-const deserializeAws_restJson1PatternUnion = (output: any, context: __SerdeContext): PatternUnion => {
+/**
+ * deserializeAws_restJson1PatternUnion
+ */
+const de_PatternUnion = (output: any, context: __SerdeContext): PatternUnion => {
   if (__expectString(output.first) !== undefined) {
     return { first: __expectString(output.first) as any };
   }
@@ -1294,7 +1322,10 @@ const deserializeAws_restJson1PatternUnion = (output: any, context: __SerdeConte
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1PatternUnionOverride = (output: any, context: __SerdeContext): PatternUnionOverride => {
+/**
+ * deserializeAws_restJson1PatternUnionOverride
+ */
+const de_PatternUnionOverride = (output: any, context: __SerdeContext): PatternUnionOverride => {
   if (__expectString(output.first) !== undefined) {
     return { first: __expectString(output.first) as any };
   }
@@ -1304,31 +1335,40 @@ const deserializeAws_restJson1PatternUnionOverride = (output: any, context: __Se
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1RecursiveUnionOne = (output: any, context: __SerdeContext): RecursiveUnionOne => {
+/**
+ * deserializeAws_restJson1RecursiveUnionOne
+ */
+const de_RecursiveUnionOne = (output: any, context: __SerdeContext): RecursiveUnionOne => {
   if (__expectString(output.string) !== undefined) {
     return { string: __expectString(output.string) as any };
   }
   if (output.union != null) {
     return {
-      union: deserializeAws_restJson1RecursiveUnionTwo(__expectUnion(output.union), context),
+      union: de_RecursiveUnionTwo(__expectUnion(output.union), context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1RecursiveUnionTwo = (output: any, context: __SerdeContext): RecursiveUnionTwo => {
+/**
+ * deserializeAws_restJson1RecursiveUnionTwo
+ */
+const de_RecursiveUnionTwo = (output: any, context: __SerdeContext): RecursiveUnionTwo => {
   if (__expectString(output.string) !== undefined) {
     return { string: __expectString(output.string) as any };
   }
   if (output.union != null) {
     return {
-      union: deserializeAws_restJson1RecursiveUnionOne(__expectUnion(output.union), context),
+      union: de_RecursiveUnionOne(__expectUnion(output.union), context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1BlobSet = (output: any, context: __SerdeContext): Uint8Array[] => {
+/**
+ * deserializeAws_restJson1BlobSet
+ */
+const de_BlobSet = (output: any, context: __SerdeContext): Uint8Array[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError('All elements of the non-sparse list "aws.protocoltests.shared#BlobSet" must be non-null.');
@@ -1338,7 +1378,10 @@ const deserializeAws_restJson1BlobSet = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_restJson1BooleanSet = (output: any, context: __SerdeContext): boolean[] => {
+/**
+ * deserializeAws_restJson1BooleanSet
+ */
+const de_BooleanSet = (output: any, context: __SerdeContext): boolean[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1350,7 +1393,10 @@ const deserializeAws_restJson1BooleanSet = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1ByteSet = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_restJson1ByteSet
+ */
+const de_ByteSet = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError('All elements of the non-sparse list "aws.protocoltests.shared#ByteSet" must be non-null.');
@@ -1360,7 +1406,10 @@ const deserializeAws_restJson1ByteSet = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_restJson1DateTimeSet = (output: any, context: __SerdeContext): Date[] => {
+/**
+ * deserializeAws_restJson1DateTimeSet
+ */
+const de_DateTimeSet = (output: any, context: __SerdeContext): Date[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1372,7 +1421,10 @@ const deserializeAws_restJson1DateTimeSet = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+/**
+ * deserializeAws_restJson1FooEnumSet
+ */
+const de_FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1384,7 +1436,10 @@ const deserializeAws_restJson1FooEnumSet = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1FooUnion = (output: any, context: __SerdeContext): FooUnion => {
+/**
+ * deserializeAws_restJson1FooUnion
+ */
+const de_FooUnion = (output: any, context: __SerdeContext): FooUnion => {
   if (__expectInt32(output.integer) !== undefined) {
     return { integer: __expectInt32(output.integer) as any };
   }
@@ -1394,13 +1449,19 @@ const deserializeAws_restJson1FooUnion = (output: any, context: __SerdeContext):
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
+/**
+ * deserializeAws_restJson1GreetingStruct
+ */
+const de_GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
   return {
     hi: __expectString(output.hi),
   } as any;
 };
 
-const deserializeAws_restJson1HttpDateSet = (output: any, context: __SerdeContext): Date[] => {
+/**
+ * deserializeAws_restJson1HttpDateSet
+ */
+const de_HttpDateSet = (output: any, context: __SerdeContext): Date[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1412,7 +1473,10 @@ const deserializeAws_restJson1HttpDateSet = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1IntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+/**
+ * deserializeAws_restJson1IntegerEnumSet
+ */
+const de_IntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1424,7 +1488,10 @@ const deserializeAws_restJson1IntegerEnumSet = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_restJson1IntegerSet = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_restJson1IntegerSet
+ */
+const de_IntegerSet = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1436,17 +1503,23 @@ const deserializeAws_restJson1IntegerSet = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1ListSet = (output: any, context: __SerdeContext): string[][] => {
+/**
+ * deserializeAws_restJson1ListSet
+ */
+const de_ListSet = (output: any, context: __SerdeContext): string[][] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError('All elements of the non-sparse list "aws.protocoltests.shared#ListSet" must be non-null.');
     }
-    return deserializeAws_restJson1StringList(entry, context);
+    return de_StringList(entry, context);
   });
   return retVal;
 };
 
-const deserializeAws_restJson1LongSet = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_restJson1LongSet
+ */
+const de_LongSet = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError('All elements of the non-sparse list "aws.protocoltests.shared#LongSet" must be non-null.');
@@ -1456,7 +1529,10 @@ const deserializeAws_restJson1LongSet = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_restJson1ShortSet = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_restJson1ShortSet
+ */
+const de_ShortSet = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError('All elements of the non-sparse list "aws.protocoltests.shared#ShortSet" must be non-null.');
@@ -1466,7 +1542,10 @@ const deserializeAws_restJson1ShortSet = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1StringList
+ */
+const de_StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1478,7 +1557,10 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1StringSet = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1StringSet
+ */
+const de_StringSet = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError('All elements of the non-sparse list "aws.protocoltests.shared#StringSet" must be non-null.');
@@ -1488,19 +1570,25 @@ const deserializeAws_restJson1StringSet = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_restJson1StructureSet = (output: any, context: __SerdeContext): GreetingStruct[] => {
+/**
+ * deserializeAws_restJson1StructureSet
+ */
+const de_StructureSet = (output: any, context: __SerdeContext): GreetingStruct[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
         'All elements of the non-sparse list "aws.protocoltests.shared#StructureSet" must be non-null.'
       );
     }
-    return deserializeAws_restJson1GreetingStruct(entry, context);
+    return de_GreetingStruct(entry, context);
   });
   return retVal;
 };
 
-const deserializeAws_restJson1TimestampSet = (output: any, context: __SerdeContext): Date[] => {
+/**
+ * deserializeAws_restJson1TimestampSet
+ */
+const de_TimestampSet = (output: any, context: __SerdeContext): Date[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1512,12 +1600,15 @@ const deserializeAws_restJson1TimestampSet = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_restJson1UnionSet = (output: any, context: __SerdeContext): FooUnion[] => {
+/**
+ * deserializeAws_restJson1UnionSet
+ */
+const de_UnionSet = (output: any, context: __SerdeContext): FooUnion[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError('All elements of the non-sparse list "aws.protocoltests.shared#UnionSet" must be non-null.');
     }
-    return deserializeAws_restJson1FooUnion(__expectUnion(entry), context);
+    return de_FooUnion(__expectUnion(entry), context);
   });
   return retVal;
 };

@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { PutRoomSkillParameterRequest, PutRoomSkillParameterResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutRoomSkillParameterCommand,
-  serializeAws_json1_1PutRoomSkillParameterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutRoomSkillParameterCommand, se_PutRoomSkillParameterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class PutRoomSkillParameterCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRoomSkillParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRoomSkillParameterCommand(input, context);
+    return se_PutRoomSkillParameterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRoomSkillParameterCommandOutput> {
-    return deserializeAws_json1_1PutRoomSkillParameterCommand(output, context);
+    return de_PutRoomSkillParameterCommand(output, context);
   }
 
   // Start section: command_body_extra

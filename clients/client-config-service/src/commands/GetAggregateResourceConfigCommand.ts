@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { GetAggregateResourceConfigRequest, GetAggregateResourceConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAggregateResourceConfigCommand,
-  serializeAws_json1_1GetAggregateResourceConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAggregateResourceConfigCommand, se_GetAggregateResourceConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class GetAggregateResourceConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAggregateResourceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAggregateResourceConfigCommand(input, context);
+    return se_GetAggregateResourceConfigCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class GetAggregateResourceConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAggregateResourceConfigCommandOutput> {
-    return deserializeAws_json1_1GetAggregateResourceConfigCommand(output, context);
+    return de_GetAggregateResourceConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

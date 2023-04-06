@@ -15,10 +15,7 @@ import {
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { UpdateImagePipelineRequest, UpdateImagePipelineResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateImagePipelineCommand,
-  serializeAws_restJson1UpdateImagePipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateImagePipelineCommand, se_UpdateImagePipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class UpdateImagePipelineCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateImagePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateImagePipelineCommand(input, context);
+    return se_UpdateImagePipelineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImagePipelineCommandOutput> {
-    return deserializeAws_restJson1UpdateImagePipelineCommand(output, context);
+    return de_UpdateImagePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

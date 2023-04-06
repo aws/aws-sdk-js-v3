@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { StopMetricStreamsInput, StopMetricStreamsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryStopMetricStreamsCommand,
-  serializeAws_queryStopMetricStreamsCommand,
-} from "../protocols/Aws_query";
+import { de_StopMetricStreamsCommand, se_StopMetricStreamsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class StopMetricStreamsCommand extends $Command<
    * @internal
    */
   private serialize(input: StopMetricStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryStopMetricStreamsCommand(input, context);
+    return se_StopMetricStreamsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMetricStreamsCommandOutput> {
-    return deserializeAws_queryStopMetricStreamsCommand(output, context);
+    return de_StopMetricStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

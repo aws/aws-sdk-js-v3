@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSchemaRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSchemaCommand,
-  serializeAws_restJson1DeleteSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSchemaCommand, se_DeleteSchemaCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -131,14 +128,14 @@ export class DeleteSchemaCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSchemaCommand(input, context);
+    return se_DeleteSchemaCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSchemaCommandOutput> {
-    return deserializeAws_restJson1DeleteSchemaCommand(output, context);
+    return de_DeleteSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

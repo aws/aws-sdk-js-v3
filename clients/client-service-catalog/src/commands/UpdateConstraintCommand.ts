@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateConstraintInput, UpdateConstraintOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateConstraintCommand,
-  serializeAws_json1_1UpdateConstraintCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateConstraintCommand, se_UpdateConstraintCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -129,14 +126,14 @@ export class UpdateConstraintCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConstraintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConstraintCommand(input, context);
+    return se_UpdateConstraintCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConstraintCommandOutput> {
-    return deserializeAws_json1_1UpdateConstraintCommand(output, context);
+    return de_UpdateConstraintCommand(output, context);
   }
 
   // Start section: command_body_extra

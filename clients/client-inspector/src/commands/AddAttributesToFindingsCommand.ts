@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { AddAttributesToFindingsRequest, AddAttributesToFindingsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AddAttributesToFindingsCommand,
-  serializeAws_json1_1AddAttributesToFindingsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AddAttributesToFindingsCommand, se_AddAttributesToFindingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class AddAttributesToFindingsCommand extends $Command<
    * @internal
    */
   private serialize(input: AddAttributesToFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddAttributesToFindingsCommand(input, context);
+    return se_AddAttributesToFindingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddAttributesToFindingsCommandOutput> {
-    return deserializeAws_json1_1AddAttributesToFindingsCommand(output, context);
+    return de_AddAttributesToFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

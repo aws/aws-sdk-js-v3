@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DescribeRecoveryPointInput, DescribeRecoveryPointOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRecoveryPointCommand,
-  serializeAws_restJson1DescribeRecoveryPointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeRecoveryPointCommand, se_DescribeRecoveryPointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeRecoveryPointCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeRecoveryPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeRecoveryPointCommand(input, context);
+    return se_DescribeRecoveryPointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRecoveryPointCommandOutput> {
-    return deserializeAws_restJson1DescribeRecoveryPointCommand(output, context);
+    return de_DescribeRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

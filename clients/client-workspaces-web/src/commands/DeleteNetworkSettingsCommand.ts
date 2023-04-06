@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteNetworkSettingsRequest, DeleteNetworkSettingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteNetworkSettingsCommand,
-  serializeAws_restJson1DeleteNetworkSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteNetworkSettingsCommand, se_DeleteNetworkSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -135,14 +132,14 @@ export class DeleteNetworkSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteNetworkSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNetworkSettingsCommand(input, context);
+    return se_DeleteNetworkSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteNetworkSettingsCommandOutput> {
-    return deserializeAws_restJson1DeleteNetworkSettingsCommand(output, context);
+    return de_DeleteNetworkSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

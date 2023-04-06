@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DisassociateKmsKeyRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateKmsKeyCommand,
-  serializeAws_json1_1DisassociateKmsKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateKmsKeyCommand, se_DisassociateKmsKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DisassociateKmsKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateKmsKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateKmsKeyCommand(input, context);
+    return se_DisassociateKmsKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateKmsKeyCommandOutput> {
-    return deserializeAws_json1_1DisassociateKmsKeyCommand(output, context);
+    return de_DisassociateKmsKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

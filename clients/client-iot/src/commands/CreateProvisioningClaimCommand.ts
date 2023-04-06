@@ -19,10 +19,7 @@ import {
   CreateProvisioningClaimResponse,
   CreateProvisioningClaimResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateProvisioningClaimCommand,
-  serializeAws_restJson1CreateProvisioningClaimCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateProvisioningClaimCommand, se_CreateProvisioningClaimCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class CreateProvisioningClaimCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateProvisioningClaimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateProvisioningClaimCommand(input, context);
+    return se_CreateProvisioningClaimCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateProvisioningClaimCommandOutput> {
-    return deserializeAws_restJson1CreateProvisioningClaimCommand(output, context);
+    return de_CreateProvisioningClaimCommand(output, context);
   }
 
   // Start section: command_body_extra

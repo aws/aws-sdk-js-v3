@@ -20,8 +20,8 @@ import {
   CreateServiceSpecificCredentialResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryCreateServiceSpecificCredentialCommand,
-  serializeAws_queryCreateServiceSpecificCredentialCommand,
+  de_CreateServiceSpecificCredentialCommand,
+  se_CreateServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -151,7 +151,7 @@ export class CreateServiceSpecificCredentialCommand extends $Command<
     input: CreateServiceSpecificCredentialCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateServiceSpecificCredentialCommand(input, context);
+    return se_CreateServiceSpecificCredentialCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class CreateServiceSpecificCredentialCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateServiceSpecificCredentialCommandOutput> {
-    return deserializeAws_queryCreateServiceSpecificCredentialCommand(output, context);
+    return de_CreateServiceSpecificCredentialCommand(output, context);
   }
 
   // Start section: command_body_extra

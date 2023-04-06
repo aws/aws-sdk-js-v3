@@ -19,8 +19,8 @@ import {
   GetTransitGatewayMulticastDomainAssociationsResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand,
-  serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand,
+  de_GetTransitGatewayMulticastDomainAssociationsCommand,
+  se_GetTransitGatewayMulticastDomainAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -146,7 +146,7 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
     input: GetTransitGatewayMulticastDomainAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand(input, context);
+    return se_GetTransitGatewayMulticastDomainAssociationsCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Comman
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput> {
-    return deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand(output, context);
+    return de_GetTransitGatewayMulticastDomainAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

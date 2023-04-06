@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { UpdateFleetAttributesInput, UpdateFleetAttributesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateFleetAttributesCommand,
-  serializeAws_json1_1UpdateFleetAttributesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateFleetAttributesCommand, se_UpdateFleetAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -173,14 +170,14 @@ export class UpdateFleetAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFleetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateFleetAttributesCommand(input, context);
+    return se_UpdateFleetAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetAttributesCommandOutput> {
-    return deserializeAws_json1_1UpdateFleetAttributesCommand(output, context);
+    return de_UpdateFleetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { UpdateMeshInput, UpdateMeshOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateMeshCommand,
-  serializeAws_restJson1UpdateMeshCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateMeshCommand, se_UpdateMeshCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class UpdateMeshCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateMeshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateMeshCommand(input, context);
+    return se_UpdateMeshCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMeshCommandOutput> {
-    return deserializeAws_restJson1UpdateMeshCommand(output, context);
+    return de_UpdateMeshCommand(output, context);
   }
 
   // Start section: command_body_extra

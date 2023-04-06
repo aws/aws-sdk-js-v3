@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { ScalingProcessQuery } from "../models/models_0";
-import {
-  deserializeAws_querySuspendProcessesCommand,
-  serializeAws_querySuspendProcessesCommand,
-} from "../protocols/Aws_query";
+import { de_SuspendProcessesCommand, se_SuspendProcessesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class SuspendProcessesCommand extends $Command<
    * @internal
    */
   private serialize(input: SuspendProcessesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySuspendProcessesCommand(input, context);
+    return se_SuspendProcessesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SuspendProcessesCommandOutput> {
-    return deserializeAws_querySuspendProcessesCommand(output, context);
+    return de_SuspendProcessesCommand(output, context);
   }
 
   // Start section: command_body_extra

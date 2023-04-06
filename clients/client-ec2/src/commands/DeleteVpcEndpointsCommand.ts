@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DeleteVpcEndpointsCommand,
-  serializeAws_ec2DeleteVpcEndpointsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteVpcEndpointsCommand, se_DeleteVpcEndpointsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteVpcEndpointsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpcEndpointsCommand(input, context);
+    return se_DeleteVpcEndpointsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVpcEndpointsCommandOutput> {
-    return deserializeAws_ec2DeleteVpcEndpointsCommand(output, context);
+    return de_DeleteVpcEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

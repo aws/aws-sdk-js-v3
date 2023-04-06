@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAccountSubscriptionRequest, CreateAccountSubscriptionResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1CreateAccountSubscriptionCommand,
-  serializeAws_restJson1CreateAccountSubscriptionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAccountSubscriptionCommand, se_CreateAccountSubscriptionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -192,7 +189,7 @@ export class CreateAccountSubscriptionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAccountSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAccountSubscriptionCommand(input, context);
+    return se_CreateAccountSubscriptionCommand(input, context);
   }
 
   /**
@@ -202,7 +199,7 @@ export class CreateAccountSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAccountSubscriptionCommandOutput> {
-    return deserializeAws_restJson1CreateAccountSubscriptionCommand(output, context);
+    return de_CreateAccountSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

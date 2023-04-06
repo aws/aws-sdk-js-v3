@@ -18,8 +18,8 @@ import {
   AttachManagedPolicyToPermissionSetResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AttachManagedPolicyToPermissionSetCommand,
-  serializeAws_json1_1AttachManagedPolicyToPermissionSetCommand,
+  de_AttachManagedPolicyToPermissionSetCommand,
+  se_AttachManagedPolicyToPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -165,7 +165,7 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
     input: AttachManagedPolicyToPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachManagedPolicyToPermissionSetCommand(input, context);
+    return se_AttachManagedPolicyToPermissionSetCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachManagedPolicyToPermissionSetCommandOutput> {
-    return deserializeAws_json1_1AttachManagedPolicyToPermissionSetCommand(output, context);
+    return de_AttachManagedPolicyToPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

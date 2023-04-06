@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListGroupPoliciesRequest, ListGroupPoliciesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListGroupPoliciesCommand,
-  serializeAws_queryListGroupPoliciesCommand,
-} from "../protocols/Aws_query";
+import { de_ListGroupPoliciesCommand, se_ListGroupPoliciesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class ListGroupPoliciesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGroupPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListGroupPoliciesCommand(input, context);
+    return se_ListGroupPoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupPoliciesCommandOutput> {
-    return deserializeAws_queryListGroupPoliciesCommand(output, context);
+    return de_ListGroupPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

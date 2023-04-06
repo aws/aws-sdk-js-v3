@@ -15,8 +15,8 @@ import {
 
 import { DescribeSavingsPlansOfferingsRequest, DescribeSavingsPlansOfferingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeSavingsPlansOfferingsCommand,
-  serializeAws_restJson1DescribeSavingsPlansOfferingsCommand,
+  de_DescribeSavingsPlansOfferingsCommand,
+  se_DescribeSavingsPlansOfferingsCommand,
 } from "../protocols/Aws_restJson1";
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
@@ -165,7 +165,7 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSavingsPlansOfferingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSavingsPlansOfferingsCommand(input, context);
+    return se_DescribeSavingsPlansOfferingsCommand(input, context);
   }
 
   /**
@@ -175,7 +175,7 @@ export class DescribeSavingsPlansOfferingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSavingsPlansOfferingsCommandOutput> {
-    return deserializeAws_restJson1DescribeSavingsPlansOfferingsCommand(output, context);
+    return de_DescribeSavingsPlansOfferingsCommand(output, context);
   }
 
   // Start section: command_body_extra

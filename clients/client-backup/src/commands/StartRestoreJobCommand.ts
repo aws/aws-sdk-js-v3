@@ -19,10 +19,7 @@ import {
   StartRestoreJobInputFilterSensitiveLog,
   StartRestoreJobOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartRestoreJobCommand,
-  serializeAws_restJson1StartRestoreJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartRestoreJobCommand, se_StartRestoreJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class StartRestoreJobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartRestoreJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartRestoreJobCommand(input, context);
+    return se_StartRestoreJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRestoreJobCommandOutput> {
-    return deserializeAws_restJson1StartRestoreJobCommand(output, context);
+    return de_StartRestoreJobCommand(output, context);
   }
 
   // Start section: command_body_extra

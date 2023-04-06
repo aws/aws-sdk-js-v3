@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteReplicationSetInput, DeleteReplicationSetOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteReplicationSetCommand,
-  serializeAws_restJson1DeleteReplicationSetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteReplicationSetCommand, se_DeleteReplicationSetCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -138,14 +135,14 @@ export class DeleteReplicationSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteReplicationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteReplicationSetCommand(input, context);
+    return se_DeleteReplicationSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReplicationSetCommandOutput> {
-    return deserializeAws_restJson1DeleteReplicationSetCommand(output, context);
+    return de_DeleteReplicationSetCommand(output, context);
   }
 
   // Start section: command_body_extra

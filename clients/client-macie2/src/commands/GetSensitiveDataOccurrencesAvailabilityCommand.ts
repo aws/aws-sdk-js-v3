@@ -19,8 +19,8 @@ import {
   GetSensitiveDataOccurrencesAvailabilityResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand,
-  serializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand,
+  de_GetSensitiveDataOccurrencesAvailabilityCommand,
+  se_GetSensitiveDataOccurrencesAvailabilityCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<
     input: GetSensitiveDataOccurrencesAvailabilityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand(input, context);
+    return se_GetSensitiveDataOccurrencesAvailabilityCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSensitiveDataOccurrencesAvailabilityCommandOutput> {
-    return deserializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand(output, context);
+    return de_GetSensitiveDataOccurrencesAvailabilityCommand(output, context);
   }
 
   // Start section: command_body_extra

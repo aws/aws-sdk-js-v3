@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GetRequestValidatorsRequest, RequestValidators } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRequestValidatorsCommand,
-  serializeAws_restJson1GetRequestValidatorsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRequestValidatorsCommand, se_GetRequestValidatorsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetRequestValidatorsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRequestValidatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRequestValidatorsCommand(input, context);
+    return se_GetRequestValidatorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRequestValidatorsCommandOutput> {
-    return deserializeAws_restJson1GetRequestValidatorsCommand(output, context);
+    return de_GetRequestValidatorsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { BatchDescribeTypeConfigurationsInput, BatchDescribeTypeConfigurationsOutput } from "../models/models_0";
 import {
-  deserializeAws_queryBatchDescribeTypeConfigurationsCommand,
-  serializeAws_queryBatchDescribeTypeConfigurationsCommand,
+  de_BatchDescribeTypeConfigurationsCommand,
+  se_BatchDescribeTypeConfigurationsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -142,7 +142,7 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command<
     input: BatchDescribeTypeConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryBatchDescribeTypeConfigurationsCommand(input, context);
+    return se_BatchDescribeTypeConfigurationsCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDescribeTypeConfigurationsCommandOutput> {
-    return deserializeAws_queryBatchDescribeTypeConfigurationsCommand(output, context);
+    return de_BatchDescribeTypeConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

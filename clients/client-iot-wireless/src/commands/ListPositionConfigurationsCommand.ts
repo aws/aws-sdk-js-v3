@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { ListPositionConfigurationsRequest, ListPositionConfigurationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPositionConfigurationsCommand,
-  serializeAws_restJson1ListPositionConfigurationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPositionConfigurationsCommand, se_ListPositionConfigurationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class ListPositionConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPositionConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPositionConfigurationsCommand(input, context);
+    return se_ListPositionConfigurationsCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class ListPositionConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListPositionConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListPositionConfigurationsCommand(output, context);
+    return de_ListPositionConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateFindingAggregatorRequest, UpdateFindingAggregatorResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateFindingAggregatorCommand,
-  serializeAws_restJson1UpdateFindingAggregatorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateFindingAggregatorCommand, se_UpdateFindingAggregatorCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -146,14 +143,14 @@ export class UpdateFindingAggregatorCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateFindingAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFindingAggregatorCommand(input, context);
+    return se_UpdateFindingAggregatorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFindingAggregatorCommandOutput> {
-    return deserializeAws_restJson1UpdateFindingAggregatorCommand(output, context);
+    return de_UpdateFindingAggregatorCommand(output, context);
   }
 
   // Start section: command_body_extra

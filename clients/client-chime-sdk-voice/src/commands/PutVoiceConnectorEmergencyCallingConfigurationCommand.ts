@@ -21,8 +21,8 @@ import {
   PutVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutVoiceConnectorEmergencyCallingConfigurationCommand,
-  serializeAws_restJson1PutVoiceConnectorEmergencyCallingConfigurationCommand,
+  de_PutVoiceConnectorEmergencyCallingConfigurationCommand,
+  se_PutVoiceConnectorEmergencyCallingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -167,7 +167,7 @@ export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     input: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
+    return se_PutVoiceConnectorEmergencyCallingConfigurationCommand(input, context);
   }
 
   /**
@@ -177,7 +177,7 @@ export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorEmergencyCallingConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorEmergencyCallingConfigurationCommand(output, context);
+    return de_PutVoiceConnectorEmergencyCallingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { GetKMSEncryptionKeyResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetKMSEncryptionKeyCommand,
-  serializeAws_json1_1GetKMSEncryptionKeyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetKMSEncryptionKeyCommand, se_GetKMSEncryptionKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class GetKMSEncryptionKeyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetKMSEncryptionKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetKMSEncryptionKeyCommand(input, context);
+    return se_GetKMSEncryptionKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKMSEncryptionKeyCommandOutput> {
-    return deserializeAws_json1_1GetKMSEncryptionKeyCommand(output, context);
+    return de_GetKMSEncryptionKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

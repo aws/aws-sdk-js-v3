@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateNetworkInterfacePermissionRequest, CreateNetworkInterfacePermissionResult } from "../models/models_1";
 import {
-  deserializeAws_ec2CreateNetworkInterfacePermissionCommand,
-  serializeAws_ec2CreateNetworkInterfacePermissionCommand,
+  de_CreateNetworkInterfacePermissionCommand,
+  se_CreateNetworkInterfacePermissionCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -131,7 +131,7 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
     input: CreateNetworkInterfacePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateNetworkInterfacePermissionCommand(input, context);
+    return se_CreateNetworkInterfacePermissionCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateNetworkInterfacePermissionCommandOutput> {
-    return deserializeAws_ec2CreateNetworkInterfacePermissionCommand(output, context);
+    return de_CreateNetworkInterfacePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

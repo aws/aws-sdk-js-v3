@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisableCrlCommand,
-  serializeAws_restJson1DisableCrlCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisableCrlCommand, se_DisableCrlCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -128,14 +125,14 @@ export class DisableCrlCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableCrlCommand(input, context);
+    return se_DisableCrlCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableCrlCommandOutput> {
-    return deserializeAws_restJson1DisableCrlCommand(output, context);
+    return de_DisableCrlCommand(output, context);
   }
 
   // Start section: command_body_extra

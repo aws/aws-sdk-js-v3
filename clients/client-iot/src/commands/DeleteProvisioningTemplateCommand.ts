@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteProvisioningTemplateRequest, DeleteProvisioningTemplateResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DeleteProvisioningTemplateCommand,
-  serializeAws_restJson1DeleteProvisioningTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteProvisioningTemplateCommand, se_DeleteProvisioningTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class DeleteProvisioningTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProvisioningTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteProvisioningTemplateCommand(input, context);
+    return se_DeleteProvisioningTemplateCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class DeleteProvisioningTemplateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisioningTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteProvisioningTemplateCommand(output, context);
+    return de_DeleteProvisioningTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DetachTrafficSourcesResultType, DetachTrafficSourcesType } from "../models/models_0";
-import {
-  deserializeAws_queryDetachTrafficSourcesCommand,
-  serializeAws_queryDetachTrafficSourcesCommand,
-} from "../protocols/Aws_query";
+import { de_DetachTrafficSourcesCommand, se_DetachTrafficSourcesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class DetachTrafficSourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachTrafficSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDetachTrafficSourcesCommand(input, context);
+    return se_DetachTrafficSourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachTrafficSourcesCommandOutput> {
-    return deserializeAws_queryDetachTrafficSourcesCommand(output, context);
+    return de_DetachTrafficSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

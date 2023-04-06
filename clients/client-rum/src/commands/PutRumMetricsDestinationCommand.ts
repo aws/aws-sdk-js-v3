@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutRumMetricsDestinationRequest, PutRumMetricsDestinationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutRumMetricsDestinationCommand,
-  serializeAws_restJson1PutRumMetricsDestinationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutRumMetricsDestinationCommand, se_PutRumMetricsDestinationCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 
 /**
@@ -143,14 +140,14 @@ export class PutRumMetricsDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRumMetricsDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutRumMetricsDestinationCommand(input, context);
+    return se_PutRumMetricsDestinationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRumMetricsDestinationCommandOutput> {
-    return deserializeAws_restJson1PutRumMetricsDestinationCommand(output, context);
+    return de_PutRumMetricsDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

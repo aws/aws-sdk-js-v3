@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UntagOpenIDConnectProviderRequest } from "../models/models_0";
-import {
-  deserializeAws_queryUntagOpenIDConnectProviderCommand,
-  serializeAws_queryUntagOpenIDConnectProviderCommand,
-} from "../protocols/Aws_query";
+import { de_UntagOpenIDConnectProviderCommand, se_UntagOpenIDConnectProviderCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class UntagOpenIDConnectProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: UntagOpenIDConnectProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUntagOpenIDConnectProviderCommand(input, context);
+    return se_UntagOpenIDConnectProviderCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class UntagOpenIDConnectProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UntagOpenIDConnectProviderCommandOutput> {
-    return deserializeAws_queryUntagOpenIDConnectProviderCommand(output, context);
+    return de_UntagOpenIDConnectProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

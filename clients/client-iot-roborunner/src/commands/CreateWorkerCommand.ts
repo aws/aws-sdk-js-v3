@@ -15,10 +15,7 @@ import {
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
 import { CreateWorkerRequest, CreateWorkerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkerCommand,
-  serializeAws_restJson1CreateWorkerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWorkerCommand, se_CreateWorkerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class CreateWorkerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkerCommand(input, context);
+    return se_CreateWorkerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkerCommandOutput> {
-    return deserializeAws_restJson1CreateWorkerCommand(output, context);
+    return de_CreateWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

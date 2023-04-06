@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { ListTableStorageOptimizersRequest, ListTableStorageOptimizersResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTableStorageOptimizersCommand,
-  serializeAws_restJson1ListTableStorageOptimizersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTableStorageOptimizersCommand, se_ListTableStorageOptimizersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class ListTableStorageOptimizersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTableStorageOptimizersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTableStorageOptimizersCommand(input, context);
+    return se_ListTableStorageOptimizersCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class ListTableStorageOptimizersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTableStorageOptimizersCommandOutput> {
-    return deserializeAws_restJson1ListTableStorageOptimizersCommand(output, context);
+    return de_ListTableStorageOptimizersCommand(output, context);
   }
 
   // Start section: command_body_extra

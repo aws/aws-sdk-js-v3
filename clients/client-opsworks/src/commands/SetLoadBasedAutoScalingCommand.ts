@@ -15,10 +15,7 @@ import {
 
 import { SetLoadBasedAutoScalingRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1SetLoadBasedAutoScalingCommand,
-  serializeAws_json1_1SetLoadBasedAutoScalingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetLoadBasedAutoScalingCommand, se_SetLoadBasedAutoScalingCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class SetLoadBasedAutoScalingCommand extends $Command<
    * @internal
    */
   private serialize(input: SetLoadBasedAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetLoadBasedAutoScalingCommand(input, context);
+    return se_SetLoadBasedAutoScalingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetLoadBasedAutoScalingCommandOutput> {
-    return deserializeAws_json1_1SetLoadBasedAutoScalingCommand(output, context);
+    return de_SetLoadBasedAutoScalingCommand(output, context);
   }
 
   // Start section: command_body_extra

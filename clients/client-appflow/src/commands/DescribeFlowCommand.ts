@@ -15,10 +15,7 @@ import {
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { DescribeFlowRequest, DescribeFlowResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeFlowCommand,
-  serializeAws_restJson1DescribeFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeFlowCommand, se_DescribeFlowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DescribeFlowCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeFlowCommand(input, context);
+    return se_DescribeFlowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFlowCommandOutput> {
-    return deserializeAws_restJson1DescribeFlowCommand(output, context);
+    return de_DescribeFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

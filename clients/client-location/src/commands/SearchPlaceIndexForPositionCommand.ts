@@ -21,8 +21,8 @@ import {
   SearchPlaceIndexForPositionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1SearchPlaceIndexForPositionCommand,
-  serializeAws_restJson1SearchPlaceIndexForPositionCommand,
+  de_SearchPlaceIndexForPositionCommand,
+  se_SearchPlaceIndexForPositionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -149,7 +149,7 @@ export class SearchPlaceIndexForPositionCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchPlaceIndexForPositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchPlaceIndexForPositionCommand(input, context);
+    return se_SearchPlaceIndexForPositionCommand(input, context);
   }
 
   /**
@@ -159,7 +159,7 @@ export class SearchPlaceIndexForPositionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SearchPlaceIndexForPositionCommandOutput> {
-    return deserializeAws_restJson1SearchPlaceIndexForPositionCommand(output, context);
+    return de_SearchPlaceIndexForPositionCommand(output, context);
   }
 
   // Start section: command_body_extra

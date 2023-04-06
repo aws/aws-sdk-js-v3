@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { GetTaskTemplateRequest, GetTaskTemplateResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetTaskTemplateCommand,
-  serializeAws_restJson1GetTaskTemplateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetTaskTemplateCommand, se_GetTaskTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetTaskTemplateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetTaskTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetTaskTemplateCommand(input, context);
+    return se_GetTaskTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTaskTemplateCommandOutput> {
-    return deserializeAws_restJson1GetTaskTemplateCommand(output, context);
+    return de_GetTaskTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

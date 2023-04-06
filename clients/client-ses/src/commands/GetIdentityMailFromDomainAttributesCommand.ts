@@ -18,8 +18,8 @@ import {
   GetIdentityMailFromDomainAttributesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGetIdentityMailFromDomainAttributesCommand,
-  serializeAws_queryGetIdentityMailFromDomainAttributesCommand,
+  de_GetIdentityMailFromDomainAttributesCommand,
+  se_GetIdentityMailFromDomainAttributesCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -157,7 +157,7 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     input: GetIdentityMailFromDomainAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityMailFromDomainAttributesCommand(input, context);
+    return se_GetIdentityMailFromDomainAttributesCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityMailFromDomainAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityMailFromDomainAttributesCommand(output, context);
+    return de_GetIdentityMailFromDomainAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

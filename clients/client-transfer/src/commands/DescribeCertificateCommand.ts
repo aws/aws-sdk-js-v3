@@ -18,10 +18,7 @@ import {
   DescribeCertificateResponse,
   DescribeCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCertificateCommand,
-  serializeAws_json1_1DescribeCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCertificateCommand, se_DescribeCertificateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -137,14 +134,14 @@ export class DescribeCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCertificateCommand(input, context);
+    return se_DescribeCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificateCommandOutput> {
-    return deserializeAws_json1_1DescribeCertificateCommand(output, context);
+    return de_DescribeCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

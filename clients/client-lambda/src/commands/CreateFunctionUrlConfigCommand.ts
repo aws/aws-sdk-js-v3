@@ -15,10 +15,7 @@ import {
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { CreateFunctionUrlConfigRequest, CreateFunctionUrlConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFunctionUrlConfigCommand,
-  serializeAws_restJson1CreateFunctionUrlConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateFunctionUrlConfigCommand, se_CreateFunctionUrlConfigCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class CreateFunctionUrlConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFunctionUrlConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFunctionUrlConfigCommand(input, context);
+    return se_CreateFunctionUrlConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionUrlConfigCommandOutput> {
-    return deserializeAws_restJson1CreateFunctionUrlConfigCommand(output, context);
+    return de_CreateFunctionUrlConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetContainerServiceMetricDataRequest, GetContainerServiceMetricDataResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetContainerServiceMetricDataCommand,
-  serializeAws_json1_1GetContainerServiceMetricDataCommand,
+  de_GetContainerServiceMetricDataCommand,
+  se_GetContainerServiceMetricDataCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -155,7 +155,7 @@ export class GetContainerServiceMetricDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetContainerServiceMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetContainerServiceMetricDataCommand(input, context);
+    return se_GetContainerServiceMetricDataCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class GetContainerServiceMetricDataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetContainerServiceMetricDataCommandOutput> {
-    return deserializeAws_json1_1GetContainerServiceMetricDataCommand(output, context);
+    return de_GetContainerServiceMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifySamlPropertiesRequest, ModifySamlPropertiesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifySamlPropertiesCommand,
-  serializeAws_json1_1ModifySamlPropertiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifySamlPropertiesCommand, se_ModifySamlPropertiesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -142,14 +139,14 @@ export class ModifySamlPropertiesCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifySamlPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifySamlPropertiesCommand(input, context);
+    return se_ModifySamlPropertiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifySamlPropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifySamlPropertiesCommand(output, context);
+    return de_ModifySamlPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

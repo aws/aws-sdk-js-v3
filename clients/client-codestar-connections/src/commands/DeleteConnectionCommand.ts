@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
 import { DeleteConnectionInput, DeleteConnectionOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteConnectionCommand,
-  serializeAws_json1_0DeleteConnectionCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteConnectionCommand, se_DeleteConnectionCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class DeleteConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteConnectionCommand(input, context);
+    return se_DeleteConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionCommandOutput> {
-    return deserializeAws_json1_0DeleteConnectionCommand(output, context);
+    return de_DeleteConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

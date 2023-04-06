@@ -15,10 +15,7 @@ import {
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { PreviewAgentsRequest, PreviewAgentsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PreviewAgentsCommand,
-  serializeAws_json1_1PreviewAgentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PreviewAgentsCommand, se_PreviewAgentsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class PreviewAgentsCommand extends $Command<
    * @internal
    */
   private serialize(input: PreviewAgentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PreviewAgentsCommand(input, context);
+    return se_PreviewAgentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PreviewAgentsCommandOutput> {
-    return deserializeAws_json1_1PreviewAgentsCommand(output, context);
+    return de_PreviewAgentsCommand(output, context);
   }
 
   // Start section: command_body_extra

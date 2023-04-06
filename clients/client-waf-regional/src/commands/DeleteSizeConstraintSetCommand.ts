@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSizeConstraintSetRequest, DeleteSizeConstraintSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSizeConstraintSetCommand,
-  serializeAws_json1_1DeleteSizeConstraintSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSizeConstraintSetCommand, se_DeleteSizeConstraintSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -202,14 +199,14 @@ export class DeleteSizeConstraintSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSizeConstraintSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSizeConstraintSetCommand(input, context);
+    return se_DeleteSizeConstraintSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSizeConstraintSetCommandOutput> {
-    return deserializeAws_json1_1DeleteSizeConstraintSetCommand(output, context);
+    return de_DeleteSizeConstraintSetCommand(output, context);
   }
 
   // Start section: command_body_extra

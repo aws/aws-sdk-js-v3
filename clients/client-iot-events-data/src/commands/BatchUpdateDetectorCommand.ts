@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { BatchUpdateDetectorRequest, BatchUpdateDetectorResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUpdateDetectorCommand,
-  serializeAws_restJson1BatchUpdateDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchUpdateDetectorCommand, se_BatchUpdateDetectorCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class BatchUpdateDetectorCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchUpdateDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUpdateDetectorCommand(input, context);
+    return se_BatchUpdateDetectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateDetectorCommandOutput> {
-    return deserializeAws_restJson1BatchUpdateDetectorCommand(output, context);
+    return de_BatchUpdateDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

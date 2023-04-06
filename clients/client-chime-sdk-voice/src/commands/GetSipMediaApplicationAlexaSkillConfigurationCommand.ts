@@ -20,8 +20,8 @@ import {
   GetSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetSipMediaApplicationAlexaSkillConfigurationCommand,
-  serializeAws_restJson1GetSipMediaApplicationAlexaSkillConfigurationCommand,
+  de_GetSipMediaApplicationAlexaSkillConfigurationCommand,
+  se_GetSipMediaApplicationAlexaSkillConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -157,7 +157,7 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
     input: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSipMediaApplicationAlexaSkillConfigurationCommand(input, context);
+    return se_GetSipMediaApplicationAlexaSkillConfigurationCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSipMediaApplicationAlexaSkillConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetSipMediaApplicationAlexaSkillConfigurationCommand(output, context);
+    return de_GetSipMediaApplicationAlexaSkillConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

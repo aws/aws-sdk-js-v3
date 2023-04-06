@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetOrganizationsAccessReportRequest, GetOrganizationsAccessReportResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetOrganizationsAccessReportCommand,
-  serializeAws_queryGetOrganizationsAccessReportCommand,
-} from "../protocols/Aws_query";
+import { de_GetOrganizationsAccessReportCommand, se_GetOrganizationsAccessReportCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -191,7 +188,7 @@ export class GetOrganizationsAccessReportCommand extends $Command<
    * @internal
    */
   private serialize(input: GetOrganizationsAccessReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetOrganizationsAccessReportCommand(input, context);
+    return se_GetOrganizationsAccessReportCommand(input, context);
   }
 
   /**
@@ -201,7 +198,7 @@ export class GetOrganizationsAccessReportCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetOrganizationsAccessReportCommandOutput> {
-    return deserializeAws_queryGetOrganizationsAccessReportCommand(output, context);
+    return de_GetOrganizationsAccessReportCommand(output, context);
   }
 
   // Start section: command_body_extra

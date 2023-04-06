@@ -15,8 +15,8 @@ import {
 
 import { UpdateKnowledgeBaseTemplateUriRequest, UpdateKnowledgeBaseTemplateUriResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand,
-  serializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand,
+  de_UpdateKnowledgeBaseTemplateUriCommand,
+  se_UpdateKnowledgeBaseTemplateUriCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
@@ -140,7 +140,7 @@ export class UpdateKnowledgeBaseTemplateUriCommand extends $Command<
     input: UpdateKnowledgeBaseTemplateUriCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand(input, context);
+    return se_UpdateKnowledgeBaseTemplateUriCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class UpdateKnowledgeBaseTemplateUriCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateKnowledgeBaseTemplateUriCommandOutput> {
-    return deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand(output, context);
+    return de_UpdateKnowledgeBaseTemplateUriCommand(output, context);
   }
 
   // Start section: command_body_extra

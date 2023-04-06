@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetSessionRequest, GetSessionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSessionCommand,
-  serializeAws_restJson1GetSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSessionCommand, se_GetSessionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -128,14 +125,14 @@ export class GetSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSessionCommand(input, context);
+    return se_GetSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionCommandOutput> {
-    return deserializeAws_restJson1GetSessionCommand(output, context);
+    return de_GetSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

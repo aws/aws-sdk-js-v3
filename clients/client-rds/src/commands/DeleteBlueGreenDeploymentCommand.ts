@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteBlueGreenDeploymentRequest, DeleteBlueGreenDeploymentResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteBlueGreenDeploymentCommand,
-  serializeAws_queryDeleteBlueGreenDeploymentCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteBlueGreenDeploymentCommand, se_DeleteBlueGreenDeploymentCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -69,6 +66,146 @@ export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenD
  *  <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in
  *             the green environment.</p>
  *
+ *
+ * @example To delete resources in green environment for an RDS for MySQL DB instance
+ * ```javascript
+ * // The following example deletes the resources in a green environment for an RDS for MySQL DB instance.
+ * const input = {
+ *   "BlueGreenDeploymentIdentifier": "bgd-v53303651eexfake",
+ *   "DeleteTarget": true
+ * };
+ * const command = new DeleteBlueGreenDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "BlueGreenDeployment": {
+ *     "BlueGreenDeploymentIdentifier": "bgd-v53303651eexfake",
+ *     "BlueGreenDeploymentName": "bgd-cli-test-instance",
+ *     "CreateTime": "2022-02-25T21:18:51.183000+00:00",
+ *     "DeleteTime": "2022-02-25T22:25:31.331000+00:00",
+ *     "Source": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
+ *     "Status": "DELETING",
+ *     "SwitchoverDetails": [
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-green-rkfbpe"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-1",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-1-green-j382ha"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-2",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-2-green-ejv4ao"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-3",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-3-green-vlpz3t"
+ *       }
+ *     ],
+ *     "Target": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-green-rkfbpe",
+ *     "Tasks": [
+ *       {
+ *         "Name": "CREATING_READ_REPLICA_OF_SOURCE",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "DB_ENGINE_VERSION_UPGRADE",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "CONFIGURE_BACKUPS",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "CREATING_TOPOLOGY_OF_SOURCE",
+ *         "Status": "COMPLETED"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-delete-resources-in-green-environment-for-an-rds-for-mysql-db-instance-1679959961651
+ * ```
+ *
+ * @example To delete resources in green environment for an Aurora MySQL DB cluster
+ * ```javascript
+ * // The following example deletes the resources in a green environment for an Aurora MySQL DB cluster.
+ * const input = {
+ *   "BlueGreenDeploymentIdentifier": "bgd-wi89nwzglccsfake",
+ *   "DeleteTarget": true
+ * };
+ * const command = new DeleteBlueGreenDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "BlueGreenDeployment": {
+ *     "BlueGreenDeploymentIdentifier": "bgd-wi89nwzglccsfake",
+ *     "BlueGreenDeploymentName": "my-blue-green-deployment",
+ *     "CreateTime": "2022-02-25T21:12:00.288000+00:00",
+ *     "DeleteTime": "2022-02-25T22:29:11.336000+00:00",
+ *     "Source": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *     "Status": "DELETING",
+ *     "SwitchoverDetails": [
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster-green-3rnukl"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1-green-gpmaxf"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2-green-j2oajq"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3-green-mkxies"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint-green-4sqjrq"
+ *       },
+ *       {
+ *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint",
+ *         "Status": "AVAILABLE",
+ *         "TargetMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint-green-gwwzlg"
+ *       }
+ *     ],
+ *     "Target": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster-green-3rnukl",
+ *     "Tasks": [
+ *       {
+ *         "Name": "CREATING_READ_REPLICA_OF_SOURCE",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "DB_ENGINE_VERSION_UPGRADE",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "CREATE_DB_INSTANCES_FOR_CLUSTER",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "Name": "CREATE_CUSTOM_ENDPOINTS",
+ *         "Status": "COMPLETED"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-delete-resources-in-green-environment-for-an-aurora-mysql-db-cluster-1679960123935
+ * ```
  *
  */
 export class DeleteBlueGreenDeploymentCommand extends $Command<
@@ -134,7 +271,7 @@ export class DeleteBlueGreenDeploymentCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBlueGreenDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteBlueGreenDeploymentCommand(input, context);
+    return se_DeleteBlueGreenDeploymentCommand(input, context);
   }
 
   /**
@@ -144,7 +281,7 @@ export class DeleteBlueGreenDeploymentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBlueGreenDeploymentCommandOutput> {
-    return deserializeAws_queryDeleteBlueGreenDeploymentCommand(output, context);
+    return de_DeleteBlueGreenDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

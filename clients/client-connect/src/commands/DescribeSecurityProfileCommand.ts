@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DescribeSecurityProfileRequest, DescribeSecurityProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSecurityProfileCommand,
-  serializeAws_restJson1DescribeSecurityProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeSecurityProfileCommand, se_DescribeSecurityProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeSecurityProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSecurityProfileCommand(input, context);
+    return se_DescribeSecurityProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1DescribeSecurityProfileCommand(output, context);
+    return de_DescribeSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

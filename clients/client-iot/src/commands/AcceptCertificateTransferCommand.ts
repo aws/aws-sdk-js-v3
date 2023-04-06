@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { AcceptCertificateTransferRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1AcceptCertificateTransferCommand,
-  serializeAws_restJson1AcceptCertificateTransferCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AcceptCertificateTransferCommand, se_AcceptCertificateTransferCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class AcceptCertificateTransferCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptCertificateTransferCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptCertificateTransferCommand(input, context);
+    return se_AcceptCertificateTransferCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class AcceptCertificateTransferCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptCertificateTransferCommandOutput> {
-    return deserializeAws_restJson1AcceptCertificateTransferCommand(output, context);
+    return de_AcceptCertificateTransferCommand(output, context);
   }
 
   // Start section: command_body_extra

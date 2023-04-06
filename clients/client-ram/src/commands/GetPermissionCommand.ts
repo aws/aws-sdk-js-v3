@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetPermissionRequest, GetPermissionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPermissionCommand,
-  serializeAws_restJson1GetPermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPermissionCommand, se_GetPermissionCommand } from "../protocols/Aws_restJson1";
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 
 /**
@@ -137,14 +134,14 @@ export class GetPermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPermissionCommand(input, context);
+    return se_GetPermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPermissionCommandOutput> {
-    return deserializeAws_restJson1GetPermissionCommand(output, context);
+    return de_GetPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

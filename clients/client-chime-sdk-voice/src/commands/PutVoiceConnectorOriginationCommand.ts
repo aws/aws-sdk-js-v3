@@ -16,8 +16,8 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { PutVoiceConnectorOriginationRequest, PutVoiceConnectorOriginationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutVoiceConnectorOriginationCommand,
-  serializeAws_restJson1PutVoiceConnectorOriginationCommand,
+  de_PutVoiceConnectorOriginationCommand,
+  se_PutVoiceConnectorOriginationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -155,7 +155,7 @@ export class PutVoiceConnectorOriginationCommand extends $Command<
    * @internal
    */
   private serialize(input: PutVoiceConnectorOriginationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutVoiceConnectorOriginationCommand(input, context);
+    return se_PutVoiceConnectorOriginationCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class PutVoiceConnectorOriginationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutVoiceConnectorOriginationCommandOutput> {
-    return deserializeAws_restJson1PutVoiceConnectorOriginationCommand(output, context);
+    return de_PutVoiceConnectorOriginationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteOpsMetadataRequest, DeleteOpsMetadataResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteOpsMetadataCommand,
-  serializeAws_json1_1DeleteOpsMetadataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteOpsMetadataCommand, se_DeleteOpsMetadataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -129,14 +126,14 @@ export class DeleteOpsMetadataCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteOpsMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteOpsMetadataCommand(input, context);
+    return se_DeleteOpsMetadataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOpsMetadataCommandOutput> {
-    return deserializeAws_json1_1DeleteOpsMetadataCommand(output, context);
+    return de_DeleteOpsMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

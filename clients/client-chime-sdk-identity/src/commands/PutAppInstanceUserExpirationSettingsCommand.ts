@@ -19,8 +19,8 @@ import {
   PutAppInstanceUserExpirationSettingsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutAppInstanceUserExpirationSettingsCommand,
-  serializeAws_restJson1PutAppInstanceUserExpirationSettingsCommand,
+  de_PutAppInstanceUserExpirationSettingsCommand,
+  se_PutAppInstanceUserExpirationSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -160,7 +160,7 @@ export class PutAppInstanceUserExpirationSettingsCommand extends $Command<
     input: PutAppInstanceUserExpirationSettingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutAppInstanceUserExpirationSettingsCommand(input, context);
+    return se_PutAppInstanceUserExpirationSettingsCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class PutAppInstanceUserExpirationSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutAppInstanceUserExpirationSettingsCommandOutput> {
-    return deserializeAws_restJson1PutAppInstanceUserExpirationSettingsCommand(output, context);
+    return de_PutAppInstanceUserExpirationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

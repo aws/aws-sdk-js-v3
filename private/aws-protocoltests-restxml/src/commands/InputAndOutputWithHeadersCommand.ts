@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InputAndOutputWithHeadersIO } from "../models/models_0";
-import {
-  deserializeAws_restXmlInputAndOutputWithHeadersCommand,
-  serializeAws_restXmlInputAndOutputWithHeadersCommand,
-} from "../protocols/Aws_restXml";
+import { de_InputAndOutputWithHeadersCommand, se_InputAndOutputWithHeadersCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -135,7 +132,7 @@ export class InputAndOutputWithHeadersCommand extends $Command<
    * @internal
    */
   private serialize(input: InputAndOutputWithHeadersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlInputAndOutputWithHeadersCommand(input, context);
+    return se_InputAndOutputWithHeadersCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InputAndOutputWithHeadersCommandOutput> {
-    return deserializeAws_restXmlInputAndOutputWithHeadersCommand(output, context);
+    return de_InputAndOutputWithHeadersCommand(output, context);
   }
 
   // Start section: command_body_extra

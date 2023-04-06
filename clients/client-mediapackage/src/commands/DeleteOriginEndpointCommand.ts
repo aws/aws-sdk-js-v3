@@ -15,10 +15,7 @@ import {
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
 import { DeleteOriginEndpointRequest, DeleteOriginEndpointResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteOriginEndpointCommand,
-  serializeAws_restJson1DeleteOriginEndpointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteOriginEndpointCommand, se_DeleteOriginEndpointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteOriginEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteOriginEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteOriginEndpointCommand(input, context);
+    return se_DeleteOriginEndpointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOriginEndpointCommandOutput> {
-    return deserializeAws_restJson1DeleteOriginEndpointCommand(output, context);
+    return de_DeleteOriginEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

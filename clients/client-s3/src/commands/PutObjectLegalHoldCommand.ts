@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutObjectLegalHoldOutput, PutObjectLegalHoldRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutObjectLegalHoldCommand,
-  serializeAws_restXmlPutObjectLegalHoldCommand,
-} from "../protocols/Aws_restXml";
+import { de_PutObjectLegalHoldCommand, se_PutObjectLegalHoldCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -146,14 +143,14 @@ export class PutObjectLegalHoldCommand extends $Command<
    * @internal
    */
   private serialize(input: PutObjectLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutObjectLegalHoldCommand(input, context);
+    return se_PutObjectLegalHoldCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectLegalHoldCommandOutput> {
-    return deserializeAws_restXmlPutObjectLegalHoldCommand(output, context);
+    return de_PutObjectLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

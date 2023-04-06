@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { XmlEnumsOutput } from "../models/models_0";
-import { deserializeAws_queryXmlEnumsCommand, serializeAws_queryXmlEnumsCommand } from "../protocols/Aws_query";
+import { de_XmlEnumsCommand, se_XmlEnumsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
@@ -102,14 +102,14 @@ export class XmlEnumsCommand extends $Command<
    * @internal
    */
   private serialize(input: XmlEnumsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryXmlEnumsCommand(input, context);
+    return se_XmlEnumsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEnumsCommandOutput> {
-    return deserializeAws_queryXmlEnumsCommand(output, context);
+    return de_XmlEnumsCommand(output, context);
   }
 
   // Start section: command_body_extra

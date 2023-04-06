@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeDocumentPermissionRequest, DescribeDocumentPermissionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDocumentPermissionCommand,
-  serializeAws_json1_1DescribeDocumentPermissionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDocumentPermissionCommand, se_DescribeDocumentPermissionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -142,7 +139,7 @@ export class DescribeDocumentPermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDocumentPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDocumentPermissionCommand(input, context);
+    return se_DescribeDocumentPermissionCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class DescribeDocumentPermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDocumentPermissionCommandOutput> {
-    return deserializeAws_json1_1DescribeDocumentPermissionCommand(output, context);
+    return de_DescribeDocumentPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

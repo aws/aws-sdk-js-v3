@@ -15,10 +15,7 @@ import {
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
 import { UpdateDatasetEntriesRequest, UpdateDatasetEntriesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateDatasetEntriesCommand,
-  serializeAws_restJson1UpdateDatasetEntriesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDatasetEntriesCommand, se_UpdateDatasetEntriesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class UpdateDatasetEntriesCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDatasetEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDatasetEntriesCommand(input, context);
+    return se_UpdateDatasetEntriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasetEntriesCommandOutput> {
-    return deserializeAws_restJson1UpdateDatasetEntriesCommand(output, context);
+    return de_UpdateDatasetEntriesCommand(output, context);
   }
 
   // Start section: command_body_extra

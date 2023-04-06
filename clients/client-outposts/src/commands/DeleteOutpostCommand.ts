@@ -15,10 +15,7 @@ import {
 
 import { DeleteOutpostInput, DeleteOutpostOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1DeleteOutpostCommand,
-  serializeAws_restJson1DeleteOutpostCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteOutpostCommand, se_DeleteOutpostCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteOutpostCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteOutpostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteOutpostCommand(input, context);
+    return se_DeleteOutpostCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOutpostCommandOutput> {
-    return deserializeAws_restJson1DeleteOutpostCommand(output, context);
+    return de_DeleteOutpostCommand(output, context);
   }
 
   // Start section: command_body_extra

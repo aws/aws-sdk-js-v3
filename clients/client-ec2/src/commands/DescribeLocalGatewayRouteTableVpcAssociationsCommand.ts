@@ -19,8 +19,8 @@ import {
   DescribeLocalGatewayRouteTableVpcAssociationsResult,
 } from "../models/models_4";
 import {
-  deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand,
-  serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand,
+  de_DescribeLocalGatewayRouteTableVpcAssociationsCommand,
+  se_DescribeLocalGatewayRouteTableVpcAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
     input: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand(input, context);
+    return se_DescribeLocalGatewayRouteTableVpcAssociationsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput> {
-    return deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand(output, context);
+    return de_DescribeLocalGatewayRouteTableVpcAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

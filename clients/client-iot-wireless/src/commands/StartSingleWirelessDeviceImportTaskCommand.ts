@@ -19,8 +19,8 @@ import {
   StartSingleWirelessDeviceImportTaskResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1StartSingleWirelessDeviceImportTaskCommand,
-  serializeAws_restJson1StartSingleWirelessDeviceImportTaskCommand,
+  de_StartSingleWirelessDeviceImportTaskCommand,
+  se_StartSingleWirelessDeviceImportTaskCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -157,7 +157,7 @@ export class StartSingleWirelessDeviceImportTaskCommand extends $Command<
     input: StartSingleWirelessDeviceImportTaskCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartSingleWirelessDeviceImportTaskCommand(input, context);
+    return se_StartSingleWirelessDeviceImportTaskCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class StartSingleWirelessDeviceImportTaskCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartSingleWirelessDeviceImportTaskCommandOutput> {
-    return deserializeAws_restJson1StartSingleWirelessDeviceImportTaskCommand(output, context);
+    return de_StartSingleWirelessDeviceImportTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

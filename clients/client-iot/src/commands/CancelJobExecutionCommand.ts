@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CancelJobExecutionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelJobExecutionCommand,
-  serializeAws_restJson1CancelJobExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelJobExecutionCommand, se_CancelJobExecutionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class CancelJobExecutionCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelJobExecutionCommand(input, context);
+    return se_CancelJobExecutionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobExecutionCommandOutput> {
-    return deserializeAws_restJson1CancelJobExecutionCommand(output, context);
+    return de_CancelJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

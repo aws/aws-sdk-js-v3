@@ -19,10 +19,7 @@ import {
   CreateAppResponse,
   CreateAppResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateAppCommand,
-  serializeAws_restJson1CreateAppCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateAppCommand, se_CreateAppCommand } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -166,14 +163,14 @@ export class CreateAppCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateAppCommand(input, context);
+    return se_CreateAppCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppCommandOutput> {
-    return deserializeAws_restJson1CreateAppCommand(output, context);
+    return de_CreateAppCommand(output, context);
   }
 
   // Start section: command_body_extra

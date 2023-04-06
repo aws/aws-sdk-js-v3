@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { DeleteInsightRulesInput, DeleteInsightRulesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteInsightRulesCommand,
-  serializeAws_queryDeleteInsightRulesCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteInsightRulesCommand, se_DeleteInsightRulesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteInsightRulesCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteInsightRulesCommand(input, context);
+    return se_DeleteInsightRulesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteInsightRulesCommandOutput> {
-    return deserializeAws_queryDeleteInsightRulesCommand(output, context);
+    return de_DeleteInsightRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

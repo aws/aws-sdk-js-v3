@@ -15,10 +15,7 @@ import {
 
 import { DescribeGlobalNetworksRequest, DescribeGlobalNetworksResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1DescribeGlobalNetworksCommand,
-  serializeAws_restJson1DescribeGlobalNetworksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeGlobalNetworksCommand, se_DescribeGlobalNetworksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DescribeGlobalNetworksCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeGlobalNetworksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeGlobalNetworksCommand(input, context);
+    return se_DescribeGlobalNetworksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGlobalNetworksCommandOutput> {
-    return deserializeAws_restJson1DescribeGlobalNetworksCommand(output, context);
+    return de_DescribeGlobalNetworksCommand(output, context);
   }
 
   // Start section: command_body_extra

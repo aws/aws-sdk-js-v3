@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetBucketReplicationOutput, GetBucketReplicationRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketReplicationCommand,
-  serializeAws_restXmlGetBucketReplicationCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketReplicationCommand, se_GetBucketReplicationCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -184,14 +181,14 @@ export class GetBucketReplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBucketReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketReplicationCommand(input, context);
+    return se_GetBucketReplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketReplicationCommandOutput> {
-    return deserializeAws_restXmlGetBucketReplicationCommand(output, context);
+    return de_GetBucketReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

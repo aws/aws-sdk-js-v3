@@ -15,8 +15,8 @@ import {
 
 import { CountClosedWorkflowExecutionsInput, WorkflowExecutionCount } from "../models/models_0";
 import {
-  deserializeAws_json1_0CountClosedWorkflowExecutionsCommand,
-  serializeAws_json1_0CountClosedWorkflowExecutionsCommand,
+  de_CountClosedWorkflowExecutionsCommand,
+  se_CountClosedWorkflowExecutionsCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
@@ -193,7 +193,7 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
    * @internal
    */
   private serialize(input: CountClosedWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CountClosedWorkflowExecutionsCommand(input, context);
+    return se_CountClosedWorkflowExecutionsCommand(input, context);
   }
 
   /**
@@ -203,7 +203,7 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CountClosedWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0CountClosedWorkflowExecutionsCommand(output, context);
+    return de_CountClosedWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

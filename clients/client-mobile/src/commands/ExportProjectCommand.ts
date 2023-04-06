@@ -15,10 +15,7 @@ import {
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
 import { ExportProjectRequest, ExportProjectResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportProjectCommand,
-  serializeAws_restJson1ExportProjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExportProjectCommand, se_ExportProjectCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class ExportProjectCommand extends $Command<
    * @internal
    */
   private serialize(input: ExportProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportProjectCommand(input, context);
+    return se_ExportProjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportProjectCommandOutput> {
-    return deserializeAws_restJson1ExportProjectCommand(output, context);
+    return de_ExportProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

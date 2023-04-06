@@ -15,8 +15,8 @@ import {
 
 import { UpdateConnectionAliasPermissionRequest, UpdateConnectionAliasPermissionResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateConnectionAliasPermissionCommand,
-  serializeAws_json1_1UpdateConnectionAliasPermissionCommand,
+  de_UpdateConnectionAliasPermissionCommand,
+  se_UpdateConnectionAliasPermissionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -171,7 +171,7 @@ export class UpdateConnectionAliasPermissionCommand extends $Command<
     input: UpdateConnectionAliasPermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConnectionAliasPermissionCommand(input, context);
+    return se_UpdateConnectionAliasPermissionCommand(input, context);
   }
 
   /**
@@ -181,7 +181,7 @@ export class UpdateConnectionAliasPermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConnectionAliasPermissionCommandOutput> {
-    return deserializeAws_json1_1UpdateConnectionAliasPermissionCommand(output, context);
+    return de_UpdateConnectionAliasPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

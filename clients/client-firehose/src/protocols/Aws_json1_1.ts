@@ -161,7 +161,10 @@ import {
   VpcConfigurationDescription,
 } from "../models/models_0";
 
-export const serializeAws_json1_1CreateDeliveryStreamCommand = async (
+/**
+ * serializeAws_json1_1CreateDeliveryStreamCommand
+ */
+export const se_CreateDeliveryStreamCommand = async (
   input: CreateDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -170,11 +173,14 @@ export const serializeAws_json1_1CreateDeliveryStreamCommand = async (
     "x-amz-target": "Firehose_20150804.CreateDeliveryStream",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDeliveryStreamInput(input, context));
+  body = JSON.stringify(se_CreateDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteDeliveryStreamCommand = async (
+/**
+ * serializeAws_json1_1DeleteDeliveryStreamCommand
+ */
+export const se_DeleteDeliveryStreamCommand = async (
   input: DeleteDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -183,11 +189,14 @@ export const serializeAws_json1_1DeleteDeliveryStreamCommand = async (
     "x-amz-target": "Firehose_20150804.DeleteDeliveryStream",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteDeliveryStreamInput(input, context));
+  body = JSON.stringify(se_DeleteDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDeliveryStreamCommand = async (
+/**
+ * serializeAws_json1_1DescribeDeliveryStreamCommand
+ */
+export const se_DescribeDeliveryStreamCommand = async (
   input: DescribeDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -196,11 +205,14 @@ export const serializeAws_json1_1DescribeDeliveryStreamCommand = async (
     "x-amz-target": "Firehose_20150804.DescribeDeliveryStream",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeDeliveryStreamInput(input, context));
+  body = JSON.stringify(se_DescribeDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDeliveryStreamsCommand = async (
+/**
+ * serializeAws_json1_1ListDeliveryStreamsCommand
+ */
+export const se_ListDeliveryStreamsCommand = async (
   input: ListDeliveryStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -209,11 +221,14 @@ export const serializeAws_json1_1ListDeliveryStreamsCommand = async (
     "x-amz-target": "Firehose_20150804.ListDeliveryStreams",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDeliveryStreamsInput(input, context));
+  body = JSON.stringify(se_ListDeliveryStreamsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForDeliveryStreamCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForDeliveryStreamCommand
+ */
+export const se_ListTagsForDeliveryStreamCommand = async (
   input: ListTagsForDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -222,11 +237,14 @@ export const serializeAws_json1_1ListTagsForDeliveryStreamCommand = async (
     "x-amz-target": "Firehose_20150804.ListTagsForDeliveryStream",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForDeliveryStreamInput(input, context));
+  body = JSON.stringify(se_ListTagsForDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutRecordCommand = async (
+/**
+ * serializeAws_json1_1PutRecordCommand
+ */
+export const se_PutRecordCommand = async (
   input: PutRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -235,11 +253,14 @@ export const serializeAws_json1_1PutRecordCommand = async (
     "x-amz-target": "Firehose_20150804.PutRecord",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutRecordInput(input, context));
+  body = JSON.stringify(se_PutRecordInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1PutRecordBatchCommand = async (
+/**
+ * serializeAws_json1_1PutRecordBatchCommand
+ */
+export const se_PutRecordBatchCommand = async (
   input: PutRecordBatchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -248,11 +269,14 @@ export const serializeAws_json1_1PutRecordBatchCommand = async (
     "x-amz-target": "Firehose_20150804.PutRecordBatch",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutRecordBatchInput(input, context));
+  body = JSON.stringify(se_PutRecordBatchInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StartDeliveryStreamEncryptionCommand = async (
+/**
+ * serializeAws_json1_1StartDeliveryStreamEncryptionCommand
+ */
+export const se_StartDeliveryStreamEncryptionCommand = async (
   input: StartDeliveryStreamEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -261,11 +285,14 @@ export const serializeAws_json1_1StartDeliveryStreamEncryptionCommand = async (
     "x-amz-target": "Firehose_20150804.StartDeliveryStreamEncryption",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartDeliveryStreamEncryptionInput(input, context));
+  body = JSON.stringify(se_StartDeliveryStreamEncryptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopDeliveryStreamEncryptionCommand = async (
+/**
+ * serializeAws_json1_1StopDeliveryStreamEncryptionCommand
+ */
+export const se_StopDeliveryStreamEncryptionCommand = async (
   input: StopDeliveryStreamEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -274,11 +301,14 @@ export const serializeAws_json1_1StopDeliveryStreamEncryptionCommand = async (
     "x-amz-target": "Firehose_20150804.StopDeliveryStreamEncryption",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopDeliveryStreamEncryptionInput(input, context));
+  body = JSON.stringify(se_StopDeliveryStreamEncryptionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagDeliveryStreamCommand = async (
+/**
+ * serializeAws_json1_1TagDeliveryStreamCommand
+ */
+export const se_TagDeliveryStreamCommand = async (
   input: TagDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -287,11 +317,14 @@ export const serializeAws_json1_1TagDeliveryStreamCommand = async (
     "x-amz-target": "Firehose_20150804.TagDeliveryStream",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagDeliveryStreamInput(input, context));
+  body = JSON.stringify(se_TagDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagDeliveryStreamCommand = async (
+/**
+ * serializeAws_json1_1UntagDeliveryStreamCommand
+ */
+export const se_UntagDeliveryStreamCommand = async (
   input: UntagDeliveryStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -300,11 +333,14 @@ export const serializeAws_json1_1UntagDeliveryStreamCommand = async (
     "x-amz-target": "Firehose_20150804.UntagDeliveryStream",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagDeliveryStreamInput(input, context));
+  body = JSON.stringify(se_UntagDeliveryStreamInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateDestinationCommand = async (
+/**
+ * serializeAws_json1_1UpdateDestinationCommand
+ */
+export const se_UpdateDestinationCommand = async (
   input: UpdateDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -313,20 +349,23 @@ export const serializeAws_json1_1UpdateDestinationCommand = async (
     "x-amz-target": "Firehose_20150804.UpdateDestination",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateDestinationInput(input, context));
+  body = JSON.stringify(se_UpdateDestinationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateDeliveryStreamCommand = async (
+/**
+ * deserializeAws_json1_1CreateDeliveryStreamCommand
+ */
+export const de_CreateDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeliveryStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDeliveryStreamCommandError(output, context);
+    return de_CreateDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDeliveryStreamOutput(data, context);
+  contents = de_CreateDeliveryStreamOutput(data, context);
   const response: CreateDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -334,7 +373,10 @@ export const deserializeAws_json1_1CreateDeliveryStreamCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1CreateDeliveryStreamCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDeliveryStreamCommandError
+ */
+const de_CreateDeliveryStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeliveryStreamCommandOutput> => {
@@ -346,16 +388,16 @@ const deserializeAws_json1_1CreateDeliveryStreamCommandError = async (
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose#InvalidKMSResourceException":
-      throw await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSResourceExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.firehose#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.firehose#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -367,16 +409,19 @@ const deserializeAws_json1_1CreateDeliveryStreamCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DeleteDeliveryStreamCommand = async (
+/**
+ * deserializeAws_json1_1DeleteDeliveryStreamCommand
+ */
+export const de_DeleteDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeliveryStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteDeliveryStreamCommandError(output, context);
+    return de_DeleteDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDeliveryStreamOutput(data, context);
+  contents = de_DeleteDeliveryStreamOutput(data, context);
   const response: DeleteDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -384,7 +429,10 @@ export const deserializeAws_json1_1DeleteDeliveryStreamCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DeleteDeliveryStreamCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteDeliveryStreamCommandError
+ */
+const de_DeleteDeliveryStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeliveryStreamCommandOutput> => {
@@ -396,10 +444,10 @@ const deserializeAws_json1_1DeleteDeliveryStreamCommandError = async (
   switch (errorCode) {
     case "ResourceInUseException":
     case "com.amazonaws.firehose#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -411,16 +459,19 @@ const deserializeAws_json1_1DeleteDeliveryStreamCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1DescribeDeliveryStreamCommand = async (
+/**
+ * deserializeAws_json1_1DescribeDeliveryStreamCommand
+ */
+export const de_DescribeDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeliveryStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeDeliveryStreamCommandError(output, context);
+    return de_DescribeDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDeliveryStreamOutput(data, context);
+  contents = de_DescribeDeliveryStreamOutput(data, context);
   const response: DescribeDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -428,7 +479,10 @@ export const deserializeAws_json1_1DescribeDeliveryStreamCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1DescribeDeliveryStreamCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeDeliveryStreamCommandError
+ */
+const de_DescribeDeliveryStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeliveryStreamCommandOutput> => {
@@ -440,7 +494,7 @@ const deserializeAws_json1_1DescribeDeliveryStreamCommandError = async (
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -452,16 +506,19 @@ const deserializeAws_json1_1DescribeDeliveryStreamCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1ListDeliveryStreamsCommand = async (
+/**
+ * deserializeAws_json1_1ListDeliveryStreamsCommand
+ */
+export const de_ListDeliveryStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeliveryStreamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDeliveryStreamsCommandError(output, context);
+    return de_ListDeliveryStreamsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeliveryStreamsOutput(data, context);
+  contents = de_ListDeliveryStreamsOutput(data, context);
   const response: ListDeliveryStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -469,7 +526,10 @@ export const deserializeAws_json1_1ListDeliveryStreamsCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListDeliveryStreamsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDeliveryStreamsCommandError
+ */
+const de_ListDeliveryStreamsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeliveryStreamsCommandOutput> => {
@@ -487,16 +547,19 @@ const deserializeAws_json1_1ListDeliveryStreamsCommandError = async (
   });
 };
 
-export const deserializeAws_json1_1ListTagsForDeliveryStreamCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForDeliveryStreamCommand
+ */
+export const de_ListTagsForDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForDeliveryStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForDeliveryStreamCommandError(output, context);
+    return de_ListTagsForDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForDeliveryStreamOutput(data, context);
+  contents = de_ListTagsForDeliveryStreamOutput(data, context);
   const response: ListTagsForDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -504,7 +567,10 @@ export const deserializeAws_json1_1ListTagsForDeliveryStreamCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1ListTagsForDeliveryStreamCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForDeliveryStreamCommandError
+ */
+const de_ListTagsForDeliveryStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForDeliveryStreamCommandOutput> => {
@@ -516,13 +582,13 @@ const deserializeAws_json1_1ListTagsForDeliveryStreamCommandError = async (
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.firehose#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -534,16 +600,19 @@ const deserializeAws_json1_1ListTagsForDeliveryStreamCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutRecordCommand = async (
+/**
+ * deserializeAws_json1_1PutRecordCommand
+ */
+export const de_PutRecordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRecordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutRecordCommandError(output, context);
+    return de_PutRecordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRecordOutput(data, context);
+  contents = de_PutRecordOutput(data, context);
   const response: PutRecordCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -551,7 +620,10 @@ export const deserializeAws_json1_1PutRecordCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutRecordCommandError = async (
+/**
+ * deserializeAws_json1_1PutRecordCommandError
+ */
+const de_PutRecordCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRecordCommandOutput> => {
@@ -563,16 +635,16 @@ const deserializeAws_json1_1PutRecordCommandError = async (
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose#InvalidKMSResourceException":
-      throw await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSResourceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.firehose#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -584,16 +656,19 @@ const deserializeAws_json1_1PutRecordCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1PutRecordBatchCommand = async (
+/**
+ * deserializeAws_json1_1PutRecordBatchCommand
+ */
+export const de_PutRecordBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRecordBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutRecordBatchCommandError(output, context);
+    return de_PutRecordBatchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRecordBatchOutput(data, context);
+  contents = de_PutRecordBatchOutput(data, context);
   const response: PutRecordBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -601,7 +676,10 @@ export const deserializeAws_json1_1PutRecordBatchCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1PutRecordBatchCommandError = async (
+/**
+ * deserializeAws_json1_1PutRecordBatchCommandError
+ */
+const de_PutRecordBatchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRecordBatchCommandOutput> => {
@@ -613,16 +691,16 @@ const deserializeAws_json1_1PutRecordBatchCommandError = async (
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose#InvalidKMSResourceException":
-      throw await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSResourceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.firehose#ServiceUnavailableException":
-      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -634,16 +712,19 @@ const deserializeAws_json1_1PutRecordBatchCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StartDeliveryStreamEncryptionCommand = async (
+/**
+ * deserializeAws_json1_1StartDeliveryStreamEncryptionCommand
+ */
+export const de_StartDeliveryStreamEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeliveryStreamEncryptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError(output, context);
+    return de_StartDeliveryStreamEncryptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartDeliveryStreamEncryptionOutput(data, context);
+  contents = de_StartDeliveryStreamEncryptionOutput(data, context);
   const response: StartDeliveryStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -651,7 +732,10 @@ export const deserializeAws_json1_1StartDeliveryStreamEncryptionCommand = async 
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError = async (
+/**
+ * deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError
+ */
+const de_StartDeliveryStreamEncryptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeliveryStreamEncryptionCommandOutput> => {
@@ -663,19 +747,19 @@ const deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError = async (
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose#InvalidKMSResourceException":
-      throw await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(parsedOutput, context);
+      throw await de_InvalidKMSResourceExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.firehose#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.firehose#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -687,16 +771,19 @@ const deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1StopDeliveryStreamEncryptionCommand = async (
+/**
+ * deserializeAws_json1_1StopDeliveryStreamEncryptionCommand
+ */
+export const de_StopDeliveryStreamEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDeliveryStreamEncryptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError(output, context);
+    return de_StopDeliveryStreamEncryptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopDeliveryStreamEncryptionOutput(data, context);
+  contents = de_StopDeliveryStreamEncryptionOutput(data, context);
   const response: StopDeliveryStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -704,7 +791,10 @@ export const deserializeAws_json1_1StopDeliveryStreamEncryptionCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError = async (
+/**
+ * deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError
+ */
+const de_StopDeliveryStreamEncryptionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDeliveryStreamEncryptionCommandOutput> => {
@@ -716,16 +806,16 @@ const deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError = async (
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.firehose#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.firehose#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -737,16 +827,19 @@ const deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1TagDeliveryStreamCommand = async (
+/**
+ * deserializeAws_json1_1TagDeliveryStreamCommand
+ */
+export const de_TagDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagDeliveryStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagDeliveryStreamCommandError(output, context);
+    return de_TagDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagDeliveryStreamOutput(data, context);
+  contents = de_TagDeliveryStreamOutput(data, context);
   const response: TagDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -754,7 +847,10 @@ export const deserializeAws_json1_1TagDeliveryStreamCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1TagDeliveryStreamCommandError = async (
+/**
+ * deserializeAws_json1_1TagDeliveryStreamCommandError
+ */
+const de_TagDeliveryStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagDeliveryStreamCommandOutput> => {
@@ -766,16 +862,16 @@ const deserializeAws_json1_1TagDeliveryStreamCommandError = async (
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.firehose#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.firehose#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -787,16 +883,19 @@ const deserializeAws_json1_1TagDeliveryStreamCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UntagDeliveryStreamCommand = async (
+/**
+ * deserializeAws_json1_1UntagDeliveryStreamCommand
+ */
+export const de_UntagDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagDeliveryStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagDeliveryStreamCommandError(output, context);
+    return de_UntagDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagDeliveryStreamOutput(data, context);
+  contents = de_UntagDeliveryStreamOutput(data, context);
   const response: UntagDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -804,7 +903,10 @@ export const deserializeAws_json1_1UntagDeliveryStreamCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UntagDeliveryStreamCommandError = async (
+/**
+ * deserializeAws_json1_1UntagDeliveryStreamCommandError
+ */
+const de_UntagDeliveryStreamCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagDeliveryStreamCommandOutput> => {
@@ -816,16 +918,16 @@ const deserializeAws_json1_1UntagDeliveryStreamCommandError = async (
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.firehose#LimitExceededException":
-      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.firehose#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -837,16 +939,19 @@ const deserializeAws_json1_1UntagDeliveryStreamCommandError = async (
   }
 };
 
-export const deserializeAws_json1_1UpdateDestinationCommand = async (
+/**
+ * deserializeAws_json1_1UpdateDestinationCommand
+ */
+export const de_UpdateDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateDestinationCommandError(output, context);
+    return de_UpdateDestinationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDestinationOutput(data, context);
+  contents = de_UpdateDestinationOutput(data, context);
   const response: UpdateDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -854,7 +959,10 @@ export const deserializeAws_json1_1UpdateDestinationCommand = async (
   return Promise.resolve(response);
 };
 
-const deserializeAws_json1_1UpdateDestinationCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateDestinationCommandError
+ */
+const de_UpdateDestinationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDestinationCommandOutput> => {
@@ -866,16 +974,16 @@ const deserializeAws_json1_1UpdateDestinationCommandError = async (
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.firehose#ConcurrentModificationException":
-      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.firehose#ResourceInUseException":
-      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -887,12 +995,15 @@ const deserializeAws_json1_1UpdateDestinationCommandError = async (
   }
 };
 
-const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ConcurrentModificationExceptionRes
+ */
+const de_ConcurrentModificationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
+  const deserialized: any = de_ConcurrentModificationException(body, context);
   const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -900,12 +1011,15 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidArgumentExceptionRes
+ */
+const de_InvalidArgumentExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(body, context);
+  const deserialized: any = de_InvalidArgumentException(body, context);
   const exception = new InvalidArgumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -913,12 +1027,15 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidKMSResourceExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidKMSResourceExceptionRes
+ */
+const de_InvalidKMSResourceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidKMSResourceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidKMSResourceException(body, context);
+  const deserialized: any = de_InvalidKMSResourceException(body, context);
   const exception = new InvalidKMSResourceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -926,12 +1043,15 @@ const deserializeAws_json1_1InvalidKMSResourceExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
+  const deserialized: any = de_LimitExceededException(body, context);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -939,12 +1059,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
+  const deserialized: any = de_ResourceInUseException(body, context);
   const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -952,12 +1075,15 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
+  const deserialized: any = de_ResourceNotFoundException(body, context);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -965,12 +1091,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(body, context);
+  const deserialized: any = de_ServiceUnavailableException(body, context);
   const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -978,7 +1107,10 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints = (
+/**
+ * serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints
+ */
+const se_AmazonOpenSearchServerlessBufferingHints = (
   input: AmazonOpenSearchServerlessBufferingHints,
   context: __SerdeContext
 ): any => {
@@ -988,61 +1120,68 @@ const serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints = (
   };
 };
 
-const serializeAws_json1_1AmazonOpenSearchServerlessDestinationConfiguration = (
+/**
+ * serializeAws_json1_1AmazonOpenSearchServerlessDestinationConfiguration
+ */
+const se_AmazonOpenSearchServerlessDestinationConfiguration = (
   input: AmazonOpenSearchServerlessDestinationConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints(input.BufferingHints, context),
+      BufferingHints: se_AmazonOpenSearchServerlessBufferingHints(input.BufferingHints, context),
     }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.CollectionEndpoint != null && { CollectionEndpoint: input.CollectionEndpoint }),
     ...(input.IndexName != null && { IndexName: input.IndexName }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
     ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions(input.RetryOptions, context),
+      RetryOptions: se_AmazonOpenSearchServerlessRetryOptions(input.RetryOptions, context),
     }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
     ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
     ...(input.S3Configuration != null && {
-      S3Configuration: serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context),
+      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
     }),
-    ...(input.VpcConfiguration != null && {
-      VpcConfiguration: serializeAws_json1_1VpcConfiguration(input.VpcConfiguration, context),
-    }),
+    ...(input.VpcConfiguration != null && { VpcConfiguration: se_VpcConfiguration(input.VpcConfiguration, context) }),
   };
 };
 
-const serializeAws_json1_1AmazonOpenSearchServerlessDestinationUpdate = (
+/**
+ * serializeAws_json1_1AmazonOpenSearchServerlessDestinationUpdate
+ */
+const se_AmazonOpenSearchServerlessDestinationUpdate = (
   input: AmazonOpenSearchServerlessDestinationUpdate,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints(input.BufferingHints, context),
+      BufferingHints: se_AmazonOpenSearchServerlessBufferingHints(input.BufferingHints, context),
     }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.CollectionEndpoint != null && { CollectionEndpoint: input.CollectionEndpoint }),
     ...(input.IndexName != null && { IndexName: input.IndexName }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
     ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions(input.RetryOptions, context),
+      RetryOptions: se_AmazonOpenSearchServerlessRetryOptions(input.RetryOptions, context),
     }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3Update != null && { S3Update: serializeAws_json1_1S3DestinationUpdate(input.S3Update, context) }),
+    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
   };
 };
 
-const serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions = (
+/**
+ * serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions
+ */
+const se_AmazonOpenSearchServerlessRetryOptions = (
   input: AmazonOpenSearchServerlessRetryOptions,
   context: __SerdeContext
 ): any => {
@@ -1051,7 +1190,10 @@ const serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions = (
   };
 };
 
-const serializeAws_json1_1AmazonopensearchserviceBufferingHints = (
+/**
+ * serializeAws_json1_1AmazonopensearchserviceBufferingHints
+ */
+const se_AmazonopensearchserviceBufferingHints = (
   input: AmazonopensearchserviceBufferingHints,
   context: __SerdeContext
 ): any => {
@@ -1061,67 +1203,74 @@ const serializeAws_json1_1AmazonopensearchserviceBufferingHints = (
   };
 };
 
-const serializeAws_json1_1AmazonopensearchserviceDestinationConfiguration = (
+/**
+ * serializeAws_json1_1AmazonopensearchserviceDestinationConfiguration
+ */
+const se_AmazonopensearchserviceDestinationConfiguration = (
   input: AmazonopensearchserviceDestinationConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1AmazonopensearchserviceBufferingHints(input.BufferingHints, context),
+      BufferingHints: se_AmazonopensearchserviceBufferingHints(input.BufferingHints, context),
     }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.ClusterEndpoint != null && { ClusterEndpoint: input.ClusterEndpoint }),
     ...(input.DomainARN != null && { DomainARN: input.DomainARN }),
     ...(input.IndexName != null && { IndexName: input.IndexName }),
     ...(input.IndexRotationPeriod != null && { IndexRotationPeriod: input.IndexRotationPeriod }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
     ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1AmazonopensearchserviceRetryOptions(input.RetryOptions, context),
+      RetryOptions: se_AmazonopensearchserviceRetryOptions(input.RetryOptions, context),
     }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
     ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
     ...(input.S3Configuration != null && {
-      S3Configuration: serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context),
+      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
     }),
     ...(input.TypeName != null && { TypeName: input.TypeName }),
-    ...(input.VpcConfiguration != null && {
-      VpcConfiguration: serializeAws_json1_1VpcConfiguration(input.VpcConfiguration, context),
-    }),
+    ...(input.VpcConfiguration != null && { VpcConfiguration: se_VpcConfiguration(input.VpcConfiguration, context) }),
   };
 };
 
-const serializeAws_json1_1AmazonopensearchserviceDestinationUpdate = (
+/**
+ * serializeAws_json1_1AmazonopensearchserviceDestinationUpdate
+ */
+const se_AmazonopensearchserviceDestinationUpdate = (
   input: AmazonopensearchserviceDestinationUpdate,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1AmazonopensearchserviceBufferingHints(input.BufferingHints, context),
+      BufferingHints: se_AmazonopensearchserviceBufferingHints(input.BufferingHints, context),
     }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.ClusterEndpoint != null && { ClusterEndpoint: input.ClusterEndpoint }),
     ...(input.DomainARN != null && { DomainARN: input.DomainARN }),
     ...(input.IndexName != null && { IndexName: input.IndexName }),
     ...(input.IndexRotationPeriod != null && { IndexRotationPeriod: input.IndexRotationPeriod }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
     ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1AmazonopensearchserviceRetryOptions(input.RetryOptions, context),
+      RetryOptions: se_AmazonopensearchserviceRetryOptions(input.RetryOptions, context),
     }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3Update != null && { S3Update: serializeAws_json1_1S3DestinationUpdate(input.S3Update, context) }),
+    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
     ...(input.TypeName != null && { TypeName: input.TypeName }),
   };
 };
 
-const serializeAws_json1_1AmazonopensearchserviceRetryOptions = (
+/**
+ * serializeAws_json1_1AmazonopensearchserviceRetryOptions
+ */
+const se_AmazonopensearchserviceRetryOptions = (
   input: AmazonopensearchserviceRetryOptions,
   context: __SerdeContext
 ): any => {
@@ -1130,17 +1279,20 @@ const serializeAws_json1_1AmazonopensearchserviceRetryOptions = (
   };
 };
 
-const serializeAws_json1_1BufferingHints = (input: BufferingHints, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1BufferingHints
+ */
+const se_BufferingHints = (input: BufferingHints, context: __SerdeContext): any => {
   return {
     ...(input.IntervalInSeconds != null && { IntervalInSeconds: input.IntervalInSeconds }),
     ...(input.SizeInMBs != null && { SizeInMBs: input.SizeInMBs }),
   };
 };
 
-const serializeAws_json1_1CloudWatchLoggingOptions = (
-  input: CloudWatchLoggingOptions,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CloudWatchLoggingOptions
+ */
+const se_CloudWatchLoggingOptions = (input: CloudWatchLoggingOptions, context: __SerdeContext): any => {
   return {
     ...(input.Enabled != null && { Enabled: input.Enabled }),
     ...(input.LogGroupName != null && { LogGroupName: input.LogGroupName }),
@@ -1148,7 +1300,10 @@ const serializeAws_json1_1CloudWatchLoggingOptions = (
   };
 };
 
-const serializeAws_json1_1ColumnToJsonKeyMappings = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ColumnToJsonKeyMappings
+ */
+const se_ColumnToJsonKeyMappings = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1158,7 +1313,10 @@ const serializeAws_json1_1ColumnToJsonKeyMappings = (input: Record<string, strin
   }, {});
 };
 
-const serializeAws_json1_1CopyCommand = (input: CopyCommand, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1CopyCommand
+ */
+const se_CopyCommand = (input: CopyCommand, context: __SerdeContext): any => {
   return {
     ...(input.CopyOptions != null && { CopyOptions: input.CopyOptions }),
     ...(input.DataTableColumns != null && { DataTableColumns: input.DataTableColumns }),
@@ -1166,27 +1324,25 @@ const serializeAws_json1_1CopyCommand = (input: CopyCommand, context: __SerdeCon
   };
 };
 
-const serializeAws_json1_1CreateDeliveryStreamInput = (
-  input: CreateDeliveryStreamInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1CreateDeliveryStreamInput
+ */
+const se_CreateDeliveryStreamInput = (input: CreateDeliveryStreamInput, context: __SerdeContext): any => {
   return {
     ...(input.AmazonOpenSearchServerlessDestinationConfiguration != null && {
-      AmazonOpenSearchServerlessDestinationConfiguration:
-        serializeAws_json1_1AmazonOpenSearchServerlessDestinationConfiguration(
-          input.AmazonOpenSearchServerlessDestinationConfiguration,
-          context
-        ),
+      AmazonOpenSearchServerlessDestinationConfiguration: se_AmazonOpenSearchServerlessDestinationConfiguration(
+        input.AmazonOpenSearchServerlessDestinationConfiguration,
+        context
+      ),
     }),
     ...(input.AmazonopensearchserviceDestinationConfiguration != null && {
-      AmazonopensearchserviceDestinationConfiguration:
-        serializeAws_json1_1AmazonopensearchserviceDestinationConfiguration(
-          input.AmazonopensearchserviceDestinationConfiguration,
-          context
-        ),
+      AmazonopensearchserviceDestinationConfiguration: se_AmazonopensearchserviceDestinationConfiguration(
+        input.AmazonopensearchserviceDestinationConfiguration,
+        context
+      ),
     }),
     ...(input.DeliveryStreamEncryptionConfigurationInput != null && {
-      DeliveryStreamEncryptionConfigurationInput: serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput(
+      DeliveryStreamEncryptionConfigurationInput: se_DeliveryStreamEncryptionConfigurationInput(
         input.DeliveryStreamEncryptionConfigurationInput,
         context
       ),
@@ -1194,83 +1350,80 @@ const serializeAws_json1_1CreateDeliveryStreamInput = (
     ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
     ...(input.DeliveryStreamType != null && { DeliveryStreamType: input.DeliveryStreamType }),
     ...(input.ElasticsearchDestinationConfiguration != null && {
-      ElasticsearchDestinationConfiguration: serializeAws_json1_1ElasticsearchDestinationConfiguration(
+      ElasticsearchDestinationConfiguration: se_ElasticsearchDestinationConfiguration(
         input.ElasticsearchDestinationConfiguration,
         context
       ),
     }),
     ...(input.ExtendedS3DestinationConfiguration != null && {
-      ExtendedS3DestinationConfiguration: serializeAws_json1_1ExtendedS3DestinationConfiguration(
+      ExtendedS3DestinationConfiguration: se_ExtendedS3DestinationConfiguration(
         input.ExtendedS3DestinationConfiguration,
         context
       ),
     }),
     ...(input.HttpEndpointDestinationConfiguration != null && {
-      HttpEndpointDestinationConfiguration: serializeAws_json1_1HttpEndpointDestinationConfiguration(
+      HttpEndpointDestinationConfiguration: se_HttpEndpointDestinationConfiguration(
         input.HttpEndpointDestinationConfiguration,
         context
       ),
     }),
     ...(input.KinesisStreamSourceConfiguration != null && {
-      KinesisStreamSourceConfiguration: serializeAws_json1_1KinesisStreamSourceConfiguration(
+      KinesisStreamSourceConfiguration: se_KinesisStreamSourceConfiguration(
         input.KinesisStreamSourceConfiguration,
         context
       ),
     }),
     ...(input.RedshiftDestinationConfiguration != null && {
-      RedshiftDestinationConfiguration: serializeAws_json1_1RedshiftDestinationConfiguration(
+      RedshiftDestinationConfiguration: se_RedshiftDestinationConfiguration(
         input.RedshiftDestinationConfiguration,
         context
       ),
     }),
     ...(input.S3DestinationConfiguration != null && {
-      S3DestinationConfiguration: serializeAws_json1_1S3DestinationConfiguration(
-        input.S3DestinationConfiguration,
-        context
-      ),
+      S3DestinationConfiguration: se_S3DestinationConfiguration(input.S3DestinationConfiguration, context),
     }),
     ...(input.SplunkDestinationConfiguration != null && {
-      SplunkDestinationConfiguration: serializeAws_json1_1SplunkDestinationConfiguration(
-        input.SplunkDestinationConfiguration,
-        context
-      ),
+      SplunkDestinationConfiguration: se_SplunkDestinationConfiguration(input.SplunkDestinationConfiguration, context),
     }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagDeliveryStreamInputTagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagDeliveryStreamInputTagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1DataFormatConversionConfiguration = (
+/**
+ * serializeAws_json1_1DataFormatConversionConfiguration
+ */
+const se_DataFormatConversionConfiguration = (
   input: DataFormatConversionConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.Enabled != null && { Enabled: input.Enabled }),
     ...(input.InputFormatConfiguration != null && {
-      InputFormatConfiguration: serializeAws_json1_1InputFormatConfiguration(input.InputFormatConfiguration, context),
+      InputFormatConfiguration: se_InputFormatConfiguration(input.InputFormatConfiguration, context),
     }),
     ...(input.OutputFormatConfiguration != null && {
-      OutputFormatConfiguration: serializeAws_json1_1OutputFormatConfiguration(
-        input.OutputFormatConfiguration,
-        context
-      ),
+      OutputFormatConfiguration: se_OutputFormatConfiguration(input.OutputFormatConfiguration, context),
     }),
     ...(input.SchemaConfiguration != null && {
-      SchemaConfiguration: serializeAws_json1_1SchemaConfiguration(input.SchemaConfiguration, context),
+      SchemaConfiguration: se_SchemaConfiguration(input.SchemaConfiguration, context),
     }),
   };
 };
 
-const serializeAws_json1_1DeleteDeliveryStreamInput = (
-  input: DeleteDeliveryStreamInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DeleteDeliveryStreamInput
+ */
+const se_DeleteDeliveryStreamInput = (input: DeleteDeliveryStreamInput, context: __SerdeContext): any => {
   return {
     ...(input.AllowForceDelete != null && { AllowForceDelete: input.AllowForceDelete }),
     ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
   };
 };
 
-const serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput = (
+/**
+ * serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput
+ */
+const se_DeliveryStreamEncryptionConfigurationInput = (
   input: DeliveryStreamEncryptionConfigurationInput,
   context: __SerdeContext
 ): any => {
@@ -1280,10 +1433,10 @@ const serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput = (
   };
 };
 
-const serializeAws_json1_1DescribeDeliveryStreamInput = (
-  input: DescribeDeliveryStreamInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DescribeDeliveryStreamInput
+ */
+const se_DescribeDeliveryStreamInput = (input: DescribeDeliveryStreamInput, context: __SerdeContext): any => {
   return {
     ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
     ...(input.ExclusiveStartDestinationId != null && {
@@ -1293,240 +1446,239 @@ const serializeAws_json1_1DescribeDeliveryStreamInput = (
   };
 };
 
-const serializeAws_json1_1Deserializer = (input: Deserializer, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Deserializer
+ */
+const se_Deserializer = (input: Deserializer, context: __SerdeContext): any => {
   return {
-    ...(input.HiveJsonSerDe != null && {
-      HiveJsonSerDe: serializeAws_json1_1HiveJsonSerDe(input.HiveJsonSerDe, context),
-    }),
-    ...(input.OpenXJsonSerDe != null && {
-      OpenXJsonSerDe: serializeAws_json1_1OpenXJsonSerDe(input.OpenXJsonSerDe, context),
-    }),
+    ...(input.HiveJsonSerDe != null && { HiveJsonSerDe: se_HiveJsonSerDe(input.HiveJsonSerDe, context) }),
+    ...(input.OpenXJsonSerDe != null && { OpenXJsonSerDe: se_OpenXJsonSerDe(input.OpenXJsonSerDe, context) }),
   };
 };
 
-const serializeAws_json1_1DynamicPartitioningConfiguration = (
-  input: DynamicPartitioningConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1DynamicPartitioningConfiguration
+ */
+const se_DynamicPartitioningConfiguration = (input: DynamicPartitioningConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.RetryOptions != null && { RetryOptions: serializeAws_json1_1RetryOptions(input.RetryOptions, context) }),
+    ...(input.RetryOptions != null && { RetryOptions: se_RetryOptions(input.RetryOptions, context) }),
   };
 };
 
-const serializeAws_json1_1ElasticsearchBufferingHints = (
-  input: ElasticsearchBufferingHints,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ElasticsearchBufferingHints
+ */
+const se_ElasticsearchBufferingHints = (input: ElasticsearchBufferingHints, context: __SerdeContext): any => {
   return {
     ...(input.IntervalInSeconds != null && { IntervalInSeconds: input.IntervalInSeconds }),
     ...(input.SizeInMBs != null && { SizeInMBs: input.SizeInMBs }),
   };
 };
 
-const serializeAws_json1_1ElasticsearchDestinationConfiguration = (
+/**
+ * serializeAws_json1_1ElasticsearchDestinationConfiguration
+ */
+const se_ElasticsearchDestinationConfiguration = (
   input: ElasticsearchDestinationConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1ElasticsearchBufferingHints(input.BufferingHints, context),
+      BufferingHints: se_ElasticsearchBufferingHints(input.BufferingHints, context),
     }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.ClusterEndpoint != null && { ClusterEndpoint: input.ClusterEndpoint }),
     ...(input.DomainARN != null && { DomainARN: input.DomainARN }),
     ...(input.IndexName != null && { IndexName: input.IndexName }),
     ...(input.IndexRotationPeriod != null && { IndexRotationPeriod: input.IndexRotationPeriod }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1ElasticsearchRetryOptions(input.RetryOptions, context),
-    }),
+    ...(input.RetryOptions != null && { RetryOptions: se_ElasticsearchRetryOptions(input.RetryOptions, context) }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
     ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
     ...(input.S3Configuration != null && {
-      S3Configuration: serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context),
+      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
     }),
     ...(input.TypeName != null && { TypeName: input.TypeName }),
-    ...(input.VpcConfiguration != null && {
-      VpcConfiguration: serializeAws_json1_1VpcConfiguration(input.VpcConfiguration, context),
-    }),
+    ...(input.VpcConfiguration != null && { VpcConfiguration: se_VpcConfiguration(input.VpcConfiguration, context) }),
   };
 };
 
-const serializeAws_json1_1ElasticsearchDestinationUpdate = (
-  input: ElasticsearchDestinationUpdate,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ElasticsearchDestinationUpdate
+ */
+const se_ElasticsearchDestinationUpdate = (input: ElasticsearchDestinationUpdate, context: __SerdeContext): any => {
   return {
     ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1ElasticsearchBufferingHints(input.BufferingHints, context),
+      BufferingHints: se_ElasticsearchBufferingHints(input.BufferingHints, context),
     }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.ClusterEndpoint != null && { ClusterEndpoint: input.ClusterEndpoint }),
     ...(input.DomainARN != null && { DomainARN: input.DomainARN }),
     ...(input.IndexName != null && { IndexName: input.IndexName }),
     ...(input.IndexRotationPeriod != null && { IndexRotationPeriod: input.IndexRotationPeriod }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1ElasticsearchRetryOptions(input.RetryOptions, context),
-    }),
+    ...(input.RetryOptions != null && { RetryOptions: se_ElasticsearchRetryOptions(input.RetryOptions, context) }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
-    ...(input.S3Update != null && { S3Update: serializeAws_json1_1S3DestinationUpdate(input.S3Update, context) }),
+    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
     ...(input.TypeName != null && { TypeName: input.TypeName }),
   };
 };
 
-const serializeAws_json1_1ElasticsearchRetryOptions = (
-  input: ElasticsearchRetryOptions,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ElasticsearchRetryOptions
+ */
+const se_ElasticsearchRetryOptions = (input: ElasticsearchRetryOptions, context: __SerdeContext): any => {
   return {
     ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
   };
 };
 
-const serializeAws_json1_1EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1EncryptionConfiguration
+ */
+const se_EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.KMSEncryptionConfig != null && {
-      KMSEncryptionConfig: serializeAws_json1_1KMSEncryptionConfig(input.KMSEncryptionConfig, context),
+      KMSEncryptionConfig: se_KMSEncryptionConfig(input.KMSEncryptionConfig, context),
     }),
     ...(input.NoEncryptionConfig != null && { NoEncryptionConfig: input.NoEncryptionConfig }),
   };
 };
 
-const serializeAws_json1_1ExtendedS3DestinationConfiguration = (
+/**
+ * serializeAws_json1_1ExtendedS3DestinationConfiguration
+ */
+const se_ExtendedS3DestinationConfiguration = (
   input: ExtendedS3DestinationConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.BucketARN != null && { BucketARN: input.BucketARN }),
-    ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1BufferingHints(input.BufferingHints, context),
-    }),
+    ...(input.BufferingHints != null && { BufferingHints: se_BufferingHints(input.BufferingHints, context) }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.CompressionFormat != null && { CompressionFormat: input.CompressionFormat }),
     ...(input.DataFormatConversionConfiguration != null && {
-      DataFormatConversionConfiguration: serializeAws_json1_1DataFormatConversionConfiguration(
+      DataFormatConversionConfiguration: se_DataFormatConversionConfiguration(
         input.DataFormatConversionConfiguration,
         context
       ),
     }),
     ...(input.DynamicPartitioningConfiguration != null && {
-      DynamicPartitioningConfiguration: serializeAws_json1_1DynamicPartitioningConfiguration(
+      DynamicPartitioningConfiguration: se_DynamicPartitioningConfiguration(
         input.DynamicPartitioningConfiguration,
         context
       ),
     }),
     ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context),
+      EncryptionConfiguration: se_EncryptionConfiguration(input.EncryptionConfiguration, context),
     }),
     ...(input.ErrorOutputPrefix != null && { ErrorOutputPrefix: input.ErrorOutputPrefix }),
     ...(input.Prefix != null && { Prefix: input.Prefix }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
     ...(input.S3BackupConfiguration != null && {
-      S3BackupConfiguration: serializeAws_json1_1S3DestinationConfiguration(input.S3BackupConfiguration, context),
+      S3BackupConfiguration: se_S3DestinationConfiguration(input.S3BackupConfiguration, context),
     }),
     ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
   };
 };
 
-const serializeAws_json1_1ExtendedS3DestinationUpdate = (
-  input: ExtendedS3DestinationUpdate,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ExtendedS3DestinationUpdate
+ */
+const se_ExtendedS3DestinationUpdate = (input: ExtendedS3DestinationUpdate, context: __SerdeContext): any => {
   return {
     ...(input.BucketARN != null && { BucketARN: input.BucketARN }),
-    ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1BufferingHints(input.BufferingHints, context),
-    }),
+    ...(input.BufferingHints != null && { BufferingHints: se_BufferingHints(input.BufferingHints, context) }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.CompressionFormat != null && { CompressionFormat: input.CompressionFormat }),
     ...(input.DataFormatConversionConfiguration != null && {
-      DataFormatConversionConfiguration: serializeAws_json1_1DataFormatConversionConfiguration(
+      DataFormatConversionConfiguration: se_DataFormatConversionConfiguration(
         input.DataFormatConversionConfiguration,
         context
       ),
     }),
     ...(input.DynamicPartitioningConfiguration != null && {
-      DynamicPartitioningConfiguration: serializeAws_json1_1DynamicPartitioningConfiguration(
+      DynamicPartitioningConfiguration: se_DynamicPartitioningConfiguration(
         input.DynamicPartitioningConfiguration,
         context
       ),
     }),
     ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context),
+      EncryptionConfiguration: se_EncryptionConfiguration(input.EncryptionConfiguration, context),
     }),
     ...(input.ErrorOutputPrefix != null && { ErrorOutputPrefix: input.ErrorOutputPrefix }),
     ...(input.Prefix != null && { Prefix: input.Prefix }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
     ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3BackupUpdate != null && {
-      S3BackupUpdate: serializeAws_json1_1S3DestinationUpdate(input.S3BackupUpdate, context),
-    }),
+    ...(input.S3BackupUpdate != null && { S3BackupUpdate: se_S3DestinationUpdate(input.S3BackupUpdate, context) }),
   };
 };
 
-const serializeAws_json1_1HiveJsonSerDe = (input: HiveJsonSerDe, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1HiveJsonSerDe
+ */
+const se_HiveJsonSerDe = (input: HiveJsonSerDe, context: __SerdeContext): any => {
   return {
     ...(input.TimestampFormats != null && {
-      TimestampFormats: serializeAws_json1_1ListOfNonEmptyStrings(input.TimestampFormats, context),
+      TimestampFormats: se_ListOfNonEmptyStrings(input.TimestampFormats, context),
     }),
   };
 };
 
-const serializeAws_json1_1HttpEndpointBufferingHints = (
-  input: HttpEndpointBufferingHints,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1HttpEndpointBufferingHints
+ */
+const se_HttpEndpointBufferingHints = (input: HttpEndpointBufferingHints, context: __SerdeContext): any => {
   return {
     ...(input.IntervalInSeconds != null && { IntervalInSeconds: input.IntervalInSeconds }),
     ...(input.SizeInMBs != null && { SizeInMBs: input.SizeInMBs }),
   };
 };
 
-const serializeAws_json1_1HttpEndpointCommonAttribute = (
-  input: HttpEndpointCommonAttribute,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1HttpEndpointCommonAttribute
+ */
+const se_HttpEndpointCommonAttribute = (input: HttpEndpointCommonAttribute, context: __SerdeContext): any => {
   return {
     ...(input.AttributeName != null && { AttributeName: input.AttributeName }),
     ...(input.AttributeValue != null && { AttributeValue: input.AttributeValue }),
   };
 };
 
-const serializeAws_json1_1HttpEndpointCommonAttributesList = (
-  input: HttpEndpointCommonAttribute[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1HttpEndpointCommonAttributesList
+ */
+const se_HttpEndpointCommonAttributesList = (input: HttpEndpointCommonAttribute[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1HttpEndpointCommonAttribute(entry, context);
+      return se_HttpEndpointCommonAttribute(entry, context);
     });
 };
 
-const serializeAws_json1_1HttpEndpointConfiguration = (
-  input: HttpEndpointConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1HttpEndpointConfiguration
+ */
+const se_HttpEndpointConfiguration = (input: HttpEndpointConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.AccessKey != null && { AccessKey: input.AccessKey }),
     ...(input.Name != null && { Name: input.Name }),
@@ -1534,116 +1686,118 @@ const serializeAws_json1_1HttpEndpointConfiguration = (
   };
 };
 
-const serializeAws_json1_1HttpEndpointDestinationConfiguration = (
+/**
+ * serializeAws_json1_1HttpEndpointDestinationConfiguration
+ */
+const se_HttpEndpointDestinationConfiguration = (
   input: HttpEndpointDestinationConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1HttpEndpointBufferingHints(input.BufferingHints, context),
+      BufferingHints: se_HttpEndpointBufferingHints(input.BufferingHints, context),
     }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.EndpointConfiguration != null && {
-      EndpointConfiguration: serializeAws_json1_1HttpEndpointConfiguration(input.EndpointConfiguration, context),
+      EndpointConfiguration: se_HttpEndpointConfiguration(input.EndpointConfiguration, context),
     }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
     ...(input.RequestConfiguration != null && {
-      RequestConfiguration: serializeAws_json1_1HttpEndpointRequestConfiguration(input.RequestConfiguration, context),
+      RequestConfiguration: se_HttpEndpointRequestConfiguration(input.RequestConfiguration, context),
     }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1HttpEndpointRetryOptions(input.RetryOptions, context),
-    }),
+    ...(input.RetryOptions != null && { RetryOptions: se_HttpEndpointRetryOptions(input.RetryOptions, context) }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
     ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
     ...(input.S3Configuration != null && {
-      S3Configuration: serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context),
+      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
     }),
   };
 };
 
-const serializeAws_json1_1HttpEndpointDestinationUpdate = (
-  input: HttpEndpointDestinationUpdate,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1HttpEndpointDestinationUpdate
+ */
+const se_HttpEndpointDestinationUpdate = (input: HttpEndpointDestinationUpdate, context: __SerdeContext): any => {
   return {
     ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1HttpEndpointBufferingHints(input.BufferingHints, context),
+      BufferingHints: se_HttpEndpointBufferingHints(input.BufferingHints, context),
     }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.EndpointConfiguration != null && {
-      EndpointConfiguration: serializeAws_json1_1HttpEndpointConfiguration(input.EndpointConfiguration, context),
+      EndpointConfiguration: se_HttpEndpointConfiguration(input.EndpointConfiguration, context),
     }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
     ...(input.RequestConfiguration != null && {
-      RequestConfiguration: serializeAws_json1_1HttpEndpointRequestConfiguration(input.RequestConfiguration, context),
+      RequestConfiguration: se_HttpEndpointRequestConfiguration(input.RequestConfiguration, context),
     }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1HttpEndpointRetryOptions(input.RetryOptions, context),
-    }),
+    ...(input.RetryOptions != null && { RetryOptions: se_HttpEndpointRetryOptions(input.RetryOptions, context) }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
     ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3Update != null && { S3Update: serializeAws_json1_1S3DestinationUpdate(input.S3Update, context) }),
+    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
   };
 };
 
-const serializeAws_json1_1HttpEndpointRequestConfiguration = (
-  input: HttpEndpointRequestConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1HttpEndpointRequestConfiguration
+ */
+const se_HttpEndpointRequestConfiguration = (input: HttpEndpointRequestConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.CommonAttributes != null && {
-      CommonAttributes: serializeAws_json1_1HttpEndpointCommonAttributesList(input.CommonAttributes, context),
+      CommonAttributes: se_HttpEndpointCommonAttributesList(input.CommonAttributes, context),
     }),
     ...(input.ContentEncoding != null && { ContentEncoding: input.ContentEncoding }),
   };
 };
 
-const serializeAws_json1_1HttpEndpointRetryOptions = (
-  input: HttpEndpointRetryOptions,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1HttpEndpointRetryOptions
+ */
+const se_HttpEndpointRetryOptions = (input: HttpEndpointRetryOptions, context: __SerdeContext): any => {
   return {
     ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
   };
 };
 
-const serializeAws_json1_1InputFormatConfiguration = (
-  input: InputFormatConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1InputFormatConfiguration
+ */
+const se_InputFormatConfiguration = (input: InputFormatConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Deserializer != null && { Deserializer: serializeAws_json1_1Deserializer(input.Deserializer, context) }),
+    ...(input.Deserializer != null && { Deserializer: se_Deserializer(input.Deserializer, context) }),
   };
 };
 
-const serializeAws_json1_1KinesisStreamSourceConfiguration = (
-  input: KinesisStreamSourceConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1KinesisStreamSourceConfiguration
+ */
+const se_KinesisStreamSourceConfiguration = (input: KinesisStreamSourceConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.KinesisStreamARN != null && { KinesisStreamARN: input.KinesisStreamARN }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
   };
 };
 
-const serializeAws_json1_1KMSEncryptionConfig = (input: KMSEncryptionConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1KMSEncryptionConfig
+ */
+const se_KMSEncryptionConfig = (input: KMSEncryptionConfig, context: __SerdeContext): any => {
   return {
     ...(input.AWSKMSKeyARN != null && { AWSKMSKeyARN: input.AWSKMSKeyARN }),
   };
 };
 
-const serializeAws_json1_1ListDeliveryStreamsInput = (
-  input: ListDeliveryStreamsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListDeliveryStreamsInput
+ */
+const se_ListDeliveryStreamsInput = (input: ListDeliveryStreamsInput, context: __SerdeContext): any => {
   return {
     ...(input.DeliveryStreamType != null && { DeliveryStreamType: input.DeliveryStreamType }),
     ...(input.ExclusiveStartDeliveryStreamName != null && {
@@ -1653,7 +1807,10 @@ const serializeAws_json1_1ListDeliveryStreamsInput = (
   };
 };
 
-const serializeAws_json1_1ListOfNonEmptyStrings = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListOfNonEmptyStrings
+ */
+const se_ListOfNonEmptyStrings = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1661,7 +1818,10 @@ const serializeAws_json1_1ListOfNonEmptyStrings = (input: string[], context: __S
     });
 };
 
-const serializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace
+ */
+const se_ListOfNonEmptyStringsWithoutWhitespace = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1669,10 +1829,10 @@ const serializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace = (input: strin
     });
 };
 
-const serializeAws_json1_1ListTagsForDeliveryStreamInput = (
-  input: ListTagsForDeliveryStreamInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1ListTagsForDeliveryStreamInput
+ */
+const se_ListTagsForDeliveryStreamInput = (input: ListTagsForDeliveryStreamInput, context: __SerdeContext): any => {
   return {
     ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
     ...(input.ExclusiveStartTagKey != null && { ExclusiveStartTagKey: input.ExclusiveStartTagKey }),
@@ -1680,11 +1840,14 @@ const serializeAws_json1_1ListTagsForDeliveryStreamInput = (
   };
 };
 
-const serializeAws_json1_1OpenXJsonSerDe = (input: OpenXJsonSerDe, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OpenXJsonSerDe
+ */
+const se_OpenXJsonSerDe = (input: OpenXJsonSerDe, context: __SerdeContext): any => {
   return {
     ...(input.CaseInsensitive != null && { CaseInsensitive: input.CaseInsensitive }),
     ...(input.ColumnToJsonKeyMappings != null && {
-      ColumnToJsonKeyMappings: serializeAws_json1_1ColumnToJsonKeyMappings(input.ColumnToJsonKeyMappings, context),
+      ColumnToJsonKeyMappings: se_ColumnToJsonKeyMappings(input.ColumnToJsonKeyMappings, context),
     }),
     ...(input.ConvertDotsInJsonKeysToUnderscores != null && {
       ConvertDotsInJsonKeysToUnderscores: input.ConvertDotsInJsonKeysToUnderscores,
@@ -1692,11 +1855,14 @@ const serializeAws_json1_1OpenXJsonSerDe = (input: OpenXJsonSerDe, context: __Se
   };
 };
 
-const serializeAws_json1_1OrcSerDe = (input: OrcSerDe, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1OrcSerDe
+ */
+const se_OrcSerDe = (input: OrcSerDe, context: __SerdeContext): any => {
   return {
     ...(input.BlockSizeBytes != null && { BlockSizeBytes: input.BlockSizeBytes }),
     ...(input.BloomFilterColumns != null && {
-      BloomFilterColumns: serializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace(input.BloomFilterColumns, context),
+      BloomFilterColumns: se_ListOfNonEmptyStringsWithoutWhitespace(input.BloomFilterColumns, context),
     }),
     ...(input.BloomFilterFalsePositiveProbability != null && {
       BloomFilterFalsePositiveProbability: __serializeFloat(input.BloomFilterFalsePositiveProbability),
@@ -1713,16 +1879,19 @@ const serializeAws_json1_1OrcSerDe = (input: OrcSerDe, context: __SerdeContext):
   };
 };
 
-const serializeAws_json1_1OutputFormatConfiguration = (
-  input: OutputFormatConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1OutputFormatConfiguration
+ */
+const se_OutputFormatConfiguration = (input: OutputFormatConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Serializer != null && { Serializer: serializeAws_json1_1Serializer(input.Serializer, context) }),
+    ...(input.Serializer != null && { Serializer: se_Serializer(input.Serializer, context) }),
   };
 };
 
-const serializeAws_json1_1ParquetSerDe = (input: ParquetSerDe, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ParquetSerDe
+ */
+const se_ParquetSerDe = (input: ParquetSerDe, context: __SerdeContext): any => {
   return {
     ...(input.BlockSizeBytes != null && { BlockSizeBytes: input.BlockSizeBytes }),
     ...(input.Compression != null && { Compression: input.Compression }),
@@ -1735,158 +1904,179 @@ const serializeAws_json1_1ParquetSerDe = (input: ParquetSerDe, context: __SerdeC
   };
 };
 
-const serializeAws_json1_1ProcessingConfiguration = (input: ProcessingConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProcessingConfiguration
+ */
+const se_ProcessingConfiguration = (input: ProcessingConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Enabled != null && { Enabled: input.Enabled }),
-    ...(input.Processors != null && { Processors: serializeAws_json1_1ProcessorList(input.Processors, context) }),
+    ...(input.Processors != null && { Processors: se_ProcessorList(input.Processors, context) }),
   };
 };
 
-const serializeAws_json1_1Processor = (input: Processor, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Processor
+ */
+const se_Processor = (input: Processor, context: __SerdeContext): any => {
   return {
-    ...(input.Parameters != null && {
-      Parameters: serializeAws_json1_1ProcessorParameterList(input.Parameters, context),
-    }),
+    ...(input.Parameters != null && { Parameters: se_ProcessorParameterList(input.Parameters, context) }),
     ...(input.Type != null && { Type: input.Type }),
   };
 };
 
-const serializeAws_json1_1ProcessorList = (input: Processor[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProcessorList
+ */
+const se_ProcessorList = (input: Processor[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Processor(entry, context);
+      return se_Processor(entry, context);
     });
 };
 
-const serializeAws_json1_1ProcessorParameter = (input: ProcessorParameter, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProcessorParameter
+ */
+const se_ProcessorParameter = (input: ProcessorParameter, context: __SerdeContext): any => {
   return {
     ...(input.ParameterName != null && { ParameterName: input.ParameterName }),
     ...(input.ParameterValue != null && { ParameterValue: input.ParameterValue }),
   };
 };
 
-const serializeAws_json1_1ProcessorParameterList = (input: ProcessorParameter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1ProcessorParameterList
+ */
+const se_ProcessorParameterList = (input: ProcessorParameter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1ProcessorParameter(entry, context);
+      return se_ProcessorParameter(entry, context);
     });
 };
 
-const serializeAws_json1_1PutRecordBatchInput = (input: PutRecordBatchInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutRecordBatchInput
+ */
+const se_PutRecordBatchInput = (input: PutRecordBatchInput, context: __SerdeContext): any => {
   return {
     ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.Records != null && {
-      Records: serializeAws_json1_1PutRecordBatchRequestEntryList(input.Records, context),
-    }),
+    ...(input.Records != null && { Records: se_PutRecordBatchRequestEntryList(input.Records, context) }),
   };
 };
 
-const serializeAws_json1_1PutRecordBatchRequestEntryList = (input: _Record[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutRecordBatchRequestEntryList
+ */
+const se_PutRecordBatchRequestEntryList = (input: _Record[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1_Record(entry, context);
+      return se__Record(entry, context);
     });
 };
 
-const serializeAws_json1_1PutRecordInput = (input: PutRecordInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1PutRecordInput
+ */
+const se_PutRecordInput = (input: PutRecordInput, context: __SerdeContext): any => {
   return {
     ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.Record != null && { Record: serializeAws_json1_1_Record(input.Record, context) }),
+    ...(input.Record != null && { Record: se__Record(input.Record, context) }),
   };
 };
 
-const serializeAws_json1_1_Record = (input: _Record, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1_Record
+ */
+const se__Record = (input: _Record, context: __SerdeContext): any => {
   return {
     ...(input.Data != null && { Data: context.base64Encoder(input.Data) }),
   };
 };
 
-const serializeAws_json1_1RedshiftDestinationConfiguration = (
-  input: RedshiftDestinationConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RedshiftDestinationConfiguration
+ */
+const se_RedshiftDestinationConfiguration = (input: RedshiftDestinationConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.ClusterJDBCURL != null && { ClusterJDBCURL: input.ClusterJDBCURL }),
-    ...(input.CopyCommand != null && { CopyCommand: serializeAws_json1_1CopyCommand(input.CopyCommand, context) }),
+    ...(input.CopyCommand != null && { CopyCommand: se_CopyCommand(input.CopyCommand, context) }),
     ...(input.Password != null && { Password: input.Password }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1RedshiftRetryOptions(input.RetryOptions, context),
-    }),
+    ...(input.RetryOptions != null && { RetryOptions: se_RedshiftRetryOptions(input.RetryOptions, context) }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
     ...(input.S3BackupConfiguration != null && {
-      S3BackupConfiguration: serializeAws_json1_1S3DestinationConfiguration(input.S3BackupConfiguration, context),
+      S3BackupConfiguration: se_S3DestinationConfiguration(input.S3BackupConfiguration, context),
     }),
     ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
     ...(input.S3Configuration != null && {
-      S3Configuration: serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context),
+      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
     }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1RedshiftDestinationUpdate = (
-  input: RedshiftDestinationUpdate,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1RedshiftDestinationUpdate
+ */
+const se_RedshiftDestinationUpdate = (input: RedshiftDestinationUpdate, context: __SerdeContext): any => {
   return {
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.ClusterJDBCURL != null && { ClusterJDBCURL: input.ClusterJDBCURL }),
-    ...(input.CopyCommand != null && { CopyCommand: serializeAws_json1_1CopyCommand(input.CopyCommand, context) }),
+    ...(input.CopyCommand != null && { CopyCommand: se_CopyCommand(input.CopyCommand, context) }),
     ...(input.Password != null && { Password: input.Password }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1RedshiftRetryOptions(input.RetryOptions, context),
-    }),
+    ...(input.RetryOptions != null && { RetryOptions: se_RedshiftRetryOptions(input.RetryOptions, context) }),
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
     ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3BackupUpdate != null && {
-      S3BackupUpdate: serializeAws_json1_1S3DestinationUpdate(input.S3BackupUpdate, context),
-    }),
-    ...(input.S3Update != null && { S3Update: serializeAws_json1_1S3DestinationUpdate(input.S3Update, context) }),
+    ...(input.S3BackupUpdate != null && { S3BackupUpdate: se_S3DestinationUpdate(input.S3BackupUpdate, context) }),
+    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
     ...(input.Username != null && { Username: input.Username }),
   };
 };
 
-const serializeAws_json1_1RedshiftRetryOptions = (input: RedshiftRetryOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RedshiftRetryOptions
+ */
+const se_RedshiftRetryOptions = (input: RedshiftRetryOptions, context: __SerdeContext): any => {
   return {
     ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
   };
 };
 
-const serializeAws_json1_1RetryOptions = (input: RetryOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1RetryOptions
+ */
+const se_RetryOptions = (input: RetryOptions, context: __SerdeContext): any => {
   return {
     ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
   };
 };
 
-const serializeAws_json1_1S3DestinationConfiguration = (
-  input: S3DestinationConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1S3DestinationConfiguration
+ */
+const se_S3DestinationConfiguration = (input: S3DestinationConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.BucketARN != null && { BucketARN: input.BucketARN }),
-    ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1BufferingHints(input.BufferingHints, context),
-    }),
+    ...(input.BufferingHints != null && { BufferingHints: se_BufferingHints(input.BufferingHints, context) }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.CompressionFormat != null && { CompressionFormat: input.CompressionFormat }),
     ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context),
+      EncryptionConfiguration: se_EncryptionConfiguration(input.EncryptionConfiguration, context),
     }),
     ...(input.ErrorOutputPrefix != null && { ErrorOutputPrefix: input.ErrorOutputPrefix }),
     ...(input.Prefix != null && { Prefix: input.Prefix }),
@@ -1894,18 +2084,19 @@ const serializeAws_json1_1S3DestinationConfiguration = (
   };
 };
 
-const serializeAws_json1_1S3DestinationUpdate = (input: S3DestinationUpdate, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1S3DestinationUpdate
+ */
+const se_S3DestinationUpdate = (input: S3DestinationUpdate, context: __SerdeContext): any => {
   return {
     ...(input.BucketARN != null && { BucketARN: input.BucketARN }),
-    ...(input.BufferingHints != null && {
-      BufferingHints: serializeAws_json1_1BufferingHints(input.BufferingHints, context),
-    }),
+    ...(input.BufferingHints != null && { BufferingHints: se_BufferingHints(input.BufferingHints, context) }),
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.CompressionFormat != null && { CompressionFormat: input.CompressionFormat }),
     ...(input.EncryptionConfiguration != null && {
-      EncryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context),
+      EncryptionConfiguration: se_EncryptionConfiguration(input.EncryptionConfiguration, context),
     }),
     ...(input.ErrorOutputPrefix != null && { ErrorOutputPrefix: input.ErrorOutputPrefix }),
     ...(input.Prefix != null && { Prefix: input.Prefix }),
@@ -1913,7 +2104,10 @@ const serializeAws_json1_1S3DestinationUpdate = (input: S3DestinationUpdate, con
   };
 };
 
-const serializeAws_json1_1SchemaConfiguration = (input: SchemaConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SchemaConfiguration
+ */
+const se_SchemaConfiguration = (input: SchemaConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
     ...(input.DatabaseName != null && { DatabaseName: input.DatabaseName }),
@@ -1924,7 +2118,10 @@ const serializeAws_json1_1SchemaConfiguration = (input: SchemaConfiguration, con
   };
 };
 
-const serializeAws_json1_1SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SecurityGroupIdList
+ */
+const se_SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1932,20 +2129,23 @@ const serializeAws_json1_1SecurityGroupIdList = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_json1_1Serializer = (input: Serializer, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Serializer
+ */
+const se_Serializer = (input: Serializer, context: __SerdeContext): any => {
   return {
-    ...(input.OrcSerDe != null && { OrcSerDe: serializeAws_json1_1OrcSerDe(input.OrcSerDe, context) }),
-    ...(input.ParquetSerDe != null && { ParquetSerDe: serializeAws_json1_1ParquetSerDe(input.ParquetSerDe, context) }),
+    ...(input.OrcSerDe != null && { OrcSerDe: se_OrcSerDe(input.OrcSerDe, context) }),
+    ...(input.ParquetSerDe != null && { ParquetSerDe: se_ParquetSerDe(input.ParquetSerDe, context) }),
   };
 };
 
-const serializeAws_json1_1SplunkDestinationConfiguration = (
-  input: SplunkDestinationConfiguration,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1SplunkDestinationConfiguration
+ */
+const se_SplunkDestinationConfiguration = (input: SplunkDestinationConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.HECAcknowledgmentTimeoutInSeconds != null && {
       HECAcknowledgmentTimeoutInSeconds: input.HECAcknowledgmentTimeoutInSeconds,
@@ -1954,22 +2154,23 @@ const serializeAws_json1_1SplunkDestinationConfiguration = (
     ...(input.HECEndpointType != null && { HECEndpointType: input.HECEndpointType }),
     ...(input.HECToken != null && { HECToken: input.HECToken }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1SplunkRetryOptions(input.RetryOptions, context),
-    }),
+    ...(input.RetryOptions != null && { RetryOptions: se_SplunkRetryOptions(input.RetryOptions, context) }),
     ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
     ...(input.S3Configuration != null && {
-      S3Configuration: serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context),
+      S3Configuration: se_S3DestinationConfiguration(input.S3Configuration, context),
     }),
   };
 };
 
-const serializeAws_json1_1SplunkDestinationUpdate = (input: SplunkDestinationUpdate, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SplunkDestinationUpdate
+ */
+const se_SplunkDestinationUpdate = (input: SplunkDestinationUpdate, context: __SerdeContext): any => {
   return {
     ...(input.CloudWatchLoggingOptions != null && {
-      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      CloudWatchLoggingOptions: se_CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
     }),
     ...(input.HECAcknowledgmentTimeoutInSeconds != null && {
       HECAcknowledgmentTimeoutInSeconds: input.HECAcknowledgmentTimeoutInSeconds,
@@ -1978,29 +2179,33 @@ const serializeAws_json1_1SplunkDestinationUpdate = (input: SplunkDestinationUpd
     ...(input.HECEndpointType != null && { HECEndpointType: input.HECEndpointType }),
     ...(input.HECToken != null && { HECToken: input.HECToken }),
     ...(input.ProcessingConfiguration != null && {
-      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      ProcessingConfiguration: se_ProcessingConfiguration(input.ProcessingConfiguration, context),
     }),
-    ...(input.RetryOptions != null && {
-      RetryOptions: serializeAws_json1_1SplunkRetryOptions(input.RetryOptions, context),
-    }),
+    ...(input.RetryOptions != null && { RetryOptions: se_SplunkRetryOptions(input.RetryOptions, context) }),
     ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
-    ...(input.S3Update != null && { S3Update: serializeAws_json1_1S3DestinationUpdate(input.S3Update, context) }),
+    ...(input.S3Update != null && { S3Update: se_S3DestinationUpdate(input.S3Update, context) }),
   };
 };
 
-const serializeAws_json1_1SplunkRetryOptions = (input: SplunkRetryOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SplunkRetryOptions
+ */
+const se_SplunkRetryOptions = (input: SplunkRetryOptions, context: __SerdeContext): any => {
   return {
     ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
   };
 };
 
-const serializeAws_json1_1StartDeliveryStreamEncryptionInput = (
+/**
+ * serializeAws_json1_1StartDeliveryStreamEncryptionInput
+ */
+const se_StartDeliveryStreamEncryptionInput = (
   input: StartDeliveryStreamEncryptionInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.DeliveryStreamEncryptionConfigurationInput != null && {
-      DeliveryStreamEncryptionConfigurationInput: serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput(
+      DeliveryStreamEncryptionConfigurationInput: se_DeliveryStreamEncryptionConfigurationInput(
         input.DeliveryStreamEncryptionConfigurationInput,
         context
       ),
@@ -2009,7 +2214,10 @@ const serializeAws_json1_1StartDeliveryStreamEncryptionInput = (
   };
 };
 
-const serializeAws_json1_1StopDeliveryStreamEncryptionInput = (
+/**
+ * serializeAws_json1_1StopDeliveryStreamEncryptionInput
+ */
+const se_StopDeliveryStreamEncryptionInput = (
   input: StopDeliveryStreamEncryptionInput,
   context: __SerdeContext
 ): any => {
@@ -2018,7 +2226,10 @@ const serializeAws_json1_1StopDeliveryStreamEncryptionInput = (
   };
 };
 
-const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1SubnetIdList
+ */
+const se_SubnetIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2026,29 +2237,41 @@ const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_json1_1TagDeliveryStreamInput = (input: TagDeliveryStreamInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagDeliveryStreamInput
+ */
+const se_TagDeliveryStreamInput = (input: TagDeliveryStreamInput, context: __SerdeContext): any => {
   return {
     ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.Tags != null && { Tags: serializeAws_json1_1TagDeliveryStreamInputTagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagDeliveryStreamInputTagList(input.Tags, context) }),
   };
 };
 
-const serializeAws_json1_1TagDeliveryStreamInputTagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagDeliveryStreamInputTagList
+ */
+const se_TagDeliveryStreamInputTagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_json1_1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1TagKeyList
+ */
+const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2056,26 +2279,29 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
     });
 };
 
-const serializeAws_json1_1UntagDeliveryStreamInput = (
-  input: UntagDeliveryStreamInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_json1_1UntagDeliveryStreamInput
+ */
+const se_UntagDeliveryStreamInput = (input: UntagDeliveryStreamInput, context: __SerdeContext): any => {
   return {
     ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
-    ...(input.TagKeys != null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.TagKeys != null && { TagKeys: se_TagKeyList(input.TagKeys, context) }),
   };
 };
 
-const serializeAws_json1_1UpdateDestinationInput = (input: UpdateDestinationInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1UpdateDestinationInput
+ */
+const se_UpdateDestinationInput = (input: UpdateDestinationInput, context: __SerdeContext): any => {
   return {
     ...(input.AmazonOpenSearchServerlessDestinationUpdate != null && {
-      AmazonOpenSearchServerlessDestinationUpdate: serializeAws_json1_1AmazonOpenSearchServerlessDestinationUpdate(
+      AmazonOpenSearchServerlessDestinationUpdate: se_AmazonOpenSearchServerlessDestinationUpdate(
         input.AmazonOpenSearchServerlessDestinationUpdate,
         context
       ),
     }),
     ...(input.AmazonopensearchserviceDestinationUpdate != null && {
-      AmazonopensearchserviceDestinationUpdate: serializeAws_json1_1AmazonopensearchserviceDestinationUpdate(
+      AmazonopensearchserviceDestinationUpdate: se_AmazonopensearchserviceDestinationUpdate(
         input.AmazonopensearchserviceDestinationUpdate,
         context
       ),
@@ -2086,49 +2312,43 @@ const serializeAws_json1_1UpdateDestinationInput = (input: UpdateDestinationInpu
     ...(input.DeliveryStreamName != null && { DeliveryStreamName: input.DeliveryStreamName }),
     ...(input.DestinationId != null && { DestinationId: input.DestinationId }),
     ...(input.ElasticsearchDestinationUpdate != null && {
-      ElasticsearchDestinationUpdate: serializeAws_json1_1ElasticsearchDestinationUpdate(
-        input.ElasticsearchDestinationUpdate,
-        context
-      ),
+      ElasticsearchDestinationUpdate: se_ElasticsearchDestinationUpdate(input.ElasticsearchDestinationUpdate, context),
     }),
     ...(input.ExtendedS3DestinationUpdate != null && {
-      ExtendedS3DestinationUpdate: serializeAws_json1_1ExtendedS3DestinationUpdate(
-        input.ExtendedS3DestinationUpdate,
-        context
-      ),
+      ExtendedS3DestinationUpdate: se_ExtendedS3DestinationUpdate(input.ExtendedS3DestinationUpdate, context),
     }),
     ...(input.HttpEndpointDestinationUpdate != null && {
-      HttpEndpointDestinationUpdate: serializeAws_json1_1HttpEndpointDestinationUpdate(
-        input.HttpEndpointDestinationUpdate,
-        context
-      ),
+      HttpEndpointDestinationUpdate: se_HttpEndpointDestinationUpdate(input.HttpEndpointDestinationUpdate, context),
     }),
     ...(input.RedshiftDestinationUpdate != null && {
-      RedshiftDestinationUpdate: serializeAws_json1_1RedshiftDestinationUpdate(
-        input.RedshiftDestinationUpdate,
-        context
-      ),
+      RedshiftDestinationUpdate: se_RedshiftDestinationUpdate(input.RedshiftDestinationUpdate, context),
     }),
     ...(input.S3DestinationUpdate != null && {
-      S3DestinationUpdate: serializeAws_json1_1S3DestinationUpdate(input.S3DestinationUpdate, context),
+      S3DestinationUpdate: se_S3DestinationUpdate(input.S3DestinationUpdate, context),
     }),
     ...(input.SplunkDestinationUpdate != null && {
-      SplunkDestinationUpdate: serializeAws_json1_1SplunkDestinationUpdate(input.SplunkDestinationUpdate, context),
+      SplunkDestinationUpdate: se_SplunkDestinationUpdate(input.SplunkDestinationUpdate, context),
     }),
   };
 };
 
-const serializeAws_json1_1VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1VpcConfiguration
+ */
+const se_VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
     ...(input.SecurityGroupIds != null && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.SecurityGroupIds, context),
+      SecurityGroupIds: se_SecurityGroupIdList(input.SecurityGroupIds, context),
     }),
-    ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
+    ...(input.SubnetIds != null && { SubnetIds: se_SubnetIdList(input.SubnetIds, context) }),
   };
 };
 
-const deserializeAws_json1_1AmazonOpenSearchServerlessBufferingHints = (
+/**
+ * deserializeAws_json1_1AmazonOpenSearchServerlessBufferingHints
+ */
+const de_AmazonOpenSearchServerlessBufferingHints = (
   output: any,
   context: __SerdeContext
 ): AmazonOpenSearchServerlessBufferingHints => {
@@ -2138,43 +2358,47 @@ const deserializeAws_json1_1AmazonOpenSearchServerlessBufferingHints = (
   } as any;
 };
 
-const deserializeAws_json1_1AmazonOpenSearchServerlessDestinationDescription = (
+/**
+ * deserializeAws_json1_1AmazonOpenSearchServerlessDestinationDescription
+ */
+const de_AmazonOpenSearchServerlessDestinationDescription = (
   output: any,
   context: __SerdeContext
 ): AmazonOpenSearchServerlessDestinationDescription => {
   return {
     BufferingHints:
       output.BufferingHints != null
-        ? deserializeAws_json1_1AmazonOpenSearchServerlessBufferingHints(output.BufferingHints, context)
+        ? de_AmazonOpenSearchServerlessBufferingHints(output.BufferingHints, context)
         : undefined,
     CloudWatchLoggingOptions:
       output.CloudWatchLoggingOptions != null
-        ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
+        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
         : undefined,
     CollectionEndpoint: __expectString(output.CollectionEndpoint),
     IndexName: __expectString(output.IndexName),
     ProcessingConfiguration:
       output.ProcessingConfiguration != null
-        ? deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context)
+        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
         : undefined,
     RetryOptions:
-      output.RetryOptions != null
-        ? deserializeAws_json1_1AmazonOpenSearchServerlessRetryOptions(output.RetryOptions, context)
-        : undefined,
+      output.RetryOptions != null ? de_AmazonOpenSearchServerlessRetryOptions(output.RetryOptions, context) : undefined,
     RoleARN: __expectString(output.RoleARN),
     S3BackupMode: __expectString(output.S3BackupMode),
     S3DestinationDescription:
       output.S3DestinationDescription != null
-        ? deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context)
+        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
         : undefined,
     VpcConfigurationDescription:
       output.VpcConfigurationDescription != null
-        ? deserializeAws_json1_1VpcConfigurationDescription(output.VpcConfigurationDescription, context)
+        ? de_VpcConfigurationDescription(output.VpcConfigurationDescription, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AmazonOpenSearchServerlessRetryOptions = (
+/**
+ * deserializeAws_json1_1AmazonOpenSearchServerlessRetryOptions
+ */
+const de_AmazonOpenSearchServerlessRetryOptions = (
   output: any,
   context: __SerdeContext
 ): AmazonOpenSearchServerlessRetryOptions => {
@@ -2183,7 +2407,10 @@ const deserializeAws_json1_1AmazonOpenSearchServerlessRetryOptions = (
   } as any;
 };
 
-const deserializeAws_json1_1AmazonopensearchserviceBufferingHints = (
+/**
+ * deserializeAws_json1_1AmazonopensearchserviceBufferingHints
+ */
+const de_AmazonopensearchserviceBufferingHints = (
   output: any,
   context: __SerdeContext
 ): AmazonopensearchserviceBufferingHints => {
@@ -2193,18 +2420,21 @@ const deserializeAws_json1_1AmazonopensearchserviceBufferingHints = (
   } as any;
 };
 
-const deserializeAws_json1_1AmazonopensearchserviceDestinationDescription = (
+/**
+ * deserializeAws_json1_1AmazonopensearchserviceDestinationDescription
+ */
+const de_AmazonopensearchserviceDestinationDescription = (
   output: any,
   context: __SerdeContext
 ): AmazonopensearchserviceDestinationDescription => {
   return {
     BufferingHints:
       output.BufferingHints != null
-        ? deserializeAws_json1_1AmazonopensearchserviceBufferingHints(output.BufferingHints, context)
+        ? de_AmazonopensearchserviceBufferingHints(output.BufferingHints, context)
         : undefined,
     CloudWatchLoggingOptions:
       output.CloudWatchLoggingOptions != null
-        ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
+        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
         : undefined,
     ClusterEndpoint: __expectString(output.ClusterEndpoint),
     DomainARN: __expectString(output.DomainARN),
@@ -2212,27 +2442,28 @@ const deserializeAws_json1_1AmazonopensearchserviceDestinationDescription = (
     IndexRotationPeriod: __expectString(output.IndexRotationPeriod),
     ProcessingConfiguration:
       output.ProcessingConfiguration != null
-        ? deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context)
+        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
         : undefined,
     RetryOptions:
-      output.RetryOptions != null
-        ? deserializeAws_json1_1AmazonopensearchserviceRetryOptions(output.RetryOptions, context)
-        : undefined,
+      output.RetryOptions != null ? de_AmazonopensearchserviceRetryOptions(output.RetryOptions, context) : undefined,
     RoleARN: __expectString(output.RoleARN),
     S3BackupMode: __expectString(output.S3BackupMode),
     S3DestinationDescription:
       output.S3DestinationDescription != null
-        ? deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context)
+        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
         : undefined,
     TypeName: __expectString(output.TypeName),
     VpcConfigurationDescription:
       output.VpcConfigurationDescription != null
-        ? deserializeAws_json1_1VpcConfigurationDescription(output.VpcConfigurationDescription, context)
+        ? de_VpcConfigurationDescription(output.VpcConfigurationDescription, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1AmazonopensearchserviceRetryOptions = (
+/**
+ * deserializeAws_json1_1AmazonopensearchserviceRetryOptions
+ */
+const de_AmazonopensearchserviceRetryOptions = (
   output: any,
   context: __SerdeContext
 ): AmazonopensearchserviceRetryOptions => {
@@ -2241,17 +2472,20 @@ const deserializeAws_json1_1AmazonopensearchserviceRetryOptions = (
   } as any;
 };
 
-const deserializeAws_json1_1BufferingHints = (output: any, context: __SerdeContext): BufferingHints => {
+/**
+ * deserializeAws_json1_1BufferingHints
+ */
+const de_BufferingHints = (output: any, context: __SerdeContext): BufferingHints => {
   return {
     IntervalInSeconds: __expectInt32(output.IntervalInSeconds),
     SizeInMBs: __expectInt32(output.SizeInMBs),
   } as any;
 };
 
-const deserializeAws_json1_1CloudWatchLoggingOptions = (
-  output: any,
-  context: __SerdeContext
-): CloudWatchLoggingOptions => {
+/**
+ * deserializeAws_json1_1CloudWatchLoggingOptions
+ */
+const de_CloudWatchLoggingOptions = (output: any, context: __SerdeContext): CloudWatchLoggingOptions => {
   return {
     Enabled: __expectBoolean(output.Enabled),
     LogGroupName: __expectString(output.LogGroupName),
@@ -2259,10 +2493,10 @@ const deserializeAws_json1_1CloudWatchLoggingOptions = (
   } as any;
 };
 
-const deserializeAws_json1_1ColumnToJsonKeyMappings = (
-  output: any,
-  context: __SerdeContext
-): Record<string, string> => {
+/**
+ * deserializeAws_json1_1ColumnToJsonKeyMappings
+ */
+const de_ColumnToJsonKeyMappings = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -2272,16 +2506,19 @@ const deserializeAws_json1_1ColumnToJsonKeyMappings = (
   }, {});
 };
 
-const deserializeAws_json1_1ConcurrentModificationException = (
-  output: any,
-  context: __SerdeContext
-): ConcurrentModificationException => {
+/**
+ * deserializeAws_json1_1ConcurrentModificationException
+ */
+const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1CopyCommand = (output: any, context: __SerdeContext): CopyCommand => {
+/**
+ * deserializeAws_json1_1CopyCommand
+ */
+const de_CopyCommand = (output: any, context: __SerdeContext): CopyCommand => {
   return {
     CopyOptions: __expectString(output.CopyOptions),
     DataTableColumns: __expectString(output.DataTableColumns),
@@ -2289,16 +2526,19 @@ const deserializeAws_json1_1CopyCommand = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1CreateDeliveryStreamOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateDeliveryStreamOutput => {
+/**
+ * deserializeAws_json1_1CreateDeliveryStreamOutput
+ */
+const de_CreateDeliveryStreamOutput = (output: any, context: __SerdeContext): CreateDeliveryStreamOutput => {
   return {
     DeliveryStreamARN: __expectString(output.DeliveryStreamARN),
   } as any;
 };
 
-const deserializeAws_json1_1DataFormatConversionConfiguration = (
+/**
+ * deserializeAws_json1_1DataFormatConversionConfiguration
+ */
+const de_DataFormatConversionConfiguration = (
   output: any,
   context: __SerdeContext
 ): DataFormatConversionConfiguration => {
@@ -2306,30 +2546,28 @@ const deserializeAws_json1_1DataFormatConversionConfiguration = (
     Enabled: __expectBoolean(output.Enabled),
     InputFormatConfiguration:
       output.InputFormatConfiguration != null
-        ? deserializeAws_json1_1InputFormatConfiguration(output.InputFormatConfiguration, context)
+        ? de_InputFormatConfiguration(output.InputFormatConfiguration, context)
         : undefined,
     OutputFormatConfiguration:
       output.OutputFormatConfiguration != null
-        ? deserializeAws_json1_1OutputFormatConfiguration(output.OutputFormatConfiguration, context)
+        ? de_OutputFormatConfiguration(output.OutputFormatConfiguration, context)
         : undefined,
     SchemaConfiguration:
-      output.SchemaConfiguration != null
-        ? deserializeAws_json1_1SchemaConfiguration(output.SchemaConfiguration, context)
-        : undefined,
+      output.SchemaConfiguration != null ? de_SchemaConfiguration(output.SchemaConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DeleteDeliveryStreamOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteDeliveryStreamOutput => {
+/**
+ * deserializeAws_json1_1DeleteDeliveryStreamOutput
+ */
+const de_DeleteDeliveryStreamOutput = (output: any, context: __SerdeContext): DeleteDeliveryStreamOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1DeliveryStreamDescription = (
-  output: any,
-  context: __SerdeContext
-): DeliveryStreamDescription => {
+/**
+ * deserializeAws_json1_1DeliveryStreamDescription
+ */
+const de_DeliveryStreamDescription = (output: any, context: __SerdeContext): DeliveryStreamDescription => {
   return {
     CreateTimestamp:
       output.CreateTimestamp != null
@@ -2338,48 +2576,44 @@ const deserializeAws_json1_1DeliveryStreamDescription = (
     DeliveryStreamARN: __expectString(output.DeliveryStreamARN),
     DeliveryStreamEncryptionConfiguration:
       output.DeliveryStreamEncryptionConfiguration != null
-        ? deserializeAws_json1_1DeliveryStreamEncryptionConfiguration(
-            output.DeliveryStreamEncryptionConfiguration,
-            context
-          )
+        ? de_DeliveryStreamEncryptionConfiguration(output.DeliveryStreamEncryptionConfiguration, context)
         : undefined,
     DeliveryStreamName: __expectString(output.DeliveryStreamName),
     DeliveryStreamStatus: __expectString(output.DeliveryStreamStatus),
     DeliveryStreamType: __expectString(output.DeliveryStreamType),
-    Destinations:
-      output.Destinations != null
-        ? deserializeAws_json1_1DestinationDescriptionList(output.Destinations, context)
-        : undefined,
+    Destinations: output.Destinations != null ? de_DestinationDescriptionList(output.Destinations, context) : undefined,
     FailureDescription:
-      output.FailureDescription != null
-        ? deserializeAws_json1_1FailureDescription(output.FailureDescription, context)
-        : undefined,
+      output.FailureDescription != null ? de_FailureDescription(output.FailureDescription, context) : undefined,
     HasMoreDestinations: __expectBoolean(output.HasMoreDestinations),
     LastUpdateTimestamp:
       output.LastUpdateTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTimestamp)))
         : undefined,
-    Source: output.Source != null ? deserializeAws_json1_1SourceDescription(output.Source, context) : undefined,
+    Source: output.Source != null ? de_SourceDescription(output.Source, context) : undefined,
     VersionId: __expectString(output.VersionId),
   } as any;
 };
 
-const deserializeAws_json1_1DeliveryStreamEncryptionConfiguration = (
+/**
+ * deserializeAws_json1_1DeliveryStreamEncryptionConfiguration
+ */
+const de_DeliveryStreamEncryptionConfiguration = (
   output: any,
   context: __SerdeContext
 ): DeliveryStreamEncryptionConfiguration => {
   return {
     FailureDescription:
-      output.FailureDescription != null
-        ? deserializeAws_json1_1FailureDescription(output.FailureDescription, context)
-        : undefined,
+      output.FailureDescription != null ? de_FailureDescription(output.FailureDescription, context) : undefined,
     KeyARN: __expectString(output.KeyARN),
     KeyType: __expectString(output.KeyType),
     Status: __expectString(output.Status),
   } as any;
 };
 
-const deserializeAws_json1_1DeliveryStreamNameList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1DeliveryStreamNameList
+ */
+const de_DeliveryStreamNameList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2391,39 +2625,43 @@ const deserializeAws_json1_1DeliveryStreamNameList = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_json1_1DescribeDeliveryStreamOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeDeliveryStreamOutput => {
+/**
+ * deserializeAws_json1_1DescribeDeliveryStreamOutput
+ */
+const de_DescribeDeliveryStreamOutput = (output: any, context: __SerdeContext): DescribeDeliveryStreamOutput => {
   return {
     DeliveryStreamDescription:
       output.DeliveryStreamDescription != null
-        ? deserializeAws_json1_1DeliveryStreamDescription(output.DeliveryStreamDescription, context)
+        ? de_DeliveryStreamDescription(output.DeliveryStreamDescription, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Deserializer = (output: any, context: __SerdeContext): Deserializer => {
+/**
+ * deserializeAws_json1_1Deserializer
+ */
+const de_Deserializer = (output: any, context: __SerdeContext): Deserializer => {
   return {
-    HiveJsonSerDe:
-      output.HiveJsonSerDe != null ? deserializeAws_json1_1HiveJsonSerDe(output.HiveJsonSerDe, context) : undefined,
-    OpenXJsonSerDe:
-      output.OpenXJsonSerDe != null ? deserializeAws_json1_1OpenXJsonSerDe(output.OpenXJsonSerDe, context) : undefined,
+    HiveJsonSerDe: output.HiveJsonSerDe != null ? de_HiveJsonSerDe(output.HiveJsonSerDe, context) : undefined,
+    OpenXJsonSerDe: output.OpenXJsonSerDe != null ? de_OpenXJsonSerDe(output.OpenXJsonSerDe, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DestinationDescription = (output: any, context: __SerdeContext): DestinationDescription => {
+/**
+ * deserializeAws_json1_1DestinationDescription
+ */
+const de_DestinationDescription = (output: any, context: __SerdeContext): DestinationDescription => {
   return {
     AmazonOpenSearchServerlessDestinationDescription:
       output.AmazonOpenSearchServerlessDestinationDescription != null
-        ? deserializeAws_json1_1AmazonOpenSearchServerlessDestinationDescription(
+        ? de_AmazonOpenSearchServerlessDestinationDescription(
             output.AmazonOpenSearchServerlessDestinationDescription,
             context
           )
         : undefined,
     AmazonopensearchserviceDestinationDescription:
       output.AmazonopensearchserviceDestinationDescription != null
-        ? deserializeAws_json1_1AmazonopensearchserviceDestinationDescription(
+        ? de_AmazonopensearchserviceDestinationDescription(
             output.AmazonopensearchserviceDestinationDescription,
             context
           )
@@ -2431,79 +2669,82 @@ const deserializeAws_json1_1DestinationDescription = (output: any, context: __Se
     DestinationId: __expectString(output.DestinationId),
     ElasticsearchDestinationDescription:
       output.ElasticsearchDestinationDescription != null
-        ? deserializeAws_json1_1ElasticsearchDestinationDescription(output.ElasticsearchDestinationDescription, context)
+        ? de_ElasticsearchDestinationDescription(output.ElasticsearchDestinationDescription, context)
         : undefined,
     ExtendedS3DestinationDescription:
       output.ExtendedS3DestinationDescription != null
-        ? deserializeAws_json1_1ExtendedS3DestinationDescription(output.ExtendedS3DestinationDescription, context)
+        ? de_ExtendedS3DestinationDescription(output.ExtendedS3DestinationDescription, context)
         : undefined,
     HttpEndpointDestinationDescription:
       output.HttpEndpointDestinationDescription != null
-        ? deserializeAws_json1_1HttpEndpointDestinationDescription(output.HttpEndpointDestinationDescription, context)
+        ? de_HttpEndpointDestinationDescription(output.HttpEndpointDestinationDescription, context)
         : undefined,
     RedshiftDestinationDescription:
       output.RedshiftDestinationDescription != null
-        ? deserializeAws_json1_1RedshiftDestinationDescription(output.RedshiftDestinationDescription, context)
+        ? de_RedshiftDestinationDescription(output.RedshiftDestinationDescription, context)
         : undefined,
     S3DestinationDescription:
       output.S3DestinationDescription != null
-        ? deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context)
+        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
         : undefined,
     SplunkDestinationDescription:
       output.SplunkDestinationDescription != null
-        ? deserializeAws_json1_1SplunkDestinationDescription(output.SplunkDestinationDescription, context)
+        ? de_SplunkDestinationDescription(output.SplunkDestinationDescription, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1DestinationDescriptionList = (
-  output: any,
-  context: __SerdeContext
-): DestinationDescription[] => {
+/**
+ * deserializeAws_json1_1DestinationDescriptionList
+ */
+const de_DestinationDescriptionList = (output: any, context: __SerdeContext): DestinationDescription[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1DestinationDescription(entry, context);
+      return de_DestinationDescription(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1DynamicPartitioningConfiguration = (
+/**
+ * deserializeAws_json1_1DynamicPartitioningConfiguration
+ */
+const de_DynamicPartitioningConfiguration = (
   output: any,
   context: __SerdeContext
 ): DynamicPartitioningConfiguration => {
   return {
     Enabled: __expectBoolean(output.Enabled),
-    RetryOptions:
-      output.RetryOptions != null ? deserializeAws_json1_1RetryOptions(output.RetryOptions, context) : undefined,
+    RetryOptions: output.RetryOptions != null ? de_RetryOptions(output.RetryOptions, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ElasticsearchBufferingHints = (
-  output: any,
-  context: __SerdeContext
-): ElasticsearchBufferingHints => {
+/**
+ * deserializeAws_json1_1ElasticsearchBufferingHints
+ */
+const de_ElasticsearchBufferingHints = (output: any, context: __SerdeContext): ElasticsearchBufferingHints => {
   return {
     IntervalInSeconds: __expectInt32(output.IntervalInSeconds),
     SizeInMBs: __expectInt32(output.SizeInMBs),
   } as any;
 };
 
-const deserializeAws_json1_1ElasticsearchDestinationDescription = (
+/**
+ * deserializeAws_json1_1ElasticsearchDestinationDescription
+ */
+const de_ElasticsearchDestinationDescription = (
   output: any,
   context: __SerdeContext
 ): ElasticsearchDestinationDescription => {
   return {
     BufferingHints:
-      output.BufferingHints != null
-        ? deserializeAws_json1_1ElasticsearchBufferingHints(output.BufferingHints, context)
-        : undefined,
+      output.BufferingHints != null ? de_ElasticsearchBufferingHints(output.BufferingHints, context) : undefined,
     CloudWatchLoggingOptions:
       output.CloudWatchLoggingOptions != null
-        ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
+        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
         : undefined,
     ClusterEndpoint: __expectString(output.ClusterEndpoint),
     DomainARN: __expectString(output.DomainARN),
@@ -2511,242 +2752,241 @@ const deserializeAws_json1_1ElasticsearchDestinationDescription = (
     IndexRotationPeriod: __expectString(output.IndexRotationPeriod),
     ProcessingConfiguration:
       output.ProcessingConfiguration != null
-        ? deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context)
+        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
         : undefined,
-    RetryOptions:
-      output.RetryOptions != null
-        ? deserializeAws_json1_1ElasticsearchRetryOptions(output.RetryOptions, context)
-        : undefined,
+    RetryOptions: output.RetryOptions != null ? de_ElasticsearchRetryOptions(output.RetryOptions, context) : undefined,
     RoleARN: __expectString(output.RoleARN),
     S3BackupMode: __expectString(output.S3BackupMode),
     S3DestinationDescription:
       output.S3DestinationDescription != null
-        ? deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context)
+        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
         : undefined,
     TypeName: __expectString(output.TypeName),
     VpcConfigurationDescription:
       output.VpcConfigurationDescription != null
-        ? deserializeAws_json1_1VpcConfigurationDescription(output.VpcConfigurationDescription, context)
+        ? de_VpcConfigurationDescription(output.VpcConfigurationDescription, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ElasticsearchRetryOptions = (
-  output: any,
-  context: __SerdeContext
-): ElasticsearchRetryOptions => {
+/**
+ * deserializeAws_json1_1ElasticsearchRetryOptions
+ */
+const de_ElasticsearchRetryOptions = (output: any, context: __SerdeContext): ElasticsearchRetryOptions => {
   return {
     DurationInSeconds: __expectInt32(output.DurationInSeconds),
   } as any;
 };
 
-const deserializeAws_json1_1EncryptionConfiguration = (
-  output: any,
-  context: __SerdeContext
-): EncryptionConfiguration => {
+/**
+ * deserializeAws_json1_1EncryptionConfiguration
+ */
+const de_EncryptionConfiguration = (output: any, context: __SerdeContext): EncryptionConfiguration => {
   return {
     KMSEncryptionConfig:
-      output.KMSEncryptionConfig != null
-        ? deserializeAws_json1_1KMSEncryptionConfig(output.KMSEncryptionConfig, context)
-        : undefined,
+      output.KMSEncryptionConfig != null ? de_KMSEncryptionConfig(output.KMSEncryptionConfig, context) : undefined,
     NoEncryptionConfig: __expectString(output.NoEncryptionConfig),
   } as any;
 };
 
-const deserializeAws_json1_1ExtendedS3DestinationDescription = (
+/**
+ * deserializeAws_json1_1ExtendedS3DestinationDescription
+ */
+const de_ExtendedS3DestinationDescription = (
   output: any,
   context: __SerdeContext
 ): ExtendedS3DestinationDescription => {
   return {
     BucketARN: __expectString(output.BucketARN),
-    BufferingHints:
-      output.BufferingHints != null ? deserializeAws_json1_1BufferingHints(output.BufferingHints, context) : undefined,
+    BufferingHints: output.BufferingHints != null ? de_BufferingHints(output.BufferingHints, context) : undefined,
     CloudWatchLoggingOptions:
       output.CloudWatchLoggingOptions != null
-        ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
+        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
         : undefined,
     CompressionFormat: __expectString(output.CompressionFormat),
     DataFormatConversionConfiguration:
       output.DataFormatConversionConfiguration != null
-        ? deserializeAws_json1_1DataFormatConversionConfiguration(output.DataFormatConversionConfiguration, context)
+        ? de_DataFormatConversionConfiguration(output.DataFormatConversionConfiguration, context)
         : undefined,
     DynamicPartitioningConfiguration:
       output.DynamicPartitioningConfiguration != null
-        ? deserializeAws_json1_1DynamicPartitioningConfiguration(output.DynamicPartitioningConfiguration, context)
+        ? de_DynamicPartitioningConfiguration(output.DynamicPartitioningConfiguration, context)
         : undefined,
     EncryptionConfiguration:
       output.EncryptionConfiguration != null
-        ? deserializeAws_json1_1EncryptionConfiguration(output.EncryptionConfiguration, context)
+        ? de_EncryptionConfiguration(output.EncryptionConfiguration, context)
         : undefined,
     ErrorOutputPrefix: __expectString(output.ErrorOutputPrefix),
     Prefix: __expectString(output.Prefix),
     ProcessingConfiguration:
       output.ProcessingConfiguration != null
-        ? deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context)
+        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
         : undefined,
     RoleARN: __expectString(output.RoleARN),
     S3BackupDescription:
-      output.S3BackupDescription != null
-        ? deserializeAws_json1_1S3DestinationDescription(output.S3BackupDescription, context)
-        : undefined,
+      output.S3BackupDescription != null ? de_S3DestinationDescription(output.S3BackupDescription, context) : undefined,
     S3BackupMode: __expectString(output.S3BackupMode),
   } as any;
 };
 
-const deserializeAws_json1_1FailureDescription = (output: any, context: __SerdeContext): FailureDescription => {
+/**
+ * deserializeAws_json1_1FailureDescription
+ */
+const de_FailureDescription = (output: any, context: __SerdeContext): FailureDescription => {
   return {
     Details: __expectString(output.Details),
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1HiveJsonSerDe = (output: any, context: __SerdeContext): HiveJsonSerDe => {
+/**
+ * deserializeAws_json1_1HiveJsonSerDe
+ */
+const de_HiveJsonSerDe = (output: any, context: __SerdeContext): HiveJsonSerDe => {
   return {
     TimestampFormats:
-      output.TimestampFormats != null
-        ? deserializeAws_json1_1ListOfNonEmptyStrings(output.TimestampFormats, context)
-        : undefined,
+      output.TimestampFormats != null ? de_ListOfNonEmptyStrings(output.TimestampFormats, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1HttpEndpointBufferingHints = (
-  output: any,
-  context: __SerdeContext
-): HttpEndpointBufferingHints => {
+/**
+ * deserializeAws_json1_1HttpEndpointBufferingHints
+ */
+const de_HttpEndpointBufferingHints = (output: any, context: __SerdeContext): HttpEndpointBufferingHints => {
   return {
     IntervalInSeconds: __expectInt32(output.IntervalInSeconds),
     SizeInMBs: __expectInt32(output.SizeInMBs),
   } as any;
 };
 
-const deserializeAws_json1_1HttpEndpointCommonAttribute = (
-  output: any,
-  context: __SerdeContext
-): HttpEndpointCommonAttribute => {
+/**
+ * deserializeAws_json1_1HttpEndpointCommonAttribute
+ */
+const de_HttpEndpointCommonAttribute = (output: any, context: __SerdeContext): HttpEndpointCommonAttribute => {
   return {
     AttributeName: __expectString(output.AttributeName),
     AttributeValue: __expectString(output.AttributeValue),
   } as any;
 };
 
-const deserializeAws_json1_1HttpEndpointCommonAttributesList = (
-  output: any,
-  context: __SerdeContext
-): HttpEndpointCommonAttribute[] => {
+/**
+ * deserializeAws_json1_1HttpEndpointCommonAttributesList
+ */
+const de_HttpEndpointCommonAttributesList = (output: any, context: __SerdeContext): HttpEndpointCommonAttribute[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1HttpEndpointCommonAttribute(entry, context);
+      return de_HttpEndpointCommonAttribute(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1HttpEndpointDescription = (
-  output: any,
-  context: __SerdeContext
-): HttpEndpointDescription => {
+/**
+ * deserializeAws_json1_1HttpEndpointDescription
+ */
+const de_HttpEndpointDescription = (output: any, context: __SerdeContext): HttpEndpointDescription => {
   return {
     Name: __expectString(output.Name),
     Url: __expectString(output.Url),
   } as any;
 };
 
-const deserializeAws_json1_1HttpEndpointDestinationDescription = (
+/**
+ * deserializeAws_json1_1HttpEndpointDestinationDescription
+ */
+const de_HttpEndpointDestinationDescription = (
   output: any,
   context: __SerdeContext
 ): HttpEndpointDestinationDescription => {
   return {
     BufferingHints:
-      output.BufferingHints != null
-        ? deserializeAws_json1_1HttpEndpointBufferingHints(output.BufferingHints, context)
-        : undefined,
+      output.BufferingHints != null ? de_HttpEndpointBufferingHints(output.BufferingHints, context) : undefined,
     CloudWatchLoggingOptions:
       output.CloudWatchLoggingOptions != null
-        ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
+        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
         : undefined,
     EndpointConfiguration:
       output.EndpointConfiguration != null
-        ? deserializeAws_json1_1HttpEndpointDescription(output.EndpointConfiguration, context)
+        ? de_HttpEndpointDescription(output.EndpointConfiguration, context)
         : undefined,
     ProcessingConfiguration:
       output.ProcessingConfiguration != null
-        ? deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context)
+        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
         : undefined,
     RequestConfiguration:
       output.RequestConfiguration != null
-        ? deserializeAws_json1_1HttpEndpointRequestConfiguration(output.RequestConfiguration, context)
+        ? de_HttpEndpointRequestConfiguration(output.RequestConfiguration, context)
         : undefined,
-    RetryOptions:
-      output.RetryOptions != null
-        ? deserializeAws_json1_1HttpEndpointRetryOptions(output.RetryOptions, context)
-        : undefined,
+    RetryOptions: output.RetryOptions != null ? de_HttpEndpointRetryOptions(output.RetryOptions, context) : undefined,
     RoleARN: __expectString(output.RoleARN),
     S3BackupMode: __expectString(output.S3BackupMode),
     S3DestinationDescription:
       output.S3DestinationDescription != null
-        ? deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context)
+        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1HttpEndpointRequestConfiguration = (
+/**
+ * deserializeAws_json1_1HttpEndpointRequestConfiguration
+ */
+const de_HttpEndpointRequestConfiguration = (
   output: any,
   context: __SerdeContext
 ): HttpEndpointRequestConfiguration => {
   return {
     CommonAttributes:
       output.CommonAttributes != null
-        ? deserializeAws_json1_1HttpEndpointCommonAttributesList(output.CommonAttributes, context)
+        ? de_HttpEndpointCommonAttributesList(output.CommonAttributes, context)
         : undefined,
     ContentEncoding: __expectString(output.ContentEncoding),
   } as any;
 };
 
-const deserializeAws_json1_1HttpEndpointRetryOptions = (
-  output: any,
-  context: __SerdeContext
-): HttpEndpointRetryOptions => {
+/**
+ * deserializeAws_json1_1HttpEndpointRetryOptions
+ */
+const de_HttpEndpointRetryOptions = (output: any, context: __SerdeContext): HttpEndpointRetryOptions => {
   return {
     DurationInSeconds: __expectInt32(output.DurationInSeconds),
   } as any;
 };
 
-const deserializeAws_json1_1InputFormatConfiguration = (
-  output: any,
-  context: __SerdeContext
-): InputFormatConfiguration => {
+/**
+ * deserializeAws_json1_1InputFormatConfiguration
+ */
+const de_InputFormatConfiguration = (output: any, context: __SerdeContext): InputFormatConfiguration => {
   return {
-    Deserializer:
-      output.Deserializer != null ? deserializeAws_json1_1Deserializer(output.Deserializer, context) : undefined,
+    Deserializer: output.Deserializer != null ? de_Deserializer(output.Deserializer, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1InvalidArgumentException = (
-  output: any,
-  context: __SerdeContext
-): InvalidArgumentException => {
+/**
+ * deserializeAws_json1_1InvalidArgumentException
+ */
+const de_InvalidArgumentException = (output: any, context: __SerdeContext): InvalidArgumentException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1InvalidKMSResourceException = (
-  output: any,
-  context: __SerdeContext
-): InvalidKMSResourceException => {
+/**
+ * deserializeAws_json1_1InvalidKMSResourceException
+ */
+const de_InvalidKMSResourceException = (output: any, context: __SerdeContext): InvalidKMSResourceException => {
   return {
     code: __expectString(output.code),
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1KinesisStreamSourceDescription = (
-  output: any,
-  context: __SerdeContext
-): KinesisStreamSourceDescription => {
+/**
+ * deserializeAws_json1_1KinesisStreamSourceDescription
+ */
+const de_KinesisStreamSourceDescription = (output: any, context: __SerdeContext): KinesisStreamSourceDescription => {
   return {
     DeliveryStartTimestamp:
       output.DeliveryStartTimestamp != null
@@ -2757,32 +2997,39 @@ const deserializeAws_json1_1KinesisStreamSourceDescription = (
   } as any;
 };
 
-const deserializeAws_json1_1KMSEncryptionConfig = (output: any, context: __SerdeContext): KMSEncryptionConfig => {
+/**
+ * deserializeAws_json1_1KMSEncryptionConfig
+ */
+const de_KMSEncryptionConfig = (output: any, context: __SerdeContext): KMSEncryptionConfig => {
   return {
     AWSKMSKeyARN: __expectString(output.AWSKMSKeyARN),
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
+/**
+ * deserializeAws_json1_1LimitExceededException
+ */
+const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ListDeliveryStreamsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListDeliveryStreamsOutput => {
+/**
+ * deserializeAws_json1_1ListDeliveryStreamsOutput
+ */
+const de_ListDeliveryStreamsOutput = (output: any, context: __SerdeContext): ListDeliveryStreamsOutput => {
   return {
     DeliveryStreamNames:
-      output.DeliveryStreamNames != null
-        ? deserializeAws_json1_1DeliveryStreamNameList(output.DeliveryStreamNames, context)
-        : undefined,
+      output.DeliveryStreamNames != null ? de_DeliveryStreamNameList(output.DeliveryStreamNames, context) : undefined,
     HasMoreDeliveryStreams: __expectBoolean(output.HasMoreDeliveryStreams),
   } as any;
 };
 
-const deserializeAws_json1_1ListOfNonEmptyStrings = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1ListOfNonEmptyStrings
+ */
+const de_ListOfNonEmptyStrings = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2794,10 +3041,10 @@ const deserializeAws_json1_1ListOfNonEmptyStrings = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+/**
+ * deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace
+ */
+const de_ListOfNonEmptyStringsWithoutWhitespace = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2809,48 +3056,54 @@ const deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace = (
   return retVal;
 };
 
-const deserializeAws_json1_1ListTagsForDeliveryStreamOutput = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForDeliveryStreamOutput => {
+/**
+ * deserializeAws_json1_1ListTagsForDeliveryStreamOutput
+ */
+const de_ListTagsForDeliveryStreamOutput = (output: any, context: __SerdeContext): ListTagsForDeliveryStreamOutput => {
   return {
     HasMoreTags: __expectBoolean(output.HasMoreTags),
-    Tags:
-      output.Tags != null
-        ? deserializeAws_json1_1ListTagsForDeliveryStreamOutputTagList(output.Tags, context)
-        : undefined,
+    Tags: output.Tags != null ? de_ListTagsForDeliveryStreamOutputTagList(output.Tags, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForDeliveryStreamOutputTagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_json1_1ListTagsForDeliveryStreamOutputTagList
+ */
+const de_ListTagsForDeliveryStreamOutputTagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1OpenXJsonSerDe = (output: any, context: __SerdeContext): OpenXJsonSerDe => {
+/**
+ * deserializeAws_json1_1OpenXJsonSerDe
+ */
+const de_OpenXJsonSerDe = (output: any, context: __SerdeContext): OpenXJsonSerDe => {
   return {
     CaseInsensitive: __expectBoolean(output.CaseInsensitive),
     ColumnToJsonKeyMappings:
       output.ColumnToJsonKeyMappings != null
-        ? deserializeAws_json1_1ColumnToJsonKeyMappings(output.ColumnToJsonKeyMappings, context)
+        ? de_ColumnToJsonKeyMappings(output.ColumnToJsonKeyMappings, context)
         : undefined,
     ConvertDotsInJsonKeysToUnderscores: __expectBoolean(output.ConvertDotsInJsonKeysToUnderscores),
   } as any;
 };
 
-const deserializeAws_json1_1OrcSerDe = (output: any, context: __SerdeContext): OrcSerDe => {
+/**
+ * deserializeAws_json1_1OrcSerDe
+ */
+const de_OrcSerDe = (output: any, context: __SerdeContext): OrcSerDe => {
   return {
     BlockSizeBytes: __expectInt32(output.BlockSizeBytes),
     BloomFilterColumns:
       output.BloomFilterColumns != null
-        ? deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace(output.BloomFilterColumns, context)
+        ? de_ListOfNonEmptyStringsWithoutWhitespace(output.BloomFilterColumns, context)
         : undefined,
     BloomFilterFalsePositiveProbability: __limitedParseDouble(output.BloomFilterFalsePositiveProbability),
     Compression: __expectString(output.Compression),
@@ -2863,16 +3116,19 @@ const deserializeAws_json1_1OrcSerDe = (output: any, context: __SerdeContext): O
   } as any;
 };
 
-const deserializeAws_json1_1OutputFormatConfiguration = (
-  output: any,
-  context: __SerdeContext
-): OutputFormatConfiguration => {
+/**
+ * deserializeAws_json1_1OutputFormatConfiguration
+ */
+const de_OutputFormatConfiguration = (output: any, context: __SerdeContext): OutputFormatConfiguration => {
   return {
-    Serializer: output.Serializer != null ? deserializeAws_json1_1Serializer(output.Serializer, context) : undefined,
+    Serializer: output.Serializer != null ? de_Serializer(output.Serializer, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ParquetSerDe = (output: any, context: __SerdeContext): ParquetSerDe => {
+/**
+ * deserializeAws_json1_1ParquetSerDe
+ */
+const de_ParquetSerDe = (output: any, context: __SerdeContext): ParquetSerDe => {
   return {
     BlockSizeBytes: __expectInt32(output.BlockSizeBytes),
     Compression: __expectString(output.Compression),
@@ -2883,70 +3139,84 @@ const deserializeAws_json1_1ParquetSerDe = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1ProcessingConfiguration = (
-  output: any,
-  context: __SerdeContext
-): ProcessingConfiguration => {
+/**
+ * deserializeAws_json1_1ProcessingConfiguration
+ */
+const de_ProcessingConfiguration = (output: any, context: __SerdeContext): ProcessingConfiguration => {
   return {
     Enabled: __expectBoolean(output.Enabled),
-    Processors: output.Processors != null ? deserializeAws_json1_1ProcessorList(output.Processors, context) : undefined,
+    Processors: output.Processors != null ? de_ProcessorList(output.Processors, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1Processor = (output: any, context: __SerdeContext): Processor => {
+/**
+ * deserializeAws_json1_1Processor
+ */
+const de_Processor = (output: any, context: __SerdeContext): Processor => {
   return {
-    Parameters:
-      output.Parameters != null ? deserializeAws_json1_1ProcessorParameterList(output.Parameters, context) : undefined,
+    Parameters: output.Parameters != null ? de_ProcessorParameterList(output.Parameters, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
 
-const deserializeAws_json1_1ProcessorList = (output: any, context: __SerdeContext): Processor[] => {
+/**
+ * deserializeAws_json1_1ProcessorList
+ */
+const de_ProcessorList = (output: any, context: __SerdeContext): Processor[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1Processor(entry, context);
+      return de_Processor(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1ProcessorParameter = (output: any, context: __SerdeContext): ProcessorParameter => {
+/**
+ * deserializeAws_json1_1ProcessorParameter
+ */
+const de_ProcessorParameter = (output: any, context: __SerdeContext): ProcessorParameter => {
   return {
     ParameterName: __expectString(output.ParameterName),
     ParameterValue: __expectString(output.ParameterValue),
   } as any;
 };
 
-const deserializeAws_json1_1ProcessorParameterList = (output: any, context: __SerdeContext): ProcessorParameter[] => {
+/**
+ * deserializeAws_json1_1ProcessorParameterList
+ */
+const de_ProcessorParameterList = (output: any, context: __SerdeContext): ProcessorParameter[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1ProcessorParameter(entry, context);
+      return de_ProcessorParameter(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PutRecordBatchOutput = (output: any, context: __SerdeContext): PutRecordBatchOutput => {
+/**
+ * deserializeAws_json1_1PutRecordBatchOutput
+ */
+const de_PutRecordBatchOutput = (output: any, context: __SerdeContext): PutRecordBatchOutput => {
   return {
     Encrypted: __expectBoolean(output.Encrypted),
     FailedPutCount: __expectInt32(output.FailedPutCount),
     RequestResponses:
       output.RequestResponses != null
-        ? deserializeAws_json1_1PutRecordBatchResponseEntryList(output.RequestResponses, context)
+        ? de_PutRecordBatchResponseEntryList(output.RequestResponses, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1PutRecordBatchResponseEntry = (
-  output: any,
-  context: __SerdeContext
-): PutRecordBatchResponseEntry => {
+/**
+ * deserializeAws_json1_1PutRecordBatchResponseEntry
+ */
+const de_PutRecordBatchResponseEntry = (output: any, context: __SerdeContext): PutRecordBatchResponseEntry => {
   return {
     ErrorCode: __expectString(output.ErrorCode),
     ErrorMessage: __expectString(output.ErrorMessage),
@@ -2954,105 +3224,110 @@ const deserializeAws_json1_1PutRecordBatchResponseEntry = (
   } as any;
 };
 
-const deserializeAws_json1_1PutRecordBatchResponseEntryList = (
-  output: any,
-  context: __SerdeContext
-): PutRecordBatchResponseEntry[] => {
+/**
+ * deserializeAws_json1_1PutRecordBatchResponseEntryList
+ */
+const de_PutRecordBatchResponseEntryList = (output: any, context: __SerdeContext): PutRecordBatchResponseEntry[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_json1_1PutRecordBatchResponseEntry(entry, context);
+      return de_PutRecordBatchResponseEntry(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_json1_1PutRecordOutput = (output: any, context: __SerdeContext): PutRecordOutput => {
+/**
+ * deserializeAws_json1_1PutRecordOutput
+ */
+const de_PutRecordOutput = (output: any, context: __SerdeContext): PutRecordOutput => {
   return {
     Encrypted: __expectBoolean(output.Encrypted),
     RecordId: __expectString(output.RecordId),
   } as any;
 };
 
-const deserializeAws_json1_1RedshiftDestinationDescription = (
-  output: any,
-  context: __SerdeContext
-): RedshiftDestinationDescription => {
+/**
+ * deserializeAws_json1_1RedshiftDestinationDescription
+ */
+const de_RedshiftDestinationDescription = (output: any, context: __SerdeContext): RedshiftDestinationDescription => {
   return {
     CloudWatchLoggingOptions:
       output.CloudWatchLoggingOptions != null
-        ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
+        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
         : undefined,
     ClusterJDBCURL: __expectString(output.ClusterJDBCURL),
-    CopyCommand:
-      output.CopyCommand != null ? deserializeAws_json1_1CopyCommand(output.CopyCommand, context) : undefined,
+    CopyCommand: output.CopyCommand != null ? de_CopyCommand(output.CopyCommand, context) : undefined,
     ProcessingConfiguration:
       output.ProcessingConfiguration != null
-        ? deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context)
+        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
         : undefined,
-    RetryOptions:
-      output.RetryOptions != null
-        ? deserializeAws_json1_1RedshiftRetryOptions(output.RetryOptions, context)
-        : undefined,
+    RetryOptions: output.RetryOptions != null ? de_RedshiftRetryOptions(output.RetryOptions, context) : undefined,
     RoleARN: __expectString(output.RoleARN),
     S3BackupDescription:
-      output.S3BackupDescription != null
-        ? deserializeAws_json1_1S3DestinationDescription(output.S3BackupDescription, context)
-        : undefined,
+      output.S3BackupDescription != null ? de_S3DestinationDescription(output.S3BackupDescription, context) : undefined,
     S3BackupMode: __expectString(output.S3BackupMode),
     S3DestinationDescription:
       output.S3DestinationDescription != null
-        ? deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context)
+        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
         : undefined,
     Username: __expectString(output.Username),
   } as any;
 };
 
-const deserializeAws_json1_1RedshiftRetryOptions = (output: any, context: __SerdeContext): RedshiftRetryOptions => {
+/**
+ * deserializeAws_json1_1RedshiftRetryOptions
+ */
+const de_RedshiftRetryOptions = (output: any, context: __SerdeContext): RedshiftRetryOptions => {
   return {
     DurationInSeconds: __expectInt32(output.DurationInSeconds),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
+/**
+ * deserializeAws_json1_1ResourceInUseException
+ */
+const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
+/**
+ * deserializeAws_json1_1ResourceNotFoundException
+ */
+const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1RetryOptions = (output: any, context: __SerdeContext): RetryOptions => {
+/**
+ * deserializeAws_json1_1RetryOptions
+ */
+const de_RetryOptions = (output: any, context: __SerdeContext): RetryOptions => {
   return {
     DurationInSeconds: __expectInt32(output.DurationInSeconds),
   } as any;
 };
 
-const deserializeAws_json1_1S3DestinationDescription = (
-  output: any,
-  context: __SerdeContext
-): S3DestinationDescription => {
+/**
+ * deserializeAws_json1_1S3DestinationDescription
+ */
+const de_S3DestinationDescription = (output: any, context: __SerdeContext): S3DestinationDescription => {
   return {
     BucketARN: __expectString(output.BucketARN),
-    BufferingHints:
-      output.BufferingHints != null ? deserializeAws_json1_1BufferingHints(output.BufferingHints, context) : undefined,
+    BufferingHints: output.BufferingHints != null ? de_BufferingHints(output.BufferingHints, context) : undefined,
     CloudWatchLoggingOptions:
       output.CloudWatchLoggingOptions != null
-        ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
+        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
         : undefined,
     CompressionFormat: __expectString(output.CompressionFormat),
     EncryptionConfiguration:
       output.EncryptionConfiguration != null
-        ? deserializeAws_json1_1EncryptionConfiguration(output.EncryptionConfiguration, context)
+        ? de_EncryptionConfiguration(output.EncryptionConfiguration, context)
         : undefined,
     ErrorOutputPrefix: __expectString(output.ErrorOutputPrefix),
     Prefix: __expectString(output.Prefix),
@@ -3060,7 +3335,10 @@ const deserializeAws_json1_1S3DestinationDescription = (
   } as any;
 };
 
-const deserializeAws_json1_1SchemaConfiguration = (output: any, context: __SerdeContext): SchemaConfiguration => {
+/**
+ * deserializeAws_json1_1SchemaConfiguration
+ */
+const de_SchemaConfiguration = (output: any, context: __SerdeContext): SchemaConfiguration => {
   return {
     CatalogId: __expectString(output.CatalogId),
     DatabaseName: __expectString(output.DatabaseName),
@@ -3071,7 +3349,10 @@ const deserializeAws_json1_1SchemaConfiguration = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SecurityGroupIdList
+ */
+const de_SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3083,40 +3364,45 @@ const deserializeAws_json1_1SecurityGroupIdList = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_json1_1Serializer = (output: any, context: __SerdeContext): Serializer => {
+/**
+ * deserializeAws_json1_1Serializer
+ */
+const de_Serializer = (output: any, context: __SerdeContext): Serializer => {
   return {
-    OrcSerDe: output.OrcSerDe != null ? deserializeAws_json1_1OrcSerDe(output.OrcSerDe, context) : undefined,
-    ParquetSerDe:
-      output.ParquetSerDe != null ? deserializeAws_json1_1ParquetSerDe(output.ParquetSerDe, context) : undefined,
+    OrcSerDe: output.OrcSerDe != null ? de_OrcSerDe(output.OrcSerDe, context) : undefined,
+    ParquetSerDe: output.ParquetSerDe != null ? de_ParquetSerDe(output.ParquetSerDe, context) : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1ServiceUnavailableException = (
-  output: any,
-  context: __SerdeContext
-): ServiceUnavailableException => {
+/**
+ * deserializeAws_json1_1ServiceUnavailableException
+ */
+const de_ServiceUnavailableException = (output: any, context: __SerdeContext): ServiceUnavailableException => {
   return {
     message: __expectString(output.message),
   } as any;
 };
 
-const deserializeAws_json1_1SourceDescription = (output: any, context: __SerdeContext): SourceDescription => {
+/**
+ * deserializeAws_json1_1SourceDescription
+ */
+const de_SourceDescription = (output: any, context: __SerdeContext): SourceDescription => {
   return {
     KinesisStreamSourceDescription:
       output.KinesisStreamSourceDescription != null
-        ? deserializeAws_json1_1KinesisStreamSourceDescription(output.KinesisStreamSourceDescription, context)
+        ? de_KinesisStreamSourceDescription(output.KinesisStreamSourceDescription, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SplunkDestinationDescription = (
-  output: any,
-  context: __SerdeContext
-): SplunkDestinationDescription => {
+/**
+ * deserializeAws_json1_1SplunkDestinationDescription
+ */
+const de_SplunkDestinationDescription = (output: any, context: __SerdeContext): SplunkDestinationDescription => {
   return {
     CloudWatchLoggingOptions:
       output.CloudWatchLoggingOptions != null
-        ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
+        ? de_CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
         : undefined,
     HECAcknowledgmentTimeoutInSeconds: __expectInt32(output.HECAcknowledgmentTimeoutInSeconds),
     HECEndpoint: __expectString(output.HECEndpoint),
@@ -3124,39 +3410,50 @@ const deserializeAws_json1_1SplunkDestinationDescription = (
     HECToken: __expectString(output.HECToken),
     ProcessingConfiguration:
       output.ProcessingConfiguration != null
-        ? deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context)
+        ? de_ProcessingConfiguration(output.ProcessingConfiguration, context)
         : undefined,
-    RetryOptions:
-      output.RetryOptions != null ? deserializeAws_json1_1SplunkRetryOptions(output.RetryOptions, context) : undefined,
+    RetryOptions: output.RetryOptions != null ? de_SplunkRetryOptions(output.RetryOptions, context) : undefined,
     S3BackupMode: __expectString(output.S3BackupMode),
     S3DestinationDescription:
       output.S3DestinationDescription != null
-        ? deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context)
+        ? de_S3DestinationDescription(output.S3DestinationDescription, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_json1_1SplunkRetryOptions = (output: any, context: __SerdeContext): SplunkRetryOptions => {
+/**
+ * deserializeAws_json1_1SplunkRetryOptions
+ */
+const de_SplunkRetryOptions = (output: any, context: __SerdeContext): SplunkRetryOptions => {
   return {
     DurationInSeconds: __expectInt32(output.DurationInSeconds),
   } as any;
 };
 
-const deserializeAws_json1_1StartDeliveryStreamEncryptionOutput = (
+/**
+ * deserializeAws_json1_1StartDeliveryStreamEncryptionOutput
+ */
+const de_StartDeliveryStreamEncryptionOutput = (
   output: any,
   context: __SerdeContext
 ): StartDeliveryStreamEncryptionOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1StopDeliveryStreamEncryptionOutput = (
+/**
+ * deserializeAws_json1_1StopDeliveryStreamEncryptionOutput
+ */
+const de_StopDeliveryStreamEncryptionOutput = (
   output: any,
   context: __SerdeContext
 ): StopDeliveryStreamEncryptionOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_json1_1SubnetIdList
+ */
+const de_SubnetIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3168,45 +3465,46 @@ const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_json1_1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_json1_1TagDeliveryStreamOutput = (
-  output: any,
-  context: __SerdeContext
-): TagDeliveryStreamOutput => {
+/**
+ * deserializeAws_json1_1TagDeliveryStreamOutput
+ */
+const de_TagDeliveryStreamOutput = (output: any, context: __SerdeContext): TagDeliveryStreamOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UntagDeliveryStreamOutput = (
-  output: any,
-  context: __SerdeContext
-): UntagDeliveryStreamOutput => {
+/**
+ * deserializeAws_json1_1UntagDeliveryStreamOutput
+ */
+const de_UntagDeliveryStreamOutput = (output: any, context: __SerdeContext): UntagDeliveryStreamOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1UpdateDestinationOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateDestinationOutput => {
+/**
+ * deserializeAws_json1_1UpdateDestinationOutput
+ */
+const de_UpdateDestinationOutput = (output: any, context: __SerdeContext): UpdateDestinationOutput => {
   return {} as any;
 };
 
-const deserializeAws_json1_1VpcConfigurationDescription = (
-  output: any,
-  context: __SerdeContext
-): VpcConfigurationDescription => {
+/**
+ * deserializeAws_json1_1VpcConfigurationDescription
+ */
+const de_VpcConfigurationDescription = (output: any, context: __SerdeContext): VpcConfigurationDescription => {
   return {
     RoleARN: __expectString(output.RoleARN),
     SecurityGroupIds:
-      output.SecurityGroupIds != null
-        ? deserializeAws_json1_1SecurityGroupIdList(output.SecurityGroupIds, context)
-        : undefined,
-    SubnetIds: output.SubnetIds != null ? deserializeAws_json1_1SubnetIdList(output.SubnetIds, context) : undefined,
+      output.SecurityGroupIds != null ? de_SecurityGroupIdList(output.SecurityGroupIds, context) : undefined,
+    SubnetIds: output.SubnetIds != null ? de_SubnetIdList(output.SubnetIds, context) : undefined,
     VpcId: __expectString(output.VpcId),
   } as any;
 };

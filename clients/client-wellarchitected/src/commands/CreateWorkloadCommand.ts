@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateWorkloadInput, CreateWorkloadOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkloadCommand,
-  serializeAws_restJson1CreateWorkloadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWorkloadCommand, se_CreateWorkloadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -185,14 +182,14 @@ export class CreateWorkloadCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkloadCommand(input, context);
+    return se_CreateWorkloadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkloadCommandOutput> {
-    return deserializeAws_restJson1CreateWorkloadCommand(output, context);
+    return de_CreateWorkloadCommand(output, context);
   }
 
   // Start section: command_body_extra

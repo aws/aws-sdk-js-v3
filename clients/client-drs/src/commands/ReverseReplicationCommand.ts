@@ -15,10 +15,7 @@ import {
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { ReverseReplicationRequest, ReverseReplicationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ReverseReplicationCommand,
-  serializeAws_restJson1ReverseReplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ReverseReplicationCommand, se_ReverseReplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ReverseReplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: ReverseReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ReverseReplicationCommand(input, context);
+    return se_ReverseReplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReverseReplicationCommandOutput> {
-    return deserializeAws_restJson1ReverseReplicationCommand(output, context);
+    return de_ReverseReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

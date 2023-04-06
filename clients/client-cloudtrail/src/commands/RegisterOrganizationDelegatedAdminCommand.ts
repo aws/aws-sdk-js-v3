@@ -19,8 +19,8 @@ import {
   RegisterOrganizationDelegatedAdminResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommand,
-  serializeAws_json1_1RegisterOrganizationDelegatedAdminCommand,
+  de_RegisterOrganizationDelegatedAdminCommand,
+  se_RegisterOrganizationDelegatedAdminCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -182,7 +182,7 @@ export class RegisterOrganizationDelegatedAdminCommand extends $Command<
     input: RegisterOrganizationDelegatedAdminCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterOrganizationDelegatedAdminCommand(input, context);
+    return se_RegisterOrganizationDelegatedAdminCommand(input, context);
   }
 
   /**
@@ -192,7 +192,7 @@ export class RegisterOrganizationDelegatedAdminCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterOrganizationDelegatedAdminCommandOutput> {
-    return deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommand(output, context);
+    return de_RegisterOrganizationDelegatedAdminCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeleteEvaluationResultsRequest, DeleteEvaluationResultsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEvaluationResultsCommand,
-  serializeAws_json1_1DeleteEvaluationResultsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEvaluationResultsCommand, se_DeleteEvaluationResultsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class DeleteEvaluationResultsCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEvaluationResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEvaluationResultsCommand(input, context);
+    return se_DeleteEvaluationResultsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEvaluationResultsCommandOutput> {
-    return deserializeAws_json1_1DeleteEvaluationResultsCommand(output, context);
+    return de_DeleteEvaluationResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

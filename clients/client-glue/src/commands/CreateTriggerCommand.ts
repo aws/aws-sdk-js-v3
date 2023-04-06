@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateTriggerRequest, CreateTriggerResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1CreateTriggerCommand,
-  serializeAws_json1_1CreateTriggerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateTriggerCommand, se_CreateTriggerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -180,14 +177,14 @@ export class CreateTriggerCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateTriggerCommand(input, context);
+    return se_CreateTriggerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTriggerCommandOutput> {
-    return deserializeAws_json1_1CreateTriggerCommand(output, context);
+    return de_CreateTriggerCommand(output, context);
   }
 
   // Start section: command_body_extra

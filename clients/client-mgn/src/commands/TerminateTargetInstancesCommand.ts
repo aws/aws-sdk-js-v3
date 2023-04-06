@@ -20,10 +20,7 @@ import {
   TerminateTargetInstancesResponse,
   TerminateTargetInstancesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1TerminateTargetInstancesCommand,
-  serializeAws_restJson1TerminateTargetInstancesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TerminateTargetInstancesCommand, se_TerminateTargetInstancesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class TerminateTargetInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateTargetInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TerminateTargetInstancesCommand(input, context);
+    return se_TerminateTargetInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateTargetInstancesCommandOutput> {
-    return deserializeAws_restJson1TerminateTargetInstancesCommand(output, context);
+    return de_TerminateTargetInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

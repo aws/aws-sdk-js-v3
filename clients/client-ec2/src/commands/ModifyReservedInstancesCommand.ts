@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyReservedInstancesRequest, ModifyReservedInstancesResult } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyReservedInstancesCommand,
-  serializeAws_ec2ModifyReservedInstancesCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyReservedInstancesCommand, se_ModifyReservedInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ModifyReservedInstancesCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyReservedInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyReservedInstancesCommand(input, context);
+    return se_ModifyReservedInstancesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReservedInstancesCommandOutput> {
-    return deserializeAws_ec2ModifyReservedInstancesCommand(output, context);
+    return de_ModifyReservedInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

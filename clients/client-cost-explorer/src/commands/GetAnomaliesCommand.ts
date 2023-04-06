@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { GetAnomaliesRequest, GetAnomaliesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAnomaliesCommand,
-  serializeAws_json1_1GetAnomaliesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAnomaliesCommand, se_GetAnomaliesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class GetAnomaliesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAnomaliesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAnomaliesCommand(input, context);
+    return se_GetAnomaliesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomaliesCommandOutput> {
-    return deserializeAws_json1_1GetAnomaliesCommand(output, context);
+    return de_GetAnomaliesCommand(output, context);
   }
 
   // Start section: command_body_extra

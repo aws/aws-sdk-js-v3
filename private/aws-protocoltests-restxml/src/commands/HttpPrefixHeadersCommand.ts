@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HttpPrefixHeadersInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlHttpPrefixHeadersCommand,
-  serializeAws_restXmlHttpPrefixHeadersCommand,
-} from "../protocols/Aws_restXml";
+import { de_HttpPrefixHeadersCommand, se_HttpPrefixHeadersCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -110,14 +107,14 @@ export class HttpPrefixHeadersCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpPrefixHeadersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpPrefixHeadersCommand(input, context);
+    return se_HttpPrefixHeadersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPrefixHeadersCommandOutput> {
-    return deserializeAws_restXmlHttpPrefixHeadersCommand(output, context);
+    return de_HttpPrefixHeadersCommand(output, context);
   }
 
   // Start section: command_body_extra

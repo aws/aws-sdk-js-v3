@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { UpdateTableObjectsRequest, UpdateTableObjectsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateTableObjectsCommand,
-  serializeAws_restJson1UpdateTableObjectsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateTableObjectsCommand, se_UpdateTableObjectsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class UpdateTableObjectsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTableObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTableObjectsCommand(input, context);
+    return se_UpdateTableObjectsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTableObjectsCommandOutput> {
-    return deserializeAws_restJson1UpdateTableObjectsCommand(output, context);
+    return de_UpdateTableObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { ListFacetAttributesRequest, ListFacetAttributesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListFacetAttributesCommand,
-  serializeAws_restJson1ListFacetAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListFacetAttributesCommand, se_ListFacetAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class ListFacetAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFacetAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListFacetAttributesCommand(input, context);
+    return se_ListFacetAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFacetAttributesCommandOutput> {
-    return deserializeAws_restJson1ListFacetAttributesCommand(output, context);
+    return de_ListFacetAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

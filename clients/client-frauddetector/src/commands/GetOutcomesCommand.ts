@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { GetOutcomesRequest, GetOutcomesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOutcomesCommand,
-  serializeAws_json1_1GetOutcomesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetOutcomesCommand, se_GetOutcomesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetOutcomesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetOutcomesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOutcomesCommand(input, context);
+    return se_GetOutcomesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOutcomesCommandOutput> {
-    return deserializeAws_json1_1GetOutcomesCommand(output, context);
+    return de_GetOutcomesCommand(output, context);
   }
 
   // Start section: command_body_extra

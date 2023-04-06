@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateNFSFileShareInput, UpdateNFSFileShareOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateNFSFileShareCommand,
-  serializeAws_json1_1UpdateNFSFileShareCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateNFSFileShareCommand, se_UpdateNFSFileShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -177,14 +174,14 @@ export class UpdateNFSFileShareCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateNFSFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateNFSFileShareCommand(input, context);
+    return se_UpdateNFSFileShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNFSFileShareCommandOutput> {
-    return deserializeAws_json1_1UpdateNFSFileShareCommand(output, context);
+    return de_UpdateNFSFileShareCommand(output, context);
   }
 
   // Start section: command_body_extra

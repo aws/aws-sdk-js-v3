@@ -19,10 +19,7 @@ import {
   UpdateRoomMembershipResponse,
   UpdateRoomMembershipResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateRoomMembershipCommand,
-  serializeAws_restJson1UpdateRoomMembershipCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRoomMembershipCommand, se_UpdateRoomMembershipCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class UpdateRoomMembershipCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRoomMembershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRoomMembershipCommand(input, context);
+    return se_UpdateRoomMembershipCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoomMembershipCommandOutput> {
-    return deserializeAws_restJson1UpdateRoomMembershipCommand(output, context);
+    return de_UpdateRoomMembershipCommand(output, context);
   }
 
   // Start section: command_body_extra

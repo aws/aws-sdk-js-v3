@@ -19,10 +19,7 @@ import {
   UpdateRuleVersionRequestFilterSensitiveLog,
   UpdateRuleVersionResult,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateRuleVersionCommand,
-  serializeAws_json1_1UpdateRuleVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateRuleVersionCommand, se_UpdateRuleVersionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,14 +155,14 @@ export class UpdateRuleVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRuleVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRuleVersionCommand(input, context);
+    return se_UpdateRuleVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRuleVersionCommandOutput> {
-    return deserializeAws_json1_1UpdateRuleVersionCommand(output, context);
+    return de_UpdateRuleVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

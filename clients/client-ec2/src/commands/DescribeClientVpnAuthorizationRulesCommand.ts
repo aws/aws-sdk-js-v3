@@ -19,8 +19,8 @@ import {
   DescribeClientVpnAuthorizationRulesResult,
 } from "../models/models_3";
 import {
-  deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand,
-  serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand,
+  de_DescribeClientVpnAuthorizationRulesCommand,
+  se_DescribeClientVpnAuthorizationRulesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -139,7 +139,7 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
     input: DescribeClientVpnAuthorizationRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(input, context);
+    return se_DescribeClientVpnAuthorizationRulesCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeClientVpnAuthorizationRulesCommandOutput> {
-    return deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(output, context);
+    return de_DescribeClientVpnAuthorizationRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

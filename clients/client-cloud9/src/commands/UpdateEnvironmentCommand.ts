@@ -19,10 +19,7 @@ import {
   UpdateEnvironmentRequestFilterSensitiveLog,
   UpdateEnvironmentResult,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateEnvironmentCommand,
-  serializeAws_json1_1UpdateEnvironmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class UpdateEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEnvironmentCommand(input, context);
+    return se_UpdateEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
-    return deserializeAws_json1_1UpdateEnvironmentCommand(output, context);
+    return de_UpdateEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

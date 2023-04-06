@@ -15,8 +15,8 @@ import {
 
 import { ModifyClusterSnapshotScheduleMessage } from "../models/models_1";
 import {
-  deserializeAws_queryModifyClusterSnapshotScheduleCommand,
-  serializeAws_queryModifyClusterSnapshotScheduleCommand,
+  de_ModifyClusterSnapshotScheduleCommand,
+  se_ModifyClusterSnapshotScheduleCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -132,7 +132,7 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyClusterSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyClusterSnapshotScheduleCommand(input, context);
+    return se_ModifyClusterSnapshotScheduleCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyClusterSnapshotScheduleCommandOutput> {
-    return deserializeAws_queryModifyClusterSnapshotScheduleCommand(output, context);
+    return de_ModifyClusterSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

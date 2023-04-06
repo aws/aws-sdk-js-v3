@@ -15,10 +15,7 @@ import {
 
 import { RegisterTransitGatewayRequest, RegisterTransitGatewayResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1RegisterTransitGatewayCommand,
-  serializeAws_restJson1RegisterTransitGatewayCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RegisterTransitGatewayCommand, se_RegisterTransitGatewayCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class RegisterTransitGatewayCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterTransitGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterTransitGatewayCommand(input, context);
+    return se_RegisterTransitGatewayCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterTransitGatewayCommandOutput> {
-    return deserializeAws_restJson1RegisterTransitGatewayCommand(output, context);
+    return de_RegisterTransitGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

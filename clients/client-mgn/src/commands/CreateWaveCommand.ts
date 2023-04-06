@@ -20,10 +20,7 @@ import {
   Wave,
   WaveFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWaveCommand,
-  serializeAws_restJson1CreateWaveCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWaveCommand, se_CreateWaveCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class CreateWaveCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWaveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWaveCommand(input, context);
+    return se_CreateWaveCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWaveCommandOutput> {
-    return deserializeAws_restJson1CreateWaveCommand(output, context);
+    return de_CreateWaveCommand(output, context);
   }
 
   // Start section: command_body_extra

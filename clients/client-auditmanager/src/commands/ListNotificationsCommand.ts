@@ -15,10 +15,7 @@ import {
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { ListNotificationsRequest, ListNotificationsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNotificationsCommand,
-  serializeAws_restJson1ListNotificationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNotificationsCommand, se_ListNotificationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class ListNotificationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListNotificationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNotificationsCommand(input, context);
+    return se_ListNotificationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNotificationsCommandOutput> {
-    return deserializeAws_restJson1ListNotificationsCommand(output, context);
+    return de_ListNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

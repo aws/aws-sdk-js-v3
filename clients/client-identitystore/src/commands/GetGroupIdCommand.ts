@@ -15,10 +15,7 @@ import {
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import { GetGroupIdRequest, GetGroupIdRequestFilterSensitiveLog, GetGroupIdResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetGroupIdCommand,
-  serializeAws_json1_1GetGroupIdCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetGroupIdCommand, se_GetGroupIdCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetGroupIdCommand extends $Command<
    * @internal
    */
   private serialize(input: GetGroupIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetGroupIdCommand(input, context);
+    return se_GetGroupIdCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetGroupIdCommandOutput> {
-    return deserializeAws_json1_1GetGroupIdCommand(output, context);
+    return de_GetGroupIdCommand(output, context);
   }
 
   // Start section: command_body_extra

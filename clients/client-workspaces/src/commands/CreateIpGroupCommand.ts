@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateIpGroupRequest, CreateIpGroupResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateIpGroupCommand,
-  serializeAws_json1_1CreateIpGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateIpGroupCommand, se_CreateIpGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -154,14 +151,14 @@ export class CreateIpGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateIpGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateIpGroupCommand(input, context);
+    return se_CreateIpGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIpGroupCommandOutput> {
-    return deserializeAws_json1_1CreateIpGroupCommand(output, context);
+    return de_CreateIpGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

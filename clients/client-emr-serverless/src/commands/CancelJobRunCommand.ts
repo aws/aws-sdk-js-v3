@@ -15,10 +15,7 @@ import {
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { CancelJobRunRequest, CancelJobRunResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelJobRunCommand,
-  serializeAws_restJson1CancelJobRunCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelJobRunCommand, se_CancelJobRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class CancelJobRunCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelJobRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelJobRunCommand(input, context);
+    return se_CancelJobRunCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelJobRunCommandOutput> {
-    return deserializeAws_restJson1CancelJobRunCommand(output, context);
+    return de_CancelJobRunCommand(output, context);
   }
 
   // Start section: command_body_extra

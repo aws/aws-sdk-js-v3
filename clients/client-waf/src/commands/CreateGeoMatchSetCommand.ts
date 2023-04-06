@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateGeoMatchSetRequest, CreateGeoMatchSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateGeoMatchSetCommand,
-  serializeAws_json1_1CreateGeoMatchSetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateGeoMatchSetCommand, se_CreateGeoMatchSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -206,14 +203,14 @@ export class CreateGeoMatchSetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateGeoMatchSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateGeoMatchSetCommand(input, context);
+    return se_CreateGeoMatchSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGeoMatchSetCommandOutput> {
-    return deserializeAws_json1_1CreateGeoMatchSetCommand(output, context);
+    return de_CreateGeoMatchSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   PutStorageLensConfigurationTaggingResult,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlPutStorageLensConfigurationTaggingCommand,
-  serializeAws_restXmlPutStorageLensConfigurationTaggingCommand,
+  de_PutStorageLensConfigurationTaggingCommand,
+  se_PutStorageLensConfigurationTaggingCommand,
 } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -148,7 +148,7 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
     input: PutStorageLensConfigurationTaggingCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutStorageLensConfigurationTaggingCommand(input, context);
+    return se_PutStorageLensConfigurationTaggingCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutStorageLensConfigurationTaggingCommandOutput> {
-    return deserializeAws_restXmlPutStorageLensConfigurationTaggingCommand(output, context);
+    return de_PutStorageLensConfigurationTaggingCommand(output, context);
   }
 
   // Start section: command_body_extra

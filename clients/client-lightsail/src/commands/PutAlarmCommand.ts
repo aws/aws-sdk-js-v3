@@ -15,7 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { PutAlarmRequest, PutAlarmResult } from "../models/models_1";
-import { deserializeAws_json1_1PutAlarmCommand, serializeAws_json1_1PutAlarmCommand } from "../protocols/Aws_json1_1";
+import { de_PutAlarmCommand, se_PutAlarmCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -165,14 +165,14 @@ export class PutAlarmCommand extends $Command<
    * @internal
    */
   private serialize(input: PutAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutAlarmCommand(input, context);
+    return se_PutAlarmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAlarmCommandOutput> {
-    return deserializeAws_json1_1PutAlarmCommand(output, context);
+    return de_PutAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

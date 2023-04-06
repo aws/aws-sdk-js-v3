@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MalformedMapInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedMapCommand,
-  serializeAws_restJson1MalformedMapCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedMapCommand, se_MalformedMapCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class MalformedMapCommand extends $Command<
    * @internal
    */
   private serialize(input: MalformedMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedMapCommand(input, context);
+    return se_MalformedMapCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedMapCommandOutput> {
-    return deserializeAws_restJson1MalformedMapCommand(output, context);
+    return de_MalformedMapCommand(output, context);
   }
 
   // Start section: command_body_extra

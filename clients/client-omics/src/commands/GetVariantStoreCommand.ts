@@ -15,10 +15,7 @@ import {
 
 import { GetVariantStoreRequest, GetVariantStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1GetVariantStoreCommand,
-  serializeAws_restJson1GetVariantStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVariantStoreCommand, se_GetVariantStoreCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class GetVariantStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVariantStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVariantStoreCommand(input, context);
+    return se_GetVariantStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVariantStoreCommandOutput> {
-    return deserializeAws_restJson1GetVariantStoreCommand(output, context);
+    return de_GetVariantStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -23,8 +23,8 @@ import {
   DescribeReplicationInstanceTaskLogsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand,
-  serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand,
+  de_DescribeReplicationInstanceTaskLogsCommand,
+  se_DescribeReplicationInstanceTaskLogsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -140,7 +140,7 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
     input: DescribeReplicationInstanceTaskLogsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand(input, context);
+    return se_DescribeReplicationInstanceTaskLogsCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DescribeReplicationInstanceTaskLogsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand(output, context);
+    return de_DescribeReplicationInstanceTaskLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

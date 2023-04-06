@@ -15,10 +15,7 @@ import {
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { ForgetSmartHomeAppliancesRequest, ForgetSmartHomeAppliancesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ForgetSmartHomeAppliancesCommand,
-  serializeAws_json1_1ForgetSmartHomeAppliancesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ForgetSmartHomeAppliancesCommand, se_ForgetSmartHomeAppliancesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -123,7 +120,7 @@ export class ForgetSmartHomeAppliancesCommand extends $Command<
    * @internal
    */
   private serialize(input: ForgetSmartHomeAppliancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ForgetSmartHomeAppliancesCommand(input, context);
+    return se_ForgetSmartHomeAppliancesCommand(input, context);
   }
 
   /**
@@ -133,7 +130,7 @@ export class ForgetSmartHomeAppliancesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ForgetSmartHomeAppliancesCommandOutput> {
-    return deserializeAws_json1_1ForgetSmartHomeAppliancesCommand(output, context);
+    return de_ForgetSmartHomeAppliancesCommand(output, context);
   }
 
   // Start section: command_body_extra

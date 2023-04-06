@@ -24,10 +24,7 @@ import {
   UpdateDeviceStatusRequestFilterSensitiveLog,
   UpdateDeviceStatusResponse,
 } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateDeviceStatusCommand,
-  serializeAws_json1_1UpdateDeviceStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDeviceStatusCommand, se_UpdateDeviceStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class UpdateDeviceStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDeviceStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDeviceStatusCommand(input, context);
+    return se_UpdateDeviceStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceStatusCommandOutput> {
-    return deserializeAws_json1_1UpdateDeviceStatusCommand(output, context);
+    return de_UpdateDeviceStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

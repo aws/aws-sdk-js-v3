@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { ListImportErrorsRequest, ListImportErrorsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListImportErrorsCommand,
-  serializeAws_restJson1ListImportErrorsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListImportErrorsCommand, se_ListImportErrorsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ListImportErrorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListImportErrorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListImportErrorsCommand(input, context);
+    return se_ListImportErrorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImportErrorsCommandOutput> {
-    return deserializeAws_restJson1ListImportErrorsCommand(output, context);
+    return de_ListImportErrorsCommand(output, context);
   }
 
   // Start section: command_body_extra

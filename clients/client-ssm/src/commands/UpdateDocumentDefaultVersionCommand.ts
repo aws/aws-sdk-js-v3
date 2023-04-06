@@ -15,8 +15,8 @@ import {
 
 import { UpdateDocumentDefaultVersionRequest, UpdateDocumentDefaultVersionResult } from "../models/models_2";
 import {
-  deserializeAws_json1_1UpdateDocumentDefaultVersionCommand,
-  serializeAws_json1_1UpdateDocumentDefaultVersionCommand,
+  de_UpdateDocumentDefaultVersionCommand,
+  se_UpdateDocumentDefaultVersionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -140,7 +140,7 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDocumentDefaultVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDocumentDefaultVersionCommand(input, context);
+    return se_UpdateDocumentDefaultVersionCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateDocumentDefaultVersionCommandOutput> {
-    return deserializeAws_json1_1UpdateDocumentDefaultVersionCommand(output, context);
+    return de_UpdateDocumentDefaultVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { PutSinkPolicyInput, PutSinkPolicyOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import {
-  deserializeAws_restJson1PutSinkPolicyCommand,
-  serializeAws_restJson1PutSinkPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutSinkPolicyCommand, se_PutSinkPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class PutSinkPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: PutSinkPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSinkPolicyCommand(input, context);
+    return se_PutSinkPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSinkPolicyCommandOutput> {
-    return deserializeAws_restJson1PutSinkPolicyCommand(output, context);
+    return de_PutSinkPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { GetServerDetailsRequest, GetServerDetailsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetServerDetailsCommand,
-  serializeAws_restJson1GetServerDetailsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetServerDetailsCommand, se_GetServerDetailsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class GetServerDetailsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetServerDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetServerDetailsCommand(input, context);
+    return se_GetServerDetailsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServerDetailsCommandOutput> {
-    return deserializeAws_restJson1GetServerDetailsCommand(output, context);
+    return de_GetServerDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

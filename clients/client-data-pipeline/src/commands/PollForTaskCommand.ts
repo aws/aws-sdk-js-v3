@@ -15,10 +15,7 @@ import {
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { PollForTaskInput, PollForTaskOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1PollForTaskCommand,
-  serializeAws_json1_1PollForTaskCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PollForTaskCommand, se_PollForTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -210,14 +207,14 @@ export class PollForTaskCommand extends $Command<
    * @internal
    */
   private serialize(input: PollForTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PollForTaskCommand(input, context);
+    return se_PollForTaskCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PollForTaskCommandOutput> {
-    return deserializeAws_json1_1PollForTaskCommand(output, context);
+    return de_PollForTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { GetConnectorDefinitionVersionRequest, GetConnectorDefinitionVersionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetConnectorDefinitionVersionCommand,
-  serializeAws_restJson1GetConnectorDefinitionVersionCommand,
+  de_GetConnectorDefinitionVersionCommand,
+  se_GetConnectorDefinitionVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -127,7 +127,7 @@ export class GetConnectorDefinitionVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetConnectorDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetConnectorDefinitionVersionCommand(input, context);
+    return se_GetConnectorDefinitionVersionCommand(input, context);
   }
 
   /**
@@ -137,7 +137,7 @@ export class GetConnectorDefinitionVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetConnectorDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1GetConnectorDefinitionVersionCommand(output, context);
+    return de_GetConnectorDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

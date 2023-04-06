@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { CreateStorageLocationResultMessage } from "../models/models_0";
-import {
-  deserializeAws_queryCreateStorageLocationCommand,
-  serializeAws_queryCreateStorageLocationCommand,
-} from "../protocols/Aws_query";
+import { de_CreateStorageLocationCommand, se_CreateStorageLocationCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class CreateStorageLocationCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateStorageLocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateStorageLocationCommand(input, context);
+    return se_CreateStorageLocationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStorageLocationCommandOutput> {
-    return deserializeAws_queryCreateStorageLocationCommand(output, context);
+    return de_CreateStorageLocationCommand(output, context);
   }
 
   // Start section: command_body_extra

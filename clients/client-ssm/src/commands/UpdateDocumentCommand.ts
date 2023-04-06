@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateDocumentRequest, UpdateDocumentResult } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateDocumentCommand,
-  serializeAws_json1_1UpdateDocumentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDocumentCommand, se_UpdateDocumentCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -169,14 +166,14 @@ export class UpdateDocumentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDocumentCommand(input, context);
+    return se_UpdateDocumentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentCommandOutput> {
-    return deserializeAws_json1_1UpdateDocumentCommand(output, context);
+    return de_UpdateDocumentCommand(output, context);
   }
 
   // Start section: command_body_extra

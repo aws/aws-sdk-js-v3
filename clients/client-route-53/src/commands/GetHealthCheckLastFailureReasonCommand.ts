@@ -15,8 +15,8 @@ import {
 
 import { GetHealthCheckLastFailureReasonRequest, GetHealthCheckLastFailureReasonResponse } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand,
-  serializeAws_restXmlGetHealthCheckLastFailureReasonCommand,
+  de_GetHealthCheckLastFailureReasonCommand,
+  se_GetHealthCheckLastFailureReasonCommand,
 } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
@@ -131,7 +131,7 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     input: GetHealthCheckLastFailureReasonCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetHealthCheckLastFailureReasonCommand(input, context);
+    return se_GetHealthCheckLastFailureReasonCommand(input, context);
   }
 
   /**
@@ -141,7 +141,7 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetHealthCheckLastFailureReasonCommandOutput> {
-    return deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand(output, context);
+    return de_GetHealthCheckLastFailureReasonCommand(output, context);
   }
 
   // Start section: command_body_extra

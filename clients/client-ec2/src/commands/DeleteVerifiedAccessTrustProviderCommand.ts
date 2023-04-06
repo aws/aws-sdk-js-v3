@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteVerifiedAccessTrustProviderRequest, DeleteVerifiedAccessTrustProviderResult } from "../models/models_3";
 import {
-  deserializeAws_ec2DeleteVerifiedAccessTrustProviderCommand,
-  serializeAws_ec2DeleteVerifiedAccessTrustProviderCommand,
+  de_DeleteVerifiedAccessTrustProviderCommand,
+  se_DeleteVerifiedAccessTrustProviderCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -127,7 +127,7 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
     input: DeleteVerifiedAccessTrustProviderCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVerifiedAccessTrustProviderCommand(input, context);
+    return se_DeleteVerifiedAccessTrustProviderCommand(input, context);
   }
 
   /**
@@ -137,7 +137,7 @@ export class DeleteVerifiedAccessTrustProviderCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVerifiedAccessTrustProviderCommandOutput> {
-    return deserializeAws_ec2DeleteVerifiedAccessTrustProviderCommand(output, context);
+    return de_DeleteVerifiedAccessTrustProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

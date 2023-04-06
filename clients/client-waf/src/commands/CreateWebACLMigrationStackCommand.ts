@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateWebACLMigrationStackRequest, CreateWebACLMigrationStackResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateWebACLMigrationStackCommand,
-  serializeAws_json1_1CreateWebACLMigrationStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWebACLMigrationStackCommand, se_CreateWebACLMigrationStackCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -231,7 +228,7 @@ export class CreateWebACLMigrationStackCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWebACLMigrationStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWebACLMigrationStackCommand(input, context);
+    return se_CreateWebACLMigrationStackCommand(input, context);
   }
 
   /**
@@ -241,7 +238,7 @@ export class CreateWebACLMigrationStackCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateWebACLMigrationStackCommandOutput> {
-    return deserializeAws_json1_1CreateWebACLMigrationStackCommand(output, context);
+    return de_CreateWebACLMigrationStackCommand(output, context);
   }
 
   // Start section: command_body_extra

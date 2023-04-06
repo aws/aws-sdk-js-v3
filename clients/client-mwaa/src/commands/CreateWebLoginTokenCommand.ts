@@ -19,10 +19,7 @@ import {
   CreateWebLoginTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import {
-  deserializeAws_restJson1CreateWebLoginTokenCommand,
-  serializeAws_restJson1CreateWebLoginTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWebLoginTokenCommand, se_CreateWebLoginTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class CreateWebLoginTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWebLoginTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWebLoginTokenCommand(input, context);
+    return se_CreateWebLoginTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebLoginTokenCommandOutput> {
-    return deserializeAws_restJson1CreateWebLoginTokenCommand(output, context);
+    return de_CreateWebLoginTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

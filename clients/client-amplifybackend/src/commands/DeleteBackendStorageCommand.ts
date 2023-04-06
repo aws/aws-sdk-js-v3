@@ -15,10 +15,7 @@ import {
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { DeleteBackendStorageRequest, DeleteBackendStorageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteBackendStorageCommand,
-  serializeAws_restJson1DeleteBackendStorageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteBackendStorageCommand, se_DeleteBackendStorageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DeleteBackendStorageCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteBackendStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBackendStorageCommand(input, context);
+    return se_DeleteBackendStorageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBackendStorageCommandOutput> {
-    return deserializeAws_restJson1DeleteBackendStorageCommand(output, context);
+    return de_DeleteBackendStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

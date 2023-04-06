@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateUserRequest } from "../models/models_1";
-import { deserializeAws_queryUpdateUserCommand, serializeAws_queryUpdateUserCommand } from "../protocols/Aws_query";
+import { de_UpdateUserCommand, se_UpdateUserCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -167,14 +167,14 @@ export class UpdateUserCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateUserCommand(input, context);
+    return se_UpdateUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserCommandOutput> {
-    return deserializeAws_queryUpdateUserCommand(output, context);
+    return de_UpdateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

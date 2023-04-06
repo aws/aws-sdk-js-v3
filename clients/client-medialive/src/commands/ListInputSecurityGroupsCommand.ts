@@ -15,10 +15,7 @@ import {
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { ListInputSecurityGroupsRequest, ListInputSecurityGroupsResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListInputSecurityGroupsCommand,
-  serializeAws_restJson1ListInputSecurityGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListInputSecurityGroupsCommand, se_ListInputSecurityGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListInputSecurityGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListInputSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInputSecurityGroupsCommand(input, context);
+    return se_ListInputSecurityGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1ListInputSecurityGroupsCommand(output, context);
+    return de_ListInputSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

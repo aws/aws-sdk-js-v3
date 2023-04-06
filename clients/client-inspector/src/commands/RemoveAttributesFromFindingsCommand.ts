@@ -16,8 +16,8 @@ import {
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { RemoveAttributesFromFindingsRequest, RemoveAttributesFromFindingsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1RemoveAttributesFromFindingsCommand,
-  serializeAws_json1_1RemoveAttributesFromFindingsCommand,
+  de_RemoveAttributesFromFindingsCommand,
+  se_RemoveAttributesFromFindingsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -166,7 +166,7 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
    * @internal
    */
   private serialize(input: RemoveAttributesFromFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RemoveAttributesFromFindingsCommand(input, context);
+    return se_RemoveAttributesFromFindingsCommand(input, context);
   }
 
   /**
@@ -176,7 +176,7 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveAttributesFromFindingsCommandOutput> {
-    return deserializeAws_json1_1RemoveAttributesFromFindingsCommand(output, context);
+    return de_RemoveAttributesFromFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

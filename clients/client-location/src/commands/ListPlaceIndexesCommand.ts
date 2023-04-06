@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { ListPlaceIndexesRequest, ListPlaceIndexesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListPlaceIndexesCommand,
-  serializeAws_restJson1ListPlaceIndexesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListPlaceIndexesCommand, se_ListPlaceIndexesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListPlaceIndexesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPlaceIndexesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPlaceIndexesCommand(input, context);
+    return se_ListPlaceIndexesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlaceIndexesCommandOutput> {
-    return deserializeAws_restJson1ListPlaceIndexesCommand(output, context);
+    return de_ListPlaceIndexesCommand(output, context);
   }
 
   // Start section: command_body_extra

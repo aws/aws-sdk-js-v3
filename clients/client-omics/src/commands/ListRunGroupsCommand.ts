@@ -15,10 +15,7 @@ import {
 
 import { ListRunGroupsRequest, ListRunGroupsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1ListRunGroupsCommand,
-  serializeAws_restJson1ListRunGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRunGroupsCommand, se_ListRunGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class ListRunGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRunGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRunGroupsCommand(input, context);
+    return se_ListRunGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRunGroupsCommandOutput> {
-    return deserializeAws_restJson1ListRunGroupsCommand(output, context);
+    return de_ListRunGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

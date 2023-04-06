@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { QueryPrecedenceInput } from "../models/models_0";
-import {
-  deserializeAws_restXmlQueryPrecedenceCommand,
-  serializeAws_restXmlQueryPrecedenceCommand,
-} from "../protocols/Aws_restXml";
+import { de_QueryPrecedenceCommand, se_QueryPrecedenceCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class QueryPrecedenceCommand extends $Command<
    * @internal
    */
   private serialize(input: QueryPrecedenceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlQueryPrecedenceCommand(input, context);
+    return se_QueryPrecedenceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryPrecedenceCommandOutput> {
-    return deserializeAws_restXmlQueryPrecedenceCommand(output, context);
+    return de_QueryPrecedenceCommand(output, context);
   }
 
   // Start section: command_body_extra

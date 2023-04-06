@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteClientVpnRouteRequest, DeleteClientVpnRouteResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteClientVpnRouteCommand,
-  serializeAws_ec2DeleteClientVpnRouteCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteClientVpnRouteCommand, se_DeleteClientVpnRouteCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DeleteClientVpnRouteCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteClientVpnRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteClientVpnRouteCommand(input, context);
+    return se_DeleteClientVpnRouteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClientVpnRouteCommandOutput> {
-    return deserializeAws_ec2DeleteClientVpnRouteCommand(output, context);
+    return de_DeleteClientVpnRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

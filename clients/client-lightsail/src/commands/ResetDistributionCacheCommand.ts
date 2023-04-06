@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { ResetDistributionCacheRequest, ResetDistributionCacheResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1ResetDistributionCacheCommand,
-  serializeAws_json1_1ResetDistributionCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ResetDistributionCacheCommand, se_ResetDistributionCacheCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class ResetDistributionCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: ResetDistributionCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ResetDistributionCacheCommand(input, context);
+    return se_ResetDistributionCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetDistributionCacheCommandOutput> {
-    return deserializeAws_json1_1ResetDistributionCacheCommand(output, context);
+    return de_ResetDistributionCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   GetDocumentPathResponse,
   GetDocumentPathResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDocumentPathCommand,
-  serializeAws_restJson1GetDocumentPathCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDocumentPathCommand, se_GetDocumentPathCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -151,14 +148,14 @@ export class GetDocumentPathCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDocumentPathCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDocumentPathCommand(input, context);
+    return se_GetDocumentPathCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentPathCommandOutput> {
-    return deserializeAws_restJson1GetDocumentPathCommand(output, context);
+    return de_GetDocumentPathCommand(output, context);
   }
 
   // Start section: command_body_extra

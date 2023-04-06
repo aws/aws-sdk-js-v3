@@ -15,10 +15,7 @@ import {
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import { UpdateEnrollmentStatusRequest, UpdateEnrollmentStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateEnrollmentStatusCommand,
-  serializeAws_json1_0UpdateEnrollmentStatusCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateEnrollmentStatusCommand, se_UpdateEnrollmentStatusCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateEnrollmentStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateEnrollmentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateEnrollmentStatusCommand(input, context);
+    return se_UpdateEnrollmentStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnrollmentStatusCommandOutput> {
-    return deserializeAws_json1_0UpdateEnrollmentStatusCommand(output, context);
+    return de_UpdateEnrollmentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

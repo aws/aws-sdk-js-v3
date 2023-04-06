@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { DownloadDefaultKeyPairRequest, DownloadDefaultKeyPairResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DownloadDefaultKeyPairCommand,
-  serializeAws_json1_1DownloadDefaultKeyPairCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DownloadDefaultKeyPairCommand, se_DownloadDefaultKeyPairCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class DownloadDefaultKeyPairCommand extends $Command<
    * @internal
    */
   private serialize(input: DownloadDefaultKeyPairCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DownloadDefaultKeyPairCommand(input, context);
+    return se_DownloadDefaultKeyPairCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DownloadDefaultKeyPairCommandOutput> {
-    return deserializeAws_json1_1DownloadDefaultKeyPairCommand(output, context);
+    return de_DownloadDefaultKeyPairCommand(output, context);
   }
 
   // Start section: command_body_extra

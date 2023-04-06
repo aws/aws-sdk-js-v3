@@ -25,8 +25,8 @@ import {
   ListChannelsAssociatedWithChannelFlowResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand,
-  serializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand,
+  de_ListChannelsAssociatedWithChannelFlowCommand,
+  se_ListChannelsAssociatedWithChannelFlowCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -155,7 +155,7 @@ export class ListChannelsAssociatedWithChannelFlowCommand extends $Command<
     input: ListChannelsAssociatedWithChannelFlowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand(input, context);
+    return se_ListChannelsAssociatedWithChannelFlowCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class ListChannelsAssociatedWithChannelFlowCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput> {
-    return deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand(output, context);
+    return de_ListChannelsAssociatedWithChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

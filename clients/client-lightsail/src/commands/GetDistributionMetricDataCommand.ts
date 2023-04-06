@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetDistributionMetricDataRequest, GetDistributionMetricDataResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDistributionMetricDataCommand,
-  serializeAws_json1_1GetDistributionMetricDataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDistributionMetricDataCommand, se_GetDistributionMetricDataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -158,7 +155,7 @@ export class GetDistributionMetricDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDistributionMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDistributionMetricDataCommand(input, context);
+    return se_GetDistributionMetricDataCommand(input, context);
   }
 
   /**
@@ -168,7 +165,7 @@ export class GetDistributionMetricDataCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDistributionMetricDataCommandOutput> {
-    return deserializeAws_json1_1GetDistributionMetricDataCommand(output, context);
+    return de_GetDistributionMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

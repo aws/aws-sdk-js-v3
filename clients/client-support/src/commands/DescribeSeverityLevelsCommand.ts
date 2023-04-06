@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeSeverityLevelsCommand,
-  serializeAws_json1_1DescribeSeverityLevelsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSeverityLevelsCommand, se_DescribeSeverityLevelsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -139,14 +136,14 @@ export class DescribeSeverityLevelsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeSeverityLevelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSeverityLevelsCommand(input, context);
+    return se_DescribeSeverityLevelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSeverityLevelsCommandOutput> {
-    return deserializeAws_json1_1DescribeSeverityLevelsCommand(output, context);
+    return de_DescribeSeverityLevelsCommand(output, context);
   }
 
   // Start section: command_body_extra

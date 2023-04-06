@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ScalarSubjectRequest, SubjectDetailResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetSubjectCommand,
-  serializeAws_restJson1GetSubjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetSubjectCommand, se_GetSubjectCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -128,14 +125,14 @@ export class GetSubjectCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSubjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetSubjectCommand(input, context);
+    return se_GetSubjectCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSubjectCommandOutput> {
-    return deserializeAws_restJson1GetSubjectCommand(output, context);
+    return de_GetSubjectCommand(output, context);
   }
 
   // Start section: command_body_extra

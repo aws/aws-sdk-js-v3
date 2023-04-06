@@ -16,8 +16,8 @@ import {
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { RegisterWebhookWithThirdPartyInput, RegisterWebhookWithThirdPartyOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand,
-  serializeAws_json1_1RegisterWebhookWithThirdPartyCommand,
+  de_RegisterWebhookWithThirdPartyCommand,
+  se_RegisterWebhookWithThirdPartyCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -130,7 +130,7 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterWebhookWithThirdPartyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterWebhookWithThirdPartyCommand(input, context);
+    return se_RegisterWebhookWithThirdPartyCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterWebhookWithThirdPartyCommandOutput> {
-    return deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand(output, context);
+    return de_RegisterWebhookWithThirdPartyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetInstanceMetricDataRequest, GetInstanceMetricDataResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetInstanceMetricDataCommand,
-  serializeAws_json1_1GetInstanceMetricDataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetInstanceMetricDataCommand, se_GetInstanceMetricDataCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class GetInstanceMetricDataCommand extends $Command<
    * @internal
    */
   private serialize(input: GetInstanceMetricDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetInstanceMetricDataCommand(input, context);
+    return se_GetInstanceMetricDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceMetricDataCommandOutput> {
-    return deserializeAws_json1_1GetInstanceMetricDataCommand(output, context);
+    return de_GetInstanceMetricDataCommand(output, context);
   }
 
   // Start section: command_body_extra

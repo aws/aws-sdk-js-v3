@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeregisterInstanceRequest, DeregisterInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterInstanceCommand,
-  serializeAws_json1_1DeregisterInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterInstanceCommand, se_DeregisterInstanceCommand } from "../protocols/Aws_json1_1";
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 
 /**
@@ -158,14 +155,14 @@ export class DeregisterInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterInstanceCommand(input, context);
+    return se_DeregisterInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterInstanceCommandOutput> {
-    return deserializeAws_json1_1DeregisterInstanceCommand(output, context);
+    return de_DeregisterInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

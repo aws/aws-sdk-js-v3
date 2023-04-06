@@ -15,10 +15,7 @@ import {
 
 import { ListBrokersRequest, ListBrokersResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1ListBrokersCommand,
-  serializeAws_restJson1ListBrokersCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBrokersCommand, se_ListBrokersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class ListBrokersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBrokersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBrokersCommand(input, context);
+    return se_ListBrokersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBrokersCommandOutput> {
-    return deserializeAws_restJson1ListBrokersCommand(output, context);
+    return de_ListBrokersCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,8 +19,8 @@ import {
   ListReceivedGrantsForOrganizationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListReceivedGrantsForOrganizationCommand,
-  serializeAws_json1_1ListReceivedGrantsForOrganizationCommand,
+  de_ListReceivedGrantsForOrganizationCommand,
+  se_ListReceivedGrantsForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -160,7 +160,7 @@ export class ListReceivedGrantsForOrganizationCommand extends $Command<
     input: ListReceivedGrantsForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReceivedGrantsForOrganizationCommand(input, context);
+    return se_ListReceivedGrantsForOrganizationCommand(input, context);
   }
 
   /**
@@ -170,7 +170,7 @@ export class ListReceivedGrantsForOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReceivedGrantsForOrganizationCommandOutput> {
-    return deserializeAws_json1_1ListReceivedGrantsForOrganizationCommand(output, context);
+    return de_ListReceivedGrantsForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -24,10 +24,7 @@ import {
   ListChannelModeratorsResponse,
   ListChannelModeratorsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChannelModeratorsCommand,
-  serializeAws_restJson1ListChannelModeratorsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChannelModeratorsCommand, se_ListChannelModeratorsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class ListChannelModeratorsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListChannelModeratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelModeratorsCommand(input, context);
+    return se_ListChannelModeratorsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelModeratorsCommandOutput> {
-    return deserializeAws_restJson1ListChannelModeratorsCommand(output, context);
+    return de_ListChannelModeratorsCommand(output, context);
   }
 
   // Start section: command_body_extra

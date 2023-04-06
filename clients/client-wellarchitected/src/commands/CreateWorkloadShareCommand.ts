@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateWorkloadShareInput, CreateWorkloadShareOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkloadShareCommand,
-  serializeAws_restJson1CreateWorkloadShareCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWorkloadShareCommand, se_CreateWorkloadShareCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -151,14 +148,14 @@ export class CreateWorkloadShareCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkloadShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkloadShareCommand(input, context);
+    return se_CreateWorkloadShareCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkloadShareCommandOutput> {
-    return deserializeAws_restJson1CreateWorkloadShareCommand(output, context);
+    return de_CreateWorkloadShareCommand(output, context);
   }
 
   // Start section: command_body_extra

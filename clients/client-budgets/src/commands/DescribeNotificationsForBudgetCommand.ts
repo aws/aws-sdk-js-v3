@@ -16,8 +16,8 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { DescribeNotificationsForBudgetRequest, DescribeNotificationsForBudgetResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeNotificationsForBudgetCommand,
-  serializeAws_json1_1DescribeNotificationsForBudgetCommand,
+  de_DescribeNotificationsForBudgetCommand,
+  se_DescribeNotificationsForBudgetCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -151,7 +151,7 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     input: DescribeNotificationsForBudgetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNotificationsForBudgetCommand(input, context);
+    return se_DescribeNotificationsForBudgetCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotificationsForBudgetCommandOutput> {
-    return deserializeAws_json1_1DescribeNotificationsForBudgetCommand(output, context);
+    return de_DescribeNotificationsForBudgetCommand(output, context);
   }
 
   // Start section: command_body_extra

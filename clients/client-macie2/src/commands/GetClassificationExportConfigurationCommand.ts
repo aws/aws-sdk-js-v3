@@ -19,8 +19,8 @@ import {
   GetClassificationExportConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetClassificationExportConfigurationCommand,
-  serializeAws_restJson1GetClassificationExportConfigurationCommand,
+  de_GetClassificationExportConfigurationCommand,
+  se_GetClassificationExportConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class GetClassificationExportConfigurationCommand extends $Command<
     input: GetClassificationExportConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetClassificationExportConfigurationCommand(input, context);
+    return se_GetClassificationExportConfigurationCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class GetClassificationExportConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetClassificationExportConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetClassificationExportConfigurationCommand(output, context);
+    return de_GetClassificationExportConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

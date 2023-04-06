@@ -19,8 +19,8 @@ import {
   GetTransitGatewayRouteTableAssociationsResult,
 } from "../models/models_5";
 import {
-  deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand,
-  serializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand,
+  de_GetTransitGatewayRouteTableAssociationsCommand,
+  se_GetTransitGatewayRouteTableAssociationsCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -146,7 +146,7 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
     input: GetTransitGatewayRouteTableAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand(input, context);
+    return se_GetTransitGatewayRouteTableAssociationsCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTransitGatewayRouteTableAssociationsCommandOutput> {
-    return deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand(output, context);
+    return de_GetTransitGatewayRouteTableAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

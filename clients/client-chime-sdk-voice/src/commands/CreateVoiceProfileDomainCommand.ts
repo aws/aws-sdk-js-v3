@@ -20,10 +20,7 @@ import {
   CreateVoiceProfileDomainResponse,
   CreateVoiceProfileDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateVoiceProfileDomainCommand,
-  serializeAws_restJson1CreateVoiceProfileDomainCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateVoiceProfileDomainCommand, se_CreateVoiceProfileDomainCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class CreateVoiceProfileDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVoiceProfileDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateVoiceProfileDomainCommand(input, context);
+    return se_CreateVoiceProfileDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVoiceProfileDomainCommandOutput> {
-    return deserializeAws_restJson1CreateVoiceProfileDomainCommand(output, context);
+    return de_CreateVoiceProfileDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

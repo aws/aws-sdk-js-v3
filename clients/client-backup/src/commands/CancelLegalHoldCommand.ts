@@ -15,10 +15,7 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { CancelLegalHoldInput, CancelLegalHoldOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelLegalHoldCommand,
-  serializeAws_restJson1CancelLegalHoldCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelLegalHoldCommand, se_CancelLegalHoldCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class CancelLegalHoldCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelLegalHoldCommand(input, context);
+    return se_CancelLegalHoldCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelLegalHoldCommandOutput> {
-    return deserializeAws_restJson1CancelLegalHoldCommand(output, context);
+    return de_CancelLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

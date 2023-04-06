@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteConstraintInput, DeleteConstraintOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteConstraintCommand,
-  serializeAws_json1_1DeleteConstraintCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteConstraintCommand, se_DeleteConstraintCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -128,14 +125,14 @@ export class DeleteConstraintCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteConstraintCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConstraintCommand(input, context);
+    return se_DeleteConstraintCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConstraintCommandOutput> {
-    return deserializeAws_json1_1DeleteConstraintCommand(output, context);
+    return de_DeleteConstraintCommand(output, context);
   }
 
   // Start section: command_body_extra

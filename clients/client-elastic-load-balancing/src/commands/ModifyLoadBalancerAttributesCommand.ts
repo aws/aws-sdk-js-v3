@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
 import { ModifyLoadBalancerAttributesInput, ModifyLoadBalancerAttributesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryModifyLoadBalancerAttributesCommand,
-  serializeAws_queryModifyLoadBalancerAttributesCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyLoadBalancerAttributesCommand, se_ModifyLoadBalancerAttributesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -239,7 +236,7 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyLoadBalancerAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyLoadBalancerAttributesCommand(input, context);
+    return se_ModifyLoadBalancerAttributesCommand(input, context);
   }
 
   /**
@@ -249,7 +246,7 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyLoadBalancerAttributesCommandOutput> {
-    return deserializeAws_queryModifyLoadBalancerAttributesCommand(output, context);
+    return de_ModifyLoadBalancerAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

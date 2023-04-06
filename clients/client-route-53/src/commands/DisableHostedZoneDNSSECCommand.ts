@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DisableHostedZoneDNSSECRequest, DisableHostedZoneDNSSECResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlDisableHostedZoneDNSSECCommand,
-  serializeAws_restXmlDisableHostedZoneDNSSECCommand,
-} from "../protocols/Aws_restXml";
+import { de_DisableHostedZoneDNSSECCommand, se_DisableHostedZoneDNSSECCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -150,14 +147,14 @@ export class DisableHostedZoneDNSSECCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableHostedZoneDNSSECCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDisableHostedZoneDNSSECCommand(input, context);
+    return se_DisableHostedZoneDNSSECCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableHostedZoneDNSSECCommandOutput> {
-    return deserializeAws_restXmlDisableHostedZoneDNSSECCommand(output, context);
+    return de_DisableHostedZoneDNSSECCommand(output, context);
   }
 
   // Start section: command_body_extra

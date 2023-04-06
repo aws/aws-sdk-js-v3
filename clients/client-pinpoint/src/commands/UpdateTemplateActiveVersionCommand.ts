@@ -16,8 +16,8 @@ import {
 import { UpdateTemplateActiveVersionRequest, UpdateTemplateActiveVersionResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1UpdateTemplateActiveVersionCommand,
-  serializeAws_restJson1UpdateTemplateActiveVersionCommand,
+  de_UpdateTemplateActiveVersionCommand,
+  se_UpdateTemplateActiveVersionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -147,7 +147,7 @@ export class UpdateTemplateActiveVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTemplateActiveVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTemplateActiveVersionCommand(input, context);
+    return se_UpdateTemplateActiveVersionCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class UpdateTemplateActiveVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTemplateActiveVersionCommandOutput> {
-    return deserializeAws_restJson1UpdateTemplateActiveVersionCommand(output, context);
+    return de_UpdateTemplateActiveVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

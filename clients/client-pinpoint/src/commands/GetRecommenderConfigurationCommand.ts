@@ -16,8 +16,8 @@ import {
 import { GetRecommenderConfigurationRequest, GetRecommenderConfigurationResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
-  deserializeAws_restJson1GetRecommenderConfigurationCommand,
-  serializeAws_restJson1GetRecommenderConfigurationCommand,
+  de_GetRecommenderConfigurationCommand,
+  se_GetRecommenderConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -143,7 +143,7 @@ export class GetRecommenderConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRecommenderConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRecommenderConfigurationCommand(input, context);
+    return se_GetRecommenderConfigurationCommand(input, context);
   }
 
   /**
@@ -153,7 +153,7 @@ export class GetRecommenderConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecommenderConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetRecommenderConfigurationCommand(output, context);
+    return de_GetRecommenderConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

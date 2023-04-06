@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FractionalSecondsOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlFractionalSecondsCommand,
-  serializeAws_restXmlFractionalSecondsCommand,
-} from "../protocols/Aws_restXml";
+import { de_FractionalSecondsCommand, se_FractionalSecondsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -83,14 +80,14 @@ export class FractionalSecondsCommand extends $Command<
    * @internal
    */
   private serialize(input: FractionalSecondsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlFractionalSecondsCommand(input, context);
+    return se_FractionalSecondsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FractionalSecondsCommandOutput> {
-    return deserializeAws_restXmlFractionalSecondsCommand(output, context);
+    return de_FractionalSecondsCommand(output, context);
   }
 
   // Start section: command_body_extra

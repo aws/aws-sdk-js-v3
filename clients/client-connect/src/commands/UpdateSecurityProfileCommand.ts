@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateSecurityProfileRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateSecurityProfileCommand,
-  serializeAws_restJson1UpdateSecurityProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateSecurityProfileCommand, se_UpdateSecurityProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class UpdateSecurityProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSecurityProfileCommand(input, context);
+    return se_UpdateSecurityProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1UpdateSecurityProfileCommand(output, context);
+    return de_UpdateSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

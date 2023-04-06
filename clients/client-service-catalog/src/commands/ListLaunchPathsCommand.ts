@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListLaunchPathsInput, ListLaunchPathsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLaunchPathsCommand,
-  serializeAws_json1_1ListLaunchPathsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLaunchPathsCommand, se_ListLaunchPathsCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -154,14 +151,14 @@ export class ListLaunchPathsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLaunchPathsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLaunchPathsCommand(input, context);
+    return se_ListLaunchPathsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLaunchPathsCommandOutput> {
-    return deserializeAws_json1_1ListLaunchPathsCommand(output, context);
+    return de_ListLaunchPathsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DeleteStackSetInput, DeleteStackSetOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteStackSetCommand,
-  serializeAws_queryDeleteStackSetCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteStackSetCommand, se_DeleteStackSetCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class DeleteStackSetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStackSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteStackSetCommand(input, context);
+    return se_DeleteStackSetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStackSetCommandOutput> {
-    return deserializeAws_queryDeleteStackSetCommand(output, context);
+    return de_DeleteStackSetCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { SetTimeBasedAutoScalingRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1SetTimeBasedAutoScalingCommand,
-  serializeAws_json1_1SetTimeBasedAutoScalingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetTimeBasedAutoScalingCommand, se_SetTimeBasedAutoScalingCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class SetTimeBasedAutoScalingCommand extends $Command<
    * @internal
    */
   private serialize(input: SetTimeBasedAutoScalingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetTimeBasedAutoScalingCommand(input, context);
+    return se_SetTimeBasedAutoScalingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTimeBasedAutoScalingCommandOutput> {
-    return deserializeAws_json1_1SetTimeBasedAutoScalingCommand(output, context);
+    return de_SetTimeBasedAutoScalingCommand(output, context);
   }
 
   // Start section: command_body_extra

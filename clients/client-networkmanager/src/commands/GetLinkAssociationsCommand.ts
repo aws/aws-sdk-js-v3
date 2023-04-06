@@ -15,10 +15,7 @@ import {
 
 import { GetLinkAssociationsRequest, GetLinkAssociationsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetLinkAssociationsCommand,
-  serializeAws_restJson1GetLinkAssociationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetLinkAssociationsCommand, se_GetLinkAssociationsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetLinkAssociationsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetLinkAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLinkAssociationsCommand(input, context);
+    return se_GetLinkAssociationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLinkAssociationsCommandOutput> {
-    return deserializeAws_restJson1GetLinkAssociationsCommand(output, context);
+    return de_GetLinkAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

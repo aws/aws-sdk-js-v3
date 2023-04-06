@@ -15,7 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetDNSSECRequest, GetDNSSECResponse } from "../models/models_0";
-import { deserializeAws_restXmlGetDNSSECCommand, serializeAws_restXmlGetDNSSECCommand } from "../protocols/Aws_restXml";
+import { de_GetDNSSECCommand, se_GetDNSSECCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
 /**
@@ -127,14 +127,14 @@ export class GetDNSSECCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDNSSECCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetDNSSECCommand(input, context);
+    return se_GetDNSSECCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDNSSECCommandOutput> {
-    return deserializeAws_restXmlGetDNSSECCommand(output, context);
+    return de_GetDNSSECCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import { CreateWorkflowStepGroupRequest, CreateWorkflowStepGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateWorkflowStepGroupCommand,
-  serializeAws_restJson1CreateWorkflowStepGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateWorkflowStepGroupCommand, se_CreateWorkflowStepGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class CreateWorkflowStepGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkflowStepGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateWorkflowStepGroupCommand(input, context);
+    return se_CreateWorkflowStepGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkflowStepGroupCommandOutput> {
-    return deserializeAws_restJson1CreateWorkflowStepGroupCommand(output, context);
+    return de_CreateWorkflowStepGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

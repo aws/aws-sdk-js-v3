@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { CreateContainerServiceDeploymentRequest, CreateContainerServiceDeploymentResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateContainerServiceDeploymentCommand,
-  serializeAws_json1_1CreateContainerServiceDeploymentCommand,
+  de_CreateContainerServiceDeploymentCommand,
+  se_CreateContainerServiceDeploymentCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -183,7 +183,7 @@ export class CreateContainerServiceDeploymentCommand extends $Command<
     input: CreateContainerServiceDeploymentCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateContainerServiceDeploymentCommand(input, context);
+    return se_CreateContainerServiceDeploymentCommand(input, context);
   }
 
   /**
@@ -193,7 +193,7 @@ export class CreateContainerServiceDeploymentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateContainerServiceDeploymentCommandOutput> {
-    return deserializeAws_json1_1CreateContainerServiceDeploymentCommand(output, context);
+    return de_CreateContainerServiceDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

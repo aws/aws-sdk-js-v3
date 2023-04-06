@@ -15,10 +15,7 @@ import {
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
 import { GetBackendAPIModelsRequest, GetBackendAPIModelsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBackendAPIModelsCommand,
-  serializeAws_restJson1GetBackendAPIModelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBackendAPIModelsCommand, se_GetBackendAPIModelsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class GetBackendAPIModelsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBackendAPIModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackendAPIModelsCommand(input, context);
+    return se_GetBackendAPIModelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackendAPIModelsCommandOutput> {
-    return deserializeAws_restJson1GetBackendAPIModelsCommand(output, context);
+    return de_GetBackendAPIModelsCommand(output, context);
   }
 
   // Start section: command_body_extra

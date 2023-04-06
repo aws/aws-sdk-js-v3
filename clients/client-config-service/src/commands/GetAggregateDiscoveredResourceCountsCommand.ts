@@ -19,8 +19,8 @@ import {
   GetAggregateDiscoveredResourceCountsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand,
-  serializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand,
+  de_GetAggregateDiscoveredResourceCountsCommand,
+  se_GetAggregateDiscoveredResourceCountsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -154,7 +154,7 @@ export class GetAggregateDiscoveredResourceCountsCommand extends $Command<
     input: GetAggregateDiscoveredResourceCountsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand(input, context);
+    return se_GetAggregateDiscoveredResourceCountsCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class GetAggregateDiscoveredResourceCountsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAggregateDiscoveredResourceCountsCommandOutput> {
-    return deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand(output, context);
+    return de_GetAggregateDiscoveredResourceCountsCommand(output, context);
   }
 
   // Start section: command_body_extra

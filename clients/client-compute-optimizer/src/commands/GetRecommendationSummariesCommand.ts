@@ -15,10 +15,7 @@ import {
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import { GetRecommendationSummariesRequest, GetRecommendationSummariesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetRecommendationSummariesCommand,
-  serializeAws_json1_0GetRecommendationSummariesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_GetRecommendationSummariesCommand, se_GetRecommendationSummariesCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -170,7 +167,7 @@ export class GetRecommendationSummariesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRecommendationSummariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRecommendationSummariesCommand(input, context);
+    return se_GetRecommendationSummariesCommand(input, context);
   }
 
   /**
@@ -180,7 +177,7 @@ export class GetRecommendationSummariesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRecommendationSummariesCommandOutput> {
-    return deserializeAws_json1_0GetRecommendationSummariesCommand(output, context);
+    return de_GetRecommendationSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

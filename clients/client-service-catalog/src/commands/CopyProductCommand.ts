@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CopyProductInput, CopyProductOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CopyProductCommand,
-  serializeAws_json1_1CopyProductCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CopyProductCommand, se_CopyProductCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -142,14 +139,14 @@ export class CopyProductCommand extends $Command<
    * @internal
    */
   private serialize(input: CopyProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CopyProductCommand(input, context);
+    return se_CopyProductCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyProductCommandOutput> {
-    return deserializeAws_json1_1CopyProductCommand(output, context);
+    return de_CopyProductCommand(output, context);
   }
 
   // Start section: command_body_extra

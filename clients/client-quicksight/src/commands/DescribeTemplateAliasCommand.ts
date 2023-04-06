@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeTemplateAliasRequest, DescribeTemplateAliasResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1DescribeTemplateAliasCommand,
-  serializeAws_restJson1DescribeTemplateAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeTemplateAliasCommand, se_DescribeTemplateAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -137,14 +134,14 @@ export class DescribeTemplateAliasCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeTemplateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTemplateAliasCommand(input, context);
+    return se_DescribeTemplateAliasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTemplateAliasCommandOutput> {
-    return deserializeAws_restJson1DescribeTemplateAliasCommand(output, context);
+    return de_DescribeTemplateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

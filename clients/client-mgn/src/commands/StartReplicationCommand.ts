@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { SourceServer, SourceServerFilterSensitiveLog, StartReplicationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartReplicationCommand,
-  serializeAws_restJson1StartReplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartReplicationCommand, se_StartReplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class StartReplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: StartReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartReplicationCommand(input, context);
+    return se_StartReplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReplicationCommandOutput> {
-    return deserializeAws_restJson1StartReplicationCommand(output, context);
+    return de_StartReplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

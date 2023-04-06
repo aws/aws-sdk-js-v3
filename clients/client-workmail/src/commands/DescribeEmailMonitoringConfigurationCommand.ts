@@ -18,8 +18,8 @@ import {
   DescribeEmailMonitoringConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommand,
-  serializeAws_json1_1DescribeEmailMonitoringConfigurationCommand,
+  de_DescribeEmailMonitoringConfigurationCommand,
+  se_DescribeEmailMonitoringConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -142,7 +142,7 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command<
     input: DescribeEmailMonitoringConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEmailMonitoringConfigurationCommand(input, context);
+    return se_DescribeEmailMonitoringConfigurationCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEmailMonitoringConfigurationCommandOutput> {
-    return deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommand(output, context);
+    return de_DescribeEmailMonitoringConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

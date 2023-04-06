@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { GetPlaceRequest, GetPlaceResponse, GetPlaceResponseFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPlaceCommand,
-  serializeAws_restJson1GetPlaceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPlaceCommand, se_GetPlaceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class GetPlaceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPlaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPlaceCommand(input, context);
+    return se_GetPlaceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlaceCommandOutput> {
-    return deserializeAws_restJson1GetPlaceCommand(output, context);
+    return de_GetPlaceCommand(output, context);
   }
 
   // Start section: command_body_extra

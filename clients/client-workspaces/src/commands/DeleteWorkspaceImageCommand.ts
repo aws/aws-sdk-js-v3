@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteWorkspaceImageRequest, DeleteWorkspaceImageResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteWorkspaceImageCommand,
-  serializeAws_json1_1DeleteWorkspaceImageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteWorkspaceImageCommand, se_DeleteWorkspaceImageCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -131,14 +128,14 @@ export class DeleteWorkspaceImageCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkspaceImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteWorkspaceImageCommand(input, context);
+    return se_DeleteWorkspaceImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceImageCommandOutput> {
-    return deserializeAws_json1_1DeleteWorkspaceImageCommand(output, context);
+    return de_DeleteWorkspaceImageCommand(output, context);
   }
 
   // Start section: command_body_extra

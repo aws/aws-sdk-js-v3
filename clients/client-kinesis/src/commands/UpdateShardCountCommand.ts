@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { UpdateShardCountInput, UpdateShardCountOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateShardCountCommand,
-  serializeAws_json1_1UpdateShardCountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateShardCountCommand, se_UpdateShardCountCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -197,14 +194,14 @@ export class UpdateShardCountCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateShardCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateShardCountCommand(input, context);
+    return se_UpdateShardCountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateShardCountCommandOutput> {
-    return deserializeAws_json1_1UpdateShardCountCommand(output, context);
+    return de_UpdateShardCountCommand(output, context);
   }
 
   // Start section: command_body_extra

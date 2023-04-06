@@ -15,10 +15,7 @@ import {
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
 import { ConfigureLogsRequest, ConfigureLogsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ConfigureLogsCommand,
-  serializeAws_restJson1ConfigureLogsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ConfigureLogsCommand, se_ConfigureLogsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ConfigureLogsCommand extends $Command<
    * @internal
    */
   private serialize(input: ConfigureLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfigureLogsCommand(input, context);
+    return se_ConfigureLogsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureLogsCommandOutput> {
-    return deserializeAws_restJson1ConfigureLogsCommand(output, context);
+    return de_ConfigureLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

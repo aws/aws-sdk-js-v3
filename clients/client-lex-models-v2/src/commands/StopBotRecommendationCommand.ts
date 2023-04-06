@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { StopBotRecommendationRequest, StopBotRecommendationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopBotRecommendationCommand,
-  serializeAws_restJson1StopBotRecommendationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopBotRecommendationCommand, se_StopBotRecommendationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class StopBotRecommendationCommand extends $Command<
    * @internal
    */
   private serialize(input: StopBotRecommendationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopBotRecommendationCommand(input, context);
+    return se_StopBotRecommendationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBotRecommendationCommandOutput> {
-    return deserializeAws_restJson1StopBotRecommendationCommand(output, context);
+    return de_StopBotRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

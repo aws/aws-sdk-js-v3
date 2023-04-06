@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteEndpointAccessMessage, EndpointAccess } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteEndpointAccessCommand,
-  serializeAws_queryDeleteEndpointAccessCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteEndpointAccessCommand, se_DeleteEndpointAccessCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -136,14 +133,14 @@ export class DeleteEndpointAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteEndpointAccessCommand(input, context);
+    return se_DeleteEndpointAccessCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointAccessCommandOutput> {
-    return deserializeAws_queryDeleteEndpointAccessCommand(output, context);
+    return de_DeleteEndpointAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

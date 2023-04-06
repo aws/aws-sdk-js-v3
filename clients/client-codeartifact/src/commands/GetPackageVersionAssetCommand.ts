@@ -22,10 +22,7 @@ import {
   GetPackageVersionAssetResult,
   GetPackageVersionAssetResultFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPackageVersionAssetCommand,
-  serializeAws_restJson1GetPackageVersionAssetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetPackageVersionAssetCommand, se_GetPackageVersionAssetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -169,7 +166,7 @@ export class GetPackageVersionAssetCommand extends $Command<
    * @internal
    */
   private serialize(input: GetPackageVersionAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetPackageVersionAssetCommand(input, context);
+    return se_GetPackageVersionAssetCommand(input, context);
   }
 
   /**
@@ -179,7 +176,7 @@ export class GetPackageVersionAssetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetPackageVersionAssetCommandOutput> {
-    return deserializeAws_restJson1GetPackageVersionAssetCommand(output, context);
+    return de_GetPackageVersionAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

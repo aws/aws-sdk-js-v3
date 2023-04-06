@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CommitTransactionRequest, CommitTransactionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CommitTransactionCommand,
-  serializeAws_restJson1CommitTransactionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CommitTransactionCommand, se_CommitTransactionCommand } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 
 /**
@@ -145,14 +142,14 @@ export class CommitTransactionCommand extends $Command<
    * @internal
    */
   private serialize(input: CommitTransactionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CommitTransactionCommand(input, context);
+    return se_CommitTransactionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CommitTransactionCommandOutput> {
-    return deserializeAws_restJson1CommitTransactionCommand(output, context);
+    return de_CommitTransactionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTerminologyRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteTerminologyCommand,
-  serializeAws_json1_1DeleteTerminologyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteTerminologyCommand, se_DeleteTerminologyCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -136,14 +133,14 @@ export class DeleteTerminologyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTerminologyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteTerminologyCommand(input, context);
+    return se_DeleteTerminologyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTerminologyCommandOutput> {
-    return deserializeAws_json1_1DeleteTerminologyCommand(output, context);
+    return de_DeleteTerminologyCommand(output, context);
   }
 
   // Start section: command_body_extra

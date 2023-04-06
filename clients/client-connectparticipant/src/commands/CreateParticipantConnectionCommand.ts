@@ -20,8 +20,8 @@ import {
 } from "../ConnectParticipantClient";
 import { CreateParticipantConnectionRequest, CreateParticipantConnectionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateParticipantConnectionCommand,
-  serializeAws_restJson1CreateParticipantConnectionCommand,
+  de_CreateParticipantConnectionCommand,
+  se_CreateParticipantConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -176,7 +176,7 @@ export class CreateParticipantConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateParticipantConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateParticipantConnectionCommand(input, context);
+    return se_CreateParticipantConnectionCommand(input, context);
   }
 
   /**
@@ -186,7 +186,7 @@ export class CreateParticipantConnectionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateParticipantConnectionCommandOutput> {
-    return deserializeAws_restJson1CreateParticipantConnectionCommand(output, context);
+    return de_CreateParticipantConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

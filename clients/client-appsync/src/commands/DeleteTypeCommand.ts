@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { DeleteTypeRequest, DeleteTypeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTypeCommand,
-  serializeAws_restJson1DeleteTypeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTypeCommand, se_DeleteTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTypeCommand(input, context);
+    return se_DeleteTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTypeCommandOutput> {
-    return deserializeAws_restJson1DeleteTypeCommand(output, context);
+    return de_DeleteTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartAssociationsOnceRequest, StartAssociationsOnceResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1StartAssociationsOnceCommand,
-  serializeAws_json1_1StartAssociationsOnceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartAssociationsOnceCommand, se_StartAssociationsOnceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -129,14 +126,14 @@ export class StartAssociationsOnceCommand extends $Command<
    * @internal
    */
   private serialize(input: StartAssociationsOnceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartAssociationsOnceCommand(input, context);
+    return se_StartAssociationsOnceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAssociationsOnceCommandOutput> {
-    return deserializeAws_json1_1StartAssociationsOnceCommand(output, context);
+    return de_StartAssociationsOnceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,8 +15,8 @@ import {
 
 import { DescribeAuthenticationProfilesMessage, DescribeAuthenticationProfilesResult } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeAuthenticationProfilesCommand,
-  serializeAws_queryDescribeAuthenticationProfilesCommand,
+  de_DescribeAuthenticationProfilesCommand,
+  se_DescribeAuthenticationProfilesCommand,
 } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -132,7 +132,7 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
     input: DescribeAuthenticationProfilesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAuthenticationProfilesCommand(input, context);
+    return se_DescribeAuthenticationProfilesCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class DescribeAuthenticationProfilesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAuthenticationProfilesCommandOutput> {
-    return deserializeAws_queryDescribeAuthenticationProfilesCommand(output, context);
+    return de_DescribeAuthenticationProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

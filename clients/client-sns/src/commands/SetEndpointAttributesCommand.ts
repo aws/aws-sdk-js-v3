@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { SetEndpointAttributesInput } from "../models/models_0";
-import {
-  deserializeAws_querySetEndpointAttributesCommand,
-  serializeAws_querySetEndpointAttributesCommand,
-} from "../protocols/Aws_query";
+import { de_SetEndpointAttributesCommand, se_SetEndpointAttributesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -138,14 +135,14 @@ export class SetEndpointAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: SetEndpointAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetEndpointAttributesCommand(input, context);
+    return se_SetEndpointAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetEndpointAttributesCommandOutput> {
-    return deserializeAws_querySetEndpointAttributesCommand(output, context);
+    return de_SetEndpointAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

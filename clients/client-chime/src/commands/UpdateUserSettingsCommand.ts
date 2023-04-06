@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { UpdateUserSettingsRequest } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateUserSettingsCommand,
-  serializeAws_restJson1UpdateUserSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateUserSettingsCommand, se_UpdateUserSettingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class UpdateUserSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateUserSettingsCommand(input, context);
+    return se_UpdateUserSettingsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateUserSettingsCommand(output, context);
+    return de_UpdateUserSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

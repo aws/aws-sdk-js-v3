@@ -15,10 +15,7 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeleteResponseHeadersPolicyRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlDeleteResponseHeadersPolicyCommand,
-  serializeAws_restXmlDeleteResponseHeadersPolicyCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteResponseHeadersPolicyCommand, se_DeleteResponseHeadersPolicyCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -147,7 +144,7 @@ export class DeleteResponseHeadersPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteResponseHeadersPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteResponseHeadersPolicyCommand(input, context);
+    return se_DeleteResponseHeadersPolicyCommand(input, context);
   }
 
   /**
@@ -157,7 +154,7 @@ export class DeleteResponseHeadersPolicyCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteResponseHeadersPolicyCommandOutput> {
-    return deserializeAws_restXmlDeleteResponseHeadersPolicyCommand(output, context);
+    return de_DeleteResponseHeadersPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

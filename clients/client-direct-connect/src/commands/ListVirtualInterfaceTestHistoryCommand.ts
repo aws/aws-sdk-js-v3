@@ -16,8 +16,8 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { ListVirtualInterfaceTestHistoryRequest, ListVirtualInterfaceTestHistoryResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand,
-  serializeAws_json1_1ListVirtualInterfaceTestHistoryCommand,
+  de_ListVirtualInterfaceTestHistoryCommand,
+  se_ListVirtualInterfaceTestHistoryCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -138,7 +138,7 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command<
     input: ListVirtualInterfaceTestHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListVirtualInterfaceTestHistoryCommand(input, context);
+    return se_ListVirtualInterfaceTestHistoryCommand(input, context);
   }
 
   /**
@@ -148,7 +148,7 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListVirtualInterfaceTestHistoryCommandOutput> {
-    return deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand(output, context);
+    return de_ListVirtualInterfaceTestHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

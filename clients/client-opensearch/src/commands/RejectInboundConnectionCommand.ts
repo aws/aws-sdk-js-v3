@@ -15,10 +15,7 @@ import {
 
 import { RejectInboundConnectionRequest, RejectInboundConnectionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import {
-  deserializeAws_restJson1RejectInboundConnectionCommand,
-  serializeAws_restJson1RejectInboundConnectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RejectInboundConnectionCommand, se_RejectInboundConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class RejectInboundConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: RejectInboundConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RejectInboundConnectionCommand(input, context);
+    return se_RejectInboundConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectInboundConnectionCommandOutput> {
-    return deserializeAws_restJson1RejectInboundConnectionCommand(output, context);
+    return de_RejectInboundConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

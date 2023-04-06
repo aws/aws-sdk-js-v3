@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListProvisionedProductPlansInput, ListProvisionedProductPlansOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListProvisionedProductPlansCommand,
-  serializeAws_json1_1ListProvisionedProductPlansCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListProvisionedProductPlansCommand, se_ListProvisionedProductPlansCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
@@ -133,7 +130,7 @@ export class ListProvisionedProductPlansCommand extends $Command<
    * @internal
    */
   private serialize(input: ListProvisionedProductPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListProvisionedProductPlansCommand(input, context);
+    return se_ListProvisionedProductPlansCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class ListProvisionedProductPlansCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListProvisionedProductPlansCommandOutput> {
-    return deserializeAws_json1_1ListProvisionedProductPlansCommand(output, context);
+    return de_ListProvisionedProductPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

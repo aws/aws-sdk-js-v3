@@ -16,8 +16,8 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetRelationalDatabaseBundlesRequest, GetRelationalDatabaseBundlesResult } from "../models/models_1";
 import {
-  deserializeAws_json1_1GetRelationalDatabaseBundlesCommand,
-  serializeAws_json1_1GetRelationalDatabaseBundlesCommand,
+  de_GetRelationalDatabaseBundlesCommand,
+  se_GetRelationalDatabaseBundlesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -156,7 +156,7 @@ export class GetRelationalDatabaseBundlesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRelationalDatabaseBundlesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseBundlesCommand(input, context);
+    return se_GetRelationalDatabaseBundlesCommand(input, context);
   }
 
   /**
@@ -166,7 +166,7 @@ export class GetRelationalDatabaseBundlesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetRelationalDatabaseBundlesCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseBundlesCommand(output, context);
+    return de_GetRelationalDatabaseBundlesCommand(output, context);
   }
 
   // Start section: command_body_extra

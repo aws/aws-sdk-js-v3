@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { GetBackendEnvironmentRequest, GetBackendEnvironmentResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBackendEnvironmentCommand,
-  serializeAws_restJson1GetBackendEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBackendEnvironmentCommand, se_GetBackendEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetBackendEnvironmentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetBackendEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackendEnvironmentCommand(input, context);
+    return se_GetBackendEnvironmentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackendEnvironmentCommandOutput> {
-    return deserializeAws_restJson1GetBackendEnvironmentCommand(output, context);
+    return de_GetBackendEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { DeleteHapgRequest, DeleteHapgResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteHapgCommand,
-  serializeAws_json1_1DeleteHapgCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteHapgCommand, se_DeleteHapgCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteHapgCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteHapgCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteHapgCommand(input, context);
+    return se_DeleteHapgCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHapgCommandOutput> {
-    return deserializeAws_json1_1DeleteHapgCommand(output, context);
+    return de_DeleteHapgCommand(output, context);
   }
 
   // Start section: command_body_extra

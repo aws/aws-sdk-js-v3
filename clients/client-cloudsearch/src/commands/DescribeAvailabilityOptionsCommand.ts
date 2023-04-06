@@ -15,10 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { DescribeAvailabilityOptionsRequest, DescribeAvailabilityOptionsResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeAvailabilityOptionsCommand,
-  serializeAws_queryDescribeAvailabilityOptionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeAvailabilityOptionsCommand, se_DescribeAvailabilityOptionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -142,7 +139,7 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAvailabilityOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeAvailabilityOptionsCommand(input, context);
+    return se_DescribeAvailabilityOptionsCommand(input, context);
   }
 
   /**
@@ -152,7 +149,7 @@ export class DescribeAvailabilityOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAvailabilityOptionsCommandOutput> {
-    return deserializeAws_queryDescribeAvailabilityOptionsCommand(output, context);
+    return de_DescribeAvailabilityOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

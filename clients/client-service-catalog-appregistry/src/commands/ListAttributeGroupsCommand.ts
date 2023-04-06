@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAttributeGroupsRequest, ListAttributeGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAttributeGroupsCommand,
-  serializeAws_restJson1ListAttributeGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAttributeGroupsCommand, se_ListAttributeGroupsCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -131,14 +128,14 @@ export class ListAttributeGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAttributeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAttributeGroupsCommand(input, context);
+    return se_ListAttributeGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttributeGroupsCommandOutput> {
-    return deserializeAws_restJson1ListAttributeGroupsCommand(output, context);
+    return de_ListAttributeGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

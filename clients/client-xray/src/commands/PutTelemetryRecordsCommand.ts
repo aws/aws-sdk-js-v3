@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutTelemetryRecordsRequest, PutTelemetryRecordsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutTelemetryRecordsCommand,
-  serializeAws_restJson1PutTelemetryRecordsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutTelemetryRecordsCommand, se_PutTelemetryRecordsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -145,14 +142,14 @@ export class PutTelemetryRecordsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutTelemetryRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutTelemetryRecordsCommand(input, context);
+    return se_PutTelemetryRecordsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTelemetryRecordsCommandOutput> {
-    return deserializeAws_restJson1PutTelemetryRecordsCommand(output, context);
+    return de_PutTelemetryRecordsCommand(output, context);
   }
 
   // Start section: command_body_extra

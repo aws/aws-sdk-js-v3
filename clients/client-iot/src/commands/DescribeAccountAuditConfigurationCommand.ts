@@ -19,8 +19,8 @@ import {
   DescribeAccountAuditConfigurationResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1DescribeAccountAuditConfigurationCommand,
-  serializeAws_restJson1DescribeAccountAuditConfigurationCommand,
+  de_DescribeAccountAuditConfigurationCommand,
+  se_DescribeAccountAuditConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -135,7 +135,7 @@ export class DescribeAccountAuditConfigurationCommand extends $Command<
     input: DescribeAccountAuditConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAccountAuditConfigurationCommand(input, context);
+    return se_DescribeAccountAuditConfigurationCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class DescribeAccountAuditConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAccountAuditConfigurationCommandOutput> {
-    return deserializeAws_restJson1DescribeAccountAuditConfigurationCommand(output, context);
+    return de_DescribeAccountAuditConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

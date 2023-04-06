@@ -15,10 +15,7 @@ import {
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { BatchUnsuspendUserRequest, BatchUnsuspendUserResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchUnsuspendUserCommand,
-  serializeAws_restJson1BatchUnsuspendUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchUnsuspendUserCommand, se_BatchUnsuspendUserCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class BatchUnsuspendUserCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchUnsuspendUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchUnsuspendUserCommand(input, context);
+    return se_BatchUnsuspendUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUnsuspendUserCommandOutput> {
-    return deserializeAws_restJson1BatchUnsuspendUserCommand(output, context);
+    return de_BatchUnsuspendUserCommand(output, context);
   }
 
   // Start section: command_body_extra

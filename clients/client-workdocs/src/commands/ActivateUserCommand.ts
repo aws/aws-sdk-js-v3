@@ -19,10 +19,7 @@ import {
   ActivateUserResponse,
   ActivateUserResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ActivateUserCommand,
-  serializeAws_restJson1ActivateUserCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ActivateUserCommand, se_ActivateUserCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -142,14 +139,14 @@ export class ActivateUserCommand extends $Command<
    * @internal
    */
   private serialize(input: ActivateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ActivateUserCommand(input, context);
+    return se_ActivateUserCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ActivateUserCommandOutput> {
-    return deserializeAws_restJson1ActivateUserCommand(output, context);
+    return de_ActivateUserCommand(output, context);
   }
 
   // Start section: command_body_extra

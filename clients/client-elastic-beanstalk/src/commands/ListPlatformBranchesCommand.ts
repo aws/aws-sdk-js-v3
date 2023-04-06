@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ListPlatformBranchesRequest, ListPlatformBranchesResult } from "../models/models_0";
-import {
-  deserializeAws_queryListPlatformBranchesCommand,
-  serializeAws_queryListPlatformBranchesCommand,
-} from "../protocols/Aws_query";
+import { de_ListPlatformBranchesCommand, se_ListPlatformBranchesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListPlatformBranchesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListPlatformBranchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPlatformBranchesCommand(input, context);
+    return se_ListPlatformBranchesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformBranchesCommandOutput> {
-    return deserializeAws_queryListPlatformBranchesCommand(output, context);
+    return de_ListPlatformBranchesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyAccountRequest, ModifyAccountResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyAccountCommand,
-  serializeAws_json1_1ModifyAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyAccountCommand, se_ModifyAccountCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -135,14 +132,14 @@ export class ModifyAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyAccountCommand(input, context);
+    return se_ModifyAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyAccountCommandOutput> {
-    return deserializeAws_json1_1ModifyAccountCommand(output, context);
+    return de_ModifyAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeWorkflowTypeInput, WorkflowTypeDetail } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeWorkflowTypeCommand,
-  serializeAws_json1_0DescribeWorkflowTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeWorkflowTypeCommand, se_DescribeWorkflowTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -168,14 +165,14 @@ export class DescribeWorkflowTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeWorkflowTypeCommand(input, context);
+    return se_DescribeWorkflowTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkflowTypeCommandOutput> {
-    return deserializeAws_json1_0DescribeWorkflowTypeCommand(output, context);
+    return de_DescribeWorkflowTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

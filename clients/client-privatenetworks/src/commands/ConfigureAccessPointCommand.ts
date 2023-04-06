@@ -20,10 +20,7 @@ import {
   ConfigureAccessPointResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1ConfigureAccessPointCommand,
-  serializeAws_restJson1ConfigureAccessPointCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ConfigureAccessPointCommand, se_ConfigureAccessPointCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class ConfigureAccessPointCommand extends $Command<
    * @internal
    */
   private serialize(input: ConfigureAccessPointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfigureAccessPointCommand(input, context);
+    return se_ConfigureAccessPointCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureAccessPointCommandOutput> {
-    return deserializeAws_restJson1ConfigureAccessPointCommand(output, context);
+    return de_ConfigureAccessPointCommand(output, context);
   }
 
   // Start section: command_body_extra

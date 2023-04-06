@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { PutManagedRuleSetVersionsRequest, PutManagedRuleSetVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutManagedRuleSetVersionsCommand,
-  serializeAws_json1_1PutManagedRuleSetVersionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutManagedRuleSetVersionsCommand, se_PutManagedRuleSetVersionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -180,7 +177,7 @@ export class PutManagedRuleSetVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutManagedRuleSetVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutManagedRuleSetVersionsCommand(input, context);
+    return se_PutManagedRuleSetVersionsCommand(input, context);
   }
 
   /**
@@ -190,7 +187,7 @@ export class PutManagedRuleSetVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutManagedRuleSetVersionsCommandOutput> {
-    return deserializeAws_json1_1PutManagedRuleSetVersionsCommand(output, context);
+    return de_PutManagedRuleSetVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

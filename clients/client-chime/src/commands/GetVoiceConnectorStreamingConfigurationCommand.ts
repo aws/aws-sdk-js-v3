@@ -19,8 +19,8 @@ import {
   GetVoiceConnectorStreamingConfigurationResponse,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand,
-  serializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand,
+  de_GetVoiceConnectorStreamingConfigurationCommand,
+  se_GetVoiceConnectorStreamingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -158,7 +158,7 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
     input: GetVoiceConnectorStreamingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand(input, context);
+    return se_GetVoiceConnectorStreamingConfigurationCommand(input, context);
   }
 
   /**
@@ -168,7 +168,7 @@ export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVoiceConnectorStreamingConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorStreamingConfigurationCommand(output, context);
+    return de_GetVoiceConnectorStreamingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

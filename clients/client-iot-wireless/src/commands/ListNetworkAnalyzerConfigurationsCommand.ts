@@ -19,8 +19,8 @@ import {
   ListNetworkAnalyzerConfigurationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand,
-  serializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand,
+  de_ListNetworkAnalyzerConfigurationsCommand,
+  se_ListNetworkAnalyzerConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class ListNetworkAnalyzerConfigurationsCommand extends $Command<
     input: ListNetworkAnalyzerConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand(input, context);
+    return se_ListNetworkAnalyzerConfigurationsCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class ListNetworkAnalyzerConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListNetworkAnalyzerConfigurationsCommandOutput> {
-    return deserializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand(output, context);
+    return de_ListNetworkAnalyzerConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

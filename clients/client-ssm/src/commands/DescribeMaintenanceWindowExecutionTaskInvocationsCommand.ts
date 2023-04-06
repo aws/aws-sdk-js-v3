@@ -19,8 +19,8 @@ import {
   DescribeMaintenanceWindowExecutionTaskInvocationsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCommand,
+  de_DescribeMaintenanceWindowExecutionTaskInvocationsCommand,
+  se_DescribeMaintenanceWindowExecutionTaskInvocationsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
@@ -157,7 +157,7 @@ export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $C
     input: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCommand(input, context);
+    return se_DescribeMaintenanceWindowExecutionTaskInvocationsCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $C
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCommand(output, context);
+    return de_DescribeMaintenanceWindowExecutionTaskInvocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

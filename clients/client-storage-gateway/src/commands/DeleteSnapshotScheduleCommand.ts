@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteSnapshotScheduleInput, DeleteSnapshotScheduleOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSnapshotScheduleCommand,
-  serializeAws_json1_1DeleteSnapshotScheduleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSnapshotScheduleCommand, se_DeleteSnapshotScheduleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -158,14 +155,14 @@ export class DeleteSnapshotScheduleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSnapshotScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSnapshotScheduleCommand(input, context);
+    return se_DeleteSnapshotScheduleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSnapshotScheduleCommandOutput> {
-    return deserializeAws_json1_1DeleteSnapshotScheduleCommand(output, context);
+    return de_DeleteSnapshotScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetServerCertificateRequest, GetServerCertificateResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetServerCertificateCommand,
-  serializeAws_queryGetServerCertificateCommand,
-} from "../protocols/Aws_query";
+import { de_GetServerCertificateCommand, se_GetServerCertificateCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -132,14 +129,14 @@ export class GetServerCertificateCommand extends $Command<
    * @internal
    */
   private serialize(input: GetServerCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetServerCertificateCommand(input, context);
+    return se_GetServerCertificateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServerCertificateCommandOutput> {
-    return deserializeAws_queryGetServerCertificateCommand(output, context);
+    return de_GetServerCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

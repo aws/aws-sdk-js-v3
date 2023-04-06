@@ -16,8 +16,8 @@ import {
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
-  serializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
+  de_DescribeOrderableDBInstanceOptionsCommand,
+  se_DescribeOrderableDBInstanceOptionsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -139,7 +139,7 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     input: DescribeOrderableDBInstanceOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeOrderableDBInstanceOptionsCommand(input, context);
+    return se_DescribeOrderableDBInstanceOptionsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> {
-    return deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand(output, context);
+    return de_DescribeOrderableDBInstanceOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

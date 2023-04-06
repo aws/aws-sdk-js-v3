@@ -15,10 +15,7 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { GetNamedQueryInput, GetNamedQueryOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetNamedQueryCommand,
-  serializeAws_json1_1GetNamedQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetNamedQueryCommand, se_GetNamedQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class GetNamedQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetNamedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetNamedQueryCommand(input, context);
+    return se_GetNamedQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNamedQueryCommandOutput> {
-    return deserializeAws_json1_1GetNamedQueryCommand(output, context);
+    return de_GetNamedQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteOptionGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteOptionGroupCommand,
-  serializeAws_queryDeleteOptionGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteOptionGroupCommand, se_DeleteOptionGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -62,15 +59,15 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  *  <p>The specified option group could not be found.</p>
  *
  *
- * @example To delete an option group.
+ * @example To delete an option group
  * ```javascript
- * // This example deletes the specified option group.
+ * // The following example deletes the specified option group.
  * const input = {
- *   "OptionGroupName": "mydboptiongroup"
+ *   "OptionGroupName": "myoptiongroup"
  * };
  * const command = new DeleteOptionGroupCommand(input);
  * await client.send(command);
- * // example id: delete-db-option-group-578be2be-3095-431a-9ea4-9a3c3b0daef4
+ * // example id: to-delete-an-option-group-1680128894360
  * ```
  *
  */
@@ -137,14 +134,14 @@ export class DeleteOptionGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteOptionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteOptionGroupCommand(input, context);
+    return se_DeleteOptionGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOptionGroupCommandOutput> {
-    return deserializeAws_queryDeleteOptionGroupCommand(output, context);
+    return de_DeleteOptionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

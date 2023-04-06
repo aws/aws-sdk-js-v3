@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { CreateTypedLinkFacetRequest, CreateTypedLinkFacetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTypedLinkFacetCommand,
-  serializeAws_restJson1CreateTypedLinkFacetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateTypedLinkFacetCommand, se_CreateTypedLinkFacetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class CreateTypedLinkFacetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTypedLinkFacetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateTypedLinkFacetCommand(input, context);
+    return se_CreateTypedLinkFacetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTypedLinkFacetCommandOutput> {
-    return deserializeAws_restJson1CreateTypedLinkFacetCommand(output, context);
+    return de_CreateTypedLinkFacetCommand(output, context);
   }
 
   // Start section: command_body_extra

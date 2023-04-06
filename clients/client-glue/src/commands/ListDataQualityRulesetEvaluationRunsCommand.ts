@@ -19,8 +19,8 @@ import {
   ListDataQualityRulesetEvaluationRunsResponse,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1ListDataQualityRulesetEvaluationRunsCommand,
-  serializeAws_json1_1ListDataQualityRulesetEvaluationRunsCommand,
+  de_ListDataQualityRulesetEvaluationRunsCommand,
+  se_ListDataQualityRulesetEvaluationRunsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -153,7 +153,7 @@ export class ListDataQualityRulesetEvaluationRunsCommand extends $Command<
     input: ListDataQualityRulesetEvaluationRunsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDataQualityRulesetEvaluationRunsCommand(input, context);
+    return se_ListDataQualityRulesetEvaluationRunsCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class ListDataQualityRulesetEvaluationRunsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDataQualityRulesetEvaluationRunsCommandOutput> {
-    return deserializeAws_json1_1ListDataQualityRulesetEvaluationRunsCommand(output, context);
+    return de_ListDataQualityRulesetEvaluationRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

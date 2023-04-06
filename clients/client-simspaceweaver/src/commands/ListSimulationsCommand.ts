@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListSimulationsInput, ListSimulationsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSimulationsCommand,
-  serializeAws_restJson1ListSimulationsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSimulationsCommand, se_ListSimulationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConfig } from "../SimSpaceWeaverClient";
 
 /**
@@ -130,14 +127,14 @@ export class ListSimulationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListSimulationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSimulationsCommand(input, context);
+    return se_ListSimulationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSimulationsCommandOutput> {
-    return deserializeAws_restJson1ListSimulationsCommand(output, context);
+    return de_ListSimulationsCommand(output, context);
   }
 
   // Start section: command_body_extra

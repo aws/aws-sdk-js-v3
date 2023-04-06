@@ -15,10 +15,7 @@ import {
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
 import { ListTableRowsRequest, ListTableRowsResult, ListTableRowsResultFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTableRowsCommand,
-  serializeAws_restJson1ListTableRowsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTableRowsCommand, se_ListTableRowsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class ListTableRowsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTableRowsCommand(input, context);
+    return se_ListTableRowsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableRowsCommandOutput> {
-    return deserializeAws_restJson1ListTableRowsCommand(output, context);
+    return de_ListTableRowsCommand(output, context);
   }
 
   // Start section: command_body_extra

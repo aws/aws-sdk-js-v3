@@ -16,8 +16,8 @@ import {
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { UpdateConfiguredTableAnalysisRuleInput, UpdateConfiguredTableAnalysisRuleOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateConfiguredTableAnalysisRuleCommand,
-  serializeAws_restJson1UpdateConfiguredTableAnalysisRuleCommand,
+  de_UpdateConfiguredTableAnalysisRuleCommand,
+  se_UpdateConfiguredTableAnalysisRuleCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -183,7 +183,7 @@ export class UpdateConfiguredTableAnalysisRuleCommand extends $Command<
     input: UpdateConfiguredTableAnalysisRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConfiguredTableAnalysisRuleCommand(input, context);
+    return se_UpdateConfiguredTableAnalysisRuleCommand(input, context);
   }
 
   /**
@@ -193,7 +193,7 @@ export class UpdateConfiguredTableAnalysisRuleCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfiguredTableAnalysisRuleCommandOutput> {
-    return deserializeAws_restJson1UpdateConfiguredTableAnalysisRuleCommand(output, context);
+    return de_UpdateConfiguredTableAnalysisRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateTagsMessage } from "../models/models_0";
-import { deserializeAws_queryCreateTagsCommand, serializeAws_queryCreateTagsCommand } from "../protocols/Aws_query";
+import { de_CreateTagsCommand, se_CreateTagsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -137,14 +137,14 @@ export class CreateTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateTagsCommand(input, context);
+    return se_CreateTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTagsCommandOutput> {
-    return deserializeAws_queryCreateTagsCommand(output, context);
+    return de_CreateTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

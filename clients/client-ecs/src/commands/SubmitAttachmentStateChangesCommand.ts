@@ -16,8 +16,8 @@ import {
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { SubmitAttachmentStateChangesRequest, SubmitAttachmentStateChangesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1SubmitAttachmentStateChangesCommand,
-  serializeAws_json1_1SubmitAttachmentStateChangesCommand,
+  de_SubmitAttachmentStateChangesCommand,
+  se_SubmitAttachmentStateChangesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -146,7 +146,7 @@ export class SubmitAttachmentStateChangesCommand extends $Command<
    * @internal
    */
   private serialize(input: SubmitAttachmentStateChangesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubmitAttachmentStateChangesCommand(input, context);
+    return se_SubmitAttachmentStateChangesCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class SubmitAttachmentStateChangesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SubmitAttachmentStateChangesCommandOutput> {
-    return deserializeAws_json1_1SubmitAttachmentStateChangesCommand(output, context);
+    return de_SubmitAttachmentStateChangesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateAppImageConfigRequest, UpdateAppImageConfigResponse } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateAppImageConfigCommand,
-  serializeAws_json1_1UpdateAppImageConfigCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateAppImageConfigCommand, se_UpdateAppImageConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -136,14 +133,14 @@ export class UpdateAppImageConfigCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateAppImageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateAppImageConfigCommand(input, context);
+    return se_UpdateAppImageConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAppImageConfigCommandOutput> {
-    return deserializeAws_json1_1UpdateAppImageConfigCommand(output, context);
+    return de_UpdateAppImageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

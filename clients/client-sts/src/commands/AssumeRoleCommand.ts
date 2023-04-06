@@ -15,7 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssumeRoleRequest, AssumeRoleResponse } from "../models/models_0";
-import { deserializeAws_queryAssumeRoleCommand, serializeAws_queryAssumeRoleCommand } from "../protocols/Aws_query";
+import { de_AssumeRoleCommand, se_AssumeRoleCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -299,14 +299,14 @@ export class AssumeRoleCommand extends $Command<
    * @internal
    */
   private serialize(input: AssumeRoleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAssumeRoleCommand(input, context);
+    return se_AssumeRoleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssumeRoleCommandOutput> {
-    return deserializeAws_queryAssumeRoleCommand(output, context);
+    return de_AssumeRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

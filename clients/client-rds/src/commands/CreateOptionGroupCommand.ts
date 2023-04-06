@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateOptionGroupMessage, CreateOptionGroupResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateOptionGroupCommand,
-  serializeAws_queryCreateOptionGroupCommand,
-} from "../protocols/Aws_query";
+import { de_CreateOptionGroupCommand, se_CreateOptionGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -72,23 +69,31 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  *  <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
  *
  *
- * @example To create an option group
+ * @example To Create an Amazon RDS option group
  * ```javascript
- * // This example creates an option group.
+ * // The following example creates a new Amazon RDS option group for Oracle MySQL version 8,0 named MyOptionGroup.
  * const input = {
- *   "EngineName": "MySQL",
- *   "MajorEngineVersion": "5.6",
- *   "OptionGroupDescription": "My MySQL 5.6 option group",
- *   "OptionGroupName": "mymysqloptiongroup"
+ *   "EngineName": "mysql",
+ *   "MajorEngineVersion": "8.0",
+ *   "OptionGroupDescription": "MySQL 8.0 option group",
+ *   "OptionGroupName": "MyOptionGroup"
  * };
  * const command = new CreateOptionGroupCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "OptionGroup": {}
+ *   "OptionGroup": {
+ *     "AllowsVpcAndNonVpcInstanceMemberships": true,
+ *     "EngineName": "mysql",
+ *     "MajorEngineVersion": "8.0",
+ *     "OptionGroupArn": "arn:aws:rds:us-east-1:123456789012:og:myoptiongroup",
+ *     "OptionGroupDescription": "MySQL 8.0 option group",
+ *     "OptionGroupName": "myoptiongroup",
+ *     "Options": []
+ *   }
  * }
  * *\/
- * // example id: create-option-group-a7708c87-1b79-4a5e-a762-21cf8fc62b78
+ * // example id: to-create-an-amazon-rds-option-group-1679958217590
  * ```
  *
  */
@@ -155,14 +160,14 @@ export class CreateOptionGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateOptionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateOptionGroupCommand(input, context);
+    return se_CreateOptionGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOptionGroupCommandOutput> {
-    return deserializeAws_queryCreateOptionGroupCommand(output, context);
+    return de_CreateOptionGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

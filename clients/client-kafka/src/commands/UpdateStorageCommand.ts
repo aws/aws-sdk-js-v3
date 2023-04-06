@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { UpdateStorageRequest, UpdateStorageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateStorageCommand,
-  serializeAws_restJson1UpdateStorageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateStorageCommand, se_UpdateStorageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class UpdateStorageCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateStorageCommand(input, context);
+    return se_UpdateStorageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStorageCommandOutput> {
-    return deserializeAws_restJson1UpdateStorageCommand(output, context);
+    return de_UpdateStorageCommand(output, context);
   }
 
   // Start section: command_body_extra

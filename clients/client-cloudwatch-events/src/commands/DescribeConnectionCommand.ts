@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { DescribeConnectionRequest, DescribeConnectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeConnectionCommand,
-  serializeAws_json1_1DescribeConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeConnectionCommand, se_DescribeConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class DescribeConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConnectionCommand(input, context);
+    return se_DescribeConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectionCommandOutput> {
-    return deserializeAws_json1_1DescribeConnectionCommand(output, context);
+    return de_DescribeConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

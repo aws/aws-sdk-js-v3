@@ -15,10 +15,7 @@ import {
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
 import { ListInsightsRequest, ListInsightsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListInsightsCommand,
-  serializeAws_restJson1ListInsightsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListInsightsCommand, se_ListInsightsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class ListInsightsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListInsightsCommand(input, context);
+    return se_ListInsightsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInsightsCommandOutput> {
-    return deserializeAws_restJson1ListInsightsCommand(output, context);
+    return de_ListInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

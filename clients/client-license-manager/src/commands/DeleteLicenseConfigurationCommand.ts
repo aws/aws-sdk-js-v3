@@ -15,10 +15,7 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { DeleteLicenseConfigurationRequest, DeleteLicenseConfigurationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLicenseConfigurationCommand,
-  serializeAws_json1_1DeleteLicenseConfigurationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteLicenseConfigurationCommand, se_DeleteLicenseConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,7 +134,7 @@ export class DeleteLicenseConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteLicenseConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLicenseConfigurationCommand(input, context);
+    return se_DeleteLicenseConfigurationCommand(input, context);
   }
 
   /**
@@ -147,7 +144,7 @@ export class DeleteLicenseConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteLicenseConfigurationCommand(output, context);
+    return de_DeleteLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

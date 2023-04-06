@@ -19,10 +19,7 @@ import {
   StartDevEnvironmentSessionResponse,
   StartDevEnvironmentSessionResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartDevEnvironmentSessionCommand,
-  serializeAws_restJson1StartDevEnvironmentSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartDevEnvironmentSessionCommand, se_StartDevEnvironmentSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,7 +151,7 @@ export class StartDevEnvironmentSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartDevEnvironmentSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartDevEnvironmentSessionCommand(input, context);
+    return se_StartDevEnvironmentSessionCommand(input, context);
   }
 
   /**
@@ -164,7 +161,7 @@ export class StartDevEnvironmentSessionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDevEnvironmentSessionCommandOutput> {
-    return deserializeAws_restJson1StartDevEnvironmentSessionCommand(output, context);
+    return de_StartDevEnvironmentSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

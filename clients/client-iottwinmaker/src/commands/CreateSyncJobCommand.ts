@@ -15,10 +15,7 @@ import {
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { CreateSyncJobRequest, CreateSyncJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSyncJobCommand,
-  serializeAws_restJson1CreateSyncJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateSyncJobCommand, se_CreateSyncJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class CreateSyncJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSyncJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateSyncJobCommand(input, context);
+    return se_CreateSyncJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSyncJobCommandOutput> {
-    return deserializeAws_restJson1CreateSyncJobCommand(output, context);
+    return de_CreateSyncJobCommand(output, context);
   }
 
   // Start section: command_body_extra

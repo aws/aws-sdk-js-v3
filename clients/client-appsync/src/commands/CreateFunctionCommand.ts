@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { CreateFunctionRequest, CreateFunctionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateFunctionCommand,
-  serializeAws_restJson1CreateFunctionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateFunctionCommand, se_CreateFunctionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class CreateFunctionCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateFunctionCommand(input, context);
+    return se_CreateFunctionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionCommandOutput> {
-    return deserializeAws_restJson1CreateFunctionCommand(output, context);
+    return de_CreateFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

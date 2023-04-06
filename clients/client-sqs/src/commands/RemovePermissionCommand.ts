@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { RemovePermissionRequest } from "../models/models_0";
-import {
-  deserializeAws_queryRemovePermissionCommand,
-  serializeAws_queryRemovePermissionCommand,
-} from "../protocols/Aws_query";
+import { de_RemovePermissionCommand, se_RemovePermissionCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -136,14 +133,14 @@ export class RemovePermissionCommand extends $Command<
    * @internal
    */
   private serialize(input: RemovePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRemovePermissionCommand(input, context);
+    return se_RemovePermissionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemovePermissionCommandOutput> {
-    return deserializeAws_queryRemovePermissionCommand(output, context);
+    return de_RemovePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

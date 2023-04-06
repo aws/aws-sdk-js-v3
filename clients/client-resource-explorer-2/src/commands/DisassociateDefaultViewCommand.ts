@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  deserializeAws_restJson1DisassociateDefaultViewCommand,
-  serializeAws_restJson1DisassociateDefaultViewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateDefaultViewCommand, se_DisassociateDefaultViewCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
   ServiceInputTypes,
@@ -142,14 +139,14 @@ export class DisassociateDefaultViewCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateDefaultViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateDefaultViewCommand(input, context);
+    return se_DisassociateDefaultViewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateDefaultViewCommandOutput> {
-    return deserializeAws_restJson1DisassociateDefaultViewCommand(output, context);
+    return de_DisassociateDefaultViewCommand(output, context);
   }
 
   // Start section: command_body_extra

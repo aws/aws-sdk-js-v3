@@ -15,8 +15,8 @@ import {
 
 import { ListAppVersionResourceMappingsRequest, ListAppVersionResourceMappingsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListAppVersionResourceMappingsCommand,
-  serializeAws_restJson1ListAppVersionResourceMappingsCommand,
+  de_ListAppVersionResourceMappingsCommand,
+  se_ListAppVersionResourceMappingsCommand,
 } from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
@@ -148,7 +148,7 @@ export class ListAppVersionResourceMappingsCommand extends $Command<
     input: ListAppVersionResourceMappingsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAppVersionResourceMappingsCommand(input, context);
+    return se_ListAppVersionResourceMappingsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class ListAppVersionResourceMappingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAppVersionResourceMappingsCommandOutput> {
-    return deserializeAws_restJson1ListAppVersionResourceMappingsCommand(output, context);
+    return de_ListAppVersionResourceMappingsCommand(output, context);
   }
 
   // Start section: command_body_extra

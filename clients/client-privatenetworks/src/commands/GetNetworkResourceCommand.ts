@@ -19,10 +19,7 @@ import {
   GetNetworkResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1GetNetworkResourceCommand,
-  serializeAws_restJson1GetNetworkResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetNetworkResourceCommand, se_GetNetworkResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetNetworkResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetNetworkResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkResourceCommand(input, context);
+    return se_GetNetworkResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkResourceCommandOutput> {
-    return deserializeAws_restJson1GetNetworkResourceCommand(output, context);
+    return de_GetNetworkResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

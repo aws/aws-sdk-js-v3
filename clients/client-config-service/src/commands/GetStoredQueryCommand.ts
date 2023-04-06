@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { GetStoredQueryRequest, GetStoredQueryResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetStoredQueryCommand,
-  serializeAws_json1_1GetStoredQueryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetStoredQueryCommand, se_GetStoredQueryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class GetStoredQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetStoredQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetStoredQueryCommand(input, context);
+    return se_GetStoredQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStoredQueryCommandOutput> {
-    return deserializeAws_json1_1GetStoredQueryCommand(output, context);
+    return de_GetStoredQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

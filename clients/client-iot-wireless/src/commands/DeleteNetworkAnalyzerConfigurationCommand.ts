@@ -19,8 +19,8 @@ import {
   DeleteNetworkAnalyzerConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand,
-  serializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand,
+  de_DeleteNetworkAnalyzerConfigurationCommand,
+  se_DeleteNetworkAnalyzerConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -146,7 +146,7 @@ export class DeleteNetworkAnalyzerConfigurationCommand extends $Command<
     input: DeleteNetworkAnalyzerConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand(input, context);
+    return se_DeleteNetworkAnalyzerConfigurationCommand(input, context);
   }
 
   /**
@@ -156,7 +156,7 @@ export class DeleteNetworkAnalyzerConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNetworkAnalyzerConfigurationCommandOutput> {
-    return deserializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand(output, context);
+    return de_DeleteNetworkAnalyzerConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

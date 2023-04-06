@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { StartLifecyclePolicyPreviewRequest, StartLifecyclePolicyPreviewResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartLifecyclePolicyPreviewCommand,
-  serializeAws_json1_1StartLifecyclePolicyPreviewCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartLifecyclePolicyPreviewCommand, se_StartLifecyclePolicyPreviewCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,7 +141,7 @@ export class StartLifecyclePolicyPreviewCommand extends $Command<
    * @internal
    */
   private serialize(input: StartLifecyclePolicyPreviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartLifecyclePolicyPreviewCommand(input, context);
+    return se_StartLifecyclePolicyPreviewCommand(input, context);
   }
 
   /**
@@ -154,7 +151,7 @@ export class StartLifecyclePolicyPreviewCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartLifecyclePolicyPreviewCommandOutput> {
-    return deserializeAws_json1_1StartLifecyclePolicyPreviewCommand(output, context);
+    return de_StartLifecyclePolicyPreviewCommand(output, context);
   }
 
   // Start section: command_body_extra

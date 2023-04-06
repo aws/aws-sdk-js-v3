@@ -19,8 +19,8 @@ import {
   DescribeDirectConnectGatewayAttachmentsResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand,
-  serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand,
+  de_DescribeDirectConnectGatewayAttachmentsCommand,
+  se_DescribeDirectConnectGatewayAttachmentsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -148,7 +148,7 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
     input: DescribeDirectConnectGatewayAttachmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand(input, context);
+    return se_DescribeDirectConnectGatewayAttachmentsCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand(output, context);
+    return de_DescribeDirectConnectGatewayAttachmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

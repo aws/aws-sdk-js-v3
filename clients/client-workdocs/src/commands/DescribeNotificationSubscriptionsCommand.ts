@@ -18,8 +18,8 @@ import {
   DescribeNotificationSubscriptionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeNotificationSubscriptionsCommand,
-  serializeAws_restJson1DescribeNotificationSubscriptionsCommand,
+  de_DescribeNotificationSubscriptionsCommand,
+  se_DescribeNotificationSubscriptionsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
@@ -139,7 +139,7 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     input: DescribeNotificationSubscriptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeNotificationSubscriptionsCommand(input, context);
+    return se_DescribeNotificationSubscriptionsCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotificationSubscriptionsCommandOutput> {
-    return deserializeAws_restJson1DescribeNotificationSubscriptionsCommand(output, context);
+    return de_DescribeNotificationSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import { StartEntitiesDetectionV2JobRequest, StartEntitiesDetectionV2JobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartEntitiesDetectionV2JobCommand,
-  serializeAws_json1_1StartEntitiesDetectionV2JobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartEntitiesDetectionV2JobCommand, se_StartEntitiesDetectionV2JobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -155,7 +152,7 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
    * @internal
    */
   private serialize(input: StartEntitiesDetectionV2JobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartEntitiesDetectionV2JobCommand(input, context);
+    return se_StartEntitiesDetectionV2JobCommand(input, context);
   }
 
   /**
@@ -165,7 +162,7 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartEntitiesDetectionV2JobCommandOutput> {
-    return deserializeAws_json1_1StartEntitiesDetectionV2JobCommand(output, context);
+    return de_StartEntitiesDetectionV2JobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   GetFederationTokenResponse,
   GetFederationTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFederationTokenCommand,
-  serializeAws_restJson1GetFederationTokenCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetFederationTokenCommand, se_GetFederationTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class GetFederationTokenCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFederationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFederationTokenCommand(input, context);
+    return se_GetFederationTokenCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFederationTokenCommandOutput> {
-    return deserializeAws_restJson1GetFederationTokenCommand(output, context);
+    return de_GetFederationTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

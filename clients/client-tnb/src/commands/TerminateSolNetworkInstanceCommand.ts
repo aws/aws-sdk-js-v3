@@ -20,8 +20,8 @@ import {
   TerminateSolNetworkInstanceOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1TerminateSolNetworkInstanceCommand,
-  serializeAws_restJson1TerminateSolNetworkInstanceCommand,
+  de_TerminateSolNetworkInstanceCommand,
+  se_TerminateSolNetworkInstanceCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
@@ -148,7 +148,7 @@ export class TerminateSolNetworkInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: TerminateSolNetworkInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TerminateSolNetworkInstanceCommand(input, context);
+    return se_TerminateSolNetworkInstanceCommand(input, context);
   }
 
   /**
@@ -158,7 +158,7 @@ export class TerminateSolNetworkInstanceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TerminateSolNetworkInstanceCommandOutput> {
-    return deserializeAws_restJson1TerminateSolNetworkInstanceCommand(output, context);
+    return de_TerminateSolNetworkInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

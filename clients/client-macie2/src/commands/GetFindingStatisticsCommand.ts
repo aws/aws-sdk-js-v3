@@ -15,10 +15,7 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { GetFindingStatisticsRequest, GetFindingStatisticsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFindingStatisticsCommand,
-  serializeAws_restJson1GetFindingStatisticsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetFindingStatisticsCommand, se_GetFindingStatisticsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -165,14 +162,14 @@ export class GetFindingStatisticsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetFindingStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetFindingStatisticsCommand(input, context);
+    return se_GetFindingStatisticsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingStatisticsCommandOutput> {
-    return deserializeAws_restJson1GetFindingStatisticsCommand(output, context);
+    return de_GetFindingStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

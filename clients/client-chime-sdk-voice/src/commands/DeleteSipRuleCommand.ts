@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { DeleteSipRuleRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteSipRuleCommand,
-  serializeAws_restJson1DeleteSipRuleCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteSipRuleCommand, se_DeleteSipRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -142,14 +139,14 @@ export class DeleteSipRuleCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSipRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteSipRuleCommand(input, context);
+    return se_DeleteSipRuleCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSipRuleCommandOutput> {
-    return deserializeAws_restJson1DeleteSipRuleCommand(output, context);
+    return de_DeleteSipRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

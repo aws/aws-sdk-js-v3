@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { StartStreamEncryptionInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartStreamEncryptionCommand,
-  serializeAws_json1_1StartStreamEncryptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartStreamEncryptionCommand, se_StartStreamEncryptionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -191,14 +188,14 @@ export class StartStreamEncryptionCommand extends $Command<
    * @internal
    */
   private serialize(input: StartStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartStreamEncryptionCommand(input, context);
+    return se_StartStreamEncryptionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStreamEncryptionCommandOutput> {
-    return deserializeAws_json1_1StartStreamEncryptionCommand(output, context);
+    return de_StartStreamEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

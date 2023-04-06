@@ -20,8 +20,8 @@ import {
   CreateEnvironmentTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0CreateEnvironmentTemplateVersionCommand,
-  serializeAws_json1_0CreateEnvironmentTemplateVersionCommand,
+  de_CreateEnvironmentTemplateVersionCommand,
+  se_CreateEnvironmentTemplateVersionCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
@@ -169,7 +169,7 @@ export class CreateEnvironmentTemplateVersionCommand extends $Command<
     input: CreateEnvironmentTemplateVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateEnvironmentTemplateVersionCommand(input, context);
+    return se_CreateEnvironmentTemplateVersionCommand(input, context);
   }
 
   /**
@@ -179,7 +179,7 @@ export class CreateEnvironmentTemplateVersionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateEnvironmentTemplateVersionCommandOutput> {
-    return deserializeAws_json1_0CreateEnvironmentTemplateVersionCommand(output, context);
+    return de_CreateEnvironmentTemplateVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

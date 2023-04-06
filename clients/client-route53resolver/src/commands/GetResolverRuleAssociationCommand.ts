@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetResolverRuleAssociationRequest, GetResolverRuleAssociationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetResolverRuleAssociationCommand,
-  serializeAws_json1_1GetResolverRuleAssociationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetResolverRuleAssociationCommand, se_GetResolverRuleAssociationCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -133,7 +130,7 @@ export class GetResolverRuleAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetResolverRuleAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetResolverRuleAssociationCommand(input, context);
+    return se_GetResolverRuleAssociationCommand(input, context);
   }
 
   /**
@@ -143,7 +140,7 @@ export class GetResolverRuleAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetResolverRuleAssociationCommandOutput> {
-    return deserializeAws_json1_1GetResolverRuleAssociationCommand(output, context);
+    return de_GetResolverRuleAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

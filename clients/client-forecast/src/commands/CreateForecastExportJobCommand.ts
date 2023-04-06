@@ -19,10 +19,7 @@ import {
   CreateForecastExportJobRequestFilterSensitiveLog,
   CreateForecastExportJobResponse,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateForecastExportJobCommand,
-  serializeAws_json1_1CreateForecastExportJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateForecastExportJobCommand, se_CreateForecastExportJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -169,14 +166,14 @@ export class CreateForecastExportJobCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateForecastExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateForecastExportJobCommand(input, context);
+    return se_CreateForecastExportJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1CreateForecastExportJobCommand(output, context);
+    return de_CreateForecastExportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

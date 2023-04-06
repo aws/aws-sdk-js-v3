@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateLedgerRequest, UpdateLedgerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLedgerCommand,
-  serializeAws_restJson1UpdateLedgerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLedgerCommand, se_UpdateLedgerCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
@@ -126,14 +123,14 @@ export class UpdateLedgerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLedgerCommand(input, context);
+    return se_UpdateLedgerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLedgerCommandOutput> {
-    return deserializeAws_restJson1UpdateLedgerCommand(output, context);
+    return de_UpdateLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

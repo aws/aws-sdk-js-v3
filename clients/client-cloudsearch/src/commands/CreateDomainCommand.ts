@@ -15,7 +15,7 @@ import {
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
-import { deserializeAws_queryCreateDomainCommand, serializeAws_queryCreateDomainCommand } from "../protocols/Aws_query";
+import { de_CreateDomainCommand, se_CreateDomainCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -132,14 +132,14 @@ export class CreateDomainCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDomainCommand(input, context);
+    return se_CreateDomainCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainCommandOutput> {
-    return deserializeAws_queryCreateDomainCommand(output, context);
+    return de_CreateDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

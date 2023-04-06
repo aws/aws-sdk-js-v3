@@ -15,10 +15,7 @@ import {
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { DeleteModelRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteModelCommand,
-  serializeAws_json1_0DeleteModelCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeleteModelCommand, se_DeleteModelCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class DeleteModelCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteModelCommand(input, context);
+    return se_DeleteModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteModelCommandOutput> {
-    return deserializeAws_json1_0DeleteModelCommand(output, context);
+    return de_DeleteModelCommand(output, context);
   }
 
   // Start section: command_body_extra

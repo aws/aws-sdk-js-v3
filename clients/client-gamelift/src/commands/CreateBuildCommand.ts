@@ -15,10 +15,7 @@ import {
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { CreateBuildInput, CreateBuildOutput, CreateBuildOutputFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateBuildCommand,
-  serializeAws_json1_1CreateBuildCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateBuildCommand, se_CreateBuildCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -197,14 +194,14 @@ export class CreateBuildCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBuildCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBuildCommand(input, context);
+    return se_CreateBuildCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBuildCommandOutput> {
-    return deserializeAws_json1_1CreateBuildCommand(output, context);
+    return de_CreateBuildCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ListRoomMembershipsResponse,
   ListRoomMembershipsResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1ListRoomMembershipsCommand,
-  serializeAws_restJson1ListRoomMembershipsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListRoomMembershipsCommand, se_ListRoomMembershipsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class ListRoomMembershipsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListRoomMembershipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListRoomMembershipsCommand(input, context);
+    return se_ListRoomMembershipsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoomMembershipsCommandOutput> {
-    return deserializeAws_restJson1ListRoomMembershipsCommand(output, context);
+    return de_ListRoomMembershipsCommand(output, context);
   }
 
   // Start section: command_body_extra

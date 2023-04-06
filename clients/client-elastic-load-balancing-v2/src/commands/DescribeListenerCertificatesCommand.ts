@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { DescribeListenerCertificatesInput, DescribeListenerCertificatesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeListenerCertificatesCommand,
-  serializeAws_queryDescribeListenerCertificatesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeListenerCertificatesCommand, se_DescribeListenerCertificatesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -138,7 +135,7 @@ export class DescribeListenerCertificatesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeListenerCertificatesCommand(input, context);
+    return se_DescribeListenerCertificatesCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class DescribeListenerCertificatesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeListenerCertificatesCommandOutput> {
-    return deserializeAws_queryDescribeListenerCertificatesCommand(output, context);
+    return de_DescribeListenerCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

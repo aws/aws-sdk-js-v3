@@ -15,10 +15,7 @@ import {
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { DeleteThingShadowRequest, DeleteThingShadowResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteThingShadowCommand,
-  serializeAws_restJson1DeleteThingShadowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteThingShadowCommand, se_DeleteThingShadowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class DeleteThingShadowCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteThingShadowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteThingShadowCommand(input, context);
+    return se_DeleteThingShadowCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThingShadowCommandOutput> {
-    return deserializeAws_restJson1DeleteThingShadowCommand(output, context);
+    return de_DeleteThingShadowCommand(output, context);
   }
 
   // Start section: command_body_extra

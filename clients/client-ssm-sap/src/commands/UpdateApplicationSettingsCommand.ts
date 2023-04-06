@@ -18,10 +18,7 @@ import {
   UpdateApplicationSettingsInputFilterSensitiveLog,
   UpdateApplicationSettingsOutput,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateApplicationSettingsCommand,
-  serializeAws_restJson1UpdateApplicationSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateApplicationSettingsCommand, se_UpdateApplicationSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -148,7 +145,7 @@ export class UpdateApplicationSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateApplicationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateApplicationSettingsCommand(input, context);
+    return se_UpdateApplicationSettingsCommand(input, context);
   }
 
   /**
@@ -158,7 +155,7 @@ export class UpdateApplicationSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateApplicationSettingsCommand(output, context);
+    return de_UpdateApplicationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

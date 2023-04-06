@@ -15,7 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListGroupsRequest, ListGroupsResponse } from "../models/models_0";
-import { deserializeAws_queryListGroupsCommand, serializeAws_queryListGroupsCommand } from "../protocols/Aws_query";
+import { de_ListGroupsCommand, se_ListGroupsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -159,14 +159,14 @@ export class ListGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListGroupsCommand(input, context);
+    return se_ListGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupsCommandOutput> {
-    return deserializeAws_queryListGroupsCommand(output, context);
+    return de_ListGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

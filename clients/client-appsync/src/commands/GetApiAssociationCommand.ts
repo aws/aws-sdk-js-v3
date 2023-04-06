@@ -15,10 +15,7 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { GetApiAssociationRequest, GetApiAssociationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApiAssociationCommand,
-  serializeAws_restJson1GetApiAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetApiAssociationCommand, se_GetApiAssociationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class GetApiAssociationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetApiAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApiAssociationCommand(input, context);
+    return se_GetApiAssociationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApiAssociationCommandOutput> {
-    return deserializeAws_restJson1GetApiAssociationCommand(output, context);
+    return de_GetApiAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import {
-  deserializeAws_restJson1DescribeVoicesCommand,
-  serializeAws_restJson1DescribeVoicesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeVoicesCommand, se_DescribeVoicesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -183,14 +180,14 @@ export class DescribeVoicesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVoicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVoicesCommand(input, context);
+    return se_DescribeVoicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVoicesCommandOutput> {
-    return deserializeAws_restJson1DescribeVoicesCommand(output, context);
+    return de_DescribeVoicesCommand(output, context);
   }
 
   // Start section: command_body_extra

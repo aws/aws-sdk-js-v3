@@ -15,10 +15,7 @@ import {
 
 import { PhoneNumberValidateRequest, PhoneNumberValidateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1PhoneNumberValidateCommand,
-  serializeAws_restJson1PhoneNumberValidateCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PhoneNumberValidateCommand, se_PhoneNumberValidateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class PhoneNumberValidateCommand extends $Command<
    * @internal
    */
   private serialize(input: PhoneNumberValidateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PhoneNumberValidateCommand(input, context);
+    return se_PhoneNumberValidateCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PhoneNumberValidateCommandOutput> {
-    return deserializeAws_restJson1PhoneNumberValidateCommand(output, context);
+    return de_PhoneNumberValidateCommand(output, context);
   }
 
   // Start section: command_body_extra

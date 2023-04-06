@@ -15,10 +15,7 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { PutRemediationExceptionsRequest, PutRemediationExceptionsResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1PutRemediationExceptionsCommand,
-  serializeAws_json1_1PutRemediationExceptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutRemediationExceptionsCommand, se_PutRemediationExceptionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -174,14 +171,14 @@ export class PutRemediationExceptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: PutRemediationExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRemediationExceptionsCommand(input, context);
+    return se_PutRemediationExceptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRemediationExceptionsCommandOutput> {
-    return deserializeAws_json1_1PutRemediationExceptionsCommand(output, context);
+    return de_PutRemediationExceptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

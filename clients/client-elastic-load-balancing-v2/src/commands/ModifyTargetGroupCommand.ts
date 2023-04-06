@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { ModifyTargetGroupInput, ModifyTargetGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_queryModifyTargetGroupCommand,
-  serializeAws_queryModifyTargetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyTargetGroupCommand, se_ModifyTargetGroupCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class ModifyTargetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyTargetGroupCommand(input, context);
+    return se_ModifyTargetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyTargetGroupCommandOutput> {
-    return deserializeAws_queryModifyTargetGroupCommand(output, context);
+    return de_ModifyTargetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

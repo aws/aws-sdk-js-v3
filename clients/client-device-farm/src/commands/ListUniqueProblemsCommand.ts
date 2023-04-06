@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { ListUniqueProblemsRequest, ListUniqueProblemsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListUniqueProblemsCommand,
-  serializeAws_json1_1ListUniqueProblemsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListUniqueProblemsCommand, se_ListUniqueProblemsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class ListUniqueProblemsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListUniqueProblemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUniqueProblemsCommand(input, context);
+    return se_ListUniqueProblemsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUniqueProblemsCommandOutput> {
-    return deserializeAws_json1_1ListUniqueProblemsCommand(output, context);
+    return de_ListUniqueProblemsCommand(output, context);
   }
 
   // Start section: command_body_extra

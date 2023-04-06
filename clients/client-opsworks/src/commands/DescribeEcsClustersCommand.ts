@@ -15,10 +15,7 @@ import {
 
 import { DescribeEcsClustersRequest, DescribeEcsClustersResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeEcsClustersCommand,
-  serializeAws_json1_1DescribeEcsClustersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEcsClustersCommand, se_DescribeEcsClustersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class DescribeEcsClustersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEcsClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEcsClustersCommand(input, context);
+    return se_DescribeEcsClustersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEcsClustersCommandOutput> {
-    return deserializeAws_json1_1DescribeEcsClustersCommand(output, context);
+    return de_DescribeEcsClustersCommand(output, context);
   }
 
   // Start section: command_body_extra

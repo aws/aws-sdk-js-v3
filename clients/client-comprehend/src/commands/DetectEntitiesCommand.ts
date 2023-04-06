@@ -20,10 +20,7 @@ import {
   DetectEntitiesResponse,
   DetectEntitiesResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1DetectEntitiesCommand,
-  serializeAws_json1_1DetectEntitiesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DetectEntitiesCommand, se_DetectEntitiesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -170,14 +167,14 @@ export class DetectEntitiesCommand extends $Command<
    * @internal
    */
   private serialize(input: DetectEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetectEntitiesCommand(input, context);
+    return se_DetectEntitiesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectEntitiesCommandOutput> {
-    return deserializeAws_json1_1DetectEntitiesCommand(output, context);
+    return de_DetectEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

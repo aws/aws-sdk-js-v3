@@ -56,7 +56,10 @@ import {
 } from "../models/models_0";
 import { RDSDataServiceException as __BaseException } from "../models/RDSDataServiceException";
 
-export const serializeAws_restJson1BatchExecuteStatementCommand = async (
+/**
+ * serializeAws_restJson1BatchExecuteStatementCommand
+ */
+export const se_BatchExecuteStatementCommand = async (
   input: BatchExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -68,9 +71,7 @@ export const serializeAws_restJson1BatchExecuteStatementCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.database != null && { database: input.database }),
-    ...(input.parameterSets != null && {
-      parameterSets: serializeAws_restJson1SqlParameterSets(input.parameterSets, context),
-    }),
+    ...(input.parameterSets != null && { parameterSets: se_SqlParameterSets(input.parameterSets, context) }),
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
     ...(input.schema != null && { schema: input.schema }),
     ...(input.secretArn != null && { secretArn: input.secretArn }),
@@ -88,7 +89,10 @@ export const serializeAws_restJson1BatchExecuteStatementCommand = async (
   });
 };
 
-export const serializeAws_restJson1BeginTransactionCommand = async (
+/**
+ * serializeAws_restJson1BeginTransactionCommand
+ */
+export const se_BeginTransactionCommand = async (
   input: BeginTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -115,7 +119,10 @@ export const serializeAws_restJson1BeginTransactionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CommitTransactionCommand = async (
+/**
+ * serializeAws_restJson1CommitTransactionCommand
+ */
+export const se_CommitTransactionCommand = async (
   input: CommitTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -141,7 +148,10 @@ export const serializeAws_restJson1CommitTransactionCommand = async (
   });
 };
 
-export const serializeAws_restJson1ExecuteSqlCommand = async (
+/**
+ * serializeAws_restJson1ExecuteSqlCommand
+ */
+export const se_ExecuteSqlCommand = async (
   input: ExecuteSqlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -169,7 +179,10 @@ export const serializeAws_restJson1ExecuteSqlCommand = async (
   });
 };
 
-export const serializeAws_restJson1ExecuteStatementCommand = async (
+/**
+ * serializeAws_restJson1ExecuteStatementCommand
+ */
+export const se_ExecuteStatementCommand = async (
   input: ExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -184,11 +197,9 @@ export const serializeAws_restJson1ExecuteStatementCommand = async (
     ...(input.database != null && { database: input.database }),
     ...(input.formatRecordsAs != null && { formatRecordsAs: input.formatRecordsAs }),
     ...(input.includeResultMetadata != null && { includeResultMetadata: input.includeResultMetadata }),
-    ...(input.parameters != null && { parameters: serializeAws_restJson1SqlParametersList(input.parameters, context) }),
+    ...(input.parameters != null && { parameters: se_SqlParametersList(input.parameters, context) }),
     ...(input.resourceArn != null && { resourceArn: input.resourceArn }),
-    ...(input.resultSetOptions != null && {
-      resultSetOptions: serializeAws_restJson1ResultSetOptions(input.resultSetOptions, context),
-    }),
+    ...(input.resultSetOptions != null && { resultSetOptions: se_ResultSetOptions(input.resultSetOptions, context) }),
     ...(input.schema != null && { schema: input.schema }),
     ...(input.secretArn != null && { secretArn: input.secretArn }),
     ...(input.sql != null && { sql: input.sql }),
@@ -205,7 +216,10 @@ export const serializeAws_restJson1ExecuteStatementCommand = async (
   });
 };
 
-export const serializeAws_restJson1RollbackTransactionCommand = async (
+/**
+ * serializeAws_restJson1RollbackTransactionCommand
+ */
+export const se_RollbackTransactionCommand = async (
   input: RollbackTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -231,24 +245,30 @@ export const serializeAws_restJson1RollbackTransactionCommand = async (
   });
 };
 
-export const deserializeAws_restJson1BatchExecuteStatementCommand = async (
+/**
+ * deserializeAws_restJson1BatchExecuteStatementCommand
+ */
+export const de_BatchExecuteStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchExecuteStatementCommandError(output, context);
+    return de_BatchExecuteStatementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.updateResults != null) {
-    contents.updateResults = deserializeAws_restJson1UpdateResults(data.updateResults, context);
+    contents.updateResults = de_UpdateResults(data.updateResults, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1BatchExecuteStatementCommandError = async (
+/**
+ * deserializeAws_restJson1BatchExecuteStatementCommandError
+ */
+const de_BatchExecuteStatementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> => {
@@ -260,22 +280,22 @@ const deserializeAws_restJson1BatchExecuteStatementCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rdsdata#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.rdsdata#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.rdsdata#ServiceUnavailableError":
-      throw await deserializeAws_restJson1ServiceUnavailableErrorResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     case "StatementTimeoutException":
     case "com.amazonaws.rdsdata#StatementTimeoutException":
-      throw await deserializeAws_restJson1StatementTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -287,12 +307,15 @@ const deserializeAws_restJson1BatchExecuteStatementCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1BeginTransactionCommand = async (
+/**
+ * deserializeAws_restJson1BeginTransactionCommand
+ */
+export const de_BeginTransactionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BeginTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BeginTransactionCommandError(output, context);
+    return de_BeginTransactionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -304,7 +327,10 @@ export const deserializeAws_restJson1BeginTransactionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1BeginTransactionCommandError = async (
+/**
+ * deserializeAws_restJson1BeginTransactionCommandError
+ */
+const de_BeginTransactionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BeginTransactionCommandOutput> => {
@@ -316,22 +342,22 @@ const deserializeAws_restJson1BeginTransactionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rdsdata#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.rdsdata#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.rdsdata#ServiceUnavailableError":
-      throw await deserializeAws_restJson1ServiceUnavailableErrorResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     case "StatementTimeoutException":
     case "com.amazonaws.rdsdata#StatementTimeoutException":
-      throw await deserializeAws_restJson1StatementTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -343,12 +369,15 @@ const deserializeAws_restJson1BeginTransactionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CommitTransactionCommand = async (
+/**
+ * deserializeAws_restJson1CommitTransactionCommand
+ */
+export const de_CommitTransactionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CommitTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CommitTransactionCommandError(output, context);
+    return de_CommitTransactionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -360,7 +389,10 @@ export const deserializeAws_restJson1CommitTransactionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CommitTransactionCommandError = async (
+/**
+ * deserializeAws_restJson1CommitTransactionCommandError
+ */
+const de_CommitTransactionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CommitTransactionCommandOutput> => {
@@ -372,25 +404,25 @@ const deserializeAws_restJson1CommitTransactionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rdsdata#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.rdsdata#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.rdsdata#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.rdsdata#ServiceUnavailableError":
-      throw await deserializeAws_restJson1ServiceUnavailableErrorResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     case "StatementTimeoutException":
     case "com.amazonaws.rdsdata#StatementTimeoutException":
-      throw await deserializeAws_restJson1StatementTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -402,24 +434,30 @@ const deserializeAws_restJson1CommitTransactionCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ExecuteSqlCommand = async (
+/**
+ * deserializeAws_restJson1ExecuteSqlCommand
+ */
+export const de_ExecuteSqlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteSqlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ExecuteSqlCommandError(output, context);
+    return de_ExecuteSqlCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.sqlStatementResults != null) {
-    contents.sqlStatementResults = deserializeAws_restJson1SqlStatementResults(data.sqlStatementResults, context);
+    contents.sqlStatementResults = de_SqlStatementResults(data.sqlStatementResults, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ExecuteSqlCommandError = async (
+/**
+ * deserializeAws_restJson1ExecuteSqlCommandError
+ */
+const de_ExecuteSqlCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteSqlCommandOutput> => {
@@ -431,19 +469,19 @@ const deserializeAws_restJson1ExecuteSqlCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rdsdata#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.rdsdata#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.rdsdata#ServiceUnavailableError":
-      throw await deserializeAws_restJson1ServiceUnavailableErrorResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -455,36 +493,42 @@ const deserializeAws_restJson1ExecuteSqlCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ExecuteStatementCommand = async (
+/**
+ * deserializeAws_restJson1ExecuteStatementCommand
+ */
+export const de_ExecuteStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteStatementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ExecuteStatementCommandError(output, context);
+    return de_ExecuteStatementCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.columnMetadata != null) {
-    contents.columnMetadata = deserializeAws_restJson1Metadata(data.columnMetadata, context);
+    contents.columnMetadata = de_Metadata(data.columnMetadata, context);
   }
   if (data.formattedRecords != null) {
     contents.formattedRecords = __expectString(data.formattedRecords);
   }
   if (data.generatedFields != null) {
-    contents.generatedFields = deserializeAws_restJson1FieldList(data.generatedFields, context);
+    contents.generatedFields = de_FieldList(data.generatedFields, context);
   }
   if (data.numberOfRecordsUpdated != null) {
     contents.numberOfRecordsUpdated = __expectLong(data.numberOfRecordsUpdated);
   }
   if (data.records != null) {
-    contents.records = deserializeAws_restJson1SqlRecords(data.records, context);
+    contents.records = de_SqlRecords(data.records, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ExecuteStatementCommandError = async (
+/**
+ * deserializeAws_restJson1ExecuteStatementCommandError
+ */
+const de_ExecuteStatementCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteStatementCommandOutput> => {
@@ -496,22 +540,22 @@ const deserializeAws_restJson1ExecuteStatementCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rdsdata#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.rdsdata#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.rdsdata#ServiceUnavailableError":
-      throw await deserializeAws_restJson1ServiceUnavailableErrorResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     case "StatementTimeoutException":
     case "com.amazonaws.rdsdata#StatementTimeoutException":
-      throw await deserializeAws_restJson1StatementTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -523,12 +567,15 @@ const deserializeAws_restJson1ExecuteStatementCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1RollbackTransactionCommand = async (
+/**
+ * deserializeAws_restJson1RollbackTransactionCommand
+ */
+export const de_RollbackTransactionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RollbackTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RollbackTransactionCommandError(output, context);
+    return de_RollbackTransactionCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -540,7 +587,10 @@ export const deserializeAws_restJson1RollbackTransactionCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1RollbackTransactionCommandError = async (
+/**
+ * deserializeAws_restJson1RollbackTransactionCommandError
+ */
+const de_RollbackTransactionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RollbackTransactionCommandOutput> => {
@@ -552,25 +602,25 @@ const deserializeAws_restJson1RollbackTransactionCommandError = async (
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.rdsdata#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
-      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.rdsdata#ForbiddenException":
-      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
-      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.rdsdata#NotFoundException":
-      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.rdsdata#ServiceUnavailableError":
-      throw await deserializeAws_restJson1ServiceUnavailableErrorResponse(parsedOutput, context);
+      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     case "StatementTimeoutException":
     case "com.amazonaws.rdsdata#StatementTimeoutException":
-      throw await deserializeAws_restJson1StatementTimeoutExceptionResponse(parsedOutput, context);
+      throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -583,7 +633,10 @@ const deserializeAws_restJson1RollbackTransactionCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
@@ -599,10 +652,10 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -615,10 +668,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ForbiddenExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ForbiddenException> => {
+/**
+ * deserializeAws_restJson1ForbiddenExceptionRes
+ */
+const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -631,7 +684,10 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerErrorExceptionRes
+ */
+const de_InternalServerErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
@@ -644,10 +700,10 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.message != null) {
@@ -660,7 +716,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableErrorResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableErrorRes
+ */
+const de_ServiceUnavailableErrorRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableError> => {
@@ -673,7 +732,10 @@ const deserializeAws_restJson1ServiceUnavailableErrorResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1StatementTimeoutExceptionResponse = async (
+/**
+ * deserializeAws_restJson1StatementTimeoutExceptionRes
+ */
+const de_StatementTimeoutExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StatementTimeoutException> => {
@@ -692,26 +754,35 @@ const deserializeAws_restJson1StatementTimeoutExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ArrayOfArray = (input: ArrayValue[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ArrayOfArray
+ */
+const se_ArrayOfArray = (input: ArrayValue[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1ArrayValue(entry, context);
+      return se_ArrayValue(entry, context);
     });
 };
 
-const serializeAws_restJson1ArrayValue = (input: ArrayValue, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ArrayValue
+ */
+const se_ArrayValue = (input: ArrayValue, context: __SerdeContext): any => {
   return ArrayValue.visit(input, {
-    arrayValues: (value) => ({ arrayValues: serializeAws_restJson1ArrayOfArray(value, context) }),
-    booleanValues: (value) => ({ booleanValues: serializeAws_restJson1BooleanArray(value, context) }),
-    doubleValues: (value) => ({ doubleValues: serializeAws_restJson1DoubleArray(value, context) }),
-    longValues: (value) => ({ longValues: serializeAws_restJson1LongArray(value, context) }),
-    stringValues: (value) => ({ stringValues: serializeAws_restJson1StringArray(value, context) }),
+    arrayValues: (value) => ({ arrayValues: se_ArrayOfArray(value, context) }),
+    booleanValues: (value) => ({ booleanValues: se_BooleanArray(value, context) }),
+    doubleValues: (value) => ({ doubleValues: se_DoubleArray(value, context) }),
+    longValues: (value) => ({ longValues: se_LongArray(value, context) }),
+    stringValues: (value) => ({ stringValues: se_StringArray(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
 
-const serializeAws_restJson1BooleanArray = (input: boolean[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1BooleanArray
+ */
+const se_BooleanArray = (input: boolean[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -719,7 +790,10 @@ const serializeAws_restJson1BooleanArray = (input: boolean[], context: __SerdeCo
     });
 };
 
-const serializeAws_restJson1DoubleArray = (input: number[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DoubleArray
+ */
+const se_DoubleArray = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -727,9 +801,12 @@ const serializeAws_restJson1DoubleArray = (input: number[], context: __SerdeCont
     });
 };
 
-const serializeAws_restJson1Field = (input: Field, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Field
+ */
+const se_Field = (input: Field, context: __SerdeContext): any => {
   return Field.visit(input, {
-    arrayValue: (value) => ({ arrayValue: serializeAws_restJson1ArrayValue(value, context) }),
+    arrayValue: (value) => ({ arrayValue: se_ArrayValue(value, context) }),
     blobValue: (value) => ({ blobValue: context.base64Encoder(value) }),
     booleanValue: (value) => ({ booleanValue: value }),
     doubleValue: (value) => ({ doubleValue: __serializeFloat(value) }),
@@ -740,7 +817,10 @@ const serializeAws_restJson1Field = (input: Field, context: __SerdeContext): any
   });
 };
 
-const serializeAws_restJson1LongArray = (input: number[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1LongArray
+ */
+const se_LongArray = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -748,38 +828,53 @@ const serializeAws_restJson1LongArray = (input: number[], context: __SerdeContex
     });
 };
 
-const serializeAws_restJson1ResultSetOptions = (input: ResultSetOptions, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1ResultSetOptions
+ */
+const se_ResultSetOptions = (input: ResultSetOptions, context: __SerdeContext): any => {
   return {
     ...(input.decimalReturnType != null && { decimalReturnType: input.decimalReturnType }),
     ...(input.longReturnType != null && { longReturnType: input.longReturnType }),
   };
 };
 
-const serializeAws_restJson1SqlParameter = (input: SqlParameter, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SqlParameter
+ */
+const se_SqlParameter = (input: SqlParameter, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
     ...(input.typeHint != null && { typeHint: input.typeHint }),
-    ...(input.value != null && { value: serializeAws_restJson1Field(input.value, context) }),
+    ...(input.value != null && { value: se_Field(input.value, context) }),
   };
 };
 
-const serializeAws_restJson1SqlParameterSets = (input: SqlParameter[][], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SqlParameterSets
+ */
+const se_SqlParameterSets = (input: SqlParameter[][], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1SqlParametersList(entry, context);
+      return se_SqlParametersList(entry, context);
     });
 };
 
-const serializeAws_restJson1SqlParametersList = (input: SqlParameter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SqlParametersList
+ */
+const se_SqlParametersList = (input: SqlParameter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1SqlParameter(entry, context);
+      return se_SqlParameter(entry, context);
     });
 };
 
-const serializeAws_restJson1StringArray = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1StringArray
+ */
+const se_StringArray = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -787,60 +882,72 @@ const serializeAws_restJson1StringArray = (input: string[], context: __SerdeCont
     });
 };
 
-const deserializeAws_restJson1ArrayOfArray = (output: any, context: __SerdeContext): ArrayValue[] => {
+/**
+ * deserializeAws_restJson1ArrayOfArray
+ */
+const de_ArrayOfArray = (output: any, context: __SerdeContext): ArrayValue[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ArrayValue(__expectUnion(entry), context);
+      return de_ArrayValue(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ArrayValue = (output: any, context: __SerdeContext): ArrayValue => {
+/**
+ * deserializeAws_restJson1ArrayValue
+ */
+const de_ArrayValue = (output: any, context: __SerdeContext): ArrayValue => {
   if (output.arrayValues != null) {
     return {
-      arrayValues: deserializeAws_restJson1ArrayOfArray(output.arrayValues, context),
+      arrayValues: de_ArrayOfArray(output.arrayValues, context),
     };
   }
   if (output.booleanValues != null) {
     return {
-      booleanValues: deserializeAws_restJson1BooleanArray(output.booleanValues, context),
+      booleanValues: de_BooleanArray(output.booleanValues, context),
     };
   }
   if (output.doubleValues != null) {
     return {
-      doubleValues: deserializeAws_restJson1DoubleArray(output.doubleValues, context),
+      doubleValues: de_DoubleArray(output.doubleValues, context),
     };
   }
   if (output.longValues != null) {
     return {
-      longValues: deserializeAws_restJson1LongArray(output.longValues, context),
+      longValues: de_LongArray(output.longValues, context),
     };
   }
   if (output.stringValues != null) {
     return {
-      stringValues: deserializeAws_restJson1StringArray(output.stringValues, context),
+      stringValues: de_StringArray(output.stringValues, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1ArrayValueList = (output: any, context: __SerdeContext): Value[] => {
+/**
+ * deserializeAws_restJson1ArrayValueList
+ */
+const de_ArrayValueList = (output: any, context: __SerdeContext): Value[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Value(__expectUnion(entry), context);
+      return de_Value(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1BooleanArray = (output: any, context: __SerdeContext): boolean[] => {
+/**
+ * deserializeAws_restJson1BooleanArray
+ */
+const de_BooleanArray = (output: any, context: __SerdeContext): boolean[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -852,7 +959,10 @@ const deserializeAws_restJson1BooleanArray = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
+/**
+ * deserializeAws_restJson1ColumnMetadata
+ */
+const de_ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
   return {
     arrayBaseColumnType: __expectInt32(output.arrayBaseColumnType),
     isAutoIncrement: __expectBoolean(output.isAutoIncrement),
@@ -871,7 +981,10 @@ const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_restJson1DoubleArray = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_restJson1DoubleArray
+ */
+const de_DoubleArray = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -883,10 +996,13 @@ const deserializeAws_restJson1DoubleArray = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1Field = (output: any, context: __SerdeContext): Field => {
+/**
+ * deserializeAws_restJson1Field
+ */
+const de_Field = (output: any, context: __SerdeContext): Field => {
   if (output.arrayValue != null) {
     return {
-      arrayValue: deserializeAws_restJson1ArrayValue(__expectUnion(output.arrayValue), context),
+      arrayValue: de_ArrayValue(__expectUnion(output.arrayValue), context),
     };
   }
   if (output.blobValue != null) {
@@ -912,19 +1028,25 @@ const deserializeAws_restJson1Field = (output: any, context: __SerdeContext): Fi
   return { $unknown: Object.entries(output)[0] };
 };
 
-const deserializeAws_restJson1FieldList = (output: any, context: __SerdeContext): Field[] => {
+/**
+ * deserializeAws_restJson1FieldList
+ */
+const de_FieldList = (output: any, context: __SerdeContext): Field[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Field(__expectUnion(entry), context);
+      return de_Field(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1LongArray = (output: any, context: __SerdeContext): number[] => {
+/**
+ * deserializeAws_restJson1LongArray
+ */
+const de_LongArray = (output: any, context: __SerdeContext): number[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -936,99 +1058,125 @@ const deserializeAws_restJson1LongArray = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_restJson1Metadata = (output: any, context: __SerdeContext): ColumnMetadata[] => {
+/**
+ * deserializeAws_restJson1Metadata
+ */
+const de_Metadata = (output: any, context: __SerdeContext): ColumnMetadata[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ColumnMetadata(entry, context);
+      return de_ColumnMetadata(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): _Record => {
+/**
+ * deserializeAws_restJson1_Record
+ */
+const de__Record = (output: any, context: __SerdeContext): _Record => {
   return {
-    values: output.values != null ? deserializeAws_restJson1Row(output.values, context) : undefined,
+    values: output.values != null ? de_Row(output.values, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Records = (output: any, context: __SerdeContext): _Record[] => {
+/**
+ * deserializeAws_restJson1Records
+ */
+const de_Records = (output: any, context: __SerdeContext): _Record[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1_Record(entry, context);
+      return de__Record(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ResultFrame = (output: any, context: __SerdeContext): ResultFrame => {
+/**
+ * deserializeAws_restJson1ResultFrame
+ */
+const de_ResultFrame = (output: any, context: __SerdeContext): ResultFrame => {
   return {
-    records: output.records != null ? deserializeAws_restJson1Records(output.records, context) : undefined,
+    records: output.records != null ? de_Records(output.records, context) : undefined,
     resultSetMetadata:
-      output.resultSetMetadata != null
-        ? deserializeAws_restJson1ResultSetMetadata(output.resultSetMetadata, context)
-        : undefined,
+      output.resultSetMetadata != null ? de_ResultSetMetadata(output.resultSetMetadata, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ResultSetMetadata = (output: any, context: __SerdeContext): ResultSetMetadata => {
+/**
+ * deserializeAws_restJson1ResultSetMetadata
+ */
+const de_ResultSetMetadata = (output: any, context: __SerdeContext): ResultSetMetadata => {
   return {
     columnCount: __expectLong(output.columnCount),
-    columnMetadata:
-      output.columnMetadata != null ? deserializeAws_restJson1Metadata(output.columnMetadata, context) : undefined,
+    columnMetadata: output.columnMetadata != null ? de_Metadata(output.columnMetadata, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1Row = (output: any, context: __SerdeContext): Value[] => {
+/**
+ * deserializeAws_restJson1Row
+ */
+const de_Row = (output: any, context: __SerdeContext): Value[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Value(__expectUnion(entry), context);
+      return de_Value(__expectUnion(entry), context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SqlRecords = (output: any, context: __SerdeContext): Field[][] => {
+/**
+ * deserializeAws_restJson1SqlRecords
+ */
+const de_SqlRecords = (output: any, context: __SerdeContext): Field[][] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1FieldList(entry, context);
+      return de_FieldList(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SqlStatementResult = (output: any, context: __SerdeContext): SqlStatementResult => {
+/**
+ * deserializeAws_restJson1SqlStatementResult
+ */
+const de_SqlStatementResult = (output: any, context: __SerdeContext): SqlStatementResult => {
   return {
     numberOfRecordsUpdated: __expectLong(output.numberOfRecordsUpdated),
-    resultFrame:
-      output.resultFrame != null ? deserializeAws_restJson1ResultFrame(output.resultFrame, context) : undefined,
+    resultFrame: output.resultFrame != null ? de_ResultFrame(output.resultFrame, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1SqlStatementResults = (output: any, context: __SerdeContext): SqlStatementResult[] => {
+/**
+ * deserializeAws_restJson1SqlStatementResults
+ */
+const de_SqlStatementResults = (output: any, context: __SerdeContext): SqlStatementResult[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SqlStatementResult(entry, context);
+      return de_SqlStatementResult(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1StringArray = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1StringArray
+ */
+const de_StringArray = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1040,36 +1188,46 @@ const deserializeAws_restJson1StringArray = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1StructValue = (output: any, context: __SerdeContext): StructValue => {
+/**
+ * deserializeAws_restJson1StructValue
+ */
+const de_StructValue = (output: any, context: __SerdeContext): StructValue => {
   return {
-    attributes:
-      output.attributes != null ? deserializeAws_restJson1ArrayValueList(output.attributes, context) : undefined,
+    attributes: output.attributes != null ? de_ArrayValueList(output.attributes, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1UpdateResult = (output: any, context: __SerdeContext): UpdateResult => {
+/**
+ * deserializeAws_restJson1UpdateResult
+ */
+const de_UpdateResult = (output: any, context: __SerdeContext): UpdateResult => {
   return {
-    generatedFields:
-      output.generatedFields != null ? deserializeAws_restJson1FieldList(output.generatedFields, context) : undefined,
+    generatedFields: output.generatedFields != null ? de_FieldList(output.generatedFields, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1UpdateResults = (output: any, context: __SerdeContext): UpdateResult[] => {
+/**
+ * deserializeAws_restJson1UpdateResults
+ */
+const de_UpdateResults = (output: any, context: __SerdeContext): UpdateResult[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1UpdateResult(entry, context);
+      return de_UpdateResult(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Value => {
+/**
+ * deserializeAws_restJson1Value
+ */
+const de_Value = (output: any, context: __SerdeContext): Value => {
   if (output.arrayValues != null) {
     return {
-      arrayValues: deserializeAws_restJson1ArrayValueList(output.arrayValues, context),
+      arrayValues: de_ArrayValueList(output.arrayValues, context),
     };
   }
   if (__expectLong(output.bigIntValue) !== undefined) {
@@ -1100,7 +1258,7 @@ const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Va
   }
   if (output.structValue != null) {
     return {
-      structValue: deserializeAws_restJson1StructValue(output.structValue, context),
+      structValue: de_StructValue(output.structValue, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };

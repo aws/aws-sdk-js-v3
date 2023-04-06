@@ -19,8 +19,8 @@ import {
   DescribeAggregateComplianceByConfigRulesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand,
-  serializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand,
+  de_DescribeAggregateComplianceByConfigRulesCommand,
+  se_DescribeAggregateComplianceByConfigRulesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -166,7 +166,7 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
     input: DescribeAggregateComplianceByConfigRulesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand(input, context);
+    return se_DescribeAggregateComplianceByConfigRulesCommand(input, context);
   }
 
   /**
@@ -176,7 +176,7 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput> {
-    return deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand(output, context);
+    return de_DescribeAggregateComplianceByConfigRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

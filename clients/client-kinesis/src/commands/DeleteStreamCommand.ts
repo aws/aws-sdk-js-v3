@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { DeleteStreamInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteStreamCommand,
-  serializeAws_json1_1DeleteStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteStreamCommand, se_DeleteStreamCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class DeleteStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteStreamCommand(input, context);
+    return se_DeleteStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamCommandOutput> {
-    return deserializeAws_json1_1DeleteStreamCommand(output, context);
+    return de_DeleteStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

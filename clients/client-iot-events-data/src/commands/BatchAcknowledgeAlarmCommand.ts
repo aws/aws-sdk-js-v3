@@ -15,10 +15,7 @@ import {
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { BatchAcknowledgeAlarmRequest, BatchAcknowledgeAlarmResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchAcknowledgeAlarmCommand,
-  serializeAws_restJson1BatchAcknowledgeAlarmCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchAcknowledgeAlarmCommand, se_BatchAcknowledgeAlarmCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class BatchAcknowledgeAlarmCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchAcknowledgeAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchAcknowledgeAlarmCommand(input, context);
+    return se_BatchAcknowledgeAlarmCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchAcknowledgeAlarmCommandOutput> {
-    return deserializeAws_restJson1BatchAcknowledgeAlarmCommand(output, context);
+    return de_BatchAcknowledgeAlarmCommand(output, context);
   }
 
   // Start section: command_body_extra

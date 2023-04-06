@@ -15,10 +15,7 @@ import {
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
 import { StopModelRequest, StopModelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopModelCommand,
-  serializeAws_restJson1StopModelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopModelCommand, se_StopModelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class StopModelCommand extends $Command<
    * @internal
    */
   private serialize(input: StopModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopModelCommand(input, context);
+    return se_StopModelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopModelCommandOutput> {
-    return deserializeAws_restJson1StopModelCommand(output, context);
+    return de_StopModelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -20,8 +20,8 @@ import {
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
-  deserializeAws_restJson1GetLaunchProfileInitializationCommand,
-  serializeAws_restJson1GetLaunchProfileInitializationCommand,
+  de_GetLaunchProfileInitializationCommand,
+  se_GetLaunchProfileInitializationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -159,7 +159,7 @@ export class GetLaunchProfileInitializationCommand extends $Command<
     input: GetLaunchProfileInitializationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetLaunchProfileInitializationCommand(input, context);
+    return se_GetLaunchProfileInitializationCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class GetLaunchProfileInitializationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetLaunchProfileInitializationCommandOutput> {
-    return deserializeAws_restJson1GetLaunchProfileInitializationCommand(output, context);
+    return de_GetLaunchProfileInitializationCommand(output, context);
   }
 
   // Start section: command_body_extra

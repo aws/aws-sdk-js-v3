@@ -15,8 +15,8 @@ import {
 
 import { UpdateWorkspaceImagePermissionRequest, UpdateWorkspaceImagePermissionResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateWorkspaceImagePermissionCommand,
-  serializeAws_json1_1UpdateWorkspaceImagePermissionCommand,
+  de_UpdateWorkspaceImagePermissionCommand,
+  se_UpdateWorkspaceImagePermissionCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -164,7 +164,7 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command<
     input: UpdateWorkspaceImagePermissionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateWorkspaceImagePermissionCommand(input, context);
+    return se_UpdateWorkspaceImagePermissionCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateWorkspaceImagePermissionCommandOutput> {
-    return deserializeAws_json1_1UpdateWorkspaceImagePermissionCommand(output, context);
+    return de_UpdateWorkspaceImagePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

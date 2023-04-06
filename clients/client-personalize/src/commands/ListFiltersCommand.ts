@@ -15,10 +15,7 @@ import {
 
 import { ListFiltersRequest, ListFiltersResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListFiltersCommand,
-  serializeAws_json1_1ListFiltersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListFiltersCommand, se_ListFiltersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class ListFiltersCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFiltersCommand(input, context);
+    return se_ListFiltersCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFiltersCommandOutput> {
-    return deserializeAws_json1_1ListFiltersCommand(output, context);
+    return de_ListFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

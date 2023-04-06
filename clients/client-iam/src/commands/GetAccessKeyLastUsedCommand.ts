@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetAccessKeyLastUsedRequest, GetAccessKeyLastUsedResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetAccessKeyLastUsedCommand,
-  serializeAws_queryGetAccessKeyLastUsedCommand,
-} from "../protocols/Aws_query";
+import { de_GetAccessKeyLastUsedCommand, se_GetAccessKeyLastUsedCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class GetAccessKeyLastUsedCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccessKeyLastUsedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccessKeyLastUsedCommand(input, context);
+    return se_GetAccessKeyLastUsedCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessKeyLastUsedCommandOutput> {
-    return deserializeAws_queryGetAccessKeyLastUsedCommand(output, context);
+    return de_GetAccessKeyLastUsedCommand(output, context);
   }
 
   // Start section: command_body_extra

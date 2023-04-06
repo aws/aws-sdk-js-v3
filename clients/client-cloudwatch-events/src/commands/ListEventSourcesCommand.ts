@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { ListEventSourcesRequest, ListEventSourcesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListEventSourcesCommand,
-  serializeAws_json1_1ListEventSourcesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListEventSourcesCommand, se_ListEventSourcesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListEventSourcesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEventSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListEventSourcesCommand(input, context);
+    return se_ListEventSourcesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventSourcesCommandOutput> {
-    return deserializeAws_json1_1ListEventSourcesCommand(output, context);
+    return de_ListEventSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

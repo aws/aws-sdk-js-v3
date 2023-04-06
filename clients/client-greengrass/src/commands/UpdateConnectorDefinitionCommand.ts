@@ -15,10 +15,7 @@ import {
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { UpdateConnectorDefinitionRequest, UpdateConnectorDefinitionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateConnectorDefinitionCommand,
-  serializeAws_restJson1UpdateConnectorDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateConnectorDefinitionCommand, se_UpdateConnectorDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class UpdateConnectorDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateConnectorDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateConnectorDefinitionCommand(input, context);
+    return se_UpdateConnectorDefinitionCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class UpdateConnectorDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1UpdateConnectorDefinitionCommand(output, context);
+    return de_UpdateConnectorDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

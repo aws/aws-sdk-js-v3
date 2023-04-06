@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { DeleteApiDestinationRequest, DeleteApiDestinationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteApiDestinationCommand,
-  serializeAws_json1_1DeleteApiDestinationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteApiDestinationCommand, se_DeleteApiDestinationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteApiDestinationCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteApiDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApiDestinationCommand(input, context);
+    return se_DeleteApiDestinationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApiDestinationCommandOutput> {
-    return deserializeAws_json1_1DeleteApiDestinationCommand(output, context);
+    return de_DeleteApiDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

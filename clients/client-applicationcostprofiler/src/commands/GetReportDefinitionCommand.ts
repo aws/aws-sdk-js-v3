@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
 import { GetReportDefinitionRequest, GetReportDefinitionResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetReportDefinitionCommand,
-  serializeAws_restJson1GetReportDefinitionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetReportDefinitionCommand, se_GetReportDefinitionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class GetReportDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: GetReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetReportDefinitionCommand(input, context);
+    return se_GetReportDefinitionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReportDefinitionCommandOutput> {
-    return deserializeAws_restJson1GetReportDefinitionCommand(output, context);
+    return de_GetReportDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
 import { ListHealthEventsInput, ListHealthEventsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListHealthEventsCommand,
-  serializeAws_restJson1ListHealthEventsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListHealthEventsCommand, se_ListHealthEventsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class ListHealthEventsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListHealthEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListHealthEventsCommand(input, context);
+    return se_ListHealthEventsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHealthEventsCommandOutput> {
-    return deserializeAws_restJson1ListHealthEventsCommand(output, context);
+    return de_ListHealthEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListMailboxPermissionsRequest, ListMailboxPermissionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListMailboxPermissionsCommand,
-  serializeAws_json1_1ListMailboxPermissionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListMailboxPermissionsCommand, se_ListMailboxPermissionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -139,14 +136,14 @@ export class ListMailboxPermissionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListMailboxPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListMailboxPermissionsCommand(input, context);
+    return se_ListMailboxPermissionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMailboxPermissionsCommandOutput> {
-    return deserializeAws_json1_1ListMailboxPermissionsCommand(output, context);
+    return de_ListMailboxPermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

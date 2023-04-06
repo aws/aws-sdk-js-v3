@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { DeleteAnomalyDetectorInput, DeleteAnomalyDetectorOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteAnomalyDetectorCommand,
-  serializeAws_queryDeleteAnomalyDetectorCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteAnomalyDetectorCommand, se_DeleteAnomalyDetectorCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -184,14 +181,14 @@ export class DeleteAnomalyDetectorCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteAnomalyDetectorCommand(input, context);
+    return se_DeleteAnomalyDetectorCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnomalyDetectorCommandOutput> {
-    return deserializeAws_queryDeleteAnomalyDetectorCommand(output, context);
+    return de_DeleteAnomalyDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { AcceptEulasRequest, AcceptEulasResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1AcceptEulasCommand,
-  serializeAws_restJson1AcceptEulasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AcceptEulasCommand, se_AcceptEulasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -146,14 +143,14 @@ export class AcceptEulasCommand extends $Command<
    * @internal
    */
   private serialize(input: AcceptEulasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AcceptEulasCommand(input, context);
+    return se_AcceptEulasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptEulasCommandOutput> {
-    return deserializeAws_restJson1AcceptEulasCommand(output, context);
+    return de_AcceptEulasCommand(output, context);
   }
 
   // Start section: command_body_extra

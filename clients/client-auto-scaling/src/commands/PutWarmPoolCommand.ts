@@ -15,7 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { PutWarmPoolAnswer, PutWarmPoolType } from "../models/models_0";
-import { deserializeAws_queryPutWarmPoolCommand, serializeAws_queryPutWarmPoolCommand } from "../protocols/Aws_query";
+import { de_PutWarmPoolCommand, se_PutWarmPoolCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -156,14 +156,14 @@ export class PutWarmPoolCommand extends $Command<
    * @internal
    */
   private serialize(input: PutWarmPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutWarmPoolCommand(input, context);
+    return se_PutWarmPoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutWarmPoolCommandOutput> {
-    return deserializeAws_queryPutWarmPoolCommand(output, context);
+    return de_PutWarmPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { PutPortfolioPreferencesRequest, PutPortfolioPreferencesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutPortfolioPreferencesCommand,
-  serializeAws_restJson1PutPortfolioPreferencesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutPortfolioPreferencesCommand, se_PutPortfolioPreferencesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -188,14 +185,14 @@ export class PutPortfolioPreferencesCommand extends $Command<
    * @internal
    */
   private serialize(input: PutPortfolioPreferencesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutPortfolioPreferencesCommand(input, context);
+    return se_PutPortfolioPreferencesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPortfolioPreferencesCommandOutput> {
-    return deserializeAws_restJson1PutPortfolioPreferencesCommand(output, context);
+    return de_PutPortfolioPreferencesCommand(output, context);
   }
 
   // Start section: command_body_extra

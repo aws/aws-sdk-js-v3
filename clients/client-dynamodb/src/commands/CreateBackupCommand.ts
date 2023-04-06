@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { CreateBackupInput, CreateBackupOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0CreateBackupCommand,
-  serializeAws_json1_0CreateBackupCommand,
-} from "../protocols/Aws_json1_0";
+import { de_CreateBackupCommand, se_CreateBackupCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -181,14 +178,14 @@ export class CreateBackupCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0CreateBackupCommand(input, context);
+    return se_CreateBackupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupCommandOutput> {
-    return deserializeAws_json1_0CreateBackupCommand(output, context);
+    return de_CreateBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

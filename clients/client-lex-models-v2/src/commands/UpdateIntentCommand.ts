@@ -15,10 +15,7 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { UpdateIntentRequest, UpdateIntentResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateIntentCommand,
-  serializeAws_restJson1UpdateIntentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateIntentCommand, se_UpdateIntentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -577,14 +574,14 @@ export class UpdateIntentCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateIntentCommand(input, context);
+    return se_UpdateIntentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIntentCommandOutput> {
-    return deserializeAws_restJson1UpdateIntentCommand(output, context);
+    return de_UpdateIntentCommand(output, context);
   }
 
   // Start section: command_body_extra

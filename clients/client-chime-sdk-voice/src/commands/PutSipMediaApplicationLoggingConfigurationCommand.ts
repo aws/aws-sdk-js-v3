@@ -19,8 +19,8 @@ import {
   PutSipMediaApplicationLoggingConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCommand,
-  serializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCommand,
+  de_PutSipMediaApplicationLoggingConfigurationCommand,
+  se_PutSipMediaApplicationLoggingConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -159,7 +159,7 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<
     input: PutSipMediaApplicationLoggingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCommand(input, context);
+    return se_PutSipMediaApplicationLoggingConfigurationCommand(input, context);
   }
 
   /**
@@ -169,7 +169,7 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutSipMediaApplicationLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCommand(output, context);
+    return de_PutSipMediaApplicationLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

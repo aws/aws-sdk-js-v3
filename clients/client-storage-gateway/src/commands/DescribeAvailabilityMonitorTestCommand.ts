@@ -15,8 +15,8 @@ import {
 
 import { DescribeAvailabilityMonitorTestInput, DescribeAvailabilityMonitorTestOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand,
-  serializeAws_json1_1DescribeAvailabilityMonitorTestCommand,
+  de_DescribeAvailabilityMonitorTestCommand,
+  se_DescribeAvailabilityMonitorTestCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
@@ -135,7 +135,7 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
     input: DescribeAvailabilityMonitorTestCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAvailabilityMonitorTestCommand(input, context);
+    return se_DescribeAvailabilityMonitorTestCommand(input, context);
   }
 
   /**
@@ -145,7 +145,7 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAvailabilityMonitorTestCommandOutput> {
-    return deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand(output, context);
+    return de_DescribeAvailabilityMonitorTestCommand(output, context);
   }
 
   // Start section: command_body_extra

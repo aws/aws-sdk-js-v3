@@ -19,8 +19,8 @@ import {
   ListResourcesAssociatedToCustomLineItemOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListResourcesAssociatedToCustomLineItemCommand,
-  serializeAws_restJson1ListResourcesAssociatedToCustomLineItemCommand,
+  de_ListResourcesAssociatedToCustomLineItemCommand,
+  se_ListResourcesAssociatedToCustomLineItemCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -162,7 +162,7 @@ export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<
     input: ListResourcesAssociatedToCustomLineItemCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListResourcesAssociatedToCustomLineItemCommand(input, context);
+    return se_ListResourcesAssociatedToCustomLineItemCommand(input, context);
   }
 
   /**
@@ -172,7 +172,7 @@ export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourcesAssociatedToCustomLineItemCommandOutput> {
-    return deserializeAws_restJson1ListResourcesAssociatedToCustomLineItemCommand(output, context);
+    return de_ListResourcesAssociatedToCustomLineItemCommand(output, context);
   }
 
   // Start section: command_body_extra

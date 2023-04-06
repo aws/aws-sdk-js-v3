@@ -23,8 +23,8 @@ import {
   ListCustomRoutingPortMappingsByDestinationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommand,
-  serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommand,
+  de_ListCustomRoutingPortMappingsByDestinationCommand,
+  se_ListCustomRoutingPortMappingsByDestinationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -157,7 +157,7 @@ export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<
     input: ListCustomRoutingPortMappingsByDestinationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommand(input, context);
+    return se_ListCustomRoutingPortMappingsByDestinationCommand(input, context);
   }
 
   /**
@@ -167,7 +167,7 @@ export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListCustomRoutingPortMappingsByDestinationCommandOutput> {
-    return deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommand(output, context);
+    return de_ListCustomRoutingPortMappingsByDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

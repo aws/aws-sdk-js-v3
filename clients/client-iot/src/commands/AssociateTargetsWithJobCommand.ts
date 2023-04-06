@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { AssociateTargetsWithJobRequest, AssociateTargetsWithJobResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateTargetsWithJobCommand,
-  serializeAws_restJson1AssociateTargetsWithJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateTargetsWithJobCommand, se_AssociateTargetsWithJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -153,14 +150,14 @@ export class AssociateTargetsWithJobCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateTargetsWithJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateTargetsWithJobCommand(input, context);
+    return se_AssociateTargetsWithJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateTargetsWithJobCommandOutput> {
-    return deserializeAws_restJson1AssociateTargetsWithJobCommand(output, context);
+    return de_AssociateTargetsWithJobCommand(output, context);
   }
 
   // Start section: command_body_extra

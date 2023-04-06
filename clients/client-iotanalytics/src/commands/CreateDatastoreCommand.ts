@@ -15,10 +15,7 @@ import {
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import { CreateDatastoreRequest, CreateDatastoreResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateDatastoreCommand,
-  serializeAws_restJson1CreateDatastoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateDatastoreCommand, se_CreateDatastoreCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -188,14 +185,14 @@ export class CreateDatastoreCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateDatastoreCommand(input, context);
+    return se_CreateDatastoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatastoreCommandOutput> {
-    return deserializeAws_restJson1CreateDatastoreCommand(output, context);
+    return de_CreateDatastoreCommand(output, context);
   }
 
   // Start section: command_body_extra

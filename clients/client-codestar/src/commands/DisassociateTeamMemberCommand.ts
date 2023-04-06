@@ -15,10 +15,7 @@ import {
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
 import { DisassociateTeamMemberRequest, DisassociateTeamMemberResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateTeamMemberCommand,
-  serializeAws_json1_1DisassociateTeamMemberCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateTeamMemberCommand, se_DisassociateTeamMemberCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DisassociateTeamMemberCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateTeamMemberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateTeamMemberCommand(input, context);
+    return se_DisassociateTeamMemberCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateTeamMemberCommandOutput> {
-    return deserializeAws_json1_1DisassociateTeamMemberCommand(output, context);
+    return de_DisassociateTeamMemberCommand(output, context);
   }
 
   // Start section: command_body_extra

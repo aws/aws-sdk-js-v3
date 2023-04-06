@@ -15,10 +15,7 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import { MarkAsArchivedRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
-import {
-  deserializeAws_restJson1MarkAsArchivedCommand,
-  serializeAws_restJson1MarkAsArchivedCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MarkAsArchivedCommand, se_MarkAsArchivedCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class MarkAsArchivedCommand extends $Command<
    * @internal
    */
   private serialize(input: MarkAsArchivedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MarkAsArchivedCommand(input, context);
+    return se_MarkAsArchivedCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MarkAsArchivedCommandOutput> {
-    return deserializeAws_restJson1MarkAsArchivedCommand(output, context);
+    return de_MarkAsArchivedCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { ListObjectParentsRequest, ListObjectParentsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListObjectParentsCommand,
-  serializeAws_restJson1ListObjectParentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListObjectParentsCommand, se_ListObjectParentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -159,14 +156,14 @@ export class ListObjectParentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListObjectParentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListObjectParentsCommand(input, context);
+    return se_ListObjectParentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectParentsCommandOutput> {
-    return deserializeAws_restJson1ListObjectParentsCommand(output, context);
+    return de_ListObjectParentsCommand(output, context);
   }
 
   // Start section: command_body_extra

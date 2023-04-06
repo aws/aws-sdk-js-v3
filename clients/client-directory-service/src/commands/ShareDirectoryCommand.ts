@@ -19,10 +19,7 @@ import {
   ShareDirectoryRequestFilterSensitiveLog,
   ShareDirectoryResult,
 } from "../models/models_0";
-import {
-  deserializeAws_json1_1ShareDirectoryCommand,
-  serializeAws_json1_1ShareDirectoryCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ShareDirectoryCommand, se_ShareDirectoryCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -173,14 +170,14 @@ export class ShareDirectoryCommand extends $Command<
    * @internal
    */
   private serialize(input: ShareDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ShareDirectoryCommand(input, context);
+    return se_ShareDirectoryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ShareDirectoryCommandOutput> {
-    return deserializeAws_json1_1ShareDirectoryCommand(output, context);
+    return de_ShareDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

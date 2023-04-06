@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import { ListConfigurationsRequest, ListConfigurationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListConfigurationsCommand,
-  serializeAws_json1_1ListConfigurationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListConfigurationsCommand, se_ListConfigurationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -164,14 +161,14 @@ export class ListConfigurationsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListConfigurationsCommand(input, context);
+    return se_ListConfigurationsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListConfigurationsCommand(output, context);
+    return de_ListConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

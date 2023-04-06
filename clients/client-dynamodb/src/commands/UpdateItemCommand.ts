@@ -15,10 +15,7 @@ import {
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { UpdateItemInput, UpdateItemOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0UpdateItemCommand,
-  serializeAws_json1_0UpdateItemCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UpdateItemCommand, se_UpdateItemCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -279,14 +276,14 @@ export class UpdateItemCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UpdateItemCommand(input, context);
+    return se_UpdateItemCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateItemCommandOutput> {
-    return deserializeAws_json1_0UpdateItemCommand(output, context);
+    return de_UpdateItemCommand(output, context);
   }
 
   // Start section: command_body_extra

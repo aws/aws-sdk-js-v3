@@ -16,8 +16,8 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DescribeDirectConnectGatewaysRequest, DescribeDirectConnectGatewaysResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeDirectConnectGatewaysCommand,
-  serializeAws_json1_1DescribeDirectConnectGatewaysCommand,
+  de_DescribeDirectConnectGatewaysCommand,
+  se_DescribeDirectConnectGatewaysCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -130,7 +130,7 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDirectConnectGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewaysCommand(input, context);
+    return se_DescribeDirectConnectGatewaysCommand(input, context);
   }
 
   /**
@@ -140,7 +140,7 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDirectConnectGatewaysCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewaysCommand(output, context);
+    return de_DescribeDirectConnectGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

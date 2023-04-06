@@ -16,8 +16,8 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { GetThingRuntimeConfigurationRequest, GetThingRuntimeConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetThingRuntimeConfigurationCommand,
-  serializeAws_restJson1GetThingRuntimeConfigurationCommand,
+  de_GetThingRuntimeConfigurationCommand,
+  se_GetThingRuntimeConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -128,7 +128,7 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetThingRuntimeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetThingRuntimeConfigurationCommand(input, context);
+    return se_GetThingRuntimeConfigurationCommand(input, context);
   }
 
   /**
@@ -138,7 +138,7 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetThingRuntimeConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetThingRuntimeConfigurationCommand(output, context);
+    return de_GetThingRuntimeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

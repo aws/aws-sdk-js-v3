@@ -15,10 +15,7 @@ import {
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { ListAccessPreviewFindingsRequest, ListAccessPreviewFindingsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAccessPreviewFindingsCommand,
-  serializeAws_restJson1ListAccessPreviewFindingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListAccessPreviewFindingsCommand, se_ListAccessPreviewFindingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,7 +153,7 @@ export class ListAccessPreviewFindingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccessPreviewFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAccessPreviewFindingsCommand(input, context);
+    return se_ListAccessPreviewFindingsCommand(input, context);
   }
 
   /**
@@ -166,7 +163,7 @@ export class ListAccessPreviewFindingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAccessPreviewFindingsCommandOutput> {
-    return deserializeAws_restJson1ListAccessPreviewFindingsCommand(output, context);
+    return de_ListAccessPreviewFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

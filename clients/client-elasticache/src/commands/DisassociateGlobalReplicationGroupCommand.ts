@@ -19,8 +19,8 @@ import {
   DisassociateGlobalReplicationGroupResult,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDisassociateGlobalReplicationGroupCommand,
-  serializeAws_queryDisassociateGlobalReplicationGroupCommand,
+  de_DisassociateGlobalReplicationGroupCommand,
+  se_DisassociateGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -142,7 +142,7 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
     input: DisassociateGlobalReplicationGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDisassociateGlobalReplicationGroupCommand(input, context);
+    return se_DisassociateGlobalReplicationGroupCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryDisassociateGlobalReplicationGroupCommand(output, context);
+    return de_DisassociateGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

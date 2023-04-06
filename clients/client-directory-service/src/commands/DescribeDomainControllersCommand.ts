@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { DescribeDomainControllersRequest, DescribeDomainControllersResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDomainControllersCommand,
-  serializeAws_json1_1DescribeDomainControllersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDomainControllersCommand, se_DescribeDomainControllersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,7 +140,7 @@ export class DescribeDomainControllersCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDomainControllersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDomainControllersCommand(input, context);
+    return se_DescribeDomainControllersCommand(input, context);
   }
 
   /**
@@ -153,7 +150,7 @@ export class DescribeDomainControllersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDomainControllersCommandOutput> {
-    return deserializeAws_json1_1DescribeDomainControllersCommand(output, context);
+    return de_DescribeDomainControllersCommand(output, context);
   }
 
   // Start section: command_body_extra

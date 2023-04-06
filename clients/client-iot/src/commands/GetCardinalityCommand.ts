@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetCardinalityRequest, GetCardinalityResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetCardinalityCommand,
-  serializeAws_restJson1GetCardinalityCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCardinalityCommand, se_GetCardinalityCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -151,14 +148,14 @@ export class GetCardinalityCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCardinalityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCardinalityCommand(input, context);
+    return se_GetCardinalityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCardinalityCommandOutput> {
-    return deserializeAws_restJson1GetCardinalityCommand(output, context);
+    return de_GetCardinalityCommand(output, context);
   }
 
   // Start section: command_body_extra

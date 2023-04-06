@@ -15,10 +15,7 @@ import {
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { ListFlywheelsRequest, ListFlywheelsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListFlywheelsCommand,
-  serializeAws_json1_1ListFlywheelsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListFlywheelsCommand, se_ListFlywheelsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class ListFlywheelsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFlywheelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFlywheelsCommand(input, context);
+    return se_ListFlywheelsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFlywheelsCommandOutput> {
-    return deserializeAws_json1_1ListFlywheelsCommand(output, context);
+    return de_ListFlywheelsCommand(output, context);
   }
 
   // Start section: command_body_extra

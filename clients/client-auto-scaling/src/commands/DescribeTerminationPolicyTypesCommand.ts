@@ -16,8 +16,8 @@ import {
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DescribeTerminationPolicyTypesAnswer } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeTerminationPolicyTypesCommand,
-  serializeAws_queryDescribeTerminationPolicyTypesCommand,
+  de_DescribeTerminationPolicyTypesCommand,
+  se_DescribeTerminationPolicyTypesCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -150,7 +150,7 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     input: DescribeTerminationPolicyTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTerminationPolicyTypesCommand(input, context);
+    return se_DescribeTerminationPolicyTypesCommand(input, context);
   }
 
   /**
@@ -160,7 +160,7 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTerminationPolicyTypesCommandOutput> {
-    return deserializeAws_queryDescribeTerminationPolicyTypesCommand(output, context);
+    return de_DescribeTerminationPolicyTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

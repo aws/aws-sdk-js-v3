@@ -15,10 +15,7 @@ import {
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { RollbackStackInput, RollbackStackOutput } from "../models/models_0";
-import {
-  deserializeAws_queryRollbackStackCommand,
-  serializeAws_queryRollbackStackCommand,
-} from "../protocols/Aws_query";
+import { de_RollbackStackCommand, se_RollbackStackCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class RollbackStackCommand extends $Command<
    * @internal
    */
   private serialize(input: RollbackStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRollbackStackCommand(input, context);
+    return se_RollbackStackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RollbackStackCommandOutput> {
-    return deserializeAws_queryRollbackStackCommand(output, context);
+    return de_RollbackStackCommand(output, context);
   }
 
   // Start section: command_body_extra

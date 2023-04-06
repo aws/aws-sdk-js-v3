@@ -15,10 +15,7 @@ import {
 
 import { GetEventStreamRequest, GetEventStreamResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetEventStreamCommand,
-  serializeAws_restJson1GetEventStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetEventStreamCommand, se_GetEventStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class GetEventStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: GetEventStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetEventStreamCommand(input, context);
+    return se_GetEventStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventStreamCommandOutput> {
-    return deserializeAws_restJson1GetEventStreamCommand(output, context);
+    return de_GetEventStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { AddLFTagsToResourceRequest, AddLFTagsToResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1AddLFTagsToResourceCommand,
-  serializeAws_restJson1AddLFTagsToResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AddLFTagsToResourceCommand, se_AddLFTagsToResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -202,14 +199,14 @@ export class AddLFTagsToResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: AddLFTagsToResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AddLFTagsToResourceCommand(input, context);
+    return se_AddLFTagsToResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddLFTagsToResourceCommandOutput> {
-    return deserializeAws_restJson1AddLFTagsToResourceCommand(output, context);
+    return de_AddLFTagsToResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

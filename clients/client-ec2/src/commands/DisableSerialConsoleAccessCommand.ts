@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DisableSerialConsoleAccessRequest, DisableSerialConsoleAccessResult } from "../models/models_5";
-import {
-  deserializeAws_ec2DisableSerialConsoleAccessCommand,
-  serializeAws_ec2DisableSerialConsoleAccessCommand,
-} from "../protocols/Aws_ec2";
+import { de_DisableSerialConsoleAccessCommand, se_DisableSerialConsoleAccessCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -123,7 +120,7 @@ export class DisableSerialConsoleAccessCommand extends $Command<
    * @internal
    */
   private serialize(input: DisableSerialConsoleAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableSerialConsoleAccessCommand(input, context);
+    return se_DisableSerialConsoleAccessCommand(input, context);
   }
 
   /**
@@ -133,7 +130,7 @@ export class DisableSerialConsoleAccessCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableSerialConsoleAccessCommandOutput> {
-    return deserializeAws_ec2DisableSerialConsoleAccessCommand(output, context);
+    return de_DisableSerialConsoleAccessCommand(output, context);
   }
 
   // Start section: command_body_extra

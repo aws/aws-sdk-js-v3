@@ -15,10 +15,7 @@ import {
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { ListDevicePoolsRequest, ListDevicePoolsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDevicePoolsCommand,
-  serializeAws_json1_1ListDevicePoolsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDevicePoolsCommand, se_ListDevicePoolsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -176,14 +173,14 @@ export class ListDevicePoolsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDevicePoolsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDevicePoolsCommand(input, context);
+    return se_ListDevicePoolsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDevicePoolsCommandOutput> {
-    return deserializeAws_json1_1ListDevicePoolsCommand(output, context);
+    return de_ListDevicePoolsCommand(output, context);
   }
 
   // Start section: command_body_extra

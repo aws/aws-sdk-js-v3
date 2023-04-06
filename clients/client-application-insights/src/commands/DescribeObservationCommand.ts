@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import { DescribeObservationRequest, DescribeObservationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeObservationCommand,
-  serializeAws_json1_1DescribeObservationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeObservationCommand, se_DescribeObservationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeObservationCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeObservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeObservationCommand(input, context);
+    return se_DescribeObservationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeObservationCommandOutput> {
-    return deserializeAws_json1_1DescribeObservationCommand(output, context);
+    return de_DescribeObservationCommand(output, context);
   }
 
   // Start section: command_body_extra

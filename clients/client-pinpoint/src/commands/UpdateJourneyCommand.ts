@@ -15,10 +15,7 @@ import {
 
 import { UpdateJourneyRequest, UpdateJourneyResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1UpdateJourneyCommand,
-  serializeAws_restJson1UpdateJourneyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateJourneyCommand, se_UpdateJourneyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -516,14 +513,14 @@ export class UpdateJourneyCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateJourneyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateJourneyCommand(input, context);
+    return se_UpdateJourneyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJourneyCommandOutput> {
-    return deserializeAws_restJson1UpdateJourneyCommand(output, context);
+    return de_UpdateJourneyCommand(output, context);
   }
 
   // Start section: command_body_extra

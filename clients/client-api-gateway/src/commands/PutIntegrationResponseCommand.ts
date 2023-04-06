@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { IntegrationResponse, PutIntegrationResponseRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutIntegrationResponseCommand,
-  serializeAws_restJson1PutIntegrationResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutIntegrationResponseCommand, se_PutIntegrationResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class PutIntegrationResponseCommand extends $Command<
    * @internal
    */
   private serialize(input: PutIntegrationResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutIntegrationResponseCommand(input, context);
+    return se_PutIntegrationResponseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIntegrationResponseCommandOutput> {
-    return deserializeAws_restJson1PutIntegrationResponseCommand(output, context);
+    return de_PutIntegrationResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

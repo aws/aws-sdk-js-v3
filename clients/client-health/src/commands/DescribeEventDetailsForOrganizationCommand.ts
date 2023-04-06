@@ -19,8 +19,8 @@ import {
   DescribeEventDetailsForOrganizationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand,
-  serializeAws_json1_1DescribeEventDetailsForOrganizationCommand,
+  de_DescribeEventDetailsForOrganizationCommand,
+  se_DescribeEventDetailsForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -169,7 +169,7 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command<
     input: DescribeEventDetailsForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventDetailsForOrganizationCommand(input, context);
+    return se_DescribeEventDetailsForOrganizationCommand(input, context);
   }
 
   /**
@@ -179,7 +179,7 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEventDetailsForOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand(output, context);
+    return de_DescribeEventDetailsForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

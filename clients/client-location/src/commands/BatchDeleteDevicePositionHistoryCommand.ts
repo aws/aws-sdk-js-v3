@@ -16,8 +16,8 @@ import {
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { BatchDeleteDevicePositionHistoryRequest, BatchDeleteDevicePositionHistoryResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchDeleteDevicePositionHistoryCommand,
-  serializeAws_restJson1BatchDeleteDevicePositionHistoryCommand,
+  de_BatchDeleteDevicePositionHistoryCommand,
+  se_BatchDeleteDevicePositionHistoryCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command<
     input: BatchDeleteDevicePositionHistoryCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchDeleteDevicePositionHistoryCommand(input, context);
+    return se_BatchDeleteDevicePositionHistoryCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteDevicePositionHistoryCommandOutput> {
-    return deserializeAws_restJson1BatchDeleteDevicePositionHistoryCommand(output, context);
+    return de_BatchDeleteDevicePositionHistoryCommand(output, context);
   }
 
   // Start section: command_body_extra

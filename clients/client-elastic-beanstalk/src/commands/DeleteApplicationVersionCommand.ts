@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DeleteApplicationVersionMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteApplicationVersionCommand,
-  serializeAws_queryDeleteApplicationVersionCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteApplicationVersionCommand, se_DeleteApplicationVersionCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class DeleteApplicationVersionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteApplicationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteApplicationVersionCommand(input, context);
+    return se_DeleteApplicationVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationVersionCommandOutput> {
-    return deserializeAws_queryDeleteApplicationVersionCommand(output, context);
+    return de_DeleteApplicationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

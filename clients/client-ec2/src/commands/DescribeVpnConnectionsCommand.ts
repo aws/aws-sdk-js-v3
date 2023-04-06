@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeVpnConnectionsRequest, DescribeVpnConnectionsResult } from "../models/models_5";
-import {
-  deserializeAws_ec2DescribeVpnConnectionsCommand,
-  serializeAws_ec2DescribeVpnConnectionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeVpnConnectionsCommand, se_DescribeVpnConnectionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DescribeVpnConnectionsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeVpnConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpnConnectionsCommand(input, context);
+    return se_DescribeVpnConnectionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpnConnectionsCommandOutput> {
-    return deserializeAws_ec2DescribeVpnConnectionsCommand(output, context);
+    return de_DescribeVpnConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

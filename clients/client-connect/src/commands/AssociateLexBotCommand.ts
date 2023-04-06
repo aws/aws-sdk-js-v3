@@ -15,10 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { AssociateLexBotRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1AssociateLexBotCommand,
-  serializeAws_restJson1AssociateLexBotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_AssociateLexBotCommand, se_AssociateLexBotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class AssociateLexBotCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateLexBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateLexBotCommand(input, context);
+    return se_AssociateLexBotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateLexBotCommandOutput> {
-    return deserializeAws_restJson1AssociateLexBotCommand(output, context);
+    return de_AssociateLexBotCommand(output, context);
   }
 
   // Start section: command_body_extra

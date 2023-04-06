@@ -19,10 +19,7 @@ import {
   DescribeFilterResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1DescribeFilterCommand,
-  serializeAws_json1_1DescribeFilterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeFilterCommand, se_DescribeFilterCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class DescribeFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeFilterCommand(input, context);
+    return se_DescribeFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFilterCommandOutput> {
-    return deserializeAws_json1_1DescribeFilterCommand(output, context);
+    return de_DescribeFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

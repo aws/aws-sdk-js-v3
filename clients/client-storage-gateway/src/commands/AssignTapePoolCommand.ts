@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssignTapePoolInput, AssignTapePoolOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssignTapePoolCommand,
-  serializeAws_json1_1AssignTapePoolCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssignTapePoolCommand, se_AssignTapePoolCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
 /**
@@ -133,14 +130,14 @@ export class AssignTapePoolCommand extends $Command<
    * @internal
    */
   private serialize(input: AssignTapePoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssignTapePoolCommand(input, context);
+    return se_AssignTapePoolCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssignTapePoolCommandOutput> {
-    return deserializeAws_json1_1AssignTapePoolCommand(output, context);
+    return de_AssignTapePoolCommand(output, context);
   }
 
   // Start section: command_body_extra

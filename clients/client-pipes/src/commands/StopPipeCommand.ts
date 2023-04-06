@@ -15,10 +15,7 @@ import {
 
 import { StopPipeRequest, StopPipeResponse } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
-import {
-  deserializeAws_restJson1StopPipeCommand,
-  serializeAws_restJson1StopPipeCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopPipeCommand, se_StopPipeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeComm
    * @internal
    */
   private serialize(input: StopPipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopPipeCommand(input, context);
+    return se_StopPipeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopPipeCommandOutput> {
-    return deserializeAws_restJson1StopPipeCommand(output, context);
+    return de_StopPipeCommand(output, context);
   }
 
   // Start section: command_body_extra

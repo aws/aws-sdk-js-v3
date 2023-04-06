@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { GetReservationUtilizationRequest, GetReservationUtilizationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetReservationUtilizationCommand,
-  serializeAws_json1_1GetReservationUtilizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetReservationUtilizationCommand, se_GetReservationUtilizationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -215,7 +212,7 @@ export class GetReservationUtilizationCommand extends $Command<
    * @internal
    */
   private serialize(input: GetReservationUtilizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetReservationUtilizationCommand(input, context);
+    return se_GetReservationUtilizationCommand(input, context);
   }
 
   /**
@@ -225,7 +222,7 @@ export class GetReservationUtilizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReservationUtilizationCommandOutput> {
-    return deserializeAws_json1_1GetReservationUtilizationCommand(output, context);
+    return de_GetReservationUtilizationCommand(output, context);
   }
 
   // Start section: command_body_extra

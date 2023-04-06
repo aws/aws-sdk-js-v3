@@ -15,10 +15,7 @@ import {
 
 import { UpdateStackRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateStackCommand,
-  serializeAws_json1_1UpdateStackCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateStackCommand, se_UpdateStackCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -161,14 +158,14 @@ export class UpdateStackCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateStackCommand(input, context);
+    return se_UpdateStackCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateStackCommandOutput> {
-    return deserializeAws_json1_1UpdateStackCommand(output, context);
+    return de_UpdateStackCommand(output, context);
   }
 
   // Start section: command_body_extra

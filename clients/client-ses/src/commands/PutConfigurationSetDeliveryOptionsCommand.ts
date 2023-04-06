@@ -18,8 +18,8 @@ import {
   PutConfigurationSetDeliveryOptionsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryPutConfigurationSetDeliveryOptionsCommand,
-  serializeAws_queryPutConfigurationSetDeliveryOptionsCommand,
+  de_PutConfigurationSetDeliveryOptionsCommand,
+  se_PutConfigurationSetDeliveryOptionsCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -137,7 +137,7 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     input: PutConfigurationSetDeliveryOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryPutConfigurationSetDeliveryOptionsCommand(input, context);
+    return se_PutConfigurationSetDeliveryOptionsCommand(input, context);
   }
 
   /**
@@ -147,7 +147,7 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> {
-    return deserializeAws_queryPutConfigurationSetDeliveryOptionsCommand(output, context);
+    return de_PutConfigurationSetDeliveryOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

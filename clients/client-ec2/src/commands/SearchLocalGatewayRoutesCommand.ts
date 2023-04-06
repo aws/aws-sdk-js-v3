@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { SearchLocalGatewayRoutesRequest, SearchLocalGatewayRoutesResult } from "../models/models_6";
-import {
-  deserializeAws_ec2SearchLocalGatewayRoutesCommand,
-  serializeAws_ec2SearchLocalGatewayRoutesCommand,
-} from "../protocols/Aws_ec2";
+import { de_SearchLocalGatewayRoutesCommand, se_SearchLocalGatewayRoutesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
    * @internal
    */
   private serialize(input: SearchLocalGatewayRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2SearchLocalGatewayRoutesCommand(input, context);
+    return se_SearchLocalGatewayRoutesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchLocalGatewayRoutesCommandOutput> {
-    return deserializeAws_ec2SearchLocalGatewayRoutesCommand(output, context);
+    return de_SearchLocalGatewayRoutesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -19,10 +19,7 @@ import {
   ListChangedBlocksResponse,
   ListChangedBlocksResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListChangedBlocksCommand,
-  serializeAws_restJson1ListChangedBlocksCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListChangedBlocksCommand, se_ListChangedBlocksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -148,14 +145,14 @@ export class ListChangedBlocksCommand extends $Command<
    * @internal
    */
   private serialize(input: ListChangedBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChangedBlocksCommand(input, context);
+    return se_ListChangedBlocksCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangedBlocksCommandOutput> {
-    return deserializeAws_restJson1ListChangedBlocksCommand(output, context);
+    return de_ListChangedBlocksCommand(output, context);
   }
 
   // Start section: command_body_extra

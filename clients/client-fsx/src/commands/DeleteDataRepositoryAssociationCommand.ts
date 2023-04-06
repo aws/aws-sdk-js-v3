@@ -16,8 +16,8 @@ import {
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { DeleteDataRepositoryAssociationRequest, DeleteDataRepositoryAssociationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteDataRepositoryAssociationCommand,
-  serializeAws_json1_1DeleteDataRepositoryAssociationCommand,
+  de_DeleteDataRepositoryAssociationCommand,
+  se_DeleteDataRepositoryAssociationCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -151,7 +151,7 @@ export class DeleteDataRepositoryAssociationCommand extends $Command<
     input: DeleteDataRepositoryAssociationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteDataRepositoryAssociationCommand(input, context);
+    return se_DeleteDataRepositoryAssociationCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class DeleteDataRepositoryAssociationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteDataRepositoryAssociationCommandOutput> {
-    return deserializeAws_json1_1DeleteDataRepositoryAssociationCommand(output, context);
+    return de_DeleteDataRepositoryAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

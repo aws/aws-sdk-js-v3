@@ -15,10 +15,7 @@ import {
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { CreateUpdatedImageRequest, CreateUpdatedImageResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateUpdatedImageCommand,
-  serializeAws_json1_1CreateUpdatedImageCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateUpdatedImageCommand, se_CreateUpdatedImageCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class CreateUpdatedImageCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateUpdatedImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateUpdatedImageCommand(input, context);
+    return se_CreateUpdatedImageCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUpdatedImageCommandOutput> {
-    return deserializeAws_json1_1CreateUpdatedImageCommand(output, context);
+    return de_CreateUpdatedImageCommand(output, context);
   }
 
   // Start section: command_body_extra

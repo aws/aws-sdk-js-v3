@@ -15,10 +15,7 @@ import {
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { DisassociateAdminAccountRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateAdminAccountCommand,
-  serializeAws_json1_1DisassociateAdminAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateAdminAccountCommand, se_DisassociateAdminAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class DisassociateAdminAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateAdminAccountCommand(input, context);
+    return se_DisassociateAdminAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateAdminAccountCommandOutput> {
-    return deserializeAws_json1_1DisassociateAdminAccountCommand(output, context);
+    return de_DisassociateAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

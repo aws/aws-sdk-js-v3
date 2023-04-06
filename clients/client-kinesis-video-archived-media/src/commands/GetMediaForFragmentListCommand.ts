@@ -26,10 +26,7 @@ import {
   GetMediaForFragmentListOutput,
   GetMediaForFragmentListOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMediaForFragmentListCommand,
-  serializeAws_restJson1GetMediaForFragmentListCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMediaForFragmentListCommand, se_GetMediaForFragmentListCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -196,7 +193,7 @@ export class GetMediaForFragmentListCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMediaForFragmentListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMediaForFragmentListCommand(input, context);
+    return se_GetMediaForFragmentListCommand(input, context);
   }
 
   /**
@@ -206,7 +203,7 @@ export class GetMediaForFragmentListCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetMediaForFragmentListCommandOutput> {
-    return deserializeAws_restJson1GetMediaForFragmentListCommand(output, context);
+    return de_GetMediaForFragmentListCommand(output, context);
   }
 
   // Start section: command_body_extra

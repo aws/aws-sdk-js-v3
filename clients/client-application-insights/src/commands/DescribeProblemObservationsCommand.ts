@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import { DescribeProblemObservationsRequest, DescribeProblemObservationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProblemObservationsCommand,
-  serializeAws_json1_1DescribeProblemObservationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeProblemObservationsCommand, se_DescribeProblemObservationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -135,7 +132,7 @@ export class DescribeProblemObservationsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeProblemObservationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProblemObservationsCommand(input, context);
+    return se_DescribeProblemObservationsCommand(input, context);
   }
 
   /**
@@ -145,7 +142,7 @@ export class DescribeProblemObservationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProblemObservationsCommandOutput> {
-    return deserializeAws_json1_1DescribeProblemObservationsCommand(output, context);
+    return de_DescribeProblemObservationsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { DeleteDataCellsFilterRequest, DeleteDataCellsFilterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDataCellsFilterCommand,
-  serializeAws_restJson1DeleteDataCellsFilterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDataCellsFilterCommand, se_DeleteDataCellsFilterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteDataCellsFilterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDataCellsFilterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDataCellsFilterCommand(input, context);
+    return se_DeleteDataCellsFilterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataCellsFilterCommandOutput> {
-    return deserializeAws_restJson1DeleteDataCellsFilterCommand(output, context);
+    return de_DeleteDataCellsFilterCommand(output, context);
   }
 
   // Start section: command_body_extra

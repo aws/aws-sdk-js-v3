@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { InvalidateProjectCacheInput, InvalidateProjectCacheOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1InvalidateProjectCacheCommand,
-  serializeAws_json1_1InvalidateProjectCacheCommand,
-} from "../protocols/Aws_json1_1";
+import { de_InvalidateProjectCacheCommand, se_InvalidateProjectCacheCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class InvalidateProjectCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: InvalidateProjectCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1InvalidateProjectCacheCommand(input, context);
+    return se_InvalidateProjectCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvalidateProjectCacheCommandOutput> {
-    return deserializeAws_json1_1InvalidateProjectCacheCommand(output, context);
+    return de_InvalidateProjectCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

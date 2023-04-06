@@ -15,10 +15,7 @@ import {
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { DeleteSystemInstanceRequest, DeleteSystemInstanceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteSystemInstanceCommand,
-  serializeAws_json1_1DeleteSystemInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteSystemInstanceCommand, se_DeleteSystemInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -136,14 +133,14 @@ export class DeleteSystemInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteSystemInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteSystemInstanceCommand(input, context);
+    return se_DeleteSystemInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSystemInstanceCommandOutput> {
-    return deserializeAws_json1_1DeleteSystemInstanceCommand(output, context);
+    return de_DeleteSystemInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

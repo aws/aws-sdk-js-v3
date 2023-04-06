@@ -19,10 +19,7 @@ import {
   ListBillingGroupsOutput,
   ListBillingGroupsOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListBillingGroupsCommand,
-  serializeAws_restJson1ListBillingGroupsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListBillingGroupsCommand, se_ListBillingGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class ListBillingGroupsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBillingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListBillingGroupsCommand(input, context);
+    return se_ListBillingGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBillingGroupsCommandOutput> {
-    return deserializeAws_restJson1ListBillingGroupsCommand(output, context);
+    return de_ListBillingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

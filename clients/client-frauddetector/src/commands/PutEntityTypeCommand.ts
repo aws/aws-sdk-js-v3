@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { PutEntityTypeRequest, PutEntityTypeResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutEntityTypeCommand,
-  serializeAws_json1_1PutEntityTypeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutEntityTypeCommand, se_PutEntityTypeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class PutEntityTypeCommand extends $Command<
    * @internal
    */
   private serialize(input: PutEntityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutEntityTypeCommand(input, context);
+    return se_PutEntityTypeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEntityTypeCommandOutput> {
-    return deserializeAws_json1_1PutEntityTypeCommand(output, context);
+    return de_PutEntityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

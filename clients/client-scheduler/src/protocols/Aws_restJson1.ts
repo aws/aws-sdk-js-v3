@@ -71,7 +71,10 @@ import {
 } from "../models/models_0";
 import { SchedulerServiceException as __BaseException } from "../models/SchedulerServiceException";
 
-export const serializeAws_restJson1CreateScheduleCommand = async (
+/**
+ * serializeAws_restJson1CreateScheduleCommand
+ */
+export const se_CreateScheduleCommand = async (
   input: CreateScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -87,7 +90,7 @@ export const serializeAws_restJson1CreateScheduleCommand = async (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000) }),
     ...(input.FlexibleTimeWindow != null && {
-      FlexibleTimeWindow: serializeAws_restJson1FlexibleTimeWindow(input.FlexibleTimeWindow, context),
+      FlexibleTimeWindow: se_FlexibleTimeWindow(input.FlexibleTimeWindow, context),
     }),
     ...(input.GroupName != null && { GroupName: input.GroupName }),
     ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
@@ -95,7 +98,7 @@ export const serializeAws_restJson1CreateScheduleCommand = async (
     ...(input.ScheduleExpressionTimezone != null && { ScheduleExpressionTimezone: input.ScheduleExpressionTimezone }),
     ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000) }),
     ...(input.State != null && { State: input.State }),
-    ...(input.Target != null && { Target: serializeAws_restJson1Target(input.Target, context) }),
+    ...(input.Target != null && { Target: se_Target(input.Target, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -108,7 +111,10 @@ export const serializeAws_restJson1CreateScheduleCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateScheduleGroupCommand = async (
+/**
+ * serializeAws_restJson1CreateScheduleGroupCommand
+ */
+export const se_CreateScheduleGroupCommand = async (
   input: CreateScheduleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -121,7 +127,7 @@ export const serializeAws_restJson1CreateScheduleGroupCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -134,7 +140,10 @@ export const serializeAws_restJson1CreateScheduleGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteScheduleCommand = async (
+/**
+ * serializeAws_restJson1DeleteScheduleCommand
+ */
+export const se_DeleteScheduleCommand = async (
   input: DeleteScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -159,7 +168,10 @@ export const serializeAws_restJson1DeleteScheduleCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteScheduleGroupCommand = async (
+/**
+ * serializeAws_restJson1DeleteScheduleGroupCommand
+ */
+export const se_DeleteScheduleGroupCommand = async (
   input: DeleteScheduleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -183,7 +195,10 @@ export const serializeAws_restJson1DeleteScheduleGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetScheduleCommand = async (
+/**
+ * serializeAws_restJson1GetScheduleCommand
+ */
+export const se_GetScheduleCommand = async (
   input: GetScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -207,7 +222,10 @@ export const serializeAws_restJson1GetScheduleCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetScheduleGroupCommand = async (
+/**
+ * serializeAws_restJson1GetScheduleGroupCommand
+ */
+export const se_GetScheduleGroupCommand = async (
   input: GetScheduleGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -227,7 +245,10 @@ export const serializeAws_restJson1GetScheduleGroupCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListScheduleGroupsCommand = async (
+/**
+ * serializeAws_restJson1ListScheduleGroupsCommand
+ */
+export const se_ListScheduleGroupsCommand = async (
   input: ListScheduleGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -252,7 +273,10 @@ export const serializeAws_restJson1ListScheduleGroupsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSchedulesCommand = async (
+/**
+ * serializeAws_restJson1ListSchedulesCommand
+ */
+export const se_ListSchedulesCommand = async (
   input: ListSchedulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -279,7 +303,10 @@ export const serializeAws_restJson1ListSchedulesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -299,7 +326,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -311,7 +341,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags != null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -324,7 +354,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -351,7 +384,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateScheduleCommand = async (
+/**
+ * serializeAws_restJson1UpdateScheduleCommand
+ */
+export const se_UpdateScheduleCommand = async (
   input: UpdateScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -367,7 +403,7 @@ export const serializeAws_restJson1UpdateScheduleCommand = async (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.EndDate != null && { EndDate: Math.round(input.EndDate.getTime() / 1000) }),
     ...(input.FlexibleTimeWindow != null && {
-      FlexibleTimeWindow: serializeAws_restJson1FlexibleTimeWindow(input.FlexibleTimeWindow, context),
+      FlexibleTimeWindow: se_FlexibleTimeWindow(input.FlexibleTimeWindow, context),
     }),
     ...(input.GroupName != null && { GroupName: input.GroupName }),
     ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
@@ -375,7 +411,7 @@ export const serializeAws_restJson1UpdateScheduleCommand = async (
     ...(input.ScheduleExpressionTimezone != null && { ScheduleExpressionTimezone: input.ScheduleExpressionTimezone }),
     ...(input.StartDate != null && { StartDate: Math.round(input.StartDate.getTime() / 1000) }),
     ...(input.State != null && { State: input.State }),
-    ...(input.Target != null && { Target: serializeAws_restJson1Target(input.Target, context) }),
+    ...(input.Target != null && { Target: se_Target(input.Target, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -388,12 +424,15 @@ export const serializeAws_restJson1UpdateScheduleCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateScheduleCommand = async (
+/**
+ * deserializeAws_restJson1CreateScheduleCommand
+ */
+export const de_CreateScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateScheduleCommandError(output, context);
+    return de_CreateScheduleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -405,7 +444,10 @@ export const deserializeAws_restJson1CreateScheduleCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateScheduleCommandError = async (
+/**
+ * deserializeAws_restJson1CreateScheduleCommandError
+ */
+const de_CreateScheduleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateScheduleCommandOutput> => {
@@ -417,22 +459,22 @@ const deserializeAws_restJson1CreateScheduleCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.scheduler#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.scheduler#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.scheduler#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -444,12 +486,15 @@ const deserializeAws_restJson1CreateScheduleCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1CreateScheduleGroupCommand = async (
+/**
+ * deserializeAws_restJson1CreateScheduleGroupCommand
+ */
+export const de_CreateScheduleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateScheduleGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateScheduleGroupCommandError(output, context);
+    return de_CreateScheduleGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -461,7 +506,10 @@ export const deserializeAws_restJson1CreateScheduleGroupCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1CreateScheduleGroupCommandError = async (
+/**
+ * deserializeAws_restJson1CreateScheduleGroupCommandError
+ */
+const de_CreateScheduleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateScheduleGroupCommandOutput> => {
@@ -473,19 +521,19 @@ const deserializeAws_restJson1CreateScheduleGroupCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.scheduler#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.scheduler#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -497,12 +545,15 @@ const deserializeAws_restJson1CreateScheduleGroupCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteScheduleCommand = async (
+/**
+ * deserializeAws_restJson1DeleteScheduleCommand
+ */
+export const de_DeleteScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteScheduleCommandError(output, context);
+    return de_DeleteScheduleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -511,7 +562,10 @@ export const deserializeAws_restJson1DeleteScheduleCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteScheduleCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteScheduleCommandError
+ */
+const de_DeleteScheduleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScheduleCommandOutput> => {
@@ -523,19 +577,19 @@ const deserializeAws_restJson1DeleteScheduleCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.scheduler#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.scheduler#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -547,12 +601,15 @@ const deserializeAws_restJson1DeleteScheduleCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1DeleteScheduleGroupCommand = async (
+/**
+ * deserializeAws_restJson1DeleteScheduleGroupCommand
+ */
+export const de_DeleteScheduleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScheduleGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteScheduleGroupCommandError(output, context);
+    return de_DeleteScheduleGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -561,7 +618,10 @@ export const deserializeAws_restJson1DeleteScheduleGroupCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1DeleteScheduleGroupCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteScheduleGroupCommandError
+ */
+const de_DeleteScheduleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteScheduleGroupCommandOutput> => {
@@ -573,19 +633,19 @@ const deserializeAws_restJson1DeleteScheduleGroupCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.scheduler#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.scheduler#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -597,12 +657,15 @@ const deserializeAws_restJson1DeleteScheduleGroupCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetScheduleCommand = async (
+/**
+ * deserializeAws_restJson1GetScheduleCommand
+ */
+export const de_GetScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetScheduleCommandError(output, context);
+    return de_GetScheduleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -621,7 +684,7 @@ export const deserializeAws_restJson1GetScheduleCommand = async (
     contents.EndDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.EndDate)));
   }
   if (data.FlexibleTimeWindow != null) {
-    contents.FlexibleTimeWindow = deserializeAws_restJson1FlexibleTimeWindow(data.FlexibleTimeWindow, context);
+    contents.FlexibleTimeWindow = de_FlexibleTimeWindow(data.FlexibleTimeWindow, context);
   }
   if (data.GroupName != null) {
     contents.GroupName = __expectString(data.GroupName);
@@ -648,12 +711,15 @@ export const deserializeAws_restJson1GetScheduleCommand = async (
     contents.State = __expectString(data.State);
   }
   if (data.Target != null) {
-    contents.Target = deserializeAws_restJson1Target(data.Target, context);
+    contents.Target = de_Target(data.Target, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1GetScheduleCommandError = async (
+/**
+ * deserializeAws_restJson1GetScheduleCommandError
+ */
+const de_GetScheduleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetScheduleCommandOutput> => {
@@ -665,16 +731,16 @@ const deserializeAws_restJson1GetScheduleCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.scheduler#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -686,12 +752,15 @@ const deserializeAws_restJson1GetScheduleCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1GetScheduleGroupCommand = async (
+/**
+ * deserializeAws_restJson1GetScheduleGroupCommand
+ */
+export const de_GetScheduleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetScheduleGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetScheduleGroupCommandError(output, context);
+    return de_GetScheduleGroupCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -715,7 +784,10 @@ export const deserializeAws_restJson1GetScheduleGroupCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1GetScheduleGroupCommandError = async (
+/**
+ * deserializeAws_restJson1GetScheduleGroupCommandError
+ */
+const de_GetScheduleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetScheduleGroupCommandOutput> => {
@@ -727,16 +799,16 @@ const deserializeAws_restJson1GetScheduleGroupCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.scheduler#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -748,12 +820,15 @@ const deserializeAws_restJson1GetScheduleGroupCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListScheduleGroupsCommand = async (
+/**
+ * deserializeAws_restJson1ListScheduleGroupsCommand
+ */
+export const de_ListScheduleGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListScheduleGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListScheduleGroupsCommandError(output, context);
+    return de_ListScheduleGroupsCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -763,12 +838,15 @@ export const deserializeAws_restJson1ListScheduleGroupsCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.ScheduleGroups != null) {
-    contents.ScheduleGroups = deserializeAws_restJson1ScheduleGroupList(data.ScheduleGroups, context);
+    contents.ScheduleGroups = de_ScheduleGroupList(data.ScheduleGroups, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListScheduleGroupsCommandError = async (
+/**
+ * deserializeAws_restJson1ListScheduleGroupsCommandError
+ */
+const de_ListScheduleGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListScheduleGroupsCommandOutput> => {
@@ -780,13 +858,13 @@ const deserializeAws_restJson1ListScheduleGroupsCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -798,12 +876,15 @@ const deserializeAws_restJson1ListScheduleGroupsCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListSchedulesCommand = async (
+/**
+ * deserializeAws_restJson1ListSchedulesCommand
+ */
+export const de_ListSchedulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSchedulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSchedulesCommandError(output, context);
+    return de_ListSchedulesCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -813,12 +894,15 @@ export const deserializeAws_restJson1ListSchedulesCommand = async (
     contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Schedules != null) {
-    contents.Schedules = deserializeAws_restJson1ScheduleList(data.Schedules, context);
+    contents.Schedules = de_ScheduleList(data.Schedules, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListSchedulesCommandError = async (
+/**
+ * deserializeAws_restJson1ListSchedulesCommandError
+ */
+const de_ListSchedulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSchedulesCommandOutput> => {
@@ -830,16 +914,16 @@ const deserializeAws_restJson1ListSchedulesCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.scheduler#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -851,24 +935,30 @@ const deserializeAws_restJson1ListSchedulesCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags != null) {
-    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+    contents.Tags = de_TagList(data.Tags, context);
   }
   return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
@@ -880,16 +970,16 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.scheduler#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -901,12 +991,15 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -915,7 +1008,10 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
@@ -927,19 +1023,19 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.scheduler#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.scheduler#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -951,12 +1047,15 @@ const deserializeAws_restJson1TagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -965,7 +1064,10 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
@@ -977,19 +1079,19 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.scheduler#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.scheduler#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1001,12 +1103,15 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
-export const deserializeAws_restJson1UpdateScheduleCommand = async (
+/**
+ * deserializeAws_restJson1UpdateScheduleCommand
+ */
+export const de_UpdateScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateScheduleCommandError(output, context);
+    return de_UpdateScheduleCommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1018,7 +1123,10 @@ export const deserializeAws_restJson1UpdateScheduleCommand = async (
   return contents;
 };
 
-const deserializeAws_restJson1UpdateScheduleCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateScheduleCommandError
+ */
+const de_UpdateScheduleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateScheduleCommandOutput> => {
@@ -1030,19 +1138,19 @@ const deserializeAws_restJson1UpdateScheduleCommandError = async (
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.scheduler#ConflictException":
-      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.scheduler#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.scheduler#ResourceNotFoundException":
-      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.scheduler#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.scheduler#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1055,10 +1163,10 @@ const deserializeAws_restJson1UpdateScheduleCommandError = async (
 };
 
 const map = __map;
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Message != null) {
@@ -1071,7 +1179,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
@@ -1087,7 +1198,10 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
@@ -1103,7 +1217,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
@@ -1119,10 +1236,10 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Message != null) {
@@ -1135,10 +1252,10 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
   if (data.Message != null) {
@@ -1151,31 +1268,32 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AwsVpcConfiguration = (input: AwsVpcConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1AwsVpcConfiguration
+ */
+const se_AwsVpcConfiguration = (input: AwsVpcConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.AssignPublicIp != null && { AssignPublicIp: input.AssignPublicIp }),
-    ...(input.SecurityGroups != null && {
-      SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
-    }),
-    ...(input.Subnets != null && { Subnets: serializeAws_restJson1Subnets(input.Subnets, context) }),
+    ...(input.SecurityGroups != null && { SecurityGroups: se_SecurityGroups(input.SecurityGroups, context) }),
+    ...(input.Subnets != null && { Subnets: se_Subnets(input.Subnets, context) }),
   };
 };
 
-const serializeAws_restJson1CapacityProviderStrategy = (
-  input: CapacityProviderStrategyItem[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1CapacityProviderStrategy
+ */
+const se_CapacityProviderStrategy = (input: CapacityProviderStrategyItem[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1CapacityProviderStrategyItem(entry, context);
+      return se_CapacityProviderStrategyItem(entry, context);
     });
 };
 
-const serializeAws_restJson1CapacityProviderStrategyItem = (
-  input: CapacityProviderStrategyItem,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1CapacityProviderStrategyItem
+ */
+const se_CapacityProviderStrategyItem = (input: CapacityProviderStrategyItem, context: __SerdeContext): any => {
   return {
     ...(input.base != null && { base: input.base }),
     ...(input.capacityProvider != null && { capacityProvider: input.capacityProvider }),
@@ -1183,137 +1301,173 @@ const serializeAws_restJson1CapacityProviderStrategyItem = (
   };
 };
 
-const serializeAws_restJson1DeadLetterConfig = (input: DeadLetterConfig, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1DeadLetterConfig
+ */
+const se_DeadLetterConfig = (input: DeadLetterConfig, context: __SerdeContext): any => {
   return {
     ...(input.Arn != null && { Arn: input.Arn }),
   };
 };
 
-const serializeAws_restJson1EcsParameters = (input: EcsParameters, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EcsParameters
+ */
+const se_EcsParameters = (input: EcsParameters, context: __SerdeContext): any => {
   return {
     ...(input.CapacityProviderStrategy != null && {
-      CapacityProviderStrategy: serializeAws_restJson1CapacityProviderStrategy(input.CapacityProviderStrategy, context),
+      CapacityProviderStrategy: se_CapacityProviderStrategy(input.CapacityProviderStrategy, context),
     }),
     ...(input.EnableECSManagedTags != null && { EnableECSManagedTags: input.EnableECSManagedTags }),
     ...(input.EnableExecuteCommand != null && { EnableExecuteCommand: input.EnableExecuteCommand }),
     ...(input.Group != null && { Group: input.Group }),
     ...(input.LaunchType != null && { LaunchType: input.LaunchType }),
     ...(input.NetworkConfiguration != null && {
-      NetworkConfiguration: serializeAws_restJson1NetworkConfiguration(input.NetworkConfiguration, context),
+      NetworkConfiguration: se_NetworkConfiguration(input.NetworkConfiguration, context),
     }),
     ...(input.PlacementConstraints != null && {
-      PlacementConstraints: serializeAws_restJson1PlacementConstraints(input.PlacementConstraints, context),
+      PlacementConstraints: se_PlacementConstraints(input.PlacementConstraints, context),
     }),
     ...(input.PlacementStrategy != null && {
-      PlacementStrategy: serializeAws_restJson1PlacementStrategies(input.PlacementStrategy, context),
+      PlacementStrategy: se_PlacementStrategies(input.PlacementStrategy, context),
     }),
     ...(input.PlatformVersion != null && { PlatformVersion: input.PlatformVersion }),
     ...(input.PropagateTags != null && { PropagateTags: input.PropagateTags }),
     ...(input.ReferenceId != null && { ReferenceId: input.ReferenceId }),
-    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags != null && { Tags: se_Tags(input.Tags, context) }),
     ...(input.TaskCount != null && { TaskCount: input.TaskCount }),
     ...(input.TaskDefinitionArn != null && { TaskDefinitionArn: input.TaskDefinitionArn }),
   };
 };
 
-const serializeAws_restJson1EventBridgeParameters = (input: EventBridgeParameters, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1EventBridgeParameters
+ */
+const se_EventBridgeParameters = (input: EventBridgeParameters, context: __SerdeContext): any => {
   return {
     ...(input.DetailType != null && { DetailType: input.DetailType }),
     ...(input.Source != null && { Source: input.Source }),
   };
 };
 
-const serializeAws_restJson1FlexibleTimeWindow = (input: FlexibleTimeWindow, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1FlexibleTimeWindow
+ */
+const se_FlexibleTimeWindow = (input: FlexibleTimeWindow, context: __SerdeContext): any => {
   return {
     ...(input.MaximumWindowInMinutes != null && { MaximumWindowInMinutes: input.MaximumWindowInMinutes }),
     ...(input.Mode != null && { Mode: input.Mode }),
   };
 };
 
-const serializeAws_restJson1KinesisParameters = (input: KinesisParameters, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1KinesisParameters
+ */
+const se_KinesisParameters = (input: KinesisParameters, context: __SerdeContext): any => {
   return {
     ...(input.PartitionKey != null && { PartitionKey: input.PartitionKey }),
   };
 };
 
-const serializeAws_restJson1NetworkConfiguration = (input: NetworkConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1NetworkConfiguration
+ */
+const se_NetworkConfiguration = (input: NetworkConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.awsvpcConfiguration != null && {
-      awsvpcConfiguration: serializeAws_restJson1AwsVpcConfiguration(input.awsvpcConfiguration, context),
+      awsvpcConfiguration: se_AwsVpcConfiguration(input.awsvpcConfiguration, context),
     }),
   };
 };
 
-const serializeAws_restJson1PlacementConstraint = (input: PlacementConstraint, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PlacementConstraint
+ */
+const se_PlacementConstraint = (input: PlacementConstraint, context: __SerdeContext): any => {
   return {
     ...(input.expression != null && { expression: input.expression }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_restJson1PlacementConstraints = (input: PlacementConstraint[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PlacementConstraints
+ */
+const se_PlacementConstraints = (input: PlacementConstraint[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1PlacementConstraint(entry, context);
+      return se_PlacementConstraint(entry, context);
     });
 };
 
-const serializeAws_restJson1PlacementStrategies = (input: PlacementStrategy[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PlacementStrategies
+ */
+const se_PlacementStrategies = (input: PlacementStrategy[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1PlacementStrategy(entry, context);
+      return se_PlacementStrategy(entry, context);
     });
 };
 
-const serializeAws_restJson1PlacementStrategy = (input: PlacementStrategy, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1PlacementStrategy
+ */
+const se_PlacementStrategy = (input: PlacementStrategy, context: __SerdeContext): any => {
   return {
     ...(input.field != null && { field: input.field }),
     ...(input.type != null && { type: input.type }),
   };
 };
 
-const serializeAws_restJson1RetryPolicy = (input: RetryPolicy, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1RetryPolicy
+ */
+const se_RetryPolicy = (input: RetryPolicy, context: __SerdeContext): any => {
   return {
     ...(input.MaximumEventAgeInSeconds != null && { MaximumEventAgeInSeconds: input.MaximumEventAgeInSeconds }),
     ...(input.MaximumRetryAttempts != null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
   };
 };
 
-const serializeAws_restJson1SageMakerPipelineParameter = (
-  input: SageMakerPipelineParameter,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1SageMakerPipelineParameter
+ */
+const se_SageMakerPipelineParameter = (input: SageMakerPipelineParameter, context: __SerdeContext): any => {
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_restJson1SageMakerPipelineParameterList = (
-  input: SageMakerPipelineParameter[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1SageMakerPipelineParameterList
+ */
+const se_SageMakerPipelineParameterList = (input: SageMakerPipelineParameter[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1SageMakerPipelineParameter(entry, context);
+      return se_SageMakerPipelineParameter(entry, context);
     });
 };
 
-const serializeAws_restJson1SageMakerPipelineParameters = (
-  input: SageMakerPipelineParameters,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_restJson1SageMakerPipelineParameters
+ */
+const se_SageMakerPipelineParameters = (input: SageMakerPipelineParameters, context: __SerdeContext): any => {
   return {
     ...(input.PipelineParameterList != null && {
-      PipelineParameterList: serializeAws_restJson1SageMakerPipelineParameterList(input.PipelineParameterList, context),
+      PipelineParameterList: se_SageMakerPipelineParameterList(input.PipelineParameterList, context),
     }),
   };
 };
 
-const serializeAws_restJson1SecurityGroups = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SecurityGroups
+ */
+const se_SecurityGroups = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1321,13 +1475,19 @@ const serializeAws_restJson1SecurityGroups = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_restJson1SqsParameters = (input: SqsParameters, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1SqsParameters
+ */
+const se_SqsParameters = (input: SqsParameters, context: __SerdeContext): any => {
   return {
     ...(input.MessageGroupId != null && { MessageGroupId: input.MessageGroupId }),
   };
 };
 
-const serializeAws_restJson1Subnets = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Subnets
+ */
+const se_Subnets = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1335,22 +1495,31 @@ const serializeAws_restJson1Subnets = (input: string[], context: __SerdeContext)
     });
 };
 
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Tag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key != null && { Key: input.Key }),
     ...(input.Value != null && { Value: input.Value }),
   };
 };
 
-const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1Tag(entry, context);
+      return se_Tag(entry, context);
     });
 };
 
-const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1TagMap
+ */
+const se_TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1360,74 +1529,71 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
   }, {});
 };
 
-const serializeAws_restJson1Tags = (input: Record<string, string>[], context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Tags
+ */
+const se_Tags = (input: Record<string, string>[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      return serializeAws_restJson1TagMap(entry, context);
+      return se_TagMap(entry, context);
     });
 };
 
-const serializeAws_restJson1Target = (input: Target, context: __SerdeContext): any => {
+/**
+ * serializeAws_restJson1Target
+ */
+const se_Target = (input: Target, context: __SerdeContext): any => {
   return {
     ...(input.Arn != null && { Arn: input.Arn }),
-    ...(input.DeadLetterConfig != null && {
-      DeadLetterConfig: serializeAws_restJson1DeadLetterConfig(input.DeadLetterConfig, context),
-    }),
-    ...(input.EcsParameters != null && {
-      EcsParameters: serializeAws_restJson1EcsParameters(input.EcsParameters, context),
-    }),
+    ...(input.DeadLetterConfig != null && { DeadLetterConfig: se_DeadLetterConfig(input.DeadLetterConfig, context) }),
+    ...(input.EcsParameters != null && { EcsParameters: se_EcsParameters(input.EcsParameters, context) }),
     ...(input.EventBridgeParameters != null && {
-      EventBridgeParameters: serializeAws_restJson1EventBridgeParameters(input.EventBridgeParameters, context),
+      EventBridgeParameters: se_EventBridgeParameters(input.EventBridgeParameters, context),
     }),
     ...(input.Input != null && { Input: input.Input }),
     ...(input.KinesisParameters != null && {
-      KinesisParameters: serializeAws_restJson1KinesisParameters(input.KinesisParameters, context),
+      KinesisParameters: se_KinesisParameters(input.KinesisParameters, context),
     }),
-    ...(input.RetryPolicy != null && { RetryPolicy: serializeAws_restJson1RetryPolicy(input.RetryPolicy, context) }),
+    ...(input.RetryPolicy != null && { RetryPolicy: se_RetryPolicy(input.RetryPolicy, context) }),
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
     ...(input.SageMakerPipelineParameters != null && {
-      SageMakerPipelineParameters: serializeAws_restJson1SageMakerPipelineParameters(
-        input.SageMakerPipelineParameters,
-        context
-      ),
+      SageMakerPipelineParameters: se_SageMakerPipelineParameters(input.SageMakerPipelineParameters, context),
     }),
-    ...(input.SqsParameters != null && {
-      SqsParameters: serializeAws_restJson1SqsParameters(input.SqsParameters, context),
-    }),
+    ...(input.SqsParameters != null && { SqsParameters: se_SqsParameters(input.SqsParameters, context) }),
   };
 };
 
-const deserializeAws_restJson1AwsVpcConfiguration = (output: any, context: __SerdeContext): AwsVpcConfiguration => {
+/**
+ * deserializeAws_restJson1AwsVpcConfiguration
+ */
+const de_AwsVpcConfiguration = (output: any, context: __SerdeContext): AwsVpcConfiguration => {
   return {
     AssignPublicIp: __expectString(output.AssignPublicIp),
-    SecurityGroups:
-      output.SecurityGroups != null
-        ? deserializeAws_restJson1SecurityGroups(output.SecurityGroups, context)
-        : undefined,
-    Subnets: output.Subnets != null ? deserializeAws_restJson1Subnets(output.Subnets, context) : undefined,
+    SecurityGroups: output.SecurityGroups != null ? de_SecurityGroups(output.SecurityGroups, context) : undefined,
+    Subnets: output.Subnets != null ? de_Subnets(output.Subnets, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1CapacityProviderStrategy = (
-  output: any,
-  context: __SerdeContext
-): CapacityProviderStrategyItem[] => {
+/**
+ * deserializeAws_restJson1CapacityProviderStrategy
+ */
+const de_CapacityProviderStrategy = (output: any, context: __SerdeContext): CapacityProviderStrategyItem[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1CapacityProviderStrategyItem(entry, context);
+      return de_CapacityProviderStrategyItem(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1CapacityProviderStrategyItem = (
-  output: any,
-  context: __SerdeContext
-): CapacityProviderStrategyItem => {
+/**
+ * deserializeAws_restJson1CapacityProviderStrategyItem
+ */
+const de_CapacityProviderStrategyItem = (output: any, context: __SerdeContext): CapacityProviderStrategyItem => {
   return {
     base: __expectInt32(output.base),
     capacityProvider: __expectString(output.capacityProvider),
@@ -1435,167 +1601,198 @@ const deserializeAws_restJson1CapacityProviderStrategyItem = (
   } as any;
 };
 
-const deserializeAws_restJson1DeadLetterConfig = (output: any, context: __SerdeContext): DeadLetterConfig => {
+/**
+ * deserializeAws_restJson1DeadLetterConfig
+ */
+const de_DeadLetterConfig = (output: any, context: __SerdeContext): DeadLetterConfig => {
   return {
     Arn: __expectString(output.Arn),
   } as any;
 };
 
-const deserializeAws_restJson1EcsParameters = (output: any, context: __SerdeContext): EcsParameters => {
+/**
+ * deserializeAws_restJson1EcsParameters
+ */
+const de_EcsParameters = (output: any, context: __SerdeContext): EcsParameters => {
   return {
     CapacityProviderStrategy:
       output.CapacityProviderStrategy != null
-        ? deserializeAws_restJson1CapacityProviderStrategy(output.CapacityProviderStrategy, context)
+        ? de_CapacityProviderStrategy(output.CapacityProviderStrategy, context)
         : undefined,
     EnableECSManagedTags: __expectBoolean(output.EnableECSManagedTags),
     EnableExecuteCommand: __expectBoolean(output.EnableExecuteCommand),
     Group: __expectString(output.Group),
     LaunchType: __expectString(output.LaunchType),
     NetworkConfiguration:
-      output.NetworkConfiguration != null
-        ? deserializeAws_restJson1NetworkConfiguration(output.NetworkConfiguration, context)
-        : undefined,
+      output.NetworkConfiguration != null ? de_NetworkConfiguration(output.NetworkConfiguration, context) : undefined,
     PlacementConstraints:
-      output.PlacementConstraints != null
-        ? deserializeAws_restJson1PlacementConstraints(output.PlacementConstraints, context)
-        : undefined,
+      output.PlacementConstraints != null ? de_PlacementConstraints(output.PlacementConstraints, context) : undefined,
     PlacementStrategy:
-      output.PlacementStrategy != null
-        ? deserializeAws_restJson1PlacementStrategies(output.PlacementStrategy, context)
-        : undefined,
+      output.PlacementStrategy != null ? de_PlacementStrategies(output.PlacementStrategy, context) : undefined,
     PlatformVersion: __expectString(output.PlatformVersion),
     PropagateTags: __expectString(output.PropagateTags),
     ReferenceId: __expectString(output.ReferenceId),
-    Tags: output.Tags != null ? deserializeAws_restJson1Tags(output.Tags, context) : undefined,
+    Tags: output.Tags != null ? de_Tags(output.Tags, context) : undefined,
     TaskCount: __expectInt32(output.TaskCount),
     TaskDefinitionArn: __expectString(output.TaskDefinitionArn),
   } as any;
 };
 
-const deserializeAws_restJson1EventBridgeParameters = (output: any, context: __SerdeContext): EventBridgeParameters => {
+/**
+ * deserializeAws_restJson1EventBridgeParameters
+ */
+const de_EventBridgeParameters = (output: any, context: __SerdeContext): EventBridgeParameters => {
   return {
     DetailType: __expectString(output.DetailType),
     Source: __expectString(output.Source),
   } as any;
 };
 
-const deserializeAws_restJson1FlexibleTimeWindow = (output: any, context: __SerdeContext): FlexibleTimeWindow => {
+/**
+ * deserializeAws_restJson1FlexibleTimeWindow
+ */
+const de_FlexibleTimeWindow = (output: any, context: __SerdeContext): FlexibleTimeWindow => {
   return {
     MaximumWindowInMinutes: __expectInt32(output.MaximumWindowInMinutes),
     Mode: __expectString(output.Mode),
   } as any;
 };
 
-const deserializeAws_restJson1KinesisParameters = (output: any, context: __SerdeContext): KinesisParameters => {
+/**
+ * deserializeAws_restJson1KinesisParameters
+ */
+const de_KinesisParameters = (output: any, context: __SerdeContext): KinesisParameters => {
   return {
     PartitionKey: __expectString(output.PartitionKey),
   } as any;
 };
 
-const deserializeAws_restJson1NetworkConfiguration = (output: any, context: __SerdeContext): NetworkConfiguration => {
+/**
+ * deserializeAws_restJson1NetworkConfiguration
+ */
+const de_NetworkConfiguration = (output: any, context: __SerdeContext): NetworkConfiguration => {
   return {
     awsvpcConfiguration:
-      output.awsvpcConfiguration != null
-        ? deserializeAws_restJson1AwsVpcConfiguration(output.awsvpcConfiguration, context)
-        : undefined,
+      output.awsvpcConfiguration != null ? de_AwsVpcConfiguration(output.awsvpcConfiguration, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1PlacementConstraint = (output: any, context: __SerdeContext): PlacementConstraint => {
+/**
+ * deserializeAws_restJson1PlacementConstraint
+ */
+const de_PlacementConstraint = (output: any, context: __SerdeContext): PlacementConstraint => {
   return {
     expression: __expectString(output.expression),
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_restJson1PlacementConstraints = (output: any, context: __SerdeContext): PlacementConstraint[] => {
+/**
+ * deserializeAws_restJson1PlacementConstraints
+ */
+const de_PlacementConstraints = (output: any, context: __SerdeContext): PlacementConstraint[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1PlacementConstraint(entry, context);
+      return de_PlacementConstraint(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PlacementStrategies = (output: any, context: __SerdeContext): PlacementStrategy[] => {
+/**
+ * deserializeAws_restJson1PlacementStrategies
+ */
+const de_PlacementStrategies = (output: any, context: __SerdeContext): PlacementStrategy[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1PlacementStrategy(entry, context);
+      return de_PlacementStrategy(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1PlacementStrategy = (output: any, context: __SerdeContext): PlacementStrategy => {
+/**
+ * deserializeAws_restJson1PlacementStrategy
+ */
+const de_PlacementStrategy = (output: any, context: __SerdeContext): PlacementStrategy => {
   return {
     field: __expectString(output.field),
     type: __expectString(output.type),
   } as any;
 };
 
-const deserializeAws_restJson1RetryPolicy = (output: any, context: __SerdeContext): RetryPolicy => {
+/**
+ * deserializeAws_restJson1RetryPolicy
+ */
+const de_RetryPolicy = (output: any, context: __SerdeContext): RetryPolicy => {
   return {
     MaximumEventAgeInSeconds: __expectInt32(output.MaximumEventAgeInSeconds),
     MaximumRetryAttempts: __expectInt32(output.MaximumRetryAttempts),
   } as any;
 };
 
-const deserializeAws_restJson1SageMakerPipelineParameter = (
-  output: any,
-  context: __SerdeContext
-): SageMakerPipelineParameter => {
+/**
+ * deserializeAws_restJson1SageMakerPipelineParameter
+ */
+const de_SageMakerPipelineParameter = (output: any, context: __SerdeContext): SageMakerPipelineParameter => {
   return {
     Name: __expectString(output.Name),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_restJson1SageMakerPipelineParameterList = (
-  output: any,
-  context: __SerdeContext
-): SageMakerPipelineParameter[] => {
+/**
+ * deserializeAws_restJson1SageMakerPipelineParameterList
+ */
+const de_SageMakerPipelineParameterList = (output: any, context: __SerdeContext): SageMakerPipelineParameter[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1SageMakerPipelineParameter(entry, context);
+      return de_SageMakerPipelineParameter(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1SageMakerPipelineParameters = (
-  output: any,
-  context: __SerdeContext
-): SageMakerPipelineParameters => {
+/**
+ * deserializeAws_restJson1SageMakerPipelineParameters
+ */
+const de_SageMakerPipelineParameters = (output: any, context: __SerdeContext): SageMakerPipelineParameters => {
   return {
     PipelineParameterList:
       output.PipelineParameterList != null
-        ? deserializeAws_restJson1SageMakerPipelineParameterList(output.PipelineParameterList, context)
+        ? de_SageMakerPipelineParameterList(output.PipelineParameterList, context)
         : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1ScheduleGroupList = (output: any, context: __SerdeContext): ScheduleGroupSummary[] => {
+/**
+ * deserializeAws_restJson1ScheduleGroupList
+ */
+const de_ScheduleGroupList = (output: any, context: __SerdeContext): ScheduleGroupSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ScheduleGroupSummary(entry, context);
+      return de_ScheduleGroupSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ScheduleGroupSummary = (output: any, context: __SerdeContext): ScheduleGroupSummary => {
+/**
+ * deserializeAws_restJson1ScheduleGroupSummary
+ */
+const de_ScheduleGroupSummary = (output: any, context: __SerdeContext): ScheduleGroupSummary => {
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
@@ -1611,19 +1808,25 @@ const deserializeAws_restJson1ScheduleGroupSummary = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_restJson1ScheduleList = (output: any, context: __SerdeContext): ScheduleSummary[] => {
+/**
+ * deserializeAws_restJson1ScheduleList
+ */
+const de_ScheduleList = (output: any, context: __SerdeContext): ScheduleSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1ScheduleSummary(entry, context);
+      return de_ScheduleSummary(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1ScheduleSummary = (output: any, context: __SerdeContext): ScheduleSummary => {
+/**
+ * deserializeAws_restJson1ScheduleSummary
+ */
+const de_ScheduleSummary = (output: any, context: __SerdeContext): ScheduleSummary => {
   return {
     Arn: __expectString(output.Arn),
     CreationDate:
@@ -1637,11 +1840,14 @@ const deserializeAws_restJson1ScheduleSummary = (output: any, context: __SerdeCo
         : undefined,
     Name: __expectString(output.Name),
     State: __expectString(output.State),
-    Target: output.Target != null ? deserializeAws_restJson1TargetSummary(output.Target, context) : undefined,
+    Target: output.Target != null ? de_TargetSummary(output.Target, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1SecurityGroups
+ */
+const de_SecurityGroups = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1653,13 +1859,19 @@ const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_restJson1SqsParameters = (output: any, context: __SerdeContext): SqsParameters => {
+/**
+ * deserializeAws_restJson1SqsParameters
+ */
+const de_SqsParameters = (output: any, context: __SerdeContext): SqsParameters => {
   return {
     MessageGroupId: __expectString(output.MessageGroupId),
   } as any;
 };
 
-const deserializeAws_restJson1Subnets = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_restJson1Subnets
+ */
+const de_Subnets = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1671,26 +1883,35 @@ const deserializeAws_restJson1Subnets = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+/**
+ * deserializeAws_restJson1Tag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
     Value: __expectString(output.Value),
   } as any;
 };
 
-const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_restJson1TagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1Tag(entry, context);
+      return de_Tag(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
+/**
+ * deserializeAws_restJson1TagMap
+ */
+const de_TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -1700,49 +1921,51 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
   }, {});
 };
 
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Record<string, string>[] => {
+/**
+ * deserializeAws_restJson1Tags
+ */
+const de_Tags = (output: any, context: __SerdeContext): Record<string, string>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return deserializeAws_restJson1TagMap(entry, context);
+      return de_TagMap(entry, context);
     });
   return retVal;
 };
 
-const deserializeAws_restJson1Target = (output: any, context: __SerdeContext): Target => {
+/**
+ * deserializeAws_restJson1Target
+ */
+const de_Target = (output: any, context: __SerdeContext): Target => {
   return {
     Arn: __expectString(output.Arn),
     DeadLetterConfig:
-      output.DeadLetterConfig != null
-        ? deserializeAws_restJson1DeadLetterConfig(output.DeadLetterConfig, context)
-        : undefined,
-    EcsParameters:
-      output.EcsParameters != null ? deserializeAws_restJson1EcsParameters(output.EcsParameters, context) : undefined,
+      output.DeadLetterConfig != null ? de_DeadLetterConfig(output.DeadLetterConfig, context) : undefined,
+    EcsParameters: output.EcsParameters != null ? de_EcsParameters(output.EcsParameters, context) : undefined,
     EventBridgeParameters:
       output.EventBridgeParameters != null
-        ? deserializeAws_restJson1EventBridgeParameters(output.EventBridgeParameters, context)
+        ? de_EventBridgeParameters(output.EventBridgeParameters, context)
         : undefined,
     Input: __expectString(output.Input),
     KinesisParameters:
-      output.KinesisParameters != null
-        ? deserializeAws_restJson1KinesisParameters(output.KinesisParameters, context)
-        : undefined,
-    RetryPolicy:
-      output.RetryPolicy != null ? deserializeAws_restJson1RetryPolicy(output.RetryPolicy, context) : undefined,
+      output.KinesisParameters != null ? de_KinesisParameters(output.KinesisParameters, context) : undefined,
+    RetryPolicy: output.RetryPolicy != null ? de_RetryPolicy(output.RetryPolicy, context) : undefined,
     RoleArn: __expectString(output.RoleArn),
     SageMakerPipelineParameters:
       output.SageMakerPipelineParameters != null
-        ? deserializeAws_restJson1SageMakerPipelineParameters(output.SageMakerPipelineParameters, context)
+        ? de_SageMakerPipelineParameters(output.SageMakerPipelineParameters, context)
         : undefined,
-    SqsParameters:
-      output.SqsParameters != null ? deserializeAws_restJson1SqsParameters(output.SqsParameters, context) : undefined,
+    SqsParameters: output.SqsParameters != null ? de_SqsParameters(output.SqsParameters, context) : undefined,
   } as any;
 };
 
-const deserializeAws_restJson1TargetSummary = (output: any, context: __SerdeContext): TargetSummary => {
+/**
+ * deserializeAws_restJson1TargetSummary
+ */
+const de_TargetSummary = (output: any, context: __SerdeContext): TargetSummary => {
   return {
     Arn: __expectString(output.Arn),
   } as any;

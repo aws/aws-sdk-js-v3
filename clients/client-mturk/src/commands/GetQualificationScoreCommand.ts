@@ -15,10 +15,7 @@ import {
 
 import { GetQualificationScoreRequest, GetQualificationScoreResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1GetQualificationScoreCommand,
-  serializeAws_json1_1GetQualificationScoreCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetQualificationScoreCommand, se_GetQualificationScoreCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -140,14 +137,14 @@ export class GetQualificationScoreCommand extends $Command<
    * @internal
    */
   private serialize(input: GetQualificationScoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQualificationScoreCommand(input, context);
+    return se_GetQualificationScoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQualificationScoreCommandOutput> {
-    return deserializeAws_json1_1GetQualificationScoreCommand(output, context);
+    return de_GetQualificationScoreCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { ListCostAllocationTagsRequest, ListCostAllocationTagsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListCostAllocationTagsCommand,
-  serializeAws_json1_1ListCostAllocationTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListCostAllocationTagsCommand, se_ListCostAllocationTagsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class ListCostAllocationTagsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListCostAllocationTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCostAllocationTagsCommand(input, context);
+    return se_ListCostAllocationTagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCostAllocationTagsCommandOutput> {
-    return deserializeAws_json1_1ListCostAllocationTagsCommand(output, context);
+    return de_ListCostAllocationTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListAccountAssignmentsRequest, ListAccountAssignmentsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAccountAssignmentsCommand,
-  serializeAws_json1_1ListAccountAssignmentsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAccountAssignmentsCommand, se_ListAccountAssignmentsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -141,14 +138,14 @@ export class ListAccountAssignmentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListAccountAssignmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccountAssignmentsCommand(input, context);
+    return se_ListAccountAssignmentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountAssignmentsCommandOutput> {
-    return deserializeAws_json1_1ListAccountAssignmentsCommand(output, context);
+    return de_ListAccountAssignmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

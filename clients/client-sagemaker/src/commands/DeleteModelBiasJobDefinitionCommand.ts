@@ -15,8 +15,8 @@ import {
 
 import { DeleteModelBiasJobDefinitionRequest } from "../models/models_1";
 import {
-  deserializeAws_json1_1DeleteModelBiasJobDefinitionCommand,
-  serializeAws_json1_1DeleteModelBiasJobDefinitionCommand,
+  de_DeleteModelBiasJobDefinitionCommand,
+  se_DeleteModelBiasJobDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -123,7 +123,7 @@ export class DeleteModelBiasJobDefinitionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteModelBiasJobDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteModelBiasJobDefinitionCommand(input, context);
+    return se_DeleteModelBiasJobDefinitionCommand(input, context);
   }
 
   /**
@@ -133,7 +133,7 @@ export class DeleteModelBiasJobDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteModelBiasJobDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeleteModelBiasJobDefinitionCommand(output, context);
+    return de_DeleteModelBiasJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetAccountSummaryResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetAccountSummaryCommand,
-  serializeAws_queryGetAccountSummaryCommand,
-} from "../protocols/Aws_query";
+import { de_GetAccountSummaryCommand, se_GetAccountSummaryCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -166,14 +163,14 @@ export class GetAccountSummaryCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccountSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccountSummaryCommand(input, context);
+    return se_GetAccountSummaryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSummaryCommandOutput> {
-    return deserializeAws_queryGetAccountSummaryCommand(output, context);
+    return de_GetAccountSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

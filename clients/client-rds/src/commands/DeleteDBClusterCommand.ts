@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBClusterCommand,
-  serializeAws_queryDeleteDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBClusterCommand, se_DeleteDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -85,21 +82,34 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *             snapshots.</p>
  *
  *
- * @example To delete a DB cluster.
+ * @example To delete a DB cluster
  * ```javascript
- * // This example deletes the specified DB cluster.
+ * // The following example deletes the DB cluster named mycluster and takes a final snapshot named mycluster-final-snapshot. The status of the DB cluster is available while the snapshot is being taken.
  * const input = {
- *   "DBClusterIdentifier": "mydbcluster",
- *   "SkipFinalSnapshot": true
+ *   "DBClusterIdentifier": "mycluster",
+ *   "FinalDBSnapshotIdentifier": "mycluster-final-snapshot",
+ *   "SkipFinalSnapshot": false
  * };
  * const command = new DeleteDBClusterCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "DBCluster": {}
+ *   "DBCluster": {
+ *     "AllocatedStorage": 20,
+ *     "AvailabilityZones": [
+ *       "eu-central-1b",
+ *       "eu-central-1c",
+ *       "eu-central-1a"
+ *     ],
+ *     "BackupRetentionPeriod": 7,
+ *     "DBClusterIdentifier": "mycluster",
+ *     "DBClusterParameterGroup": "default.aurora-postgresql10",
+ *     "DBSubnetGroup": "default-vpc-aa11bb22",
+ *     "Status": "available"
+ *   }
  * }
  * *\/
- * // example id: delete-db-cluster-927fc2c8-6c67-4075-b1ba-75490be0f7d6
+ * // example id: to-delete-a-db-cluster-1680197141906
  * ```
  *
  */
@@ -166,14 +176,14 @@ export class DeleteDBClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBClusterCommand(input, context);
+    return se_DeleteDBClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBClusterCommandOutput> {
-    return deserializeAws_queryDeleteDBClusterCommand(output, context);
+    return de_DeleteDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

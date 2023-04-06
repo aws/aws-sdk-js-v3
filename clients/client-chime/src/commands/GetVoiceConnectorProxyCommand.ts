@@ -19,10 +19,7 @@ import {
   GetVoiceConnectorProxyResponse,
   GetVoiceConnectorProxyResponseFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restJson1GetVoiceConnectorProxyCommand,
-  serializeAws_restJson1GetVoiceConnectorProxyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetVoiceConnectorProxyCommand, se_GetVoiceConnectorProxyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class GetVoiceConnectorProxyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetVoiceConnectorProxyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetVoiceConnectorProxyCommand(input, context);
+    return se_GetVoiceConnectorProxyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceConnectorProxyCommandOutput> {
-    return deserializeAws_restJson1GetVoiceConnectorProxyCommand(output, context);
+    return de_GetVoiceConnectorProxyCommand(output, context);
   }
 
   // Start section: command_body_extra

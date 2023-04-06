@@ -15,10 +15,7 @@ import {
 
 import { DeleteStreamingSessionRequest, DeleteStreamingSessionResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1DeleteStreamingSessionCommand,
-  serializeAws_restJson1DeleteStreamingSessionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteStreamingSessionCommand, se_DeleteStreamingSessionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class DeleteStreamingSessionCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteStreamingSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteStreamingSessionCommand(input, context);
+    return se_DeleteStreamingSessionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStreamingSessionCommandOutput> {
-    return deserializeAws_restJson1DeleteStreamingSessionCommand(output, context);
+    return de_DeleteStreamingSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

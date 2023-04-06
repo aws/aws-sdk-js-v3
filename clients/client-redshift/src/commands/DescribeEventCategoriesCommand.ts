@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DescribeEventCategoriesMessage, EventCategoriesMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeEventCategoriesCommand,
-  serializeAws_queryDescribeEventCategoriesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeEventCategoriesCommand, se_DescribeEventCategoriesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -122,14 +119,14 @@ export class DescribeEventCategoriesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeEventCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEventCategoriesCommand(input, context);
+    return se_DescribeEventCategoriesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventCategoriesCommandOutput> {
-    return deserializeAws_queryDescribeEventCategoriesCommand(output, context);
+    return de_DescribeEventCategoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

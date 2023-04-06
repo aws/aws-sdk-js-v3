@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetMobileDeviceAccessEffectRequest, GetMobileDeviceAccessEffectResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetMobileDeviceAccessEffectCommand,
-  serializeAws_json1_1GetMobileDeviceAccessEffectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetMobileDeviceAccessEffectCommand, se_GetMobileDeviceAccessEffectCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -138,7 +135,7 @@ export class GetMobileDeviceAccessEffectCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMobileDeviceAccessEffectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetMobileDeviceAccessEffectCommand(input, context);
+    return se_GetMobileDeviceAccessEffectCommand(input, context);
   }
 
   /**
@@ -148,7 +145,7 @@ export class GetMobileDeviceAccessEffectCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMobileDeviceAccessEffectCommandOutput> {
-    return deserializeAws_json1_1GetMobileDeviceAccessEffectCommand(output, context);
+    return de_GetMobileDeviceAccessEffectCommand(output, context);
   }
 
   // Start section: command_body_extra

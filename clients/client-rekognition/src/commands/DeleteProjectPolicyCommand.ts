@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteProjectPolicyRequest, DeleteProjectPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProjectPolicyCommand,
-  serializeAws_json1_1DeleteProjectPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteProjectPolicyCommand, se_DeleteProjectPolicyCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
@@ -159,14 +156,14 @@ export class DeleteProjectPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteProjectPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProjectPolicyCommand(input, context);
+    return se_DeleteProjectPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteProjectPolicyCommand(output, context);
+    return de_DeleteProjectPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

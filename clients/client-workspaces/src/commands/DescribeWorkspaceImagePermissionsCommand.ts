@@ -15,8 +15,8 @@ import {
 
 import { DescribeWorkspaceImagePermissionsRequest, DescribeWorkspaceImagePermissionsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommand,
-  serializeAws_json1_1DescribeWorkspaceImagePermissionsCommand,
+  de_DescribeWorkspaceImagePermissionsCommand,
+  se_DescribeWorkspaceImagePermissionsCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
@@ -136,7 +136,7 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command<
     input: DescribeWorkspaceImagePermissionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspaceImagePermissionsCommand(input, context);
+    return se_DescribeWorkspaceImagePermissionsCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceImagePermissionsCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommand(output, context);
+    return de_DescribeWorkspaceImagePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { UpdateTableStorageOptimizerRequest, UpdateTableStorageOptimizerResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateTableStorageOptimizerCommand,
-  serializeAws_restJson1UpdateTableStorageOptimizerCommand,
+  de_UpdateTableStorageOptimizerCommand,
+  se_UpdateTableStorageOptimizerCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -141,7 +141,7 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateTableStorageOptimizerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateTableStorageOptimizerCommand(input, context);
+    return se_UpdateTableStorageOptimizerCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTableStorageOptimizerCommandOutput> {
-    return deserializeAws_restJson1UpdateTableStorageOptimizerCommand(output, context);
+    return de_UpdateTableStorageOptimizerCommand(output, context);
   }
 
   // Start section: command_body_extra

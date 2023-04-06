@@ -16,8 +16,8 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyDefaultCreditSpecificationRequest, ModifyDefaultCreditSpecificationResult } from "../models/models_6";
 import {
-  deserializeAws_ec2ModifyDefaultCreditSpecificationCommand,
-  serializeAws_ec2ModifyDefaultCreditSpecificationCommand,
+  de_ModifyDefaultCreditSpecificationCommand,
+  se_ModifyDefaultCreditSpecificationCommand,
 } from "../protocols/Aws_ec2";
 
 /**
@@ -140,7 +140,7 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     input: ModifyDefaultCreditSpecificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyDefaultCreditSpecificationCommand(input, context);
+    return se_ModifyDefaultCreditSpecificationCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyDefaultCreditSpecificationCommandOutput> {
-    return deserializeAws_ec2ModifyDefaultCreditSpecificationCommand(output, context);
+    return de_ModifyDefaultCreditSpecificationCommand(output, context);
   }
 
   // Start section: command_body_extra

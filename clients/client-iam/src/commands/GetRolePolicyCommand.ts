@@ -15,10 +15,7 @@ import {
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { GetRolePolicyRequest, GetRolePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetRolePolicyCommand,
-  serializeAws_queryGetRolePolicyCommand,
-} from "../protocols/Aws_query";
+import { de_GetRolePolicyCommand, se_GetRolePolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class GetRolePolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRolePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetRolePolicyCommand(input, context);
+    return se_GetRolePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRolePolicyCommandOutput> {
-    return deserializeAws_queryGetRolePolicyCommand(output, context);
+    return de_GetRolePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -21,10 +21,7 @@ import {
   SelectObjectContentRequest,
   SelectObjectContentRequestFilterSensitiveLog,
 } from "../models/models_1";
-import {
-  deserializeAws_restXmlSelectObjectContentCommand,
-  serializeAws_restXmlSelectObjectContentCommand,
-} from "../protocols/Aws_restXml";
+import { de_SelectObjectContentCommand, se_SelectObjectContentCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
@@ -286,7 +283,7 @@ export class SelectObjectContentCommand extends $Command<
    * @internal
    */
   private serialize(input: SelectObjectContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlSelectObjectContentCommand(input, context);
+    return se_SelectObjectContentCommand(input, context);
   }
 
   /**
@@ -296,7 +293,7 @@ export class SelectObjectContentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<SelectObjectContentCommandOutput> {
-    return deserializeAws_restXmlSelectObjectContentCommand(output, context);
+    return de_SelectObjectContentCommand(output, context);
   }
 
   // Start section: command_body_extra

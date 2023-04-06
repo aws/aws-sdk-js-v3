@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CheckIfPhoneNumberIsOptedOutInput, CheckIfPhoneNumberIsOptedOutResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand,
-  serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand,
-} from "../protocols/Aws_query";
+import { de_CheckIfPhoneNumberIsOptedOutCommand, se_CheckIfPhoneNumberIsOptedOutCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -139,7 +136,7 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
    * @internal
    */
   private serialize(input: CheckIfPhoneNumberIsOptedOutCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand(input, context);
+    return se_CheckIfPhoneNumberIsOptedOutCommand(input, context);
   }
 
   /**
@@ -149,7 +146,7 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput> {
-    return deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand(output, context);
+    return de_CheckIfPhoneNumberIsOptedOutCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,8 +18,8 @@ import {
   RemoveSourceIdentifierFromSubscriptionResult,
 } from "../models/models_1";
 import {
-  deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
-  serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
+  de_RemoveSourceIdentifierFromSubscriptionCommand,
+  se_RemoveSourceIdentifierFromSubscriptionCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
@@ -69,21 +69,37 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  *  <p>The subscription name does not exist.</p>
  *
  *
- * @example To remove a source identifier from a DB event subscription
+ * @example To remove a source identifier from a subscription
  * ```javascript
- * // This example removes the specified source identifier from the specified DB event subscription.
+ * // The following example removes the specified source identifier from an existing subscription.
  * const input = {
- *   "SourceIdentifier": "mymysqlinstance",
- *   "SubscriptionName": "myeventsubscription"
+ *   "SourceIdentifier": "test-instance-repl",
+ *   "SubscriptionName": "my-instance-events"
  * };
  * const command = new RemoveSourceIdentifierFromSubscriptionCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "EventSubscription": {}
+ *   "EventSubscription": {
+ *     "CustSubscriptionId": "my-instance-events",
+ *     "CustomerAwsId": "123456789012",
+ *     "Enabled": false,
+ *     "EventCategoriesList": [
+ *       "backup",
+ *       "recovery"
+ *     ],
+ *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     "SourceIdsList": [
+ *       "test-instance"
+ *     ],
+ *     "SourceType": "db-instance",
+ *     "Status": "modifying",
+ *     "SubscriptionCreationTime": "Tue Jul 31 23:22:01 UTC 2018"
+ *   }
  * }
  * *\/
- * // example id: remove-source-identifier-from-subscription-30d25493-c19d-4cf7-b4e5-68371d0d8770
+ * // example id: to-remove-a-source-identifier-from-a-subscription-1680072062459
  * ```
  *
  */
@@ -153,7 +169,7 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     input: RemoveSourceIdentifierFromSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(input, context);
+    return se_RemoveSourceIdentifierFromSubscriptionCommand(input, context);
   }
 
   /**
@@ -163,7 +179,7 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> {
-    return deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(output, context);
+    return de_RemoveSourceIdentifierFromSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

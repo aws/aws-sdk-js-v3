@@ -15,10 +15,7 @@ import {
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import { ListEffectiveDeploymentsRequest, ListEffectiveDeploymentsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListEffectiveDeploymentsCommand,
-  serializeAws_restJson1ListEffectiveDeploymentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEffectiveDeploymentsCommand, se_ListEffectiveDeploymentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class ListEffectiveDeploymentsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEffectiveDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEffectiveDeploymentsCommand(input, context);
+    return se_ListEffectiveDeploymentsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEffectiveDeploymentsCommandOutput> {
-    return deserializeAws_restJson1ListEffectiveDeploymentsCommand(output, context);
+    return de_ListEffectiveDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

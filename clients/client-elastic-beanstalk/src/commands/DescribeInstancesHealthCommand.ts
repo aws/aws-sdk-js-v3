@@ -15,10 +15,7 @@ import {
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DescribeInstancesHealthRequest, DescribeInstancesHealthResult } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeInstancesHealthCommand,
-  serializeAws_queryDescribeInstancesHealthCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeInstancesHealthCommand, se_DescribeInstancesHealthCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -198,14 +195,14 @@ export class DescribeInstancesHealthCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInstancesHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeInstancesHealthCommand(input, context);
+    return se_DescribeInstancesHealthCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstancesHealthCommandOutput> {
-    return deserializeAws_queryDescribeInstancesHealthCommand(output, context);
+    return de_DescribeInstancesHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

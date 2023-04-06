@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { DeleteMetricStreamInput, DeleteMetricStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteMetricStreamCommand,
-  serializeAws_queryDeleteMetricStreamCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteMetricStreamCommand, se_DeleteMetricStreamCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class DeleteMetricStreamCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMetricStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteMetricStreamCommand(input, context);
+    return se_DeleteMetricStreamCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMetricStreamCommandOutput> {
-    return deserializeAws_queryDeleteMetricStreamCommand(output, context);
+    return de_DeleteMetricStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

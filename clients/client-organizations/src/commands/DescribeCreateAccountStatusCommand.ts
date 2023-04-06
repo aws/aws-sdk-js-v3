@@ -19,10 +19,7 @@ import {
   DescribeCreateAccountStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import {
-  deserializeAws_json1_1DescribeCreateAccountStatusCommand,
-  serializeAws_json1_1DescribeCreateAccountStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCreateAccountStatusCommand, se_DescribeCreateAccountStatusCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -281,7 +278,7 @@ export class DescribeCreateAccountStatusCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeCreateAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCreateAccountStatusCommand(input, context);
+    return se_DescribeCreateAccountStatusCommand(input, context);
   }
 
   /**
@@ -291,7 +288,7 @@ export class DescribeCreateAccountStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCreateAccountStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeCreateAccountStatusCommand(output, context);
+    return de_DescribeCreateAccountStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { DetachPolicyRequest, DetachPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DetachPolicyCommand,
-  serializeAws_restJson1DetachPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DetachPolicyCommand, se_DetachPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -152,14 +149,14 @@ export class DetachPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DetachPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DetachPolicyCommand(input, context);
+    return se_DetachPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachPolicyCommandOutput> {
-    return deserializeAws_restJson1DetachPolicyCommand(output, context);
+    return de_DetachPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

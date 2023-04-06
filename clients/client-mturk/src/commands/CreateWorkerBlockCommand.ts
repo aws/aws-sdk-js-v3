@@ -15,10 +15,7 @@ import {
 
 import { CreateWorkerBlockRequest, CreateWorkerBlockResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1CreateWorkerBlockCommand,
-  serializeAws_json1_1CreateWorkerBlockCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateWorkerBlockCommand, se_CreateWorkerBlockCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -127,14 +124,14 @@ export class CreateWorkerBlockCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateWorkerBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateWorkerBlockCommand(input, context);
+    return se_CreateWorkerBlockCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkerBlockCommandOutput> {
-    return deserializeAws_json1_1CreateWorkerBlockCommand(output, context);
+    return de_CreateWorkerBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

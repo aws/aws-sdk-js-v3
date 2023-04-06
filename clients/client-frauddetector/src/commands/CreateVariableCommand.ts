@@ -15,10 +15,7 @@ import {
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { CreateVariableRequest, CreateVariableResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateVariableCommand,
-  serializeAws_json1_1CreateVariableCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateVariableCommand, se_CreateVariableCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -143,14 +140,14 @@ export class CreateVariableCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVariableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateVariableCommand(input, context);
+    return se_CreateVariableCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVariableCommandOutput> {
-    return deserializeAws_json1_1CreateVariableCommand(output, context);
+    return de_CreateVariableCommand(output, context);
   }
 
   // Start section: command_body_extra

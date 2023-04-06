@@ -15,10 +15,7 @@ import {
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { CreateRulesetRequest, CreateRulesetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateRulesetCommand,
-  serializeAws_restJson1CreateRulesetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateRulesetCommand, se_CreateRulesetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -154,14 +151,14 @@ export class CreateRulesetCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateRulesetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateRulesetCommand(input, context);
+    return se_CreateRulesetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRulesetCommandOutput> {
-    return deserializeAws_restJson1CreateRulesetCommand(output, context);
+    return de_CreateRulesetCommand(output, context);
   }
 
   // Start section: command_body_extra

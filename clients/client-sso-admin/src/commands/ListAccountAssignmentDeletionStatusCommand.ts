@@ -18,8 +18,8 @@ import {
   ListAccountAssignmentDeletionStatusResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListAccountAssignmentDeletionStatusCommand,
-  serializeAws_json1_1ListAccountAssignmentDeletionStatusCommand,
+  de_ListAccountAssignmentDeletionStatusCommand,
+  se_ListAccountAssignmentDeletionStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -151,7 +151,7 @@ export class ListAccountAssignmentDeletionStatusCommand extends $Command<
     input: ListAccountAssignmentDeletionStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAccountAssignmentDeletionStatusCommand(input, context);
+    return se_ListAccountAssignmentDeletionStatusCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class ListAccountAssignmentDeletionStatusCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAccountAssignmentDeletionStatusCommandOutput> {
-    return deserializeAws_json1_1ListAccountAssignmentDeletionStatusCommand(output, context);
+    return de_ListAccountAssignmentDeletionStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

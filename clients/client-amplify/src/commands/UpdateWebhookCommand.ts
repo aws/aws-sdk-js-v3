@@ -15,10 +15,7 @@ import {
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { UpdateWebhookRequest, UpdateWebhookResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWebhookCommand,
-  serializeAws_restJson1UpdateWebhookCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateWebhookCommand, se_UpdateWebhookCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class UpdateWebhookCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWebhookCommand(input, context);
+    return se_UpdateWebhookCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWebhookCommandOutput> {
-    return deserializeAws_restJson1UpdateWebhookCommand(output, context);
+    return de_UpdateWebhookCommand(output, context);
   }
 
   // Start section: command_body_extra

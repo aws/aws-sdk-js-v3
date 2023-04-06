@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ModifyGlobalClusterMessage, ModifyGlobalClusterResult } from "../models/models_1";
-import {
-  deserializeAws_queryModifyGlobalClusterCommand,
-  serializeAws_queryModifyGlobalClusterCommand,
-} from "../protocols/Aws_query";
+import { de_ModifyGlobalClusterCommand, se_ModifyGlobalClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -77,6 +74,33 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
  *  <p>The global cluster is in an invalid state and can't perform the requested operation.</p>
  *
+ *
+ * @example To modify a global database cluster
+ * ```javascript
+ * // The following example enables deletion protection for an Aurora MySQL-based global database cluster.
+ * const input = {
+ *   "DeletionProtection": true,
+ *   "GlobalClusterIdentifier": "myglobalcluster"
+ * };
+ * const command = new ModifyGlobalClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "GlobalCluster": {
+ *     "DeletionProtection": true,
+ *     "Engine": "aurora-mysql",
+ *     "EngineVersion": "5.7.mysql_aurora.2.07.2",
+ *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     "GlobalClusterIdentifier": "myglobalcluster",
+ *     "GlobalClusterMembers": [],
+ *     "GlobalClusterResourceId": "cluster-f0e523bfe07aabb",
+ *     "Status": "available",
+ *     "StorageEncrypted": false
+ *   }
+ * }
+ * *\/
+ * // example id: to-modify-a-global-database-cluster-1680385137511
+ * ```
  *
  */
 export class ModifyGlobalClusterCommand extends $Command<
@@ -142,14 +166,14 @@ export class ModifyGlobalClusterCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryModifyGlobalClusterCommand(input, context);
+    return se_ModifyGlobalClusterCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyGlobalClusterCommandOutput> {
-    return deserializeAws_queryModifyGlobalClusterCommand(output, context);
+    return de_ModifyGlobalClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

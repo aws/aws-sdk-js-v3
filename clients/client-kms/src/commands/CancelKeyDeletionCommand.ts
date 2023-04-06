@@ -15,10 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { CancelKeyDeletionRequest, CancelKeyDeletionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelKeyDeletionCommand,
-  serializeAws_json1_1CancelKeyDeletionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelKeyDeletionCommand, se_CancelKeyDeletionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -182,14 +179,14 @@ export class CancelKeyDeletionCommand extends $Command<
    * @internal
    */
   private serialize(input: CancelKeyDeletionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelKeyDeletionCommand(input, context);
+    return se_CancelKeyDeletionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelKeyDeletionCommandOutput> {
-    return deserializeAws_json1_1CancelKeyDeletionCommand(output, context);
+    return de_CancelKeyDeletionCommand(output, context);
   }
 
   // Start section: command_body_extra

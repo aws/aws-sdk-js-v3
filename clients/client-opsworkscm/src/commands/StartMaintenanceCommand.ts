@@ -20,10 +20,7 @@ import {
   StartMaintenanceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import {
-  deserializeAws_json1_1StartMaintenanceCommand,
-  serializeAws_json1_1StartMaintenanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartMaintenanceCommand, se_StartMaintenanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -150,14 +147,14 @@ export class StartMaintenanceCommand extends $Command<
    * @internal
    */
   private serialize(input: StartMaintenanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartMaintenanceCommand(input, context);
+    return se_StartMaintenanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMaintenanceCommandOutput> {
-    return deserializeAws_json1_1StartMaintenanceCommand(output, context);
+    return de_StartMaintenanceCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateSMSSandboxPhoneNumberInput, CreateSMSSandboxPhoneNumberResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateSMSSandboxPhoneNumberCommand,
-  serializeAws_queryCreateSMSSandboxPhoneNumberCommand,
-} from "../protocols/Aws_query";
+import { de_CreateSMSSandboxPhoneNumberCommand, se_CreateSMSSandboxPhoneNumberCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -151,7 +148,7 @@ export class CreateSMSSandboxPhoneNumberCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateSMSSandboxPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateSMSSandboxPhoneNumberCommand(input, context);
+    return se_CreateSMSSandboxPhoneNumberCommand(input, context);
   }
 
   /**
@@ -161,7 +158,7 @@ export class CreateSMSSandboxPhoneNumberCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSMSSandboxPhoneNumberCommandOutput> {
-    return deserializeAws_queryCreateSMSSandboxPhoneNumberCommand(output, context);
+    return de_CreateSMSSandboxPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { QueryObjectsInput, QueryObjectsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1QueryObjectsCommand,
-  serializeAws_json1_1QueryObjectsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_QueryObjectsCommand, se_QueryObjectsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -184,14 +181,14 @@ export class QueryObjectsCommand extends $Command<
    * @internal
    */
   private serialize(input: QueryObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1QueryObjectsCommand(input, context);
+    return se_QueryObjectsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryObjectsCommandOutput> {
-    return deserializeAws_json1_1QueryObjectsCommand(output, context);
+    return de_QueryObjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

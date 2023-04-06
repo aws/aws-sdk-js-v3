@@ -15,10 +15,7 @@ import {
 
 import { DeleteVariantStoreRequest, DeleteVariantStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import {
-  deserializeAws_restJson1DeleteVariantStoreCommand,
-  serializeAws_restJson1DeleteVariantStoreCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteVariantStoreCommand, se_DeleteVariantStoreCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class DeleteVariantStoreCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteVariantStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteVariantStoreCommand(input, context);
+    return se_DeleteVariantStoreCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVariantStoreCommandOutput> {
-    return deserializeAws_restJson1DeleteVariantStoreCommand(output, context);
+    return de_DeleteVariantStoreCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DescribeLagsRequest, Lags } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeLagsCommand,
-  serializeAws_json1_1DescribeLagsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeLagsCommand, se_DescribeLagsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class DescribeLagsCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeLagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLagsCommand(input, context);
+    return se_DescribeLagsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLagsCommandOutput> {
-    return deserializeAws_json1_1DescribeLagsCommand(output, context);
+    return de_DescribeLagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { GetReportGroupTrendInput, GetReportGroupTrendOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetReportGroupTrendCommand,
-  serializeAws_json1_1GetReportGroupTrendCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetReportGroupTrendCommand, se_GetReportGroupTrendCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -128,14 +125,14 @@ export class GetReportGroupTrendCommand extends $Command<
    * @internal
    */
   private serialize(input: GetReportGroupTrendCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetReportGroupTrendCommand(input, context);
+    return se_GetReportGroupTrendCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReportGroupTrendCommandOutput> {
-    return deserializeAws_json1_1GetReportGroupTrendCommand(output, context);
+    return de_GetReportGroupTrendCommand(output, context);
   }
 
   // Start section: command_body_extra

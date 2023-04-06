@@ -19,8 +19,8 @@ import {
   BatchAssociateClientDeviceWithCoreDeviceResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand,
-  serializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand,
+  de_BatchAssociateClientDeviceWithCoreDeviceCommand,
+  se_BatchAssociateClientDeviceWithCoreDeviceCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -168,7 +168,7 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<
     input: BatchAssociateClientDeviceWithCoreDeviceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand(input, context);
+    return se_BatchAssociateClientDeviceWithCoreDeviceCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchAssociateClientDeviceWithCoreDeviceCommandOutput> {
-    return deserializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand(output, context);
+    return de_BatchAssociateClientDeviceWithCoreDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

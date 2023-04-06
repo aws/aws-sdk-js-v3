@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartWorkspacesRequest, StartWorkspacesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartWorkspacesCommand,
-  serializeAws_json1_1StartWorkspacesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartWorkspacesCommand, se_StartWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -126,14 +123,14 @@ export class StartWorkspacesCommand extends $Command<
    * @internal
    */
   private serialize(input: StartWorkspacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartWorkspacesCommand(input, context);
+    return se_StartWorkspacesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartWorkspacesCommandOutput> {
-    return deserializeAws_json1_1StartWorkspacesCommand(output, context);
+    return de_StartWorkspacesCommand(output, context);
   }
 
   // Start section: command_body_extra

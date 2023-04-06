@@ -15,10 +15,7 @@ import {
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { FlushStageCacheRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1FlushStageCacheCommand,
-  serializeAws_restJson1FlushStageCacheCommand,
-} from "../protocols/Aws_restJson1";
+import { de_FlushStageCacheCommand, se_FlushStageCacheCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class FlushStageCacheCommand extends $Command<
    * @internal
    */
   private serialize(input: FlushStageCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1FlushStageCacheCommand(input, context);
+    return se_FlushStageCacheCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FlushStageCacheCommandOutput> {
-    return deserializeAws_restJson1FlushStageCacheCommand(output, context);
+    return de_FlushStageCacheCommand(output, context);
   }
 
   // Start section: command_body_extra

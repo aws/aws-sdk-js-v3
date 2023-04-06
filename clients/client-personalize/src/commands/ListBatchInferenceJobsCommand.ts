@@ -15,10 +15,7 @@ import {
 
 import { ListBatchInferenceJobsRequest, ListBatchInferenceJobsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListBatchInferenceJobsCommand,
-  serializeAws_json1_1ListBatchInferenceJobsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListBatchInferenceJobsCommand, se_ListBatchInferenceJobsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class ListBatchInferenceJobsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListBatchInferenceJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListBatchInferenceJobsCommand(input, context);
+    return se_ListBatchInferenceJobsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBatchInferenceJobsCommandOutput> {
-    return deserializeAws_json1_1ListBatchInferenceJobsCommand(output, context);
+    return de_ListBatchInferenceJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

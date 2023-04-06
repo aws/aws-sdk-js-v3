@@ -15,10 +15,7 @@ import {
 
 import { StartRecommenderRequest, StartRecommenderResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1StartRecommenderCommand,
-  serializeAws_json1_1StartRecommenderCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartRecommenderCommand, se_StartRecommenderCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -130,14 +127,14 @@ export class StartRecommenderCommand extends $Command<
    * @internal
    */
   private serialize(input: StartRecommenderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartRecommenderCommand(input, context);
+    return se_StartRecommenderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecommenderCommandOutput> {
-    return deserializeAws_json1_1StartRecommenderCommand(output, context);
+    return de_StartRecommenderCommand(output, context);
   }
 
   // Start section: command_body_extra

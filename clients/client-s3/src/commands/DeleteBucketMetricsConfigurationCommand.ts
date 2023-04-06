@@ -15,8 +15,8 @@ import {
 
 import { DeleteBucketMetricsConfigurationRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand,
-  serializeAws_restXmlDeleteBucketMetricsConfigurationCommand,
+  de_DeleteBucketMetricsConfigurationCommand,
+  se_DeleteBucketMetricsConfigurationCommand,
 } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -164,7 +164,7 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
     input: DeleteBucketMetricsConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketMetricsConfigurationCommand(input, context);
+    return se_DeleteBucketMetricsConfigurationCommand(input, context);
   }
 
   /**
@@ -174,7 +174,7 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBucketMetricsConfigurationCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand(output, context);
+    return de_DeleteBucketMetricsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

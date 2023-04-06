@@ -15,10 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { ListDashboardsInput, ListDashboardsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryListDashboardsCommand,
-  serializeAws_queryListDashboardsCommand,
-} from "../protocols/Aws_query";
+import { de_ListDashboardsCommand, se_ListDashboardsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class ListDashboardsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListDashboardsCommand(input, context);
+    return se_ListDashboardsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDashboardsCommandOutput> {
-    return deserializeAws_queryListDashboardsCommand(output, context);
+    return de_ListDashboardsCommand(output, context);
   }
 
   // Start section: command_body_extra

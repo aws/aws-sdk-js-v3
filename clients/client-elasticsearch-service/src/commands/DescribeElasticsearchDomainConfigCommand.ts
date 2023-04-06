@@ -23,8 +23,8 @@ import {
   DescribeElasticsearchDomainConfigResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeElasticsearchDomainConfigCommand,
-  serializeAws_restJson1DescribeElasticsearchDomainConfigCommand,
+  de_DescribeElasticsearchDomainConfigCommand,
+  se_DescribeElasticsearchDomainConfigCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -144,7 +144,7 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     input: DescribeElasticsearchDomainConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeElasticsearchDomainConfigCommand(input, context);
+    return se_DescribeElasticsearchDomainConfigCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeElasticsearchDomainConfigCommandOutput> {
-    return deserializeAws_restJson1DescribeElasticsearchDomainConfigCommand(output, context);
+    return de_DescribeElasticsearchDomainConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

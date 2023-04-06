@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChangeMessageVisibilityRequest } from "../models/models_0";
-import {
-  deserializeAws_queryChangeMessageVisibilityCommand,
-  serializeAws_queryChangeMessageVisibilityCommand,
-} from "../protocols/Aws_query";
+import { de_ChangeMessageVisibilityCommand, se_ChangeMessageVisibilityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -161,14 +158,14 @@ export class ChangeMessageVisibilityCommand extends $Command<
    * @internal
    */
   private serialize(input: ChangeMessageVisibilityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryChangeMessageVisibilityCommand(input, context);
+    return se_ChangeMessageVisibilityCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeMessageVisibilityCommandOutput> {
-    return deserializeAws_queryChangeMessageVisibilityCommand(output, context);
+    return de_ChangeMessageVisibilityCommand(output, context);
   }
 
   // Start section: command_body_extra

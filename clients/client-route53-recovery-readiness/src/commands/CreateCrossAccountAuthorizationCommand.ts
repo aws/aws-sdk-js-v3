@@ -15,8 +15,8 @@ import {
 
 import { CreateCrossAccountAuthorizationRequest, CreateCrossAccountAuthorizationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateCrossAccountAuthorizationCommand,
-  serializeAws_restJson1CreateCrossAccountAuthorizationCommand,
+  de_CreateCrossAccountAuthorizationCommand,
+  se_CreateCrossAccountAuthorizationCommand,
 } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryReadinessClientResolvedConfig,
@@ -144,7 +144,7 @@ export class CreateCrossAccountAuthorizationCommand extends $Command<
     input: CreateCrossAccountAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCrossAccountAuthorizationCommand(input, context);
+    return se_CreateCrossAccountAuthorizationCommand(input, context);
   }
 
   /**
@@ -154,7 +154,7 @@ export class CreateCrossAccountAuthorizationCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCrossAccountAuthorizationCommandOutput> {
-    return deserializeAws_restJson1CreateCrossAccountAuthorizationCommand(output, context);
+    return de_CreateCrossAccountAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

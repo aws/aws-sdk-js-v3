@@ -15,10 +15,7 @@ import {
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
 import { DeleteAppInstanceBotRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAppInstanceBotCommand,
-  serializeAws_restJson1DeleteAppInstanceBotCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAppInstanceBotCommand, se_DeleteAppInstanceBotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class DeleteAppInstanceBotCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteAppInstanceBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAppInstanceBotCommand(input, context);
+    return se_DeleteAppInstanceBotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppInstanceBotCommandOutput> {
-    return deserializeAws_restJson1DeleteAppInstanceBotCommand(output, context);
+    return de_DeleteAppInstanceBotCommand(output, context);
   }
 
   // Start section: command_body_extra

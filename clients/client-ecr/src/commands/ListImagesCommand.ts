@@ -15,10 +15,7 @@ import {
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { ListImagesRequest, ListImagesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListImagesCommand,
-  serializeAws_json1_1ListImagesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListImagesCommand, se_ListImagesCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class ListImagesCommand extends $Command<
    * @internal
    */
   private serialize(input: ListImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListImagesCommand(input, context);
+    return se_ListImagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagesCommandOutput> {
-    return deserializeAws_json1_1ListImagesCommand(output, context);
+    return de_ListImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

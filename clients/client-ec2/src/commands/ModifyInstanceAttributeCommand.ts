@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { ModifyInstanceAttributeRequest } from "../models/models_6";
-import {
-  deserializeAws_ec2ModifyInstanceAttributeCommand,
-  serializeAws_ec2ModifyInstanceAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { de_ModifyInstanceAttributeCommand, se_ModifyInstanceAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -208,14 +205,14 @@ export class ModifyInstanceAttributeCommand extends $Command<
    * @internal
    */
   private serialize(input: ModifyInstanceAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceAttributeCommand(input, context);
+    return se_ModifyInstanceAttributeCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyInstanceAttributeCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceAttributeCommand(output, context);
+    return de_ModifyInstanceAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

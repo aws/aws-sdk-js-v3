@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { ListLogSubscriptionsRequest, ListLogSubscriptionsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLogSubscriptionsCommand,
-  serializeAws_json1_1ListLogSubscriptionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLogSubscriptionsCommand, se_ListLogSubscriptionsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -134,14 +131,14 @@ export class ListLogSubscriptionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListLogSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLogSubscriptionsCommand(input, context);
+    return se_ListLogSubscriptionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogSubscriptionsCommandOutput> {
-    return deserializeAws_json1_1ListLogSubscriptionsCommand(output, context);
+    return de_ListLogSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

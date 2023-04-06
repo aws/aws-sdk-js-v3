@@ -15,10 +15,7 @@ import {
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
 import { DeleteWorkerFleetRequest, DeleteWorkerFleetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteWorkerFleetCommand,
-  serializeAws_restJson1DeleteWorkerFleetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteWorkerFleetCommand, se_DeleteWorkerFleetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -138,14 +135,14 @@ export class DeleteWorkerFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteWorkerFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkerFleetCommand(input, context);
+    return se_DeleteWorkerFleetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkerFleetCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkerFleetCommand(output, context);
+    return de_DeleteWorkerFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

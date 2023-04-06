@@ -15,10 +15,7 @@ import {
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { UpdateRouteResponseRequest, UpdateRouteResponseResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRouteResponseCommand,
-  serializeAws_restJson1UpdateRouteResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRouteResponseCommand, se_UpdateRouteResponseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class UpdateRouteResponseCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRouteResponseCommand(input, context);
+    return se_UpdateRouteResponseCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRouteResponseCommandOutput> {
-    return deserializeAws_restJson1UpdateRouteResponseCommand(output, context);
+    return de_UpdateRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

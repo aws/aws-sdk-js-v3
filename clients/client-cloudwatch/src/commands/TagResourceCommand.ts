@@ -15,7 +15,7 @@ import {
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { TagResourceInput, TagResourceOutput } from "../models/models_0";
-import { deserializeAws_queryTagResourceCommand, serializeAws_queryTagResourceCommand } from "../protocols/Aws_query";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -143,14 +143,14 @@ export class TagResourceCommand extends $Command<
    * @internal
    */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryTagResourceCommand(input, context);
+    return se_TagResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_queryTagResourceCommand(output, context);
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

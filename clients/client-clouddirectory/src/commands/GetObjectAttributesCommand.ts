@@ -15,10 +15,7 @@ import {
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { GetObjectAttributesRequest, GetObjectAttributesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetObjectAttributesCommand,
-  serializeAws_restJson1GetObjectAttributesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetObjectAttributesCommand, se_GetObjectAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -160,14 +157,14 @@ export class GetObjectAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetObjectAttributesCommand(input, context);
+    return se_GetObjectAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectAttributesCommandOutput> {
-    return deserializeAws_restJson1GetObjectAttributesCommand(output, context);
+    return de_GetObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { GetDevicesRequest, GetDevicesResponse, GetDevicesResponseFilterSensitiveLog } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1GetDevicesCommand,
-  serializeAws_restJson1GetDevicesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDevicesCommand, se_GetDevicesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class GetDevicesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDevicesCommand(input, context);
+    return se_GetDevicesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDevicesCommandOutput> {
-    return deserializeAws_restJson1GetDevicesCommand(output, context);
+    return de_GetDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

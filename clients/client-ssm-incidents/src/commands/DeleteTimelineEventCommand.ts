@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteTimelineEventInput, DeleteTimelineEventOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteTimelineEventCommand,
-  serializeAws_restJson1DeleteTimelineEventCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteTimelineEventCommand, se_DeleteTimelineEventCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -135,14 +132,14 @@ export class DeleteTimelineEventCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteTimelineEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteTimelineEventCommand(input, context);
+    return se_DeleteTimelineEventCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTimelineEventCommandOutput> {
-    return deserializeAws_restJson1DeleteTimelineEventCommand(output, context);
+    return de_DeleteTimelineEventCommand(output, context);
   }
 
   // Start section: command_body_extra

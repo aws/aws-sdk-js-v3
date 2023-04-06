@@ -21,10 +21,7 @@ import {
   GetRawMessageContentResponse,
   GetRawMessageContentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRawMessageContentCommand,
-  serializeAws_restJson1GetRawMessageContentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRawMessageContentCommand, se_GetRawMessageContentCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -136,7 +133,7 @@ export class GetRawMessageContentCommand extends $Command<
    * @internal
    */
   private serialize(input: GetRawMessageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRawMessageContentCommand(input, context);
+    return se_GetRawMessageContentCommand(input, context);
   }
 
   /**
@@ -146,7 +143,7 @@ export class GetRawMessageContentCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<GetRawMessageContentCommandOutput> {
-    return deserializeAws_restJson1GetRawMessageContentCommand(output, context);
+    return de_GetRawMessageContentCommand(output, context);
   }
 
   // Start section: command_body_extra

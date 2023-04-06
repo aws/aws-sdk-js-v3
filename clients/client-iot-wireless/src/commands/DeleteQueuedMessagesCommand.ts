@@ -15,10 +15,7 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { DeleteQueuedMessagesRequest, DeleteQueuedMessagesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteQueuedMessagesCommand,
-  serializeAws_restJson1DeleteQueuedMessagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteQueuedMessagesCommand, se_DeleteQueuedMessagesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DeleteQueuedMessagesCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteQueuedMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteQueuedMessagesCommand(input, context);
+    return se_DeleteQueuedMessagesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteQueuedMessagesCommandOutput> {
-    return deserializeAws_restJson1DeleteQueuedMessagesCommand(output, context);
+    return de_DeleteQueuedMessagesCommand(output, context);
   }
 
   // Start section: command_body_extra

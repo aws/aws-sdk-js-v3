@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeleteDBSubnetGroupMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBSubnetGroupCommand,
-  serializeAws_queryDeleteDBSubnetGroupCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteDBSubnetGroupCommand, se_DeleteDBSubnetGroupCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -69,15 +66,15 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  *  <p>The DB subnet isn't in the <i>available</i> state.</p>
  *
  *
- * @example To delete a DB subnet group.
+ * @example To delete a DB subnet group
  * ```javascript
- * // This example deletes the specified DB subnetgroup.
+ * // The following example deletes the DB subnet group called mysubnetgroup.
  * const input = {
- *   "DBSubnetGroupName": "mydbsubnetgroup"
+ *   "DBSubnetGroupName": "mysubnetgroup"
  * };
  * const command = new DeleteDBSubnetGroupCommand(input);
  * await client.send(command);
- * // example id: delete-db-subnet-group-4ae00375-511e-443d-a01d-4b9f552244aa
+ * // example id: to-delete-a-db-subnet-group-1680127744982
  * ```
  *
  */
@@ -144,14 +141,14 @@ export class DeleteDBSubnetGroupCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteDBSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteDBSubnetGroupCommand(input, context);
+    return se_DeleteDBSubnetGroupCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBSubnetGroupCommandOutput> {
-    return deserializeAws_queryDeleteDBSubnetGroupCommand(output, context);
+    return de_DeleteDBSubnetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

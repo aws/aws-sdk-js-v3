@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StreamJournalToKinesisRequest, StreamJournalToKinesisResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StreamJournalToKinesisCommand,
-  serializeAws_restJson1StreamJournalToKinesisCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StreamJournalToKinesisCommand, se_StreamJournalToKinesisCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
 /**
@@ -142,14 +139,14 @@ export class StreamJournalToKinesisCommand extends $Command<
    * @internal
    */
   private serialize(input: StreamJournalToKinesisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StreamJournalToKinesisCommand(input, context);
+    return se_StreamJournalToKinesisCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StreamJournalToKinesisCommandOutput> {
-    return deserializeAws_restJson1StreamJournalToKinesisCommand(output, context);
+    return de_StreamJournalToKinesisCommand(output, context);
   }
 
   // Start section: command_body_extra

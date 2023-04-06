@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UnshareApplicationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UnshareApplicationCommand,
-  serializeAws_restJson1UnshareApplicationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UnshareApplicationCommand, se_UnshareApplicationCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -140,14 +137,14 @@ export class UnshareApplicationCommand extends $Command<
    * @internal
    */
   private serialize(input: UnshareApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UnshareApplicationCommand(input, context);
+    return se_UnshareApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnshareApplicationCommandOutput> {
-    return deserializeAws_restJson1UnshareApplicationCommand(output, context);
+    return de_UnshareApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

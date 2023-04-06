@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateVerifiedAccessEndpointRequest, CreateVerifiedAccessEndpointResult } from "../models/models_2";
-import {
-  deserializeAws_ec2CreateVerifiedAccessEndpointCommand,
-  serializeAws_ec2CreateVerifiedAccessEndpointCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateVerifiedAccessEndpointCommand, se_CreateVerifiedAccessEndpointCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -158,7 +155,7 @@ export class CreateVerifiedAccessEndpointCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateVerifiedAccessEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateVerifiedAccessEndpointCommand(input, context);
+    return se_CreateVerifiedAccessEndpointCommand(input, context);
   }
 
   /**
@@ -168,7 +165,7 @@ export class CreateVerifiedAccessEndpointCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateVerifiedAccessEndpointCommandOutput> {
-    return deserializeAws_ec2CreateVerifiedAccessEndpointCommand(output, context);
+    return de_CreateVerifiedAccessEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

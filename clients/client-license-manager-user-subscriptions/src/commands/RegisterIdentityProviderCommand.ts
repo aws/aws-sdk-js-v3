@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import { RegisterIdentityProviderRequest, RegisterIdentityProviderResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterIdentityProviderCommand,
-  serializeAws_restJson1RegisterIdentityProviderCommand,
-} from "../protocols/Aws_restJson1";
+import { de_RegisterIdentityProviderCommand, se_RegisterIdentityProviderCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -157,14 +154,14 @@ export class RegisterIdentityProviderCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterIdentityProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterIdentityProviderCommand(input, context);
+    return se_RegisterIdentityProviderCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterIdentityProviderCommandOutput> {
-    return deserializeAws_restJson1RegisterIdentityProviderCommand(output, context);
+    return de_RegisterIdentityProviderCommand(output, context);
   }
 
   // Start section: command_body_extra

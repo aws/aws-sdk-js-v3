@@ -15,10 +15,7 @@ import {
 
 import { DescribeDeviceJobRequest, DescribeDeviceJobResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
-import {
-  deserializeAws_restJson1DescribeDeviceJobCommand,
-  serializeAws_restJson1DescribeDeviceJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeDeviceJobCommand, se_DescribeDeviceJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -135,14 +132,14 @@ export class DescribeDeviceJobCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeDeviceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeDeviceJobCommand(input, context);
+    return se_DescribeDeviceJobCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDeviceJobCommandOutput> {
-    return deserializeAws_restJson1DescribeDeviceJobCommand(output, context);
+    return de_DescribeDeviceJobCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HttpPayloadWithXmlNamespaceInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommand,
-  serializeAws_restXmlHttpPayloadWithXmlNamespaceCommand,
-} from "../protocols/Aws_restXml";
+import { de_HttpPayloadWithXmlNamespaceCommand, se_HttpPayloadWithXmlNamespaceCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -111,7 +108,7 @@ export class HttpPayloadWithXmlNamespaceCommand extends $Command<
    * @internal
    */
   private serialize(input: HttpPayloadWithXmlNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpPayloadWithXmlNamespaceCommand(input, context);
+    return se_HttpPayloadWithXmlNamespaceCommand(input, context);
   }
 
   /**
@@ -121,7 +118,7 @@ export class HttpPayloadWithXmlNamespaceCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadWithXmlNamespaceCommandOutput> {
-    return deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommand(output, context);
+    return de_HttpPayloadWithXmlNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

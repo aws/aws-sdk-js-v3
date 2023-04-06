@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateHealthCheckRequest, AssociateHealthCheckResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateHealthCheckCommand,
-  serializeAws_json1_1AssociateHealthCheckCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateHealthCheckCommand, se_AssociateHealthCheckCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -141,14 +138,14 @@ export class AssociateHealthCheckCommand extends $Command<
    * @internal
    */
   private serialize(input: AssociateHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateHealthCheckCommand(input, context);
+    return se_AssociateHealthCheckCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateHealthCheckCommandOutput> {
-    return deserializeAws_json1_1AssociateHealthCheckCommand(output, context);
+    return de_AssociateHealthCheckCommand(output, context);
   }
 
   // Start section: command_body_extra

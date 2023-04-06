@@ -15,10 +15,7 @@ import {
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { GetSnapshotLimitsRequest, GetSnapshotLimitsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetSnapshotLimitsCommand,
-  serializeAws_json1_1GetSnapshotLimitsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSnapshotLimitsCommand, se_GetSnapshotLimitsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetSnapshotLimitsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetSnapshotLimitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSnapshotLimitsCommand(input, context);
+    return se_GetSnapshotLimitsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSnapshotLimitsCommandOutput> {
-    return deserializeAws_json1_1GetSnapshotLimitsCommand(output, context);
+    return de_GetSnapshotLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

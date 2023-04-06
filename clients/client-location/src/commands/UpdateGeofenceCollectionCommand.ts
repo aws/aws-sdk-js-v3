@@ -15,10 +15,7 @@ import {
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { UpdateGeofenceCollectionRequest, UpdateGeofenceCollectionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateGeofenceCollectionCommand,
-  serializeAws_restJson1UpdateGeofenceCollectionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateGeofenceCollectionCommand, se_UpdateGeofenceCollectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -139,14 +136,14 @@ export class UpdateGeofenceCollectionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateGeofenceCollectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateGeofenceCollectionCommand(input, context);
+    return se_UpdateGeofenceCollectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateGeofenceCollectionCommandOutput> {
-    return deserializeAws_restJson1UpdateGeofenceCollectionCommand(output, context);
+    return de_UpdateGeofenceCollectionCommand(output, context);
   }
 
   // Start section: command_body_extra

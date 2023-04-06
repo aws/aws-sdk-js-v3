@@ -15,10 +15,7 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DescribeInstanceRefreshesAnswer, DescribeInstanceRefreshesType } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeInstanceRefreshesCommand,
-  serializeAws_queryDescribeInstanceRefreshesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeInstanceRefreshesCommand, se_DescribeInstanceRefreshesCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -175,7 +172,7 @@ export class DescribeInstanceRefreshesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeInstanceRefreshesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeInstanceRefreshesCommand(input, context);
+    return se_DescribeInstanceRefreshesCommand(input, context);
   }
 
   /**
@@ -185,7 +182,7 @@ export class DescribeInstanceRefreshesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceRefreshesCommandOutput> {
-    return deserializeAws_queryDescribeInstanceRefreshesCommand(output, context);
+    return de_DescribeInstanceRefreshesCommand(output, context);
   }
 
   // Start section: command_body_extra

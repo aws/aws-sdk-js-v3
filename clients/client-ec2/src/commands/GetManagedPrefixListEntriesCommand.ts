@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { GetManagedPrefixListEntriesRequest, GetManagedPrefixListEntriesResult } from "../models/models_5";
-import {
-  deserializeAws_ec2GetManagedPrefixListEntriesCommand,
-  serializeAws_ec2GetManagedPrefixListEntriesCommand,
-} from "../protocols/Aws_ec2";
+import { de_GetManagedPrefixListEntriesCommand, se_GetManagedPrefixListEntriesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -124,7 +121,7 @@ export class GetManagedPrefixListEntriesCommand extends $Command<
    * @internal
    */
   private serialize(input: GetManagedPrefixListEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetManagedPrefixListEntriesCommand(input, context);
+    return se_GetManagedPrefixListEntriesCommand(input, context);
   }
 
   /**
@@ -134,7 +131,7 @@ export class GetManagedPrefixListEntriesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetManagedPrefixListEntriesCommandOutput> {
-    return deserializeAws_ec2GetManagedPrefixListEntriesCommand(output, context);
+    return de_GetManagedPrefixListEntriesCommand(output, context);
   }
 
   // Start section: command_body_extra

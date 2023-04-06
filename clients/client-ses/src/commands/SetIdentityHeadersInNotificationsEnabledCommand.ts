@@ -18,8 +18,8 @@ import {
   SetIdentityHeadersInNotificationsEnabledResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand,
-  serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand,
+  de_SetIdentityHeadersInNotificationsEnabledCommand,
+  se_SetIdentityHeadersInNotificationsEnabledCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -155,7 +155,7 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
     input: SetIdentityHeadersInNotificationsEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(input, context);
+    return se_SetIdentityHeadersInNotificationsEnabledCommand(input, context);
   }
 
   /**
@@ -165,7 +165,7 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput> {
-    return deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(output, context);
+    return de_SetIdentityHeadersInNotificationsEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

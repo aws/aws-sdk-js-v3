@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListFlowDefinitionsRequest, ListFlowDefinitionsResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1ListFlowDefinitionsCommand,
-  serializeAws_json1_1ListFlowDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListFlowDefinitionsCommand, se_ListFlowDefinitionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -124,14 +121,14 @@ export class ListFlowDefinitionsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListFlowDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFlowDefinitionsCommand(input, context);
+    return se_ListFlowDefinitionsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFlowDefinitionsCommandOutput> {
-    return deserializeAws_json1_1ListFlowDefinitionsCommand(output, context);
+    return de_ListFlowDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

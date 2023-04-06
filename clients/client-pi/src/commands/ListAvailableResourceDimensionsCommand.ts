@@ -16,8 +16,8 @@ import {
 import { ListAvailableResourceDimensionsRequest, ListAvailableResourceDimensionsResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import {
-  deserializeAws_json1_1ListAvailableResourceDimensionsCommand,
-  serializeAws_json1_1ListAvailableResourceDimensionsCommand,
+  de_ListAvailableResourceDimensionsCommand,
+  se_ListAvailableResourceDimensionsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -140,7 +140,7 @@ export class ListAvailableResourceDimensionsCommand extends $Command<
     input: ListAvailableResourceDimensionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableResourceDimensionsCommand(input, context);
+    return se_ListAvailableResourceDimensionsCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class ListAvailableResourceDimensionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAvailableResourceDimensionsCommandOutput> {
-    return deserializeAws_json1_1ListAvailableResourceDimensionsCommand(output, context);
+    return de_ListAvailableResourceDimensionsCommand(output, context);
   }
 
   // Start section: command_body_extra

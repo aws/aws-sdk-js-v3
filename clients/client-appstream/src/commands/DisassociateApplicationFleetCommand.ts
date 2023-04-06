@@ -16,8 +16,8 @@ import {
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { DisassociateApplicationFleetRequest, DisassociateApplicationFleetResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateApplicationFleetCommand,
-  serializeAws_json1_1DisassociateApplicationFleetCommand,
+  de_DisassociateApplicationFleetCommand,
+  se_DisassociateApplicationFleetCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -132,7 +132,7 @@ export class DisassociateApplicationFleetCommand extends $Command<
    * @internal
    */
   private serialize(input: DisassociateApplicationFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateApplicationFleetCommand(input, context);
+    return se_DisassociateApplicationFleetCommand(input, context);
   }
 
   /**
@@ -142,7 +142,7 @@ export class DisassociateApplicationFleetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateApplicationFleetCommandOutput> {
-    return deserializeAws_json1_1DisassociateApplicationFleetCommand(output, context);
+    return de_DisassociateApplicationFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

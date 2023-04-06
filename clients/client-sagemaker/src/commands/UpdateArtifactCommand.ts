@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateArtifactRequest, UpdateArtifactResponse } from "../models/models_4";
-import {
-  deserializeAws_json1_1UpdateArtifactCommand,
-  serializeAws_json1_1UpdateArtifactCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateArtifactCommand, se_UpdateArtifactCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -134,14 +131,14 @@ export class UpdateArtifactCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateArtifactCommand(input, context);
+    return se_UpdateArtifactCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateArtifactCommandOutput> {
-    return deserializeAws_json1_1UpdateArtifactCommand(output, context);
+    return de_UpdateArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -16,8 +16,8 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { DescribeUserHierarchyStructureRequest, DescribeUserHierarchyStructureResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeUserHierarchyStructureCommand,
-  serializeAws_restJson1DescribeUserHierarchyStructureCommand,
+  de_DescribeUserHierarchyStructureCommand,
+  se_DescribeUserHierarchyStructureCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -140,7 +140,7 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     input: DescribeUserHierarchyStructureCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeUserHierarchyStructureCommand(input, context);
+    return se_DescribeUserHierarchyStructureCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUserHierarchyStructureCommandOutput> {
-    return deserializeAws_restJson1DescribeUserHierarchyStructureCommand(output, context);
+    return de_DescribeUserHierarchyStructureCommand(output, context);
   }
 
   // Start section: command_body_extra

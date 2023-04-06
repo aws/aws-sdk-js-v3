@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListReplicationSetsInput, ListReplicationSetsOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListReplicationSetsCommand,
-  serializeAws_restJson1ListReplicationSetsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListReplicationSetsCommand, se_ListReplicationSetsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -135,14 +132,14 @@ export class ListReplicationSetsCommand extends $Command<
    * @internal
    */
   private serialize(input: ListReplicationSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListReplicationSetsCommand(input, context);
+    return se_ListReplicationSetsCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListReplicationSetsCommandOutput> {
-    return deserializeAws_restJson1ListReplicationSetsCommand(output, context);
+    return de_ListReplicationSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

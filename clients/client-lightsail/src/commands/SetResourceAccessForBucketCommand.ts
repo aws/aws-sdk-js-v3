@@ -15,10 +15,7 @@ import {
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { SetResourceAccessForBucketRequest, SetResourceAccessForBucketResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1SetResourceAccessForBucketCommand,
-  serializeAws_json1_1SetResourceAccessForBucketCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SetResourceAccessForBucketCommand, se_SetResourceAccessForBucketCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -148,7 +145,7 @@ export class SetResourceAccessForBucketCommand extends $Command<
    * @internal
    */
   private serialize(input: SetResourceAccessForBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SetResourceAccessForBucketCommand(input, context);
+    return se_SetResourceAccessForBucketCommand(input, context);
   }
 
   /**
@@ -158,7 +155,7 @@ export class SetResourceAccessForBucketCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetResourceAccessForBucketCommandOutput> {
-    return deserializeAws_json1_1SetResourceAccessForBucketCommand(output, context);
+    return de_SetResourceAccessForBucketCommand(output, context);
   }
 
   // Start section: command_body_extra

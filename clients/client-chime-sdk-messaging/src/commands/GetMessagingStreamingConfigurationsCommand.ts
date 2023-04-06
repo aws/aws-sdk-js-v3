@@ -23,8 +23,8 @@ import {
   GetMessagingStreamingConfigurationsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetMessagingStreamingConfigurationsCommand,
-  serializeAws_restJson1GetMessagingStreamingConfigurationsCommand,
+  de_GetMessagingStreamingConfigurationsCommand,
+  se_GetMessagingStreamingConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -154,7 +154,7 @@ export class GetMessagingStreamingConfigurationsCommand extends $Command<
     input: GetMessagingStreamingConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMessagingStreamingConfigurationsCommand(input, context);
+    return se_GetMessagingStreamingConfigurationsCommand(input, context);
   }
 
   /**
@@ -164,7 +164,7 @@ export class GetMessagingStreamingConfigurationsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetMessagingStreamingConfigurationsCommandOutput> {
-    return deserializeAws_restJson1GetMessagingStreamingConfigurationsCommand(output, context);
+    return de_GetMessagingStreamingConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

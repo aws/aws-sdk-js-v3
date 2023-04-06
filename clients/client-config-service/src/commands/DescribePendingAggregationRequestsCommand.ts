@@ -19,8 +19,8 @@ import {
   DescribePendingAggregationRequestsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribePendingAggregationRequestsCommand,
-  serializeAws_json1_1DescribePendingAggregationRequestsCommand,
+  de_DescribePendingAggregationRequestsCommand,
+  se_DescribePendingAggregationRequestsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -141,7 +141,7 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     input: DescribePendingAggregationRequestsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePendingAggregationRequestsCommand(input, context);
+    return se_DescribePendingAggregationRequestsCommand(input, context);
   }
 
   /**
@@ -151,7 +151,7 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribePendingAggregationRequestsCommandOutput> {
-    return deserializeAws_json1_1DescribePendingAggregationRequestsCommand(output, context);
+    return de_DescribePendingAggregationRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { DeregisterStreamConsumerInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeregisterStreamConsumerCommand,
-  serializeAws_json1_1DeregisterStreamConsumerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeregisterStreamConsumerCommand, se_DeregisterStreamConsumerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class DeregisterStreamConsumerCommand extends $Command<
    * @internal
    */
   private serialize(input: DeregisterStreamConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterStreamConsumerCommand(input, context);
+    return se_DeregisterStreamConsumerCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterStreamConsumerCommandOutput> {
-    return deserializeAws_json1_1DeregisterStreamConsumerCommand(output, context);
+    return de_DeregisterStreamConsumerCommand(output, context);
   }
 
   // Start section: command_body_extra

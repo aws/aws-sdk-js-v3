@@ -15,10 +15,7 @@ import {
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { AllocateHostedConnectionRequest, Connection } from "../models/models_0";
-import {
-  deserializeAws_json1_1AllocateHostedConnectionCommand,
-  serializeAws_json1_1AllocateHostedConnectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AllocateHostedConnectionCommand, se_AllocateHostedConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -147,14 +144,14 @@ export class AllocateHostedConnectionCommand extends $Command<
    * @internal
    */
   private serialize(input: AllocateHostedConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocateHostedConnectionCommand(input, context);
+    return se_AllocateHostedConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateHostedConnectionCommandOutput> {
-    return deserializeAws_json1_1AllocateHostedConnectionCommand(output, context);
+    return de_AllocateHostedConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

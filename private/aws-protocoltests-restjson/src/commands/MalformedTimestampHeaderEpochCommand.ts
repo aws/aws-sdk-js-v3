@@ -14,8 +14,8 @@ import {
 
 import { MalformedTimestampHeaderEpochInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1MalformedTimestampHeaderEpochCommand,
-  serializeAws_restJson1MalformedTimestampHeaderEpochCommand,
+  de_MalformedTimestampHeaderEpochCommand,
+  se_MalformedTimestampHeaderEpochCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
@@ -83,7 +83,7 @@ export class MalformedTimestampHeaderEpochCommand extends $Command<
    * @internal
    */
   private serialize(input: MalformedTimestampHeaderEpochCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedTimestampHeaderEpochCommand(input, context);
+    return se_MalformedTimestampHeaderEpochCommand(input, context);
   }
 
   /**
@@ -93,7 +93,7 @@ export class MalformedTimestampHeaderEpochCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MalformedTimestampHeaderEpochCommandOutput> {
-    return deserializeAws_restJson1MalformedTimestampHeaderEpochCommand(output, context);
+    return de_MalformedTimestampHeaderEpochCommand(output, context);
   }
 
   // Start section: command_body_extra

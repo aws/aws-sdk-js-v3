@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { CreateClientVpnRouteRequest, CreateClientVpnRouteResult } from "../models/models_1";
-import {
-  deserializeAws_ec2CreateClientVpnRouteCommand,
-  serializeAws_ec2CreateClientVpnRouteCommand,
-} from "../protocols/Aws_ec2";
+import { de_CreateClientVpnRouteCommand, se_CreateClientVpnRouteCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class CreateClientVpnRouteCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateClientVpnRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2CreateClientVpnRouteCommand(input, context);
+    return se_CreateClientVpnRouteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClientVpnRouteCommandOutput> {
-    return deserializeAws_ec2CreateClientVpnRouteCommand(output, context);
+    return de_CreateClientVpnRouteCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { SendApiAssetRequest, SendApiAssetResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SendApiAssetCommand,
-  serializeAws_restJson1SendApiAssetCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendApiAssetCommand, se_SendApiAssetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -144,14 +141,14 @@ export class SendApiAssetCommand extends $Command<
    * @internal
    */
   private serialize(input: SendApiAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendApiAssetCommand(input, context);
+    return se_SendApiAssetCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendApiAssetCommandOutput> {
-    return deserializeAws_restJson1SendApiAssetCommand(output, context);
+    return de_SendApiAssetCommand(output, context);
   }
 
   // Start section: command_body_extra

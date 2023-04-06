@@ -15,10 +15,7 @@ import {
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { GetOnPremisesInstanceInput, GetOnPremisesInstanceOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOnPremisesInstanceCommand,
-  serializeAws_json1_1GetOnPremisesInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetOnPremisesInstanceCommand, se_GetOnPremisesInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -129,14 +126,14 @@ export class GetOnPremisesInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: GetOnPremisesInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOnPremisesInstanceCommand(input, context);
+    return se_GetOnPremisesInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetOnPremisesInstanceCommandOutput> {
-    return deserializeAws_json1_1GetOnPremisesInstanceCommand(output, context);
+    return de_GetOnPremisesInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

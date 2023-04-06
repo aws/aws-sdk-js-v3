@@ -19,8 +19,8 @@ import {
   GetCertificateAuthorityCertificateResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetCertificateAuthorityCertificateCommand,
-  serializeAws_json1_1GetCertificateAuthorityCertificateCommand,
+  de_GetCertificateAuthorityCertificateCommand,
+  se_GetCertificateAuthorityCertificateCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -142,7 +142,7 @@ export class GetCertificateAuthorityCertificateCommand extends $Command<
     input: GetCertificateAuthorityCertificateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCertificateAuthorityCertificateCommand(input, context);
+    return se_GetCertificateAuthorityCertificateCommand(input, context);
   }
 
   /**
@@ -152,7 +152,7 @@ export class GetCertificateAuthorityCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCertificateAuthorityCertificateCommandOutput> {
-    return deserializeAws_json1_1GetCertificateAuthorityCertificateCommand(output, context);
+    return de_GetCertificateAuthorityCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

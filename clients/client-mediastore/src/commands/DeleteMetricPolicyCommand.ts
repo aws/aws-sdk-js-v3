@@ -15,10 +15,7 @@ import {
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { DeleteMetricPolicyInput, DeleteMetricPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteMetricPolicyCommand,
-  serializeAws_json1_1DeleteMetricPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteMetricPolicyCommand, se_DeleteMetricPolicyCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -133,14 +130,14 @@ export class DeleteMetricPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: DeleteMetricPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteMetricPolicyCommand(input, context);
+    return se_DeleteMetricPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMetricPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteMetricPolicyCommand(output, context);
+    return de_DeleteMetricPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

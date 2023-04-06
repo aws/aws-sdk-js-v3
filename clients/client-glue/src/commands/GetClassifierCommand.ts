@@ -15,10 +15,7 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetClassifierRequest, GetClassifierResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetClassifierCommand,
-  serializeAws_json1_1GetClassifierCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetClassifierCommand, se_GetClassifierCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -124,14 +121,14 @@ export class GetClassifierCommand extends $Command<
    * @internal
    */
   private serialize(input: GetClassifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetClassifierCommand(input, context);
+    return se_GetClassifierCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClassifierCommandOutput> {
-    return deserializeAws_json1_1GetClassifierCommand(output, context);
+    return de_GetClassifierCommand(output, context);
   }
 
   // Start section: command_body_extra

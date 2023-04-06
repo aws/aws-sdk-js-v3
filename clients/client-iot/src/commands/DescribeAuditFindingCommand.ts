@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DescribeAuditFindingRequest, DescribeAuditFindingResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1DescribeAuditFindingCommand,
-  serializeAws_restJson1DescribeAuditFindingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAuditFindingCommand, se_DescribeAuditFindingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -137,14 +134,14 @@ export class DescribeAuditFindingCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAuditFindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAuditFindingCommand(input, context);
+    return se_DescribeAuditFindingCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAuditFindingCommandOutput> {
-    return deserializeAws_restJson1DescribeAuditFindingCommand(output, context);
+    return de_DescribeAuditFindingCommand(output, context);
   }
 
   // Start section: command_body_extra

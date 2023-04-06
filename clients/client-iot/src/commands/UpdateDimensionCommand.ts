@@ -15,10 +15,7 @@ import {
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateDimensionRequest, UpdateDimensionResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateDimensionCommand,
-  serializeAws_restJson1UpdateDimensionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDimensionCommand, se_UpdateDimensionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,14 +138,14 @@ export class UpdateDimensionCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateDimensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDimensionCommand(input, context);
+    return se_UpdateDimensionCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDimensionCommandOutput> {
-    return deserializeAws_restJson1UpdateDimensionCommand(output, context);
+    return de_UpdateDimensionCommand(output, context);
   }
 
   // Start section: command_body_extra

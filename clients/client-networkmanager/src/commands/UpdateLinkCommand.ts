@@ -15,10 +15,7 @@ import {
 
 import { UpdateLinkRequest, UpdateLinkResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import {
-  deserializeAws_restJson1UpdateLinkCommand,
-  serializeAws_restJson1UpdateLinkCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLinkCommand, se_UpdateLinkCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class UpdateLinkCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLinkCommand(input, context);
+    return se_UpdateLinkCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLinkCommandOutput> {
-    return deserializeAws_restJson1UpdateLinkCommand(output, context);
+    return de_UpdateLinkCommand(output, context);
   }
 
   // Start section: command_body_extra

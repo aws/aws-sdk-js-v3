@@ -15,10 +15,7 @@ import {
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { GetCompatibleKafkaVersionsRequest, GetCompatibleKafkaVersionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCompatibleKafkaVersionsCommand,
-  serializeAws_restJson1GetCompatibleKafkaVersionsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCompatibleKafkaVersionsCommand, se_GetCompatibleKafkaVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -141,7 +138,7 @@ export class GetCompatibleKafkaVersionsCommand extends $Command<
    * @internal
    */
   private serialize(input: GetCompatibleKafkaVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCompatibleKafkaVersionsCommand(input, context);
+    return se_GetCompatibleKafkaVersionsCommand(input, context);
   }
 
   /**
@@ -151,7 +148,7 @@ export class GetCompatibleKafkaVersionsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCompatibleKafkaVersionsCommandOutput> {
-    return deserializeAws_restJson1GetCompatibleKafkaVersionsCommand(output, context);
+    return de_GetCompatibleKafkaVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

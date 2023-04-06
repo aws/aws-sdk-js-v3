@@ -16,8 +16,8 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { DeleteFieldLevelEncryptionConfigRequest } from "../models/models_1";
 import {
-  deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand,
-  serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand,
+  de_DeleteFieldLevelEncryptionConfigCommand,
+  se_DeleteFieldLevelEncryptionConfigCommand,
 } from "../protocols/Aws_restXml";
 
 /**
@@ -140,7 +140,7 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
     input: DeleteFieldLevelEncryptionConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(input, context);
+    return se_DeleteFieldLevelEncryptionConfigCommand(input, context);
   }
 
   /**
@@ -150,7 +150,7 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> {
-    return deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(output, context);
+    return de_DeleteFieldLevelEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

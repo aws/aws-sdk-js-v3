@@ -19,8 +19,8 @@ import {
   RebalanceSlotsInGlobalReplicationGroupResult,
 } from "../models/models_0";
 import {
-  deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand,
-  serializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand,
+  de_RebalanceSlotsInGlobalReplicationGroupCommand,
+  se_RebalanceSlotsInGlobalReplicationGroupCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -139,7 +139,7 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
     input: RebalanceSlotsInGlobalReplicationGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand(input, context);
+    return se_RebalanceSlotsInGlobalReplicationGroupCommand(input, context);
   }
 
   /**
@@ -149,7 +149,7 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RebalanceSlotsInGlobalReplicationGroupCommandOutput> {
-    return deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand(output, context);
+    return de_RebalanceSlotsInGlobalReplicationGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

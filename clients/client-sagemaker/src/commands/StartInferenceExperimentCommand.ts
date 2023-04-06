@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { StartInferenceExperimentRequest, StartInferenceExperimentResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1StartInferenceExperimentCommand,
-  serializeAws_json1_1StartInferenceExperimentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartInferenceExperimentCommand, se_StartInferenceExperimentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -127,14 +124,14 @@ export class StartInferenceExperimentCommand extends $Command<
    * @internal
    */
   private serialize(input: StartInferenceExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartInferenceExperimentCommand(input, context);
+    return se_StartInferenceExperimentCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInferenceExperimentCommandOutput> {
-    return deserializeAws_json1_1StartInferenceExperimentCommand(output, context);
+    return de_StartInferenceExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

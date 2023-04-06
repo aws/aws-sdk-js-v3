@@ -18,8 +18,8 @@ import {
   SetIdentityFeedbackForwardingEnabledResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_querySetIdentityFeedbackForwardingEnabledCommand,
-  serializeAws_querySetIdentityFeedbackForwardingEnabledCommand,
+  de_SetIdentityFeedbackForwardingEnabledCommand,
+  se_SetIdentityFeedbackForwardingEnabledCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -151,7 +151,7 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
     input: SetIdentityFeedbackForwardingEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityFeedbackForwardingEnabledCommand(input, context);
+    return se_SetIdentityFeedbackForwardingEnabledCommand(input, context);
   }
 
   /**
@@ -161,7 +161,7 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityFeedbackForwardingEnabledCommandOutput> {
-    return deserializeAws_querySetIdentityFeedbackForwardingEnabledCommand(output, context);
+    return de_SetIdentityFeedbackForwardingEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { ListEulasRequest, ListEulasResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
-import {
-  deserializeAws_restJson1ListEulasCommand,
-  serializeAws_restJson1ListEulasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListEulasCommand, se_ListEulasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class ListEulasCommand extends $Command<
    * @internal
    */
   private serialize(input: ListEulasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListEulasCommand(input, context);
+    return se_ListEulasCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEulasCommandOutput> {
-    return deserializeAws_restJson1ListEulasCommand(output, context);
+    return de_ListEulasCommand(output, context);
   }
 
   // Start section: command_body_extra

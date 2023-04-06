@@ -20,10 +20,7 @@ import {
   CreateNetworkSiteResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
-import {
-  deserializeAws_restJson1CreateNetworkSiteCommand,
-  serializeAws_restJson1CreateNetworkSiteCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateNetworkSiteCommand, se_CreateNetworkSiteCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class CreateNetworkSiteCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateNetworkSiteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateNetworkSiteCommand(input, context);
+    return se_CreateNetworkSiteCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNetworkSiteCommandOutput> {
-    return deserializeAws_restJson1CreateNetworkSiteCommand(output, context);
+    return de_CreateNetworkSiteCommand(output, context);
   }
 
   // Start section: command_body_extra

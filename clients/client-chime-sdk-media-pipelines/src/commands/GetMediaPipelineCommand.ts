@@ -23,10 +23,7 @@ import {
   GetMediaPipelineResponse,
   GetMediaPipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetMediaPipelineCommand,
-  serializeAws_restJson1GetMediaPipelineCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetMediaPipelineCommand, se_GetMediaPipelineCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -149,14 +146,14 @@ export class GetMediaPipelineCommand extends $Command<
    * @internal
    */
   private serialize(input: GetMediaPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetMediaPipelineCommand(input, context);
+    return se_GetMediaPipelineCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMediaPipelineCommandOutput> {
-    return deserializeAws_restJson1GetMediaPipelineCommand(output, context);
+    return de_GetMediaPipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

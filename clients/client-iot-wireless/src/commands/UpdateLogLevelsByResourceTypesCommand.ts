@@ -16,8 +16,8 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { UpdateLogLevelsByResourceTypesRequest, UpdateLogLevelsByResourceTypesResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateLogLevelsByResourceTypesCommand,
-  serializeAws_restJson1UpdateLogLevelsByResourceTypesCommand,
+  de_UpdateLogLevelsByResourceTypesCommand,
+  se_UpdateLogLevelsByResourceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -168,7 +168,7 @@ export class UpdateLogLevelsByResourceTypesCommand extends $Command<
     input: UpdateLogLevelsByResourceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLogLevelsByResourceTypesCommand(input, context);
+    return se_UpdateLogLevelsByResourceTypesCommand(input, context);
   }
 
   /**
@@ -178,7 +178,7 @@ export class UpdateLogLevelsByResourceTypesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateLogLevelsByResourceTypesCommandOutput> {
-    return deserializeAws_restJson1UpdateLogLevelsByResourceTypesCommand(output, context);
+    return de_UpdateLogLevelsByResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

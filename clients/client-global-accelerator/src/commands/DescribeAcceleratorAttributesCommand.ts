@@ -20,8 +20,8 @@ import {
 } from "../GlobalAcceleratorClient";
 import { DescribeAcceleratorAttributesRequest, DescribeAcceleratorAttributesResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeAcceleratorAttributesCommand,
-  serializeAws_json1_1DescribeAcceleratorAttributesCommand,
+  de_DescribeAcceleratorAttributesCommand,
+  se_DescribeAcceleratorAttributesCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -136,7 +136,7 @@ export class DescribeAcceleratorAttributesCommand extends $Command<
    * @internal
    */
   private serialize(input: DescribeAcceleratorAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAcceleratorAttributesCommand(input, context);
+    return se_DescribeAcceleratorAttributesCommand(input, context);
   }
 
   /**
@@ -146,7 +146,7 @@ export class DescribeAcceleratorAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeAcceleratorAttributesCommandOutput> {
-    return deserializeAws_json1_1DescribeAcceleratorAttributesCommand(output, context);
+    return de_DescribeAcceleratorAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

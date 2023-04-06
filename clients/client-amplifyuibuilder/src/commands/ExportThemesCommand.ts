@@ -15,10 +15,7 @@ import {
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
 import { ExportThemesRequest, ExportThemesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportThemesCommand,
-  serializeAws_restJson1ExportThemesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExportThemesCommand, se_ExportThemesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -126,14 +123,14 @@ export class ExportThemesCommand extends $Command<
    * @internal
    */
   private serialize(input: ExportThemesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportThemesCommand(input, context);
+    return se_ExportThemesCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportThemesCommandOutput> {
-    return deserializeAws_restJson1ExportThemesCommand(output, context);
+    return de_ExportThemesCommand(output, context);
   }
 
   // Start section: command_body_extra

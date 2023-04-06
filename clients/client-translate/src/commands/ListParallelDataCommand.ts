@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ListParallelDataRequest, ListParallelDataResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListParallelDataCommand,
-  serializeAws_json1_1ListParallelDataCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListParallelDataCommand, se_ListParallelDataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -132,14 +129,14 @@ export class ListParallelDataCommand extends $Command<
    * @internal
    */
   private serialize(input: ListParallelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListParallelDataCommand(input, context);
+    return se_ListParallelDataCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListParallelDataCommandOutput> {
-    return deserializeAws_json1_1ListParallelDataCommand(output, context);
+    return de_ListParallelDataCommand(output, context);
   }
 
   // Start section: command_body_extra

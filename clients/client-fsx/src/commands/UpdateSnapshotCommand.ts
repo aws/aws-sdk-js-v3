@@ -15,10 +15,7 @@ import {
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import { UpdateSnapshotRequest, UpdateSnapshotResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateSnapshotCommand,
-  serializeAws_json1_1UpdateSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateSnapshotCommand, se_UpdateSnapshotCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -131,14 +128,14 @@ export class UpdateSnapshotCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateSnapshotCommand(input, context);
+    return se_UpdateSnapshotCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSnapshotCommandOutput> {
-    return deserializeAws_json1_1UpdateSnapshotCommand(output, context);
+    return de_UpdateSnapshotCommand(output, context);
   }
 
   // Start section: command_body_extra

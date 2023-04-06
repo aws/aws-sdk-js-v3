@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EnableSnapshotCopyMessage, EnableSnapshotCopyResult } from "../models/models_1";
-import {
-  deserializeAws_queryEnableSnapshotCopyCommand,
-  serializeAws_queryEnableSnapshotCopyCommand,
-} from "../protocols/Aws_query";
+import { de_EnableSnapshotCopyCommand, se_EnableSnapshotCopyCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
@@ -163,14 +160,14 @@ export class EnableSnapshotCopyCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableSnapshotCopyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableSnapshotCopyCommand(input, context);
+    return se_EnableSnapshotCopyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableSnapshotCopyCommandOutput> {
-    return deserializeAws_queryEnableSnapshotCopyCommand(output, context);
+    return de_EnableSnapshotCopyCommand(output, context);
   }
 
   // Start section: command_body_extra

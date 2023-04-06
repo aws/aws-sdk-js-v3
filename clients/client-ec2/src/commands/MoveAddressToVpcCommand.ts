@@ -15,10 +15,7 @@ import {
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { MoveAddressToVpcRequest, MoveAddressToVpcResult } from "../models/models_6";
-import {
-  deserializeAws_ec2MoveAddressToVpcCommand,
-  serializeAws_ec2MoveAddressToVpcCommand,
-} from "../protocols/Aws_ec2";
+import { de_MoveAddressToVpcCommand, se_MoveAddressToVpcCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
@@ -145,14 +142,14 @@ export class MoveAddressToVpcCommand extends $Command<
    * @internal
    */
   private serialize(input: MoveAddressToVpcCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2MoveAddressToVpcCommand(input, context);
+    return se_MoveAddressToVpcCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MoveAddressToVpcCommandOutput> {
-    return deserializeAws_ec2MoveAddressToVpcCommand(output, context);
+    return de_MoveAddressToVpcCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -13,10 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BodyWithXmlNameInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlBodyWithXmlNameCommand,
-  serializeAws_restXmlBodyWithXmlNameCommand,
-} from "../protocols/Aws_restXml";
+import { de_BodyWithXmlNameCommand, se_BodyWithXmlNameCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
@@ -110,14 +107,14 @@ export class BodyWithXmlNameCommand extends $Command<
    * @internal
    */
   private serialize(input: BodyWithXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlBodyWithXmlNameCommand(input, context);
+    return se_BodyWithXmlNameCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BodyWithXmlNameCommandOutput> {
-    return deserializeAws_restXmlBodyWithXmlNameCommand(output, context);
+    return de_BodyWithXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

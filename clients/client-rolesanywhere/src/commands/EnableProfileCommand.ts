@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1EnableProfileCommand,
-  serializeAws_restJson1EnableProfileCommand,
-} from "../protocols/Aws_restJson1";
+import { de_EnableProfileCommand, se_EnableProfileCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
 /**
@@ -128,14 +125,14 @@ export class EnableProfileCommand extends $Command<
    * @internal
    */
   private serialize(input: EnableProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1EnableProfileCommand(input, context);
+    return se_EnableProfileCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableProfileCommandOutput> {
-    return deserializeAws_restJson1EnableProfileCommand(output, context);
+    return de_EnableProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

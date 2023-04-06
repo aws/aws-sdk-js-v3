@@ -18,8 +18,8 @@ import {
   DetachManagedPolicyFromPermissionSetResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand,
-  serializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand,
+  de_DetachManagedPolicyFromPermissionSetCommand,
+  se_DetachManagedPolicyFromPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -153,7 +153,7 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
     input: DetachManagedPolicyFromPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand(input, context);
+    return se_DetachManagedPolicyFromPermissionSetCommand(input, context);
   }
 
   /**
@@ -163,7 +163,7 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DetachManagedPolicyFromPermissionSetCommandOutput> {
-    return deserializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand(output, context);
+    return de_DetachManagedPolicyFromPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

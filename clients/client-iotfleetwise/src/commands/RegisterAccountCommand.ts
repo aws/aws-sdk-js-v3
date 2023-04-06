@@ -15,10 +15,7 @@ import {
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { RegisterAccountRequest, RegisterAccountResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_0RegisterAccountCommand,
-  serializeAws_json1_0RegisterAccountCommand,
-} from "../protocols/Aws_json1_0";
+import { de_RegisterAccountCommand, se_RegisterAccountCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -155,14 +152,14 @@ export class RegisterAccountCommand extends $Command<
    * @internal
    */
   private serialize(input: RegisterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0RegisterAccountCommand(input, context);
+    return se_RegisterAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterAccountCommandOutput> {
-    return deserializeAws_json1_0RegisterAccountCommand(output, context);
+    return de_RegisterAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

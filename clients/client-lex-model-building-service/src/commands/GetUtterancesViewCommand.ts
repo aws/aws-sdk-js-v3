@@ -19,10 +19,7 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { GetUtterancesViewRequest, GetUtterancesViewResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUtterancesViewCommand,
-  serializeAws_restJson1GetUtterancesViewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUtterancesViewCommand, se_GetUtterancesViewCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -162,14 +159,14 @@ export class GetUtterancesViewCommand extends $Command<
    * @internal
    */
   private serialize(input: GetUtterancesViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUtterancesViewCommand(input, context);
+    return se_GetUtterancesViewCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUtterancesViewCommandOutput> {
-    return deserializeAws_restJson1GetUtterancesViewCommand(output, context);
+    return de_GetUtterancesViewCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -18,8 +18,8 @@ import {
   GetPermissionsBoundaryForPermissionSetResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand,
-  serializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand,
+  de_GetPermissionsBoundaryForPermissionSetCommand,
+  se_GetPermissionsBoundaryForPermissionSetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
@@ -147,7 +147,7 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command<
     input: GetPermissionsBoundaryForPermissionSetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand(input, context);
+    return se_GetPermissionsBoundaryForPermissionSetCommand(input, context);
   }
 
   /**
@@ -157,7 +157,7 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetPermissionsBoundaryForPermissionSetCommandOutput> {
-    return deserializeAws_json1_1GetPermissionsBoundaryForPermissionSetCommand(output, context);
+    return de_GetPermissionsBoundaryForPermissionSetCommand(output, context);
   }
 
   // Start section: command_body_extra

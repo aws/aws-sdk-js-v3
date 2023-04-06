@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { UpdateWorkloadInput, UpdateWorkloadOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateWorkloadCommand,
-  serializeAws_restJson1UpdateWorkloadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateWorkloadCommand, se_UpdateWorkloadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 /**
@@ -166,14 +163,14 @@ export class UpdateWorkloadCommand extends $Command<
    * @internal
    */
   private serialize(input: UpdateWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateWorkloadCommand(input, context);
+    return se_UpdateWorkloadCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkloadCommandOutput> {
-    return deserializeAws_restJson1UpdateWorkloadCommand(output, context);
+    return de_UpdateWorkloadCommand(output, context);
   }
 
   // Start section: command_body_extra

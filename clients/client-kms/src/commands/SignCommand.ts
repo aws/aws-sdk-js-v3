@@ -15,7 +15,7 @@ import {
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { SignRequest, SignRequestFilterSensitiveLog, SignResponse } from "../models/models_0";
-import { deserializeAws_json1_1SignCommand, serializeAws_json1_1SignCommand } from "../protocols/Aws_json1_1";
+import { de_SignCommand, se_SignCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -271,14 +271,14 @@ export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, K
    * @internal
    */
   private serialize(input: SignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SignCommand(input, context);
+    return se_SignCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignCommandOutput> {
-    return deserializeAws_json1_1SignCommand(output, context);
+    return de_SignCommand(output, context);
   }
 
   // Start section: command_body_extra

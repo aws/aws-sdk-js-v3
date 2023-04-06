@@ -20,10 +20,7 @@ import {
   StartProtectedQueryOutput,
   StartProtectedQueryOutputFilterSensitiveLog,
 } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartProtectedQueryCommand,
-  serializeAws_restJson1StartProtectedQueryCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartProtectedQueryCommand, se_StartProtectedQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -156,14 +153,14 @@ export class StartProtectedQueryCommand extends $Command<
    * @internal
    */
   private serialize(input: StartProtectedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartProtectedQueryCommand(input, context);
+    return se_StartProtectedQueryCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProtectedQueryCommandOutput> {
-    return deserializeAws_restJson1StartProtectedQueryCommand(output, context);
+    return de_StartProtectedQueryCommand(output, context);
   }
 
   // Start section: command_body_extra

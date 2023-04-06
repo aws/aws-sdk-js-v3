@@ -16,8 +16,8 @@ import {
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ConfigurationSettingsValidationMessages, ValidateConfigurationSettingsMessage } from "../models/models_0";
 import {
-  deserializeAws_queryValidateConfigurationSettingsCommand,
-  serializeAws_queryValidateConfigurationSettingsCommand,
+  de_ValidateConfigurationSettingsCommand,
+  se_ValidateConfigurationSettingsCommand,
 } from "../protocols/Aws_query";
 
 /**
@@ -166,7 +166,7 @@ export class ValidateConfigurationSettingsCommand extends $Command<
    * @internal
    */
   private serialize(input: ValidateConfigurationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryValidateConfigurationSettingsCommand(input, context);
+    return se_ValidateConfigurationSettingsCommand(input, context);
   }
 
   /**
@@ -176,7 +176,7 @@ export class ValidateConfigurationSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ValidateConfigurationSettingsCommandOutput> {
-    return deserializeAws_queryValidateConfigurationSettingsCommand(output, context);
+    return de_ValidateConfigurationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

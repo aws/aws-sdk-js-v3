@@ -15,10 +15,7 @@ import {
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import { BatchGetChannelRequest, BatchGetChannelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchGetChannelCommand,
-  serializeAws_restJson1BatchGetChannelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchGetChannelCommand, se_BatchGetChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -122,14 +119,14 @@ export class BatchGetChannelCommand extends $Command<
    * @internal
    */
   private serialize(input: BatchGetChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchGetChannelCommand(input, context);
+    return se_BatchGetChannelCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetChannelCommandOutput> {
-    return deserializeAws_restJson1BatchGetChannelCommand(output, context);
+    return de_BatchGetChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,10 +15,7 @@ import {
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
-import {
-  deserializeAws_queryCreateDBInstanceCommand,
-  serializeAws_queryCreateDBInstanceCommand,
-} from "../protocols/Aws_query";
+import { de_CreateDBInstanceCommand, se_CreateDBInstanceCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -190,14 +187,14 @@ export class CreateDBInstanceCommand extends $Command<
    * @internal
    */
   private serialize(input: CreateDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateDBInstanceCommand(input, context);
+    return se_CreateDBInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBInstanceCommandOutput> {
-    return deserializeAws_queryCreateDBInstanceCommand(output, context);
+    return de_CreateDBInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

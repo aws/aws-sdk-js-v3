@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetApplicationPolicyRequest, GetApplicationPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetApplicationPolicyCommand,
-  serializeAws_restJson1GetApplicationPolicyCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetApplicationPolicyCommand, se_GetApplicationPolicyCommand } from "../protocols/Aws_restJson1";
 import {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -139,14 +136,14 @@ export class GetApplicationPolicyCommand extends $Command<
    * @internal
    */
   private serialize(input: GetApplicationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetApplicationPolicyCommand(input, context);
+    return se_GetApplicationPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationPolicyCommandOutput> {
-    return deserializeAws_restJson1GetApplicationPolicyCommand(output, context);
+    return de_GetApplicationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

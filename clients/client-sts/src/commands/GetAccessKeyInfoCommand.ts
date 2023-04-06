@@ -15,10 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GetAccessKeyInfoRequest, GetAccessKeyInfoResponse } from "../models/models_0";
-import {
-  deserializeAws_queryGetAccessKeyInfoCommand,
-  serializeAws_queryGetAccessKeyInfoCommand,
-} from "../protocols/Aws_query";
+import { de_GetAccessKeyInfoCommand, se_GetAccessKeyInfoCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -140,14 +137,14 @@ export class GetAccessKeyInfoCommand extends $Command<
    * @internal
    */
   private serialize(input: GetAccessKeyInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetAccessKeyInfoCommand(input, context);
+    return se_GetAccessKeyInfoCommand(input, context);
   }
 
   /**
    * @internal
    */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessKeyInfoCommandOutput> {
-    return deserializeAws_queryGetAccessKeyInfoCommand(output, context);
+    return de_GetAccessKeyInfoCommand(output, context);
   }
 
   // Start section: command_body_extra
